@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | Live 总览</title>
+    <meta
+      name="description"
+      content="世界杯比赛日 live 总览页，展示进行中、即将开始和重点关注比赛。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="live">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">首页</a>
+            <a href="./schedule.html">赛程</a>
+            <a href="./live.html" aria-current="page">Live</a>
+            <a href="./history.html">历史</a>
+            <a href="./prediction.html">预测</a>
+            <a href="./team-history.html">球队档案</a>
+            <a href="./trends.html">趋势图</a>
+          </div>
+        </nav>
+
+        <section class="page-hero history-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">Live Overview</p>
+            <h1>比赛日总览，重点是让你一眼知道该点哪场</h1>
+            <p class="hero__lede">
+              这页不是赛程页的重复，而是比赛日的快捷入口。它应该让你不用筛太多，就能直接找到最值得看的比赛。
+            </p>
+          </div>
+          <div class="page-hero__aside quote-card history-hero__aside">
+            <p>live 页真正重要的不是信息堆得满，而是让人很快做决定：现在看哪场、下一场等哪场。</p>
+          </div>
+        </section>
+
+        <nav class="history-subnav">
+          <a href="./schedule.html">赛事中心</a>
+          <a href="./live.html" aria-current="page">Live 总览</a>
+          <a href="./match.html?id=wc26-eng-cro">比赛详情</a>
+        </nav>
+      </header>
+
+      <section class="section">
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>现在进行中</strong>
+            <span>适合直接跳转到单场详情页，查看时间线和技术统计。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>接下来</strong>
+            <span>适合承接开球提醒、预热内容和前瞻入口。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>重点关注</strong>
+            <span>高流量比赛和关键轮次，适合做站内推荐和推送入口。</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section live-grid">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Live Now</p>
+              <h2>进行中</h2>
+            </div>
+          </div>
+          <div id="live-now"></div>
+        </article>
+
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Upcoming</p>
+              <h2>接下来</h2>
+            </div>
+          </div>
+          <div id="live-upcoming"></div>
+        </article>
+      </section>
+
+      <section class="section section--alt">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Watchlist</p>
+            <h2>重点关注比赛</h2>
+          </div>
+          <p class="section__intro">重要比赛应该被集中挂在这里，避免用户反复翻找。</p>
+        </div>
+        <div class="watchlist-stack" id="live-watchlist"></div>
+      </section>
+
+      <footer class="footer">
+        <p>live 页现在更像比赛日的快捷入口，会和赛事中心、单场页一起承担高频访问。</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | 世界杯门户首页</title>
+    <meta
+      name="description"
+      content="世界杯门户首页，聚合历史、预测、球队、专题文章与赛程入口。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="home">
+    <main class="site-shell">
+      <header class="masthead">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html" aria-current="page">首页</a>
+            <a href="./schedule.html">赛程</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">历史</a>
+            <a href="./prediction.html">预测</a>
+            <a href="./team-history.html">球队档案</a>
+            <a href="./trends.html">趋势图</a>
+            <a href="./teams.html">球队页</a>
+            <a href="./article.html">文章页</a>
+          </div>
+        </nav>
+
+        <section class="hero hero--home">
+          <div class="hero__content portal-hero">
+            <div class="hero__copy">
+              <p class="eyebrow">World Cup Portal</p>
+              <h1>把世界杯做成一个既好看，也好逛的入口站</h1>
+              <p class="hero__lede">
+                你可以把这里当成世界杯期间的总入口。先看赛程、分组和焦点比赛，再往下进入历史、球队和预测，会更符合真实浏览顺序。
+              </p>
+              <div class="hero__actions">
+                <a class="button button--primary" href="./schedule.html">先看赛程</a>
+                <a class="button button--ghost" href="./live.html">进入 Live</a>
+                <a class="button button--ghost" href="./prediction.html">试试预测模型</a>
+              </div>
+              <div class="portal-hero__paths">
+                <article class="portal-path">
+                  <span class="portal-path__label">先看比赛</span>
+                  <strong>赛程 + 分组 + Live</strong>
+                  <p>世界杯开始后，大部分用户会先从这里进入，再决定要不要点进单场页。</p>
+                </article>
+                <article class="portal-path">
+                  <span class="portal-path__label">再看内容</span>
+                  <strong>历史 + 球队 + 预测</strong>
+                  <p>当你想从即时比赛往更深内容延伸时，再进入这些专题页会更顺。</p>
+                </article>
+              </div>
+            </div>
+
+            <aside class="hero__panel portal-hero__panel">
+              <div class="countdown-card">
+                <p class="countdown-card__label">距离 2026 世界杯揭幕战</p>
+                <div class="countdown" aria-live="polite">
+                  <div class="countdown__item">
+                    <strong id="days">--</strong>
+                    <span>天</span>
+                  </div>
+                  <div class="countdown__item">
+                    <strong id="hours">--</strong>
+                    <span>小时</span>
+                  </div>
+                  <div class="countdown__item">
+                    <strong id="minutes">--</strong>
+                    <span>分钟</span>
+                  </div>
+                </div>
+                <p class="countdown-card__meta">揭幕战示意时间：2026-06-11 20:00</p>
+              </div>
+
+              <div class="fixture-card">
+                <p class="fixture-card__eyebrow">现在可以怎么逛</p>
+                <h2>先看 2026 官方赛程和分组，再进入历史、球队与预测</h2>
+                <p class="fixture-card__meta">首页已经开始按世界杯期间的真实访问顺序重排，接下来继续补实时 API 会更自然。</p>
+                <div class="fixture-card__chips">
+                  <span>赛事中心</span>
+                  <span>Live</span>
+                  <span>历史专题</span>
+                  <span>预测工具</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </header>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">2026 Fixtures</p>
+            <h2>揭幕周焦点赛程</h2>
+          </div>
+          <p class="section__intro">世界杯开赛前，这里先看官方已公布的揭幕战和首轮焦点对决。开赛后这里会自然切到当天重点比赛。</p>
+        </div>
+        <div class="match-grid" id="match-grid"></div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Groups & Standings</p>
+            <h2>2026 分组与积分速览</h2>
+          </div>
+          <p class="section__intro">现在先看已经确定的小组分布。正式开赛后，这里会直接切成实时积分榜和出线形势。</p>
+        </div>
+
+        <div class="groups">
+          <div class="group-tabs" id="group-tabs" role="tablist" aria-label="World Cup groups"></div>
+          <div class="table-card">
+            <table class="standings-table">
+              <thead>
+                <tr>
+                  <th>球队</th>
+                  <th>场次</th>
+                  <th>胜</th>
+                  <th>平</th>
+                  <th>负</th>
+                  <th>积分</th>
+                </tr>
+              </thead>
+              <tbody id="group-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Start Here</p>
+            <h2>如果你是第一次来，建议这样看</h2>
+          </div>
+          <p class="section__intro">不需要从头到尾浏览。根据你的兴趣，直接从下面一条路径切进去会更轻松。</p>
+        </div>
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>想被内容吸引</strong>
+            <span>先去历史页，看最大冷门、冠军含金量和强队翻车榜。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>想找自己的主队</strong>
+            <span>从球队首页进去，再点到单队档案页看完整世界杯履历。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>想追 2026 比赛</strong>
+            <span>直接从赛事中心进入，后续 live、比赛详情和实时接口都会接在这里。</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>历史内容线</strong>
+            <span>已经拆成首页加 4 个专题页，不用在一张超长页面里硬找重点。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>球队内容线</strong>
+            <span>已经拆成球队首页和单队深页，先找球队，再下钻到完整档案。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>预测工具线</strong>
+            <span>不再只是一个概率框，而是会告诉你模型为什么这么算。</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Pillars</p>
+            <h2>四条主线入口</h2>
+          </div>
+          <p class="section__intro">首页只负责带路。你知道要去哪里，浏览体验就会舒服很多。</p>
+        </div>
+        <div class="feature-grid history-pillars">
+          <article class="feature-card history-mini-card portal-entry portal-entry--history">
+            <p class="story-card__tag">History</p>
+            <span class="portal-entry__kicker">从情绪和记忆点进入</span>
+            <h3>世界杯历史</h3>
+            <p>先看最有记忆点的历史内容，再按兴趣进入冷门、人物或比赛专题。</p>
+            <div class="portal-entry__meta">冷门榜 · 冠军含金量 · 历史比赛</div>
+            <a href="./history.html">去历史页看看</a>
+          </article>
+          <article class="feature-card history-mini-card portal-entry portal-entry--teams">
+            <p class="story-card__tag">Teams</p>
+            <span class="portal-entry__kicker">从主队和豪门进入</span>
+            <h3>球队入口</h3>
+            <p>从常看豪门切进去最快，也适合后面扩到所有参赛队。</p>
+            <div class="portal-entry__meta">球队画像 · 全部比赛 · ELO 曲线</div>
+            <a href="./teams.html">去找球队</a>
+          </article>
+          <article class="feature-card history-mini-card portal-entry portal-entry--prediction">
+            <p class="story-card__tag">Prediction</p>
+            <span class="portal-entry__kicker">从互动和模型进入</span>
+            <h3>预测首页</h3>
+            <p>看模型怎么判断两队强弱，也能顺手看争冠概率榜。</p>
+            <div class="portal-entry__meta">对阵概率 · 模型解释 · 争冠榜</div>
+            <a href="./prediction.html">去做一场预测</a>
+          </article>
+          <article class="feature-card history-mini-card portal-entry portal-entry--schedule">
+            <p class="story-card__tag">Schedule</p>
+            <span class="portal-entry__kicker">从赛事节奏进入</span>
+            <h3>赛事中心</h3>
+            <p>赛程、live 和单场详情已经分层好，后面接实时数据不会推倒重来。</p>
+            <div class="portal-entry__meta">赛程筛选 · Live 总览 · 单场详情</div>
+            <a href="./schedule.html">去看赛事中心</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--split">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Editor Picks</p>
+              <h2>如果今天只点四个入口</h2>
+            </div>
+          </div>
+          <div class="history-dual-list">
+            <article class="feature-card history-mini-card">
+              <p class="story-card__tag">Biggest Upset</p>
+              <h3>历史上最极端的冷门</h3>
+              <p>这页最容易让人停下来，适合第一次感受这套网站的数据张力。</p>
+              <a href="./history-upsets.html">先看这页</a>
+            </article>
+            <article class="feature-card history-mini-card">
+              <p class="story-card__tag">Team Entry</p>
+              <h3>阿根廷球队深页</h3>
+              <p>想看一支球队被讲清楚，这页最完整。</p>
+              <a href="./team-history.html?team=Argentina">去看阿根廷</a>
+            </article>
+            <article class="feature-card history-mini-card">
+              <p class="story-card__tag">Prediction</p>
+              <h3>法国 vs 阿根廷</h3>
+              <p>如果你更想玩交互，而不是只读内容，这里最适合。</p>
+              <a href="./prediction.html">去试一下</a>
+            </article>
+            <article class="feature-card history-mini-card">
+              <p class="story-card__tag">Editorial</p>
+              <h3>专题内容模板</h3>
+              <p>这是一篇长文模板，也能让你判断站内专题以后该怎么写。</p>
+              <a href="./article.html">阅读文章</a>
+            </article>
+          </div>
+        </article>
+
+        <aside class="sidebar-stack">
+          <article class="prediction-card">
+            <p class="eyebrow">Engagement</p>
+            <h2>冠军投票</h2>
+            <p>给首页保留一点参与感，不让它只是一个纯导航页。</p>
+            <div class="poll" id="poll"></div>
+          </article>
+
+          <article class="spotlight-card">
+            <p class="eyebrow">Editorial Picks</p>
+            <h2>编辑推荐</h2>
+            <ul class="spotlight-list">
+              <li><strong>历史入口：</strong><a href="./history.html">从历史首页开始</a></li>
+              <li><strong>资料库：</strong><a href="./history-archive.html">补充完整背景资料</a></li>
+              <li><strong>人物专题：</strong><a href="./history-players.html">看球员、奖项和人物线</a></li>
+              <li><strong>比赛浏览器：</strong><a href="./history-matches.html">直接翻全部历史比赛</a></li>
+              <li><strong>球队入口：</strong><a href="./teams.html">从球队入口继续往下看</a></li>
+            </ul>
+          </article>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <p>首页现在负责带路、分流和建立第一印象，而不是把所有内容硬堆在一页里。</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | 单场比赛详情</title>
+    <meta
+      name="description"
+      content="世界杯单场比赛详情页，展示比分、事件流、技术统计和相关页面入口。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="match">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">首页</a>
+            <a href="./schedule.html">赛程</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">历史</a>
+            <a href="./prediction.html">预测</a>
+            <a href="./team-history.html">球队档案</a>
+            <a href="./trends.html">趋势图</a>
+          </div>
+        </nav>
+
+        <section class="page-hero history-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">Match Detail</p>
+            <h1>单场比赛页，应该让人一进来就知道发生了什么</h1>
+            <p class="hero__lede">
+              从赛程页或 live 点进来后，用户最想知道的就是比分、关键事件和比赛走势。这页应该先把这些事情讲清楚。
+            </p>
+          </div>
+          <div class="page-hero__aside quote-card history-hero__aside">
+            <p>比赛详情页最适合承接实时数据，也最适合把用户顺势带去球队页、预测页和更多深度内容。</p>
+          </div>
+        </section>
+
+        <nav class="history-subnav">
+          <a href="./schedule.html">赛事中心</a>
+          <a href="./live.html">Live 总览</a>
+          <a href="./match.html?id=wc26-eng-cro" aria-current="page">比赛详情</a>
+        </nav>
+      </header>
+
+      <section class="section" id="match-hero"></section>
+
+      <section class="section">
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>页面使命</strong>
+            <span>把一场比赛最关键的信息放在一个清楚的页面里，不让人来回切页面。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>未来数据位</strong>
+            <span>后面很适合接实时事件流、阵容确认、xG、射门图和球员评分。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>站内联动</strong>
+            <span>这里应该自然连到球队页、预测页、历史页和 live 页，而不是孤零零的一张单页。</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section match-layout">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Timeline</p>
+              <h2>比赛事件流</h2>
+            </div>
+          </div>
+          <div class="section-summary">现在先用结构版占位，后面接实时 API 之后，这里会变成刷新频率最高的区域。</div>
+          <div class="event-stack" id="match-timeline"></div>
+        </article>
+
+        <aside class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Stats</p>
+              <h2>技术统计</h2>
+            </div>
+          </div>
+          <div class="section-summary">后面可以继续补控球、射门、xG、热区和关键球员表现。</div>
+          <div class="stat-tiles" id="match-stats"></div>
+        </aside>
+      </section>
+
+      <section class="section section--split">
+        <article class="prediction-panel">
+          <p class="eyebrow">Model Angle</p>
+          <h2>看完这场，还可以往哪走</h2>
+          <ul class="spotlight-list">
+            <li><strong>赛前：</strong><a href="./prediction.html">回到预测页</a> 看模型怎么看这场对决</li>
+            <li><strong>历史：</strong><a href="./history-upsets.html">回到冷门专题</a> 看这场是否会变成历史样本</li>
+            <li><strong>球队：</strong><a href="./team-history.html?team=Argentina">进入球队深页</a> 看长期战绩</li>
+          </ul>
+        </article>
+
+        <article class="spotlight-card">
+          <p class="eyebrow">Related</p>
+          <h2>关联入口</h2>
+          <div class="history-links" id="match-related"></div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>比赛详情页现在已经像正式模板了，后面只要把演示数据替换成 API 响应即可。</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

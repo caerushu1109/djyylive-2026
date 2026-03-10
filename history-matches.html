@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | 世界杯比赛与时间线</title>
+    <meta
+      name="description"
+      content="世界杯比赛专题，包含历届冠军时间线、事件密度、点球大战、纪律名场面和历史比赛浏览器。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="history-matches">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">首页</a>
+            <a href="./schedule.html">赛程</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html" aria-current="page">历史</a>
+            <a href="./prediction.html">预测</a>
+            <a href="./team-history.html">球队档案</a>
+            <a href="./trends.html">趋势图</a>
+          </div>
+        </nav>
+
+        <section class="page-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">Matches & Timeline</p>
+            <h1>世界杯比赛史，最好能让人边查边回忆</h1>
+            <p class="hero__lede">
+              这里把时间线、事件密度、点球大战和比赛浏览器放在一起，让你既能查数据，也能很快找到脑海里记得的那场球。
+            </p>
+          </div>
+          <div class="page-hero__aside quote-card">
+            <p>这种页面会被反复打开，所以最重要的是顺手，而不是一味追求冲击感。</p>
+          </div>
+        </section>
+
+        <nav class="history-subnav">
+          <a href="./history.html">历史首页</a>
+          <a href="./history-upsets.html">冷门与ELO</a>
+          <a href="./history-archive.html">资料库</a>
+          <a href="./history-players.html">人物</a>
+          <a href="./history-matches.html" aria-current="page">比赛</a>
+        </nav>
+      </header>
+
+      <section class="section history-profile-layout">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Timeline</p>
+              <h2>历届冠军时间线</h2>
+            </div>
+          </div>
+          <div class="timeline-grid timeline-grid--compact" id="history-timeline"></div>
+        </article>
+
+        <aside class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Events</p>
+              <h2>事件密度</h2>
+            </div>
+          </div>
+          <div class="section-summary" id="event-summary-note"></div>
+          <div id="archive-goal-tournaments"></div>
+          <div class="archive-subpanel" id="archive-milestone-goals"></div>
+        </aside>
+      </section>
+
+      <section class="section history-dual">
+        <div class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Shootouts</p>
+              <h2>点球大战档案</h2>
+            </div>
+          </div>
+          <div id="archive-shootouts"></div>
+        </div>
+
+        <div class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Discipline</p>
+              <h2>纪律名场面</h2>
+            </div>
+          </div>
+          <div id="archive-cards"></div>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Explorer</p>
+            <h2>历史比赛浏览器</h2>
+          </div>
+          <p class="section__intro">如果你记得年份、球队，或者只记得那是一场大冷门，都可以从这里慢慢把它找出来。</p>
+        </div>
+        <div class="explorer-controls">
+          <label class="selector-card">
+            <span>年份</span>
+            <select id="explorer-year"></select>
+          </label>
+          <label class="selector-card">
+            <span>球队</span>
+            <select id="explorer-team"></select>
+          </label>
+          <label class="selector-card">
+            <span>类型</span>
+            <select id="explorer-upset"></select>
+          </label>
+          <label class="selector-card">
+            <span>排序</span>
+            <select id="explorer-sort"></select>
+          </label>
+        </div>
+        <div class="explorer-meta" id="explorer-meta"></div>
+        <div class="explorer-list" id="history-explorer"></div>
+      </section>
+
+      <footer class="footer">
+        <p>比赛页现在专门承接时间线、事件和浏览器，历史首页终于可以轻下来。</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

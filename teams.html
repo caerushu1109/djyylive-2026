@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | 世界杯球队首页</title>
+    <meta
+      name="description"
+      content="世界杯球队首页，展示豪门入口、球队速览、精选曲线与单队深页入口。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="teams-hub">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">首页</a>
+            <a href="./schedule.html">赛程</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">历史</a>
+            <a href="./prediction.html">预测</a>
+            <a href="./team-history.html">球队档案</a>
+            <a href="./trends.html">趋势图</a>
+            <a href="./teams.html" aria-current="page">球队页</a>
+            <a href="./article.html">文章页</a>
+          </div>
+        </nav>
+
+        <section class="page-hero history-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">Teams Home</p>
+            <h1>球队页先解决一件事：更快找到你想看的那支队</h1>
+            <p class="hero__lede">
+              不用先翻很长的列表。你可以从熟悉的豪门开始，也可以直接切到任意球队，再进入完整档案页。
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="./team-history.html?team=Argentina">先看阿根廷</a>
+              <a class="button button--ghost" href="./team-history.html?team=Brazil">再看巴西</a>
+            </div>
+          </div>
+          <div class="page-hero__aside quote-card history-hero__aside">
+            <p>球队首页应该像一张清楚的地图，让人一眼知道下一步点哪支队，而不是被迫先读完一整页。</p>
+          </div>
+        </section>
+      </header>
+
+      <section class="section">
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>想看传统豪门</strong>
+            <span>从下面的入口卡开始，最适合第一次浏览。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>想快速比较球队</strong>
+            <span>先切“球队速览”，再去深页看完整战绩和代表性比赛。</span>
+          </article>
+          <article class="summary-pill">
+            <strong>想看强弱变化</strong>
+            <span>直接往下看 ELO 曲线预览，会比读文字更快进入状态。</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Highlights</p>
+            <h2>豪门入口</h2>
+          </div>
+          <p class="section__intro">先从这些球队开始最顺手。它们既有历史厚度，也最容易延展成深度专题。</p>
+        </div>
+        <div class="feature-grid history-pillars" id="teams-hub-grid"></div>
+      </section>
+
+      <section class="section section--split">
+        <div class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Quick View</p>
+              <h2>先快速认识这支队</h2>
+            </div>
+          </div>
+          <label class="selector-card selector-card--history">
+            <span>选择球队</span>
+            <select id="teams-hub-select"></select>
+          </label>
+          <div id="teams-hub-profile"></div>
+        </div>
+
+        <div class="sidebar-stack">
+          <article class="history-panel">
+            <div class="section__heading section__heading--stack">
+              <div>
+                <p class="eyebrow">Quick Facts</p>
+                <h2>这支队最值得记住什么</h2>
+              </div>
+            </div>
+            <div class="summary-strip" id="teams-hub-facts"></div>
+          </article>
+          <article class="history-panel">
+            <div class="section__heading section__heading--stack">
+              <div>
+                <p class="eyebrow">Where Next</p>
+                <h2>接下来去哪里看更深</h2>
+              </div>
+            </div>
+            <div class="schedule-stack" id="teams-hub-links"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Curves</p>
+            <h2>豪门 ELO 曲线预览</h2>
+          </div>
+          <p class="section__intro">这里只放一张预览曲线，先帮你判断这支球队的大致起伏，再决定要不要进深页。</p>
+        </div>
+        <div class="curve-layout">
+          <label class="selector-card selector-card--history">
+            <span>查看球队</span>
+            <select id="teams-hub-curve-select"></select>
+          </label>
+          <div class="curve-card">
+            <div class="curve-card__meta" id="teams-hub-curve-meta"></div>
+            <div class="curve-chart" id="teams-hub-curve"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>球队首页现在负责帮人找到目标球队，真正的完整故事统一交给单队档案页。</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

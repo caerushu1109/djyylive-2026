@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | 趋势图</title>
+    <meta
+      name="description"
+      content="世界杯历史趋势图页面，展示冠军次数、进球趋势、混乱指数和无冕强队等 SVG 图表。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="trends">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">首页</a>
+            <a href="./schedule.html">赛程</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">历史</a>
+            <a href="./prediction.html">预测</a>
+            <a href="./team-history.html">球队档案</a>
+            <a href="./trends.html" aria-current="page">趋势图</a>
+          </div>
+        </nav>
+
+        <section class="page-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">SVG Trend Studio</p>
+            <h1>用图表把世界杯的长期趋势看清楚</h1>
+            <p class="hero__lede">
+              这一页把历史数据真正图表化，用 SVG 画冠军次数、进球趋势、混乱指数和无冠强队强度，适合做传播型内容和深度专题。
+            </p>
+          </div>
+          <div class="page-hero__aside quote-card">
+            <p>图表页最大的价值，是把“看一次的榜单”变成“能快速理解几十年趋势”的内容入口。</p>
+          </div>
+        </section>
+      </header>
+
+      <section class="section trends-grid">
+        <article class="chart-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Champions</p>
+              <h2>冠军次数分布</h2>
+            </div>
+          </div>
+          <div class="chart-panel__canvas" id="chart-champions"></div>
+        </article>
+
+        <article class="chart-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Goals Trend</p>
+              <h2>历届进球趋势</h2>
+            </div>
+          </div>
+          <div class="chart-panel__canvas" id="chart-goals"></div>
+        </article>
+
+        <article class="chart-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Chaos Trend</p>
+              <h2>混乱指数走势</h2>
+            </div>
+          </div>
+          <div class="chart-panel__canvas" id="chart-chaos"></div>
+        </article>
+
+        <article class="chart-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">No Title</p>
+              <h2>最强无冕者强度</h2>
+            </div>
+          </div>
+          <div class="chart-panel__canvas" id="chart-never"></div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>趋势页全部使用前端 SVG 渲染，可继续扩展成更多图形专题。</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
