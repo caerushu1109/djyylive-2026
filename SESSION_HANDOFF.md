@@ -28,7 +28,7 @@ History remains important, but it is not the first thing most users should see d
 
 Main nav is now intended to stay consistent across the site:
 
-`首页 -> 赛程 -> Live -> 历史 -> 预测 -> 球队档案 -> 趋势图 ...`
+`首页 -> 赛程 -> Live -> 历史 -> 预测 -> 球队档案 ...`
 
 `赛程` is immediately after `首页`.
 `Live` is always visible in the main nav and should not be hidden behind schedule-only pages.
@@ -42,6 +42,19 @@ The original single long history page was split into:
 - `history-archive.html`
 - `history-players.html`
 - `history-matches.html`
+
+Localized history pages already created:
+
+- `zh/history.html`
+- `en/history.html`
+- `zh/history-upsets.html`
+- `en/history-upsets.html`
+- `zh/history-archive.html`
+- `en/history-archive.html`
+- `zh/history-players.html`
+- `en/history-players.html`
+- `zh/history-matches.html`
+- `en/history-matches.html`
 
 Reason:
 
@@ -164,7 +177,6 @@ Important:
 
 - `prediction.html`
 - `article.html`
-- `trends.html`
 
 ## UI / UX Decisions Already Applied
 
@@ -232,4 +244,3 @@ When continuing this project in a future session, start with:
 2. read `src/wc2026-data.js`
 3. read `src/app.js`
 4. then continue the homepage refinement first
-

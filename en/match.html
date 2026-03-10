@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | Match Detail</title>
+    <meta
+      name="description"
+      content="A World Cup single-match page with scoreline, timeline, stats, and links to related pages."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="WorldCup Pulse | Match Detail" />
+    <meta property="og:description" content="A match page built to hold scoreline, event timeline, stats, and related team or prediction links." />
+    <meta property="og:url" content="https://www.worldcuppulse.com/en/match.html" />
+    <meta property="og:site_name" content="WorldCup Pulse" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WorldCup Pulse | Match Detail" />
+    <meta name="twitter:description" content="One page for the scoreline, key events, match stats, and the next useful click." />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/match.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/match.html" />
+    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/match.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/match.html" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-page="match" data-locale="en" data-route-key="match">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">Home</a>
+            <a href="./schedule.html">Schedule</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">History</a>
+            <a href="./prediction.html">Prediction</a>
+            <a href="./team-history.html">Team Hub</a>
+            <a href="/zh/match.html" data-locale-switch>Chinese</a>
+          </div>
+        </nav>
+
+        <section class="page-hero history-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">Match Detail</p>
+            <h1>A match page should tell users what is happening immediately</h1>
+            <p class="hero__lede">
+              After a user arrives from the schedule or live page, the first need is obvious: scoreline, key events, and the shape of the match.
+            </p>
+          </div>
+          <div class="page-hero__aside quote-card history-hero__aside">
+            <p>The match page is the strongest candidate for real-time API data, and the best place to flow users into teams, prediction, and deeper content.</p>
+          </div>
+        </section>
+
+        <nav class="history-subnav">
+          <a href="./schedule.html">Match Center</a>
+          <a href="./live.html">Live Overview</a>
+          <a href="./match.html?id=wc26-eng-cro" aria-current="page">Match Detail</a>
+        </nav>
+      </header>
+
+      <section class="section" id="match-hero"></section>
+
+      <section class="section">
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>Page role</strong>
+            <span>Put the most important match information in one clear place instead of forcing page-hopping.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>Future data layers</strong>
+            <span>This is where timeline events, lineups, xG, shot maps, and player ratings should land.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>Site links</strong>
+            <span>This page should naturally connect to teams, prediction, history, and the live layer.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section match-layout">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Timeline</p>
+              <h2>Match timeline</h2>
+            </div>
+          </div>
+          <div class="section-summary">For now this is a structured placeholder. Once a live API is connected, this becomes one of the highest-frequency modules on the whole site.</div>
+          <div class="event-stack" id="match-timeline"></div>
+        </article>
+
+        <aside class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Stats</p>
+              <h2>Match stats</h2>
+            </div>
+          </div>
+          <div class="section-summary">Possession, shots, xG, field tilt, and key player output should all fit naturally here.</div>
+          <div class="stat-tiles" id="match-stats"></div>
+        </aside>
+      </section>
+
+      <section class="section section--split">
+        <article class="prediction-panel">
+          <p class="eyebrow">Model Angle</p>
+          <h2>Where users can go after this match</h2>
+          <ul class="spotlight-list">
+            <li><strong>Before kickoff:</strong> <a href="./prediction.html">return to prediction</a> and compare the model view</li>
+            <li><strong>History:</strong> <a href="./history-upsets.html">open the upsets feature</a> to see if this becomes a historic sample</li>
+            <li><strong>Teams:</strong> <a href="./team-history.html?team=Argentina">jump into team history</a> for long-term context</li>
+          </ul>
+        </article>
+
+        <article class="spotlight-card">
+          <p class="eyebrow">Related</p>
+          <h2>Related entry points</h2>
+          <div class="history-links" id="match-related"></div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>The match page already behaves like a real template. The next step is replacing placeholder data with API responses.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="../src/app.js"></script>
+  </body>
+</html>

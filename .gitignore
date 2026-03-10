@@ -1,2 +1,5 @@
 .DS_Store
 .cache/
+scripts/__pycache__/
+djyy 2026worldcup/
+*.pyc

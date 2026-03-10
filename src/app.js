@@ -51,15 +51,26 @@ import {
   wc2026Matches,
   wc2026PollOptions,
 } from "./wc2026-data.js";
+import {
+  defaultLocale,
+  homepageCopy,
+  localeUi,
+  localizedRoutes,
+  playerNameMap,
+  teamNameMap,
+  venueNameMap,
+} from "./i18n-config.js";
 
 const matches = wc2026Matches;
 const groups = wc2026Groups;
 const pollOptions = wc2026PollOptions;
 const countdownTarget = wc2026CountdownTarget;
+const currentLocale = document.body.dataset.locale || defaultLocale;
+const currentUi = localeUi[currentLocale] || localeUi[defaultLocale];
 
 let activeGroup = "A";
 let activeVote = "巴西";
-let activeStage = "全部";
+let activeStage = "all";
 
 initCountdown();
 initMatchesPreview();
@@ -75,9 +86,9 @@ initHistoryPage();
 initTeamsHubPage();
 initPredictionPage();
 initTeamHistoryPage();
-initTrendsPage();
 initLivePage();
 initMatchPage();
+initLocaleSwitch();
 
 function initCountdown() {
   const dayNode = document.querySelector("#days");
@@ -92,6 +103,28 @@ function initCountdown() {
   window.setInterval(() => {
     updateCountdown(dayNode, hourNode, minuteNode);
   }, 60_000);
+}
+
+function initLocaleSwitch() {
+  const switchNode = document.querySelector("[data-locale-switch]");
+  if (!switchNode) {
+    return;
+  }
+
+  const routeKey = document.body.dataset.routeKey || "home";
+  const nextLocale = currentLocale === "zh" ? "en" : "zh";
+  const fallbackConfig = homepageCopy[currentLocale] || homepageCopy[defaultLocale];
+  let nextHref = localizedRoutes[routeKey]?.[nextLocale] || fallbackConfig.switchHref;
+
+  if (routeKey === "match") {
+    const matchId = new URLSearchParams(window.location.search).get("id");
+    if (matchId) {
+      nextHref = `${nextHref}?id=${matchId}`;
+    }
+  }
+
+  switchNode.textContent = fallbackConfig.switchLabel;
+  switchNode.setAttribute("href", nextHref);
 }
 
 function initMatchesPreview() {
@@ -147,8 +180,10 @@ function initSchedulePage() {
     liveNowNode.innerHTML = liveMatches.length
       ? liveMatches.map(renderMatchSpotlight).join("")
       : renderMatchStateNotice(
-          "本届世界杯尚未开赛",
-          "现在先看揭幕周和首轮焦点赛程，Live 页面开赛后会自动承担高频入口。"
+          currentLocale === "zh" ? "本届世界杯尚未开赛" : "The tournament has not kicked off yet",
+          currentLocale === "zh"
+            ? "现在先看揭幕周和首轮焦点赛程，Live 页面开赛后会自动承担高频入口。"
+            : "For now, opening week and first-round headline fixtures matter more. Once the tournament starts, the live page becomes a high-frequency entry point."
         );
   }
 
@@ -164,13 +199,13 @@ function initSchedulePage() {
     const teams = [...new Set(matches.flatMap((match) => [match.home, match.away]))].sort();
     const stages = [...new Set(matches.map((match) => match.stage))];
 
-    stageSelect.innerHTML = [`<option value="all">全部阶段</option>`, ...stages.map((stage) => `<option value="${stage}">${stage}</option>`)].join("");
-    teamSelect.innerHTML = [`<option value="all">全部球队</option>`, ...teams.map((team) => `<option value="${team}">${team}</option>`)].join("");
+    stageSelect.innerHTML = [`<option value="all">${currentUi.allStages}</option>`, ...stages.map((stage) => `<option value="${stage}">${displayStage(stage)}</option>`)].join("");
+    teamSelect.innerHTML = [`<option value="all">${currentUi.allTeams}</option>`, ...teams.map((team) => `<option value="${team}">${displayTeam(team)}</option>`)].join("");
     statusSelect.innerHTML = `
-      <option value="all">全部状态</option>
-      <option value="scheduled">未开始</option>
-      <option value="live">进行中</option>
-      <option value="finished">已结束</option>
+      <option value="all">${currentUi.allStatus}</option>
+      <option value="scheduled">${currentUi.statusScheduled}</option>
+      <option value="live">${currentUi.statusLive}</option>
+      <option value="finished">${currentUi.statusFinished}</option>
     `;
 
     const update = () => {
@@ -209,8 +244,10 @@ function initLivePage() {
   liveNowNode.innerHTML = liveMatches.length
     ? liveMatches.map(renderLiveCard).join("")
     : renderMatchStateNotice(
-        "尚未进入比赛日实时阶段",
-        "现在更适合先看揭幕战、豪门首秀和小组赛首轮重点比赛。"
+        currentLocale === "zh" ? "尚未进入比赛日实时阶段" : "Live matchday mode has not started yet",
+        currentLocale === "zh"
+          ? "现在更适合先看揭幕战、豪门首秀和小组赛首轮重点比赛。"
+          : "Before kickoff, it makes more sense to surface the opener, heavyweight debuts, and the strongest first-round group matches."
       );
 
   upcomingNode.innerHTML = matches
@@ -244,37 +281,76 @@ function initMatchPage() {
 
   const matchId = new URLSearchParams(window.location.search).get("id") || matches[0].id;
   const match = matches.find((item) => item.id === matchId) || matches[0];
+  const t = currentLocale === "zh"
+    ? {
+        status: "当前状态",
+        preMatch: "官方赛前信息",
+        prelude: "赛前",
+        angle: "看点",
+        after: "赛后",
+        reserve: "预留",
+        preludeCopy: `${displayTeam(match.home)} vs ${displayTeam(match.away)} 已进入 FIFA 官方赛程。`,
+        angleCopy: "这里后续会接入实时事件流、首发、换人、黄红牌和关键节点。",
+        afterCopy: "比赛结束后，这里会沉淀成完整单场档案，并反向链接到球队与历史页。",
+        reserveCopy: "如果是焦点战，还会补前瞻、模型视角和关键球员表现。",
+        possession: "控球",
+        shots: "射门",
+        shotsOnTarget: "射正",
+        xg: "xG 占位",
+        backSchedule: "回到赛程页",
+        toLive: "进入 live 总览",
+        toPrediction: "查看预测页",
+      }
+    : {
+        status: "Status",
+        preMatch: "Official pre-match info",
+        prelude: "Pre-match",
+        angle: "Angle",
+        after: "After",
+        reserve: "Reserved",
+        preludeCopy: `${displayTeam(match.home)} vs ${displayTeam(match.away)} is already on the official FIFA schedule.`,
+        angleCopy: "This area will later take live events, confirmed lineups, substitutions, cards, and major swings in the match.",
+        afterCopy: "After the final whistle, this page should become a durable match archive connected back to teams and history.",
+        reserveCopy: "For major fixtures, this layer can also hold previews, model views, and key player performance notes.",
+        possession: "Possession",
+        shots: "Shots",
+        shotsOnTarget: "Shots on target",
+        xg: "xG",
+        backSchedule: "Back to schedule",
+        toLive: "Open live overview",
+        toPrediction: "Open prediction",
+      };
 
   heroNode.innerHTML = `
     <div class="match-hero-card">
-      <p class="eyebrow">${match.stage}</p>
-      <h2>${match.home} vs ${match.away}</h2>
-      <p class="hero__lede">${match.kickoff} · ${match.venue} · 当前状态 ${humanizeMatchStatus(match)}</p>
+      <p class="eyebrow">${displayStage(match.stage)}</p>
+      <h2>${displayTeam(match.home)} vs ${displayTeam(match.away)}</h2>
+      <p class="hero__lede">${match.kickoff} · ${displayVenue(match.venue)} · ${t.status} ${humanizeMatchStatus(match)}</p>
       <div class="match-scoreline">
         <strong>${match.score}</strong>
-        <span>${match.minute || "官方赛前信息"}</span>
+        <span>${match.minute || t.preMatch}</span>
       </div>
     </div>
   `;
 
   timelineNode.innerHTML = `
-    <article class="event-row"><strong>赛前</strong><span>${match.home} vs ${match.away} 已进入 FIFA 官方赛程。</span></article>
-    <article class="event-row"><strong>看点</strong><span>这里后续会接入实时事件流、首发、换人、黄红牌和关键节点。</span></article>
-    <article class="event-row"><strong>赛后</strong><span>比赛结束后，这里会沉淀成完整单场档案，并反向链接到球队与历史页。</span></article>
-    <article class="event-row"><strong>预留</strong><span>如果是焦点战，还会补前瞻、模型视角和关键球员表现。</span></article>
+    <article class="event-row"><strong>${t.prelude}</strong><span>${t.preludeCopy}</span></article>
+    <article class="event-row"><strong>${t.angle}</strong><span>${t.angleCopy}</span></article>
+    <article class="event-row"><strong>${t.after}</strong><span>${t.afterCopy}</span></article>
+    <article class="event-row"><strong>${t.reserve}</strong><span>${t.reserveCopy}</span></article>
   `;
 
   statsNode.innerHTML = `
-    <article class="stat-tile"><span>控球</span><strong>54% / 46%</strong></article>
-    <article class="stat-tile"><span>射门</span><strong>13 / 10</strong></article>
-    <article class="stat-tile"><span>射正</span><strong>6 / 4</strong></article>
-    <article class="stat-tile"><span>xG 占位</span><strong>1.4 / 1.1</strong></article>
+    <article class="stat-tile"><span>${t.possession}</span><strong>54% / 46%</strong></article>
+    <article class="stat-tile"><span>${t.shots}</span><strong>13 / 10</strong></article>
+    <article class="stat-tile"><span>${t.shotsOnTarget}</span><strong>6 / 4</strong></article>
+    <article class="stat-tile"><span>${t.xg}</span><strong>1.4 / 1.1</strong></article>
   `;
 
   relatedNode.innerHTML = `
-    <a class="button button--ghost" href="./schedule.html">回到赛程页</a>
-    <a class="button button--ghost" href="./live.html">进入 live 总览</a>
-    <a class="button button--ghost" href="./prediction.html">查看预测页</a>
+    <a class="button button--ghost" href="${currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html"}">${t.backSchedule}</a>
+    <a class="button button--ghost" href="${currentLocale === "zh" ? "/zh/live.html" : "/en/live.html"}">${t.toLive}</a>
+    <a class="button button--ghost" href="${predictionPath()}">${t.toPrediction}</a>
   `;
 }
 
@@ -318,11 +394,15 @@ function setupCollapsibleSection(target, options = {}) {
     return;
   }
 
+  const defaultButtonText = currentLocale === "zh" ? "展开更多" : "Show more";
+  const defaultButtonTextExpanded = currentLocale === "zh" ? "收起内容" : "Hide section";
+  const defaultItemLabel = currentLocale === "zh" ? "内容" : "section";
+
   const {
     collapsedHeight = 360,
-    buttonText = "展开更多",
-    buttonTextExpanded = "收起内容",
-    itemLabel = "内容",
+    buttonText = defaultButtonText,
+    buttonTextExpanded = defaultButtonTextExpanded,
+    itemLabel = defaultItemLabel,
   } = options;
 
   let button = target.nextElementSibling;
@@ -408,33 +488,57 @@ function setupSectionObserver() {
 }
 
 function renderTeamProfileMarkup(profile) {
+  const profileCopy = currentLocale === "zh"
+    ? {
+        record: "战绩",
+        matches: "场",
+        goalsFor: "进球",
+        goalsAgainst: "失球",
+        peak: "峰值 ELO",
+        latest: "最近 ELO",
+        latestSample: "年样本",
+        upsetWin: "代表性逆袭",
+        upsetLoss: "最痛爆冷失利",
+      }
+    : {
+        record: "Record",
+        matches: "matches",
+        goalsFor: "goals for",
+        goalsAgainst: "goals against",
+        peak: "Peak Elo",
+        latest: "Latest Elo",
+        latestSample: "sample year",
+        upsetWin: "Signature upset win",
+        upsetLoss: "Most painful upset loss",
+      };
+
   return `
     <div class="team-profile">
       <div class="team-profile__stats">
         <article class="history-stat">
-          <span class="history-stat__label">战绩</span>
+          <span class="history-stat__label">${profileCopy.record}</span>
           <strong>${profile.wins}-${profile.draws}-${profile.losses}</strong>
-          <p>${profile.matches} 场 · ${profile.gf} 进球 · ${profile.ga} 失球</p>
+          <p>${profile.matches} ${profileCopy.matches} · ${profile.gf} ${profileCopy.goalsFor} · ${profile.ga} ${profileCopy.goalsAgainst}</p>
         </article>
         <article class="history-stat">
-          <span class="history-stat__label">峰值 ELO</span>
+          <span class="history-stat__label">${profileCopy.peak}</span>
           <strong>${profile.peakElo}</strong>
           <p>${profile.peakDate}</p>
         </article>
         <article class="history-stat">
-          <span class="history-stat__label">最近 ELO</span>
+          <span class="history-stat__label">${profileCopy.latest}</span>
           <strong>${profile.latestElo}</strong>
-          <p>${profile.latestYear} 年样本</p>
+          <p>${profile.latestYear} ${profileCopy.latestSample}</p>
         </article>
       </div>
       <div class="team-profile__notes">
         <article class="sidebar-card">
-          <p class="story-card__tag">代表性逆袭</p>
-          <h3>${profile.biggestUpsetWin}</h3>
+          <p class="story-card__tag">${profileCopy.upsetWin}</p>
+          <h3>${displayProfileMatchNote(profile.biggestUpsetWin)}</h3>
         </article>
         <article class="sidebar-card">
-          <p class="story-card__tag">最痛爆冷失利</p>
-          <h3>${profile.worstUpsetLoss}</h3>
+          <p class="story-card__tag">${profileCopy.upsetLoss}</p>
+          <h3>${displayProfileMatchNote(profile.worstUpsetLoss)}</h3>
         </article>
       </div>
       <div class="milestone-track">
@@ -495,60 +599,106 @@ function initHistoryHubPage() {
     return;
   }
 
+  const historyHomeCopy = currentLocale === "zh"
+    ? {
+        diffTitle: "最值钱的差异化",
+        diffCopy: "ELO 让历史页不只告诉你谁赢了，还能解释为什么这场胜负足够反常。",
+        structureTitle: "结构数据补全",
+        structureCopy: "worldcup 数据库把主办国、球场、球员、奖项和阶段结构全部补成可展示的事实层。",
+        readTitle: "阅读方式重构",
+        readCopy: "首页只做精选和导览，深数据已经拆到独立专题页，整页长度终于可控。",
+        featureNote: "先看这四块就够了：最极端冷门、最剧烈震荡、最强无冕者，以及历史上最稳定的豪门样本。",
+        upsetGap: "冷门差值",
+        fullUpsets: "看完整冷门榜",
+        swing: "单场总波动",
+        fullShock: "看完整 ELO 冲击波",
+        peakElo: "峰值 ELO",
+        avgElo: "平均 ELO",
+        neverList: "看无冕者列表",
+        hosted: "承办了",
+        matches: "场世界杯比赛。",
+        archiveFeature: "看资料库专题",
+        titleCount: "世界杯冠军次数",
+        titleUnit: "冠",
+        goalsTrend: "世界杯进球走势",
+      }
+    : {
+        diffTitle: "Differentiator",
+        diffCopy: "Elo lets the history section explain not only who won, but why a result was truly abnormal.",
+        structureTitle: "Structured archive layer",
+        structureCopy: "The worldcup database fills in hosts, venues, players, awards, and tournament structure as a factual foundation.",
+        readTitle: "Reading flow rebuilt",
+        readCopy: "The history homepage now acts as a guide, while deeper data has been split into dedicated features.",
+        featureNote: "These four highlights are enough to understand the page quickly: the biggest upset, the biggest shockwave, the strongest non-champion, and one archive signal.",
+        upsetGap: "Upset gap",
+        fullUpsets: "Open full upset list",
+        swing: "Match swing",
+        fullShock: "Open full Elo shockwave list",
+        peakElo: "Peak Elo",
+        avgElo: "Average Elo",
+        neverList: "Open non-champion list",
+        hosted: "hosted",
+        matches: "World Cup matches.",
+        archiveFeature: "Open archive feature",
+        titleCount: "World Cup titles",
+        titleUnit: "titles",
+        goalsTrend: "World Cup goals trend",
+      };
+
   overviewNode.innerHTML = historyOverview
-    .map(
-      (item) => `
+    .map((item, index) => {
+      const localized = localizeHistoryOverview(item, index);
+      return `
         <article class="history-stat">
-          <span class="history-stat__label">${item.label}</span>
+          <span class="history-stat__label">${localized.label}</span>
           <strong>${item.value}</strong>
-          <p>${item.detail}</p>
+          <p>${localized.detail}</p>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 
   summaryNode.innerHTML = `
     <article class="summary-pill">
-      <strong>最值钱的差异化</strong>
-      <span>ELO 让历史页不只告诉你谁赢了，还能解释为什么这场胜负足够反常。</span>
+      <strong>${historyHomeCopy.diffTitle}</strong>
+      <span>${historyHomeCopy.diffCopy}</span>
     </article>
     <article class="summary-pill">
-      <strong>结构数据补全</strong>
-      <span>worldcup 数据库把主办国、球场、球员、奖项和阶段结构全部补成可展示的事实层。</span>
+      <strong>${historyHomeCopy.structureTitle}</strong>
+      <span>${historyHomeCopy.structureCopy}</span>
     </article>
     <article class="summary-pill">
-      <strong>阅读方式重构</strong>
-      <span>首页只做精选和导览，深数据已经拆到独立专题页，整页长度终于可控。</span>
+      <strong>${historyHomeCopy.readTitle}</strong>
+      <span>${historyHomeCopy.readCopy}</span>
     </article>
   `;
 
-  featureNoteNode.textContent =
-    "先看这四块就够了：最极端冷门、最剧烈震荡、最强无冕者，以及历史上最稳定的豪门样本。";
+  featureNoteNode.textContent = historyHomeCopy.featureNote;
 
   featuredNode.innerHTML = `
     <article class="feature-card history-mini-card">
       <p class="story-card__tag">Biggest Upset</p>
-      <h3>${historyUpsets[0].winner} ${historyUpsets[0].score} ${historyUpsets[0].loser}</h3>
-      <p>${historyUpsets[0].date} · 冷门差值 ${historyUpsets[0].eloGap}</p>
-      <a href="./history-upsets.html">看完整冷门榜</a>
+      <h3>${displayTeam(historyUpsets[0].winner)} ${displayScore(historyUpsets[0].score)} ${displayTeam(historyUpsets[0].loser)}</h3>
+      <p>${historyUpsets[0].date} · ${historyHomeCopy.upsetGap} ${historyUpsets[0].eloGap}</p>
+      <a href="${historyUpsetsPath()}">${historyHomeCopy.fullUpsets}</a>
     </article>
     <article class="feature-card history-mini-card">
       <p class="story-card__tag">Biggest Shockwave</p>
-      <h3>${historyShocks[0].home} ${historyShocks[0].score} ${historyShocks[0].away}</h3>
-      <p>${historyShocks[0].date} · 单场总波动 ${historyShocks[0].swing}</p>
-      <a href="./history-upsets.html">看完整 ELO 冲击波</a>
+      <h3>${displayTeam(historyShocks[0].home)} ${displayScore(historyShocks[0].score)} ${displayTeam(historyShocks[0].away)}</h3>
+      <p>${historyShocks[0].date} · ${historyHomeCopy.swing} ${historyShocks[0].swing}</p>
+      <a href="${historyUpsetsPath()}">${historyHomeCopy.fullShock}</a>
     </article>
     <article class="feature-card history-mini-card">
       <p class="story-card__tag">Strongest Without Title</p>
-      <h3>${bestNeverChampions[0].team}</h3>
-      <p>峰值 ELO ${bestNeverChampions[0].peakElo} · 平均 ELO ${bestNeverChampions[0].avgElo}</p>
-      <a href="./history-upsets.html">看无冕者列表</a>
+      <h3>${displayTeam(bestNeverChampions[0].team)}</h3>
+      <p>${historyHomeCopy.peakElo} ${bestNeverChampions[0].peakElo} · ${historyHomeCopy.avgElo} ${bestNeverChampions[0].avgElo}</p>
+      <a href="${historyUpsetsPath()}">${historyHomeCopy.neverList}</a>
     </article>
     <article class="feature-card history-mini-card">
       <p class="story-card__tag">Archive Highlight</p>
-      <h3>${archiveVenueAtlas.cities[0].city}</h3>
-      <p>${archiveVenueAtlas.cities[0].country} 承办了 ${archiveVenueAtlas.cities[0].matches} 场世界杯比赛。</p>
-      <a href="./history-archive.html">看资料库专题</a>
+      <h3>${displayVenue(archiveVenueAtlas.cities[0].city)}</h3>
+      <p>${displayTeam(archiveVenueAtlas.cities[0].country)} ${historyHomeCopy.hosted} ${archiveVenueAtlas.cities[0].matches} ${historyHomeCopy.matches}</p>
+      <a href="${historyArchivePath()}">${historyHomeCopy.archiveFeature}</a>
     </article>
   `;
 
@@ -558,13 +708,13 @@ function initHistoryHubPage() {
     archivePodiumMap
       .slice(0, 6)
       .map((item) => ({ label: item.team, value: item.titles })),
-    "世界杯冠军次数",
-    "冠"
+    historyHomeCopy.titleCount,
+    historyHomeCopy.titleUnit
   );
 
   goalsChartNode.innerHTML = renderLineChartSvg(
     historyTimeline.map((item) => ({ date: String(item.year), elo: item.goals })),
-    "世界杯进球走势",
+    historyHomeCopy.goalsTrend,
     "history-home-goals-gradient"
   );
 }
@@ -598,23 +748,83 @@ function initHistoryUpsetsPage() {
     return;
   }
 
-  upsetSummaryNoteNode.textContent = `结论先看：这份 ELO 表里最极端的爆冷是 ${historyUpsets[0].winner} ${historyUpsets[0].score} ${historyUpsets[0].loser}，赛前强弱差达到 ${historyUpsets[0].eloGap}。`;
-  shockSummaryNoteNode.textContent = `结论先看：单场 ELO 总波动最大的是 ${historyShocks[0].date} 的 ${historyShocks[0].home} ${historyShocks[0].score} ${historyShocks[0].away}，总震荡 ${historyShocks[0].swing}。`;
-  championSummaryNoteNode.textContent = `结论先看：按击败对手平均 ELO 计算，${championStrength[0].year} ${championStrength[0].champion} 是这份模型里“通关含金量”最高的冠军。`;
-  neverSummaryNoteNode.textContent = `结论先看：${bestNeverChampions[0].team} 是这份历史样本里最强的无冕者，峰值 ELO 达到 ${bestNeverChampions[0].peakElo}。`;
-  collapseSummaryNoteNode.textContent = `结论先看：${collapseRankings[0].year} ${collapseRankings[0].team} 的翻车最具代表性，短赛会制足以让顶级强队迅速失速。`;
+  const upsetsCopy = currentLocale === "zh"
+    ? {
+        upsetSummary: `结论先看：这份 ELO 表里最极端的爆冷是 ${historyUpsets[0].winner} ${historyUpsets[0].score} ${historyUpsets[0].loser}，赛前强弱差达到 ${historyUpsets[0].eloGap}。`,
+        shockSummary: `结论先看：单场 ELO 总波动最大的是 ${historyShocks[0].date} 的 ${historyShocks[0].home} ${historyShocks[0].score} ${historyShocks[0].away}，总震荡 ${historyShocks[0].swing}。`,
+        championSummary: `结论先看：按击败对手平均 ELO 计算，${championStrength[0].year} ${championStrength[0].champion} 是这份模型里“通关含金量”最高的冠军。`,
+        neverSummary: `结论先看：${bestNeverChampions[0].team} 是这份历史样本里最强的无冕者，峰值 ELO 达到 ${bestNeverChampions[0].peakElo}。`,
+        collapseSummary: `结论先看：${collapseRankings[0].year} ${collapseRankings[0].team} 的翻车最具代表性，短赛会制足以让顶级强队迅速失速。`,
+        upsetGap: "冷门差值",
+        preMatchElo: "赛前 ELO",
+        preGap: "赛前 ELO 差",
+        totalSwing: "单场总波动",
+        upsets: "次爆冷",
+        eloSwing: "ELO 波动",
+        avgGoals: "平均进球",
+        avgUpsetGap: "爆冷幅度",
+        avgGoalsValue: "平均进球",
+        avgGapValue: "平均冷门差值",
+        defeatedAvg: "击败对手平均 ELO",
+        oppAvg: "全部对手平均 ELO",
+        peakElo: "峰值 ELO",
+        avgElo: "平均 ELO",
+        matches: "场比赛",
+        upsetLosses: "爆冷失利",
+        eloDrop: "ELO 跌幅",
+        upsetsLabel: "冷门榜",
+        shocksLabel: "震荡榜",
+        championLabel: "冠军含金量",
+        neverLabel: "无冕之王",
+        collapseLabel: "翻车榜",
+      }
+    : {
+        upsetSummary: `First take: the most extreme upset in this Elo sample is ${displayTeam(historyUpsets[0].winner)} ${displayScore(historyUpsets[0].score)} ${displayTeam(historyUpsets[0].loser)}, with a pre-match gap of ${historyUpsets[0].eloGap}.`,
+        shockSummary: `First take: the largest single-match Elo shockwave came from ${historyShocks[0].date}, when ${displayTeam(historyShocks[0].home)} ${displayScore(historyShocks[0].score)} ${displayTeam(historyShocks[0].away)} produced a total swing of ${historyShocks[0].swing}.`,
+        championSummary: `First take: by average defeated-opponent Elo, ${championStrength[0].year} ${displayTeam(championStrength[0].champion)} rates as the highest-weight champion in this model.`,
+        neverSummary: `First take: ${displayTeam(bestNeverChampions[0].team)} is the strongest team without a title in this historical sample, reaching a peak Elo of ${bestNeverChampions[0].peakElo}.`,
+        collapseSummary: `First take: ${collapseRankings[0].year} ${displayTeam(collapseRankings[0].team)} represents the clearest heavyweight collapse, showing how quickly a short tournament can punish elite teams.`,
+        upsetGap: "Upset gap",
+        preMatchElo: "Pre-match Elo",
+        preGap: "Pre-match Elo gap",
+        totalSwing: "Total match swing",
+        upsets: "upsets",
+        eloSwing: "Elo swing",
+        avgGoals: "Average goals",
+        avgUpsetGap: "Upset severity",
+        avgGoalsValue: "Average goals",
+        avgGapValue: "Average upset gap",
+        defeatedAvg: "Average defeated-opponent Elo",
+        oppAvg: "Average opponent Elo",
+        peakElo: "Peak Elo",
+        avgElo: "Average Elo",
+        matches: "matches",
+        upsetLosses: "upset losses",
+        eloDrop: "Elo drop",
+        upsetsLabel: "upsets",
+        shocksLabel: "shockwaves",
+        championLabel: "champion strength",
+        neverLabel: "best never-champions",
+        collapseLabel: "collapse rankings",
+      };
+
+  upsetSummaryNoteNode.textContent = upsetsCopy.upsetSummary;
+  shockSummaryNoteNode.textContent = upsetsCopy.shockSummary;
+  championSummaryNoteNode.textContent = upsetsCopy.championSummary;
+  neverSummaryNoteNode.textContent = upsetsCopy.neverSummary;
+  collapseSummaryNoteNode.textContent = upsetsCopy.collapseSummary;
 
   upsetsNode.innerHTML = renderStoryRows(historyUpsets, (item, index) => ({
     lead: index + 1,
-    title: `${item.winner} ${item.score} ${item.loser}`,
-    copy: `${item.date} · 冷门差值 ${item.eloGap} · 赛前 ELO ${item.winnerElo} vs ${item.loserElo}`,
+    title: `${displayTeam(item.winner)} ${displayScore(item.score)} ${displayTeam(item.loser)}`,
+    copy: `${item.date} · ${upsetsCopy.upsetGap} ${item.eloGap} · ${upsetsCopy.preMatchElo} ${item.winnerElo} vs ${item.loserElo}`,
   }));
 
   shocksNode.innerHTML = renderStoryRows(historyShocks, (item) => ({
     lead: item.swing,
     metric: true,
-    title: `${item.home} ${item.score} ${item.away}`,
-    copy: `${item.date} · 赛前 ELO 差 ${item.preGap} · 单场总波动 ${item.swing}`,
+    title: `${displayTeam(item.home)} ${displayScore(item.score)} ${displayTeam(item.away)}`,
+    copy: `${item.date} · ${upsetsCopy.preGap} ${item.preGap} · ${upsetsCopy.totalSwing} ${item.swing}`,
   }));
 
   chaosNode.innerHTML = historyChaos
@@ -623,23 +833,23 @@ function initHistoryUpsetsPage() {
         <article class="chaos-card">
           <div class="chaos-card__top">
             <strong>${item.year}</strong>
-            <span>${item.upsets} 次爆冷</span>
+            <span>${item.upsets} ${upsetsCopy.upsets}</span>
           </div>
           <div class="chaos-card__bars">
             <div>
-              <label>ELO 波动</label>
+              <label>${upsetsCopy.eloSwing}</label>
               <div class="mini-bar"><span style="width:${(item.eloSwing / 3342) * 100}%"></span></div>
             </div>
             <div>
-              <label>平均进球</label>
+              <label>${upsetsCopy.avgGoals}</label>
               <div class="mini-bar"><span style="width:${(item.avgGoals / 5.38) * 100}%"></span></div>
             </div>
             <div>
-              <label>爆冷幅度</label>
+              <label>${upsetsCopy.avgUpsetGap}</label>
               <div class="mini-bar"><span style="width:${(item.avgUpsetGap / 169.6) * 100}%"></span></div>
             </div>
           </div>
-          <p>平均进球 ${item.avgGoals} · 平均冷门差值 ${item.avgUpsetGap}</p>
+          <p>${upsetsCopy.avgGoalsValue} ${item.avgGoals} · ${upsetsCopy.avgGapValue} ${item.avgUpsetGap}</p>
         </article>
       `
     )
@@ -647,27 +857,27 @@ function initHistoryUpsetsPage() {
 
   championStrengthNode.innerHTML = renderStoryRows(championStrength, (item, index) => ({
     lead: index + 1,
-    title: `${item.year} ${item.champion}`,
-    copy: `击败对手平均 ELO ${item.avgDefeatedElo} · 全部对手平均 ELO ${item.avgOppElo}`,
+    title: `${item.year} ${displayTeam(item.champion)}`,
+    copy: `${upsetsCopy.defeatedAvg} ${item.avgDefeatedElo} · ${upsetsCopy.oppAvg} ${item.avgOppElo}`,
   }));
 
   neverChampionsNode.innerHTML = renderStoryRows(bestNeverChampions, (item, index) => ({
     lead: index + 1,
-    title: item.team,
-    copy: `峰值 ELO ${item.peakElo} · 平均 ELO ${item.avgElo} · ${item.matches} 场比赛`,
+    title: displayTeam(item.team),
+    copy: `${upsetsCopy.peakElo} ${item.peakElo} · ${upsetsCopy.avgElo} ${item.avgElo} · ${item.matches} ${upsetsCopy.matches}`,
   }));
 
   collapseNode.innerHTML = renderStoryRows(collapseRankings, (item, index) => ({
     lead: index + 1,
-    title: `${item.year} ${item.team}`,
-    copy: `${item.record} · 峰值前 ELO ${item.peakBefore} · 爆冷失利 ${item.upsetLosses} 次 · ELO 跌幅 ${item.eloDrop} · ${item.note}`,
+    title: `${item.year} ${displayTeam(item.team)}`,
+    copy: `${displayCollapseRecord(item.record)} · ${upsetsCopy.peakElo} ${item.peakBefore} · ${upsetsCopy.upsetLosses} ${item.upsetLosses} · ${upsetsCopy.eloDrop} ${item.eloDrop} · ${displayCollapseNote(item)}`,
   }));
 
-  setupCollapsibleSection(upsetsNode, { collapsedHeight: 520, itemLabel: "冷门榜" });
-  setupCollapsibleSection(shocksNode, { collapsedHeight: 520, itemLabel: "震荡榜" });
-  setupCollapsibleSection(championStrengthNode, { collapsedHeight: 420, itemLabel: "冠军含金量" });
-  setupCollapsibleSection(neverChampionsNode, { collapsedHeight: 420, itemLabel: "无冕之王" });
-  setupCollapsibleSection(collapseNode, { collapsedHeight: 420, itemLabel: "翻车榜" });
+  setupCollapsibleSection(upsetsNode, { collapsedHeight: 520, itemLabel: upsetsCopy.upsetsLabel });
+  setupCollapsibleSection(shocksNode, { collapsedHeight: 520, itemLabel: upsetsCopy.shocksLabel });
+  setupCollapsibleSection(championStrengthNode, { collapsedHeight: 420, itemLabel: upsetsCopy.championLabel });
+  setupCollapsibleSection(neverChampionsNode, { collapsedHeight: 420, itemLabel: upsetsCopy.neverLabel });
+  setupCollapsibleSection(collapseNode, { collapsedHeight: 420, itemLabel: upsetsCopy.collapseLabel });
 }
 
 function initHistoryArchivePage() {
@@ -705,37 +915,142 @@ function initHistoryArchivePage() {
     return;
   }
 
+  const archiveCopy = currentLocale === "zh"
+    ? {
+        summaryStrip: [
+          {
+            title: "结构层",
+            copy: "这里不讲 ELO 冷门，只讲比赛系统本身是怎么搭出来的。",
+          },
+          {
+            title: "地理层",
+            copy: "主办国、球场和城市共同定义了世界杯几十年的空间分布。",
+          },
+          {
+            title: "赛制层",
+            copy: "从 13 队到 32 队，世界杯其实经历了多次非常明显的结构转折。",
+          },
+        ],
+        hostNote:
+          "结论先看：22 届里有 6 次东道主夺冠，但更多主办国最终止步八强附近，主场优势重要，却不是万能护身符。",
+        formatNote:
+          "结论先看：1974、1978、1982 的赛制最异于常态，而 1998 之后的 32 队结构才是今天球迷最熟悉的版本。",
+        directChampion: "东道主直接夺冠",
+        groups: "个小组",
+        groupRounds: "段小组赛",
+        knockouts: "段淘汰赛",
+        venueLede: "出现最多的城市、球场和主办国，能直接看出世界杯的地理重心。",
+        hostMatches: "承办场次",
+        cityTop: "城市 Top 8",
+        venueTop: "球场 Top 8",
+        matches: "场世界杯比赛",
+        podiumTitle: "领奖台次数",
+        topFour: "次前四",
+        titles: "冠",
+        runnersUp: "亚",
+        thirds: "季",
+        teamsReached: "支球队曾参赛",
+        appearances: "次晋级届次",
+        tournamentMatches: "场世界杯比赛",
+        structure: "赛制结构",
+        teams: "队",
+        strongestGroup: "最强小组赛统治力",
+        points: "分",
+        goalDiff: "净胜球",
+        goalsFor: "进球",
+        subsEra: "换人时代",
+        subEvents: "次换人事件",
+        perMatch: "场均",
+        hostsLabel: "主办国列表",
+        formatLabel: "赛制演化",
+        dynastiesLabel: "王朝球队",
+        confedLabel: "洲际版图",
+        stagesLabel: "阶段演化",
+        groupsLabel: "小组统治力",
+      }
+    : {
+        summaryStrip: [
+          {
+            title: "Structure",
+            copy: "This page is not about Elo shocks. It explains how the tournament system itself was built.",
+          },
+          {
+            title: "Geography",
+            copy: "Hosts, stadiums, and cities define the spatial footprint of the World Cup across decades.",
+          },
+          {
+            title: "Format",
+            copy: "From 13 teams to 32, the tournament has gone through several clear structural turns.",
+          },
+        ],
+        hostNote:
+          "Start here: six host nations won the title, but most hosts still finished closer to the quarter-final line than to the trophy.",
+        formatNote:
+          "Start here: 1974, 1978, and 1982 were the real format outliers, while the 32-team era after 1998 is the structure most fans now recognise.",
+        directChampion: "host won the title",
+        groups: "groups",
+        groupRounds: "group phases",
+        knockouts: "knockout phases",
+        venueLede: "The most-used cities, stadiums, and host countries reveal the tournament’s geographic centre of gravity.",
+        hostMatches: "matches hosted",
+        cityTop: "Top 8 cities",
+        venueTop: "Top 8 stadiums",
+        matches: "World Cup matches",
+        podiumTitle: "Podium finishes",
+        topFour: "top-four finishes",
+        titles: "titles",
+        runnersUp: "runners-up",
+        thirds: "third places",
+        teamsReached: "teams reached the finals",
+        appearances: "advancing appearances",
+        tournamentMatches: "World Cup matches",
+        structure: "tournament structure",
+        teams: "teams",
+        strongestGroup: "Best group-stage dominance",
+        points: "pts",
+        goalDiff: "GD",
+        goalsFor: "GF",
+        subsEra: "Substitution era",
+        subEvents: "substitution events",
+        perMatch: "per match",
+        hostsLabel: "host archive",
+        formatLabel: "format evolution",
+        dynastiesLabel: "dynasties",
+        confedLabel: "confederation map",
+        stagesLabel: "stage evolution",
+        groupsLabel: "group dominance",
+      };
+
   archiveOverviewNode.innerHTML = archiveOverview
-    .map(
-      (item) => `
+    .map((item, index) => {
+      const localized = localizeArchiveOverview(item, index);
+      return `
         <article class="history-stat">
-          <span class="history-stat__label">${item.label}</span>
-          <strong>${item.value}</strong>
-          <p>${item.detail}</p>
+          <span class="history-stat__label">${localized.label}</span>
+          <strong>${localized.value || item.value}</strong>
+          <p>${localized.detail}</p>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 
   archiveSummaryStripNode.innerHTML = `
     <article class="summary-pill">
-      <strong>结构层</strong>
-      <span>这里不讲 ELO 冷门，只讲比赛系统本身是怎么搭出来的。</span>
+      <strong>${archiveCopy.summaryStrip[0].title}</strong>
+      <span>${archiveCopy.summaryStrip[0].copy}</span>
     </article>
     <article class="summary-pill">
-      <strong>地理层</strong>
-      <span>主办国、球场和城市共同定义了世界杯几十年的空间分布。</span>
+      <strong>${archiveCopy.summaryStrip[1].title}</strong>
+      <span>${archiveCopy.summaryStrip[1].copy}</span>
     </article>
     <article class="summary-pill">
-      <strong>赛制层</strong>
-      <span>从 13 队到 32 队，世界杯其实经历了多次非常明显的结构转折。</span>
+      <strong>${archiveCopy.summaryStrip[2].title}</strong>
+      <span>${archiveCopy.summaryStrip[2].copy}</span>
     </article>
   `;
 
-  hostSummaryNoteNode.textContent =
-    "结论先看：22 届里有 6 次东道主夺冠，但更多主办国最终止步八强附近，主场优势重要，却不是万能护身符。";
-  formatSummaryNoteNode.textContent =
-    "结论先看：1974、1978、1982 的赛制最异于常态，而 1998 之后的 32 队结构才是今天球迷最熟悉的版本。";
+  hostSummaryNoteNode.textContent = archiveCopy.hostNote;
+  formatSummaryNoteNode.textContent = archiveCopy.formatNote;
 
   archiveHostSummaryNode.innerHTML = renderArchiveChips(archiveHostSummary, (item) => ({
     value: item.value,
@@ -744,95 +1059,105 @@ function initHistoryArchivePage() {
 
   archiveHostsNode.innerHTML = renderStoryRows(archiveHostStory, (item, index) => ({
     lead: index + 1,
-    title: `${item.year} ${item.host}`,
-    copy: `${item.performance} · 冠军 ${item.winner}${item.hostWon ? " · 东道主直接夺冠" : ""}`,
+    title: `${item.year} ${displayTeam(item.host)}`,
+    copy: currentLocale === "zh"
+      ? `${item.performance} · 冠军 ${displayTeam(item.winner)}${item.hostWon ? ` · ${archiveCopy.directChampion}` : ""}`
+      : `${item.performance} · winner ${displayTeam(item.winner)}${item.hostWon ? ` · ${archiveCopy.directChampion}` : ""}`,
   }));
 
   archiveFormatNode.innerHTML = renderStoryRows(archiveFormatEvolution, (item) => ({
     lead: item.teams,
     metric: true,
-    title: `${item.year} · ${item.hosts}`,
-    copy: `${item.groups} 个小组 / ${item.groupStages} 段小组赛 / ${item.knockoutStages} 段淘汰赛 · ${item.format}`,
+    title: `${item.year} · ${displayTeam(item.hosts)}`,
+    copy: `${item.groups} ${archiveCopy.groups} / ${item.groupStages} ${archiveCopy.groupRounds} / ${item.knockoutStages} ${archiveCopy.knockouts} · ${displayArchiveFormat(item.format)}`,
   }));
 
   archiveVenuesNode.innerHTML = `
-    <div class="story-lede">出现最多的城市、球场和主办国，能直接看出世界杯的地理重心。</div>
+    <div class="story-lede">${archiveCopy.venueLede}</div>
     ${renderArchiveChips(archiveVenueAtlas.hosts, (item) => ({
       value: item.matches,
-      label: `${item.country} 承办场次`,
+      label: `${displayTeam(item.country)} ${archiveCopy.hostMatches}`,
     }))}
     <div class="archive-subpanel">
-      <h3>城市 Top 8</h3>
+      <h3>${archiveCopy.cityTop}</h3>
       ${renderStoryRows(archiveVenueAtlas.cities, (item, index) => ({
         lead: index + 1,
-        title: `${item.city}, ${item.country}`,
-        copy: `${item.matches} 场世界杯比赛`,
+        title: `${displayVenue(item.city)}, ${displayTeam(item.country)}`,
+        copy: `${item.matches} ${archiveCopy.matches}`,
       }))}
     </div>
     <div class="archive-subpanel">
-      <h3>球场 Top 8</h3>
+      <h3>${archiveCopy.venueTop}</h3>
       ${renderStoryRows(archiveVenueAtlas.stadiums, (item, index) => ({
         lead: index + 1,
-        title: item.stadium,
-        copy: `${item.city}, ${item.country} · ${item.matches} 场`,
+        title: displayVenue(item.stadium),
+        copy: currentLocale === "zh"
+          ? `${displayVenue(item.city)}, ${displayTeam(item.country)} · ${item.matches} 场`
+          : `${displayVenue(item.city)}, ${displayTeam(item.country)} · ${item.matches} matches`,
       }))}
     </div>
   `;
 
   archiveDynastiesNode.innerHTML = renderStoryRows(archiveTeamDynasties, (item, index) => ({
     lead: index + 1,
-    title: item.team,
-    copy: `${item.titles} 冠 · ${item.topFour} 次四强 · ${item.appearances} 次参赛 · ${item.matches} 场 / ${item.wins} 胜`,
+    title: displayTeam(item.team),
+    copy: currentLocale === "zh"
+      ? `${item.titles} 冠 · ${item.topFour} 次四强 · ${item.appearances} 次参赛 · ${item.matches} 场 / ${item.wins} 胜`
+      : `${item.titles} titles · ${item.topFour} top-four finishes · ${item.appearances} appearances · ${item.matches} matches / ${item.wins} wins`,
   }));
 
   archivePodiumNode.innerHTML = `
-    <h3>领奖台次数</h3>
+    <h3>${archiveCopy.podiumTitle}</h3>
     ${renderStoryRows(archivePodiumMap, (item, index) => ({
       lead: index + 1,
-      title: item.team,
-      copy: `${item.topFour} 次前四 · ${item.titles} 冠 / ${item.runnersUp} 亚 / ${item.thirds} 季`,
+      title: displayTeam(item.team),
+      copy: currentLocale === "zh"
+        ? `${item.topFour} 次前四 · ${item.titles} 冠 / ${item.runnersUp} 亚 / ${item.thirds} 季`
+        : `${item.topFour} ${archiveCopy.topFour} · ${item.titles} ${archiveCopy.titles} / ${item.runnersUp} ${archiveCopy.runnersUp} / ${item.thirds} ${archiveCopy.thirds}`,
     }))}
   `;
 
   archiveConfederationsNode.innerHTML = renderStoryRows(archiveConfederationReach, (item, index) => ({
     lead: index + 1,
     title: `${item.confederation} · ${item.name}`,
-    copy: `${item.teams} 支球队曾参赛 · ${item.appearances} 次晋级届次 · ${item.matches} 场世界杯比赛`,
+    copy: currentLocale === "zh"
+      ? `${item.teams} 支球队曾参赛 · ${item.appearances} 次晋级届次 · ${item.matches} 场世界杯比赛`
+      : `${item.teams} ${archiveCopy.teamsReached} · ${item.appearances} ${archiveCopy.appearances} · ${item.matches} ${archiveCopy.tournamentMatches}`,
   }));
 
   archiveStageEvolutionNode.innerHTML = renderStoryRows(archiveStageEvolution, (item) => ({
     lead: item.stages,
     metric: true,
-    title: `${item.year} 赛制结构`,
-    copy: `${item.teams} 队 · ${item.groups} 个小组 · ${item.groupStages} 段小组赛 / ${item.knockoutStages} 段淘汰赛`,
+    title: currentLocale === "zh" ? `${item.year} ${archiveCopy.structure}` : `${item.year} ${archiveCopy.structure}`,
+    copy: `${item.teams} ${archiveCopy.teams} · ${item.groups} ${archiveCopy.groups} · ${item.groupStages} ${archiveCopy.groupRounds} / ${item.knockoutStages} ${archiveCopy.knockouts}`,
   }));
 
   archiveGroupsNode.innerHTML = `
-    <h3>最强小组赛统治力</h3>
+    <h3>${archiveCopy.strongestGroup}</h3>
     ${renderStoryRows(archiveGroupDominance, (item) => ({
       lead: item.points,
       metric: true,
-      title: `${item.year} · ${item.team} · ${item.group}`,
-      copy: `${item.points} 分 · 净胜球 ${item.goalDiff} · 进球 ${item.goalsFor}`,
+      title: `${item.year} · ${displayTeam(item.team)} · ${item.group}`,
+      copy: `${item.points} ${archiveCopy.points} · ${archiveCopy.goalDiff} ${item.goalDiff} · ${archiveCopy.goalsFor} ${item.goalsFor}`,
     }))}
   `;
 
   archiveSubsNode.innerHTML = `
-    <h3>换人时代</h3>
+    <h3>${archiveCopy.subsEra}</h3>
     ${renderStoryRows(archiveSubstitutionEras.slice(-8).reverse(), (item) => ({
       lead: item.perMatch,
       metric: true,
-      title: `${item.year} 世界杯`,
-      copy: `${item.subs} 次换人事件 · 场均 ${item.perMatch}`,
+      title: currentLocale === "zh" ? `${item.year} 世界杯` : `${item.year} World Cup`,
+      copy: `${item.subs} ${archiveCopy.subEvents} · ${archiveCopy.perMatch} ${item.perMatch}`,
     }))}
   `;
 
-  setupCollapsibleSection(archiveHostsNode, { collapsedHeight: 500, itemLabel: "主办国列表" });
-  setupCollapsibleSection(archiveFormatNode, { collapsedHeight: 500, itemLabel: "赛制演化" });
-  setupCollapsibleSection(archiveDynastiesNode, { collapsedHeight: 420, itemLabel: "王朝球队" });
-  setupCollapsibleSection(archiveConfederationsNode, { collapsedHeight: 360, itemLabel: "洲际版图" });
-  setupCollapsibleSection(archiveStageEvolutionNode, { collapsedHeight: 420, itemLabel: "阶段演化" });
-  setupCollapsibleSection(archiveGroupsNode, { collapsedHeight: 320, itemLabel: "小组统治力" });
+  setupCollapsibleSection(archiveHostsNode, { collapsedHeight: 500, itemLabel: archiveCopy.hostsLabel });
+  setupCollapsibleSection(archiveFormatNode, { collapsedHeight: 500, itemLabel: archiveCopy.formatLabel });
+  setupCollapsibleSection(archiveDynastiesNode, { collapsedHeight: 420, itemLabel: archiveCopy.dynastiesLabel });
+  setupCollapsibleSection(archiveConfederationsNode, { collapsedHeight: 360, itemLabel: archiveCopy.confedLabel });
+  setupCollapsibleSection(archiveStageEvolutionNode, { collapsedHeight: 420, itemLabel: archiveCopy.stagesLabel });
+  setupCollapsibleSection(archiveGroupsNode, { collapsedHeight: 320, itemLabel: archiveCopy.groupsLabel });
 }
 
 function initHistoryPlayersPage() {
@@ -858,74 +1183,125 @@ function initHistoryPlayersPage() {
     return;
   }
 
-  playerSummaryNoteNode.textContent = `结论先看：射手榜顶端是 ${archiveTopScorers[0].player} 的 ${archiveTopScorers[0].goals} 球，出场王是 ${archiveTopAppearances[0].player} 的 ${archiveTopAppearances[0].matches} 场。`;
+  const playersCopy = currentLocale === "zh"
+    ? {
+        summary: `结论先看：射手榜顶端是 ${formatPlayerInline(archiveTopScorers[0].player)} 的 ${archiveTopScorers[0].goals} 球，出场王是 ${formatPlayerInline(archiveTopAppearances[0].player)} 的 ${archiveTopAppearances[0].matches} 场。`,
+        goals: "球",
+        tournaments: "届世界杯",
+        appearancesTitle: "出场王",
+        appearances: "场",
+        evergreensTitle: "阵容常青树",
+        squads: "届入选大名单",
+        position: "主位置",
+        awardLeaderCount: "次个人奖项",
+        awardsTitle: "奖项谱系",
+        introduced: "年引入",
+        managerCopy: "场执教 · %TOURNAMENTS% 届世界杯 · 带过 %TEAMS% 支球队",
+        refereeTitle: "执法场次 Top 10",
+        refereeCopy: "%TOURNAMENTS% 届世界杯 · %CONFEDERATION%",
+        scorersLabel: "射手榜",
+        appearancesLabel: "出场王",
+        evergreenLabel: "常青树",
+        awardLabel: "奖项领跑者",
+        managersLabel: "主帅榜",
+      }
+    : {
+        summary: `Start here: ${archiveTopScorers[0].player} leads the scoring table with ${archiveTopScorers[0].goals} goals, while ${archiveTopAppearances[0].player} holds the appearance record with ${archiveTopAppearances[0].matches} matches.`,
+        goals: "goals",
+        tournaments: "World Cups",
+        appearancesTitle: "Most appearances",
+        appearances: "matches",
+        evergreensTitle: "Squad evergreens",
+        squads: "tournament squads",
+        position: "Position",
+        awardLeaderCount: "individual awards",
+        awardsTitle: "Awards map",
+        introduced: "introduced",
+        managerCopy: "%MATCHES% matches coached · %TOURNAMENTS% World Cups · %TEAMS% national teams",
+        refereeTitle: "Top 10 referees by matches",
+        refereeCopy: "%TOURNAMENTS% World Cups · %CONFEDERATION%",
+        scorersLabel: "scorers",
+        appearancesLabel: "appearance leaders",
+        evergreenLabel: "evergreens",
+        awardLabel: "award leaders",
+        managersLabel: "managers",
+      };
+
+  playerSummaryNoteNode.innerHTML = playersCopy.summary;
 
   archiveScorersNode.innerHTML = renderStoryRows(archiveTopScorers, (item) => ({
     lead: item.goals,
     metric: true,
-    title: `${item.player} · ${item.team}`,
-    copy: `${item.goals} 球 · ${item.tournaments} 届世界杯`,
+    title: `${formatPlayerTitle(item.player)} · ${displayTeam(item.team)}`,
+    copy: `${item.goals} ${playersCopy.goals} · ${item.tournaments} ${playersCopy.tournaments}`,
   }));
 
   archiveAppearancesNode.innerHTML = `
-    <h3>出场王</h3>
+    <h3>${playersCopy.appearancesTitle}</h3>
     ${renderStoryRows(archiveTopAppearances, (item) => ({
       lead: item.matches,
       metric: true,
-      title: `${item.player} · ${item.team}`,
-      copy: `${item.matches} 场 · ${item.tournaments} 届`,
+      title: `${formatPlayerTitle(item.player)} · ${displayTeam(item.team)}`,
+      copy: `${item.matches} ${playersCopy.appearances} · ${item.tournaments} ${playersCopy.tournaments}`,
     }))}
   `;
 
   archiveEvergreensNode.innerHTML = `
-    <h3>阵容常青树</h3>
+    <h3>${playersCopy.evergreensTitle}</h3>
     ${renderStoryRows(archiveSquadEvergreens, (item) => ({
       lead: item.tournaments,
       metric: true,
-      title: `${item.player} · ${item.team}`,
-      copy: `${item.tournaments} 届入选大名单 · 主位置 ${item.position}`,
+      title: `${formatPlayerTitle(item.player)} · ${displayTeam(item.team)}`,
+      copy: `${item.tournaments} ${playersCopy.squads} · ${playersCopy.position} ${item.position}`,
     }))}
   `;
 
   archiveAwardLeadersNode.innerHTML = renderStoryRows(archiveAwardLeaders, (item) => ({
     lead: item.awards,
     metric: true,
-    title: `${item.player} · ${item.team}`,
-    copy: `${item.awards} 次个人奖项 · ${item.highlights.join(" / ")}`,
+    title: `${formatPlayerTitle(item.player)} · ${displayTeam(item.team)}`,
+    copy: `${item.awards} ${playersCopy.awardLeaderCount} · ${item.highlights.join(" / ")}`,
   }));
 
   archiveAwardsNode.innerHTML = `
-    <h3>奖项谱系</h3>
+    <h3>${playersCopy.awardsTitle}</h3>
     ${renderStoryRows(archiveAwards, (item) => ({
       lead: item.winners,
       metric: true,
       title: item.award,
-      copy: `${item.introduced} 年引入 · ${item.description}`,
+      copy: currentLocale === "zh"
+        ? `${item.introduced} ${playersCopy.introduced} · ${item.description}`
+        : `${playersCopy.introduced} ${item.introduced} · ${item.description}`,
     }))}
   `;
 
   archiveManagersNode.innerHTML = renderStoryRows(archiveManagerLegends, (item) => ({
     lead: item.matches,
     metric: true,
-    title: `${item.manager} · ${item.country}`,
-    copy: `${item.matches} 场执教 · ${item.tournaments} 届世界杯 · 带过 ${item.teams} 支球队`,
+    title: `${item.manager} · ${displayTeam(item.country)}`,
+    copy: playersCopy.managerCopy
+      .replace("%MATCHES%", item.matches)
+      .replace("%TOURNAMENTS%", item.tournaments)
+      .replace("%TEAMS%", item.teams),
   }));
 
   archiveRefereesNode.innerHTML = `
-    <h3>执法场次 Top 10</h3>
+    <h3>${playersCopy.refereeTitle}</h3>
     ${renderStoryRows(archiveRefereeLegends, (item) => ({
       lead: item.matches,
       metric: true,
-      title: `${item.referee} · ${item.country}`,
-      copy: `${item.tournaments} 届世界杯 · ${item.confederation}`,
+      title: `${item.referee} · ${displayTeam(item.country)}`,
+      copy: playersCopy.refereeCopy
+        .replace("%TOURNAMENTS%", item.tournaments)
+        .replace("%CONFEDERATION%", item.confederation),
     }))}
   `;
 
-  setupCollapsibleSection(archiveScorersNode, { collapsedHeight: 500, itemLabel: "射手榜" });
-  setupCollapsibleSection(archiveAppearancesNode, { collapsedHeight: 360, itemLabel: "出场王" });
-  setupCollapsibleSection(archiveEvergreensNode, { collapsedHeight: 360, itemLabel: "常青树" });
-  setupCollapsibleSection(archiveAwardLeadersNode, { collapsedHeight: 360, itemLabel: "奖项领跑者" });
-  setupCollapsibleSection(archiveManagersNode, { collapsedHeight: 360, itemLabel: "主帅榜" });
+  setupCollapsibleSection(archiveScorersNode, { collapsedHeight: 500, itemLabel: playersCopy.scorersLabel });
+  setupCollapsibleSection(archiveAppearancesNode, { collapsedHeight: 360, itemLabel: playersCopy.appearancesLabel });
+  setupCollapsibleSection(archiveEvergreensNode, { collapsedHeight: 360, itemLabel: playersCopy.evergreenLabel });
+  setupCollapsibleSection(archiveAwardLeadersNode, { collapsedHeight: 360, itemLabel: playersCopy.awardLabel });
+  setupCollapsibleSection(archiveManagersNode, { collapsedHeight: 360, itemLabel: playersCopy.managersLabel });
 }
 
 function initHistoryMatchesPage() {
@@ -947,16 +1323,46 @@ function initHistoryMatchesPage() {
     return;
   }
 
+  const matchesCopy = currentLocale === "zh"
+    ? {
+        timelineTag: (item) => `${item.matches} 场 · ${item.goals} 球`,
+        championYear: (item) => `${item.champion} 冠军年`,
+        goals: "球",
+        matches: "场",
+        milestoneTitle: "最早与最晚进球",
+        shootout: "点球大战",
+        cards: "总牌数",
+        reds: "罚下",
+        summary: `结论先看：进球最多的是 ${archiveGoalTournaments[0].year} 年的 ${archiveGoalTournaments[0].goals} 球，换人密度最高的则是 ${archiveSubstitutionEras[archiveSubstitutionEras.length - 1].year} 年。`,
+        timelineLabel: "冠军时间线",
+        shootoutsLabel: "点球大战",
+        cardsLabel: "纪律名场面",
+      }
+    : {
+        timelineTag: (item) => `${item.matches} matches · ${item.goals} goals`,
+        championYear: (item) => `${item.champion} title year`,
+        goals: "goals",
+        matches: "matches",
+        milestoneTitle: "Earliest and latest goals",
+        shootout: "shootout",
+        cards: "cards",
+        reds: "reds",
+        summary: `Start here: ${archiveGoalTournaments[0].year} produced the highest goal total with ${archiveGoalTournaments[0].goals}, while substitution density peaked in ${archiveSubstitutionEras[archiveSubstitutionEras.length - 1].year}.`,
+        timelineLabel: "champion timeline",
+        shootoutsLabel: "shootouts",
+        cardsLabel: "card-heavy matches",
+      };
+
   timelineNode.innerHTML = historyTimeline
     .map(
       (item) => `
         <article class="timeline-card">
           <div class="timeline-card__year">${item.year}</div>
           <div class="timeline-card__body">
-            <p class="story-card__tag">${item.matches} 场 · ${item.goals} 球</p>
-            <h3>${item.champion} 冠军年</h3>
-            <p>${item.champion} ${item.score} ${item.runnerUp}</p>
-            <p>${item.note}</p>
+            <p class="story-card__tag">${matchesCopy.timelineTag(item)}</p>
+            <h3>${currentLocale === "zh" ? `${displayTeam(item.champion)} 冠军年` : `${displayTeam(item.champion)} title year`}</h3>
+            <p>${displayTeam(item.champion)} ${displayScore(item.score)} ${displayTeam(item.runnerUp)}</p>
+            <p>${displayTimelineNote(item)}</p>
           </div>
         </article>
       `
@@ -966,12 +1372,12 @@ function initHistoryMatchesPage() {
   archiveGoalTournamentsNode.innerHTML = renderStoryRows(archiveGoalTournaments, (item) => ({
     lead: item.goals,
     metric: true,
-    title: `${item.year} 世界杯`,
-    copy: `${item.goals} 球 · ${item.matches} 场`,
+    title: currentLocale === "zh" ? `${item.year} 世界杯` : `${item.year} World Cup`,
+    copy: `${item.goals} ${matchesCopy.goals} · ${item.matches} ${matchesCopy.matches}`,
   }));
 
   archiveMilestoneGoalsNode.innerHTML = `
-    <h3>最早与最晚进球</h3>
+    <h3>${matchesCopy.milestoneTitle}</h3>
     ${renderStoryRows(archiveMilestoneGoals.earliest, (item) => ({
       lead: item.label,
       metric: true,
@@ -990,21 +1396,21 @@ function initHistoryMatchesPage() {
     lead: item.score,
     metric: true,
     title: `${item.year} · ${item.match}`,
-    copy: `${item.stage} 点球大战`,
+    copy: `${item.stage} ${matchesCopy.shootout}`,
   }));
 
   archiveCardsNode.innerHTML = renderStoryRows(archiveCardHeavyMatches, (item) => ({
     lead: item.cards,
     metric: true,
     title: `${item.year} · ${item.match}`,
-    copy: `${item.stage} · 总牌数 ${item.cards} · 罚下 ${item.reds}`,
+    copy: `${item.stage} · ${matchesCopy.cards} ${item.cards} · ${matchesCopy.reds} ${item.reds}`,
   }));
 
-  eventSummaryNoteNode.textContent = `结论先看：进球最多的是 ${archiveGoalTournaments[0].year} 年的 ${archiveGoalTournaments[0].goals} 球，换人密度最高的则是 ${archiveSubstitutionEras[archiveSubstitutionEras.length - 1].year} 年。`;
+  eventSummaryNoteNode.textContent = matchesCopy.summary;
 
-  setupCollapsibleSection(timelineNode, { collapsedHeight: 560, itemLabel: "冠军时间线" });
-  setupCollapsibleSection(archiveShootoutsNode, { collapsedHeight: 360, itemLabel: "点球大战" });
-  setupCollapsibleSection(archiveCardsNode, { collapsedHeight: 360, itemLabel: "纪律名场面" });
+  setupCollapsibleSection(timelineNode, { collapsedHeight: 560, itemLabel: matchesCopy.timelineLabel });
+  setupCollapsibleSection(archiveShootoutsNode, { collapsedHeight: 360, itemLabel: matchesCopy.shootoutsLabel });
+  setupCollapsibleSection(archiveCardsNode, { collapsedHeight: 360, itemLabel: matchesCopy.cardsLabel });
 
   initHistoryExplorer();
 }
@@ -1203,7 +1609,7 @@ function initHistoryPage() {
 
   archiveDynastiesNode.innerHTML = renderStoryRows(archiveTeamDynasties, (item, index) => ({
     lead: index + 1,
-    title: item.team,
+    title: displayTeam(item.team),
     copy: `${item.titles} 冠 · ${item.topFour} 次四强 · ${item.appearances} 次参赛 · ${item.matches} 场 / ${item.wins} 胜`,
   }));
 
@@ -1211,7 +1617,7 @@ function initHistoryPage() {
     <h3>领奖台次数</h3>
     ${renderStoryRows(archivePodiumMap, (item, index) => ({
       lead: index + 1,
-      title: item.team,
+      title: displayTeam(item.team),
       copy: `${item.topFour} 次前四 · ${item.titles} 冠 / ${item.runnersUp} 亚 / ${item.thirds} 季`,
     }))}
   `;
@@ -1573,11 +1979,11 @@ function initHistoryPage() {
         <div class="team-profile__notes">
           <article class="sidebar-card">
             <p class="story-card__tag">代表性逆袭</p>
-            <h3>${profile.biggestUpsetWin}</h3>
+            <h3>${displayProfileMatchNote(profile.biggestUpsetWin)}</h3>
           </article>
           <article class="sidebar-card">
             <p class="story-card__tag">最痛爆冷失利</p>
-            <h3>${profile.worstUpsetLoss}</h3>
+            <h3>${displayProfileMatchNote(profile.worstUpsetLoss)}</h3>
           </article>
         </div>
         <div class="milestone-track">
@@ -1664,6 +2070,51 @@ function initTeamsHubPage() {
   }
 
   const featuredTeams = ["Argentina", "Brazil", "France", "Germany", "England", "Spain"];
+  const teamsCopy = currentLocale === "zh"
+    ? {
+        matches: "场世界杯比赛",
+        peak: "峰值 ELO",
+        wins: "胜",
+        deepPage: "进入球队深页",
+        peakLabel: "峰值 ELO",
+        record: "总战绩",
+        upsetWin: "代表性逆袭",
+        allMatches: "全部世界杯比赛",
+        allMatchesCopy: "进入单队比赛档案页",
+        deepView: "查看深页",
+        curve: "ELO 曲线",
+        curveCopy: "查看完整历史比赛浏览器",
+        trend: "查看比赛史",
+        feature: "历史专题",
+        featureCopy: "结合历史页与比赛浏览器继续深入",
+        matchHistory: "查看比赛史",
+        noCurve: "暂无曲线数据",
+        curveStats: "最低",
+        curveHigh: "最高",
+        curveSample: "样本",
+      }
+    : {
+        matches: "World Cup matches",
+        peak: "Peak Elo",
+        wins: "wins",
+        deepPage: "Open team page",
+        peakLabel: "Peak Elo",
+        record: "Record",
+        upsetWin: "Signature upset",
+        allMatches: "Full World Cup match log",
+        allMatchesCopy: "Open the single-team archive page",
+        deepView: "Open team page",
+        curve: "Elo curve",
+        curveCopy: "Open the full historical match browser",
+        trend: "Open match archive",
+        feature: "History feature",
+        featureCopy: "Keep going through history pages and the match browser",
+        matchHistory: "Open match archive",
+        noCurve: "No curve data available yet",
+        curveStats: "Low",
+        curveHigh: "High",
+        curveSample: "sample",
+      };
 
   gridNode.innerHTML = featuredTeams
     .map((team) => {
@@ -1675,8 +2126,8 @@ function initTeamsHubPage() {
         <article class="feature-card history-mini-card">
           <p class="story-card__tag">${team}</p>
           <h3>${team}</h3>
-          <p>${profile.matches} 场世界杯比赛 · 峰值 ELO ${profile.peakElo} · ${profile.wins} 胜</p>
-          <a href="./team-history.html?team=${encodeURIComponent(team)}">进入球队深页</a>
+          <p>${profile.matches} ${teamsCopy.matches} · ${teamsCopy.peak} ${profile.peakElo} · ${profile.wins} ${teamsCopy.wins}</p>
+          <a href="${teamHistoryPath(team)}">${teamsCopy.deepPage}</a>
         </article>
       `;
     })
@@ -1691,40 +2142,40 @@ function initTeamsHubPage() {
     }
     factsNode.innerHTML = `
       <article class="summary-pill">
-        <strong>峰值 ELO</strong>
+        <strong>${teamsCopy.peakLabel}</strong>
         <span>${profile.peakElo} · ${profile.peakDate}</span>
       </article>
       <article class="summary-pill">
-        <strong>总战绩</strong>
+        <strong>${teamsCopy.record}</strong>
         <span>${profile.wins}-${profile.draws}-${profile.losses}</span>
       </article>
       <article class="summary-pill">
-        <strong>代表性逆袭</strong>
-        <span>${profile.biggestUpsetWin}</span>
+        <strong>${teamsCopy.upsetWin}</strong>
+        <span>${displayProfileMatchNote(profile.biggestUpsetWin)}</span>
       </article>
     `;
 
     linksNode.innerHTML = `
       <article class="schedule-row">
         <div>
-          <strong>${team} 全部世界杯比赛</strong>
-          <p>进入单队比赛档案页</p>
+          <strong>${team} ${teamsCopy.allMatches}</strong>
+          <p>${teamsCopy.allMatchesCopy}</p>
         </div>
-        <a class="button button--ghost" href="./team-history.html?team=${encodeURIComponent(team)}">查看深页</a>
+        <a class="button button--ghost" href="${teamHistoryPath(team)}">${teamsCopy.deepView}</a>
       </article>
       <article class="schedule-row">
         <div>
-          <strong>${team} ELO 曲线</strong>
-          <p>查看完整趋势页里的更多图表</p>
+          <strong>${team} ${teamsCopy.curve}</strong>
+          <p>${teamsCopy.curveCopy}</p>
         </div>
-        <a class="button button--ghost" href="./trends.html">查看趋势</a>
+        <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.trend}</a>
       </article>
       <article class="schedule-row">
         <div>
-          <strong>${team} 历史专题</strong>
-          <p>结合历史页与比赛浏览器继续深入</p>
+          <strong>${team} ${teamsCopy.feature}</strong>
+          <p>${teamsCopy.featureCopy}</p>
         </div>
-        <a class="button button--ghost" href="./history-matches.html">查看比赛史</a>
+        <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.matchHistory}</a>
       </article>
     `;
   };
@@ -1741,13 +2192,13 @@ function initTeamsHubPage() {
     const points = historyCurves[curveSelectNode.value] || [];
     if (!points.length) {
       curveNode.innerHTML = "";
-      curveMetaNode.innerHTML = `<strong>${curveSelectNode.value}</strong><span>暂无曲线数据</span>`;
+      curveMetaNode.innerHTML = `<strong>${curveSelectNode.value}</strong><span>${teamsCopy.noCurve}</span>`;
       return;
     }
     curveNode.innerHTML = renderLineChartSvg(points, `${curveSelectNode.value} curve`, "teams-hub-curve-gradient");
     curveMetaNode.innerHTML = `
       <strong>${curveSelectNode.value}</strong>
-      <span>最低 ${Math.min(...points.map((point) => point.elo))} · 最高 ${Math.max(...points.map((point) => point.elo))} · 样本 ${points.length} 场</span>
+      <span>${teamsCopy.curveStats} ${Math.min(...points.map((point) => point.elo))} · ${teamsCopy.curveHigh} ${Math.max(...points.map((point) => point.elo))} · ${teamsCopy.curveSample} ${points.length}</span>
     `;
   };
 
@@ -1775,23 +2226,23 @@ function initHistoryExplorer() {
   }
 
   yearSelect.innerHTML = [
-    `<option value="all">全部届次</option>`,
+    `<option value="all">${currentLocale === "zh" ? "全部届次" : "All tournaments"}</option>`,
     ...historyExplorerYears.map((year) => `<option value="${year}">${year}</option>`),
   ].join("");
   teamSelect.innerHTML = [
-    `<option value="all">全部球队</option>`,
+    `<option value="all">${currentLocale === "zh" ? "全部球队" : "All teams"}</option>`,
     ...historyExplorerTeams.map((team) => `<option value="${team}">${team}</option>`),
   ].join("");
   upsetSelect.innerHTML = `
-    <option value="all">全部比赛</option>
-    <option value="upset">只看爆冷</option>
-    <option value="non-upset">排除爆冷</option>
+    <option value="all">${currentLocale === "zh" ? "全部比赛" : "All matches"}</option>
+    <option value="upset">${currentLocale === "zh" ? "只看爆冷" : "Upsets only"}</option>
+    <option value="non-upset">${currentLocale === "zh" ? "排除爆冷" : "Exclude upsets"}</option>
   `;
   sortSelect.innerHTML = `
-    <option value="date-desc">按时间倒序</option>
-    <option value="elo-gap">按 ELO 差排序</option>
-    <option value="swing">按波动排序</option>
-    <option value="goals">按总进球排序</option>
+    <option value="date-desc">${currentLocale === "zh" ? "按时间倒序" : "Newest first"}</option>
+    <option value="elo-gap">${currentLocale === "zh" ? "按 ELO 差排序" : "Sort by Elo gap"}</option>
+    <option value="swing">${currentLocale === "zh" ? "按波动排序" : "Sort by swing"}</option>
+    <option value="goals">${currentLocale === "zh" ? "按总进球排序" : "Sort by total goals"}</option>
   `;
 
   const update = () => {
@@ -1814,7 +2265,9 @@ function initHistoryExplorer() {
 
     matches.sort((a, b) => compareExplorerMatches(a, b, sortSelect.value));
 
-    metaNode.textContent = `当前结果：${matches.length} 场比赛`;
+    metaNode.textContent = currentLocale === "zh"
+      ? `当前结果：${matches.length} 场比赛`
+      : `Current results: ${matches.length} matches`;
 
     listNode.innerHTML = matches
       .slice(0, 48)
@@ -1822,14 +2275,14 @@ function initHistoryExplorer() {
         (match) => `
           <article class="explorer-row">
             <div class="explorer-row__top">
-              <strong>${match.home} ${match.homeGoals}:${match.awayGoals} ${match.away}</strong>
+              <strong>${displayTeam(match.home)} ${match.homeGoals}:${match.awayGoals} ${displayTeam(match.away)}</strong>
               <span>${match.date}</span>
             </div>
             <div class="explorer-row__meta">
-              <span>${match.upset ? "爆冷" : "常规结果"}</span>
-              <span>ELO 差 ${match.eloGap}</span>
-              <span>波动 ${match.swing}</span>
-              <span>赛前 ${match.homeEloBefore} vs ${match.awayEloBefore}</span>
+              <span>${match.upset ? (currentLocale === "zh" ? "爆冷" : "Upset") : (currentLocale === "zh" ? "常规结果" : "Standard result")}</span>
+              <span>${currentLocale === "zh" ? "ELO 差" : "Elo gap"} ${match.eloGap}</span>
+              <span>${currentLocale === "zh" ? "波动" : "Swing"} ${match.swing}</span>
+              <span>${currentLocale === "zh" ? "赛前" : "Pre-match"} ${match.homeEloBefore} vs ${match.awayEloBefore}</span>
             </div>
           </article>
         `
@@ -1838,9 +2291,9 @@ function initHistoryExplorer() {
 
     setupCollapsibleSection(listNode, {
       collapsedHeight: 540,
-      buttonText: "展开更多比赛",
-      buttonTextExpanded: "收起比赛列表",
-      itemLabel: "历史比赛浏览器",
+      buttonText: currentLocale === "zh" ? "展开更多比赛" : "Show more matches",
+      buttonTextExpanded: currentLocale === "zh" ? "收起比赛列表" : "Hide match list",
+      itemLabel: currentLocale === "zh" ? "历史比赛浏览器" : "historical match browser",
     });
   };
 
@@ -1869,14 +2322,19 @@ function initHistoryCurves() {
     const points = historyCurves[teamSelect.value] || [];
     if (!points.length) {
       chartNode.innerHTML = "";
-      metaNode.textContent = "没有可展示的 ELO 曲线数据。";
+      metaNode.textContent =
+        currentLocale === "zh" ? "没有可展示的 ELO 曲线数据。" : "No Elo curve data available to display.";
       return;
     }
-    chartNode.innerHTML = renderLineChartSvg(points, `${teamSelect.value} ELO curve`, "curve-gradient");
+    chartNode.innerHTML = renderLineChartSvg(
+      points,
+      `${displayTeam(teamSelect.value)} ELO curve`,
+      "curve-gradient"
+    );
 
     metaNode.innerHTML = `
-      <strong>${teamSelect.value}</strong>
-      <span>最低 ${Math.min(...points.map((point) => point.elo))} · 最高 ${Math.max(...points.map((point) => point.elo))} · 样本 ${points.length} 场</span>
+      <strong>${displayTeam(teamSelect.value)}</strong>
+      <span>${currentLocale === "zh" ? "最低" : "Low"} ${Math.min(...points.map((point) => point.elo))} · ${currentLocale === "zh" ? "最高" : "High"} ${Math.max(...points.map((point) => point.elo))} · ${currentLocale === "zh" ? "样本" : "Sample"} ${points.length}${currentLocale === "zh" ? " 场" : ""}</span>
     `;
   };
 
@@ -1911,6 +2369,57 @@ function initTeamHistoryPage() {
     .join("");
   teamSelect.value =
     queryTeam && historyExplorerTeams.includes(queryTeam) ? queryTeam : "Brazil";
+  const teamCopy = currentLocale === "zh"
+    ? {
+        totalRecord: "总战绩",
+        totalMatches: "场世界杯比赛",
+        goals: "进失球",
+        goalDiff: "净胜球",
+        upsets: "爆冷表现",
+        upsetPair: "爆冷赢球 / 被爆冷输球",
+        upset: "爆冷",
+        normal: "常规结果",
+        eloGap: "ELO 差",
+        swing: "波动",
+        noCurve: "这支球队没有现成的 ELO 轨迹图。",
+        noCurveSample: "暂无曲线样本",
+        low: "最低",
+        high: "最高",
+        sample: "样本",
+        teamsHome: "球队首页",
+        backTeams: "回到球队入口页",
+        historyMatches: "历史匹配",
+        fullBrowser: "查看完整历史比赛浏览器",
+        trends: "比赛史",
+        trendsCopy: "查看完整历史比赛浏览器",
+        switchTeam: "换另一队",
+        switchTeamCopy: "快速切到巴西",
+      }
+    : {
+        totalRecord: "Record",
+        totalMatches: "World Cup matches",
+        goals: "Goals for / against",
+        goalDiff: "Goal difference",
+        upsets: "Upset profile",
+        upsetPair: "upset wins / upset losses",
+        upset: "Upset",
+        normal: "Standard result",
+        eloGap: "Elo gap",
+        swing: "Swing",
+        noCurve: "This team does not have an Elo curve ready yet.",
+        noCurveSample: "No curve sample yet",
+        low: "Low",
+        high: "High",
+        sample: "sample",
+        teamsHome: "Teams hub",
+        backTeams: "Back to teams home",
+        historyMatches: "History browser",
+        fullBrowser: "Open the full historical match browser",
+        trends: "Match browser",
+        trendsCopy: "Open the full historical match browser",
+        switchTeam: "Switch team",
+        switchTeamCopy: "Jump quickly to Brazil",
+      };
 
   const update = () => {
     const team = teamSelect.value;
@@ -1952,19 +2461,19 @@ function initTeamHistoryPage() {
       <div class="team-profile">
         <div class="team-profile__stats">
           <article class="history-stat">
-            <span class="history-stat__label">总战绩</span>
+            <span class="history-stat__label">${teamCopy.totalRecord}</span>
             <strong>${wins}-${draws}-${losses}</strong>
-            <p>${matches.length} 场世界杯比赛</p>
+            <p>${matches.length} ${teamCopy.totalMatches}</p>
           </article>
           <article class="history-stat">
-            <span class="history-stat__label">进失球</span>
+            <span class="history-stat__label">${teamCopy.goals}</span>
             <strong>${gf}:${ga}</strong>
-            <p>净胜球 ${gf - ga}</p>
+            <p>${teamCopy.goalDiff} ${gf - ga}</p>
           </article>
           <article class="history-stat">
-            <span class="history-stat__label">爆冷表现</span>
+            <span class="history-stat__label">${teamCopy.upsets}</span>
             <strong>${upsets}/${upsetLosses}</strong>
-            <p>爆冷赢球 / 被爆冷输球</p>
+            <p>${teamCopy.upsetPair}</p>
           </article>
         </div>
       </div>
@@ -1979,9 +2488,9 @@ function initTeamHistoryPage() {
               <span>${match.date}</span>
             </div>
             <div class="explorer-row__meta">
-              <span>${match.upset ? "爆冷" : "常规结果"}</span>
-              <span>ELO 差 ${match.eloGap}</span>
-              <span>波动 ${match.swing}</span>
+              <span>${match.upset ? teamCopy.upset : teamCopy.normal}</span>
+              <span>${teamCopy.eloGap} ${match.eloGap}</span>
+              <span>${teamCopy.swing} ${match.swing}</span>
             </div>
           </article>
         `
@@ -1992,23 +2501,23 @@ function initTeamHistoryPage() {
     if (curvePoints.length) {
       curveNode.innerHTML = renderLineChartSvg(
         curvePoints,
-        `${team} history curve`,
+        `${displayTeam(team)} history curve`,
         "curve-gradient-alt"
       );
       curveMetaNode.innerHTML = `
-        <strong>${team}</strong>
-        <span>最低 ${Math.min(...curvePoints.map((point) => point.elo))} · 最高 ${Math.max(...curvePoints.map((point) => point.elo))} · 样本 ${curvePoints.length} 场</span>
+        <strong>${displayTeam(team)}</strong>
+        <span>${teamCopy.low} ${Math.min(...curvePoints.map((point) => point.elo))} · ${teamCopy.high} ${Math.max(...curvePoints.map((point) => point.elo))} · ${teamCopy.sample} ${curvePoints.length}</span>
       `;
     } else {
-      curveNode.innerHTML = `<div class="matchup-placeholder">这支球队没有现成的 ELO 轨迹图。</div>`;
-      curveMetaNode.innerHTML = `<strong>${team}</strong><span>暂无曲线样本</span>`;
+      curveNode.innerHTML = `<div class="matchup-placeholder">${teamCopy.noCurve}</div>`;
+      curveMetaNode.innerHTML = `<strong>${displayTeam(team)}</strong><span>${teamCopy.noCurveSample}</span>`;
     }
 
     linksNode.innerHTML = `
-      <li><strong>球队首页：</strong><a href="./teams.html">回到球队入口页</a></li>
-      <li><strong>历史匹配：</strong><a href="./history-matches.html">查看完整历史比赛浏览器</a></li>
-      <li><strong>趋势比较：</strong><a href="./trends.html">进入趋势图页</a></li>
-      <li><strong>换另一队：</strong><a href="./team-history.html?team=Brazil">快速切到巴西</a></li>
+      <li><strong>${teamCopy.teamsHome}:</strong> <a href="${teamsPath()}">${teamCopy.backTeams}</a></li>
+      <li><strong>${teamCopy.historyMatches}:</strong> <a href="${historyMatchesPath()}">${teamCopy.fullBrowser}</a></li>
+      <li><strong>${teamCopy.trends}:</strong> <a href="${historyMatchesPath()}">${teamCopy.trendsCopy}</a></li>
+      <li><strong>${teamCopy.switchTeam}:</strong> <a href="${teamHistoryPath("Brazil")}">${teamCopy.switchTeamCopy}</a></li>
     `;
 
     const nextUrl = new URL(window.location.href);
@@ -2019,57 +2528,6 @@ function initTeamHistoryPage() {
   teamSelect.addEventListener("change", update);
   sortSelect.addEventListener("change", update);
   update();
-}
-
-function initTrendsPage() {
-  const championsNode = document.querySelector("#chart-champions");
-  const goalsNode = document.querySelector("#chart-goals");
-  const chaosNode = document.querySelector("#chart-chaos");
-  const neverNode = document.querySelector("#chart-never");
-
-  if (!championsNode || !goalsNode || !chaosNode || !neverNode) {
-    return;
-  }
-
-  const championCounts = Object.entries(
-    historyTimeline.reduce((accumulator, item) => {
-      accumulator[item.champion] = (accumulator[item.champion] || 0) + 1;
-      return accumulator;
-    }, {})
-  )
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8)
-    .map(([label, value]) => ({ label, value }));
-
-  championsNode.innerHTML = renderBarChartSvg(
-    championCounts,
-    "冠军次数分布",
-    "次"
-  );
-
-  goalsNode.innerHTML = renderLineChartSvg(
-    historyTimeline.map((item) => ({ date: String(item.year), elo: item.goals })),
-    "历届总进球趋势",
-    "curve-gradient"
-  );
-
-  chaosNode.innerHTML = renderLineChartSvg(
-    historyChaos
-      .slice()
-      .reverse()
-      .map((item) => ({ date: String(item.year), elo: item.eloSwing })),
-    "混乱指数走势",
-    "curve-gradient-alt"
-  );
-
-  neverNode.innerHTML = renderBarChartSvg(
-    bestNeverChampions.slice(0, 8).map((item) => ({
-      label: item.team,
-      value: item.peakElo,
-    })),
-    "最强未夺冠球队峰值 ELO",
-    "ELO"
-  );
 }
 
 function initPredictionPage() {
@@ -2089,7 +2547,34 @@ function initPredictionPage() {
     return;
   }
 
-  assumptionsNode.innerHTML = modelAssumptions
+  const predictionCopy = currentLocale === "zh"
+    ? {
+        oddsLabel: "简化争冠概率",
+        chooseDifferent: "请选择两支不同的球队。",
+        eloGap: "ELO 差值",
+        win: "胜",
+        draw: "平局",
+        knockout: "淘汰赛晋级概率",
+      }
+    : {
+        oddsLabel: "Simplified title probability",
+        chooseDifferent: "Please select two different teams.",
+        eloGap: "Elo gap",
+        win: "win",
+        draw: "draw",
+        knockout: "Knockout advance probability",
+      };
+
+  const localizedAssumptions = currentLocale === "zh"
+    ? modelAssumptions
+    : [
+        "This model uses the latest World Cup Elo value from the historical spreadsheet as the base team strength.",
+        "It assumes a neutral venue and does not add home-field advantage.",
+        "Three-way probabilities include the draw; knockout advance probability treats penalties as a 50-50 split after a draw.",
+        "Title probability is based on a simplified knockout simulation among the highest-Elo teams and is meant to explain the model, not replace market odds.",
+      ];
+
+  assumptionsNode.innerHTML = localizedAssumptions
     .map((item) => `<li>${item}</li>`)
     .join("");
 
@@ -2098,8 +2583,8 @@ function initPredictionPage() {
       (item) => `
         <article class="odds-row">
           <div>
-            <strong>${item.team}</strong>
-            <span>简化争冠概率</span>
+            <strong>${displayTeam(item.team)}</strong>
+            <span>${predictionCopy.oddsLabel}</span>
           </div>
           <div class="odds-row__bar">
             <span style="width: ${item.probability}%"></span>
@@ -2113,7 +2598,7 @@ function initPredictionPage() {
   const options = predictionTeams
     .map(
       (item) =>
-        `<option value="${item.team}">${item.team} · ELO ${item.elo}</option>`
+        `<option value="${item.team}">${displayTeam(item.team)} · ELO ${item.elo}</option>`
     )
     .join("");
 
@@ -2129,7 +2614,7 @@ function initPredictionPage() {
     if (!teamA || !teamB || teamA.team === teamB.team) {
       resultNode.innerHTML = `
         <div class="matchup-placeholder">
-          请选择两支不同的球队。
+          ${predictionCopy.chooseDifferent}
         </div>
       `;
       return;
@@ -2143,27 +2628,27 @@ function initPredictionPage() {
     resultNode.innerHTML = `
       <div class="matchup-card">
         <div class="matchup-card__header">
-          <h3>${teamA.team} vs ${teamB.team}</h3>
-          <p>ELO 差值：${teamA.elo - teamB.elo}</p>
+          <h3>${displayTeam(teamA.team)} vs ${displayTeam(teamB.team)}</h3>
+          <p>${predictionCopy.eloGap}: ${teamA.elo - teamB.elo}</p>
         </div>
         <div class="probability-grid">
           <article class="probability-card">
-            <span>${teamA.team} 胜</span>
+            <span>${displayTeam(teamA.team)} ${predictionCopy.win}</span>
             <strong>${formatPct(homeWin)}</strong>
           </article>
           <article class="probability-card">
-            <span>平局</span>
+            <span>${predictionCopy.draw}</span>
             <strong>${formatPct(draw)}</strong>
           </article>
           <article class="probability-card">
-            <span>${teamB.team} 胜</span>
+            <span>${displayTeam(teamB.team)} ${predictionCopy.win}</span>
             <strong>${formatPct(awayWin)}</strong>
           </article>
         </div>
         <div class="knockout-card">
-          <span>淘汰赛晋级概率</span>
-          <strong>${teamA.team} ${formatPct(knockoutA)}</strong>
-          <strong>${teamB.team} ${formatPct(1 - knockoutA)}</strong>
+          <span>${predictionCopy.knockout}</span>
+          <strong>${displayTeam(teamA.team)} ${formatPct(knockoutA)}</strong>
+          <strong>${displayTeam(teamB.team)} ${formatPct(1 - knockoutA)}</strong>
         </div>
       </div>
     `;
@@ -2177,19 +2662,19 @@ function initPredictionPage() {
 function renderMatchCard(match) {
   return `
     <article class="match-card">
-      <span class="match-card__stage">${match.stage} · ${humanizeMatchStatus(match)}</span>
+      <span class="match-card__stage">${displayStage(match.stage)} · ${humanizeMatchStatus(match)}</span>
       <div class="match-card__teams">
         <div class="match-card__team">
-          <span>主队</span>
-          <strong>${match.home}</strong>
+          <span>${currentLocale === "zh" ? "主队" : "Home"}</span>
+          <strong>${displayTeam(match.home)}</strong>
         </div>
         <div class="match-card__score">${match.score}</div>
         <div class="match-card__team">
-          <span>客队</span>
-          <strong>${match.away}</strong>
+          <span>${currentLocale === "zh" ? "客队" : "Away"}</span>
+          <strong>${displayTeam(match.away)}</strong>
         </div>
       </div>
-      <p class="match-card__meta">${match.meta}</p>
+      <p class="match-card__meta">${displayMatchMeta(match)}</p>
     </article>
   `;
 }
@@ -2205,7 +2690,7 @@ function renderGroupTabs(groupTabs, groupTableBody) {
           aria-selected="${group === activeGroup}"
           data-group="${group}"
         >
-          ${group}组
+          ${displayGroupLabel(group)}
         </button>
       `
     )
@@ -2225,7 +2710,7 @@ function renderGroupTable(groupTableBody, groupKey) {
     .map(
       (team) => `
         <tr>
-          <td><strong>${team.team}</strong></td>
+          <td><strong>${displayTeam(team.team)}</strong></td>
           <td>${team.played}</td>
           <td>${team.win}</td>
           <td>${team.draw}</td>
@@ -2252,7 +2737,7 @@ function renderPoll(pollNode) {
             type="button"
             data-vote="${option.label}"
           >
-            ${option.label}
+            ${displayTeam(option.label)}
           </button>
           <span class="poll__result">${percentage}%</span>
         </div>
@@ -2269,7 +2754,7 @@ function renderPoll(pollNode) {
 }
 
 function renderScheduleFilters(filterNode, scheduleList) {
-  const stages = ["全部", ...new Set(matches.map((match) => match.stage))];
+  const stages = ["all", ...new Set(matches.map((match) => match.stage))];
 
   filterNode.innerHTML = stages
     .map(
@@ -2281,7 +2766,7 @@ function renderScheduleFilters(filterNode, scheduleList) {
           aria-selected="${stage === activeStage}"
           data-stage="${stage}"
         >
-          ${stage}
+          ${stage === "all" ? (currentLocale === "zh" ? "全部" : "All") : displayStage(stage)}
         </button>
       `
     )
@@ -2298,7 +2783,7 @@ function renderScheduleFilters(filterNode, scheduleList) {
 
 function renderScheduleList(scheduleList, stage) {
   const visibleMatches =
-    stage === "全部"
+    stage === "all"
       ? matches
       : matches.filter((match) => match.stage === stage);
 
@@ -2311,7 +2796,7 @@ function renderRankingList(items) {
       (item, index) => `
         <article class="ranking-row">
           <span class="ranking-row__index">${index + 1}</span>
-          <strong>${item.team}</strong>
+          <strong>${displayTeam(item.team)}</strong>
           <span>${item.label}</span>
           <em>${item.value}</em>
         </article>
@@ -2337,12 +2822,12 @@ function renderScheduleRow(match) {
   return `
     <article class="schedule-row">
       <div>
-        <strong>${match.home} vs ${match.away}</strong>
-        <p>${match.stage} · ${match.venue} · ${match.kickoff} · ${humanizeMatchStatus(match)} ${match.minute || ""}</p>
+        <strong>${displayTeam(match.home)} vs ${displayTeam(match.away)}</strong>
+        <p>${displayStage(match.stage)} · ${displayVenue(match.venue)} · ${match.kickoff} · ${humanizeMatchStatus(match)} ${match.minute || ""}</p>
       </div>
       <div class="schedule-row__actions">
-        <a class="button button--ghost" href="./match.html?id=${match.id}">比赛详情</a>
-        <a class="button button--ghost" href="./article.html">前瞻文章</a>
+        <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "比赛详情" : "Match details"}</a>
+        <a class="button button--ghost" href="${articlePath()}">${currentLocale === "zh" ? "前瞻文章" : "Preview article"}</a>
       </div>
     </article>
   `;
@@ -2353,10 +2838,10 @@ function renderMatchSpotlight(match) {
     <article class="spotlight-match">
       <div>
         <p class="story-card__tag">${humanizeMatchStatus(match)}</p>
-        <h3>${match.home} vs ${match.away}</h3>
-        <p>${match.kickoff} · ${match.venue}</p>
+        <h3>${displayTeam(match.home)} vs ${displayTeam(match.away)}</h3>
+        <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
       </div>
-      <a class="button button--ghost" href="./match.html?id=${match.id}">查看比赛</a>
+      <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "查看比赛" : "Open match"}</a>
     </article>
   `;
 }
@@ -2364,10 +2849,10 @@ function renderMatchSpotlight(match) {
 function renderMatchStateNotice(title, copy) {
   return `
     <article class="feature-card history-mini-card">
-      <p class="story-card__tag">Pre-Tournament</p>
+      <p class="story-card__tag">${currentUi.preTournament}</p>
       <h3>${title}</h3>
       <p>${copy}</p>
-      <a href="./schedule.html">查看完整赛程</a>
+      <a href="${pagePath("schedule")}">${currentUi.viewFullSchedule}</a>
     </article>
   `;
 }
@@ -2377,12 +2862,12 @@ function renderLiveCard(match) {
     <article class="live-card">
       <div class="live-card__top">
         <span class="live-pill ${match.status === "live" ? "is-live" : ""}">${humanizeMatchStatus(match)}</span>
-        <span>${match.stage}</span>
+        <span>${displayStage(match.stage)}</span>
       </div>
-      <h3>${match.home} ${match.score} ${match.away}</h3>
-      <p>${match.kickoff} · ${match.venue}</p>
+      <h3>${displayTeam(match.home)} ${match.score} ${displayTeam(match.away)}</h3>
+      <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
       <div class="live-card__actions">
-        <a class="button button--ghost" href="./match.html?id=${match.id}">打开比赛页</a>
+        <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "打开比赛页" : "Open match"}</a>
       </div>
     </article>
   `;
@@ -2391,20 +2876,301 @@ function renderLiveCard(match) {
 function renderWatchlistCard(match) {
   return `
     <article class="watchlist-row">
-      <strong>${match.home} vs ${match.away}</strong>
-      <span>${match.stage} · ${match.kickoff}</span>
+      <strong>${displayTeam(match.home)} vs ${displayTeam(match.away)}</strong>
+      <span>${displayStage(match.stage)} · ${match.kickoff}</span>
+      <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "比赛详情" : "Match details"}</a>
     </article>
   `;
 }
 
+function pagePath(routeKey) {
+  return localizedRoutes[routeKey]?.[currentLocale] || homepageCopy[currentLocale]?.switchHref || "/";
+}
+
+function matchPath(matchId) {
+  return `${pagePath("match")}?id=${matchId}`;
+}
+
+function predictionPath() {
+  return pagePath("prediction");
+}
+
+function articlePath() {
+  return currentLocale === "en" ? "../article.html" : "/article.html";
+}
+
+function teamsPath() {
+  return pagePath("teams");
+}
+
+function teamHistoryPath(team) {
+  return `${pagePath("teamHistory")}?team=${encodeURIComponent(team)}`;
+}
+
+function historyMatchesPath() {
+  return pagePath("historyMatches");
+}
+
+function historyArchivePath() {
+  return pagePath("historyArchive");
+}
+
+function historyUpsetsPath() {
+  return pagePath("historyUpsets");
+}
+
 function humanizeMatchStatus(match) {
   if (match.status === "live") {
-    return match.minute ? `进行中 ${match.minute}` : "进行中";
+    return match.minute
+      ? `${currentUi.statusLive} ${match.minute}`
+      : currentUi.statusLive;
   }
   if (match.status === "finished") {
-    return "已结束";
+    return currentUi.statusFinished;
   }
-  return "未开始";
+  return currentUi.statusScheduled;
+}
+
+function displayTeam(team) {
+  if (currentLocale === "zh") {
+    return team;
+  }
+  return teamNameMap[team] || team;
+}
+
+function displayScore(score) {
+  if (currentLocale === "zh") {
+    return score;
+  }
+  return score.replace("（点球）", " (pens)");
+}
+
+function displayMatchMeta(match) {
+  if (currentLocale === "zh") {
+    return match.meta;
+  }
+  return match.meta
+    .replace("揭幕战", "Opening match")
+    .replace("半决赛", "Semi-final")
+    .replace("决赛", "Final")
+    .replace(/([A-L])组首轮/g, "Group $1 · Matchday 1");
+}
+
+function displayArchiveFormat(format) {
+  if (currentLocale === "zh") {
+    return format;
+  }
+  return format
+    .replaceAll("16强", "Round of 16")
+    .replaceAll("8强", "Quarter-finals")
+    .replaceAll("半决赛", "Semi-finals")
+    .replaceAll("三四名", "Third-place match")
+    .replaceAll("决赛轮", "Final round")
+    .replaceAll("第二小组赛", "Second group stage");
+}
+
+function displayProfileMatchNote(note) {
+  if (currentLocale === "zh") {
+    return note;
+  }
+  const parsed = note.match(/^(\d{4})\s+(.+?)\s+([0-9:]+(?:（点球）)?)\s+(.+)$/);
+  if (!parsed) {
+    return note;
+  }
+  return `${parsed[1]} ${displayTeam(parsed[2])} ${displayScore(parsed[3])} ${displayTeam(parsed[4])}`;
+}
+
+function localizeHistoryOverview(item, index) {
+  if (currentLocale === "zh") {
+    return item;
+  }
+  const entries = [
+    {
+      label: "Tournament coverage",
+      detail: "Covers every completed World Cup from 1930 through 2022.",
+    },
+    {
+      label: "Match count",
+      detail: "Aggregated from the match-by-match spreadsheet using the `WC` competition code.",
+    },
+    {
+      label: "Total goals",
+      detail: "An average of 2.82 goals per match supports long-term trend and style analysis.",
+    },
+    {
+      label: "Upset count",
+      detail: "Defined as matches won by the lower pre-match Elo side, making this one of the site’s strongest drama layers.",
+    },
+  ];
+  return entries[index] || item;
+}
+
+function localizeArchiveOverview(item, index) {
+  if (currentLocale === "zh") {
+    return item;
+  }
+  const entries = [
+    {
+      label: "Archive scope",
+      value: "27 datasets",
+      detail: "Pulls tournaments, matches, players, events, and standings into one historical layer.",
+    },
+    {
+      label: "Tournaments covered",
+      value: "22",
+      detail: "Full coverage of all 22 men’s World Cups from 1930 to 2022.",
+    },
+    {
+      label: "Match count",
+      value: "964",
+      detail: "Match-level structure supports stage, venue, city, referee, and event views.",
+    },
+    {
+      label: "Event records",
+      value: "13,302",
+      detail: "Goals, penalties, bookings, and substitutions all feed the same archive layer.",
+    },
+    {
+      label: "Team records",
+      value: "85",
+      detail: "Includes appearances, rankings, hosts, groups, and match performance.",
+    },
+    {
+      label: "Player records",
+      value: "8,482",
+      detail: "Built from squads, appearances, goals, and awards.",
+    },
+    {
+      label: "Managers / referees",
+      value: "376 / 400",
+      detail: "The archive keeps the bench and officiating layer, not just the players.",
+    },
+    {
+      label: "Venues and cities",
+      value: "193",
+      detail: "Every host stadium and city can feed the geographic archive layer.",
+    },
+  ];
+  return entries[index] || item;
+}
+
+function displayTimelineNote(item) {
+  if (currentLocale === "zh") {
+    return item.note;
+  }
+  const notes = {
+    1930: "The first World Cup ended with the hosts lifting the trophy.",
+    1934: "The tournament shifted into a knockout-era format.",
+    1938: "Italy completed back-to-back titles.",
+    1950: "A classic tournament decided by the final round.",
+    1954: "The Miracle of Bern arrived with a goal explosion.",
+    1958: "Brazil won the title for the first time.",
+    1962: "Brazil successfully defended the trophy.",
+    1966: "England claimed their only World Cup title.",
+    1970: "Brazil lifted their third crown.",
+    1974: "One of the defining tournaments of the Total Football era.",
+    1978: "Argentina won their first title at home.",
+    1982: "The field expanded to 24 teams.",
+    1986: "A defining Maradona tournament.",
+    1990: "An emblematic low-scoring World Cup.",
+    1994: "The final went all the way to penalties.",
+    1998: "The tournament expanded to 32 teams.",
+    2002: "The first co-hosted World Cup.",
+    2006: "Italy lifted a fourth title.",
+    2010: "Spain won their first World Cup.",
+    2014: "Germany secured a fourth title.",
+    2018: "France won their second title.",
+    2022: "The highest-scoring World Cup in this dataset.",
+  };
+  return notes[item.year] || item.note;
+}
+
+function displayCollapseRecord(record) {
+  if (currentLocale === "zh") {
+    return record;
+  }
+  return record
+    .replace("胜", "W ")
+    .replace("平", "D ")
+    .replace("负", "L")
+    .replace(/(\d)W /g, "$1W ")
+    .replace(/(\d)D /g, "$1D ")
+    .trim();
+}
+
+function displayCollapseNote(item) {
+  if (currentLocale === "zh") {
+    return item.note;
+  }
+  const notes = {
+    "2014-Spain": "The defending champions went out in the group stage.",
+    "1978-Netherlands": "A high-Elo heavyweight still finished without the title.",
+    "1982-West Germany": "The tournament opened with the Algeria shock.",
+    "2002-France": "The defending champions exited without scoring a goal.",
+    "1954-Hungary": "An all-time great side collapsed in the final.",
+    "2010-Germany": "A dominant run still stopped short in the semi-finals.",
+    "1990-Sweden": "A highly rated side lost all three group matches.",
+    "1958-West Germany": "The team visibly dropped off under a brutal schedule.",
+  };
+  return notes[`${item.year}-${item.team}`] || item.note;
+}
+
+function displayVenue(venue) {
+  if (currentLocale === "zh") {
+    return venue;
+  }
+  return venueNameMap[venue] || venue;
+}
+
+function displayPlayerName(player) {
+  if (currentLocale !== "zh") {
+    return player;
+  }
+  return playerNameMap[player] || player;
+}
+
+function formatPlayerInline(player) {
+  if (currentLocale !== "zh") {
+    return player;
+  }
+  const localized = displayPlayerName(player);
+  if (localized === player) {
+    return player;
+  }
+  return `${localized}（${player}）`;
+}
+
+function formatPlayerTitle(player) {
+  if (currentLocale !== "zh") {
+    return player;
+  }
+  const localized = displayPlayerName(player);
+  if (localized === player) {
+    return player;
+  }
+  return `${localized} <span class="story-row__subtle">${player}</span>`;
+}
+
+function displayStage(stage) {
+  if (currentLocale === "zh") {
+    return stage;
+  }
+  if (/^[A-L]组$/.test(stage)) {
+    return `Group ${stage[0]}`;
+  }
+  const stageMap = {
+    揭幕战: "Opening match",
+    半决赛: "Semi-finals",
+    决赛: "Final",
+  };
+  return stageMap[stage] || stage;
+}
+
+function displayGroupLabel(group) {
+  if (currentLocale === "zh") {
+    return `${group}${currentUi.groupLabel}`;
+  }
+  return `${currentUi.groupLabel} ${group}`;
 }
 
 function getHomepageMatches() {

@@ -1,47 +1,47 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | 单队世界杯档案</title>
+    <title>WorldCup Pulse | Team World Cup Archive</title>
     <meta
       name="description"
-      content="查看单支球队的世界杯历史、全部比赛、关键统计与 ELO 曲线。"
+      content="View a single team's World Cup history, full match log, key metrics, and Elo curve."
     />
-    <link rel="canonical" href="https://www.worldcuppulse.com/zh/team-history.html" />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/team-history.html" />
     <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/team-history.html" />
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/team-history.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/team-history.html" />
-    <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body data-page="team-history" data-locale="zh" data-route-key="teamHistory">
+  <body data-page="team-history" data-locale="en" data-route-key="teamHistory">
     <main class="site-shell">
       <header class="masthead masthead--compact">
         <nav class="nav">
           <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
           <div class="nav__links">
-            <a href="./index.html">首页</a>
-            <a href="./schedule.html">赛程</a>
+            <a href="./index.html">Home</a>
+            <a href="./schedule.html">Schedule</a>
             <a href="./live.html">Live</a>
-            <a href="./history.html">历史</a>
-            <a href="./prediction.html">预测</a>
-            <a href="./team-history.html" aria-current="page">球队档案</a>
-            <a href="./teams.html">球队页</a>
-            <a href="/en/team-history.html" data-locale-switch>EN</a>
+            <a href="./history.html">History</a>
+            <a href="./prediction.html">Prediction</a>
+            <a href="./team-history.html" aria-current="page">Team Hub</a>
+            <a href="./teams.html">Teams</a>
+            <a href="/zh/team-history.html" data-locale-switch>Chinese</a>
           </div>
         </nav>
 
         <section class="page-hero history-hero">
           <div class="page-hero__copy">
             <p class="eyebrow">Team Archive</p>
-            <h1>单队世界杯档案，不该只是把比赛一场场排下去</h1>
-              <p class="hero__lede">
-              这页会先告诉你一支球队的大致轮廓，再带你看曲线、代表性比赛和完整世界杯记录。这样读起来会比纯列表轻松很多。
+            <h1>A team page should do more than list matches one after another</h1>
+            <p class="hero__lede">
+              This page should sketch the team first, then guide the user through curves, signature matches, and the full World Cup record.
             </p>
           </div>
           <div class="page-hero__aside quote-card history-hero__aside">
-            <p>真正有价值的球队页，不只是“数据全”，而是能让人三分钟就抓住这支球队在世界杯里的气质。</p>
+            <p>A strong team page is not just “complete.” It should help a user grasp the team's World Cup identity in a few minutes.</p>
           </div>
         </section>
       </header>
@@ -49,16 +49,16 @@
       <section class="section">
         <div class="selector-grid">
           <label class="selector-card">
-            <span>选择球队</span>
+            <span>Select team</span>
             <select id="team-history-select"></select>
           </label>
           <label class="selector-card">
-            <span>比赛排序</span>
+            <span>Match order</span>
             <select id="team-history-sort">
-              <option value="date-desc">按时间倒序</option>
-              <option value="elo-gap">按 ELO 差排序</option>
-              <option value="swing">按波动排序</option>
-              <option value="goals">按总进球排序</option>
+              <option value="date-desc">Newest first</option>
+              <option value="elo-gap">Sort by Elo gap</option>
+              <option value="swing">Sort by swing</option>
+              <option value="goals">Sort by total goals</option>
             </select>
           </label>
         </div>
@@ -69,7 +69,7 @@
           <div class="section__heading section__heading--stack">
             <div>
               <p class="eyebrow">Quick View</p>
-              <h2>先看这支队的整体画像</h2>
+              <h2>Understand the team at a glance</h2>
             </div>
           </div>
           <div id="team-history-summary"></div>
@@ -86,7 +86,7 @@
             <div class="section__heading section__heading--stack">
               <div>
                 <p class="eyebrow">Related</p>
-                <h2>看完这里，还能继续去哪</h2>
+                <h2>Where to go next from here</h2>
               </div>
             </div>
             <ul class="spotlight-list" id="team-history-links"></ul>
@@ -98,18 +98,18 @@
         <div class="section__heading">
           <div>
             <p class="eyebrow">All Matches</p>
-            <h2>全部世界杯比赛</h2>
+            <h2>Full World Cup match log</h2>
           </div>
-          <p class="section__intro">如果你只是想找一场经典比赛，可以先切排序；如果想完整回顾，也可以从头一路翻下去。</p>
+          <p class="section__intro">If the user wants one famous match, sorting helps. If they want the full record, they can scroll the whole archive.</p>
         </div>
         <div class="explorer-list" id="team-history-matches"></div>
       </section>
 
       <footer class="footer">
-        <p>这页现在先讲清球队是什么样，再带你进入完整比赛档案，而不是一上来就扔给你长列表。</p>
+        <p>This page now explains what the team is like first, then leads into the full record instead of throwing a long match list at the user immediately.</p>
       </footer>
     </main>
 
-    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="../src/app.js"></script>
   </body>
 </html>

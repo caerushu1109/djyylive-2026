@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | Prediction Hub</title>
+    <meta
+      name="description"
+      content="A World Cup prediction hub based on historical Elo data, including matchup probabilities, model assumptions, and simplified title odds."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WorldCup Pulse | Prediction Hub" />
+    <meta property="og:description" content="Use an explainable Elo model to compare teams and view simplified title probabilities." />
+    <meta property="og:url" content="https://www.worldcuppulse.com/en/prediction.html" />
+    <meta property="og:site_name" content="WorldCup Pulse" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WorldCup Pulse | Prediction Hub" />
+    <meta name="twitter:description" content="See how the model thinks before reading the probabilities." />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/prediction.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/prediction.html" />
+    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/prediction.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/prediction.html" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-page="prediction" data-locale="en" data-route-key="prediction">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">Home</a>
+            <a href="./schedule.html">Schedule</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">History</a>
+            <a href="./prediction.html" aria-current="page">Prediction</a>
+            <a href="./team-history.html">Team Hub</a>
+            <a href="./teams.html">Teams</a>
+            <a href="../article.html">Articles</a>
+            <a href="/zh/prediction.html" data-locale-switch>Chinese</a>
+          </div>
+        </nav>
+
+        <section class="page-hero history-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">Prediction Hub</p>
+            <h1>A prediction page should explain the model, not just throw out a number</h1>
+            <p class="hero__lede">
+              This page should explain how the model sees football before showing the probabilities. The result matters, but so does knowing why it exists and where not to over-trust it.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#matchup-lab">Run a matchup</a>
+              <a class="button button--ghost" href="./history-upsets.html">Review historic upsets</a>
+            </div>
+          </div>
+          <div class="page-hero__aside quote-card history-hero__aside">
+            <p>A useful prediction page is not about “the model has spoken.” It is about how much confidence a user should assign to what they just read.</p>
+          </div>
+        </section>
+      </header>
+
+      <section class="section">
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>Model position</strong>
+            <span>This is an explainable Elo model, not betting market odds and not a black-box AI.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>Best use case</strong>
+            <span>It is strong for previews, team comparisons, and editorial discussion, not live betting decisions.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>Main value</strong>
+            <span>It turns historical data into a real tool and interaction layer instead of leaving it as a static archive.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section prediction-layout" id="matchup-lab">
+        <article class="prediction-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Matchup</p>
+              <h2>Matchup probability calculator</h2>
+            </div>
+          </div>
+          <div class="section-summary">Choose two teams and the model will return three-way result probabilities plus a knockout-advance view.</div>
+
+          <div class="selector-grid">
+            <label class="selector-card">
+              <span>Team A</span>
+              <select id="team-a"></select>
+            </label>
+            <label class="selector-card">
+              <span>Team B</span>
+              <select id="team-b"></select>
+            </label>
+          </div>
+
+          <div id="matchup-result"></div>
+        </article>
+
+        <aside class="prediction-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Assumptions</p>
+              <h2>What to know before trusting this page</h2>
+            </div>
+          </div>
+          <ul class="assumption-list" id="model-assumptions"></ul>
+        </aside>
+      </section>
+
+      <section class="section section--split">
+        <article class="prediction-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Title Odds</p>
+              <h2>Simplified title probability</h2>
+            </div>
+          </div>
+          <div class="section-summary">This is better used as a directional content layer than as a final odds conclusion.</div>
+          <div class="odds-list" id="title-odds"></div>
+        </article>
+
+        <aside class="prediction-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">How To Use</p>
+              <h2>Best ways to use this page</h2>
+            </div>
+          </div>
+          <ul class="spotlight-list">
+            <li><strong>Pre-match content:</strong> use it to write who is more favored, not who is guaranteed to win.</li>
+            <li><strong>Historical context:</strong> <a href="./history-upsets.html">go back to the upsets page</a> to understand why the model can fail.</li>
+            <li><strong>Team angle:</strong> <a href="./team-history.html?team=France">open a team page</a> to see long-term strength and volatility.</li>
+            <li><strong>Future expansion:</strong> later this can connect to 2026 live inputs and Monte Carlo simulation.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <p>The prediction hub now explains the model first and delivers the calculation second, which makes it read more like a serious tool than a random probability widget.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="../src/app.js"></script>
+  </body>
+</html>

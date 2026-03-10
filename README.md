@@ -11,7 +11,6 @@ A static World Cup special-site prototype focused on history, data analysis, and
 - `live.html`
 - `match.html`
 - `team-history.html`
-- `trends.html`
 - `teams.html`
 - `article.html`
 
@@ -33,7 +32,6 @@ Then open:
 - `http://localhost:8080/live.html`
 - `http://localhost:8080/match.html?id=wc26-eng-cro`
 - `http://localhost:8080/team-history.html`
-- `http://localhost:8080/trends.html`
 
 ## Data Layers
 
@@ -48,6 +46,26 @@ Then open:
 
 - `WORLD_CUP_FRAMEWORK.md`
   - site structure, routing, page roles, and source split
+- `SESSION_HANDOFF.md`
+  - continue-from-here handoff for future sessions
+- `I18N_ROADMAP.md`
+  - bilingual rollout notes for `/zh` and `/en`
+- `API_REQUIREMENTS.md`
+  - required data contract before buying a football API
+- `LAUNCH_CHECKLIST.md`
+  - minimum launch gate before binding a real domain
+- `DEPLOYMENT.md`
+  - deployment and domain-binding steps
+
+## Launch Foundation
+
+This repo now includes basic launch/deploy assets:
+
+- `404.html`
+- `robots.txt`
+- `sitemap.xml`
+- `site.webmanifest`
+- `vercel.json`
 
 ## Elo Update Workflow
 

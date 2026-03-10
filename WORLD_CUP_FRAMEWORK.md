@@ -140,12 +140,6 @@ Required modules:
 - full World Cup match archive
 - team Elo curve
 
-### Trends
-
-Primary job:
-
-- compress decades of data into quickly understandable visuals
-
 Required modules:
 
 - champion distribution
@@ -207,7 +201,6 @@ Use for:
 - `live.html`
 - `match.html`
 - `team-history.html`
-- `trends.html`
 - `src/history-data.js`
 - `src/history-generated.js`
 - `src/prediction-data.js`

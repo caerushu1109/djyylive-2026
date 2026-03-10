@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | Match Center</title>
+    <meta
+      name="description"
+      content="The World Cup match center with fixture discovery, live entry points, filters, and a path toward standings and bracket pages."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WorldCup Pulse | Match Center" />
+    <meta property="og:description" content="Use the match center to answer what to watch today, what is next, and how to move into live or match pages." />
+    <meta property="og:url" content="https://www.worldcuppulse.com/en/schedule.html" />
+    <meta property="og:site_name" content="WorldCup Pulse" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WorldCup Pulse | Match Center" />
+    <meta name="twitter:description" content="The fastest route into fixtures, filters, Live, and single-match pages." />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/schedule.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/schedule.html" />
+    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/schedule.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/schedule.html" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-page="schedule" data-locale="en" data-route-key="schedule">
+    <main class="site-shell">
+      <header class="masthead masthead--compact">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html">Home</a>
+            <a href="./schedule.html" aria-current="page">Schedule</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">History</a>
+            <a href="./prediction.html">Prediction</a>
+            <a href="./team-history.html">Team Hub</a>
+            <a href="/zh/schedule.html" data-locale-switch>Chinese</a>
+          </div>
+        </nav>
+
+        <section class="page-hero history-hero">
+          <div class="page-hero__copy">
+            <p class="eyebrow">Match Center</p>
+            <h1>Help users find the right match first, then let them decide whether to click in</h1>
+            <p class="hero__lede">
+              This page should organize matchday information before anything else. Live now, starting soon, then filters for the few games a user truly cares about.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="./live.html">Open Live</a>
+              <a class="button button--ghost" href="./match.html?id=wc26-eng-cro">Open a match page</a>
+            </div>
+          </div>
+          <div class="page-hero__aside quote-card history-hero__aside">
+            <p>During the World Cup, the schedule page, live page, and single-match page become the highest-frequency surfaces. They have to reduce decision friction.</p>
+          </div>
+        </section>
+
+        <nav class="history-subnav">
+          <a href="./schedule.html" aria-current="page">Match Center</a>
+          <a href="./live.html">Live Overview</a>
+          <a href="./match.html?id=wc26-eng-cro">Match Detail</a>
+        </nav>
+      </header>
+
+      <section class="section">
+        <div class="summary-strip">
+          <article class="summary-pill">
+            <strong>Page role</strong>
+            <span>This page helps users find matches. It should not carry every live detail itself.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>High-frequency path</strong>
+            <span>Users usually scan fixtures here, then move into live, a match page, a team page, or prediction.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>API-ready fields</strong>
+            <span>Stage, team, status, and match id are already structured for later API integration.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section schedule-hub">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Live Now</p>
+              <h2>Matches in progress</h2>
+            </div>
+          </div>
+          <div class="section-summary">On a matchday, this should answer the first question in three seconds: what should I open now?</div>
+          <div id="schedule-live-now"></div>
+        </article>
+
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Upcoming</p>
+              <h2>Starting soon</h2>
+            </div>
+          </div>
+          <div class="section-summary">This block answers the next question: what is the next match worth waiting for?</div>
+          <div id="schedule-upcoming"></div>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Filters</p>
+            <h2>Fixture filters</h2>
+          </div>
+          <p class="section__intro">A strong match center is not about maximum volume. It is about helping users discard irrelevant games quickly.</p>
+        </div>
+
+        <div class="filter-bar" id="schedule-filters" role="tablist" aria-label="Schedule stages"></div>
+        <div class="explorer-controls">
+          <label class="selector-card">
+            <span>Stage</span>
+            <select id="schedule-stage-select"></select>
+          </label>
+          <label class="selector-card">
+            <span>Team</span>
+            <select id="schedule-team-select"></select>
+          </label>
+          <label class="selector-card">
+            <span>Status</span>
+            <select id="schedule-status-select"></select>
+          </label>
+        </div>
+        <div class="schedule-stack" id="schedule-list"></div>
+      </section>
+
+      <section class="section section--split">
+        <article class="prediction-panel">
+          <p class="eyebrow">Next Layer</p>
+          <h2>Where users go after this page</h2>
+          <ul class="spotlight-list">
+            <li><strong>Live overview:</strong> <a href="./live.html">see the in-progress and watchlist layer</a></li>
+            <li><strong>Match detail:</strong> <a href="./match.html?id=wc26-eng-cro">move into timeline and stats</a></li>
+            <li><strong>Team angle:</strong> <a href="./team-history.html?team=Argentina">follow a team-specific path</a></li>
+          </ul>
+        </article>
+
+        <article class="spotlight-card">
+          <p class="eyebrow">Future Modules</p>
+          <h2>Real-time layers worth adding next</h2>
+          <ul class="spotlight-list">
+            <li><strong>Standings:</strong> live group tables</li>
+            <li><strong>Bracket:</strong> knockout tree and route probability</li>
+            <li><strong>Events:</strong> goals, cards, substitutions, timeline</li>
+            <li><strong>Lineups:</strong> starting elevens, benches, and shape</li>
+          </ul>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>The match center already behaves like a proper event hub. The next step is plugging in real fixture and live data.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="../src/app.js"></script>
+  </body>
+</html>

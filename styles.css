@@ -135,6 +135,14 @@ blockquote {
   border-color: rgba(15, 92, 64, 0.2);
 }
 
+.nav__links a[data-locale-switch] {
+  border-style: dashed;
+  border-color: rgba(223, 166, 58, 0.38);
+  background: rgba(223, 166, 58, 0.08);
+  color: var(--green-deep);
+  font-weight: 800;
+}
+
 .nav__links a[aria-current="page"]::after {
   content: "";
   position: absolute;
@@ -319,11 +327,67 @@ h3 {
   margin: 28px 0;
 }
 
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
 .portal-hero__paths {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   max-width: 720px;
+}
+
+.priority-rail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 18px;
+  max-width: 920px;
+}
+
+.priority-rail__item {
+  display: grid;
+  gap: 8px;
+  padding: 16px 18px;
+  border: 1px solid rgba(15, 92, 64, 0.12);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 249, 240, 0.78)),
+    radial-gradient(circle at top right, rgba(223, 166, 58, 0.16), transparent 54%);
+  box-shadow: 0 12px 24px rgba(15, 39, 30, 0.05);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.priority-rail__item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(15, 92, 64, 0.2);
+  box-shadow: 0 16px 34px rgba(15, 39, 30, 0.08);
+}
+
+.priority-rail__label {
+  color: var(--green);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.priority-rail__item strong {
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.priority-rail__item p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .portal-path {
@@ -357,6 +421,20 @@ h3 {
   margin-bottom: 0;
   color: var(--muted);
   line-height: 1.55;
+}
+
+.homepage-hero-brief {
+  background:
+    linear-gradient(180deg, rgba(255, 251, 244, 0.92), rgba(249, 244, 235, 0.88)),
+    radial-gradient(circle at top right, rgba(15, 92, 64, 0.12), transparent 44%);
+}
+
+.homepage-routes {
+  align-items: stretch;
+}
+
+.homepage-routes__meta {
+  padding: var(--space-card);
 }
 
 .button,
@@ -576,6 +654,11 @@ h3 {
 
 .history-pillars {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.portal-pillars {
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  grid-auto-rows: minmax(220px, auto);
 }
 
 .match-grid {
@@ -1178,6 +1261,17 @@ h3 {
   gap: 16px;
 }
 
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+}
+
+.editorial-grid__lead {
+  grid-row: span 2;
+  min-height: 100%;
+}
+
 .teams-link-list {
   display: grid;
   gap: 14px;
@@ -1224,6 +1318,10 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 16px;
+}
+
+.summary-strip--events {
+  margin-top: 18px;
 }
 
 .section-summary {
@@ -1277,6 +1375,11 @@ h3 {
   padding-top: 20px;
 }
 
+.portal-entry--featured {
+  grid-row: span 2;
+  min-height: 100%;
+}
+
 .portal-entry::before {
   content: "";
   position: absolute;
@@ -1300,6 +1403,14 @@ h3 {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.55;
+}
+
+.portal-entry--featured h3 {
+  font-size: 1.38rem;
+}
+
+.portal-entry--featured p {
+  max-width: 30ch;
 }
 
 .portal-entry--history {
@@ -1360,6 +1471,14 @@ h3 {
 .story-row__body strong {
   display: block;
   margin-bottom: 6px;
+}
+
+.story-row__subtle {
+  display: inline-block;
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 0.9em;
+  font-weight: 600;
 }
 
 .story-row__body p {
@@ -1792,6 +1911,7 @@ h3 {
   .history-overview,
   .timeline-grid,
   .peak-grid,
+  .priority-rail,
   .history-split,
   .chaos-grid,
   .team-profile__stats,
@@ -1810,6 +1930,16 @@ h3 {
 
   .portal-hero__paths {
     grid-template-columns: 1fr;
+  }
+
+  .portal-pillars,
+  .editorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-entry--featured,
+  .editorial-grid__lead {
+    grid-row: auto;
   }
 }
 
@@ -1842,7 +1972,8 @@ h3 {
   .detail-list,
   .selector-grid,
   .probability-grid,
-  .knockout-card {
+  .knockout-card,
+  .section-actions {
     display: grid;
     grid-template-columns: 1fr;
   }

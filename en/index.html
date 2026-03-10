@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorldCup Pulse | World Cup Portal</title>
+    <meta
+      name="description"
+      content="A World Cup portal that brings together fixtures, groups, history, teams, and prediction tools."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WorldCup Pulse | World Cup Portal" />
+    <meta property="og:description" content="A World Cup front page built around fixtures, groups, Live entry points, history, teams, and prediction." />
+    <meta property="og:url" content="https://www.worldcuppulse.com/en/index.html" />
+    <meta property="og:site_name" content="WorldCup Pulse" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WorldCup Pulse | World Cup Portal" />
+    <meta name="twitter:description" content="Start with schedule, groups, and Live, then move into history, teams, and prediction." />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/index.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/index.html" />
+    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/index.html" />
+    <meta name="theme-color" content="#0f5c40" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-page="home" data-locale="en" data-route-key="home">
+    <main class="site-shell">
+      <header class="masthead">
+        <nav class="nav">
+          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
+          <div class="nav__links">
+            <a href="./index.html" aria-current="page">Home</a>
+            <a href="./schedule.html">Schedule</a>
+            <a href="./live.html">Live</a>
+            <a href="./history.html">History</a>
+            <a href="./prediction.html">Prediction</a>
+            <a href="./team-history.html">Team Hub</a>
+            <a href="./teams.html">Teams</a>
+            <a href="../article.html">Articles</a>
+            <a href="/zh/index.html" data-locale-switch>Chinese</a>
+          </div>
+        </nav>
+
+        <section class="hero hero--home">
+          <div class="hero__content portal-hero">
+            <div class="hero__copy">
+              <p class="eyebrow">World Cup Portal</p>
+              <h1>A World Cup front page built for matchday first, depth second</h1>
+              <p class="hero__lede">
+                During the tournament, most users want fixtures, groups, live entry points, and today's key matches immediately. Deeper content should be one step below that.
+              </p>
+              <div class="hero__actions">
+                <a class="button button--primary" href="./schedule.html">View schedule</a>
+                <a class="button button--ghost" href="./live.html">Open live</a>
+                <a class="button button--ghost" href="./prediction.html">Try prediction</a>
+              </div>
+              <div class="priority-rail">
+                <a class="priority-rail__item" href="./schedule.html">
+                  <span class="priority-rail__label">Matchday Entry 01</span>
+                  <strong>What should I watch today?</strong>
+                  <p>Use the match center first to find the opener, major debuts, and the strongest same-day fixtures.</p>
+                </a>
+                <a class="priority-rail__item" href="./live.html">
+                  <span class="priority-rail__label">Matchday Entry 02</span>
+                  <strong>Which match deserves a click now?</strong>
+                  <p>The live page should compress the decision into the in-progress game and the next match worth waiting for.</p>
+                </a>
+                <a class="priority-rail__item" href="#group-tabs">
+                  <span class="priority-rail__label">Matchday Entry 03</span>
+                  <strong>Groups and qualification pressure</strong>
+                  <p>Once the tournament starts, this path should become the home for live standings and group pressure.</p>
+                </a>
+              </div>
+              <div class="portal-hero__paths">
+                <article class="portal-path">
+                  <span class="portal-path__label">Matchday first</span>
+                  <strong>Schedule + Groups + Live</strong>
+                  <p>Most users will start here, then decide whether a single match page is worth opening.</p>
+                </article>
+                <article class="portal-path">
+                  <span class="portal-path__label">Then go deeper</span>
+                  <strong>History + Teams + Prediction</strong>
+                  <p>Once matchday needs are met, it becomes natural to move into archive and analysis content.</p>
+                </article>
+              </div>
+            </div>
+
+            <aside class="hero__panel portal-hero__panel">
+              <div class="countdown-card">
+                <p class="countdown-card__label">Countdown to the 2026 World Cup opener</p>
+                <div class="countdown" aria-live="polite">
+                  <div class="countdown__item">
+                    <strong id="days">--</strong>
+                    <span>days</span>
+                  </div>
+                  <div class="countdown__item">
+                    <strong id="hours">--</strong>
+                    <span>hours</span>
+                  </div>
+                  <div class="countdown__item">
+                    <strong id="minutes">--</strong>
+                    <span>minutes</span>
+                  </div>
+                </div>
+                <p class="countdown-card__meta">Indicative opener time: 2026-06-11 20:00</p>
+              </div>
+
+              <div class="fixture-card homepage-hero-brief">
+                <p class="fixture-card__eyebrow">How this site should work in tournament mode</p>
+                <h2>Start with fixtures and groups, then flow into Live, match pages, and deeper features</h2>
+                <p class="fixture-card__meta">The homepage is now being shaped around actual tournament behavior: solve “what should I watch today?” before “what else can I explore?”</p>
+                <div class="fixture-card__chips">
+                  <span>Opening week</span>
+                  <span>12 groups</span>
+                  <span>Live hub</span>
+                  <span>History features</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </header>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">2026 Fixtures</p>
+            <h2>Opening week spotlight</h2>
+          </div>
+          <p class="section__intro">Before kickoff, this block should surface the opener and the strongest first-round fixtures. During the tournament, it should pivot into today's key matches.</p>
+        </div>
+        <div class="match-grid" id="match-grid"></div>
+        <div class="section-actions">
+          <a class="button button--primary" href="./schedule.html">View full schedule</a>
+          <a class="button button--ghost" href="./live.html">Open Live overview</a>
+        </div>
+        <div class="summary-strip summary-strip--events">
+          <article class="summary-pill">
+            <strong>What matters now</strong>
+            <span>The opener, heavyweight debuts, and first-round group matches deserve the most homepage weight before kickoff.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>What changes later</strong>
+            <span>This area should switch into today's featured fixtures and the best entry points into live match coverage.</span>
+          </article>
+          <article class="summary-pill">
+            <strong>Where users go next</strong>
+            <span>After scanning fixtures, most users should go to Live or a match page before deeper editorial content.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Groups & Standings</p>
+            <h2>2026 groups and standings snapshot</h2>
+          </div>
+          <p class="section__intro">For now this shows the group structure. Once the tournament starts, it should become a real-time standings module.</p>
+        </div>
+
+        <div class="groups">
+          <div class="group-tabs" id="group-tabs" role="tablist" aria-label="World Cup groups"></div>
+          <div class="table-card">
+            <table class="standings-table">
+              <thead>
+                <tr>
+                  <th>Team</th>
+                  <th>MP</th>
+                  <th>W</th>
+                  <th>D</th>
+                  <th>L</th>
+                  <th>Pts</th>
+                </tr>
+              </thead>
+              <tbody id="group-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="section-actions">
+          <a class="button button--ghost" href="./schedule.html">Go to match center</a>
+          <a class="button button--ghost" href="./teams.html">Browse teams from the groups</a>
+        </div>
+      </section>
+
+      <section class="section section--split homepage-routes">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow">Start Here</p>
+              <h2>Choose one of three routes on your first visit</h2>
+            </div>
+          </div>
+          <div class="summary-strip">
+            <article class="summary-pill">
+              <strong>Follow the tournament</strong>
+              <span>Start with schedule, groups, and live coverage. This is the natural tournament flow.</span>
+            </article>
+            <article class="summary-pill">
+              <strong>Find your team</strong>
+              <span>Enter through the teams hub, then move into the single-team history page.</span>
+            </article>
+            <article class="summary-pill">
+              <strong>Go deep immediately</strong>
+              <span>Use history features to get into shocks, champion strength, and collapse rankings.</span>
+            </article>
+          </div>
+        </article>
+
+        <aside class="spotlight-card homepage-routes__meta">
+          <p class="eyebrow">Site Focus</p>
+          <h2>The three most valuable things here right now</h2>
+          <ul class="spotlight-list">
+            <li><strong>Event layer:</strong> the homepage and match center already follow a 2026 fixtures and groups structure.</li>
+            <li><strong>Depth layer:</strong> history is split into dedicated pages instead of one oversized archive screen.</li>
+            <li><strong>Differentiator:</strong> Elo-based prediction and historical rankings are still the most distinctive content line.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Pillars</p>
+            <h2>Four main paths into the site</h2>
+          </div>
+          <p class="section__intro">The homepage should route people, not overwhelm them.</p>
+        </div>
+        <div class="feature-grid portal-pillars">
+          <article class="feature-card history-mini-card portal-entry portal-entry--history portal-entry--featured">
+            <p class="story-card__tag">History</p>
+            <span class="portal-entry__kicker">Enter through memory and drama</span>
+            <h3>World Cup history</h3>
+            <p>Use shocks, champion strength, and match archives as the most memorable way into the deeper site.</p>
+            <div class="portal-entry__meta">Shocks · Champion strength · Match archive</div>
+            <a href="./history.html">Open history</a>
+          </article>
+          <article class="feature-card history-mini-card portal-entry portal-entry--teams">
+            <p class="story-card__tag">Teams</p>
+            <span class="portal-entry__kicker">Enter through favorite sides</span>
+            <h3>Teams hub</h3>
+            <p>Heavyweight teams are the fastest way into team history, curves, and match records.</p>
+            <div class="portal-entry__meta">Profiles · Full match logs · Elo curves</div>
+            <a href="./teams.html">Browse teams</a>
+          </article>
+          <article class="feature-card history-mini-card portal-entry portal-entry--prediction">
+            <p class="story-card__tag">Prediction</p>
+            <span class="portal-entry__kicker">Enter through model logic</span>
+            <h3>Prediction tools</h3>
+            <p>Use Elo-based comparisons and title odds to add a clear analytical layer to the experience.</p>
+            <div class="portal-entry__meta">Matchup odds · Title odds · Model notes</div>
+            <a href="./prediction.html">Open prediction</a>
+          </article>
+          <article class="feature-card history-mini-card portal-entry portal-entry--schedule">
+            <p class="story-card__tag">Matchday</p>
+            <span class="portal-entry__kicker">Enter through tournament urgency</span>
+            <h3>Schedule and Live</h3>
+            <p>The schedule page helps users find matches. The live page helps them decide what to open now.</p>
+            <div class="portal-entry__meta">Match center · Live overview · Match page</div>
+            <a href="./schedule.html">Open match center</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Editor’s Picks</p>
+            <h2>Start with these pages</h2>
+          </div>
+          <p class="section__intro">A strong homepage should shape the first click instead of flattening everything into equal modules.</p>
+        </div>
+        <div class="editorial-grid">
+          <article class="spotlight-card editorial-grid__lead">
+            <p class="eyebrow">Lead Story</p>
+            <h2>Shocks and Elo remain the sharpest way into this archive</h2>
+            <p>If a user opens only one deeper page, it should probably be the shocks and Elo feature first.</p>
+            <a class="button button--primary" href="./history-upsets.html">Open shocks and Elo</a>
+          </article>
+          <article class="story-card">
+            <p class="story-card__tag">Team</p>
+            <h3>Start with one team's full World Cup record</h3>
+            <p>Argentina, Brazil, and France work well as first-click deep pages.</p>
+            <a href="./team-history.html?team=Argentina">Open team history</a>
+          </article>
+          <article class="story-card">
+            <p class="story-card__tag">Prediction</p>
+            <h3>Let the model explain the matchup</h3>
+            <p>Prediction tools should keep acting as a sticky, differentiated module.</p>
+            <a href="./prediction.html">Open prediction</a>
+          </article>
+          <article class="story-card">
+            <p class="story-card__tag">Archive</p>
+            <h3>Use the archive to make the tournament feel complete</h3>
+            <p>Hosts, format, players, awards, and match data can all deepen the site's long-term value.</p>
+            <a href="./history-archive.html">Open archive</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">Interactive</p>
+            <h2>If the tournament started today, who gets your title vote?</h2>
+          </div>
+          <p class="section__intro">This is not betting market data. It works better as a lightweight editorial interaction.</p>
+        </div>
+        <div class="poll-grid" id="poll"></div>
+      </section>
+
+      <footer class="footer">
+        <p>This is not a news feed. It is meant to become a long-running World Cup site across fixtures, history, and prediction.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="../src/app.js"></script>
+  </body>
+</html>

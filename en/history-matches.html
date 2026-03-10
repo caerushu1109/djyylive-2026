@@ -1,57 +1,57 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | 世界杯比赛与时间线</title>
+    <title>WorldCup Pulse | Matches & Timeline</title>
     <meta
       name="description"
-      content="世界杯比赛专题，包含历届冠军时间线、事件密度、点球大战、纪律名场面和历史比赛浏览器。"
+      content="A World Cup matches page covering champion timelines, event density, shootouts, card-heavy games, and the historical match browser."
     />
-    <link rel="canonical" href="https://www.worldcuppulse.com/zh/history-matches.html" />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/history-matches.html" />
     <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/history-matches.html" />
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/history-matches.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/history-matches.html" />
-    <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body data-page="history-matches" data-locale="zh" data-route-key="historyMatches">
+  <body data-page="history-matches" data-locale="en" data-route-key="historyMatches">
     <main class="site-shell">
       <header class="masthead masthead--compact">
         <nav class="nav">
           <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
           <div class="nav__links">
-            <a href="./index.html">首页</a>
-            <a href="./schedule.html">赛程</a>
+            <a href="./index.html">Home</a>
+            <a href="./schedule.html">Schedule</a>
             <a href="./live.html">Live</a>
-            <a href="./history.html" aria-current="page">历史</a>
-            <a href="./prediction.html">预测</a>
-            <a href="./team-history.html">球队档案</a>
-            <a href="./teams.html">球队页</a>
-            <a href="./article.html">文章页</a>
-            <a href="/en/history-matches.html" data-locale-switch>EN</a>
+            <a href="./history.html" aria-current="page">History</a>
+            <a href="./prediction.html">Prediction</a>
+            <a href="./team-history.html">Team Hub</a>
+            <a href="./teams.html">Teams</a>
+            <a href="../article.html">Articles</a>
+            <a href="/zh/history-matches.html" data-locale-switch>Chinese</a>
           </div>
         </nav>
 
         <section class="page-hero">
           <div class="page-hero__copy">
             <p class="eyebrow">Matches & Timeline</p>
-            <h1>世界杯比赛史，最好能让人边查边回忆</h1>
+            <h1>World Cup match history should invite recall as much as lookup</h1>
             <p class="hero__lede">
-              这里把时间线、事件密度、点球大战和比赛浏览器放在一起，让你既能查数据，也能很快找到脑海里记得的那场球。
+              This page combines the winners timeline, event density, shootouts, and the match browser so users can both search and rediscover the match they remember.
             </p>
           </div>
           <div class="page-hero__aside quote-card">
-            <p>这种页面会被反复打开，所以最重要的是顺手，而不是一味追求冲击感。</p>
+            <p>This kind of page gets reopened again and again, so ease of use matters more than forcing drama into every block.</p>
           </div>
         </section>
 
         <nav class="history-subnav">
-          <a href="./history.html">历史首页</a>
-          <a href="./history-upsets.html">冷门与ELO</a>
-          <a href="./history-archive.html">资料库</a>
-          <a href="./history-players.html">人物</a>
-          <a href="./history-matches.html" aria-current="page">比赛</a>
+          <a href="./history.html">History home</a>
+          <a href="./history-upsets.html">Shocks & Elo</a>
+          <a href="./history-archive.html">Archive</a>
+          <a href="./history-players.html">Players</a>
+          <a href="./history-matches.html" aria-current="page">Matches</a>
         </nav>
       </header>
 
@@ -60,7 +60,7 @@
           <div class="section__heading section__heading--stack">
             <div>
               <p class="eyebrow">Timeline</p>
-              <h2>历届冠军时间线</h2>
+              <h2>Champion timeline</h2>
             </div>
           </div>
           <div class="timeline-grid timeline-grid--compact" id="history-timeline"></div>
@@ -70,7 +70,7 @@
           <div class="section__heading section__heading--stack">
             <div>
               <p class="eyebrow">Events</p>
-              <h2>事件密度</h2>
+              <h2>Event density</h2>
             </div>
           </div>
           <div class="section-summary" id="event-summary-note"></div>
@@ -84,7 +84,7 @@
           <div class="section__heading section__heading--stack">
             <div>
               <p class="eyebrow">Shootouts</p>
-              <h2>点球大战档案</h2>
+              <h2>Shootout archive</h2>
             </div>
           </div>
           <div id="archive-shootouts"></div>
@@ -94,7 +94,7 @@
           <div class="section__heading section__heading--stack">
             <div>
               <p class="eyebrow">Discipline</p>
-              <h2>纪律名场面</h2>
+              <h2>Card-heavy classics</h2>
             </div>
           </div>
           <div id="archive-cards"></div>
@@ -105,25 +105,25 @@
         <div class="section__heading">
           <div>
             <p class="eyebrow">Explorer</p>
-            <h2>历史比赛浏览器</h2>
+            <h2>Historical match browser</h2>
           </div>
-          <p class="section__intro">如果你记得年份、球队，或者只记得那是一场大冷门，都可以从这里慢慢把它找出来。</p>
+          <p class="section__intro">If users remember the year, the team, or only that it was a major shock, this browser is where they should be able to find it again.</p>
         </div>
         <div class="explorer-controls">
           <label class="selector-card">
-            <span>年份</span>
+            <span>Year</span>
             <select id="explorer-year"></select>
           </label>
           <label class="selector-card">
-            <span>球队</span>
+            <span>Team</span>
             <select id="explorer-team"></select>
           </label>
           <label class="selector-card">
-            <span>类型</span>
+            <span>Type</span>
             <select id="explorer-upset"></select>
           </label>
           <label class="selector-card">
-            <span>排序</span>
+            <span>Sort</span>
             <select id="explorer-sort"></select>
           </label>
         </div>
@@ -132,10 +132,10 @@
       </section>
 
       <footer class="footer">
-        <p>比赛页现在专门承接时间线、事件和浏览器，历史首页终于可以轻下来。</p>
+        <p>This page now carries the timeline, event layer, and browser, which is exactly why the history homepage can stay lighter.</p>
       </footer>
     </main>
 
-    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="../src/app.js"></script>
   </body>
 </html>
