@@ -2028,6 +2028,11 @@ h3 {
     font-size: 1.55rem;
   }
 
+  .section__heading {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
   .hero__lede {
     max-width: none;
     font-size: 0.97rem;
@@ -2042,6 +2047,24 @@ h3 {
     display: grid;
     grid-template-columns: 1fr;
     margin: 22px 0 18px;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .countdown__item {
+    padding: 12px 8px;
+  }
+
+  .countdown__item strong {
+    font-size: 1.5rem;
+  }
+
+  .priority-rail {
+    gap: 10px;
+    margin-bottom: 14px;
   }
 
   .hero__actions .button,
@@ -2070,6 +2093,10 @@ h3 {
 
   .summary-pill {
     padding: 14px;
+  }
+
+  .summary-pill strong {
+    margin-bottom: 8px;
   }
 
   .match-grid,
@@ -2107,6 +2134,13 @@ h3 {
     font-size: 1.8rem;
   }
 
+  .match-card__stage,
+  .explorer-row__meta span,
+  .live-pill,
+  .poll__result {
+    font-size: 0.82rem;
+  }
+
   .schedule-row,
   .watchlist-row,
   .spotlight-match,
@@ -2121,6 +2155,13 @@ h3 {
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
+  }
+
+  .schedule-row strong,
+  .match-card__team strong,
+  .spotlight-match strong,
+  .watchlist-row strong {
+    font-size: 1.08rem;
   }
 
   .poll__button,
@@ -2139,6 +2180,12 @@ h3 {
 
   .selector-card select {
     min-height: 48px;
+  }
+
+  .section-summary {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    font-size: 0.96rem;
   }
 
   .table-card,
@@ -2163,10 +2210,24 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .event-row {
+    gap: 8px;
+  }
+
+  .event-row strong {
+    font-size: 0.95rem;
+  }
+
   .timeline-card__year {
     border-right: 0;
     border-bottom: 1px solid var(--line);
     font-size: 1.45rem;
+  }
+
+  .match-scoreline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .curve-chart svg,
@@ -2186,6 +2247,23 @@ h3 {
 
   .quote-card {
     min-height: 0;
+  }
+
+  .fixture-card__chips {
+    gap: 8px;
+  }
+
+  .fixture-card__chips span {
+    font-size: 0.8rem;
+  }
+
+  .history-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .history-links a {
+    width: 100%;
   }
 
   .back-to-top {
