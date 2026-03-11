@@ -892,6 +892,44 @@ h3 {
   min-width: 180px;
 }
 
+.standings-row--qualified {
+  background: rgba(15, 92, 64, 0.05);
+}
+
+.standings-row--playoff {
+  background: rgba(223, 166, 58, 0.08);
+}
+
+.standings-team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.standings-pos {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(15, 92, 64, 0.08);
+  color: var(--green);
+  font-weight: 800;
+}
+
+.standings-zone {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.standings-points {
+  color: var(--green);
+  font-size: 1.05rem;
+}
+
 .detail-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1434,6 +1472,35 @@ h3 {
   min-height: 220px;
   display: grid;
   align-content: start;
+}
+
+.team-compact-summary {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.team-compact-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.team-compact-summary__note {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.team-compact-summary__note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--green);
+}
+
+.team-compact-summary__note span {
+  color: var(--muted);
 }
 
 .history-mini-card a {
@@ -2625,6 +2692,18 @@ h3 {
   .standings-table td {
     padding: 12px 10px;
     font-size: 0.92rem;
+  }
+
+  .standings-team {
+    align-items: flex-start;
+  }
+
+  .standings-zone {
+    font-size: 0.72rem;
+  }
+
+  .team-compact-summary__grid {
+    grid-template-columns: 1fr;
   }
 
   .event-row,

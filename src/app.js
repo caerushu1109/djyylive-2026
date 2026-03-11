@@ -2834,28 +2834,28 @@ function initTeamHistoryPage() {
     ])].slice(0, 4);
     summaryNode.innerHTML = `
       ${profile ? renderTeamProfileMarkup(profile) : ""}
-      <div class="team-profile">
-        <div class="team-profile__stats">
-          <article class="history-stat">
-            <span class="history-stat__label">${teamCopy.totalRecord}</span>
+      <div class="team-compact-summary">
+        <div class="team-compact-summary__grid">
+          <article class="archive-chip">
             <strong>${wins}-${draws}-${losses}</strong>
-            <p>${matches.length} ${teamCopy.totalMatches}</p>
+            <span>${teamCopy.totalRecord} · ${matches.length} ${teamCopy.totalMatches}</span>
           </article>
-          <article class="history-stat">
-            <span class="history-stat__label">${teamCopy.goals}</span>
+          <article class="archive-chip">
             <strong>${gf}:${ga}</strong>
-            <p>${teamCopy.goalDiff} ${gf - ga}</p>
+            <span>${teamCopy.goals} · ${teamCopy.goalDiff} ${gf - ga}</span>
           </article>
-          <article class="history-stat">
-            <span class="history-stat__label">${teamCopy.upsets}</span>
+          <article class="archive-chip">
             <strong>${upsets}/${upsetLosses}</strong>
-            <p>${teamCopy.upsetPair}</p>
+            <span>${teamCopy.upsets} · ${teamCopy.upsetPair}</span>
           </article>
-          <article class="history-stat">
-            <span class="history-stat__label">${teamCopy.players}</span>
-            <strong>${featuredPlayers.length || "--"}</strong>
-            <p>${featuredPlayers.length ? featuredPlayers.map((player) => formatPlayerInline(player)).join(" · ") : teamCopy.playersCopy}</p>
+          <article class="archive-chip">
+            <strong>${profile ? profile.peakElo : "--"}</strong>
+            <span>${currentLocale === "zh" ? "峰值 ELO" : "Peak Elo"} · ${profile ? profile.latestElo : "--"} ${currentLocale === "zh" ? "最近值" : "latest"}</span>
           </article>
+        </div>
+        <div class="team-compact-summary__note">
+          <strong>${teamCopy.players}</strong>
+          <span>${featuredPlayers.length ? featuredPlayers.map((player) => formatPlayerInline(player)).join(" · ") : teamCopy.playersCopy}</span>
         </div>
       </div>
     `;
@@ -3102,18 +3102,30 @@ function renderGroupTabs(groupTabs, groupTableBody) {
 
 function renderGroupTable(groupTableBody, groupKey) {
   groupTableBody.innerHTML = groups[groupKey]
-    .map(
-      (team) => `
-        <tr>
-          <td><strong>${renderTeamLink(team.team)}</strong></td>
+    .map((team, index) => {
+      const rowClass = index < 2 ? "standings-row standings-row--qualified" : index === 2 ? "standings-row standings-row--playoff" : "standings-row";
+      const zoneLabel = currentLocale === "zh"
+        ? (index < 2 ? "直通区" : index === 2 ? "第三名比较" : "追赶区")
+        : (index < 2 ? "auto spot" : index === 2 ? "best-third race" : "chasing pack");
+      return `
+        <tr class="${rowClass}">
+          <td>
+            <div class="standings-team">
+              <span class="standings-pos">${index + 1}</span>
+              <div>
+                <strong>${renderTeamLink(team.team)}</strong>
+                <span class="standings-zone">${zoneLabel}</span>
+              </div>
+            </div>
+          </td>
           <td>${team.played}</td>
           <td>${team.win}</td>
           <td>${team.draw}</td>
           <td>${team.loss}</td>
-          <td>${team.points}</td>
+          <td><strong class="standings-points">${team.points}</strong></td>
         </tr>
       `
-    )
+    })
     .join("");
 }
 
