@@ -90,6 +90,7 @@ initLivePage();
 initMatchPage();
 initLocaleSwitch();
 initHomeMobileMore();
+initPageMobileMore();
 
 function initCountdown() {
   const dayNode = document.querySelector("#days");
@@ -150,6 +151,34 @@ function initHomeMobileMore() {
 
   button.addEventListener("click", () => {
     document.body.classList.toggle("is-home-expanded");
+    sync();
+  });
+
+  sync();
+}
+
+function initPageMobileMore() {
+  const toggleNode = document.querySelector("#page-mobile-more");
+  if (!toggleNode) {
+    return;
+  }
+
+  const button = toggleNode.querySelector("button");
+  if (!button) {
+    return;
+  }
+
+  const expandedLabel = currentLocale === "zh" ? "收起更多内容" : "Show less";
+  const collapsedLabel = currentLocale === "zh" ? "展开更多内容" : "Show more sections";
+
+  const sync = () => {
+    const expanded = document.body.classList.contains("is-page-expanded");
+    button.textContent = expanded ? expandedLabel : collapsedLabel;
+    button.setAttribute("aria-expanded", String(expanded));
+  };
+
+  button.addEventListener("click", () => {
+    document.body.classList.toggle("is-page-expanded");
     sync();
   });
 

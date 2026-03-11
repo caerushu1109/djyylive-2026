@@ -2304,6 +2304,15 @@ h3 {
     display: none;
   }
 
+  body:not([data-page="home"]) .mobile-more {
+    display: block;
+    margin-top: 18px;
+  }
+
+  body:not([data-page="home"]):not(.is-page-expanded) .mobile-secondary {
+    display: none;
+  }
+
   .back-to-top {
     right: 16px;
     bottom: 16px;
