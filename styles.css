@@ -1857,6 +1857,27 @@ h3 {
   align-content: stretch;
 }
 
+.mobile-more {
+  display: none;
+}
+
+.mobile-more__button {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--green-deep);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mobile-more__button:hover {
+  background: rgba(223, 166, 58, 0.16);
+}
+
 .odds-row strong {
   display: block;
 }
@@ -2264,6 +2285,15 @@ h3 {
 
   .history-links a {
     width: 100%;
+  }
+
+  body[data-page="home"] .mobile-more {
+    display: block;
+    margin-top: 18px;
+  }
+
+  body[data-page="home"]:not(.is-home-expanded) .homepage-secondary {
+    display: none;
   }
 
   .back-to-top {
