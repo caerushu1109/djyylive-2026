@@ -1956,18 +1956,21 @@ h3 {
 
   .masthead,
   .section {
-    padding: 20px;
+    padding: 18px;
     border-radius: 24px;
   }
 
   .nav {
-    align-items: start;
+    align-items: stretch;
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav__brand {
+    font-size: 1rem;
   }
 
   .nav__links,
-  .history-jumpnav,
-  .history-subnav,
   .countdown,
   .detail-list,
   .selector-grid,
@@ -1978,18 +1981,105 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .nav__links {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    gap: 10px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav__links::-webkit-scrollbar,
+  .history-jumpnav::-webkit-scrollbar,
+  .history-subnav::-webkit-scrollbar,
+  .group-tabs::-webkit-scrollbar,
+  .filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav__links a,
+  .history-jumpnav a,
+  .history-subnav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .history-jumpnav,
+  .history-subnav,
+  .group-tabs,
+  .filter-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
   h1 {
     max-width: none;
-    font-size: 2.7rem;
+    font-size: 2.45rem;
     line-height: 1.02;
   }
 
   h2 {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
   }
 
   .hero__lede {
-    font-size: 0.98rem;
+    max-width: none;
+    font-size: 0.97rem;
+  }
+
+  .hero,
+  .page-hero {
+    margin-top: 26px;
+  }
+
+  .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 22px 0 18px;
+  }
+
+  .hero__actions .button,
+  .section-actions .button,
+  .schedule-row__actions .button,
+  .live-card__actions .button,
+  .watchlist-row .button,
+  .history-links .button {
+    width: 100%;
+  }
+
+  .priority-rail__item,
+  .portal-path,
+  .history-panel,
+  .prediction-panel,
+  .curve-card,
+  .quote-card,
+  .feature-card,
+  .spotlight-card {
+    padding: 16px;
+  }
+
+  .summary-strip {
+    margin-top: 12px;
+  }
+
+  .summary-pill {
+    padding: 14px;
+  }
+
+  .match-grid,
+  .feature-grid,
+  .portal-pillars,
+  .history-overview,
+  .timeline-grid,
+  .peak-grid,
+  .chaos-grid {
+    gap: 14px;
   }
 
   .match-card__teams,
@@ -2004,10 +2094,89 @@ h3 {
     flex-direction: column;
   }
 
-  .schedule-row .button,
-  .poll__button,
-  .history-links .button {
+  .match-card__teams {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .match-card__team {
     width: 100%;
+  }
+
+  .match-card__score {
+    font-size: 1.8rem;
+  }
+
+  .schedule-row,
+  .watchlist-row,
+  .spotlight-match,
+  .live-card,
+  .match-card,
+  .explorer-row {
+    padding: 16px;
+  }
+
+  .schedule-row__actions,
+  .live-card__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .poll__button,
+  .poll__row .poll__result {
+    width: 100%;
+  }
+
+  .poll__row {
+    align-items: stretch;
+  }
+
+  .selector-card {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .selector-card select {
+    min-height: 48px;
+  }
+
+  .table-card,
+  .curve-chart,
+  .chart-panel__canvas {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .standings-table {
+    min-width: 460px;
+  }
+
+  .standings-table th,
+  .standings-table td {
+    padding: 12px 10px;
+    font-size: 0.92rem;
+  }
+
+  .event-row,
+  .timeline-card {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-card__year {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.45rem;
+  }
+
+  .curve-chart svg,
+  .chart-panel__canvas svg {
+    min-width: 520px;
+  }
+
+  .curve-card__meta,
+  .explorer-row__top {
+    gap: 8px;
   }
 
   .history-stat,
@@ -2016,7 +2185,7 @@ h3 {
   }
 
   .quote-card {
-    min-height: 160px;
+    min-height: 0;
   }
 
   .back-to-top {
