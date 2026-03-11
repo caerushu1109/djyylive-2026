@@ -2220,6 +2220,9 @@ function initTeamsHubPage() {
         feature: "历史专题",
         featureCopy: "结合历史页与比赛浏览器继续深入",
         matchHistory: "查看比赛史",
+        players: "代表人物",
+        playersCopy: "从人物专题继续看这支球队最有代表性的球员",
+        playerEntry: "打开人物页",
         noCurve: "暂无曲线数据",
         curveStats: "最低",
         curveHigh: "最高",
@@ -2242,6 +2245,9 @@ function initTeamsHubPage() {
         feature: "History feature",
         featureCopy: "Keep going through history pages and the match browser",
         matchHistory: "Open match archive",
+        players: "Representative players",
+        playersCopy: "Continue through the players feature to see the best-known figures from this team",
+        playerEntry: "Open players feature",
         noCurve: "No curve data available yet",
         curveStats: "Low",
         curveHigh: "High",
@@ -2272,6 +2278,10 @@ function initTeamsHubPage() {
     if (!profile) {
       return;
     }
+    const featuredPlayers = [...new Set([
+      ...archiveTopScorers.filter((item) => item.team === team).map((item) => item.player),
+      ...archiveTopAppearances.filter((item) => item.team === team).map((item) => item.player),
+    ])].slice(0, 3);
     factsNode.innerHTML = `
       <article class="summary-pill">
         <strong>${teamsCopy.peakLabel}</strong>
@@ -2285,29 +2295,40 @@ function initTeamsHubPage() {
         <strong>${teamsCopy.upsetWin}</strong>
         <span>${displayProfileMatchNote(profile.biggestUpsetWin)}</span>
       </article>
+      <article class="summary-pill">
+        <strong>${teamsCopy.players}</strong>
+        <span>${featuredPlayers.length ? featuredPlayers.map((player) => formatPlayerInline(player)).join(" · ") : (currentLocale === "zh" ? "后续补充代表人物" : "Representative players coming next")}</span>
+      </article>
     `;
 
     linksNode.innerHTML = `
       <article class="schedule-row">
         <div>
-          <strong>${team} ${teamsCopy.allMatches}</strong>
+          <strong>${displayTeam(team)} ${teamsCopy.allMatches}</strong>
           <p>${teamsCopy.allMatchesCopy}</p>
         </div>
         <a class="button button--ghost" href="${teamHistoryPath(team)}">${teamsCopy.deepView}</a>
       </article>
       <article class="schedule-row">
         <div>
-          <strong>${team} ${teamsCopy.curve}</strong>
+          <strong>${displayTeam(team)} ${teamsCopy.curve}</strong>
           <p>${teamsCopy.curveCopy}</p>
         </div>
         <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.trend}</a>
       </article>
       <article class="schedule-row">
         <div>
-          <strong>${team} ${teamsCopy.feature}</strong>
+          <strong>${displayTeam(team)} ${teamsCopy.feature}</strong>
           <p>${teamsCopy.featureCopy}</p>
         </div>
         <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.matchHistory}</a>
+      </article>
+      <article class="schedule-row">
+        <div>
+          <strong>${displayTeam(team)} ${teamsCopy.players}</strong>
+          <p>${teamsCopy.playersCopy}</p>
+        </div>
+        <a class="button button--ghost" href="${historyPlayersPath()}">${teamsCopy.playerEntry}</a>
       </article>
     `;
   };
@@ -2515,6 +2536,8 @@ function initTeamHistoryPage() {
         swing: "波动",
         noCurve: "这支球队没有现成的 ELO 轨迹图。",
         noCurveSample: "暂无曲线样本",
+        players: "代表人物",
+        playersCopy: "去看人物与奖项专题",
         low: "最低",
         high: "最高",
         sample: "样本",
@@ -2540,6 +2563,8 @@ function initTeamHistoryPage() {
         swing: "Swing",
         noCurve: "This team does not have an Elo curve ready yet.",
         noCurveSample: "No curve sample yet",
+        players: "Representative players",
+        playersCopy: "Open the players and awards feature",
         low: "Low",
         high: "High",
         sample: "sample",
@@ -2588,6 +2613,10 @@ function initTeamHistoryPage() {
     ).length;
 
     const profile = teamProfiles[team];
+    const featuredPlayers = [...new Set([
+      ...archiveTopScorers.filter((item) => item.team === team).map((item) => item.player),
+      ...archiveTopAppearances.filter((item) => item.team === team).map((item) => item.player),
+    ])].slice(0, 4);
     summaryNode.innerHTML = `
       ${profile ? renderTeamProfileMarkup(profile) : ""}
       <div class="team-profile">
@@ -2606,6 +2635,11 @@ function initTeamHistoryPage() {
             <span class="history-stat__label">${teamCopy.upsets}</span>
             <strong>${upsets}/${upsetLosses}</strong>
             <p>${teamCopy.upsetPair}</p>
+          </article>
+          <article class="history-stat">
+            <span class="history-stat__label">${teamCopy.players}</span>
+            <strong>${featuredPlayers.length || "--"}</strong>
+            <p>${featuredPlayers.length ? featuredPlayers.map((player) => formatPlayerInline(player)).join(" · ") : teamCopy.playersCopy}</p>
           </article>
         </div>
       </div>
@@ -2648,6 +2682,7 @@ function initTeamHistoryPage() {
     linksNode.innerHTML = `
       <li><strong>${teamCopy.teamsHome}:</strong> <a href="${teamsPath()}">${teamCopy.backTeams}</a></li>
       <li><strong>${teamCopy.historyMatches}:</strong> <a href="${historyMatchesPath()}">${teamCopy.fullBrowser}</a></li>
+      <li><strong>${teamCopy.players}:</strong> <a href="${historyPlayersPath()}">${teamCopy.playersCopy}</a></li>
       <li><strong>${teamCopy.trends}:</strong> <a href="${historyMatchesPath()}">${teamCopy.trendsCopy}</a></li>
       <li><strong>${teamCopy.switchTeam}:</strong> <a href="${teamHistoryPath("Brazil")}">${teamCopy.switchTeamCopy}</a></li>
     `;
@@ -2792,21 +2827,39 @@ function initPredictionPage() {
 }
 
 function renderMatchCard(match) {
+  const matchCopy = currentLocale === "zh"
+    ? {
+        home: "主队",
+        away: "客队",
+        open: "比赛页",
+        prediction: "预测",
+      }
+    : {
+        home: "Home",
+        away: "Away",
+        open: "Match",
+        prediction: "Prediction",
+      };
+
   return `
     <article class="match-card">
       <span class="match-card__stage">${displayStage(match.stage)} · ${humanizeMatchStatus(match)}</span>
       <div class="match-card__teams">
         <div class="match-card__team">
-          <span>${currentLocale === "zh" ? "主队" : "Home"}</span>
-          <strong>${displayTeam(match.home)}</strong>
+          <span>${matchCopy.home}</span>
+          <strong>${renderTeamLink(match.home)}</strong>
         </div>
         <div class="match-card__score">${match.score}</div>
         <div class="match-card__team">
-          <span>${currentLocale === "zh" ? "客队" : "Away"}</span>
-          <strong>${displayTeam(match.away)}</strong>
+          <span>${matchCopy.away}</span>
+          <strong>${renderTeamLink(match.away)}</strong>
         </div>
       </div>
       <p class="match-card__meta">${displayMatchMeta(match)}</p>
+      <div class="match-card__actions">
+        <a class="button button--ghost" href="${matchPath(match.id)}">${matchCopy.open}</a>
+        <a class="button button--ghost" href="${predictionPath()}">${matchCopy.prediction}</a>
+      </div>
     </article>
   `;
 }
@@ -2842,7 +2895,7 @@ function renderGroupTable(groupTableBody, groupKey) {
     .map(
       (team) => `
         <tr>
-          <td><strong>${displayTeam(team.team)}</strong></td>
+          <td><strong>${renderTeamLink(team.team)}</strong></td>
           <td>${team.played}</td>
           <td>${team.win}</td>
           <td>${team.draw}</td>
@@ -2951,29 +3004,50 @@ function compareExplorerMatches(a, b, mode) {
 }
 
 function renderScheduleRow(match) {
+  const scheduleCopy = currentLocale === "zh"
+    ? {
+        details: "比赛详情",
+        prediction: "预测",
+      }
+    : {
+        details: "Match details",
+        prediction: "Prediction",
+      };
   return `
     <article class="schedule-row">
       <div>
-        <strong>${displayTeam(match.home)} vs ${displayTeam(match.away)}</strong>
+        <strong>${renderTeamLink(match.home)} vs ${renderTeamLink(match.away)}</strong>
         <p>${displayStage(match.stage)} · ${displayVenue(match.venue)} · ${match.kickoff} · ${humanizeMatchStatus(match)} ${match.minute || ""}</p>
       </div>
       <div class="schedule-row__actions">
-        <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "比赛详情" : "Match details"}</a>
-        <a class="button button--ghost" href="${articlePath()}">${currentLocale === "zh" ? "前瞻文章" : "Preview article"}</a>
+        <a class="button button--ghost" href="${matchPath(match.id)}">${scheduleCopy.details}</a>
+        <a class="button button--ghost" href="${predictionPath()}">${scheduleCopy.prediction}</a>
       </div>
     </article>
   `;
 }
 
 function renderMatchSpotlight(match) {
+  const spotlightCopy = currentLocale === "zh"
+    ? {
+        open: "查看比赛",
+        prediction: "看预测",
+      }
+    : {
+        open: "Open match",
+        prediction: "Prediction",
+      };
   return `
     <article class="spotlight-match">
       <div>
         <p class="story-card__tag">${humanizeMatchStatus(match)}</p>
-        <h3>${displayTeam(match.home)} vs ${displayTeam(match.away)}</h3>
+        <h3>${renderTeamLink(match.home)} vs ${renderTeamLink(match.away)}</h3>
         <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
       </div>
-      <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "查看比赛" : "Open match"}</a>
+      <div class="spotlight-match__actions">
+        <a class="button button--ghost" href="${matchPath(match.id)}">${spotlightCopy.open}</a>
+        <a class="button button--ghost" href="${predictionPath()}">${spotlightCopy.prediction}</a>
+      </div>
     </article>
   `;
 }
@@ -2990,27 +3064,49 @@ function renderMatchStateNotice(title, copy) {
 }
 
 function renderLiveCard(match) {
+  const liveCopy = currentLocale === "zh"
+    ? {
+        open: "打开比赛页",
+        prediction: "看预测",
+      }
+    : {
+        open: "Open match",
+        prediction: "Prediction",
+      };
   return `
     <article class="live-card">
       <div class="live-card__top">
         <span class="live-pill ${match.status === "live" ? "is-live" : ""}">${humanizeMatchStatus(match)}</span>
         <span>${displayStage(match.stage)}</span>
       </div>
-      <h3>${displayTeam(match.home)} ${match.score} ${displayTeam(match.away)}</h3>
+      <h3>${renderTeamLink(match.home)} ${match.score} ${renderTeamLink(match.away)}</h3>
       <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
       <div class="live-card__actions">
-        <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "打开比赛页" : "Open match"}</a>
+        <a class="button button--ghost" href="${matchPath(match.id)}">${liveCopy.open}</a>
+        <a class="button button--ghost" href="${predictionPath()}">${liveCopy.prediction}</a>
       </div>
     </article>
   `;
 }
 
 function renderWatchlistCard(match) {
+  const watchlistCopy = currentLocale === "zh"
+    ? {
+        details: "比赛详情",
+        prediction: "预测",
+      }
+    : {
+        details: "Match details",
+        prediction: "Prediction",
+      };
   return `
     <article class="watchlist-row">
-      <strong>${displayTeam(match.home)} vs ${displayTeam(match.away)}</strong>
+      <strong>${renderTeamLink(match.home)} vs ${renderTeamLink(match.away)}</strong>
       <span>${displayStage(match.stage)} · ${match.kickoff}</span>
-      <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "比赛详情" : "Match details"}</a>
+      <div class="watchlist-row__actions">
+        <a class="button button--ghost" href="${matchPath(match.id)}">${watchlistCopy.details}</a>
+        <a class="button button--ghost" href="${predictionPath()}">${watchlistCopy.prediction}</a>
+      </div>
     </article>
   `;
 }
@@ -3047,6 +3143,10 @@ function historyArchivePath() {
   return pagePath("historyArchive");
 }
 
+function historyPlayersPath() {
+  return pagePath("historyPlayers");
+}
+
 function historyUpsetsPath() {
   return pagePath("historyUpsets");
 }
@@ -3068,6 +3168,10 @@ function displayTeam(team) {
     return team;
   }
   return teamNameMap[team] || team;
+}
+
+function renderTeamLink(team) {
+  return `<a class="team-link" href="${teamHistoryPath(team)}">${displayTeam(team)}</a>`;
 }
 
 function displayScore(score) {
