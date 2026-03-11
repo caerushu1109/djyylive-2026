@@ -259,7 +259,7 @@ function streamlinePageChrome() {
   }
 
   const eyebrow = hero.querySelector(".eyebrow")?.textContent?.trim();
-  const title = hero.querySelector("h1")?.textContent?.trim();
+  const rawTitle = hero.querySelector("h1")?.textContent?.trim();
   const rawLede = hero.querySelector(".hero__lede")?.textContent?.trim();
   const compactPages = new Set([
     "schedule",
@@ -272,6 +272,41 @@ function streamlinePageChrome() {
     "history-players",
     "history-matches",
   ]);
+  const miniPages = new Set([
+    "live",
+    "match",
+    "teams-hub",
+    "team-history",
+    "history-upsets",
+    "history-archive",
+    "history-players",
+    "history-matches",
+  ]);
+  const titleOverrides = {
+    zh: {
+      schedule: "赛程",
+      live: "今日比赛",
+      match: "比赛详情",
+      "teams-hub": "球队",
+      "team-history": "球队详情",
+      "history-upsets": "冷门与 ELO",
+      "history-archive": "历史资料库",
+      "history-players": "人物与奖项",
+      "history-matches": "比赛与时间线",
+    },
+    en: {
+      schedule: "Schedule",
+      live: "Today",
+      match: "Match",
+      "teams-hub": "Teams",
+      "team-history": "Team profile",
+      "history-upsets": "Upsets & Elo",
+      "history-archive": "Archive",
+      "history-players": "Players & Awards",
+      "history-matches": "Matches & Timeline",
+    },
+  };
+  const title = titleOverrides[currentLocale]?.[page] || rawTitle;
   const lede = compactPages.has(page) ? "" : rawLede;
 
   if (!title) {
@@ -279,7 +314,7 @@ function streamlinePageChrome() {
   }
 
   const compact = document.createElement("section");
-  compact.className = `page-header-bar${compactPages.has(page) ? " page-header-bar--tight" : ""}`;
+  compact.className = `page-header-bar${compactPages.has(page) ? " page-header-bar--tight" : ""}${miniPages.has(page) ? " page-header-bar--mini" : ""}`;
   compact.innerHTML = `
     ${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ""}
     <h1>${title}</h1>
@@ -299,20 +334,33 @@ function streamlinePageContent() {
     "history-hub",
     "match",
   ]);
+  const leanPages = new Set([
+    "live",
+    "match",
+    "teams-hub",
+    "team-history",
+    "history-upsets",
+    "history-archive",
+    "history-players",
+    "history-matches",
+  ]);
 
   if (!removablePages.has(page)) {
-    return;
+    // continue, lean pages still need footer and intro cleanup
   }
 
   const sections = [...document.querySelectorAll("main > .section")];
   const firstSection = sections[0];
-  if (!firstSection) {
-    return;
+  if (firstSection && removablePages.has(page)) {
+    const summaryStrip = firstSection.querySelector(".summary-strip");
+    if (summaryStrip && !firstSection.querySelector("[id]")) {
+      firstSection.remove();
+    }
   }
 
-  const summaryStrip = firstSection.querySelector(".summary-strip");
-  if (summaryStrip && !firstSection.querySelector("[id]")) {
-    firstSection.remove();
+  if (leanPages.has(page)) {
+    document.querySelectorAll(".section__intro").forEach((node) => node.remove());
+    document.querySelectorAll("footer.footer").forEach((node) => node.remove());
   }
 }
 
@@ -2517,34 +2565,28 @@ function initTeamsHubPage() {
     `;
 
     linksNode.innerHTML = `
-      <article class="schedule-row">
-        <div>
+      <div class="quick-link-grid">
+        <article class="quick-link-card">
           <strong>${displayTeam(team)} ${teamsCopy.allMatches}</strong>
           <p>${teamsCopy.allMatchesCopy}</p>
-        </div>
-        <a class="button button--ghost" href="${teamHistoryPath(team)}">${teamsCopy.deepView}</a>
-      </article>
-      <article class="schedule-row">
-        <div>
+          <a class="button button--ghost" href="${teamHistoryPath(team)}">${teamsCopy.deepView}</a>
+        </article>
+        <article class="quick-link-card">
           <strong>${displayTeam(team)} ${teamsCopy.curve}</strong>
           <p>${teamsCopy.curveCopy}</p>
-        </div>
-        <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.trend}</a>
-      </article>
-      <article class="schedule-row">
-        <div>
+          <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.trend}</a>
+        </article>
+        <article class="quick-link-card">
           <strong>${displayTeam(team)} ${teamsCopy.feature}</strong>
           <p>${teamsCopy.featureCopy}</p>
-        </div>
-        <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.matchHistory}</a>
-      </article>
-      <article class="schedule-row">
-        <div>
+          <a class="button button--ghost" href="${historyMatchesPath()}">${teamsCopy.matchHistory}</a>
+        </article>
+        <article class="quick-link-card">
           <strong>${displayTeam(team)} ${teamsCopy.players}</strong>
           <p>${teamsCopy.playersCopy}</p>
-        </div>
-        <a class="button button--ghost" href="${historyPlayersPath()}">${teamsCopy.playerEntry}</a>
-      </article>
+          <a class="button button--ghost" href="${historyPlayersPath()}">${teamsCopy.playerEntry}</a>
+        </article>
+      </div>
     `;
   };
 

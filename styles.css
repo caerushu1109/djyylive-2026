@@ -184,6 +184,17 @@ blockquote {
   font-size: clamp(1.8rem, 3vw, 2.55rem);
 }
 
+.page-header-bar--mini {
+  margin-top: 14px;
+  gap: 4px;
+}
+
+.page-header-bar--mini h1 {
+  max-width: 680px;
+  font-size: clamp(1.55rem, 2.3vw, 2.15rem);
+  line-height: 1.02;
+}
+
 .bottom-tabbar {
   display: none;
 }
@@ -244,6 +255,36 @@ blockquote {
 .history-subnav a[aria-current="page"] {
   background: rgba(15, 92, 64, 0.12);
   border-color: transparent;
+}
+
+.quick-link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.quick-link-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 244, 0.78);
+  box-shadow: var(--shadow-soft);
+}
+
+.quick-link-card strong {
+  font-size: 1rem;
+}
+
+.quick-link-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.quick-link-card .button {
+  justify-self: start;
 }
 
 .history-hero {
@@ -2282,6 +2323,10 @@ h3 {
     font-size: 1.56rem;
   }
 
+  .page-header-bar--mini h1 {
+    font-size: 1.38rem;
+  }
+
   .page-header-bar__lede {
     font-size: 0.94rem;
   }
@@ -2807,5 +2852,9 @@ h3 {
   .nav__links a[aria-current="page"]::after {
     left: 12px;
     right: 12px;
+  }
+
+  .quick-link-grid {
+    grid-template-columns: 1fr;
   }
 }
