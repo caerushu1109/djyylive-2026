@@ -252,6 +252,7 @@ function streamlinePageChrome() {
     return;
   }
 
+  const page = document.body.dataset.page || "";
   const hero = document.querySelector(".page-hero");
   if (!hero) {
     return;
@@ -259,14 +260,26 @@ function streamlinePageChrome() {
 
   const eyebrow = hero.querySelector(".eyebrow")?.textContent?.trim();
   const title = hero.querySelector("h1")?.textContent?.trim();
-  const lede = hero.querySelector(".hero__lede")?.textContent?.trim();
+  const rawLede = hero.querySelector(".hero__lede")?.textContent?.trim();
+  const compactPages = new Set([
+    "schedule",
+    "live",
+    "match",
+    "teams-hub",
+    "team-history",
+    "history-upsets",
+    "history-archive",
+    "history-players",
+    "history-matches",
+  ]);
+  const lede = compactPages.has(page) ? "" : rawLede;
 
   if (!title) {
     return;
   }
 
   const compact = document.createElement("section");
-  compact.className = "page-header-bar";
+  compact.className = `page-header-bar${compactPages.has(page) ? " page-header-bar--tight" : ""}`;
   compact.innerHTML = `
     ${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ""}
     <h1>${title}</h1>

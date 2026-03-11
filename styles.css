@@ -156,13 +156,15 @@ blockquote {
 
 .page-header-bar {
   display: grid;
-  gap: 8px;
-  margin-top: 28px;
+  gap: 6px;
+  margin-top: 22px;
 }
 
 .page-header-bar h1 {
   max-width: 860px;
   margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.02;
 }
 
 .page-header-bar__lede {
@@ -171,6 +173,15 @@ blockquote {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.6;
+}
+
+.page-header-bar--tight {
+  margin-top: 18px;
+}
+
+.page-header-bar--tight h1 {
+  max-width: 760px;
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
 }
 
 .bottom-tabbar {
@@ -2196,8 +2207,12 @@ h3 {
   }
 
   .page-header-bar h1 {
-    font-size: 1.8rem;
+    font-size: 1.72rem;
     line-height: 1.02;
+  }
+
+  .page-header-bar--tight h1 {
+    font-size: 1.56rem;
   }
 
   .page-header-bar__lede {
@@ -2489,6 +2504,20 @@ h3 {
   .peak-grid,
   .chaos-grid {
     gap: 14px;
+  }
+
+  body[data-page="teams-hub"] .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  body[data-page="teams-hub"] .feature-card {
+    min-height: 0;
+    padding: 14px;
+  }
+
+  body[data-page="teams-hub"] .feature-card h3 {
+    font-size: 1rem;
   }
 
   .schedule-row,
