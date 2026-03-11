@@ -2983,14 +2983,10 @@ function initPredictionPage() {
 function renderMatchCard(match) {
   const matchCopy = currentLocale === "zh"
     ? {
-        home: "主队",
-        away: "客队",
         open: "比赛页",
         prediction: "预测",
       }
     : {
-        home: "Home",
-        away: "Away",
         open: "Match",
         prediction: "Prediction",
       };
@@ -2998,16 +2994,12 @@ function renderMatchCard(match) {
   return `
     <article class="match-card">
       <span class="match-card__stage">${displayStage(match.stage)} · ${humanizeMatchStatus(match)}</span>
-      <div class="match-card__teams">
-        <div class="match-card__team">
-          <span>${matchCopy.home}</span>
-          <strong>${renderTeamLink(match.home)}</strong>
-        </div>
-        <div class="match-card__score">${match.score}</div>
-        <div class="match-card__team">
-          <span>${matchCopy.away}</span>
-          <strong>${renderTeamLink(match.away)}</strong>
-        </div>
+      <div class="match-card__fixture">
+        <strong class="match-card__line">
+          ${renderTeamLink(match.home)}
+          <span class="match-card__score">${match.score}</span>
+          ${renderTeamLink(match.away)}
+        </strong>
       </div>
       <p class="match-card__meta">${displayMatchMeta(match)}</p>
       <div class="match-card__actions">

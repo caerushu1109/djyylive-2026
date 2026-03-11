@@ -680,7 +680,7 @@ h3 {
 }
 
 .portal-pillars {
-  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: minmax(220px, auto);
 }
 
@@ -790,23 +790,23 @@ h3 {
   margin-bottom: 16px;
 }
 
-.match-card__teams {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 14px;
+.match-card__fixture,
+.schedule-row strong {
+  display: block;
 }
 
-.match-card__team {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.match-card__team strong,
+.match-card__line,
 .schedule-row strong {
   font-size: 1.22rem;
+  line-height: 1.35;
+}
+
+.match-card__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .team-link {
@@ -821,9 +821,10 @@ h3 {
 }
 
 .match-card__score {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--green);
+  white-space: nowrap;
 }
 
 .match-card__actions,
@@ -2120,6 +2121,10 @@ h3 {
     display: none;
   }
 
+  body[data-page^="history"] .history-subnav {
+    display: none;
+  }
+
   body[data-page="home"] .mobile-home-hub {
     display: grid;
     gap: 14px;
@@ -2391,7 +2396,6 @@ h3 {
     gap: 14px;
   }
 
-  .match-card__teams,
   .schedule-row,
   .poll__row,
   .odds-row,
@@ -2403,17 +2407,14 @@ h3 {
     flex-direction: column;
   }
 
-  .match-card__teams {
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-
-  .match-card__team {
-    width: 100%;
-  }
-
   .match-card__score {
-    font-size: 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .match-card__line {
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
   }
 
   .match-card__stage,
