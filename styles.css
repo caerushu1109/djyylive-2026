@@ -810,9 +810,18 @@ h3 {
 }
 
 .team-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid rgba(15, 92, 64, 0.16);
+}
+
+.team-flag {
+  flex: 0 0 auto;
+  font-size: 1.05em;
+  line-height: 1;
 }
 
 .team-link:hover {
@@ -862,6 +871,14 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
+}
+
+.standings-table .team-link {
+  border-bottom: 0;
+}
+
+.standings-table td:first-child {
+  min-width: 180px;
 }
 
 .detail-list {
@@ -1496,6 +1513,27 @@ h3 {
   min-height: 96px;
 }
 
+.story-row--top-1,
+.story-row--top-2,
+.story-row--top-3 {
+  border-width: 1.5px;
+}
+
+.story-row--top-1 {
+  background: linear-gradient(135deg, rgba(223, 177, 61, 0.18), rgba(255, 255, 255, 0.72));
+  border-color: rgba(180, 126, 18, 0.32);
+}
+
+.story-row--top-2 {
+  background: linear-gradient(135deg, rgba(167, 178, 189, 0.18), rgba(255, 255, 255, 0.72));
+  border-color: rgba(122, 134, 149, 0.28);
+}
+
+.story-row--top-3 {
+  background: linear-gradient(135deg, rgba(175, 122, 82, 0.16), rgba(255, 255, 255, 0.72));
+  border-color: rgba(145, 92, 52, 0.26);
+}
+
 .story-row__index,
 .story-row__metric {
   display: grid;
@@ -1892,6 +1930,24 @@ h3 {
   background: rgba(255, 255, 255, 0.56);
 }
 
+.odds-row--rank-1,
+.odds-row--rank-2,
+.odds-row--rank-3 {
+  border-left-width: 4px;
+}
+
+.odds-row--rank-1 {
+  border-left-color: #c39826;
+}
+
+.odds-row--rank-2 {
+  border-left-color: #8c97a1;
+}
+
+.odds-row--rank-3 {
+  border-left-color: #9a6842;
+}
+
 .portal-hero {
   align-items: stretch;
 }
@@ -1942,6 +1998,54 @@ h3 {
   color: var(--green-deep);
   font-style: normal;
   font-weight: 800;
+}
+
+.probability-grid--bars {
+  gap: 14px;
+}
+
+.probability-card__bar {
+  position: relative;
+  height: 14px;
+  margin: 8px 0 10px;
+  border-radius: 999px;
+  background: rgba(15, 39, 30, 0.08);
+  overflow: hidden;
+}
+
+.probability-card__bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.probability-card--win .probability-card__bar i {
+  background: linear-gradient(90deg, #167a59, #31aa7b);
+}
+
+.probability-card--draw .probability-card__bar i {
+  background: linear-gradient(90deg, #8d9493, #b7bfbe);
+}
+
+.probability-card--loss .probability-card__bar i {
+  background: linear-gradient(90deg, #c2673e, #dfa53d);
+}
+
+.team-card {
+  position: relative;
+  overflow: hidden;
+  padding-left: 20px;
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 0;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--gold), var(--green));
 }
 
 .mobile-home-hub {
@@ -2118,10 +2222,6 @@ h3 {
   }
 
   body[data-page="home"] .hero--home {
-    display: none;
-  }
-
-  body[data-page^="history"] .history-subnav {
     display: none;
   }
 
@@ -2354,11 +2454,6 @@ h3 {
 
   .hero__actions .button,
   .section-actions .button,
-  .match-card__actions .button,
-  .schedule-row__actions .button,
-  .live-card__actions .button,
-  .watchlist-row__actions .button,
-  .spotlight-match__actions .button,
   .history-links .button {
     width: 100%;
   }
@@ -2439,7 +2534,15 @@ h3 {
   .watchlist-row__actions,
   .spotlight-match__actions {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .match-card__actions .button,
+  .schedule-row__actions .button,
+  .live-card__actions .button,
+  .watchlist-row__actions .button,
+  .spotlight-match__actions .button {
     width: 100%;
   }
 
@@ -2466,6 +2569,10 @@ h3 {
 
   .selector-card select {
     min-height: 48px;
+  }
+
+  .explorer-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .section-summary {

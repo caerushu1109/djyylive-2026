@@ -67,6 +67,61 @@ const pollOptions = wc2026PollOptions;
 const countdownTarget = wc2026CountdownTarget;
 const currentLocale = document.body.dataset.locale || defaultLocale;
 const currentUi = localeUi[currentLocale] || localeUi[defaultLocale];
+const teamFlagMap = {
+  Mexico: "🇲🇽",
+  "South Africa": "🇿🇦",
+  "South Korea": "🇰🇷",
+  Uruguay: "🇺🇾",
+  Italy: "🇮🇹",
+  Sweden: "🇸🇪",
+  Hungary: "🇭🇺",
+  "West Germany": "🇩🇪",
+  Germany: "🇩🇪",
+  Czechoslovakia: "🇨🇿",
+  Chile: "🇨🇱",
+  Cameroon: "🇨🇲",
+  Bulgaria: "🇧🇬",
+  Yugoslavia: "🇷🇸",
+  Switzerland: "🇨🇭",
+  Qatar: "🇶🇦",
+  Canada: "🇨🇦",
+  Brazil: "🇧🇷",
+  Haiti: "🇭🇹",
+  Scotland: "🏴",
+  Morocco: "🇲🇦",
+  "United States": "🇺🇸",
+  Paraguay: "🇵🇾",
+  Australia: "🇦🇺",
+  Senegal: "🇸🇳",
+  Nigeria: "🇳🇬",
+  Ecuador: "🇪🇨",
+  "Ivory Coast": "🇨🇮",
+  Curacao: "🇨🇼",
+  Netherlands: "🇳🇱",
+  Tunisia: "🇹🇳",
+  Japan: "🇯🇵",
+  Belgium: "🇧🇪",
+  Egypt: "🇪🇬",
+  "New Zealand": "🇳🇿",
+  Iran: "🇮🇷",
+  France: "🇫🇷",
+  "Saudi Arabia": "🇸🇦",
+  Spain: "🇪🇸",
+  "Cape Verde": "🇨🇻",
+  Norway: "🇳🇴",
+  Argentina: "🇦🇷",
+  Austria: "🇦🇹",
+  Algeria: "🇩🇿",
+  Jordan: "🇯🇴",
+  Portugal: "🇵🇹",
+  Colombia: "🇨🇴",
+  Uzbekistan: "🇺🇿",
+  England: "🏴",
+  Croatia: "🇭🇷",
+  Ghana: "🇬🇭",
+  Panama: "🇵🇦",
+  "Soviet Union": "🇷🇺",
+};
 
 let activeGroup = "A";
 let activeVote = "巴西";
@@ -376,7 +431,6 @@ function initSchedulePage() {
   const scheduleList = document.querySelector("#schedule-list");
   const liveNowNode = document.querySelector("#schedule-live-now");
   const upcomingNode = document.querySelector("#schedule-upcoming");
-  const stageSelect = document.querySelector("#schedule-stage-select");
   const teamSelect = document.querySelector("#schedule-team-select");
   const statusSelect = document.querySelector("#schedule-status-select");
 
@@ -407,12 +461,9 @@ function initSchedulePage() {
       .join("");
   }
 
-  if (stageSelect && teamSelect && statusSelect) {
+  if (teamSelect && statusSelect) {
     const teams = [...new Set(matches.flatMap((match) => [match.home, match.away]))].sort();
-    const stages = [...new Set(matches.map((match) => match.stage))];
-
-    stageSelect.innerHTML = [`<option value="all">${currentUi.allStages}</option>`, ...stages.map((stage) => `<option value="${stage}">${displayStage(stage)}</option>`)].join("");
-    teamSelect.innerHTML = [`<option value="all">${currentUi.allTeams}</option>`, ...teams.map((team) => `<option value="${team}">${displayTeam(team)}</option>`)].join("");
+    teamSelect.innerHTML = [`<option value="all">${currentUi.allTeams}</option>`, ...teams.map((team) => `<option value="${team}">${displayTeamWithFlag(team)}</option>`)].join("");
     statusSelect.innerHTML = `
       <option value="all">${currentUi.allStatus}</option>
       <option value="scheduled">${currentUi.statusScheduled}</option>
@@ -422,9 +473,6 @@ function initSchedulePage() {
 
     const update = () => {
       let filtered = [...matches];
-      if (stageSelect.value !== "all") {
-        filtered = filtered.filter((match) => match.stage === stageSelect.value);
-      }
       if (teamSelect.value !== "all") {
         filtered = filtered.filter(
           (match) => match.home === teamSelect.value || match.away === teamSelect.value
@@ -436,7 +484,6 @@ function initSchedulePage() {
       scheduleList.innerHTML = filtered.map(renderScheduleRow).join("");
     };
 
-    stageSelect.addEventListener("change", update);
     teamSelect.addEventListener("change", update);
     statusSelect.addEventListener("change", update);
     update();
@@ -571,7 +618,7 @@ function renderStoryRows(items, formatter) {
     .map((item, index) => {
       const config = formatter(item, index);
       return `
-        <article class="story-row">
+        <article class="story-row${config.accent ? ` story-row--${config.accent}` : ""}">
           <span class="${config.metric ? "story-row__metric" : "story-row__index"}">${config.lead}</span>
           <div class="story-row__body">
             <strong>${config.title}</strong>
@@ -1028,14 +1075,15 @@ function initHistoryUpsetsPage() {
 
   upsetsNode.innerHTML = renderStoryRows(historyUpsets, (item, index) => ({
     lead: index + 1,
-    title: `${displayTeam(item.winner)} ${displayScore(item.score)} ${displayTeam(item.loser)}`,
+    title: `${displayTeamWithFlag(item.winner)} ${displayScore(item.score)} ${displayTeamWithFlag(item.loser)}`,
     copy: `${item.date} · ${upsetsCopy.upsetGap} ${item.eloGap} · ${upsetsCopy.preMatchElo} ${item.winnerElo} vs ${item.loserElo}`,
+    accent: index < 3 ? `top-${index + 1}` : "",
   }));
 
   shocksNode.innerHTML = renderStoryRows(historyShocks, (item) => ({
     lead: item.swing,
     metric: true,
-    title: `${displayTeam(item.home)} ${displayScore(item.score)} ${displayTeam(item.away)}`,
+    title: `${displayTeamWithFlag(item.home)} ${displayScore(item.score)} ${displayTeamWithFlag(item.away)}`,
     copy: `${item.date} · ${upsetsCopy.preGap} ${item.preGap} · ${upsetsCopy.totalSwing} ${item.swing}`,
   }));
 
@@ -2415,9 +2463,9 @@ function initTeamsHubPage() {
         return "";
       }
       return `
-        <article class="feature-card history-mini-card">
-          <p class="story-card__tag">${team}</p>
-          <h3>${team}</h3>
+        <article class="feature-card history-mini-card team-card">
+          <p class="story-card__tag">${displayTeamWithFlag(team)}</p>
+          <h3>${displayTeamWithFlag(team)}</h3>
           <p>${profile.matches} ${teamsCopy.matches} · ${teamsCopy.peak} ${profile.peakElo} · ${profile.wins} ${teamsCopy.wins}</p>
           <a href="${teamHistoryPath(team)}">${teamsCopy.deepPage}</a>
         </article>
@@ -2901,10 +2949,10 @@ function initPredictionPage() {
 
   oddsNode.innerHTML = titleOdds
     .map(
-      (item) => `
-        <article class="odds-row">
+      (item, index) => `
+        <article class="odds-row odds-row--rank-${Math.min(index + 1, 3)}">
           <div>
-            <strong>${displayTeam(item.team)}</strong>
+            <strong>${displayTeamWithFlag(item.team)}</strong>
             <span>${predictionCopy.oddsLabel}</span>
           </div>
           <div class="odds-row__bar">
@@ -2919,7 +2967,7 @@ function initPredictionPage() {
   const options = predictionTeams
     .map(
       (item) =>
-        `<option value="${item.team}">${displayTeam(item.team)} · ELO ${item.elo}</option>`
+        `<option value="${item.team}">${displayTeamWithFlag(item.team)} · ELO ${item.elo}</option>`
     )
     .join("");
 
@@ -2949,27 +2997,30 @@ function initPredictionPage() {
     resultNode.innerHTML = `
       <div class="matchup-card">
         <div class="matchup-card__header">
-          <h3>${displayTeam(teamA.team)} vs ${displayTeam(teamB.team)}</h3>
+          <h3>${displayTeamWithFlag(teamA.team)} vs ${displayTeamWithFlag(teamB.team)}</h3>
           <p>${predictionCopy.eloGap}: ${teamA.elo - teamB.elo}</p>
         </div>
-        <div class="probability-grid">
-          <article class="probability-card">
-            <span>${displayTeam(teamA.team)} ${predictionCopy.win}</span>
+        <div class="probability-grid probability-grid--bars">
+          <article class="probability-card probability-card--win">
+            <span>${displayTeamWithFlag(teamA.team)} ${predictionCopy.win}</span>
+            <div class="probability-card__bar"><i style="width: ${homeWin * 100}%"></i></div>
             <strong>${formatPct(homeWin)}</strong>
           </article>
-          <article class="probability-card">
+          <article class="probability-card probability-card--draw">
             <span>${predictionCopy.draw}</span>
+            <div class="probability-card__bar"><i style="width: ${draw * 100}%"></i></div>
             <strong>${formatPct(draw)}</strong>
           </article>
-          <article class="probability-card">
-            <span>${displayTeam(teamB.team)} ${predictionCopy.win}</span>
+          <article class="probability-card probability-card--loss">
+            <span>${displayTeamWithFlag(teamB.team)} ${predictionCopy.win}</span>
+            <div class="probability-card__bar"><i style="width: ${awayWin * 100}%"></i></div>
             <strong>${formatPct(awayWin)}</strong>
           </article>
         </div>
         <div class="knockout-card">
           <span>${predictionCopy.knockout}</span>
-          <strong>${displayTeam(teamA.team)} ${formatPct(knockoutA)}</strong>
-          <strong>${displayTeam(teamB.team)} ${formatPct(1 - knockoutA)}</strong>
+          <strong>${displayTeamWithFlag(teamA.team)} ${formatPct(knockoutA)}</strong>
+          <strong>${displayTeamWithFlag(teamB.team)} ${formatPct(1 - knockoutA)}</strong>
         </div>
       </div>
     `;
@@ -3316,8 +3367,20 @@ function displayTeam(team) {
   return teamNameMap[team] || team;
 }
 
+function getTeamFlag(team) {
+  const normalized = teamNameMap[team] || team;
+  return teamFlagMap[normalized] || "";
+}
+
+function displayTeamWithFlag(team) {
+  const flag = getTeamFlag(team);
+  const label = displayTeam(team);
+  return flag ? `${flag} ${label}` : label;
+}
+
 function renderTeamLink(team) {
-  return `<a class="team-link" href="${teamHistoryPath(team)}">${displayTeam(team)}</a>`;
+  const flag = getTeamFlag(team);
+  return `<a class="team-link" href="${teamHistoryPath(team)}">${flag ? `<span class="team-flag">${flag}</span>` : ""}<span>${displayTeam(team)}</span></a>`;
 }
 
 function displayScore(score) {
