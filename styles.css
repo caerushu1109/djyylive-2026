@@ -154,6 +154,29 @@ blockquote {
   background: linear-gradient(90deg, rgba(15, 92, 64, 0.12), rgba(15, 92, 64, 0.82), rgba(223, 166, 58, 0.7));
 }
 
+.page-header-bar {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.page-header-bar h1 {
+  max-width: 860px;
+  margin-bottom: 0;
+}
+
+.page-header-bar__lede {
+  max-width: 740px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.bottom-tabbar {
+  display: none;
+}
+
 .hero,
 .page-hero {
   position: relative;
@@ -2053,10 +2076,27 @@ h3 {
     white-space: nowrap;
   }
 
-  body[data-page="home"] .nav__links a:nth-child(6),
-  body[data-page="home"] .nav__links a:nth-child(7),
-  body[data-page="home"] .nav__links a:nth-child(8) {
+  body:not([data-page="home"]) .nav__links a:not([aria-current="page"]):not([data-locale-switch]),
+  body[data-page="home"] .nav__links a:not(:first-child):not([data-locale-switch]) {
     display: none;
+  }
+
+  .nav__links {
+    justify-content: space-between;
+  }
+
+  .page-header-bar {
+    margin-top: 18px;
+    gap: 6px;
+  }
+
+  .page-header-bar h1 {
+    font-size: 1.8rem;
+    line-height: 1.02;
+  }
+
+  .page-header-bar__lede {
+    font-size: 0.94rem;
   }
 
   .history-jumpnav,
@@ -2242,6 +2282,45 @@ h3 {
 
   body[data-page="home"] .standings-table {
     min-width: 420px;
+  }
+
+  body {
+    padding-bottom: 88px;
+  }
+
+  .bottom-tabbar {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+    border-radius: 22px;
+    border: 1px solid rgba(15, 39, 30, 0.1);
+    background: rgba(255, 251, 244, 0.94);
+    box-shadow: 0 16px 34px rgba(15, 39, 30, 0.16);
+    backdrop-filter: blur(14px);
+  }
+
+  .bottom-tabbar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 8px 6px;
+    border-radius: 16px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .bottom-tabbar a[aria-current="page"] {
+    background: rgba(15, 92, 64, 0.12);
+    color: var(--green-deep);
   }
 
   .hero__actions {

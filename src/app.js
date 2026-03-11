@@ -72,6 +72,7 @@ let activeGroup = "A";
 let activeVote = "巴西";
 let activeStage = "all";
 
+initPrimaryNav();
 initCountdown();
 initMatchesPreview();
 initGroupStandings();
@@ -89,8 +90,70 @@ initTeamHistoryPage();
 initLivePage();
 initMatchPage();
 initLocaleSwitch();
+streamlinePageChrome();
+streamlinePageContent();
+initBottomTabBar();
 initHomeMobileMore();
 initPageMobileMore();
+
+function initPrimaryNav() {
+  const navLinks = document.querySelector(".nav__links");
+  if (!navLinks) {
+    return;
+  }
+
+  const activeGroup = getNavGroup();
+  const localeSwitch = homepageCopy[currentLocale] || homepageCopy[defaultLocale];
+  const links = currentLocale === "zh"
+    ? [
+        { key: "home", href: "/zh/index.html", label: "首页" },
+        { key: "schedule", href: "/zh/schedule.html", label: "赛程" },
+        { key: "history", href: "/zh/history.html", label: "历史" },
+        { key: "prediction", href: "/zh/prediction.html", label: "预测" },
+        { key: "teams", href: "/zh/teams.html", label: "球队" },
+      ]
+    : [
+        { key: "home", href: "/en/index.html", label: "Home" },
+        { key: "schedule", href: "/en/schedule.html", label: "Schedule" },
+        { key: "history", href: "/en/history.html", label: "History" },
+        { key: "prediction", href: "/en/prediction.html", label: "Prediction" },
+        { key: "teams", href: "/en/teams.html", label: "Teams" },
+      ];
+
+  navLinks.innerHTML = `
+    ${links
+      .map(
+        (link) => `
+          <a href="${link.href}"${link.key === activeGroup ? ' aria-current="page"' : ""}>${link.label}</a>
+        `
+      )
+      .join("")}
+    <a href="${localeSwitch.switchHref}" data-locale-switch>${localeSwitch.switchLabel}</a>
+  `;
+}
+
+function getNavGroup() {
+  const page = document.body.dataset.page;
+  if (page === "home") {
+    return "home";
+  }
+  if (["schedule", "live", "match"].includes(page)) {
+    return "schedule";
+  }
+  if (
+    ["history-hub", "history", "history-upsets", "history-archive", "history-players", "history-matches"]
+      .includes(page)
+  ) {
+    return "history";
+  }
+  if (page === "prediction") {
+    return "prediction";
+  }
+  if (["teams-hub", "team-history"].includes(page)) {
+    return "teams";
+  }
+  return "";
+}
 
 function initCountdown() {
   const dayNode = document.querySelector("#days");
@@ -127,6 +190,97 @@ function initLocaleSwitch() {
 
   switchNode.textContent = fallbackConfig.switchLabel;
   switchNode.setAttribute("href", nextHref);
+}
+
+function streamlinePageChrome() {
+  if (document.body.dataset.page === "home") {
+    return;
+  }
+
+  const hero = document.querySelector(".page-hero");
+  if (!hero) {
+    return;
+  }
+
+  const eyebrow = hero.querySelector(".eyebrow")?.textContent?.trim();
+  const title = hero.querySelector("h1")?.textContent?.trim();
+  const lede = hero.querySelector(".hero__lede")?.textContent?.trim();
+
+  if (!title) {
+    return;
+  }
+
+  const compact = document.createElement("section");
+  compact.className = "page-header-bar";
+  compact.innerHTML = `
+    ${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ""}
+    <h1>${title}</h1>
+    ${lede ? `<p class="page-header-bar__lede">${lede}</p>` : ""}
+  `;
+
+  hero.replaceWith(compact);
+}
+
+function streamlinePageContent() {
+  const page = document.body.dataset.page;
+  const removablePages = new Set([
+    "schedule",
+    "live",
+    "prediction",
+    "teams-hub",
+    "history-hub",
+    "match",
+  ]);
+
+  if (!removablePages.has(page)) {
+    return;
+  }
+
+  const sections = [...document.querySelectorAll("main > .section")];
+  const firstSection = sections[0];
+  if (!firstSection) {
+    return;
+  }
+
+  const summaryStrip = firstSection.querySelector(".summary-strip");
+  if (summaryStrip && !firstSection.querySelector("[id]")) {
+    firstSection.remove();
+  }
+}
+
+function initBottomTabBar() {
+  const shell = document.querySelector(".site-shell");
+  if (!shell) {
+    return;
+  }
+
+  const activeGroup = getNavGroup();
+  const tabs = currentLocale === "zh"
+    ? [
+        { key: "schedule", href: "/zh/schedule.html", label: "赛程" },
+        { key: "history", href: "/zh/history.html", label: "历史" },
+        { key: "prediction", href: "/zh/prediction.html", label: "预测" },
+        { key: "teams", href: "/zh/teams.html", label: "球队" },
+      ]
+    : [
+        { key: "schedule", href: "/en/schedule.html", label: "Schedule" },
+        { key: "history", href: "/en/history.html", label: "History" },
+        { key: "prediction", href: "/en/prediction.html", label: "Prediction" },
+        { key: "teams", href: "/en/teams.html", label: "Teams" },
+      ];
+
+  const tabBar = document.createElement("nav");
+  tabBar.className = "bottom-tabbar";
+  tabBar.setAttribute("aria-label", currentLocale === "zh" ? "底部导航" : "Bottom navigation");
+  tabBar.innerHTML = tabs
+    .map(
+      (tab) => `
+        <a href="${tab.href}"${tab.key === activeGroup ? ' aria-current="page"' : ""}>${tab.label}</a>
+      `
+    )
+    .join("");
+
+  shell.appendChild(tabBar);
 }
 
 function initHomeMobileMore() {
