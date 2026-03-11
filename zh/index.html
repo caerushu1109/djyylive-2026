@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/index.html" />
     <meta name="theme-color" content="#0f5c40" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260311b" />
+    <link rel="stylesheet" href="../styles.css?v=20260311d" />
   </head>
   <body data-page="home" data-locale="zh" data-route-key="home">
     <main class="site-shell">
@@ -24,7 +24,7 @@
           <div class="nav__links">
             <a href="./index.html" aria-current="page">首页</a>
             <a href="./schedule.html">赛程</a>
-            <a href="./live.html">Live</a>
+            <a href="./live.html">比赛日</a>
             <a href="./history.html">历史</a>
             <a href="./prediction.html">预测</a>
             <a href="./team-history.html">球队档案</a>
@@ -33,6 +33,33 @@
             <a href="/en/index.html" data-locale-switch>EN</a>
           </div>
         </nav>
+
+        <section class="mobile-home-hub" aria-label="手机端首页导览">
+          <div class="mobile-home-hub__intro">
+            <p class="eyebrow">比赛优先</p>
+            <h1>先看今天的比赛，再决定往哪一页走</h1>
+            <p>手机端不再先展示整套门户结构，而是先把赛程、比赛日和积分放在最前面。</p>
+          </div>
+          <div class="mobile-home-hub__actions">
+            <a class="mobile-home-hub__action mobile-home-hub__action--primary" href="./schedule.html">
+              <span>先看赛程</span>
+              <strong>揭幕周与首轮焦点</strong>
+            </a>
+            <a class="mobile-home-hub__action" href="./live.html">
+              <span>比赛日</span>
+              <strong>正在踢什么，下一场是什么</strong>
+            </a>
+            <a class="mobile-home-hub__action" href="#group-tabs">
+              <span>积分与分组</span>
+              <strong>小组形势先看这里</strong>
+            </a>
+          </div>
+          <div class="mobile-home-hub__secondary">
+            <a href="./history.html">历史</a>
+            <a href="./prediction.html">预测</a>
+            <a href="./teams.html">球队</a>
+          </div>
+        </section>
 
         <section class="hero hero--home">
           <div class="hero__content portal-hero">
@@ -311,6 +338,6 @@
       </footer>
     </main>
 
-    <script type="module" src="../src/app.js"></script>
+    <script type="module" src="../src/app.js?v=20260311d"></script>
   </body>
 </html>
