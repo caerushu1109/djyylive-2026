@@ -4016,16 +4016,18 @@ function displayGroupLabel(group) {
 }
 
 function getHomepageMatches() {
-  const limit = ["sportmonks-live", "sportmonks-captured", "sportmonks-live-sample"].includes(
-    matchdaySourceMeta.provider
-  )
-    ? 6
-    : 4;
-  return prioritizeMatches(matches, limit);
+  const limit = isRealProviderMode() ? 6 : 4;
+  return getPrimaryMatchStream(matches).slice(0, limit);
 }
 
 function getFeaturedMatchId() {
-  return prioritizeMatches(matches, 1)[0]?.id || null;
+  return getPrimaryMatchStream(matches)[0]?.id || null;
+}
+
+function isRealProviderMode() {
+  return ["sportmonks-live", "sportmonks-captured", "sportmonks-live-sample"].includes(
+    matchdaySourceMeta.provider
+  );
 }
 
 function matchPhaseRank(match) {
@@ -4116,6 +4118,26 @@ function prioritizeMatches(sourceMatches, limit = 4) {
       return String(a.id).localeCompare(String(b.id));
     })
     .slice(0, limit);
+}
+
+function getPrimaryMatchStream(sourceMatches) {
+  if (!isRealProviderMode()) {
+    return prioritizeMatches(sourceMatches, sourceMatches.length || 0);
+  }
+
+  return [...sourceMatches].sort((a, b) => {
+    const phaseDelta = matchPhaseRank(a) - matchPhaseRank(b);
+    if (phaseDelta !== 0) {
+      return phaseDelta;
+    }
+
+    const kickoffDelta = parseKickoffValue(a) - parseKickoffValue(b);
+    if (kickoffDelta !== 0) {
+      return kickoffDelta;
+    }
+
+    return String(a.id).localeCompare(String(b.id));
+  });
 }
 
 function renderLineChartSvg(points, label, gradientId) {
