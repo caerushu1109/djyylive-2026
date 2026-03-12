@@ -1,8 +1,6 @@
-import { readFile } from "fs/promises";
-import path from "path";
 import { getCityLabel, getTeamMeta } from "@/src/lib/team-meta";
+import sampleProviderData from "@/data/provider-samples/sportmonks-worldcup-sample.json";
 
-const SAMPLE_PATH = path.join(process.cwd(), "data/provider-samples/sportmonks-worldcup-sample.json");
 const CURRENT_SCORE = "CURRENT";
 const WORLD_CUP_START = "2026-06-11";
 const WORLD_CUP_END = "2026-07-19";
@@ -369,8 +367,7 @@ async function readSample() {
   if (sampleCache) {
     return sampleCache;
   }
-  const raw = await readFile(SAMPLE_PATH, "utf8");
-  sampleCache = JSON.parse(raw);
+  sampleCache = sampleProviderData;
   return sampleCache;
 }
 
