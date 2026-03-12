@@ -4668,13 +4668,13 @@ function getHomepageMatches() {
   const limit = 4;
   const liveMatches = matches.filter((match) => match.phase === "in_match");
   if (liveMatches.length) {
-    const upcomingMatches = sortMatchesChronologically(matches.filter((match) => match.phase === "pre_match"));
+    const upcomingMatches = getOrderedPreMatches(matches);
     return [...sortMatchesChronologically(liveMatches), ...upcomingMatches].slice(0, limit);
   }
 
-  const preMatches = matches.filter((match) => match.phase === "pre_match");
+  const preMatches = getOrderedPreMatches(matches);
   if (preMatches.length) {
-    return sortMatchesChronologically(preMatches).slice(0, limit);
+    return preMatches.slice(0, limit);
   }
 
   return sortMatchesChronologically(matches).slice(0, limit);
@@ -4690,9 +4690,9 @@ function getPrimaryFocusMatch(sourceMatches = matches) {
     return sortMatchesChronologically(liveMatches)[0] || null;
   }
 
-  const preMatches = sourceMatches.filter((match) => match.phase === "pre_match");
+  const preMatches = getOrderedPreMatches(sourceMatches);
   if (preMatches.length) {
-    return sortMatchesChronologically(preMatches)[0] || null;
+    return preMatches[0] || null;
   }
 
   const postMatches = sourceMatches.filter((match) => match.phase === "post_match");
@@ -4704,9 +4704,7 @@ function getPrimaryFocusMatch(sourceMatches = matches) {
 }
 
 function getUpcomingMatches(sourceMatches, limit = 4) {
-  return sortMatchesChronologically(
-    sourceMatches.filter((match) => match.phase === "pre_match")
-  ).slice(0, limit);
+  return getOrderedPreMatches(sourceMatches).slice(0, limit);
 }
 
 function getWatchlistMatches(sourceMatches, options = {}) {
@@ -4758,26 +4756,28 @@ function parseKickoffValue(match) {
   }
 
   const normalized = raw.replace(" ", "T");
-  const directValue = Date.parse(normalized);
-  if (Number.isFinite(directValue)) {
-    return directValue;
-  }
-
   const parsed = normalized.match(
     /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2})(?::(\d{2}))?)?$/
   );
-  if (!parsed) {
-    return Number.MAX_SAFE_INTEGER;
+  if (parsed) {
+    const [, year, month, day, hour = "00", minute = "00", second = "00"] = parsed;
+    return Date.UTC(
+      Number(year),
+      Number(month) - 1,
+      Number(day),
+      Number(hour),
+      Number(minute),
+      Number(second)
+    );
   }
 
-  const [, year, month, day, hour = "00", minute = "00", second = "00"] = parsed;
-  return Date.UTC(
-    Number(year),
-    Number(month) - 1,
-    Number(day),
-    Number(hour),
-    Number(minute),
-    Number(second)
+  const directValue = Date.parse(normalized);
+  return Number.isFinite(directValue) ? directValue : Number.MAX_SAFE_INTEGER;
+}
+
+function getOrderedPreMatches(sourceMatches) {
+  return sortMatchesChronologically(
+    sourceMatches.filter((match) => match.phase === "pre_match")
   );
 }
 
