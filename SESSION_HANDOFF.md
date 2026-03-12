@@ -28,10 +28,14 @@ History remains important, but it is not the first thing most users should see d
 
 Main nav is now intended to stay consistent across the site:
 
-`首页 -> 赛程 -> Live -> 历史 -> 预测 -> 球队档案 ...`
+`首页 -> 赛程 -> 历史 -> 预测 -> 球队`
 
 `赛程` is immediately after `首页`.
-`Live` is always visible in the main nav and should not be hidden behind schedule-only pages.
+`Live` is no longer a top-level nav item. It now sits under the event flow:
+
+- `schedule.html`
+- `live.html`
+- `match.html`
 
 ### History module
 
@@ -198,28 +202,30 @@ Homepage fixtures and group tables now use that new source.
 
 Live and schedule pages now support pre-tournament empty-state logic so they do not look broken before kickoff.
 
+There is now also a real adapter architecture in place:
+
+- `src/matchday-normalizers.js`
+- `src/provider-mappers.js`
+- `src/matchday-adapter.js`
+- `src/api-adapter-example.js`
+
+The site is now phase-aware:
+
+- `pre_match`
+- `in_match`
+- `post_match`
+
+This means the next major step is provider hookup, not page redesign.
+
 ## Next Recommended Task
 
-Next task should be:
+Next task should be provider selection and payload hookup:
 
-### Refine the homepage page-by-page
-
-Specifically:
-
-- polish tournament-first homepage hierarchy
-- make featured fixtures and standings even more prominent
-- make homepage feel more premium and editorial
-- then continue page-by-page refinement after homepage
-
-Recommended order after that:
-
-1. homepage
-2. history hub
-3. upsets / Elo page
-4. archive page
-5. team hub
-6. team deep page
-7. schedule / live / match
+1. choose the football data provider
+2. collect one real sample payload
+3. test it against `src/provider-mappers.js`
+4. fill missing field mappings
+5. then buy the API plan
 
 ## Future Architecture Decision
 

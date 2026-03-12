@@ -52,6 +52,8 @@ Then open:
   - bilingual rollout notes for `/zh` and `/en`
 - `API_REQUIREMENTS.md`
   - required data contract before buying a football API
+- `API_BUY_DECISION.md`
+  - practical checklist for deciding when to buy the football API
 - `LAUNCH_CHECKLIST.md`
   - minimum launch gate before binding a real domain
 - `DEPLOYMENT.md`
