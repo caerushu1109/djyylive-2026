@@ -44,6 +44,17 @@ function normalizeDateString(value) {
   return String(value || "").split(" ")[0] || "";
 }
 
+function addDays(dateString, offset) {
+  const [year, month, day] = String(dateString || "")
+    .split("-")
+    .map((value) => Number(value));
+  if (!year || !month || !day) {
+    return "";
+  }
+  const utc = new Date(Date.UTC(year, month - 1, day + offset));
+  return utc.toISOString().slice(0, 10);
+}
+
 function uniqueById(rows = []) {
   const seen = new Map();
   rows.filter(Boolean).forEach((row) => {
@@ -74,6 +85,7 @@ export async function onRequestGet(context) {
   const standingsInclude =
     url.searchParams.get("standingsInclude") || DEFAULT_STANDINGS_INCLUDE;
   const baseUrl = env.SPORTMONKS_BASE_URL || DEFAULT_BASE_URL;
+  const dateWindowDays = Math.max(1, Math.min(31, Number(url.searchParams.get("dateWindowDays") || 7)));
 
   if (!fixtureId || !seasonId) {
     return json(
@@ -122,21 +134,25 @@ export async function onRequestGet(context) {
     const primaryFixture = fixtureResponse.data;
     const kickoffDate = normalizeDateString(primaryFixture?.starting_at);
 
-    let sameDateFixtures = [];
+    let windowFixtures = [];
     if (kickoffDate) {
       try {
-        const byDateUrl = buildSportMonksUrl(baseUrl, `fixtures/date/${kickoffDate}`, {
-          api_token: token,
-          include: fixtureInclude,
-        });
-        const byDateResponse = await fetchSportMonksJson(byDateUrl);
-        sameDateFixtures = (byDateResponse.data || []).filter(
-          (row) =>
-            String(row.season_id) === String(seasonId) ||
-            String(row.league_id) === String(primaryFixture?.league_id || "")
+        const dateUrls = Array.from({ length: dateWindowDays }, (_, index) =>
+          buildSportMonksUrl(baseUrl, `fixtures/date/${addDays(kickoffDate, index)}`, {
+            api_token: token,
+            include: fixtureInclude,
+          })
         );
+        const dateResponses = await Promise.all(dateUrls.map(fetchSportMonksJson));
+        windowFixtures = dateResponses
+          .flatMap((response) => response.data || [])
+          .filter(
+            (row) =>
+              String(row.season_id) === String(seasonId) ||
+              String(row.league_id) === String(primaryFixture?.league_id || "")
+          );
       } catch (error) {
-        console.warn("Failed to fetch SportMonks fixtures by date", error);
+        console.warn("Failed to fetch SportMonks fixtures by date window", error);
       }
     }
 
@@ -144,7 +160,7 @@ export async function onRequestGet(context) {
       provider: "sportmonks",
       fixture: primaryFixture,
       matches: uniqueById([
-        ...sameDateFixtures,
+        ...windowFixtures,
         ...extraResponses.map((item) => item.data).filter(Boolean),
       ]).filter((row) => String(row.id) !== String(primaryFixture?.id || "")),
       standingsRows: standingsResponse.data || [],

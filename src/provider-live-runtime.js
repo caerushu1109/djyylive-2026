@@ -35,6 +35,7 @@ async function loadSportMonksProxyRuntimeState(defaultsUrl = "/data/provider-liv
     fixtureId: defaults.fixtureId,
     fixtureIds: fixtureIds.join(","),
     seasonId: defaults.seasonId,
+    dateWindowDays: defaults.dateWindowDays,
     fixtureInclude: defaults.fixtureInclude,
     standingsInclude: defaults.standingsInclude,
   });
