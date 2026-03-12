@@ -53,7 +53,7 @@ import {
   getMatchdayState,
   getMatchdaySourceMeta,
   hydrateMatchdayStateFromRuntimeSource,
-} from "./matchday-source.js?v=20260312q";
+} from "./matchday-source.js?v=20260312z";
 import {
   defaultLocale,
   homepageCopy,
@@ -670,8 +670,18 @@ function initPageMobileMore() {
 
 function initMatchesPreview() {
   const matchGrid = document.querySelector("#match-grid");
+  const introNode = document.querySelector("#match-grid-intro");
   if (!matchGrid) {
     return;
+  }
+
+  if (introNode) {
+    const focusMatch = getPrimaryFocusMatch(matches);
+    if (focusMatch) {
+      introNode.textContent = currentLocale === "zh"
+        ? `这里优先顺着真实时间线推当前最该先看的比赛，当前焦点落在 ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}。`
+        : `This block follows the live tournament timeline first. Right now the focus starts with ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}.`;
+    }
   }
 
   matchGrid.innerHTML = getHomepageMatches()
@@ -690,13 +700,14 @@ function initGroupStandings() {
 
   activeGroup = getDefaultGroupKey();
   if (standingsIntro) {
+    const focusLabel = displayGroupLabel(activeGroup);
     standingsIntro.textContent = isPreTournamentStandingsMode()
       ? (currentLocale === "zh"
-          ? "开赛前这里按真实分组结构展示，积分会在首轮开球后更新。"
-          : "Before kick-off this view holds the real group draw. Points go live once the first match starts.")
+          ? `开赛前先看 ${focusLabel}，它会跟着当前焦点比赛所在小组走，积分会在首轮开球后更新。`
+          : `Before kick-off this block starts with ${focusLabel}, the group tied to the current focus match. Points go live once the first fixture starts.`)
       : (currentLocale === "zh"
-          ? "这里会跟着真实小组积分变化走，前两名和第三名比较区会同步更新。"
-          : "This block now follows the live group table, including the top-two race and best-third comparison.");
+          ? `${focusLabel} 会优先落在焦点比赛所在小组，前两名和第三名比较区也会跟着真实积分同步更新。`
+          : `${focusLabel} stays anchored to the focus fixture group, while the top-two race and best-third comparison update with the live table.`);
   }
   renderGroupTabs(groupTabs, groupTableBody);
   renderGroupTable(groupTableBody, activeGroup);
@@ -704,7 +715,7 @@ function initGroupStandings() {
 
 function getDefaultGroupKey() {
   const groupKeys = sortGroupKeys(Object.keys(groups));
-  const focusGroup = getPrimaryMatchStream(matches).find((match) => match.group)?.group;
+  const focusGroup = getPrimaryFocusMatch(matches)?.group;
   if (focusGroup && groupKeys.includes(focusGroup)) {
     return focusGroup;
   }
@@ -3709,9 +3720,7 @@ function renderMatchStateNotice(title, copy) {
     currentLocale === "zh"
       ? (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament)
       : (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament);
-  const nextMatch = sortMatchesChronologically(
-    getUpcomingMatches(matches, 1)
-  )[0];
+  const nextMatch = getPrimaryFocusMatch(matches);
   const nextMatchMarkup = nextMatch
     ? `
       <div class="notice-next-match">
@@ -4186,7 +4195,11 @@ function getHomepageMatches() {
 }
 
 function getFeaturedMatchId() {
-  return getPrimaryMatchStream(matches)[0]?.id || null;
+  return getPrimaryFocusMatch(matches)?.id || null;
+}
+
+function getPrimaryFocusMatch(sourceMatches = matches) {
+  return getPrimaryMatchStream(sourceMatches)[0] || null;
 }
 
 function getUpcomingMatches(sourceMatches, limit = 4) {

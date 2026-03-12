@@ -1,4 +1,4 @@
-import { buildMatchdayStateFromSportMonksApiSamples } from "./api-adapter-example.js?v=20260312y";
+import { buildMatchdayStateFromSportMonksApiSamples } from "./api-adapter-example.js?v=20260312z";
 
 async function fetchJson(url) {
   const response = await window.fetch(url, {
