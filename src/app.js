@@ -323,8 +323,12 @@ function initMatchdaySourceNotice() {
         sampleBody: "这页不是本地静态 seed，而是在用 provider 结构样例验证赛程、比赛日和单场页的映射。",
         sportmonksSampleTitle: "当前是 SportMonks 真实结构 sample",
         sportmonksSampleBody: "这页正在用真实 SportMonks 字段形状的样例 payload 运行，适合先验证映射和页面结构是否对得上。",
+        capturedTitle: "当前在读取本地导出的 SportMonks JSON",
+        capturedBody: "这页正在读取 data/provider-live 里的真实导出文件。这个模式最适合本地验证，因为它不依赖浏览器直接请求第三方接口。",
         liveTitle: "SportMonks 实时请求已接通",
         liveBody: "这页已经从本地配置读取 SportMonks，并成功拉到运行时数据。",
+        capturedFallbackTitle: "本地导出的 SportMonks JSON 未读到，已回退到本地 seed",
+        capturedFallbackBody: "检查 data/provider-live/sportmonks-fixture.json 和 sportmonks-standings.json 是否存在，文件内容是否是完整 JSON。",
         fallbackTitle: "SportMonks 实时请求未成功，已回退到本地 seed",
         fallbackBody: "优先检查本地是否存在 data/provider-live-config.json、token 是否已重置，以及浏览器是否允许直接请求第三方接口。",
       }
@@ -333,8 +337,12 @@ function initMatchdaySourceNotice() {
         sampleBody: "This page is not using the local seed. It is running against a provider-shaped sample to validate schedule, live, and match rendering.",
         sportmonksSampleTitle: "SportMonks real-shape sample",
         sportmonksSampleBody: "This page is running against a sample payload shaped like the real SportMonks responses, which is useful for mapper validation.",
+        capturedTitle: "Reading locally captured SportMonks JSON",
+        capturedBody: "This page is reading real exported payloads from data/provider-live. This is the most stable local validation path because it avoids direct browser-to-provider requests.",
         liveTitle: "SportMonks live runtime connected",
         liveBody: "This page successfully loaded runtime data from the local SportMonks config.",
+        capturedFallbackTitle: "Captured SportMonks JSON not found, fell back to local seed",
+        capturedFallbackBody: "Check whether data/provider-live/sportmonks-fixture.json and sportmonks-standings.json exist locally and contain complete JSON.",
         fallbackTitle: "SportMonks live runtime failed and fell back to local seed",
         fallbackBody: "Check whether data/provider-live-config.json exists locally, whether the token was regenerated, and whether the browser can reach the third-party endpoint directly.",
       };
@@ -353,6 +361,14 @@ function initMatchdaySourceNotice() {
     tone = "success";
     title = copy.liveTitle;
     body = copy.liveBody;
+  } else if (matchdaySourceMeta.provider === "sportmonks-captured" && matchdaySourceMeta.mode === "captured") {
+    tone = "success";
+    title = copy.capturedTitle;
+    body = copy.capturedBody;
+  } else if (matchdaySourceMeta.provider === "sportmonks-captured" && matchdaySourceMeta.mode === "captured-fallback") {
+    tone = "warning";
+    title = copy.capturedFallbackTitle;
+    body = copy.capturedFallbackBody;
   } else if (matchdaySourceMeta.provider === "sportmonks-live" && matchdaySourceMeta.mode === "live-fallback") {
     tone = "warning";
     title = copy.fallbackTitle;

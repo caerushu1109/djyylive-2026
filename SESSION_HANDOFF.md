@@ -253,11 +253,29 @@ There is now a local live-config pattern:
 - local ignored file: `data/provider-live-config.json`
 - runtime loader: `src/provider-live-runtime.js`
 
+There is also now a local captured-payload path:
+
+- local ignored folder: `data/provider-live/`
+- expected files:
+  - `sportmonks-fixture.json`
+  - `sportmonks-standings.json`
+- runtime source:
+  - `?source=sportmonks-captured`
+
 Once the user regenerates their SportMonks token and saves the ignored config file, these routes can attempt real provider fetches:
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
 - `/match.html?id=18528480&source=sportmonks-live`
+
+If browser-to-provider fetch is inconvenient or blocked by CORS, the preferred local validation route is now:
+
+- save real Postman-exported JSON into `data/provider-live/`
+- run the local site
+- open:
+  - `/schedule.html?source=sportmonks-captured`
+  - `/live.html?source=sportmonks-captured`
+  - `/match.html?id=18528480&source=sportmonks-captured`
 
 ## Next Recommended Task
 

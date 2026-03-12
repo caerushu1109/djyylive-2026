@@ -128,3 +128,18 @@ Once it exists, these routes will try the real provider first and fall back safe
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
 - `/match.html?id=18528480&source=sportmonks-live`
+
+## Captured Provider Preview
+
+For a more stable local test flow, save exported SportMonks JSON under:
+
+- `data/provider-live/sportmonks-fixture.json`
+- `data/provider-live/sportmonks-standings.json`
+
+Then open locally:
+
+- `/schedule.html?source=sportmonks-captured`
+- `/live.html?source=sportmonks-captured`
+- `/match.html?id=18528480&source=sportmonks-captured`
+
+This avoids browser CORS issues because the site only reads local JSON files served from the same static server.

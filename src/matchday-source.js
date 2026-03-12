@@ -2,7 +2,10 @@ import { matchdayState as localSeedState } from "./matchday-adapter.js";
 import { providerSampleState } from "./provider-sample-state.js";
 import { buildMatchdayStateFromSportMonksApiSamples } from "./api-adapter-example.js";
 import { sportMonksLiveSamplePayload } from "./sportmonks-live-sample-payload.js";
-import { loadSportMonksRuntimeState } from "./provider-live-runtime.js";
+import {
+  loadCapturedSportMonksRuntimeState,
+  loadSportMonksRuntimeState,
+} from "./provider-live-runtime.js";
 
 const sourceMeta = {
   provider: "local-seed",
@@ -37,6 +40,14 @@ function resolveInitialState() {
     });
     return localSeedState;
   }
+  if (source === "sportmonks-captured") {
+    Object.assign(sourceMeta, {
+      provider: "sportmonks-captured",
+      mode: "captured-pending",
+      updatedAt: "2026-03-12",
+    });
+    return localSeedState;
+  }
   return localSeedState;
 }
 
@@ -59,22 +70,24 @@ export async function hydrateMatchdayStateFromRuntimeSource() {
   const params = new URLSearchParams(window.location.search);
   const source = params.get("source");
 
-  if (source !== "sportmonks-live") {
+  if (!["sportmonks-live", "sportmonks-captured"].includes(source)) {
     return activeState;
   }
 
   try {
-    const state = await loadSportMonksRuntimeState();
+    const state = source === "sportmonks-captured"
+      ? await loadCapturedSportMonksRuntimeState()
+      : await loadSportMonksRuntimeState();
     setMatchdayState(state, {
-      provider: "sportmonks-live",
-      mode: "live",
+      provider: source,
+      mode: source === "sportmonks-captured" ? "captured" : "live",
       updatedAt: new Date().toISOString(),
     });
   } catch (error) {
-    console.warn("Failed to load sportmonks live runtime", error);
+    console.warn(`Failed to load ${source} runtime`, error);
     setMatchdayState(localSeedState, {
-      provider: "sportmonks-live",
-      mode: "live-fallback",
+      provider: source,
+      mode: source === "sportmonks-captured" ? "captured-fallback" : "live-fallback",
       updatedAt: new Date().toISOString(),
     });
   }

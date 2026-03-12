@@ -59,3 +59,15 @@ export async function loadSportMonksRuntimeState(configUrl = "/data/provider-liv
     standingsRows: standingsResponse.data || [],
   });
 }
+
+export async function loadCapturedSportMonksRuntimeState(basePath = "/data/provider-live") {
+  const [fixtureResponse, standingsResponse] = await Promise.all([
+    fetchJson(`${basePath}/sportmonks-fixture.json`),
+    fetchJson(`${basePath}/sportmonks-standings.json`),
+  ]);
+
+  return buildMatchdayStateFromSportMonksApiSamples({
+    match: fixtureResponse.data || fixtureResponse,
+    standingsRows: standingsResponse.data || standingsResponse,
+  });
+}
