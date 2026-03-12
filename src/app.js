@@ -311,7 +311,7 @@ function initLocaleSwitch() {
 }
 
 function initDynamicMatchEntryLinks() {
-  const featuredMatchId = getCurrentMatchId() || prioritizeMatches(matches, 1)[0]?.id;
+  const featuredMatchId = getCurrentMatchId() || getFeaturedMatchId();
   if (!featuredMatchId) {
     return;
   }
@@ -713,9 +713,10 @@ function initSchedulePage() {
   }
 
   if (upcomingNode) {
-    upcomingNode.innerHTML = matches
-      .filter((match) => match.phase === "pre_match")
-      .slice(0, 4)
+    upcomingNode.innerHTML = prioritizeMatches(
+      matches.filter((match) => match.phase === "pre_match"),
+      4
+    )
       .map(renderMatchSpotlight)
       .join("");
   }
@@ -771,6 +772,7 @@ function initLivePage() {
 
   upcomingNode.innerHTML = matches
     .filter((match) => match.phase === "pre_match")
+    .sort((a, b) => parseKickoffValue(a) - parseKickoffValue(b))
     .slice(0, 8)
     .map(renderLiveCard)
     .join("");
@@ -794,7 +796,10 @@ function initMatchPage() {
     return;
   }
 
-  const matchId = new URLSearchParams(window.location.search).get("id") || matches[0].id;
+  const matchId =
+    new URLSearchParams(window.location.search).get("id") ||
+    getFeaturedMatchId() ||
+    matches[0]?.id;
   const detail = matchdayState.getMatchDetail(matchId);
   const match = detail.match;
   const renderEventCopy = (event) => {
@@ -3991,7 +3996,16 @@ function displayGroupLabel(group) {
 }
 
 function getHomepageMatches() {
-  return prioritizeMatches(matches, 4);
+  const limit = ["sportmonks-live", "sportmonks-captured", "sportmonks-live-sample"].includes(
+    matchdaySourceMeta.provider
+  )
+    ? 6
+    : 4;
+  return prioritizeMatches(matches, limit);
+}
+
+function getFeaturedMatchId() {
+  return prioritizeMatches(matches, 1)[0]?.id || null;
 }
 
 function matchPhaseRank(match) {
