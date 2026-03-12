@@ -36,6 +36,7 @@ function reduceStandingDetails(details) {
       item.type?.code ||
       item.type?.developer_name?.toLowerCase?.() ||
       item.type?.name?.toLowerCase?.() ||
+      (item.type_id != null ? `type-${item.type_id}` : "") ||
       item.key;
     const value = item.value ?? item.data?.value ?? item.score ?? item.points ?? 0;
     if (key) {
@@ -125,22 +126,35 @@ export function mapSportMonksMatch(rawMatch) {
 export function mapSportMonksStandings(rows = []) {
   return rows.map((row) => {
     const details = reduceStandingDetails(row.details);
-    const goalsFor = getStandingMetric(details, ["goals-for", "goals_for", "gf"], row.goals_for || row.gf || 0);
-    const goalsAgainst = getStandingMetric(details, ["goals-against", "goals_against", "ga"], row.goals_against || row.ga || 0);
+    const goalsFor = getStandingMetric(
+      details,
+      ["goals-for", "goals_for", "gf", "type-139"],
+      row.goals_for || row.gf || 0
+    );
+    const goalsAgainst = getStandingMetric(
+      details,
+      ["goals-against", "goals_against", "ga", "type-140"],
+      row.goals_against || row.ga || 0
+    );
 
     return {
-      group: row.group?.name || row.group_name || row.stage?.name || String(row.stage_id || ""),
+      group: row.group?.name || row.group_name || String(row.group_id || row.stage_id || ""),
       team: row.participant?.name || row.team_name || row.team || "",
-      played: getStandingMetric(details, ["played", "matches-played", "games-played"], row.played || 0),
-      win: getStandingMetric(details, ["won", "wins"], row.win || row.wins || 0),
-      draw: getStandingMetric(details, ["draw", "drawn", "draws"], row.draw || row.draws || 0),
-      loss: getStandingMetric(details, ["lost", "loss", "losses"], row.loss || row.losses || 0),
+      played: getStandingMetric(
+        details,
+        ["played", "matches-played", "games-played", "type-129"],
+        row.played || 0
+      ),
+      win: getStandingMetric(details, ["won", "wins", "type-130"], row.win || row.wins || 0),
+      draw: getStandingMetric(details, ["draw", "drawn", "draws", "type-131"], row.draw || row.draws || 0),
+      loss: getStandingMetric(details, ["lost", "loss", "losses", "type-132"], row.loss || row.losses || 0),
+      position: toNumber(row.position, 0),
       points: toNumber(row.points, 0),
       goals_for: goalsFor,
       goals_against: goalsAgainst,
       goal_difference:
         row.goal_difference ??
-        getStandingMetric(details, ["goal-difference", "goal_difference", "gd"], null) ??
+        getStandingMetric(details, ["goal-difference", "goal_difference", "gd", "type-187"], null) ??
         (goalsFor - goalsAgainst),
     };
   });

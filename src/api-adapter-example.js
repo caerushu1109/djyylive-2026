@@ -42,6 +42,7 @@ export function buildMatchdayStateFromSportMonks(payload) {
       key,
       rows.sort(
         (a, b) =>
+          a.position - b.position ||
           b.points - a.points ||
           b.goal_difference - a.goal_difference ||
           b.goals_for - a.goals_for ||
