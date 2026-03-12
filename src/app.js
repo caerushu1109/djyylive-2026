@@ -502,7 +502,7 @@ function initSchedulePage() {
   renderScheduleList(scheduleList, activeStage);
 
   if (liveNowNode) {
-    const liveMatches = matches.filter((match) => match.status === "live");
+    const liveMatches = matches.filter((match) => match.phase === "in_match");
     liveNowNode.innerHTML = liveMatches.length
       ? liveMatches.map(renderMatchSpotlight).join("")
       : renderMatchStateNotice(
@@ -515,7 +515,7 @@ function initSchedulePage() {
 
   if (upcomingNode) {
     upcomingNode.innerHTML = matches
-      .filter((match) => match.status === "scheduled")
+      .filter((match) => match.phase === "pre_match")
       .slice(0, 4)
       .map(renderMatchSpotlight)
       .join("");
@@ -559,7 +559,8 @@ function initLivePage() {
     return;
   }
 
-  const liveMatches = matches.filter((match) => match.status === "live");
+  const liveMatches = matches.filter((match) => match.phase === "in_match");
+  const postMatches = matches.filter((match) => match.phase === "post_match");
   liveNowNode.innerHTML = liveMatches.length
     ? liveMatches.map(renderLiveCard).join("")
     : renderMatchStateNotice(
@@ -570,12 +571,16 @@ function initLivePage() {
       );
 
   upcomingNode.innerHTML = matches
-    .filter((match) => match.status === "scheduled")
+    .filter((match) => match.phase === "pre_match")
     .slice(0, 8)
     .map(renderLiveCard)
     .join("");
 
-  watchlistNode.innerHTML = matches
+  const watchlistMatches = liveMatches.length
+    ? liveMatches
+    : postMatches.length
+      ? postMatches.slice(0, 4)
+      : matches
     .filter(
       (match) =>
         match.id === "wc26-mex-rsa" ||
@@ -583,9 +588,9 @@ function initLivePage() {
         match.id === "wc26-arg-aut" ||
         match.id === "wc26-por-col" ||
         match.stage === "决赛"
-    )
-    .map(renderWatchlistCard)
-    .join("");
+    );
+
+  watchlistNode.innerHTML = watchlistMatches.map(renderWatchlistCard).join("");
 }
 
 function initMatchPage() {
@@ -605,6 +610,13 @@ function initMatchPage() {
     ? {
         status: "当前状态",
         preMatch: "官方赛前信息",
+        liveMinute: "实时比赛中",
+        postMatch: "已结束",
+        phaseCopy: {
+          pre_match: "赛前信息",
+          in_match: "实时比赛中",
+          post_match: "赛后回看",
+        },
         prelude: "赛前",
         angle: "看点",
         after: "赛后",
@@ -628,6 +640,13 @@ function initMatchPage() {
     : {
         status: "Status",
         preMatch: "Official pre-match info",
+        liveMinute: "Live now",
+        postMatch: "Full time",
+        phaseCopy: {
+          pre_match: "Pre-match",
+          in_match: "Live now",
+          post_match: "After the whistle",
+        },
         prelude: "Pre-match",
         angle: "Angle",
         after: "After",
@@ -653,10 +672,10 @@ function initMatchPage() {
     <div class="match-hero-card">
       <p class="eyebrow">${displayStage(match.stage)}</p>
       <h2>${displayTeam(match.home)} vs ${displayTeam(match.away)}</h2>
-      <p class="hero__lede">${match.kickoff} · ${displayVenue(match.venue)} · ${t.status} ${humanizeMatchStatus(match)}</p>
+      <p class="hero__lede">${match.kickoff} · ${displayVenue(match.venue)} · ${t.phaseCopy[match.phase] || humanizeMatchStatus(match)}</p>
       <div class="match-scoreline">
         <strong>${match.score}</strong>
-        <span>${match.minute || t.preMatch}</span>
+        <span>${match.phase === "in_match" ? (match.minute || t.liveMinute) : match.phase === "post_match" ? t.postMatch : t.preMatch}</span>
       </div>
     </div>
   `;
@@ -3334,9 +3353,13 @@ function renderMatchSpotlight(match) {
 }
 
 function renderMatchStateNotice(title, copy) {
+  const label =
+    currentLocale === "zh"
+      ? (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament)
+      : (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament);
   return `
     <article class="feature-card history-mini-card">
-      <p class="story-card__tag">${currentUi.preTournament}</p>
+      <p class="story-card__tag">${label}</p>
       <h3>${title}</h3>
       <p>${copy}</p>
       <a href="${pagePath("schedule")}">${currentUi.viewFullSchedule}</a>
@@ -3357,7 +3380,7 @@ function renderLiveCard(match) {
   return `
     <article class="live-card">
       <div class="live-card__top">
-        <span class="live-pill ${match.status === "live" ? "is-live" : ""}">${humanizeMatchStatus(match)}</span>
+        <span class="live-pill ${match.phase === "in_match" ? "is-live" : ""}">${humanizeMatchStatus(match)}</span>
         <span>${displayStage(match.stage)}</span>
       </div>
       <h3 class="fixture-line">${renderTeamLink(match.home)} <span>${match.score}</span> ${renderTeamLink(match.away)}</h3>
@@ -3433,13 +3456,16 @@ function historyUpsetsPath() {
 }
 
 function humanizeMatchStatus(match) {
-  if (match.status === "live") {
+  if (match.phase === "in_match" || match.status === "live") {
     return match.minute
       ? `${currentUi.statusLive} ${match.minute}`
       : currentUi.statusLive;
   }
-  if (match.status === "finished") {
+  if (match.phase === "post_match" || match.status === "finished") {
     return currentUi.statusFinished;
+  }
+  if (match.status === "postponed") {
+    return currentUi.statusPostponed;
   }
   return currentUi.statusScheduled;
 }
