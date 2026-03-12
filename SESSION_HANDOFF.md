@@ -275,7 +275,7 @@ from Cloudflare Pages environment variables and allows these deployed routes to 
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
-- `/match.html?id=18528480&source=sportmonks-live`
+- `/match.html?id=19609127&source=sportmonks-live`
 
 Local direct runtime config still exists as a fallback when testing outside Cloudflare:
 
@@ -290,7 +290,7 @@ If browser-to-provider fetch is inconvenient or blocked by CORS, the preferred l
 - open:
   - `/schedule.html?source=sportmonks-captured`
   - `/live.html?source=sportmonks-captured`
-  - `/match.html?id=18528480&source=sportmonks-captured`
+  - `/match.html?id=19609127&source=sportmonks-captured`
 
 ## Next Recommended Task
 

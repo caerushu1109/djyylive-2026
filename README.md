@@ -111,7 +111,7 @@ There is now also a real-shape SportMonks runtime sample wired into the same sou
 
 - `/schedule.html?source=sportmonks-live-sample`
 - `/live.html?source=sportmonks-live-sample`
-- `/match.html?id=18528480&source=sportmonks-live-sample`
+- `/match.html?id=19609127&source=sportmonks-live-sample`
 
 ## Live Provider Config
 
@@ -127,7 +127,7 @@ Once it exists, these routes will try the real provider first and fall back safe
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
-- `/match.html?id=18528480&source=sportmonks-live`
+- `/match.html?id=19609127&source=sportmonks-live`
 
 ## Cloudflare SportMonks Proxy
 
@@ -148,7 +148,7 @@ Once that secret exists, these deployed routes can use real SportMonks data safe
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
-- `/match.html?id=18528480&source=sportmonks-live`
+- `/match.html?id=19609127&source=sportmonks-live`
 
 ## Captured Provider Preview
 
@@ -164,6 +164,6 @@ Then open locally:
 
 - `/schedule.html?source=sportmonks-captured`
 - `/live.html?source=sportmonks-captured`
-- `/match.html?id=18528480&source=sportmonks-captured`
+- `/match.html?id=19609127&source=sportmonks-captured`
 
 This avoids browser CORS issues because the site only reads local JSON files served from the same static server.
