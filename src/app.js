@@ -419,6 +419,7 @@ function initMatchdaySourceNotice() {
   notice.innerHTML = `
     <strong>${title}</strong>
     <p>${body}</p>
+    <p><strong>Runtime：</strong>${escapeHtml(`${matchdaySourceMeta.provider}/${matchdaySourceMeta.mode}`)}</p>
     ${matchdaySourceMeta.lastError ? `<p><strong>${copy.errorLabel}：</strong>${escapeHtml(matchdaySourceMeta.lastError)}</p>` : ""}
   `;
 
