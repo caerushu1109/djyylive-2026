@@ -49,7 +49,7 @@ import {
   wc2026CountdownTarget,
   wc2026PollOptions,
 } from "./wc2026-data.js";
-import { matchdayState } from "./matchday-adapter.js";
+import { getMatchdayState } from "./matchday-source.js";
 import {
   defaultLocale,
   homepageCopy,
@@ -60,6 +60,7 @@ import {
   venueNameMap,
 } from "./i18n-config.js";
 
+const matchdayState = getMatchdayState();
 const matches = matchdayState.matches;
 const groups = matchdayState.groups;
 const pollOptions = wc2026PollOptions;

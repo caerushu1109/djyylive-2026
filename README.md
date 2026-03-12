@@ -56,6 +56,8 @@ Then open:
   - practical checklist for deciding when to buy the football API
 - `PROVIDER_ONBOARDING.md`
   - first-day sequence for wiring a real football data provider
+- `PROVIDER_SWAP_GUIDE.md`
+  - exact file-level switch points when moving from seed data to a real provider
 - `LAUNCH_CHECKLIST.md`
   - minimum launch gate before binding a real domain
 - `DEPLOYMENT.md`
