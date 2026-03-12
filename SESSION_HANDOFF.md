@@ -35,7 +35,7 @@ Main nav is now intended to stay consistent across the site:
 
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html` detail state
 
 ### History module
 
@@ -79,7 +79,7 @@ Event pages already exist as product shells:
 
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html` detail state
 
 They are intended to be upgraded later with real live API data.
 
@@ -175,7 +175,7 @@ Important:
 
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html` detail state
 
 ### Prediction / article / trends
 
@@ -275,7 +275,7 @@ from Cloudflare Pages environment variables and allows these deployed routes to 
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
-- `/match.html?id=19609127&source=sportmonks-live`
+- `/schedule.html?id=19609127&source=sportmonks-live#schedule-match-detail`
 
 Local direct runtime config still exists as a fallback when testing outside Cloudflare:
 
@@ -290,7 +290,7 @@ If browser-to-provider fetch is inconvenient or blocked by CORS, the preferred l
 - open:
   - `/schedule.html?source=sportmonks-captured`
   - `/live.html?source=sportmonks-captured`
-  - `/match.html?id=19609127&source=sportmonks-captured`
+  - `/schedule.html?id=19609127&source=sportmonks-captured#schedule-match-detail`
 
 ## Next Recommended Task
 

@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/schedule.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/schedule.html" />
     <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=20260312ba" />
+    <link rel="stylesheet" href="./styles.css?v=20260312bb" />
   </head>
   <body data-page="schedule" data-locale="zh" data-route-key="schedule">
     <main class="site-shell">
@@ -45,14 +45,14 @@
             <p class="hero__lede">先看现在最该点开的比赛，再筛完整赛程。</p>
             <div class="hero__actions">
               <a class="button button--primary" href="#schedule-live-now">先看今天该点哪场</a>
-              <a class="button button--ghost" href="./match.html">看一场比赛详情</a>
+              <a class="button button--ghost" href="#schedule-match-detail">看当前比赛详情</a>
             </div>
           </div>
         </section>
 
         <nav class="history-subnav">
           <a href="./schedule.html" aria-current="page">赛事页</a>
-          <a href="./match.html">比赛详情</a>
+          <a href="#schedule-match-detail">当前比赛</a>
         </nav>
       </header>
 
@@ -101,8 +101,31 @@
         <div class="schedule-stack" id="schedule-list"></div>
       </section>
 
+      <section class="section match-layout" id="schedule-match-detail">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow" id="schedule-match-timeline-eyebrow">关键事件</p>
+              <h2 id="schedule-match-timeline-title">当前比赛</h2>
+            </div>
+          </div>
+          <section id="schedule-match-hero"></section>
+          <div class="event-stack" id="schedule-match-timeline"></div>
+        </article>
+
+        <aside class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow" id="schedule-match-stats-eyebrow">技术统计</p>
+              <h2 id="schedule-match-stats-title">比赛数据</h2>
+            </div>
+          </div>
+          <div class="stat-tiles" id="schedule-match-stats"></div>
+        </aside>
+      </section>
+
     </main>
 
-    <script type="module" src="./src/app.js?v=20260312ba"></script>
+    <script type="module" src="./src/app.js?v=20260312bb"></script>
   </body>
 </html>

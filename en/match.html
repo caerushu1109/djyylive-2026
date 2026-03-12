@@ -3,83 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | Match Detail</title>
-    <meta
-      name="description"
-      content="A World Cup single-match page with scoreline, timeline, stats, and links to related pages."
-    />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="WorldCup Pulse | Match Detail" />
-    <meta property="og:description" content="A match page built to hold scoreline, event timeline, stats, and related team or prediction links." />
-    <meta property="og:url" content="https://www.worldcuppulse.com/en/match.html" />
-    <meta property="og:site_name" content="WorldCup Pulse" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="WorldCup Pulse | Match Detail" />
-    <meta name="twitter:description" content="One page for the scoreline, key events, match stats, and the next useful click." />
-    <link rel="canonical" href="https://www.worldcuppulse.com/en/match.html" />
-    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/match.html" />
-    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/match.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/match.html" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312ba" />
+    <title>WorldCup Pulse | Redirecting to schedule detail</title>
+    <meta name="description" content="Match detail is now part of the schedule page. Redirecting now." />
+    <meta http-equiv="refresh" content="0; url=./schedule.html#schedule-match-detail" />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/schedule.html" />
   </head>
-  <body data-page="match" data-locale="en" data-route-key="match">
-    <main class="site-shell">
-      <header class="masthead masthead--compact">
-        <nav class="nav">
-          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
-          <div class="nav__links">
-            <a href="./index.html">Home</a>
-            <a href="./schedule.html">Schedule</a>
-            <a href="./schedule.html">Schedule</a>
-            <a href="./history.html">History</a>
-            <a href="./prediction.html">Prediction</a>
-            <a href="./team-history.html">Team Hub</a>
-            <a href="/zh/match.html" data-locale-switch>Chinese</a>
-          </div>
-        </nav>
-
-        <section class="page-hero history-hero">
-          <div class="page-hero__copy">
-            <p class="eyebrow">Match Detail</p>
-            <h1 id="match-page-title">Match detail</h1>
-            <p class="hero__lede" id="match-page-lede">Start with the match info, then follow events and stats here.</p>
-          </div>
-        </section>
-
-        <nav class="history-subnav">
-          <a href="./schedule.html">Match Center</a>
-          <a href="./schedule.html">Schedule</a>
-          <a href="./match.html" aria-current="page">Match Detail</a>
-        </nav>
-      </header>
-
-      <section class="section" id="match-hero"></section>
-
-      <section class="section match-layout">
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow" id="match-timeline-eyebrow">Timeline</p>
-              <h2 id="match-timeline-title">Match timeline</h2>
-            </div>
-          </div>
-          <div class="event-stack" id="match-timeline"></div>
-        </article>
-
-        <aside class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow" id="match-stats-eyebrow">Stats</p>
-              <h2 id="match-stats-title">Match stats</h2>
-            </div>
-          </div>
-          <div class="stat-tiles" id="match-stats"></div>
-        </aside>
-      </section>
-
-    </main>
-
-    <script type="module" src="../src/app.js?v=20260312ba"></script>
+  <body>
+    <script>
+      const url = new URL(window.location.href);
+      const target = new URL("./schedule.html", url);
+      url.searchParams.forEach((value, key) => target.searchParams.set(key, value));
+      target.hash = "schedule-match-detail";
+      window.location.replace(target.toString());
+    </script>
   </body>
 </html>

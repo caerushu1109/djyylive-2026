@@ -24,7 +24,7 @@ This means the site is no longer blocked on page structure. It is now mostly blo
 
 - `schedule.html` feels stable as the fixture discovery page
 - `live.html` feels stable as the matchday quick-entry page
-- `match.html` feels stable as the single-match page
+- schedule detail state feels stable as the single event detail view
 
 ### Data
 

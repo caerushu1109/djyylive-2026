@@ -29,8 +29,8 @@ This is the minimum launch checklist for the World Cup site before binding a rea
 - `/en/schedule.html` works
 - `/zh/live.html` works
 - `/en/live.html` works
-- `/zh/match.html` works
-- `/en/match.html` works
+- `/zh/schedule.html?id=19609127#schedule-match-detail` works
+- `/en/schedule.html?id=19609127#schedule-match-detail` works
 - `/zh/prediction.html` works
 - `/en/prediction.html` works
 - `/zh/teams.html` works
@@ -53,7 +53,7 @@ This is the minimum launch checklist for the World Cup site before binding a rea
 - provider-sample runtime works on:
   - `/schedule.html?source=provider-sample`
   - `/live.html?source=provider-sample`
-  - `/match.html?id=2026002&source=provider-sample`
+  - `/schedule.html?id=2026002&source=provider-sample#schedule-match-detail`
 
 ## SEO
 

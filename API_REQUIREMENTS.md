@@ -24,13 +24,13 @@ This phase split should drive copy, emphasis, and fallback behavior on:
 
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html` detail state
 
 ## Priority Pages
 
 1. `schedule.html`
 2. `live.html`
-3. `match.html`
+3. `schedule.html#schedule-match-detail`
 
 These three pages are the first surfaces that need real data during the tournament.
 
@@ -57,7 +57,7 @@ These three pages are the first surfaces that need real data during the tourname
 
 ## Live Timeline Events
 
-Needed for `match.html`.
+Needed for schedule detail state.
 
 ```json
 {
@@ -75,7 +75,7 @@ Needed for `match.html`.
 
 ## Match Stats
 
-Needed for `match.html`.
+Needed for schedule detail state.
 
 ```json
 {

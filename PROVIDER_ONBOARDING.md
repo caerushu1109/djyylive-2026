@@ -52,7 +52,7 @@ python3 scripts/validate_matchday_provider.py data/provider-samples/sportmonks-w
 
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html` detail state
 
 without changing HTML structure.
 
@@ -61,7 +61,7 @@ without changing HTML structure.
 ```text
 /schedule.html?source=provider-sample
 /live.html?source=provider-sample
-/match.html?id=2026002&source=provider-sample
+/schedule.html?id=2026002&source=provider-sample#schedule-match-detail
 ```
 
 ## When The First Real Payload Arrives

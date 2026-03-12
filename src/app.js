@@ -159,6 +159,10 @@ function getCurrentMatchId() {
   return new URLSearchParams(window.location.search).get("id");
 }
 
+function getScheduleDetailMatchId() {
+  return document.body.dataset.page === "schedule" ? getCurrentMatchId() : null;
+}
+
 function withSourceParam(href) {
   const source = getCurrentRuntimeSource();
   if (!source) {
@@ -222,7 +226,7 @@ initMatchPage();
 initLocaleSwitch();
 initMatchdaySourceNotice();
 preserveSourceAcrossDocument();
-initDynamicMatchEntryLinks();
+initDynamicDetailEntryLinks();
 initDynamicFocusTeamLinks();
 streamlinePageChrome();
 streamlinePageContent();
@@ -330,31 +334,31 @@ function initLocaleSwitch() {
   switchNode.setAttribute("href", withSourceParam(nextHref));
 }
 
-function initDynamicMatchEntryLinks() {
+function initDynamicDetailEntryLinks() {
   const featuredMatchId = getCurrentMatchId() || getFeaturedMatchId();
   if (!featuredMatchId) {
     return;
   }
 
-  document.querySelectorAll('a[href*="match.html"]').forEach((node) => {
+  document.querySelectorAll('a[href*="match.html"], a[href*="#schedule-match-detail"]').forEach((node) => {
     const rawHref = node.getAttribute("href");
     if (!rawHref || /^https?:\/\//i.test(rawHref)) {
       return;
     }
 
     const url = new URL(rawHref, window.location.href);
-    if (!/match\.html$/i.test(url.pathname)) {
+    const isLegacyMatchPath = /match\.html$/i.test(url.pathname);
+    const isScheduleDetailHash = /schedule-match-detail$/i.test(url.hash || "");
+    if (!isLegacyMatchPath && !isScheduleDetailHash) {
       return;
     }
 
-    url.searchParams.set(
-      "id",
+    const targetId =
       document.body.dataset.page === "match" && node.getAttribute("aria-current") === "page"
         ? (getCurrentMatchId() || featuredMatchId)
-        : featuredMatchId
-    );
-
-    node.setAttribute("href", withSourceParam(`${url.pathname}${url.search}`));
+        : featuredMatchId;
+    const nextPath = `${pagePath("schedule")}?id=${targetId}#schedule-match-detail`;
+    node.setAttribute("href", withSourceParam(nextPath));
   });
 }
 
@@ -810,6 +814,13 @@ function initSchedulePage() {
   const upcomingNode = document.querySelector("#schedule-upcoming");
   const teamSelect = document.querySelector("#schedule-team-select");
   const statusSelect = document.querySelector("#schedule-status-select");
+  const detailHeroNode = document.querySelector("#schedule-match-hero");
+  const detailTimelineNode = document.querySelector("#schedule-match-timeline");
+  const detailStatsNode = document.querySelector("#schedule-match-stats");
+  const detailTimelineEyebrowNode = document.querySelector("#schedule-match-timeline-eyebrow");
+  const detailTimelineTitleNode = document.querySelector("#schedule-match-timeline-title");
+  const detailStatsEyebrowNode = document.querySelector("#schedule-match-stats-eyebrow");
+  const detailStatsTitleNode = document.querySelector("#schedule-match-stats-title");
 
   if (!filterNode || !scheduleList) {
     return;
@@ -862,6 +873,22 @@ function initSchedulePage() {
     teamSelect.addEventListener("change", update);
     statusSelect.addEventListener("change", update);
     update();
+  }
+
+  if (detailHeroNode && detailTimelineNode && detailStatsNode) {
+    const matchId = getScheduleDetailMatchId() || getFeaturedMatchId() || matches[0]?.id;
+    renderMatchDetailView(matchId, {
+      heroNode: detailHeroNode,
+      timelineNode: detailTimelineNode,
+      statsNode: detailStatsNode,
+      timelineEyebrowNode: detailTimelineEyebrowNode,
+      timelineTitleNode: detailTimelineTitleNode,
+      statsEyebrowNode: detailStatsEyebrowNode,
+      statsTitleNode: detailStatsTitleNode,
+      pageTitleNode: null,
+      pageLedeNode: null,
+      embedded: true,
+    });
   }
 }
 
@@ -927,10 +954,36 @@ function initMatchPage() {
     return;
   }
 
-  const matchId =
-    new URLSearchParams(window.location.search).get("id") ||
-    getFeaturedMatchId() ||
-    matches[0]?.id;
+  renderMatchDetailView(getCurrentMatchId() || getFeaturedMatchId() || matches[0]?.id, {
+    heroNode,
+    timelineNode,
+    statsNode,
+    timelineEyebrowNode,
+    timelineTitleNode,
+    statsEyebrowNode,
+    statsTitleNode,
+    pageTitleNode,
+    pageLedeNode,
+    relatedNode,
+    embedded: false,
+  });
+}
+
+function renderMatchDetailView(matchId, nodes) {
+  const {
+    heroNode,
+    timelineNode,
+    statsNode,
+    timelineEyebrowNode,
+    timelineTitleNode,
+    statsEyebrowNode,
+    statsTitleNode,
+    pageTitleNode,
+    pageLedeNode,
+    relatedNode,
+    embedded = false,
+  } = nodes;
+
   const detail = matchdayState.getMatchDetail(matchId);
   const match = detail.match;
   const renderEventCopy = (event) => {
@@ -1169,6 +1222,13 @@ function initMatchPage() {
       <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.toLive}</a>
       <a class="button button--ghost" href="${withSourceParam(predictionPath())}">${t.toPrediction}</a>
     `;
+  }
+
+  if (embedded) {
+    const detailRoot = document.querySelector("#schedule-match-detail");
+    if (detailRoot) {
+      detailRoot.scrollMarginTop = "120px";
+    }
   }
 }
 
@@ -3974,7 +4034,7 @@ function pagePath(routeKey) {
 }
 
 function matchPath(matchId) {
-  return `${pagePath("match")}?id=${matchId}`;
+  return `${pagePath("schedule")}?id=${matchId}#schedule-match-detail`;
 }
 
 function predictionPath() {

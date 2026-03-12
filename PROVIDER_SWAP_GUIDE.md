@@ -70,7 +70,7 @@ If this sequence is followed, the site moves to real data without page redesign.
 - `index.html`
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html` detail state
 - `styles.css`
 
 These should already be stable enough.
@@ -81,5 +81,5 @@ Provider hookup is successful when:
 
 - `schedule.html` shows real fixtures
 - `live.html` shows real live/next/recent matches
-- `match.html` shows real event timeline and stats
+- `schedule.html#schedule-match-detail` shows real event timeline and stats
 - no template rewrite was needed

@@ -12,7 +12,7 @@ to:
 ## Pre-Cutover Conditions
 
 - preview site is stable on `wc.djyylive.com`
-- `schedule.html`, `live.html`, and `match.html` are stable
+- `schedule.html` is the single event page and is stable
 - provider selection is finished
 - at least one real provider payload has been validated
 - bilingual routes are working
@@ -44,7 +44,7 @@ The target Pages project should be:
 - `/en/index.html` works
 - `schedule.html` works
 - `live.html` works
-- `match.html` works
+- schedule detail state works
 - language switchers still point to matching localized routes
 
 ## Old Project Cleanup

@@ -9,7 +9,7 @@ A static World Cup special-site prototype focused on history, data analysis, and
 - `prediction.html`
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html`（内嵌比赛详情）
 - `team-history.html`
 - `teams.html`
 - `article.html`
@@ -30,7 +30,7 @@ Then open:
 - `http://localhost:8080/prediction.html`
 - `http://localhost:8080/schedule.html`
 - `http://localhost:8080/live.html`
-- `http://localhost:8080/match.html?id=wc26-eng-cro`
+- `http://localhost:8080/schedule.html?id=wc26-eng-cro#schedule-match-detail`
 - `http://localhost:8080/team-history.html`
 
 ## Data Layers
@@ -105,13 +105,13 @@ The site can already preview a provider-backed runtime state without changing pa
 
 - `/schedule.html?source=provider-sample`
 - `/live.html?source=provider-sample`
-- `/match.html?id=2026002&source=provider-sample`
+- `/schedule.html?id=2026002&source=provider-sample#schedule-match-detail`
 
 There is now also a real-shape SportMonks runtime sample wired into the same source layer:
 
 - `/schedule.html?source=sportmonks-live-sample`
 - `/live.html?source=sportmonks-live-sample`
-- `/match.html?id=19609127&source=sportmonks-live-sample`
+- `/schedule.html?id=19609127&source=sportmonks-live-sample#schedule-match-detail`
 
 ## Live Provider Config
 
@@ -127,7 +127,7 @@ Once it exists, these routes will try the real provider first and fall back safe
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
-- `/match.html?id=19609127&source=sportmonks-live`
+- `/schedule.html?id=19609127&source=sportmonks-live#schedule-match-detail`
 
 ## Cloudflare SportMonks Proxy
 
@@ -148,7 +148,7 @@ Once that secret exists, these deployed routes can use real SportMonks data safe
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
-- `/match.html?id=19609127&source=sportmonks-live`
+- `/schedule.html?id=19609127&source=sportmonks-live#schedule-match-detail`
 
 ## Captured Provider Preview
 
@@ -164,6 +164,6 @@ Then open locally:
 
 - `/schedule.html?source=sportmonks-captured`
 - `/live.html?source=sportmonks-captured`
-- `/match.html?id=19609127&source=sportmonks-captured`
+- `/schedule.html?id=19609127&source=sportmonks-captured#schedule-match-detail`
 
 This avoids browser CORS issues because the site only reads local JSON files served from the same static server.

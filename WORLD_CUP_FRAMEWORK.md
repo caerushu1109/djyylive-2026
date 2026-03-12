@@ -199,7 +199,7 @@ Use for:
 - `prediction.html`
 - `schedule.html`
 - `live.html`
-- `match.html`
+- `schedule.html` detail state
 - `team-history.html`
 - `src/history-data.js`
 - `src/history-generated.js`
