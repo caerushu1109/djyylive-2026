@@ -3,12 +3,12 @@ const DEFAULT_FIXTURE_INCLUDE =
   "participants;scores;state;venue;events.type;lineups.details.type;statistics.type";
 const DEFAULT_STANDINGS_INCLUDE = "participant;rule;details";
 
-function json(data, status = 200) {
+function json(data, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       "content-type": "application/json; charset=utf-8",
-      "cache-control": "no-store",
+      ...extraHeaders,
     },
   });
 }
@@ -66,6 +66,8 @@ function uniqueById(rows = []) {
 export async function onRequestGet(context) {
   const { request, env } = context;
   const token = env.SPORTMONKS_API_TOKEN;
+  const cache = caches.default;
+  const cacheKey = new Request(request.url, request);
 
   if (!token) {
     return json(
@@ -73,7 +75,10 @@ export async function onRequestGet(context) {
         error: "Missing SPORTMONKS_API_TOKEN",
         hint: "Add SPORTMONKS_API_TOKEN in Cloudflare Pages project settings.",
       },
-      500
+      500,
+      {
+        "cache-control": "no-store",
+      }
     );
   }
 
@@ -92,8 +97,16 @@ export async function onRequestGet(context) {
       {
         error: "Missing fixtureId or seasonId",
       },
-      400
+      400,
+      {
+        "cache-control": "no-store",
+      }
     );
+  }
+
+  const cached = await cache.match(cacheKey);
+  if (cached) {
+    return cached;
   }
 
   const fixtureIds = [
@@ -156,22 +169,34 @@ export async function onRequestGet(context) {
       }
     }
 
-    return json({
-      provider: "sportmonks",
-      fixture: primaryFixture,
-      matches: uniqueById([
-        ...windowFixtures,
-        ...extraResponses.map((item) => item.data).filter(Boolean),
-      ]).filter((row) => String(row.id) !== String(primaryFixture?.id || "")),
-      standingsRows: standingsResponse.data || [],
-      updatedAt: new Date().toISOString(),
-    });
+    const response = json(
+      {
+        provider: "sportmonks",
+        fixture: primaryFixture,
+        matches: uniqueById([
+          ...windowFixtures,
+          ...extraResponses.map((item) => item.data).filter(Boolean),
+        ]).filter((row) => String(row.id) !== String(primaryFixture?.id || "")),
+        standingsRows: standingsResponse.data || [],
+        updatedAt: new Date().toISOString(),
+      },
+      200,
+      {
+        "cache-control": "public, max-age=0, s-maxage=300, stale-while-revalidate=600",
+      }
+    );
+
+    context.waitUntil(cache.put(cacheKey, response.clone()));
+    return response;
   } catch (error) {
     return json(
       {
         error: error.message || "SportMonks runtime fetch failed",
       },
-      502
+      502,
+      {
+        "cache-control": "no-store",
+      }
     );
   }
 }
