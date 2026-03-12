@@ -2907,7 +2907,7 @@ function initTeamHistoryPage() {
         (match) => `
           <article class="explorer-row">
             <div class="explorer-row__top">
-              <strong>${match.home} ${match.homeGoals}:${match.awayGoals} ${match.away}</strong>
+              <strong class="fixture-line">${renderTeamLink(match.home)} <span>${match.homeGoals}:${match.awayGoals}</span> ${renderTeamLink(match.away)}</strong>
               <span>${match.date}</span>
             </div>
             <div class="explorer-row__meta">
@@ -3157,6 +3157,11 @@ function renderGroupTable(groupTableBody, groupKey) {
               <div>
                 <strong>${renderTeamLink(team.team)}</strong>
                 <span class="standings-zone">${zoneLabel}</span>
+                <div class="standings-form" aria-label="${currentLocale === "zh" ? "小组战绩" : "group record"}">
+                  <span class="form-dot form-dot--win">${currentLocale === "zh" ? "胜" : "W"} ${team.win}</span>
+                  <span class="form-dot form-dot--draw">${currentLocale === "zh" ? "平" : "D"} ${team.draw}</span>
+                  <span class="form-dot form-dot--loss">${currentLocale === "zh" ? "负" : "L"} ${team.loss}</span>
+                </div>
               </div>
             </div>
           </td>
@@ -3280,7 +3285,7 @@ function renderScheduleRow(match) {
   return `
     <article class="schedule-row">
       <div>
-        <strong>${renderTeamLink(match.home)} vs ${renderTeamLink(match.away)}</strong>
+        <strong class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</strong>
         <p>${displayStage(match.stage)} · ${displayVenue(match.venue)} · ${match.kickoff} · ${humanizeMatchStatus(match)} ${match.minute || ""}</p>
       </div>
       <div class="schedule-row__actions">
@@ -3305,7 +3310,7 @@ function renderMatchSpotlight(match) {
     <article class="spotlight-match">
       <div>
         <p class="story-card__tag">${humanizeMatchStatus(match)}</p>
-        <h3>${renderTeamLink(match.home)} vs ${renderTeamLink(match.away)}</h3>
+        <h3 class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</h3>
         <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
       </div>
       <div class="spotlight-match__actions">
@@ -3343,7 +3348,7 @@ function renderLiveCard(match) {
         <span class="live-pill ${match.status === "live" ? "is-live" : ""}">${humanizeMatchStatus(match)}</span>
         <span>${displayStage(match.stage)}</span>
       </div>
-      <h3>${renderTeamLink(match.home)} ${match.score} ${renderTeamLink(match.away)}</h3>
+      <h3 class="fixture-line">${renderTeamLink(match.home)} <span>${match.score}</span> ${renderTeamLink(match.away)}</h3>
       <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
       <div class="live-card__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${liveCopy.open}</a>
@@ -3365,7 +3370,7 @@ function renderWatchlistCard(match) {
       };
   return `
     <article class="watchlist-row">
-      <strong>${renderTeamLink(match.home)} vs ${renderTeamLink(match.away)}</strong>
+      <strong class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</strong>
       <span>${displayStage(match.stage)} · ${match.kickoff}</span>
       <div class="watchlist-row__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${watchlistCopy.details}</a>

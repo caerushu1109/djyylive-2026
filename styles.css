@@ -847,6 +847,19 @@ h3 {
   display: block;
 }
 
+.fixture-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.fixture-line span {
+  color: var(--green);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .match-card__line,
 .schedule-row strong {
   font-size: 1.22rem;
@@ -964,6 +977,39 @@ h3 {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 700;
+}
+
+.standings-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.form-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.form-dot--win {
+  background: rgba(15, 92, 64, 0.11);
+  color: var(--green-deep);
+}
+
+.form-dot--draw {
+  background: rgba(106, 118, 111, 0.12);
+  color: var(--muted);
+}
+
+.form-dot--loss {
+  background: rgba(181, 78, 54, 0.12);
+  color: #8f3927;
 }
 
 .standings-points {
