@@ -3430,14 +3430,20 @@ function renderMatchCard(match) {
         open: "Match",
         prediction: "Prediction",
       };
+  const fixtureMarker = getFixtureMarker(match);
+  const phaseLabel = getMatchPhaseBadge(match, {
+    pre: match.kickoff,
+    live: match.minute || humanizeMatchStatus(match),
+    post: match.score,
+  });
 
   return `
     <article class="match-card">
-      <span class="match-card__stage">${displayStage(match.stage)} · ${humanizeMatchStatus(match)}</span>
+      <span class="match-card__stage">${displayStage(match.stage)} · ${phaseLabel}</span>
       <div class="match-card__fixture">
         <strong class="match-card__line">
           ${renderTeamLink(match.home)}
-          <span class="match-card__score">${match.score}</span>
+          <span class="match-card__score">${fixtureMarker}</span>
           ${renderTeamLink(match.away)}
         </strong>
       </div>
@@ -3653,11 +3659,7 @@ function renderScheduleRow(match) {
         live: "Live now",
         post: "Full-time",
       };
-  const phaseLine = match.phase === "in_match"
-    ? `${scheduleCopy.live} · ${match.minute || humanizeMatchStatus(match)}`
-    : match.phase === "post_match"
-      ? `${scheduleCopy.post} · ${match.score}`
-      : `${scheduleCopy.pre} · ${match.kickoff}`;
+  const phaseLine = getMatchPhaseLine(match, scheduleCopy);
   return `
     <article class="schedule-row">
       <div>
@@ -3688,11 +3690,7 @@ function renderMatchSpotlight(match) {
         live: "Live",
         post: "Full-time",
       };
-  const statusTag = match.phase === "in_match"
-    ? `${spotlightCopy.live}${match.minute ? ` · ${match.minute}` : ""}`
-    : match.phase === "post_match"
-      ? `${spotlightCopy.post} · ${match.score}`
-      : `${spotlightCopy.pre} · ${match.kickoff}`;
+  const statusTag = getMatchPhaseLine(match, spotlightCopy);
   return `
     <article class="spotlight-match">
       <div>
@@ -3759,13 +3757,14 @@ function renderLiveCard(match) {
     : match.phase === "post_match"
       ? `${liveCopy.final} · ${match.score}`
       : `${liveCopy.next} · ${match.kickoff}`;
+  const fixtureMarker = getFixtureMarker(match);
   return `
     <article class="live-card">
       <div class="live-card__top">
-        <span class="live-pill ${match.phase === "in_match" ? "is-live" : ""}">${humanizeMatchStatus(match)}</span>
+        <span class="live-pill ${match.phase === "in_match" ? "is-live" : ""}">${getMatchPhaseBadge(match, liveCopy)}</span>
         <span>${phaseMeta}</span>
       </div>
-      <h3 class="fixture-line">${renderTeamLink(match.home)} <span>${match.score}</span> ${renderTeamLink(match.away)}</h3>
+      <h3 class="fixture-line">${renderTeamLink(match.home)} <span>${fixtureMarker}</span> ${renderTeamLink(match.away)}</h3>
       <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
       <div class="live-card__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${liveCopy.open}</a>
@@ -3789,11 +3788,9 @@ function renderWatchlistCard(match) {
         live: "Live now",
         final: "Full-time",
       };
-  const subline = match.phase === "in_match"
-    ? `${watchlistCopy.live} · ${match.minute || currentUi.statusLive}`
-    : match.phase === "post_match"
-      ? `${watchlistCopy.final} · ${match.score}`
-      : `${displayStage(match.stage)} · ${match.kickoff}`;
+  const subline = match.phase === "pre_match"
+    ? `${displayStage(match.stage)} · ${getMatchPhaseLine(match, watchlistCopy)}`
+    : getMatchPhaseLine(match, watchlistCopy);
   return `
     <article class="watchlist-row">
       <strong class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</strong>
@@ -3859,6 +3856,34 @@ function humanizeMatchStatus(match) {
     return currentUi.statusPostponed;
   }
   return currentUi.statusScheduled;
+}
+
+function getFixtureMarker(match) {
+  return match.phase === "pre_match" ? "×" : (match.score || "—");
+}
+
+function getMatchPhaseBadge(match, labels = {}) {
+  if (match.phase === "in_match") {
+    return labels.live || currentUi.statusLive;
+  }
+  if (match.phase === "post_match") {
+    return labels.post || currentUi.statusFinished;
+  }
+  return labels.pre || currentUi.statusScheduled;
+}
+
+function getMatchPhaseLine(match, labels = {}) {
+  const preLabel = labels.pre || (currentLocale === "zh" ? "即将开始" : "Next up");
+  const liveLabel = labels.live || (currentLocale === "zh" ? "正在进行" : "Live now");
+  const postLabel = labels.post || (currentLocale === "zh" ? "完场" : "Full-time");
+
+  if (match.phase === "in_match") {
+    return `${liveLabel} · ${match.minute || currentUi.statusLive}`;
+  }
+  if (match.phase === "post_match") {
+    return `${postLabel} · ${match.score}`;
+  }
+  return `${preLabel} · ${match.kickoff}`;
 }
 
 function isProviderPlaceholderTeam(team) {
