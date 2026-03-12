@@ -1,0 +1,114 @@
+{
+  "matches": [
+    {
+      "id": 2026001,
+      "starting_at": "2026-06-19T20:00:00Z",
+      "state": "scheduled",
+      "name": "England vs Croatia",
+      "round": {
+        "name": "L组",
+        "sort_order": 21
+      },
+      "group": {
+        "name": "L"
+      },
+      "participants": [
+        {
+          "name": "England",
+          "meta": {
+            "location": "home"
+          }
+        },
+        {
+          "name": "Croatia",
+          "meta": {
+            "location": "away"
+          }
+        }
+      ],
+      "venue": {
+        "name": "Official FIFA venue",
+        "city_name": "New York",
+        "country_name": "United States"
+      },
+      "time": {
+        "minute": null
+      }
+    }
+  ],
+  "standings": [
+    {
+      "group": {
+        "name": "L"
+      },
+      "participant": {
+        "name": "England"
+      },
+      "details": {
+        "played": 1,
+        "won": 1,
+        "draw": 0,
+        "lost": 0,
+        "goals_for": 2,
+        "goals_against": 1
+      },
+      "points": 3
+    },
+    {
+      "group": {
+        "name": "L"
+      },
+      "participant": {
+        "name": "Croatia"
+      },
+      "details": {
+        "played": 1,
+        "won": 0,
+        "draw": 0,
+        "lost": 1,
+        "goals_for": 1,
+        "goals_against": 2
+      },
+      "points": 0
+    }
+  ],
+  "eventsByMatch": {
+    "2026001": [
+      {
+        "id": 9001,
+        "minute": 18,
+        "type": {
+          "developer_name": "goal",
+          "name": "Goal"
+        },
+        "participant": {
+          "name": "England"
+        },
+        "player": {
+          "name": "Harry Kane"
+        },
+        "detail": "Right-footed finish from inside the box"
+      }
+    ]
+  },
+  "statsByMatch": {
+    "2026001": {
+      "possession": {
+        "home": 57,
+        "away": 43
+      },
+      "shots": {
+        "home": 15,
+        "away": 9
+      },
+      "shots_on_target": {
+        "home": 5,
+        "away": 3
+      },
+      "xg": {
+        "home": 1.6,
+        "away": 0.9
+      }
+    }
+  }
+}

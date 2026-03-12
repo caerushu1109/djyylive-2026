@@ -58,8 +58,9 @@ In practice, the next step should be:
 1. choose the provider
 2. collect one real provider sample payload
 3. test the payload against `src/provider-mappers.js`
-4. confirm missing fields
-5. then buy the API plan
+4. run `python3 scripts/validate_matchday_provider.py <payload.json>`
+5. confirm missing fields
+6. then buy the API plan
 
 ## Minimum Provider Questions Before Paying
 

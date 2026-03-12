@@ -58,6 +58,8 @@ Then open:
   - minimum launch gate before binding a real domain
 - `DEPLOYMENT.md`
   - deployment and domain-binding steps
+- `data/provider-samples/sportmonks-worldcup-sample.json`
+  - sample provider payload for adapter tests
 
 ## Launch Foundation
 
@@ -80,3 +82,11 @@ python3 scripts/update_elo_snapshot.py saved-eloratings-page.html
 ```
 
 This converts a saved `eloratings.net` snapshot into normalized JSON under `data/elo/latest.json`.
+
+## Provider Payload Check
+
+Before buying a football API, validate one real sample payload:
+
+```bash
+python3 scripts/validate_matchday_provider.py data/provider-samples/sportmonks-worldcup-sample.json
+```
