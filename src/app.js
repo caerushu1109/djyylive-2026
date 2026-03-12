@@ -53,7 +53,7 @@ import {
   getMatchdayState,
   getMatchdaySourceMeta,
   hydrateMatchdayStateFromRuntimeSource,
-} from "./matchday-source.js?v=20260312ab";
+} from "./matchday-source.js?v=20260312ba";
 import {
   defaultLocale,
   homepageCopy,
@@ -923,7 +923,7 @@ function initMatchPage() {
   const statsEyebrowNode = document.querySelector("#match-stats-eyebrow");
   const statsTitleNode = document.querySelector("#match-stats-title");
 
-  if (!heroNode || !timelineNode || !statsNode || !relatedNode) {
+  if (!heroNode || !timelineNode || !statsNode) {
     return;
   }
 
@@ -1163,11 +1163,13 @@ function initMatchPage() {
     )
     .join("");
 
-  relatedNode.innerHTML = `
-    <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.backSchedule}</a>
-    <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/live.html" : "/en/live.html")}">${t.toLive}</a>
-    <a class="button button--ghost" href="${withSourceParam(predictionPath())}">${t.toPrediction}</a>
-  `;
+  if (relatedNode) {
+    relatedNode.innerHTML = `
+      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.backSchedule}</a>
+      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/live.html" : "/en/live.html")}">${t.toLive}</a>
+      <a class="button button--ghost" href="${withSourceParam(predictionPath())}">${t.toPrediction}</a>
+    `;
+  }
 }
 
 function renderStoryRows(items, formatter) {

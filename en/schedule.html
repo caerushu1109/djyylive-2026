@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/schedule.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/schedule.html" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312ab" />
+    <link rel="stylesheet" href="../styles.css?v=20260312ba" />
   </head>
   <body data-page="schedule" data-locale="en" data-route-key="schedule">
     <main class="site-shell">
@@ -41,17 +41,12 @@
         <section class="page-hero history-hero">
           <div class="page-hero__copy">
             <p class="eyebrow">Match Center</p>
-            <h1>Help users find the right match first, then let them decide whether to click in</h1>
-            <p class="hero__lede">
-              This page should organize matchday information before anything else. Live now, starting soon, then filters for the few games a user truly cares about.
-            </p>
+            <h1>Schedule</h1>
+            <p class="hero__lede">Start with the most relevant live World Cup fixture, then filter the full list.</p>
             <div class="hero__actions">
               <a class="button button--primary" href="./live.html">Open Live</a>
               <a class="button button--ghost" href="./match.html">Open a match page</a>
             </div>
-          </div>
-          <div class="page-hero__aside quote-card history-hero__aside">
-            <p>During the World Cup, the schedule page, live page, and single-match page become the highest-frequency surfaces. They have to reduce decision friction.</p>
           </div>
         </section>
 
@@ -62,23 +57,6 @@
         </nav>
       </header>
 
-      <section class="section">
-        <div class="summary-strip">
-          <article class="summary-pill">
-            <strong>Page role</strong>
-            <span>This page helps users find matches. It should not carry every live detail itself.</span>
-          </article>
-          <article class="summary-pill">
-            <strong>High-frequency path</strong>
-            <span>Users usually scan fixtures here, then move into live, a match page, a team page, or prediction.</span>
-          </article>
-          <article class="summary-pill">
-            <strong>API-ready fields</strong>
-            <span>Stage, team, status, and match id are already structured for later API integration.</span>
-          </article>
-        </div>
-      </section>
-
       <section class="section schedule-hub">
         <article class="history-panel">
           <div class="section__heading section__heading--stack">
@@ -87,7 +65,6 @@
               <h2>Matches in progress</h2>
             </div>
           </div>
-          <div class="section-summary">On a matchday, this should answer the first question in three seconds: what should I open now?</div>
           <div id="schedule-live-now"></div>
         </article>
 
@@ -98,7 +75,6 @@
               <h2>Starting soon</h2>
             </div>
           </div>
-          <div class="section-summary">This block answers the next question: what is the next match worth waiting for?</div>
           <div id="schedule-upcoming"></div>
         </article>
       </section>
@@ -109,7 +85,7 @@
             <p class="eyebrow">Filters</p>
             <h2>Fixture filters</h2>
           </div>
-          <p class="section__intro">A strong match center is not about maximum volume. It is about helping users discard irrelevant games quickly.</p>
+          <p class="section__intro">Filter by team and state to narrow the tournament quickly.</p>
         </div>
 
         <div class="filter-bar" id="schedule-filters" role="tablist" aria-label="Schedule stages"></div>
@@ -126,19 +102,8 @@
         <div class="schedule-stack" id="schedule-list"></div>
       </section>
 
-      <section class="section section--split">
-        <article class="prediction-panel">
-          <p class="eyebrow">Next Layer</p>
-          <h2>Where users go after this page</h2>
-          <ul class="spotlight-list">
-            <li><strong>Live overview:</strong> <a href="./live.html">see the in-progress and watchlist layer</a></li>
-            <li><strong>Match detail:</strong> <a href="./match.html">move into timeline and stats</a></li>
-            <li><strong>Team angle:</strong> <a href="./team-history.html" data-focus-team-link="primary">follow a team-specific path</a></li>
-          </ul>
-        </article>
-      </section>
     </main>
 
-    <script type="module" src="../src/app.js?v=20260312ab"></script>
+    <script type="module" src="../src/app.js?v=20260312ba"></script>
   </body>
 </html>

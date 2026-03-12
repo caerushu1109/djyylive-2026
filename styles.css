@@ -768,6 +768,34 @@ h3 {
   grid-auto-rows: minmax(220px, auto);
 }
 
+.homepage-support {
+  padding-top: 6px;
+}
+
+.support-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.support-strip a {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--green-deep);
+  font-weight: 700;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.support-strip a:hover {
+  background: rgba(223, 166, 58, 0.18);
+  transform: translateY(-1px);
+}
+
 .match-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
