@@ -127,6 +127,20 @@ let activeGroup = "A";
 let activeVote = "巴西";
 let activeStage = "all";
 
+function getCurrentRuntimeSource() {
+  return new URLSearchParams(window.location.search).get("source");
+}
+
+function withSourceParam(href) {
+  const source = getCurrentRuntimeSource();
+  if (!source) {
+    return href;
+  }
+
+  const separator = href.includes("?") ? "&" : "?";
+  return `${href}${separator}source=${encodeURIComponent(source)}`;
+}
+
 initPrimaryNav();
 initCountdown();
 initMatchesPreview();
@@ -185,6 +199,10 @@ function initPrimaryNav() {
       .join("")}
     <a href="${localeSwitch.switchHref}" data-locale-switch>${localeSwitch.switchLabel}</a>
   `;
+
+  navLinks.querySelectorAll("a[href]").forEach((node) => {
+    node.setAttribute("href", withSourceParam(node.getAttribute("href")));
+  });
 }
 
 function getNavGroup() {
@@ -244,7 +262,7 @@ function initLocaleSwitch() {
   }
 
   switchNode.textContent = fallbackConfig.switchLabel;
-  switchNode.setAttribute("href", nextHref);
+  switchNode.setAttribute("href", withSourceParam(nextHref));
 }
 
 function streamlinePageChrome() {
@@ -395,6 +413,10 @@ function initBottomTabBar() {
       `
     )
     .join("");
+
+  tabBar.querySelectorAll("a[href]").forEach((node) => {
+    node.setAttribute("href", withSourceParam(node.getAttribute("href")));
+  });
 
   shell.appendChild(tabBar);
 }
@@ -700,9 +722,9 @@ function initMatchPage() {
   `;
 
   relatedNode.innerHTML = `
-    <a class="button button--ghost" href="${currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html"}">${t.backSchedule}</a>
-    <a class="button button--ghost" href="${currentLocale === "zh" ? "/zh/live.html" : "/en/live.html"}">${t.toLive}</a>
-    <a class="button button--ghost" href="${predictionPath()}">${t.toPrediction}</a>
+    <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.backSchedule}</a>
+    <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/live.html" : "/en/live.html")}">${t.toLive}</a>
+    <a class="button button--ghost" href="${withSourceParam(predictionPath())}">${t.toPrediction}</a>
   `;
 }
 

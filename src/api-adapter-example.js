@@ -39,3 +39,10 @@ export function buildMatchdayStateFromSportMonks(payload) {
     detailsByMatch,
   });
 }
+
+export function buildMatchdayStateFromSportMonksApiSamples({ match, standingsRows = [] }) {
+  return buildMatchdayStateFromSportMonks({
+    match,
+    standingsRows,
+  });
+}

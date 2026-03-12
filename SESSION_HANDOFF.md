@@ -221,17 +221,30 @@ There is now also a runtime source switch:
 
 - default local seed mode
 - provider-sample mode via `?source=provider-sample`
+- SportMonks real-shape sample mode via `?source=sportmonks-live-sample`
 
 Files involved:
 
 - `src/matchday-source.js`
 - `src/provider-sample-payload.js`
 - `src/provider-sample-state.js`
+- `src/sportmonks-live-sample-payload.js`
 - `PROVIDER_ONBOARDING.md`
 - `PROVIDER_SWAP_GUIDE.md`
 - `API_BUY_DECISION.md`
 - `PROVIDER_SELECTION_TEMPLATE.md`
 - `MAIN_DOMAIN_CUTOVER.md`
+
+The user has now verified real SportMonks responses for:
+
+- fixture detail with `participants;scores;state;venue;events.type;lineups.details.type;statistics.type`
+- standings with `participant;rule;details`
+
+The next practical step is no longer provider research. It is:
+
+1. map real SportMonks payloads into the current adapter layer
+2. use the runtime sample switch to validate schedule/live/match rendering
+3. then move from sample payload files to a real fetch-backed source
 
 ## Next Recommended Task
 

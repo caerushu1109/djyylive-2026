@@ -1,5 +1,7 @@
 import { matchdayState as localSeedState } from "./matchday-adapter.js";
 import { providerSampleState } from "./provider-sample-state.js";
+import { buildMatchdayStateFromSportMonksApiSamples } from "./api-adapter-example.js";
+import { sportMonksLiveSamplePayload } from "./sportmonks-live-sample-payload.js";
 
 const sourceMeta = {
   provider: "local-seed",
@@ -17,6 +19,14 @@ function resolveInitialState() {
       updatedAt: "2026-03-12",
     });
     return providerSampleState;
+  }
+  if (source === "sportmonks-live-sample") {
+    Object.assign(sourceMeta, {
+      provider: "sportmonks-live-sample",
+      mode: "sample",
+      updatedAt: "2026-03-12",
+    });
+    return buildMatchdayStateFromSportMonksApiSamples(sportMonksLiveSamplePayload);
   }
   return localSeedState;
 }

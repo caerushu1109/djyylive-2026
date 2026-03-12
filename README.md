@@ -106,3 +106,9 @@ The site can already preview a provider-backed runtime state without changing pa
 - `/schedule.html?source=provider-sample`
 - `/live.html?source=provider-sample`
 - `/match.html?id=2026002&source=provider-sample`
+
+There is now also a real-shape SportMonks runtime sample wired into the same source layer:
+
+- `/schedule.html?source=sportmonks-live-sample`
+- `/live.html?source=sportmonks-live-sample`
+- `/match.html?id=18528480&source=sportmonks-live-sample`
