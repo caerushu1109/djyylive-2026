@@ -53,7 +53,7 @@ import {
   getMatchdayState,
   getMatchdaySourceMeta,
   hydrateMatchdayStateFromRuntimeSource,
-} from "./matchday-source.js?v=20260312z";
+} from "./matchday-source.js?v=20260312aa";
 import {
   defaultLocale,
   homepageCopy,
@@ -830,6 +830,10 @@ function initMatchPage() {
   const timelineNode = document.querySelector("#match-timeline");
   const statsNode = document.querySelector("#match-stats");
   const relatedNode = document.querySelector("#match-related");
+  const timelineEyebrowNode = document.querySelector("#match-timeline-eyebrow");
+  const timelineTitleNode = document.querySelector("#match-timeline-title");
+  const statsEyebrowNode = document.querySelector("#match-stats-eyebrow");
+  const statsTitleNode = document.querySelector("#match-stats-title");
 
   if (!heroNode || !timelineNode || !statsNode || !relatedNode) {
     return;
@@ -879,6 +883,26 @@ function initMatchPage() {
           card: "牌",
           substitution: "换人",
         },
+        sectionLabel: {
+          pre_match: {
+            timelineEyebrow: "赛前资料",
+            timelineTitle: "比赛信息",
+            statsEyebrow: "赛前看点",
+            statsTitle: "这场先看什么",
+          },
+          in_match: {
+            timelineEyebrow: "关键事件",
+            timelineTitle: "比赛事件",
+            statsEyebrow: "技术统计",
+            statsTitle: "比赛数据",
+          },
+          post_match: {
+            timelineEyebrow: "比赛回看",
+            timelineTitle: "关键事件",
+            statsEyebrow: "赛后数据",
+            statsTitle: "比赛数据",
+          },
+        },
         possession: "控球",
         shots: "射门",
         shotsOnTarget: "射正",
@@ -917,6 +941,26 @@ function initMatchPage() {
           card: "Card",
           substitution: "Sub",
         },
+        sectionLabel: {
+          pre_match: {
+            timelineEyebrow: "Pre-match",
+            timelineTitle: "Match info",
+            statsEyebrow: "What to watch",
+            statsTitle: "Pre-match view",
+          },
+          in_match: {
+            timelineEyebrow: "Timeline",
+            timelineTitle: "Match timeline",
+            statsEyebrow: "Stats",
+            statsTitle: "Match stats",
+          },
+          post_match: {
+            timelineEyebrow: "Review",
+            timelineTitle: "Key events",
+            statsEyebrow: "After",
+            statsTitle: "Match stats",
+          },
+        },
         possession: "Possession",
         shots: "Shots",
         shotsOnTarget: "Shots on target",
@@ -933,7 +977,8 @@ function initMatchPage() {
         toLive: "Open live overview",
         toPrediction: "Open prediction",
       };
-  const scoreDisplay = match.phase === "pre_match" ? "VS" : match.score;
+  const scoreDisplay = match.phase === "pre_match" ? "×" : match.score;
+  const sectionLabel = t.sectionLabel[match.phase] || t.sectionLabel.pre_match;
   const timelineItems = detail.timeline.length
     ? detail.timeline
     : match.phase === "pre_match"
@@ -959,12 +1004,12 @@ function initMatchPage() {
         ];
   const statTiles = match.phase === "pre_match"
     ? [
-        { label: t.possession, value: t.statsPending },
-        { label: t.shots, value: t.statsPending },
-        { label: t.shotsOnTarget, value: t.statsPending },
-        { label: t.corners, value: t.statsPending },
-        { label: t.yellowcards, value: t.statsPending },
-        { label: t.xg, value: t.statsPending },
+        { label: currentLocale === "zh" ? "主队" : "Home", value: displayTeam(match.home) },
+        { label: currentLocale === "zh" ? "客队" : "Away", value: displayTeam(match.away) },
+        { label: t.kickoffLabel, value: match.kickoff },
+        { label: currentLocale === "zh" ? "球场" : "Venue", value: displayVenue(match.venue) },
+        { label: currentLocale === "zh" ? "阶段" : "Stage", value: displayStage(match.stage) },
+        { label: currentLocale === "zh" ? "首发" : "Lineups", value: t.lineupPending },
       ]
     : [
         { label: t.possession, value: `${detail.stats.possession_home}% / ${detail.stats.possession_away}%` },
@@ -974,6 +1019,11 @@ function initMatchPage() {
         { label: t.yellowcards, value: `${detail.stats.yellowcards_home} / ${detail.stats.yellowcards_away}` },
         { label: t.xg, value: `${detail.stats.xg_home} / ${detail.stats.xg_away}` },
       ];
+
+  if (timelineEyebrowNode) timelineEyebrowNode.textContent = sectionLabel.timelineEyebrow;
+  if (timelineTitleNode) timelineTitleNode.textContent = sectionLabel.timelineTitle;
+  if (statsEyebrowNode) statsEyebrowNode.textContent = sectionLabel.statsEyebrow;
+  if (statsTitleNode) statsTitleNode.textContent = sectionLabel.statsTitle;
 
   heroNode.innerHTML = `
     <div class="match-hero-card">
@@ -3511,20 +3561,23 @@ function renderGroupTable(groupTableBody, groupKey) {
       const isPlaceholder = isProviderPlaceholderTeam(team.team);
       const zoneLabel = preTournamentMode
         ? (currentLocale === "zh"
-            ? (isPlaceholder ? "附加赛名额" : "已确定球队")
-            : (isPlaceholder ? "playoff slot" : "confirmed team"))
+            ? (isPlaceholder ? `附加赛席位 ${rank}` : `小组席位 ${rank}`)
+            : (isPlaceholder ? `Playoff slot ${rank}` : `Group slot ${rank}`))
         : currentLocale === "zh"
           ? (rank <= 2 ? "直通区" : rank === 3 ? "第三名比较" : "追赶区")
           : (rank <= 2 ? "auto spot" : rank === 3 ? "best-third race" : "chasing pack");
       const detailLabel = preTournamentMode
         ? (currentLocale === "zh"
-            ? "首轮开球后更新积分与净胜球"
-            : "Points and goal difference update after the first kick-off")
+            ? (isPlaceholder ? "附加赛名额确认后自动替换" : "首轮开球后开始累计积分")
+            : (isPlaceholder ? "Replaced automatically after playoff qualification" : "Points start once the opening round begins"))
         : currentLocale === "zh"
           ? `净胜球 ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`
           : `GD ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`;
       const formMarkup = preTournamentMode
-        ? `<span class="form-dot form-dot--pending">${currentLocale === "zh" ? (isPlaceholder ? "附加赛待定" : "等待开球") : (isPlaceholder ? "playoff TBD" : "awaiting kick-off")}</span>`
+        ? `
+            <span class="form-dot form-dot--pending">${currentLocale === "zh" ? "首轮待开" : "opening round pending"}</span>
+            ${isPlaceholder ? `<span class="form-dot form-dot--pending">${currentLocale === "zh" ? "附加赛待定" : "playoff TBD"}</span>` : ""}
+          `
         : `
                   <span class="form-dot form-dot--win">${currentLocale === "zh" ? "胜" : "W"} ${team.win}</span>
                   <span class="form-dot form-dot--draw">${currentLocale === "zh" ? "平" : "D"} ${team.draw}</span>
