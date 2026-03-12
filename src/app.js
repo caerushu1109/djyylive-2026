@@ -741,7 +741,7 @@ function initSchedulePage() {
       if (statusSelect.value !== "all") {
         filtered = filtered.filter((match) => match.status === statusSelect.value);
       }
-      scheduleList.innerHTML = filtered.map(renderScheduleRow).join("");
+      scheduleList.innerHTML = sortMatchesChronologically(filtered).map(renderScheduleRow).join("");
     };
 
     teamSelect.addEventListener("change", update);
@@ -3499,7 +3499,7 @@ function renderScheduleList(scheduleList, stage) {
       ? matches
       : matches.filter((match) => match.stage === stage);
 
-  scheduleList.innerHTML = visibleMatches.map(renderScheduleRow).join("");
+  scheduleList.innerHTML = sortMatchesChronologically(visibleMatches).map(renderScheduleRow).join("");
 }
 
 function renderRankingList(items) {
@@ -4057,6 +4057,22 @@ function parseKickoffValue(match) {
     Number(minute),
     Number(second)
   );
+}
+
+function sortMatchesChronologically(sourceMatches) {
+  return [...sourceMatches].sort((a, b) => {
+    const kickoffDelta = parseKickoffValue(a) - parseKickoffValue(b);
+    if (kickoffDelta !== 0) {
+      return kickoffDelta;
+    }
+
+    const phaseDelta = matchPhaseRank(a) - matchPhaseRank(b);
+    if (phaseDelta !== 0) {
+      return phaseDelta;
+    }
+
+    return String(a.id).localeCompare(String(b.id));
+  });
 }
 
 function prioritizeMatches(sourceMatches, limit = 4) {
