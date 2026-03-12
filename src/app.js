@@ -730,18 +730,10 @@ function initLivePage() {
     .join("");
 
   const watchlistMatches = liveMatches.length
-    ? liveMatches
+    ? prioritizeMatches(liveMatches, 4)
     : postMatches.length
-      ? postMatches.slice(0, 4)
-      : matches
-    .filter(
-      (match) =>
-        match.id === "wc26-mex-rsa" ||
-        match.id === "wc26-fra-sen" ||
-        match.id === "wc26-arg-aut" ||
-        match.id === "wc26-por-col" ||
-        match.stage === "决赛"
-    );
+      ? prioritizeMatches(postMatches, 4)
+      : getHomepageMatches();
 
   watchlistNode.innerHTML = watchlistMatches.map(renderWatchlistCard).join("");
 }
@@ -3953,16 +3945,56 @@ function displayGroupLabel(group) {
 }
 
 function getHomepageMatches() {
-  const highlightIds = [
-    "wc26-mex-rsa",
-    "wc26-bra-hai",
-    "wc26-fra-sen",
-    "wc26-eng-cro",
-  ];
+  return prioritizeMatches(matches, 4);
+}
 
-  return highlightIds
-    .map((id) => matches.find((match) => match.id === id))
-    .filter(Boolean);
+function matchPhaseRank(match) {
+  if (match.phase === "in_match") {
+    return 0;
+  }
+  if (match.phase === "pre_match") {
+    return 1;
+  }
+  return 2;
+}
+
+function matchStageRank(match) {
+  const stage = String(match.stage || "");
+  if (stage.includes("决赛") || stage.toLowerCase().includes("final")) {
+    return 0;
+  }
+  if (stage.includes("半决赛") || stage.toLowerCase().includes("semi")) {
+    return 1;
+  }
+  return 2;
+}
+
+function parseKickoffValue(match) {
+  const value = Date.parse(match.kickoff || "");
+  return Number.isFinite(value) ? value : Number.MAX_SAFE_INTEGER;
+}
+
+function prioritizeMatches(sourceMatches, limit = 4) {
+  return [...sourceMatches]
+    .sort((a, b) => {
+      const phaseDelta = matchPhaseRank(a) - matchPhaseRank(b);
+      if (phaseDelta !== 0) {
+        return phaseDelta;
+      }
+
+      const stageDelta = matchStageRank(a) - matchStageRank(b);
+      if (stageDelta !== 0) {
+        return stageDelta;
+      }
+
+      const kickoffDelta = parseKickoffValue(a) - parseKickoffValue(b);
+      if (kickoffDelta !== 0) {
+        return kickoffDelta;
+      }
+
+      return String(a.id).localeCompare(String(b.id));
+    })
+    .slice(0, limit);
 }
 
 function renderLineChartSvg(points, label, gradientId) {
