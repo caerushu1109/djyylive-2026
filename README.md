@@ -54,6 +54,8 @@ Then open:
   - required data contract before buying a football API
 - `API_BUY_DECISION.md`
   - practical checklist for deciding when to buy the football API
+- `PROVIDER_ONBOARDING.md`
+  - first-day sequence for wiring a real football data provider
 - `LAUNCH_CHECKLIST.md`
   - minimum launch gate before binding a real domain
 - `DEPLOYMENT.md`

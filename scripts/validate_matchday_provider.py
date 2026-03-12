@@ -13,6 +13,15 @@ REQUIRED_MATCH_KEYS = {"id", "starting_at", "state"}
 REQUIRED_STANDINGS_KEYS = {"group", "participant", "details", "points"}
 
 
+def classify_phase(state: str) -> str:
+    state = str(state).lower()
+    if state in {"live", "inplay", "in_play", "1h", "2h", "ht", "et"}:
+        return "in_match"
+    if state in {"ft", "aet", "pen", "finished", "full_time", "after_extra_time"}:
+        return "post_match"
+    return "pre_match"
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         print("Usage: python3 scripts/validate_matchday_provider.py <payload.json>")
@@ -54,8 +63,17 @@ def main() -> int:
           ok = False
 
     if ok:
+      phase_counts = {"pre_match": 0, "in_match": 0, "post_match": 0}
+      for match in matches:
+          phase_counts[classify_phase(match.get("state"))] += 1
       print("Provider payload looks structurally usable for the matchday adapter.")
       print(f"Matches: {len(matches)}")
+      print(
+          "Phases: "
+          f"pre_match={phase_counts['pre_match']}, "
+          f"in_match={phase_counts['in_match']}, "
+          f"post_match={phase_counts['post_match']}"
+      )
       print(f"Standings rows: {len(standings)}")
       print(f"Event match ids: {len(payload.get('eventsByMatch', {}))}")
       print(f"Stats match ids: {len(payload.get('statsByMatch', {}))}")
