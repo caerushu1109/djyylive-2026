@@ -54,23 +54,6 @@
         </nav>
       </header>
 
-      <section class="section">
-        <div class="summary-strip">
-          <article class="summary-pill">
-            <strong>页面角色</strong>
-            <span>这里负责帮你找到比赛，不负责把所有实时细节都塞进同一页。</span>
-          </article>
-          <article class="summary-pill">
-            <strong>高频路径</strong>
-            <span>看完一眼赛程后，用户通常会继续跳到今日比赛、单场详情、球队页或预测页。</span>
-          </article>
-          <article class="summary-pill">
-            <strong>接 API 位</strong>
-            <span>阶段、球队、状态和比赛 id 都已经预留好，后面接真实 API 会比较顺。</span>
-          </article>
-        </div>
-      </section>
-
       <section class="section schedule-hub">
         <article class="history-panel">
           <div class="section__heading section__heading--stack">
@@ -128,22 +111,7 @@
             <li><strong>球队视角：</strong><a href="./team-history.html?team=Argentina">从球队页看相关比赛</a></li>
           </ul>
         </article>
-
-        <article class="spotlight-card">
-          <p class="eyebrow">当前数据说明</p>
-          <h2>这页现在看到的都来自世界杯实时源</h2>
-          <ul class="spotlight-list">
-            <li><strong>赛程：</strong>已经按 2026 世界杯真实时间线排序，不再用旧 demo 顺序。</li>
-            <li><strong>占位队名：</strong>像 <code>Den/Mkd/Cze/Irl</code> 这类写法，是附加赛名额尚未最终确定时 provider 返回的真实占位。</li>
-            <li><strong>赛前空白：</strong>揭幕战开赛前，事件流、首发和技术统计为空是正常状态，不是接口故障。</li>
-            <li><strong>比赛入口：</strong>现在从这里点进比赛页和预测页，都会跟着当前这套真实世界杯数据走。</li>
-          </ul>
-        </article>
       </section>
-
-      <footer class="footer">
-        <p>赛事中心现在已经像一个真正的赛事首页了，后面把真实赛程和 Live API 接进来就能继续完善。</p>
-      </footer>
     </main>
 
     <script type="module" src="../src/app.js?v=20260312q"></script>

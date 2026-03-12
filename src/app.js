@@ -339,6 +339,9 @@ function initDynamicMatchEntryLinks() {
 }
 
 function initMatchdaySourceNotice() {
+  if (!["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+    return;
+  }
   const source = getCurrentRuntimeSource();
   if (!source) {
     return;
