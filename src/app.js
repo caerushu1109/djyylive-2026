@@ -49,7 +49,11 @@ import {
   wc2026CountdownTarget,
   wc2026PollOptions,
 } from "./wc2026-data.js";
-import { getMatchdayState, hydrateMatchdayStateFromRuntimeSource } from "./matchday-source.js";
+import {
+  getMatchdayState,
+  getMatchdaySourceMeta,
+  hydrateMatchdayStateFromRuntimeSource,
+} from "./matchday-source.js";
 import {
   defaultLocale,
   homepageCopy,
@@ -62,6 +66,7 @@ import {
 
 await hydrateMatchdayStateFromRuntimeSource();
 const matchdayState = getMatchdayState();
+const matchdaySourceMeta = getMatchdaySourceMeta();
 const matches = matchdayState.matches;
 const groups = matchdayState.groups;
 const pollOptions = wc2026PollOptions;
@@ -160,6 +165,7 @@ initTeamHistoryPage();
 initLivePage();
 initMatchPage();
 initLocaleSwitch();
+initMatchdaySourceNotice();
 streamlinePageChrome();
 streamlinePageContent();
 initBottomTabBar();
@@ -264,6 +270,74 @@ function initLocaleSwitch() {
 
   switchNode.textContent = fallbackConfig.switchLabel;
   switchNode.setAttribute("href", withSourceParam(nextHref));
+}
+
+function initMatchdaySourceNotice() {
+  const source = getCurrentRuntimeSource();
+  if (!source) {
+    return;
+  }
+
+  const shell = document.querySelector(".site-shell");
+  const masthead = document.querySelector(".masthead");
+  if (!shell || !masthead) {
+    return;
+  }
+
+  const copy = currentLocale === "zh"
+    ? {
+        sampleTitle: "当前是 provider sample 预览",
+        sampleBody: "这页不是本地静态 seed，而是在用 provider 结构样例验证赛程、比赛日和单场页的映射。",
+        sportmonksSampleTitle: "当前是 SportMonks 真实结构 sample",
+        sportmonksSampleBody: "这页正在用真实 SportMonks 字段形状的样例 payload 运行，适合先验证映射和页面结构是否对得上。",
+        liveTitle: "SportMonks 实时请求已接通",
+        liveBody: "这页已经从本地配置读取 SportMonks，并成功拉到运行时数据。",
+        fallbackTitle: "SportMonks 实时请求未成功，已回退到本地 seed",
+        fallbackBody: "优先检查本地是否存在 data/provider-live-config.json、token 是否已重置，以及浏览器是否允许直接请求第三方接口。",
+      }
+    : {
+        sampleTitle: "Provider sample preview",
+        sampleBody: "This page is not using the local seed. It is running against a provider-shaped sample to validate schedule, live, and match rendering.",
+        sportmonksSampleTitle: "SportMonks real-shape sample",
+        sportmonksSampleBody: "This page is running against a sample payload shaped like the real SportMonks responses, which is useful for mapper validation.",
+        liveTitle: "SportMonks live runtime connected",
+        liveBody: "This page successfully loaded runtime data from the local SportMonks config.",
+        fallbackTitle: "SportMonks live runtime failed and fell back to local seed",
+        fallbackBody: "Check whether data/provider-live-config.json exists locally, whether the token was regenerated, and whether the browser can reach the third-party endpoint directly.",
+      };
+
+  let tone = "info";
+  let title = "";
+  let body = "";
+
+  if (matchdaySourceMeta.provider === "sportmonks-sample") {
+    title = copy.sampleTitle;
+    body = copy.sampleBody;
+  } else if (matchdaySourceMeta.provider === "sportmonks-live-sample") {
+    title = copy.sportmonksSampleTitle;
+    body = copy.sportmonksSampleBody;
+  } else if (matchdaySourceMeta.provider === "sportmonks-live" && matchdaySourceMeta.mode === "live") {
+    tone = "success";
+    title = copy.liveTitle;
+    body = copy.liveBody;
+  } else if (matchdaySourceMeta.provider === "sportmonks-live" && matchdaySourceMeta.mode === "live-fallback") {
+    tone = "warning";
+    title = copy.fallbackTitle;
+    body = copy.fallbackBody;
+  }
+
+  if (!title) {
+    return;
+  }
+
+  const notice = document.createElement("section");
+  notice.className = `source-notice source-notice--${tone}`;
+  notice.innerHTML = `
+    <strong>${title}</strong>
+    <p>${body}</p>
+  `;
+
+  shell.insertBefore(notice, masthead.nextSibling);
 }
 
 function streamlinePageChrome() {
