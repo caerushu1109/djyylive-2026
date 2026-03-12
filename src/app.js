@@ -749,12 +749,66 @@ function initHomeScheduleList() {
     const opener = orderedMatches[0];
     introNode.textContent = opener
       ? (currentLocale === "zh"
-          ? `完整赛程按真实世界杯时间线展开，揭幕战从 ${displayTeam(opener.home)} vs ${displayTeam(opener.away)} 开始。`
-          : `The full tournament now follows the real World Cup timeline, starting with ${displayTeam(opener.home)} vs ${displayTeam(opener.away)}.`)
+          ? `完整赛程按比赛日折叠展示，先看到每天有几场，再按日期展开具体比赛。揭幕战从 ${displayTeam(opener.home)} vs ${displayTeam(opener.away)} 开始。`
+          : `The full tournament is grouped by matchday, so visitors can open each date only when they need it. The opener is ${displayTeam(opener.home)} vs ${displayTeam(opener.away)}.`)
       : introNode.textContent;
   }
 
-  scheduleList.innerHTML = orderedMatches.map(renderScheduleRow).join("");
+  scheduleList.innerHTML = renderHomeScheduleCalendar(orderedMatches);
+}
+
+function renderHomeScheduleCalendar(sourceMatches) {
+  const grouped = new Map();
+  sourceMatches.forEach((match) => {
+    const key = String(match.kickoff || "").slice(0, 10) || "unknown";
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+    grouped.get(key).push(match);
+  });
+
+  return [...grouped.entries()]
+    .map(([date, dayMatches], index) => {
+      const summary = currentLocale === "zh"
+        ? `${formatScheduleDateLabel(date)} · ${dayMatches.length} 场比赛`
+        : `${formatScheduleDateLabel(date)} · ${dayMatches.length} fixtures`;
+      const stageHint = currentLocale === "zh"
+        ? `${displayStage(dayMatches[0].stage)} 开始`
+        : `Starts with ${displayStage(dayMatches[0].stage)}`;
+
+      return `
+        <details class="home-schedule-day"${index === 0 ? " open" : ""}>
+          <summary class="home-schedule-day__summary">
+            <div>
+              <strong>${summary}</strong>
+              <span>${stageHint}</span>
+            </div>
+            <span class="home-schedule-day__toggle">${currentLocale === "zh" ? "展开比赛" : "Open fixtures"}</span>
+          </summary>
+          <div class="home-schedule-day__list">
+            ${dayMatches.map(renderScheduleRow).join("")}
+          </div>
+        </details>
+      `;
+    })
+    .join("");
+}
+
+function formatScheduleDateLabel(date) {
+  if (!date) {
+    return currentLocale === "zh" ? "日期待定" : "Date TBD";
+  }
+
+  const parsed = String(date).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!parsed) {
+    return date;
+  }
+
+  const [, year, month, day] = parsed;
+  if (currentLocale === "zh") {
+    return `${year}年${Number(month)}月${Number(day)}日`;
+  }
+  return `${year}-${month}-${day}`;
 }
 
 function initHomeFocusTeams() {
