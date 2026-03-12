@@ -4030,8 +4030,33 @@ function matchStageRank(match) {
 }
 
 function parseKickoffValue(match) {
-  const value = Date.parse(match.kickoff || "");
-  return Number.isFinite(value) ? value : Number.MAX_SAFE_INTEGER;
+  const raw = String(match.kickoff || "").trim();
+  if (!raw) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  const normalized = raw.replace(" ", "T");
+  const directValue = Date.parse(normalized);
+  if (Number.isFinite(directValue)) {
+    return directValue;
+  }
+
+  const parsed = normalized.match(
+    /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2})(?::(\d{2}))?)?$/
+  );
+  if (!parsed) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  const [, year, month, day, hour = "00", minute = "00", second = "00"] = parsed;
+  return Date.UTC(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    Number(hour),
+    Number(minute),
+    Number(second)
+  );
 }
 
 function prioritizeMatches(sourceMatches, limit = 4) {
