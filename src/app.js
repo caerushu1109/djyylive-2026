@@ -849,6 +849,12 @@ function initMatchPage() {
         corners: "角球",
         yellowcards: "黄牌",
         xg: "xG 占位",
+        pending: "开球后更新",
+        opener: "揭幕信息",
+        kickoffLabel: "开球时间",
+        lineupPending: "首发将在开球前公布",
+        statsPending: "技术统计会在开赛后实时出现",
+        reviewPending: "赛后这里会补上关键事件和统计",
         backSchedule: "回到赛程页",
         toLive: "进入 live 总览",
         toPrediction: "查看预测页",
@@ -881,10 +887,57 @@ function initMatchPage() {
         corners: "Corners",
         yellowcards: "Yellow cards",
         xg: "xG",
+        pending: "Updates after kickoff",
+        opener: "Match info",
+        kickoffLabel: "Kickoff",
+        lineupPending: "Lineups appear closer to kickoff",
+        statsPending: "Live stats will appear after the match starts",
+        reviewPending: "Timeline and stats will fill out after full time",
         backSchedule: "Back to schedule",
         toLive: "Open live overview",
         toPrediction: "Open prediction",
       };
+  const scoreDisplay = match.phase === "pre_match" ? "VS" : match.score;
+  const timelineItems = detail.timeline.length
+    ? detail.timeline
+    : match.phase === "pre_match"
+      ? [
+          {
+            type: "context",
+            detail: `${t.kickoffLabel} · ${match.kickoff}`,
+          },
+          {
+            type: "angle",
+            detail: `${displayVenue(match.venue)} · ${displayStage(match.stage)}`,
+          },
+          {
+            type: "lineup",
+            detail: t.lineupPending,
+          },
+        ]
+      : [
+          {
+            type: "context",
+            detail: t.reviewPending,
+          },
+        ];
+  const statTiles = match.phase === "pre_match"
+    ? [
+        { label: t.possession, value: t.pending },
+        { label: t.shots, value: t.pending },
+        { label: t.shotsOnTarget, value: t.pending },
+        { label: t.corners, value: t.pending },
+        { label: t.yellowcards, value: t.pending },
+        { label: t.xg, value: t.statsPending },
+      ]
+    : [
+        { label: t.possession, value: `${detail.stats.possession_home}% / ${detail.stats.possession_away}%` },
+        { label: t.shots, value: `${detail.stats.shots_home} / ${detail.stats.shots_away}` },
+        { label: t.shotsOnTarget, value: `${detail.stats.shots_on_target_home} / ${detail.stats.shots_on_target_away}` },
+        { label: t.corners, value: `${detail.stats.corners_home} / ${detail.stats.corners_away}` },
+        { label: t.yellowcards, value: `${detail.stats.yellowcards_home} / ${detail.stats.yellowcards_away}` },
+        { label: t.xg, value: `${detail.stats.xg_home} / ${detail.stats.xg_away}` },
+      ];
 
   heroNode.innerHTML = `
     <div class="match-hero-card">
@@ -892,13 +945,13 @@ function initMatchPage() {
       <h2>${displayTeam(match.home)} vs ${displayTeam(match.away)}</h2>
       <p class="hero__lede">${match.kickoff} · ${displayVenue(match.venue)} · ${t.phaseCopy[match.phase] || humanizeMatchStatus(match)}</p>
       <div class="match-scoreline">
-        <strong>${match.score}</strong>
+        <strong>${scoreDisplay}</strong>
         <span>${match.phase === "in_match" ? (match.minute || t.liveMinute) : match.phase === "post_match" ? t.postMatch : t.preMatch}</span>
       </div>
     </div>
   `;
 
-  timelineNode.innerHTML = detail.timeline
+  timelineNode.innerHTML = timelineItems
     .map(
       (event) => `
         <article class="event-row">
@@ -909,14 +962,16 @@ function initMatchPage() {
     )
     .join("");
 
-  statsNode.innerHTML = `
-    <article class="stat-tile"><span>${t.possession}</span><strong>${detail.stats.possession_home}% / ${detail.stats.possession_away}%</strong></article>
-    <article class="stat-tile"><span>${t.shots}</span><strong>${detail.stats.shots_home} / ${detail.stats.shots_away}</strong></article>
-    <article class="stat-tile"><span>${t.shotsOnTarget}</span><strong>${detail.stats.shots_on_target_home} / ${detail.stats.shots_on_target_away}</strong></article>
-    <article class="stat-tile"><span>${t.corners}</span><strong>${detail.stats.corners_home} / ${detail.stats.corners_away}</strong></article>
-    <article class="stat-tile"><span>${t.yellowcards}</span><strong>${detail.stats.yellowcards_home} / ${detail.stats.yellowcards_away}</strong></article>
-    <article class="stat-tile"><span>${t.xg}</span><strong>${detail.stats.xg_home} / ${detail.stats.xg_away}</strong></article>
-  `;
+  statsNode.innerHTML = statTiles
+    .map(
+      (tile) => `
+        <article class="stat-tile">
+          <span>${tile.label}</span>
+          <strong>${tile.value}</strong>
+        </article>
+      `
+    )
+    .join("");
 
   relatedNode.innerHTML = `
     <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.backSchedule}</a>
