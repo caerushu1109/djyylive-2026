@@ -217,6 +217,22 @@ The site is now phase-aware:
 
 This means the next major step is provider hookup, not page redesign.
 
+There is now also a runtime source switch:
+
+- default local seed mode
+- provider-sample mode via `?source=provider-sample`
+
+Files involved:
+
+- `src/matchday-source.js`
+- `src/provider-sample-payload.js`
+- `src/provider-sample-state.js`
+- `PROVIDER_ONBOARDING.md`
+- `PROVIDER_SWAP_GUIDE.md`
+- `API_BUY_DECISION.md`
+- `PROVIDER_SELECTION_TEMPLATE.md`
+- `MAIN_DOMAIN_CUTOVER.md`
+
 ## Next Recommended Task
 
 Next task should be provider selection and payload hookup:
@@ -225,7 +241,8 @@ Next task should be provider selection and payload hookup:
 2. collect one real sample payload
 3. test it against `src/provider-mappers.js`
 4. fill missing field mappings
-5. then buy the API plan
+5. run the validator
+6. then buy the API plan
 
 ## Future Architecture Decision
 
@@ -247,6 +264,7 @@ Do not duplicate raw match/group/history data for each language.
 When continuing this project in a future session, start with:
 
 1. read `SESSION_HANDOFF.md`
-2. read `src/wc2026-data.js`
-3. read `src/app.js`
-4. then continue the homepage refinement first
+2. read `API_BUY_DECISION.md`
+3. read `PROVIDER_ONBOARDING.md`
+4. read `src/matchday-source.js`
+5. then continue provider hookup first

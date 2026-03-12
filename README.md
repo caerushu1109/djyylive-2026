@@ -56,8 +56,12 @@ Then open:
   - practical checklist for deciding when to buy the football API
 - `PROVIDER_ONBOARDING.md`
   - first-day sequence for wiring a real football data provider
+- `PROVIDER_SELECTION_TEMPLATE.md`
+  - comparison template for choosing the football data provider
 - `PROVIDER_SWAP_GUIDE.md`
   - exact file-level switch points when moving from seed data to a real provider
+- `MAIN_DOMAIN_CUTOVER.md`
+  - final domain cutover checklist for moving from preview to `djyylive.com`
 - `LAUNCH_CHECKLIST.md`
   - minimum launch gate before binding a real domain
 - `DEPLOYMENT.md`

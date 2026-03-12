@@ -49,6 +49,11 @@ This is the minimum launch checklist for the World Cup site before binding a rea
 - `/` redirects to `/zh/index.html`
 - `/zh` redirects to `/zh/index.html`
 - `/en` redirects to `/en/index.html`
+- preview site works on `wc.djyylive.com`
+- provider-sample runtime works on:
+  - `/schedule.html?source=provider-sample`
+  - `/live.html?source=provider-sample`
+  - `/match.html?id=2026002&source=provider-sample`
 
 ## SEO
 
@@ -79,3 +84,4 @@ Buy the football API when:
 - schedule, live, and match templates are settled
 - the field mapping in `API_REQUIREMENTS.md` is confirmed
 - you know the provider covers World Cup fixtures and live events
+- one real provider payload has passed the validator
