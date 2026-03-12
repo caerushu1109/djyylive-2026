@@ -41,7 +41,11 @@ This is the file that should switch the whole site from local seed data to provi
 - `src/matchday-source.js`
 
 Right now it points to the local seed state.
-Later it should point to the provider-backed state.
+It can also point to the provider sample state by using:
+
+- `?source=provider-sample`
+
+Later it should point to the real provider-backed state.
 
 ### 5. UI rendering
 

@@ -94,3 +94,11 @@ Before buying a football API, validate one real sample payload:
 ```bash
 python3 scripts/validate_matchday_provider.py data/provider-samples/sportmonks-worldcup-sample.json
 ```
+
+## Provider-Sample Preview
+
+The site can already preview a provider-backed runtime state without changing page templates:
+
+- `/schedule.html?source=provider-sample`
+- `/live.html?source=provider-sample`
+- `/match.html?id=2026002&source=provider-sample`

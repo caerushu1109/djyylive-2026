@@ -52,6 +52,7 @@ At the current stage:
 
 - the site is close enough to start evaluating providers seriously
 - buying an API is justified after one more pass on real provider field coverage
+- the site can already simulate provider-backed runtime state via `?source=provider-sample`
 
 In practice, the next step should be:
 

@@ -19,6 +19,7 @@ Replace local placeholder matchday data without changing page structure.
 5. update `src/provider-mappers.js`
 6. update `src/api-adapter-example.js`
 7. swap the local seed state for the provider-backed state
+8. verify the site using the runtime source switch
 
 ## First Payload Checklist
 
@@ -55,12 +56,21 @@ python3 scripts/validate_matchday_provider.py data/provider-samples/sportmonks-w
 
 without changing HTML structure.
 
+4. Test the sample-backed runtime directly:
+
+```text
+/schedule.html?source=provider-sample
+/live.html?source=provider-sample
+/match.html?id=2026002&source=provider-sample
+```
+
 ## When The First Real Payload Arrives
 
 The next code step should be:
 
 - add a new real provider sample JSON
 - update the mapper only where the sample disagrees
+- point `src/matchday-source.js` at the real provider-backed state
 - do not redesign the pages
 
 ## What Not To Do
