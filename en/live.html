@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/live.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/live.html" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312ab" />
+    <link rel="stylesheet" href="../styles.css?v=20260312ad" />
   </head>
   <body data-page="live" data-locale="en" data-route-key="live">
     <main class="site-shell">
@@ -41,13 +41,8 @@
         <section class="page-hero history-hero">
           <div class="page-hero__copy">
             <p class="eyebrow">Live Overview</p>
-            <h1>The live page should let users decide instantly which match deserves attention</h1>
-            <p class="hero__lede">
-              This is not a duplicate of the schedule page. It is the fast layer for matchday urgency: what is live now, what is next, and what must be watched.
-            </p>
-          </div>
-          <div class="page-hero__aside quote-card history-hero__aside">
-            <p>A good live page is not about maximum density. It is about compressing the decision into a few clear options.</p>
+            <h1 id="live-page-title">Today’s matches</h1>
+            <p class="hero__lede" id="live-page-lede">Start with the current focus fixture, then move through the next kickoffs.</p>
           </div>
         </section>
 
@@ -90,11 +85,8 @@
         <div class="watchlist-stack" id="live-watchlist"></div>
       </section>
 
-      <footer class="footer">
-        <p>The live page is now positioned as a fast matchday layer that works with the match center and single-match pages.</p>
-      </footer>
     </main>
 
-    <script type="module" src="../src/app.js?v=20260312ab"></script>
+    <script type="module" src="../src/app.js?v=20260312ad"></script>
   </body>
 </html>

@@ -869,9 +869,23 @@ function initLivePage() {
   const liveNowNode = document.querySelector("#live-now");
   const upcomingNode = document.querySelector("#live-upcoming");
   const watchlistNode = document.querySelector("#live-watchlist");
+  const titleNode = document.querySelector("#live-page-title");
+  const ledeNode = document.querySelector("#live-page-lede");
 
   if (!liveNowNode || !upcomingNode || !watchlistNode) {
     return;
+  }
+
+  const focusMatch = getPrimaryFocusMatch(matches);
+  if (focusMatch) {
+    if (titleNode) {
+      titleNode.textContent = currentLocale === "zh" ? "今日比赛" : "Today’s matches";
+    }
+    if (ledeNode) {
+      ledeNode.textContent = currentLocale === "zh"
+        ? `先看 ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}，再顺着当前最早开球的几场往下看。`
+        : `Start with ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}, then move through the earliest kickoffs.`;
+    }
   }
 
   const liveMatches = matches.filter((match) => match.phase === "in_match");
@@ -902,6 +916,8 @@ function initMatchPage() {
   const timelineNode = document.querySelector("#match-timeline");
   const statsNode = document.querySelector("#match-stats");
   const relatedNode = document.querySelector("#match-related");
+  const pageTitleNode = document.querySelector("#match-page-title");
+  const pageLedeNode = document.querySelector("#match-page-lede");
   const timelineEyebrowNode = document.querySelector("#match-timeline-eyebrow");
   const timelineTitleNode = document.querySelector("#match-timeline-title");
   const statsEyebrowNode = document.querySelector("#match-stats-eyebrow");
@@ -1051,6 +1067,22 @@ function initMatchPage() {
       };
   const scoreDisplay = match.phase === "pre_match" ? "×" : match.score;
   const sectionLabel = t.sectionLabel[match.phase] || t.sectionLabel.pre_match;
+  if (pageTitleNode) {
+    pageTitleNode.textContent = `${displayTeam(match.home)} vs ${displayTeam(match.away)}`;
+  }
+  if (pageLedeNode) {
+    pageLedeNode.textContent = match.phase === "pre_match"
+      ? (currentLocale === "zh"
+          ? `${match.kickoff} 开球，地点是 ${displayVenue(match.venue)}。赛前先看这场的基本信息和焦点。`
+          : `Kickoff is ${match.kickoff} at ${displayVenue(match.venue)}. Start with the essentials before live events arrive.`)
+      : match.phase === "in_match"
+        ? (currentLocale === "zh"
+            ? "这页现在优先看关键事件和比赛数据。"
+            : "This page now prioritizes the event flow and live numbers.")
+        : (currentLocale === "zh"
+            ? "这页现在优先保留关键事件和赛后数据。"
+            : "This page now keeps the key events and after-match numbers in view.");
+  }
   const timelineItems = detail.timeline.length
     ? detail.timeline
     : match.phase === "pre_match"
