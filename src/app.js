@@ -720,8 +720,8 @@ function initMatchesPreview() {
   if (focusMatch) {
     if (introNode) {
       introNode.textContent = currentLocale === "zh"
-        ? `这里优先顺着真实时间线推当前最该先看的比赛，当前焦点落在 ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}。`
-        : `This block follows the live tournament timeline first. Right now the focus starts with ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}.`;
+        ? `今天先看 1 场，再顺着时间线继续看接下来的 3 场。当前主推是 ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}。`
+        : `Start with one priority fixture, then keep moving through the next three on the timeline. Right now the lead match is ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}.`;
     }
     if (kickoffNode) {
       kickoffNode.textContent = currentLocale === "zh"
@@ -731,7 +731,7 @@ function initMatchesPreview() {
   }
 
   matchGrid.innerHTML = getHomepageMatches()
-    .map(renderMatchCard)
+    .map((match, index) => renderMatchCard(match, index))
     .join("");
 }
 
@@ -1161,12 +1161,13 @@ function renderMatchDetailView(matchId, nodes) {
         ];
   const statTiles = match.phase === "pre_match"
     ? [
-        { label: currentLocale === "zh" ? "主队" : "Home", value: displayTeam(match.home) },
-        { label: currentLocale === "zh" ? "客队" : "Away", value: displayTeam(match.away) },
         { label: t.kickoffLabel, value: match.kickoff },
         { label: currentLocale === "zh" ? "球场" : "Venue", value: displayVenue(match.venue) },
         { label: currentLocale === "zh" ? "阶段" : "Stage", value: displayStage(match.stage) },
-        { label: currentLocale === "zh" ? "首发" : "Lineups", value: t.lineupPending },
+        ...getPreMatchAngles(match).map((item) => ({
+          label: item.label,
+          value: item.value,
+        })),
       ]
     : [
         { label: t.possession, value: `${detail.stats.possession_home}% / ${detail.stats.possession_away}%` },
@@ -3644,17 +3645,22 @@ function initPredictionPage() {
   update();
 }
 
-function renderMatchCard(match) {
+function renderMatchCard(match, index = 0) {
   const matchCopy = currentLocale === "zh"
     ? {
         open: "比赛页",
         prediction: "预测",
+        lead: "今天先看",
+        next: "继续关注",
       }
     : {
         open: "Match",
         prediction: "Prediction",
+        lead: "Start here",
+        next: "Keep tracking",
       };
   const fixtureMarker = getFixtureMarker(match);
+  const importanceLabel = getMatchImportanceLabel(match);
   const phaseLabel = getMatchPhaseBadge(match, {
     pre: match.kickoff,
     live: match.minute || humanizeMatchStatus(match),
@@ -3662,8 +3668,11 @@ function renderMatchCard(match) {
   });
 
   return `
-    <article class="match-card">
-      <span class="match-card__stage">${displayStage(match.stage)} · ${phaseLabel}</span>
+    <article class="match-card ${index === 0 ? "match-card--lead" : ""}">
+      <div class="match-card__header">
+        <span class="match-card__stage">${index === 0 ? matchCopy.lead : matchCopy.next}</span>
+        ${importanceLabel ? `<span class="match-card__importance">${importanceLabel}</span>` : ""}
+      </div>
       <div class="match-card__fixture">
         <strong class="match-card__line">
           ${renderTeamLink(match.home)}
@@ -3671,6 +3680,7 @@ function renderMatchCard(match) {
           ${renderTeamLink(match.away)}
         </strong>
       </div>
+      <p class="match-card__kickoff">${phaseLabel}</p>
       <p class="match-card__meta">${displayMatchMeta(match)}</p>
       <div class="match-card__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${matchCopy.open}</a>
@@ -3888,11 +3898,16 @@ function renderScheduleRow(match) {
         post: "Full-time",
       };
   const phaseLine = getMatchPhaseLine(match, scheduleCopy);
+  const importanceLabel = getMatchImportanceLabel(match);
   return `
     <article class="schedule-row">
       <div>
+        <div class="schedule-row__top">
+          <span class="schedule-row__kickoff">${phaseLine}</span>
+          ${importanceLabel ? `<span class="schedule-row__importance">${importanceLabel}</span>` : ""}
+        </div>
         <strong class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</strong>
-        <p>${displayStage(match.stage)} · ${displayVenue(match.venue)} · ${phaseLine}</p>
+        <p>${displayStage(match.stage)} · ${displayVenue(match.venue)}</p>
       </div>
       <div class="schedule-row__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${scheduleCopy.details}</a>
@@ -4140,6 +4155,70 @@ function humanizeProviderPlaceholderTeam(team) {
   }
 
   return `Playoff TBD (${value})`;
+}
+
+function getMatchImportanceLabel(match) {
+  const stage = String(match.stage || "");
+  const hasPlaceholder = isProviderPlaceholderTeam(match.home) || isProviderPlaceholderTeam(match.away);
+
+  if (stage.includes("揭幕战")) {
+    return currentLocale === "zh" ? "揭幕战" : "Opening match";
+  }
+  if (stage.includes("决赛") || /final/i.test(stage)) {
+    return currentLocale === "zh" ? "冠军战" : "Final";
+  }
+  if (stage.includes("半决赛") || /semi/i.test(stage)) {
+    return currentLocale === "zh" ? "四强战" : "Semi-final";
+  }
+  if (hasPlaceholder) {
+    return currentLocale === "zh" ? "附加赛待定" : "Playoff TBD";
+  }
+  if (/^[A-L]组$/.test(stage)) {
+    return currentLocale === "zh" ? "小组赛" : "Group stage";
+  }
+  return currentLocale === "zh" ? "焦点战" : "Featured";
+}
+
+function getPreMatchAngles(match) {
+  const angles = [];
+  const stage = String(match.stage || "");
+  const hasPlaceholder = isProviderPlaceholderTeam(match.home) || isProviderPlaceholderTeam(match.away);
+
+  if (stage.includes("揭幕战")) {
+    angles.push({
+      label: currentLocale === "zh" ? "揭幕焦点" : "Opening angle",
+      value: currentLocale === "zh" ? "东道主首战，天然是这一轮的第一入口" : "Host nation opener and the natural first entry point.",
+    });
+  } else if (/^[A-L]组$/.test(stage)) {
+    angles.push({
+      label: currentLocale === "zh" ? "小组背景" : "Group context",
+      value: currentLocale === "zh" ? `${stage} 首轮阶段，先看这场再顺着同组去看。` : `${displayStage(stage)} opening round. Start here, then follow the rest of the group.`,
+    });
+  } else {
+    angles.push({
+      label: currentLocale === "zh" ? "比赛看点" : "Why it matters",
+      value: currentLocale === "zh" ? "先看时间线和对阵，再决定要不要继续追这场。" : "Start with kickoff and matchup strength, then decide if this is worth following live.",
+    });
+  }
+
+  angles.push({
+    label: currentLocale === "zh" ? "阵容信息" : "Lineup status",
+    value: currentLocale === "zh" ? "首发和替补名单会在开球前公布。" : "Lineups and benches will appear closer to kickoff.",
+  });
+
+  if (hasPlaceholder) {
+    angles.push({
+      label: currentLocale === "zh" ? "参赛席位" : "Qualification status",
+      value: currentLocale === "zh" ? "这场里仍有附加赛席位待定，最终队名会在资格赛确认后替换。" : "One side is still tied to a playoff path and will update after qualification is confirmed.",
+    });
+  } else {
+    angles.push({
+      label: currentLocale === "zh" ? "赛前判断" : "Pre-match read",
+      value: currentLocale === "zh" ? "先看预测，再结合开球时间决定是否要继续盯这场。" : "Use the prediction panel first, then decide whether this kickoff belongs on your watchlist.",
+    });
+  }
+
+  return angles.slice(0, 3);
 }
 
 function displayTeam(team) {
@@ -4409,7 +4488,7 @@ function displayGroupLabel(group) {
 }
 
 function getHomepageMatches() {
-  const limit = isRealProviderMode() ? 6 : 4;
+  const limit = 4;
   return getPrimaryMatchStream(matches).slice(0, limit);
 }
 

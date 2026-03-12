@@ -897,9 +897,41 @@ h3 {
   display: block;
 }
 
+.match-card__header,
+.schedule-row__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .match-card__stage {
   display: inline-flex;
-  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+.match-card__header {
+  margin-bottom: 14px;
+}
+
+.match-card--lead {
+  border-color: rgba(15, 92, 64, 0.22);
+  box-shadow: 0 16px 30px rgba(15, 39, 30, 0.07);
+}
+
+.match-card__importance,
+.schedule-row__importance {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(15, 92, 64, 0.08);
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .match-card__fixture,
@@ -932,6 +964,23 @@ h3 {
   align-items: baseline;
   gap: 10px;
   margin-bottom: 14px;
+}
+
+.match-card__kickoff,
+.schedule-row__kickoff {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.match-card__meta {
+  margin-top: 0;
+}
+
+.schedule-row__top {
+  margin-bottom: 10px;
 }
 
 .team-link {
@@ -1467,8 +1516,9 @@ h3 {
 .stat-tile strong {
   display: block;
   margin-top: 8px;
-  font-size: 1.6rem;
+  font-size: 1.15rem;
   color: var(--green);
+  line-height: 1.45;
 }
 
 .prediction-panel {
