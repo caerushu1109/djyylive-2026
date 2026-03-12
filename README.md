@@ -112,3 +112,19 @@ There is now also a real-shape SportMonks runtime sample wired into the same sou
 - `/schedule.html?source=sportmonks-live-sample`
 - `/live.html?source=sportmonks-live-sample`
 - `/match.html?id=18528480&source=sportmonks-live-sample`
+
+## Live Provider Config
+
+To test a real provider request locally without committing secrets:
+
+1. copy `data/provider-live-config.example.json`
+2. save it as `data/provider-live-config.json`
+3. replace the placeholder token with a regenerated SportMonks token
+
+That live config file is git-ignored.
+
+Once it exists, these routes will try the real provider first and fall back safely if the request fails:
+
+- `/schedule.html?source=sportmonks-live`
+- `/live.html?source=sportmonks-live`
+- `/match.html?id=18528480&source=sportmonks-live`

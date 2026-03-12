@@ -3,3 +3,4 @@
 scripts/__pycache__/
 djyy 2026worldcup/
 *.pyc
+data/provider-live-config.json

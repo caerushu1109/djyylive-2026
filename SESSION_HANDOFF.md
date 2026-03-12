@@ -222,6 +222,7 @@ There is now also a runtime source switch:
 - default local seed mode
 - provider-sample mode via `?source=provider-sample`
 - SportMonks real-shape sample mode via `?source=sportmonks-live-sample`
+- SportMonks live-request mode via `?source=sportmonks-live`
 
 Files involved:
 
@@ -245,6 +246,18 @@ The next practical step is no longer provider research. It is:
 1. map real SportMonks payloads into the current adapter layer
 2. use the runtime sample switch to validate schedule/live/match rendering
 3. then move from sample payload files to a real fetch-backed source
+
+There is now a local live-config pattern:
+
+- template: `data/provider-live-config.example.json`
+- local ignored file: `data/provider-live-config.json`
+- runtime loader: `src/provider-live-runtime.js`
+
+Once the user regenerates their SportMonks token and saves the ignored config file, these routes can attempt real provider fetches:
+
+- `/schedule.html?source=sportmonks-live`
+- `/live.html?source=sportmonks-live`
+- `/match.html?id=18528480&source=sportmonks-live`
 
 ## Next Recommended Task
 
