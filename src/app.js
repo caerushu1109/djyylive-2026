@@ -363,7 +363,8 @@ function initMatchdaySourceNotice() {
         capturedFallbackTitle: "本地导出的 SportMonks JSON 未读到，已回退到本地 seed",
         capturedFallbackBody: "检查 data/provider-live/sportmonks-fixture.json 和 sportmonks-standings.json 是否存在，文件内容是否是完整 JSON。",
         fallbackTitle: "SportMonks 实时请求未成功，已回退到本地 seed",
-        fallbackBody: "优先检查本地是否存在 data/provider-live-config.json、token 是否已重置，以及浏览器是否允许直接请求第三方接口。",
+        fallbackBody: "优先检查 Cloudflare Pages 里的 SPORTMONKS_API_TOKEN 是否已保存并重新部署，其次再看 token 本身或套餐权限。",
+        errorLabel: "具体错误",
       }
     : {
         sampleTitle: "Provider sample preview",
@@ -377,7 +378,8 @@ function initMatchdaySourceNotice() {
         capturedFallbackTitle: "Captured SportMonks JSON not found, fell back to local seed",
         capturedFallbackBody: "Check whether data/provider-live/sportmonks-fixture.json and sportmonks-standings.json exist locally and contain complete JSON.",
         fallbackTitle: "SportMonks live runtime failed and fell back to local seed",
-        fallbackBody: "Check whether data/provider-live-config.json exists locally, whether the token was regenerated, and whether the browser can reach the third-party endpoint directly.",
+        fallbackBody: "First check whether SPORTMONKS_API_TOKEN was saved in Cloudflare Pages and the project was redeployed. Then verify the token itself or plan access.",
+        errorLabel: "Error details",
       };
 
   let tone = "info";
@@ -417,9 +419,19 @@ function initMatchdaySourceNotice() {
   notice.innerHTML = `
     <strong>${title}</strong>
     <p>${body}</p>
+    ${matchdaySourceMeta.lastError ? `<p><strong>${copy.errorLabel}：</strong>${escapeHtml(matchdaySourceMeta.lastError)}</p>` : ""}
   `;
 
   shell.insertBefore(notice, masthead.nextSibling);
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function streamlinePageChrome() {

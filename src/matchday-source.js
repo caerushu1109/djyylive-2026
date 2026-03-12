@@ -11,6 +11,7 @@ const sourceMeta = {
   provider: "local-seed",
   mode: "seed",
   updatedAt: "2026-03-12",
+  lastError: "",
 };
 
 function resolveInitialState() {
@@ -21,6 +22,7 @@ function resolveInitialState() {
       provider: "sportmonks-sample",
       mode: "sample",
       updatedAt: "2026-03-12",
+      lastError: "",
     });
     return providerSampleState;
   }
@@ -29,6 +31,7 @@ function resolveInitialState() {
       provider: "sportmonks-live-sample",
       mode: "sample",
       updatedAt: "2026-03-12",
+      lastError: "",
     });
     return buildMatchdayStateFromSportMonksApiSamples(sportMonksLiveSamplePayload);
   }
@@ -37,6 +40,7 @@ function resolveInitialState() {
       provider: "sportmonks-live",
       mode: "live-pending",
       updatedAt: "2026-03-12",
+      lastError: "",
     });
     return localSeedState;
   }
@@ -45,6 +49,7 @@ function resolveInitialState() {
       provider: "sportmonks-captured",
       mode: "captured-pending",
       updatedAt: "2026-03-12",
+      lastError: "",
     });
     return localSeedState;
   }
@@ -82,6 +87,7 @@ export async function hydrateMatchdayStateFromRuntimeSource() {
       provider: source,
       mode: source === "sportmonks-captured" ? "captured" : "live",
       updatedAt: new Date().toISOString(),
+      lastError: "",
     });
   } catch (error) {
     console.warn(`Failed to load ${source} runtime`, error);
@@ -89,6 +95,7 @@ export async function hydrateMatchdayStateFromRuntimeSource() {
       provider: source,
       mode: source === "sportmonks-captured" ? "captured-fallback" : "live-fallback",
       updatedAt: new Date().toISOString(),
+      lastError: error?.message || String(error),
     });
   }
 

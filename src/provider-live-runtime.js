@@ -8,7 +8,8 @@ async function fetchJson(url) {
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP ${response.status} for ${url}`);
+    const body = await response.text().catch(() => "");
+    throw new Error(`HTTP ${response.status} for ${url}${body ? ` :: ${body.slice(0, 240)}` : ""}`);
   }
 
   return response.json();
