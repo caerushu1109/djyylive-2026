@@ -316,7 +316,7 @@ function initDynamicMatchEntryLinks() {
     return;
   }
 
-  document.querySelectorAll('a[href*="match.html?id="]').forEach((node) => {
+  document.querySelectorAll('a[href*="match.html"]').forEach((node) => {
     const rawHref = node.getAttribute("href");
     if (!rawHref || /^https?:\/\//i.test(rawHref)) {
       return;
