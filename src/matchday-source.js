@@ -1,11 +1,11 @@
-import { matchdayState as localSeedState } from "./matchday-adapter.js";
-import { providerSampleState } from "./provider-sample-state.js";
-import { buildMatchdayStateFromSportMonksApiSamples } from "./api-adapter-example.js";
-import { sportMonksLiveSamplePayload } from "./sportmonks-live-sample-payload.js";
+import { matchdayState as localSeedState } from "./matchday-adapter.js?v=20260312p";
+import { providerSampleState } from "./provider-sample-state.js?v=20260312p";
+import { buildMatchdayStateFromSportMonksApiSamples } from "./api-adapter-example.js?v=20260312p";
+import { sportMonksLiveSamplePayload } from "./sportmonks-live-sample-payload.js?v=20260312p";
 import {
   loadCapturedSportMonksRuntimeState,
   loadSportMonksRuntimeState,
-} from "./provider-live-runtime.js";
+} from "./provider-live-runtime.js?v=20260312p";
 
 const sourceMeta = {
   provider: "local-seed",

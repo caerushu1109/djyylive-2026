@@ -1,4 +1,4 @@
-import { coerceStatus, inferPhase } from "./matchday-normalizers.js";
+import { coerceStatus, inferPhase } from "./matchday-normalizers.js?v=20260312p";
 
 function scoreLine(homeScore, awayScore) {
   if (homeScore == null || awayScore == null) {

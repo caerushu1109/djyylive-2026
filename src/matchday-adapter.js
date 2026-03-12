@@ -1,5 +1,5 @@
-import { wc2026Groups, wc2026Matches } from "./wc2026-data.js";
-import { coerceStatus, inferPhase } from "./matchday-normalizers.js";
+import { wc2026Groups, wc2026Matches } from "./wc2026-data.js?v=20260312p";
+import { coerceStatus, inferPhase } from "./matchday-normalizers.js?v=20260312p";
 
 const stageOrder = {
   "A组": 10,
