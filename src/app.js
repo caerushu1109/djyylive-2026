@@ -147,6 +147,38 @@ function withSourceParam(href) {
   return `${href}${separator}source=${encodeURIComponent(source)}`;
 }
 
+function shouldKeepSourceOnHref(href) {
+  if (!href) {
+    return false;
+  }
+  if (
+    href.startsWith("#") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    href.startsWith("javascript:")
+  ) {
+    return false;
+  }
+  if (/^https?:\/\//i.test(href)) {
+    return false;
+  }
+  return true;
+}
+
+function preserveSourceAcrossDocument() {
+  if (!getCurrentRuntimeSource()) {
+    return;
+  }
+
+  document.querySelectorAll("a[href]").forEach((node) => {
+    const href = node.getAttribute("href");
+    if (!shouldKeepSourceOnHref(href)) {
+      return;
+    }
+    node.setAttribute("href", withSourceParam(href));
+  });
+}
+
 initPrimaryNav();
 initCountdown();
 initMatchesPreview();
@@ -166,6 +198,7 @@ initLivePage();
 initMatchPage();
 initLocaleSwitch();
 initMatchdaySourceNotice();
+preserveSourceAcrossDocument();
 streamlinePageChrome();
 streamlinePageContent();
 initBottomTabBar();
