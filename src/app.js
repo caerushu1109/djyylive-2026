@@ -4489,7 +4489,18 @@ function displayGroupLabel(group) {
 
 function getHomepageMatches() {
   const limit = 4;
-  return getPrimaryMatchStream(matches).slice(0, limit);
+  const liveMatches = matches.filter((match) => match.phase === "in_match");
+  if (liveMatches.length) {
+    const upcomingMatches = sortMatchesChronologically(matches.filter((match) => match.phase === "pre_match"));
+    return [...sortMatchesChronologically(liveMatches), ...upcomingMatches].slice(0, limit);
+  }
+
+  const preMatches = matches.filter((match) => match.phase === "pre_match");
+  if (preMatches.length) {
+    return sortMatchesChronologically(preMatches).slice(0, limit);
+  }
+
+  return sortMatchesChronologically(matches).slice(0, limit);
 }
 
 function getFeaturedMatchId() {
@@ -4497,11 +4508,28 @@ function getFeaturedMatchId() {
 }
 
 function getPrimaryFocusMatch(sourceMatches = matches) {
-  return getPrimaryMatchStream(sourceMatches)[0] || null;
+  const liveMatches = sourceMatches.filter((match) => match.phase === "in_match");
+  if (liveMatches.length) {
+    return sortMatchesChronologically(liveMatches)[0] || null;
+  }
+
+  const preMatches = sourceMatches.filter((match) => match.phase === "pre_match");
+  if (preMatches.length) {
+    return sortMatchesChronologically(preMatches)[0] || null;
+  }
+
+  const postMatches = sourceMatches.filter((match) => match.phase === "post_match");
+  if (postMatches.length) {
+    return sortMatchesChronologically(postMatches)[0] || null;
+  }
+
+  return sortMatchesChronologically(sourceMatches)[0] || null;
 }
 
 function getUpcomingMatches(sourceMatches, limit = 4) {
-  return getPrimaryMatchStream(sourceMatches.filter((match) => match.phase === "pre_match")).slice(0, limit);
+  return sortMatchesChronologically(
+    sourceMatches.filter((match) => match.phase === "pre_match")
+  ).slice(0, limit);
 }
 
 function getWatchlistMatches(sourceMatches, options = {}) {
@@ -4598,11 +4626,6 @@ function prioritizeMatches(sourceMatches, limit = 4) {
       const phaseDelta = matchPhaseRank(a) - matchPhaseRank(b);
       if (phaseDelta !== 0) {
         return phaseDelta;
-      }
-
-      const stageDelta = matchStageRank(a) - matchStageRank(b);
-      if (stageDelta !== 0) {
-        return stageDelta;
       }
 
       const kickoffDelta = parseKickoffValue(a) - parseKickoffValue(b);
