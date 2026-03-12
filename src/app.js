@@ -53,7 +53,7 @@ import {
   getMatchdayState,
   getMatchdaySourceMeta,
   hydrateMatchdayStateFromRuntimeSource,
-} from "./matchday-source.js?v=20260312p";
+} from "./matchday-source.js?v=20260312q";
 import {
   defaultLocale,
   homepageCopy,
