@@ -147,6 +147,11 @@ button {
   cursor: pointer;
 }
 
+.live-pill:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
 .live-dot {
   width: 5px;
   height: 5px;
@@ -270,6 +275,25 @@ button {
 .card {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+}
+
+.state-card {
+  padding: 1rem;
+  border: 1px dashed rgba(77, 166, 255, 0.2);
+  background: linear-gradient(180deg, rgba(19, 28, 46, 0.95), rgba(13, 20, 32, 0.95));
+}
+
+.state-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.state-copy {
+  margin-top: 0.3rem;
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: var(--text-dim);
 }
 
 .live-banner {

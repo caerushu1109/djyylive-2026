@@ -55,6 +55,14 @@ function getTodayDateKey() {
   }).format(new Date());
 }
 
+function getTomorrowDateKey() {
+  const now = new Date();
+  now.setDate(now.getDate() + 1);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+  }).format(now);
+}
+
 function selectHomeFixtures(fixtures) {
   const today = getTodayDateKey();
   const liveFixtures = fixtures.filter((fixture) => fixture.status === "LIVE");
@@ -80,7 +88,7 @@ function selectHomeFixtures(fixtures) {
 function buildDateTabs(fixtures) {
   const uniqueDates = [...new Set(fixtures.map((fixture) => formatDateKey(fixture.startingAt)).filter(Boolean))].sort();
   const today = getTodayDateKey();
-  const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const tomorrow = getTomorrowDateKey();
 
   return uniqueDates.map((date) => {
     const dateValue = new Date(`${date}T00:00:00Z`);
@@ -269,6 +277,7 @@ export default function WorldCupApp() {
     standings: [],
     liveCount: 0,
   });
+  const [isFixturesLoading, setIsFixturesLoading] = useState(true);
   const [eloData, setEloData] = useState({
     rankings: eloRankings,
     method: eloMethodNote,
@@ -433,9 +442,11 @@ export default function WorldCupApp() {
   }, []);
 
   async function loadFixtures() {
+    setIsFixturesLoading(true);
     try {
       const response = await fetch("/api/fixtures", { cache: "no-store" });
       if (!response.ok) {
+        setIsFixturesLoading(false);
         return null;
       }
 
@@ -467,6 +478,8 @@ export default function WorldCupApp() {
     } catch (error) {
       console.warn("Failed to load fixture data, keeping fallback mock data.", error);
       return null;
+    } finally {
+      setIsFixturesLoading(false);
     }
   }
 
@@ -713,9 +726,21 @@ export default function WorldCupApp() {
 
               <SectionTitle title={homeFixtureTitle} action="全部 →" />
               <div className="card">
-                {homePageFixtures.map((fixture) => (
-                  <FixtureRow fixture={fixture} key={fixture.id} onOpen={openMatch} />
-                ))}
+                {isFixturesLoading ? (
+                  <div className="state-card">
+                    <div className="state-title">正在同步赛程数据</div>
+                    <div className="state-copy">首页会优先显示今天或最近的比赛。</div>
+                  </div>
+                ) : homePageFixtures.length ? (
+                  homePageFixtures.map((fixture) => (
+                    <FixtureRow fixture={fixture} key={fixture.id} onOpen={openMatch} />
+                  ))
+                ) : (
+                  <div className="state-card">
+                    <div className="state-title">暂无可展示比赛</div>
+                    <div className="state-copy">等官方赛程确认后，这里会自动更新。</div>
+                  </div>
+                )}
               </div>
 
               <SectionTitle title="Elo 实力排名" action="完整榜 →" />
@@ -740,29 +765,47 @@ export default function WorldCupApp() {
             </div>
 
             <div className={cn("page", activePage === "fixtures" && "active")}>
-              <div className="date-tabs">
-                {dateTabs.map((date) => (
-                  <button
-                    className={cn("date-tab", activeFixtureDate === date.key && "active")}
-                    key={date.key}
-                    type="button"
-                    onClick={() => setActiveFixtureDate(date.key)}
-                  >
-                    <span className="d-num">{date.day}</span>
-                    {date.label}
-                  </button>
-                ))}
-              </div>
-              {visibleGroups.map((group) => (
-                <div key={group.label}>
-                  <div className="group-label">{group.label}</div>
-                  <div className="card">
-                    {group.matches.map((fixture) => (
-                      <FixtureRow fixture={fixture} key={fixture.id} onOpen={openMatch} />
-                    ))}
+              {dateTabs.length ? (
+                <div className="date-tabs">
+                  {dateTabs.map((date) => (
+                    <button
+                      className={cn("date-tab", activeFixtureDate === date.key && "active")}
+                      key={date.key}
+                      type="button"
+                      onClick={() => setActiveFixtureDate(date.key)}
+                    >
+                      <span className="d-num">{date.day}</span>
+                      {date.label}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+              {isFixturesLoading ? (
+                <div className="group-card">
+                  <div className="state-card">
+                    <div className="state-title">正在加载整届赛程</div>
+                    <div className="state-copy">完成后这里会按日期和小组显示所有比赛。</div>
                   </div>
                 </div>
-              ))}
+              ) : visibleGroups.length ? (
+                visibleGroups.map((group) => (
+                  <div key={group.label}>
+                    <div className="group-label">{group.label}</div>
+                    <div className="card">
+                      {group.matches.map((fixture) => (
+                        <FixtureRow fixture={fixture} key={fixture.id} onOpen={openMatch} />
+                      ))}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="group-card">
+                  <div className="state-card">
+                    <div className="state-title">这个日期暂无比赛</div>
+                    <div className="state-copy">你可以切换上方日期，查看其他比赛日。</div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className={cn("page", activePage === "groups" && "active")}>
@@ -775,38 +818,54 @@ export default function WorldCupApp() {
                 ))}
               </div>
 
-              {standingsGroups.map((group) => (
-                <div className="group-card" key={group.group}>
-                  <div className="group-header">
-                    <div className="group-letter">{group.group}</div>
-                    <div className="group-cols">
-                      <span>场</span>
-                      <span>胜</span>
-                      <span>平</span>
-                      <span>负</span>
-                      <span>分</span>
-                    </div>
+              {isFixturesLoading ? (
+                <div className="group-card">
+                  <div className="state-card">
+                    <div className="state-title">正在同步积分榜</div>
+                    <div className="state-copy">小组赛数据拉取完成后，会按 A 组开始展示。</div>
                   </div>
-
-                  {group.rows.map((row) => (
-                    <div className="group-team-row" key={`${group.group}-${row.name}`}>
-                      <span className="gt-pos">{row.pos}</span>
-                      <div className={cn("qt-bar", row.tone.split(" ")[0])} />
-                      <div className={cn("gt-name", row.tone.includes("danger") && "danger")}>
-                        <span>{row.flag}</span>
-                        <span>{row.name}</span>
-                      </div>
-                      <div className="gt-stats">
-                        <span className="gt-stat">{row.p}</span>
-                        <span className="gt-stat">{row.w}</span>
-                        <span className="gt-stat">{row.d}</span>
-                        <span className="gt-stat">{row.l}</span>
-                        <span className="gt-pts">{row.pts}</span>
+                </div>
+              ) : standingsGroups.length ? (
+                standingsGroups.map((group) => (
+                  <div className="group-card" key={group.group}>
+                    <div className="group-header">
+                      <div className="group-letter">{group.group}</div>
+                      <div className="group-cols">
+                        <span>场</span>
+                        <span>胜</span>
+                        <span>平</span>
+                        <span>负</span>
+                        <span>分</span>
                       </div>
                     </div>
-                  ))}
+
+                    {group.rows.map((row) => (
+                      <div className="group-team-row" key={`${group.group}-${row.name}`}>
+                        <span className="gt-pos">{row.pos}</span>
+                        <div className={cn("qt-bar", row.tone.split(" ")[0])} />
+                        <div className={cn("gt-name", row.tone.includes("danger") && "danger")}>
+                          <span>{row.flag}</span>
+                          <span>{row.name}</span>
+                        </div>
+                        <div className="gt-stats">
+                          <span className="gt-stat">{row.p}</span>
+                          <span className="gt-stat">{row.w}</span>
+                          <span className="gt-stat">{row.d}</span>
+                          <span className="gt-stat">{row.l}</span>
+                          <span className="gt-pts">{row.pts}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ))
+              ) : (
+                <div className="group-card">
+                  <div className="state-card">
+                    <div className="state-title">积分榜暂未生成</div>
+                    <div className="state-copy">官方小组数据一旦发布，这里会自动更新。</div>
+                  </div>
                 </div>
-              ))}
+              )}
 
               <SectionTitle title="小组出线模拟器" />
               <div className="group-card simulator-card">
