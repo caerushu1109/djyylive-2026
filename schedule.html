@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/schedule.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/schedule.html" />
     <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=20260312g" />
+    <link rel="stylesheet" href="./styles.css?v=20260312h" />
   </head>
   <body data-page="schedule" data-locale="zh" data-route-key="schedule">
     <main class="site-shell">
@@ -41,17 +41,12 @@
         <section class="page-hero history-hero">
           <div class="page-hero__copy">
             <p class="eyebrow">赛事中心</p>
-            <h1>赛事中心，先帮你找到比赛，再决定要不要点进去</h1>
-            <p class="hero__lede">
-              这页负责先理顺比赛日信息。你可以先看正在踢的、马上开球的，再用筛选器找自己真正关心的那几场。
-            </p>
+            <h1>赛事中心</h1>
+            <p class="hero__lede">先看进行中和下一场，再用筛选器找到你关心的比赛。</p>
             <div class="hero__actions">
               <a class="button button--primary" href="./live.html">先看今日比赛</a>
               <a class="button button--ghost" href="./match.html?id=wc26-eng-cro">看一场比赛详情</a>
             </div>
-          </div>
-          <div class="page-hero__aside quote-card history-hero__aside">
-            <p>世界杯期间最容易被高频反复打开的，就是赛程页、今日比赛页和单场页，所以这里必须尽量让人少思考一步。</p>
           </div>
         </section>
 
@@ -62,43 +57,24 @@
         </nav>
       </header>
 
-      <section class="section">
-        <div class="summary-strip">
-          <article class="summary-pill">
-            <strong>页面角色</strong>
-            <span>这里负责帮你找到比赛，不负责把所有实时细节都塞进同一页。</span>
-          </article>
-          <article class="summary-pill">
-            <strong>高频路径</strong>
-            <span>看完一眼赛程后，用户通常会继续跳到今日比赛、单场详情、球队页或预测页。</span>
-          </article>
-          <article class="summary-pill">
-            <strong>接 API 位</strong>
-            <span>阶段、球队、状态和比赛 id 都已经预留好，后面接真实 API 会比较顺。</span>
-          </article>
-        </div>
-      </section>
-
       <section class="section schedule-hub">
         <article class="history-panel">
           <div class="section__heading section__heading--stack">
             <div>
-              <p class="eyebrow">正在进行</p>
+              <p class="eyebrow">直播中</p>
               <h2>进行中的比赛</h2>
             </div>
           </div>
-          <div class="section-summary">比赛日先看这里。最好三秒内就能判断今天先点哪一场。</div>
           <div id="schedule-live-now"></div>
         </article>
 
         <article class="history-panel">
           <div class="section__heading section__heading--stack">
             <div>
-              <p class="eyebrow">即将开始</p>
+              <p class="eyebrow">下一场</p>
               <h2>即将开始</h2>
             </div>
           </div>
-          <div class="section-summary">这里回答“下一场看什么”。以后也适合接提醒、通知和前瞻内容。</div>
           <div id="schedule-upcoming"></div>
         </article>
       </section>
@@ -109,7 +85,7 @@
             <p class="eyebrow">筛选</p>
             <h2>赛程筛选器</h2>
           </div>
-          <p class="section__intro">赛事中心最重要的不是信息越多越好，而是你能不能很快把无关比赛筛掉。</p>
+          <p class="section__intro">先筛掉无关比赛，再决定看哪一场。</p>
         </div>
 
         <div class="filter-bar" id="schedule-filters" role="tablist" aria-label="Schedule stages"></div>
@@ -132,8 +108,8 @@
 
       <section class="section section--split mobile-secondary">
         <article class="prediction-panel">
-          <p class="eyebrow">Next Layer</p>
-          <h2>顺着这页继续往下走</h2>
+          <p class="eyebrow">相关内容</p>
+          <h2>继续看</h2>
           <ul class="spotlight-list">
             <li><strong>今日比赛：</strong><a href="./live.html">集中看进行中和关注列表</a></li>
             <li><strong>单场详情：</strong><a href="./match.html?id=wc26-eng-cro">进入事件流和技术统计</a></li>
@@ -142,8 +118,8 @@
         </article>
 
         <article class="spotlight-card">
-          <p class="eyebrow">Future Modules</p>
-          <h2>后面最值得补的实时能力</h2>
+          <p class="eyebrow">后续能力</p>
+          <h2>接 API 后会补这些</h2>
           <ul class="spotlight-list">
             <li><strong>Standings：</strong>小组积分实时更新</li>
             <li><strong>Bracket：</strong>淘汰赛树和路径概率</li>
@@ -153,11 +129,8 @@
         </article>
       </section>
 
-      <footer class="footer mobile-secondary">
-        <p>赛事中心现在已经像一个真正的赛事首页了，后面把真实赛程和 live API 接进来就能继续完善。</p>
-      </footer>
     </main>
 
-    <script type="module" src="./src/app.js?v=20260312g"></script>
+    <script type="module" src="./src/app.js?v=20260312h"></script>
   </body>
 </html>
