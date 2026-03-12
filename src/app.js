@@ -708,10 +708,10 @@ function initSchedulePage() {
     liveNowNode.innerHTML = liveMatches.length
       ? liveMatches.map(renderMatchSpotlight).join("")
       : renderMatchStateNotice(
-          currentLocale === "zh" ? "本届世界杯尚未开赛" : "The tournament has not kicked off yet",
+          currentLocale === "zh" ? "揭幕战即将开始" : "The opener is up next",
           currentLocale === "zh"
-            ? "现在先看揭幕周和首轮焦点赛程，Live 页面开赛后会自动承担高频入口。"
-            : "For now, opening week and first-round headline fixtures matter more. Once the tournament starts, the live page becomes a high-frequency entry point."
+            ? "先看这场，再顺着揭幕周的比赛往下走。"
+            : "Start with the opener, then follow the opening-week run."
         );
   }
 
@@ -767,10 +767,10 @@ function initLivePage() {
   liveNowNode.innerHTML = liveMatches.length
     ? liveMatches.map(renderLiveCard).join("")
     : renderMatchStateNotice(
-        currentLocale === "zh" ? "尚未进入比赛日实时阶段" : "Live matchday mode has not started yet",
+        currentLocale === "zh" ? "今天先看哪一场" : "Where to start today",
         currentLocale === "zh"
-          ? "现在更适合先看揭幕战、豪门首秀和小组赛首轮重点比赛。"
-          : "Before kickoff, it makes more sense to surface the opener, heavyweight debuts, and the strongest first-round group matches."
+          ? "赛前阶段先看揭幕战和最先开球的几场。"
+          : "Before kickoff, start with the opener and the earliest fixtures."
       );
 
   upcomingNode.innerHTML = matches
@@ -823,21 +823,21 @@ function initMatchPage() {
   const t = currentLocale === "zh"
     ? {
         status: "当前状态",
-        preMatch: "官方赛前信息",
+        preMatch: "赛前",
         liveMinute: "实时比赛中",
         postMatch: "已结束",
         phaseCopy: {
-          pre_match: "赛前信息",
+          pre_match: "赛前",
           in_match: "实时比赛中",
           post_match: "赛后回看",
         },
-        prelude: "赛前",
+        prelude: "比赛信息",
         angle: "看点",
         after: "赛后",
-        reserve: "预留",
+        reserve: "待更新",
         timelineLabel: {
-          context: "背景",
-          lineup: "阵容",
+          context: "信息",
+          lineup: "首发",
           angle: "看点",
           goal: "进球",
           card: "牌",
@@ -855,7 +855,7 @@ function initMatchPage() {
       }
     : {
         status: "Status",
-        preMatch: "Official pre-match info",
+        preMatch: "Pre-match",
         liveMinute: "Live now",
         postMatch: "Full time",
         phaseCopy: {
@@ -863,10 +863,10 @@ function initMatchPage() {
           in_match: "Live now",
           post_match: "After the whistle",
         },
-        prelude: "Pre-match",
+        prelude: "Match info",
         angle: "Angle",
         after: "After",
-        reserve: "Reserved",
+        reserve: "Pending",
         timelineLabel: {
           context: "Context",
           lineup: "Lineups",
