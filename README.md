@@ -129,6 +129,27 @@ Once it exists, these routes will try the real provider first and fall back safe
 - `/live.html?source=sportmonks-live`
 - `/match.html?id=18528480&source=sportmonks-live`
 
+## Cloudflare SportMonks Proxy
+
+For deployed preview and production, the site now prefers a same-origin proxy at:
+
+- `/api/sportmonks/runtime`
+
+This keeps the SportMonks token out of the browser. To enable it on Cloudflare Pages:
+
+1. open the `djyylive-worldcup` Pages project
+2. go to `Settings -> Environment variables`
+3. add:
+   - `SPORTMONKS_API_TOKEN`
+4. optionally add:
+   - `SPORTMONKS_BASE_URL`
+
+Once that secret exists, these deployed routes can use real SportMonks data safely:
+
+- `/schedule.html?source=sportmonks-live`
+- `/live.html?source=sportmonks-live`
+- `/match.html?id=18528480&source=sportmonks-live`
+
 ## Captured Provider Preview
 
 For a more stable local test flow, save exported SportMonks JSON under:

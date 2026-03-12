@@ -24,7 +24,36 @@ function buildSportMonksUrl(baseUrl, path, params) {
   return url.toString();
 }
 
+async function loadSportMonksProxyRuntimeState(defaultsUrl = "/data/provider-live-config.example.json") {
+  const defaults = await fetchJson(defaultsUrl);
+  const fixtureIds = [defaults.fixtureId, ...(defaults.fixtureIds || [])]
+    .filter(Boolean)
+    .map((value) => String(value));
+
+  const proxyUrl = buildSportMonksUrl(window.location.origin, "/api/sportmonks/runtime", {
+    fixtureId: defaults.fixtureId,
+    fixtureIds: fixtureIds.join(","),
+    seasonId: defaults.seasonId,
+    fixtureInclude: defaults.fixtureInclude,
+    standingsInclude: defaults.standingsInclude,
+  });
+
+  const response = await fetchJson(proxyUrl);
+
+  return buildMatchdayStateFromSportMonksApiSamples({
+    match: response.fixture,
+    matches: response.matches || [],
+    standingsRows: response.standingsRows || [],
+  });
+}
+
 export async function loadSportMonksRuntimeState(configUrl = "/data/provider-live-config.json") {
+  try {
+    return await loadSportMonksProxyRuntimeState();
+  } catch (proxyError) {
+    console.warn("Falling back to local SportMonks runtime config", proxyError);
+  }
+
   const config = await fetchJson(configUrl);
 
   if (config.provider !== "sportmonks") {

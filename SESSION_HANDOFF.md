@@ -258,15 +258,30 @@ There is also now a local captured-payload path:
 - local ignored folder: `data/provider-live/`
 - expected files:
   - `sportmonks-fixture.json`
+  - `sportmonks-fixtures.json`
   - `sportmonks-standings.json`
 - runtime source:
   - `?source=sportmonks-captured`
 
-Once the user regenerates their SportMonks token and saves the ignored config file, these routes can attempt real provider fetches:
+For deployed preview and production there is now also a Cloudflare Pages Function proxy:
+
+- `functions/api/sportmonks/runtime.js`
+
+It reads:
+
+- `SPORTMONKS_API_TOKEN`
+
+from Cloudflare Pages environment variables and allows these deployed routes to use real provider data without exposing the token in the browser:
 
 - `/schedule.html?source=sportmonks-live`
 - `/live.html?source=sportmonks-live`
 - `/match.html?id=18528480&source=sportmonks-live`
+
+Local direct runtime config still exists as a fallback when testing outside Cloudflare:
+
+- template: `data/provider-live-config.example.json`
+- local ignored file: `data/provider-live-config.json`
+- runtime loader: `src/provider-live-runtime.js`
 
 If browser-to-provider fetch is inconvenient or blocked by CORS, the preferred local validation route is now:
 
@@ -279,14 +294,13 @@ If browser-to-provider fetch is inconvenient or blocked by CORS, the preferred l
 
 ## Next Recommended Task
 
-Next task should be provider selection and payload hookup:
+Next task should be real SportMonks hookup:
 
-1. choose the football data provider
-2. collect one real sample payload
-3. test it against `src/provider-mappers.js`
-4. fill missing field mappings
-5. run the validator
-6. then buy the API plan
+1. add `SPORTMONKS_API_TOKEN` in Cloudflare Pages
+2. verify `/api/sportmonks/runtime` returns data on preview
+3. open `?source=sportmonks-live` on schedule/live/match
+4. fix any real-field mismatches in `src/provider-mappers.js`
+5. only then consider main-domain cutover
 
 ## Future Architecture Decision
 
