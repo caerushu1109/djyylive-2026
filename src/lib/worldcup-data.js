@@ -429,21 +429,25 @@ async function fetchSportMonksFixtures() {
   };
 }
 
-export async function getFixturesData() {
+export async function getFixturesData(options = {}) {
+  const forceSample = options.mode === "drill";
   let fallbackReason = null;
 
-  if (process.env.SPORTMONKS_API_TOKEN) {
+  if (!forceSample && process.env.SPORTMONKS_API_TOKEN) {
     try {
       const sportMonksData = await fetchSportMonksFixtures();
       return {
         ...sportMonksData,
         groupedFixtures: groupFixtures(sportMonksData.fixtures),
         liveCount: sportMonksData.fixtures.filter((fixture) => fixture.status === "LIVE").length,
+        mode: "live",
       };
     } catch (error) {
       fallbackReason = error instanceof Error ? error.message : String(error);
       console.warn("Falling back to sample SportMonks data:", error);
     }
+  } else if (forceSample) {
+    fallbackReason = "Drill mode enabled";
   } else {
     fallbackReason = "SPORTMONKS_API_TOKEN is not available at runtime";
   }
@@ -459,6 +463,7 @@ export async function getFixturesData() {
     standings,
     liveCount: fixtures.filter((fixture) => fixture.status === "LIVE").length,
     updatedAt: new Date().toISOString(),
+    mode: forceSample ? "drill" : "sample",
     diagnostics: {
       hasToken: Boolean(process.env.SPORTMONKS_API_TOKEN),
       baseUrl: process.env.SPORTMONKS_BASE_URL || "https://api.sportmonks.com/v3/football",
@@ -467,8 +472,10 @@ export async function getFixturesData() {
   };
 }
 
-export async function getMatchDetail(fixtureId) {
-  if (process.env.SPORTMONKS_API_TOKEN) {
+export async function getMatchDetail(fixtureId, options = {}) {
+  const forceSample = options.mode === "drill";
+
+  if (!forceSample && process.env.SPORTMONKS_API_TOKEN) {
     try {
       const include = "participants;scores;state;venue;round;group;events.type;statistics.type";
       const fixtureUrl = buildSportMonksUrl(`fixtures/${fixtureId}`, { include });
@@ -550,5 +557,8 @@ export async function getMatchDetail(fixtureId) {
   }
 
   const sample = await readSample();
-  return freezeFinishedMatchDetail(buildDetailFromSample(sample, fixtureId));
+  return {
+    ...freezeFinishedMatchDetail(buildDetailFromSample(sample, fixtureId)),
+    mode: forceSample ? "drill" : "sample",
+  };
 }

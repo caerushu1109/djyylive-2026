@@ -29,6 +29,11 @@ const NAV_ITEMS = [
   { id: "history", icon: "📚", label: "历史" },
 ];
 
+const DATA_MODES = {
+  LIVE: "live",
+  DRILL: "drill",
+};
+
 function cn(...values) {
   return values.filter(Boolean).join(" ");
 }
@@ -267,6 +272,7 @@ function SectionTitle({ title, action }) {
 
 export default function WorldCupApp() {
   const [activePage, setActivePage] = useState("home");
+  const [dataMode, setDataMode] = useState(DATA_MODES.LIVE);
   const [detailOpen, setDetailOpen] = useState(false);
   const [detailTab, setDetailTab] = useState("live");
   const [activeFixture, setActiveFixture] = useState(null);
@@ -318,6 +324,17 @@ export default function WorldCupApp() {
   );
   const detailRef = useRef(null);
   const touchStartRef = useRef(0);
+
+  useEffect(() => {
+    const savedMode = window.localStorage.getItem("worldcup-data-mode");
+    if (savedMode === DATA_MODES.DRILL) {
+      setDataMode(DATA_MODES.DRILL);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("worldcup-data-mode", dataMode);
+  }, [dataMode]);
 
   useEffect(() => {
     let ignore = false;
@@ -444,7 +461,7 @@ export default function WorldCupApp() {
   async function loadFixtures() {
     setIsFixturesLoading(true);
     try {
-      const response = await fetch("/api/fixtures", { cache: "no-store" });
+      const response = await fetch(`/api/fixtures?mode=${dataMode}`, { cache: "no-store" });
       if (!response.ok) {
         setIsFixturesLoading(false);
         return null;
@@ -491,7 +508,7 @@ export default function WorldCupApp() {
     }
 
     try {
-      const response = await fetch(`/api/match/${fixtureId}`, { cache: "no-store" });
+      const response = await fetch(`/api/match/${fixtureId}?mode=${dataMode}`, { cache: "no-store" });
       if (!response.ok) {
         return null;
       }
@@ -508,8 +525,9 @@ export default function WorldCupApp() {
   }
 
   useEffect(() => {
+    setMatchDetails({});
     loadFixtures();
-  }, []);
+  }, [dataMode]);
 
   useEffect(() => {
     if (!fixturesData.liveCount || !["home", "fixtures"].includes(activePage)) {
@@ -551,6 +569,10 @@ export default function WorldCupApp() {
     setDetailOpen(true);
 
     await loadMatchDetail(fixture.id, { force: fixture.status === "LIVE" });
+  }
+
+  function toggleDataMode() {
+    setDataMode((current) => (current === DATA_MODES.LIVE ? DATA_MODES.DRILL : DATA_MODES.LIVE));
   }
 
   const fixtures = fixturesData.fixtures;
@@ -668,6 +690,13 @@ export default function WorldCupApp() {
             </div>
             <div className="topbar-right">
               <button
+                className={cn("mode-pill", dataMode === DATA_MODES.DRILL && "active")}
+                type="button"
+                onClick={toggleDataMode}
+              >
+                {dataMode === DATA_MODES.DRILL ? "演练中" : "正式"}
+              </button>
+              <button
                 className="live-pill"
                 type="button"
                 onClick={() => openMatch(liveBannerFixture)}
@@ -684,6 +713,12 @@ export default function WorldCupApp() {
 
           <div className="pages">
             <div className={cn("page", activePage === "home" && "active")}>
+              {dataMode === DATA_MODES.DRILL ? (
+                <div className="mode-banner">
+                  <div className="mode-banner-title">演练模式已开启</div>
+                  <div className="mode-banner-copy">当前展示的是用于赛时演练的模拟比赛、积分与详情数据，不影响正式线上链路。</div>
+                </div>
+              ) : null}
               {fixturesData.liveCount ? (
                 <div className="live-banner" onClick={() => openMatch(liveBannerFixture)}>
                   <div>

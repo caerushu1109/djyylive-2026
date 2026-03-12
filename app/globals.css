@@ -132,6 +132,27 @@ button {
   gap: 0.75rem;
 }
 
+.mode-pill {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  background: rgba(201, 162, 39, 0.08);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.mode-pill.active {
+  border-color: rgba(46, 196, 182, 0.35);
+  background: rgba(46, 196, 182, 0.12);
+  color: var(--green);
+}
+
 .live-pill {
   min-height: 36px;
   display: flex;
@@ -304,6 +325,28 @@ button {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+}
+
+.mode-banner {
+  margin: 0.85rem 1rem 0;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(46, 196, 182, 0.2);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(10, 34, 31, 0.96), rgba(12, 25, 35, 0.96));
+}
+
+.mode-banner-title {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--green);
+}
+
+.mode-banner-copy {
+  margin-top: 0.3rem;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--text-dim);
 }
 
 .banner-teams {
