@@ -1,11 +1,5 @@
 import { wc2026Groups, wc2026Matches } from "./wc2026-data.js";
-
-const statusMap = {
-  scheduled: "scheduled",
-  live: "live",
-  finished: "finished",
-  postponed: "postponed",
-};
+import { coerceStatus, inferPhase } from "./matchday-normalizers.js";
 
 const stageOrder = {
   "A组": 10,
@@ -72,13 +66,16 @@ function inferGroup(stage) {
 
 export function normalizeMatch(rawMatch) {
   const score = scoreParts(rawMatch.score);
+  const kickoff = rawMatch.kickoff || rawMatch.starting_at || "";
+  const status = coerceStatus(rawMatch.status);
   return {
     id: rawMatch.id,
-    status: statusMap[rawMatch.status] || "scheduled",
+    status,
+    phase: rawMatch.phase || inferPhase(status, kickoff),
     stage: rawMatch.stage,
     stage_order: stageOrder[rawMatch.stage] || 999,
     group: inferGroup(rawMatch.stage),
-    kickoff: rawMatch.kickoff,
+    kickoff,
     home: rawMatch.home,
     away: rawMatch.away,
     home_score: score.home,
@@ -157,11 +154,29 @@ export function getMatchDetail(matchId, normalizedMatches) {
   };
 }
 
-const normalizedMatches = wc2026Matches.map(normalizeMatch);
-const normalizedGroups = normalizeStandings(wc2026Groups);
+export function createMatchdayState({ matches = [], groups = {}, detailsByMatch = {} }) {
+  const normalizedMatches = matches.map(normalizeMatch);
+  const normalizedGroups = normalizeStandings(groups);
 
-export const matchdayState = {
-  matches: normalizedMatches,
-  groups: normalizedGroups,
-  getMatchDetail: (matchId) => getMatchDetail(matchId, normalizedMatches),
-};
+  return {
+    matches: normalizedMatches,
+    groups: normalizedGroups,
+    getMatchDetail: (matchId) => {
+      const fallback = getMatchDetail(matchId, normalizedMatches);
+      const detail = detailsByMatch[matchId];
+      if (!detail) {
+        return fallback;
+      }
+      return {
+        match: fallback.match,
+        timeline: (detail.timeline || []).map(normalizeTimelineEvent),
+        stats: normalizeMatchStats(detail.stats || {}),
+      };
+    },
+  };
+}
+
+export const matchdayState = createMatchdayState({
+  matches: wc2026Matches,
+  groups: wc2026Groups,
+});

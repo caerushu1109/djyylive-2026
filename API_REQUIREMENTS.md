@@ -7,8 +7,24 @@ This document defines the minimum data contract for the site before buying a foo
 The site now has a stable internal adapter in:
 
 - `src/matchday-adapter.js`
+- `src/provider-mappers.js`
+- `src/api-adapter-example.js`
 
 Any provider should be mapped into this internal shape first, instead of feeding raw provider fields directly into page rendering.
+
+## Match Phases
+
+The site now distinguishes three display phases:
+
+- `pre_match`
+- `in_match`
+- `post_match`
+
+This phase split should drive copy, emphasis, and fallback behavior on:
+
+- `schedule.html`
+- `live.html`
+- `match.html`
 
 ## Priority Pages
 
