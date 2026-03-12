@@ -3464,16 +3464,27 @@ function renderScheduleRow(match) {
     ? {
         details: "比赛详情",
         prediction: "预测",
+        pre: "即将开始",
+        live: "正在进行",
+        post: "完场回看",
       }
     : {
         details: "Match details",
         prediction: "Prediction",
+        pre: "Next up",
+        live: "Live now",
+        post: "Full-time",
       };
+  const phaseLine = match.phase === "in_match"
+    ? `${scheduleCopy.live} · ${match.minute || humanizeMatchStatus(match)}`
+    : match.phase === "post_match"
+      ? `${scheduleCopy.post} · ${match.score}`
+      : `${scheduleCopy.pre} · ${match.kickoff}`;
   return `
     <article class="schedule-row">
       <div>
         <strong class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</strong>
-        <p>${displayStage(match.stage)} · ${displayVenue(match.venue)} · ${match.kickoff} · ${humanizeMatchStatus(match)} ${match.minute || ""}</p>
+        <p>${displayStage(match.stage)} · ${displayVenue(match.venue)} · ${phaseLine}</p>
       </div>
       <div class="schedule-row__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${scheduleCopy.details}</a>
@@ -3488,17 +3499,28 @@ function renderMatchSpotlight(match) {
     ? {
         open: "查看比赛",
         prediction: "看预测",
+        pre: "即将开始",
+        live: "实时",
+        post: "完场",
       }
     : {
         open: "Open match",
         prediction: "Prediction",
+        pre: "Next up",
+        live: "Live",
+        post: "Full-time",
       };
+  const statusTag = match.phase === "in_match"
+    ? `${spotlightCopy.live}${match.minute ? ` · ${match.minute}` : ""}`
+    : match.phase === "post_match"
+      ? `${spotlightCopy.post} · ${match.score}`
+      : `${spotlightCopy.pre} · ${match.kickoff}`;
   return `
     <article class="spotlight-match">
       <div>
-        <p class="story-card__tag">${humanizeMatchStatus(match)}</p>
+        <p class="story-card__tag">${statusTag}</p>
         <h3 class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</h3>
-        <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
+        <p>${displayVenue(match.venue)} · ${displayStage(match.stage)}</p>
       </div>
       <div class="spotlight-match__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${spotlightCopy.open}</a>
@@ -3528,16 +3550,25 @@ function renderLiveCard(match) {
     ? {
         open: "打开比赛页",
         prediction: "看预测",
+        next: "下一场",
+        final: "已结束",
       }
     : {
         open: "Open match",
         prediction: "Prediction",
+        next: "Next",
+        final: "Final",
       };
+  const phaseMeta = match.phase === "in_match"
+    ? `${displayStage(match.stage)} · ${match.minute || currentUi.statusLive}`
+    : match.phase === "post_match"
+      ? `${liveCopy.final} · ${match.score}`
+      : `${liveCopy.next} · ${match.kickoff}`;
   return `
     <article class="live-card">
       <div class="live-card__top">
         <span class="live-pill ${match.phase === "in_match" ? "is-live" : ""}">${humanizeMatchStatus(match)}</span>
-        <span>${displayStage(match.stage)}</span>
+        <span>${phaseMeta}</span>
       </div>
       <h3 class="fixture-line">${renderTeamLink(match.home)} <span>${match.score}</span> ${renderTeamLink(match.away)}</h3>
       <p>${match.kickoff} · ${displayVenue(match.venue)}</p>
@@ -3554,15 +3585,24 @@ function renderWatchlistCard(match) {
     ? {
         details: "比赛详情",
         prediction: "预测",
+        live: "正在进行",
+        final: "完场回看",
       }
     : {
         details: "Match details",
         prediction: "Prediction",
+        live: "Live now",
+        final: "Full-time",
       };
+  const subline = match.phase === "in_match"
+    ? `${watchlistCopy.live} · ${match.minute || currentUi.statusLive}`
+    : match.phase === "post_match"
+      ? `${watchlistCopy.final} · ${match.score}`
+      : `${displayStage(match.stage)} · ${match.kickoff}`;
   return `
     <article class="watchlist-row">
       <strong class="fixture-line">${renderTeamLink(match.home)} <span>×</span> ${renderTeamLink(match.away)}</strong>
-      <span>${displayStage(match.stage)} · ${match.kickoff}</span>
+      <span>${subline}</span>
       <div class="watchlist-row__actions">
         <a class="button button--ghost" href="${matchPath(match.id)}">${watchlistCopy.details}</a>
         <a class="button button--ghost" href="${predictionPath()}">${watchlistCopy.prediction}</a>
