@@ -1,7 +1,4 @@
-import { readFile } from "fs/promises";
-import path from "path";
-
-const PREDICTIONS_PATH = path.join(process.cwd(), "public/data/predictions.json");
+import predictionsSnapshot from "@/public/data/predictions.json";
 
 let predictionsCache = null;
 
@@ -9,9 +6,7 @@ async function readPredictionsSnapshot() {
   if (predictionsCache) {
     return predictionsCache;
   }
-
-  const raw = await readFile(PREDICTIONS_PATH, "utf8");
-  predictionsCache = JSON.parse(raw);
+  predictionsCache = predictionsSnapshot;
   return predictionsCache;
 }
 
