@@ -2,6 +2,14 @@
 
 This document defines the minimum data contract for the site before buying a football data API.
 
+## Internal Adapter Layer
+
+The site now has a stable internal adapter in:
+
+- `src/matchday-adapter.js`
+
+Any provider should be mapped into this internal shape first, instead of feeding raw provider fields directly into page rendering.
+
 ## Priority Pages
 
 1. `schedule.html`
@@ -122,3 +130,5 @@ Buy the API only after:
 4. the field mapping above is confirmed against the provider
 
 At the current project stage, the site is close, but one more round on matchday pages is still justified before paying.
+
+The remaining work is now mostly provider mapping and real-time polling, not page structure redesign.

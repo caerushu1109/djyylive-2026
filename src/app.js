@@ -47,10 +47,9 @@ import {
 } from "./prediction-data.js";
 import {
   wc2026CountdownTarget,
-  wc2026Groups,
-  wc2026Matches,
   wc2026PollOptions,
 } from "./wc2026-data.js";
+import { matchdayState } from "./matchday-adapter.js";
 import {
   defaultLocale,
   homepageCopy,
@@ -61,8 +60,8 @@ import {
   venueNameMap,
 } from "./i18n-config.js";
 
-const matches = wc2026Matches;
-const groups = wc2026Groups;
+const matches = matchdayState.matches;
+const groups = matchdayState.groups;
 const pollOptions = wc2026PollOptions;
 const countdownTarget = wc2026CountdownTarget;
 const currentLocale = document.body.dataset.locale || defaultLocale;
@@ -600,7 +599,8 @@ function initMatchPage() {
   }
 
   const matchId = new URLSearchParams(window.location.search).get("id") || matches[0].id;
-  const match = matches.find((item) => item.id === matchId) || matches[0];
+  const detail = matchdayState.getMatchDetail(matchId);
+  const match = detail.match;
   const t = currentLocale === "zh"
     ? {
         status: "当前状态",
@@ -609,10 +609,14 @@ function initMatchPage() {
         angle: "看点",
         after: "赛后",
         reserve: "预留",
-        preludeCopy: `${displayTeam(match.home)} vs ${displayTeam(match.away)} 已进入 FIFA 官方赛程。`,
-        angleCopy: "这里后续会接入实时事件流、首发、换人、黄红牌和关键节点。",
-        afterCopy: "比赛结束后，这里会沉淀成完整单场档案，并反向链接到球队与历史页。",
-        reserveCopy: "如果是焦点战，还会补前瞻、模型视角和关键球员表现。",
+        timelineLabel: {
+          context: "背景",
+          lineup: "阵容",
+          angle: "看点",
+          goal: "进球",
+          card: "牌",
+          substitution: "换人",
+        },
         possession: "控球",
         shots: "射门",
         shotsOnTarget: "射正",
@@ -628,10 +632,14 @@ function initMatchPage() {
         angle: "Angle",
         after: "After",
         reserve: "Reserved",
-        preludeCopy: `${displayTeam(match.home)} vs ${displayTeam(match.away)} is already on the official FIFA schedule.`,
-        angleCopy: "This area will later take live events, confirmed lineups, substitutions, cards, and major swings in the match.",
-        afterCopy: "After the final whistle, this page should become a durable match archive connected back to teams and history.",
-        reserveCopy: "For major fixtures, this layer can also hold previews, model views, and key player performance notes.",
+        timelineLabel: {
+          context: "Context",
+          lineup: "Lineups",
+          angle: "Angle",
+          goal: "Goal",
+          card: "Card",
+          substitution: "Sub",
+        },
         possession: "Possession",
         shots: "Shots",
         shotsOnTarget: "Shots on target",
@@ -653,18 +661,22 @@ function initMatchPage() {
     </div>
   `;
 
-  timelineNode.innerHTML = `
-    <article class="event-row"><strong>${t.prelude}</strong><span>${t.preludeCopy}</span></article>
-    <article class="event-row"><strong>${t.angle}</strong><span>${t.angleCopy}</span></article>
-    <article class="event-row"><strong>${t.after}</strong><span>${t.afterCopy}</span></article>
-    <article class="event-row"><strong>${t.reserve}</strong><span>${t.reserveCopy}</span></article>
-  `;
+  timelineNode.innerHTML = detail.timeline
+    .map(
+      (event) => `
+        <article class="event-row">
+          <strong>${t.timelineLabel[event.type] || (currentLocale === "zh" ? "事件" : "Event")}</strong>
+          <span>${event.minute ? `${event.minute}' · ` : ""}${event.team ? `${displayTeam(event.team)} · ` : ""}${event.detail}</span>
+        </article>
+      `
+    )
+    .join("");
 
   statsNode.innerHTML = `
-    <article class="stat-tile"><span>${t.possession}</span><strong>54% / 46%</strong></article>
-    <article class="stat-tile"><span>${t.shots}</span><strong>13 / 10</strong></article>
-    <article class="stat-tile"><span>${t.shotsOnTarget}</span><strong>6 / 4</strong></article>
-    <article class="stat-tile"><span>${t.xg}</span><strong>1.4 / 1.1</strong></article>
+    <article class="stat-tile"><span>${t.possession}</span><strong>${detail.stats.possession_home}% / ${detail.stats.possession_away}%</strong></article>
+    <article class="stat-tile"><span>${t.shots}</span><strong>${detail.stats.shots_home} / ${detail.stats.shots_away}</strong></article>
+    <article class="stat-tile"><span>${t.shotsOnTarget}</span><strong>${detail.stats.shots_on_target_home} / ${detail.stats.shots_on_target_away}</strong></article>
+    <article class="stat-tile"><span>${t.xg}</span><strong>${detail.stats.xg_home} / ${detail.stats.xg_away}</strong></article>
   `;
 
   relatedNode.innerHTML = `

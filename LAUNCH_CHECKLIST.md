@@ -63,6 +63,7 @@ This is the minimum launch checklist for the World Cup site before binding a rea
 - Historical data is embedded and renders correctly
 - 2026 fixture and group structure renders correctly
 - Matchday pages use a stable internal match object
+- Matchday adapter layer is in place for fixtures, standings, timeline events, and stats
 - API requirements are documented in `API_REQUIREMENTS.md`
 
 ## Buy Timing
