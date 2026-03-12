@@ -205,6 +205,7 @@ initPrimaryNav();
 initCountdown();
 initMatchesPreview();
 initGroupStandings();
+initHomeFocusTeams();
 initPoll();
 initSchedulePage();
 initHistoryHubPage();
@@ -706,21 +707,57 @@ function initPageMobileMore() {
 function initMatchesPreview() {
   const matchGrid = document.querySelector("#match-grid");
   const introNode = document.querySelector("#match-grid-intro");
+  const kickoffNode = document.querySelector("#home-focus-kickoff");
   if (!matchGrid) {
     return;
   }
 
-  if (introNode) {
-    const focusMatch = getPrimaryFocusMatch(matches);
-    if (focusMatch) {
+  const focusMatch = getPrimaryFocusMatch(matches);
+  if (focusMatch) {
+    if (introNode) {
       introNode.textContent = currentLocale === "zh"
         ? `这里优先顺着真实时间线推当前最该先看的比赛，当前焦点落在 ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}。`
         : `This block follows the live tournament timeline first. Right now the focus starts with ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)}.`;
+    }
+    if (kickoffNode) {
+      kickoffNode.textContent = currentLocale === "zh"
+        ? `当前焦点比赛：${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)} · ${focusMatch.kickoff}`
+        : `Current focus fixture: ${displayTeam(focusMatch.home)} vs ${displayTeam(focusMatch.away)} · ${focusMatch.kickoff}`;
     }
   }
 
   matchGrid.innerHTML = getHomepageMatches()
     .map(renderMatchCard)
+    .join("");
+}
+
+function initHomeFocusTeams() {
+  const rail = document.querySelector("#home-focus-teams");
+  if (!rail) {
+    return;
+  }
+
+  const focusGroup = getDefaultGroupKey();
+  const focusRows = groups[focusGroup] || [];
+  const focusTeams = focusRows
+    .map((row) => row.team)
+    .filter(Boolean)
+    .filter((team, index, array) => array.indexOf(team) === index)
+    .slice(0, 5);
+
+  const fallbackTeams = getPrimaryMatchStream(matches)
+    .flatMap((match) => [match.home, match.away])
+    .filter(Boolean)
+    .filter((team, index, array) => array.indexOf(team) === index);
+
+  const teams = [...new Set([...focusTeams, ...fallbackTeams])]
+    .filter((team) => !isProviderPlaceholderTeam(team))
+    .slice(0, 5);
+
+  rail.innerHTML = teams
+    .map(
+      (team) => `<a href="${withSourceParam(`${teamHistoryPath()}?team=${encodeURIComponent(team)}`)}">${displayTeam(team)}</a>`
+    )
     .join("");
 }
 
