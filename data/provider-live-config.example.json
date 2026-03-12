@@ -3,6 +3,7 @@
   "apiToken": "replace-with-a-regenerated-token",
   "baseUrl": "https://api.sportmonks.com/v3/football",
   "fixtureId": 18528480,
+  "fixtureIds": [18528480],
   "seasonId": 19686,
   "fixtureInclude": "participants;scores;state;venue;events.type;lineups.details.type;statistics.type",
   "standingsInclude": "participant;rule;details"

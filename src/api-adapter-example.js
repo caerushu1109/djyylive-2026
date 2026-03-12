@@ -67,9 +67,39 @@ export function buildMatchdayStateFromSportMonks(payload) {
   });
 }
 
-export function buildMatchdayStateFromSportMonksApiSamples({ match, standingsRows = [] }) {
+function mergeSportMonksMatches(...collections) {
+  const merged = new Map();
+
+  collections
+    .flat()
+    .filter(Boolean)
+    .forEach((item) => {
+      const key = String(item.id);
+      const existing = merged.get(key) || {};
+      merged.set(key, {
+        ...existing,
+        ...item,
+        participants: item.participants || existing.participants,
+        scores: item.scores || existing.scores,
+        state: item.state || existing.state,
+        venue: item.venue || existing.venue,
+        events: item.events || existing.events,
+        lineups: item.lineups || existing.lineups,
+        statistics: item.statistics || existing.statistics,
+      });
+    });
+
+  return [...merged.values()];
+}
+
+export function buildMatchdayStateFromSportMonksApiSamples({
+  match,
+  matches = [],
+  fixtures = [],
+  standingsRows = [],
+}) {
   return buildMatchdayStateFromSportMonks({
-    match,
+    matches: mergeSportMonksMatches(matches, fixtures, match ? [match] : []),
     standingsRows,
   });
 }

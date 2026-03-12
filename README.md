@@ -134,7 +134,10 @@ Once it exists, these routes will try the real provider first and fall back safe
 For a more stable local test flow, save exported SportMonks JSON under:
 
 - `data/provider-live/sportmonks-fixture.json`
+- `data/provider-live/sportmonks-fixtures.json`
 - `data/provider-live/sportmonks-standings.json`
+
+Use the singular file for one detailed match and the plural file for extra match rows, so `schedule` and `live` can preview multiple fixtures at once.
 
 Then open locally:
 

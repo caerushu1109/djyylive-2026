@@ -31,6 +31,11 @@ export async function loadSportMonksRuntimeState(configUrl = "/data/provider-liv
     throw new Error(`Unsupported live provider: ${config.provider}`);
   }
 
+  const fixtureIds = [config.fixtureId, ...(config.fixtureIds || [])]
+    .filter(Boolean)
+    .map((value) => String(value));
+  const uniqueFixtureIds = [...new Set(fixtureIds)];
+
   const fixtureUrl = buildSportMonksUrl(
     config.baseUrl || "https://api.sportmonks.com/v3/football",
     `fixtures/${config.fixtureId}`,
@@ -49,25 +54,42 @@ export async function loadSportMonksRuntimeState(configUrl = "/data/provider-liv
     }
   );
 
-  const [fixtureResponse, standingsResponse] = await Promise.all([
-    fetchJson(fixtureUrl),
-    fetchJson(standingsUrl),
-  ]);
+  const fixtureListResponses = await Promise.all(
+    uniqueFixtureIds
+      .filter((fixtureId) => fixtureId !== String(config.fixtureId))
+      .map((fixtureId) =>
+        fetchJson(
+          buildSportMonksUrl(
+            config.baseUrl || "https://api.sportmonks.com/v3/football",
+            `fixtures/${fixtureId}`,
+            {
+              api_token: config.apiToken,
+              include: config.fixtureInclude,
+            }
+          )
+        )
+      )
+  );
+
+  const [fixtureResponse, standingsResponse] = await Promise.all([fetchJson(fixtureUrl), fetchJson(standingsUrl)]);
 
   return buildMatchdayStateFromSportMonksApiSamples({
     match: fixtureResponse.data,
+    matches: fixtureListResponses.map((response) => response.data).filter(Boolean),
     standingsRows: standingsResponse.data || [],
   });
 }
 
 export async function loadCapturedSportMonksRuntimeState(basePath = "/data/provider-live") {
-  const [fixtureResponse, standingsResponse] = await Promise.all([
+  const [fixtureResponse, fixturesResponse, standingsResponse] = await Promise.all([
     fetchJson(`${basePath}/sportmonks-fixture.json`),
+    fetchJson(`${basePath}/sportmonks-fixtures.json`).catch(() => null),
     fetchJson(`${basePath}/sportmonks-standings.json`),
   ]);
 
   return buildMatchdayStateFromSportMonksApiSamples({
     match: fixtureResponse.data || fixtureResponse,
+    matches: fixturesResponse?.data || fixturesResponse?.matches || fixturesResponse || [],
     standingsRows: standingsResponse.data || standingsResponse,
   });
 }
