@@ -49,8 +49,14 @@ function formatDateKey(value) {
   return String(value || "").slice(0, 10);
 }
 
+function getTodayDateKey() {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+  }).format(new Date());
+}
+
 function selectHomeFixtures(fixtures) {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = getTodayDateKey();
   const liveFixtures = fixtures.filter((fixture) => fixture.status === "LIVE");
   if (liveFixtures.length) {
     const liveDates = new Set(liveFixtures.map((fixture) => formatDateKey(fixture.startingAt)));
@@ -73,7 +79,7 @@ function selectHomeFixtures(fixtures) {
 
 function buildDateTabs(fixtures) {
   const uniqueDates = [...new Set(fixtures.map((fixture) => formatDateKey(fixture.startingAt)).filter(Boolean))].sort();
-  const today = new Date().toISOString().slice(0, 10);
+  const today = getTodayDateKey();
   const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   return uniqueDates.map((date) => {
@@ -255,13 +261,13 @@ export default function WorldCupApp() {
   const [activePage, setActivePage] = useState("home");
   const [detailOpen, setDetailOpen] = useState(false);
   const [detailTab, setDetailTab] = useState("live");
-  const [activeFixture, setActiveFixture] = useState(homeFixtures[0]);
+  const [activeFixture, setActiveFixture] = useState(null);
   const [fixturesData, setFixturesData] = useState({
-    source: "mock",
-    fixtures: homeFixtures,
-    groupedFixtures,
-    standings,
-    liveCount: homeFixtures.filter((fixture) => fixture.status === "LIVE").length,
+    source: "loading",
+    fixtures: [],
+    groupedFixtures: [],
+    standings: [],
+    liveCount: 0,
   });
   const [eloData, setEloData] = useState({
     rankings: eloRankings,
@@ -296,7 +302,7 @@ export default function WorldCupApp() {
   const [activeHistoryTeam, setActiveHistoryTeam] = useState(null);
   const initialSimulatorScenarios = buildAdaptiveSimulatorScenarios(standings, groupedFixtures, simulatorScenarios);
   const [activeSimulatorGroup, setActiveSimulatorGroup] = useState(initialSimulatorScenarios[0].group);
-  const initialDateTabs = buildDateTabs(homeFixtures);
+  const initialDateTabs = buildDateTabs([]);
   const [activeFixtureDate, setActiveFixtureDate] = useState(initialDateTabs[0]?.key || "");
   const [simulatorState, setSimulatorState] = useState(() =>
     Object.fromEntries(initialSimulatorScenarios.map((scenario) => [scenario.group, scenario.matches]))
@@ -434,9 +440,9 @@ export default function WorldCupApp() {
       }
 
       const payload = await response.json();
-      const nextFixtures = payload.fixtures?.length ? payload.fixtures : homeFixtures;
-      const nextGroupedFixtures = payload.groupedFixtures?.length ? payload.groupedFixtures : groupedFixtures;
-      const nextStandings = payload.standings?.length ? payload.standings : standings;
+      const nextFixtures = payload.fixtures?.length ? payload.fixtures : [];
+      const nextGroupedFixtures = payload.groupedFixtures?.length ? payload.groupedFixtures : [];
+      const nextStandings = payload.standings?.length ? payload.standings : [];
 
       setFixturesData({
         source: payload.source,
@@ -450,8 +456,12 @@ export default function WorldCupApp() {
         setActiveFixtureDate((current) =>
           nextDateTabs.some((tab) => tab.key === current) ? current : nextDateTabs[0].key
         );
+      } else {
+        setActiveFixtureDate("");
       }
-      setActiveFixture((current) => nextFixtures.find((fixture) => fixture.id === current.id) || current);
+      setActiveFixture((current) =>
+        nextFixtures.find((fixture) => fixture.id === current?.id) || current || nextFixtures[0] || null
+      );
 
       return payload;
     } catch (error) {
@@ -503,7 +513,7 @@ export default function WorldCupApp() {
   }, [activePage, fixturesData.liveCount]);
 
   useEffect(() => {
-    if (!detailOpen || detailTab !== "live" || activeFixture.status !== "LIVE") {
+    if (!detailOpen || !activeFixture || detailTab !== "live" || activeFixture.status !== "LIVE") {
       return undefined;
     }
 
@@ -516,9 +526,13 @@ export default function WorldCupApp() {
     return () => {
       window.clearInterval(intervalId);
     };
-  }, [activeFixture.id, activeFixture.status, detailOpen, detailTab]);
+  }, [activeFixture?.id, activeFixture?.status, detailOpen, detailTab]);
 
   async function openMatch(fixture) {
+    if (!fixture) {
+      return;
+    }
+
     setActiveFixture(fixture);
     setDetailTab("live");
     setDetailOpen(true);
@@ -542,9 +556,20 @@ export default function WorldCupApp() {
         .filter((group) => group.matches.length)
     : groups;
   const simulatorScenariosLive = buildAdaptiveSimulatorScenarios(standingsGroups, groups, simulatorScenarios);
-  const liveBannerFixture = fixtures.find((fixture) => fixture.status === "LIVE") || fixtures[0] || homeFixtures[0];
-  const detailPayload = matchDetails[activeFixture.id];
-  const detailFixture = detailPayload?.fixture || activeFixture;
+  const liveBannerFixture = fixtures.find((fixture) => fixture.status === "LIVE") || fixtures[0] || null;
+  const detailPayload = activeFixture ? matchDetails[activeFixture.id] : null;
+  const detailFixture =
+    detailPayload?.fixture ||
+    activeFixture || {
+      id: "",
+      stage: "世界杯",
+      status: "NS",
+      minute: "",
+      kickoff: "",
+      home: { flag: "🏳️", name: "待定", elo: null },
+      away: { flag: "🏳️", name: "待定", elo: null },
+      venue: "",
+    };
   const detailLiveStats = detailPayload?.stats || liveStats;
   const detailEvents = detailPayload?.events || eventTimeline;
   const detailH2HSummary = detailPayload?.h2hSummary || h2hSummary;
@@ -556,8 +581,8 @@ export default function WorldCupApp() {
     { label: "客胜", value: "3.20", implied: "31.3%" },
   ];
   const detailProbabilities = detailPayload?.probabilities || { home: 46, draw: 26, away: 28 };
-  const liveBannerLabel = liveBannerFixture.status === "LIVE" ? "LIVE" : liveBannerFixture.status;
-  const homeFixtureTitle = homePageFixtures.some((fixture) => formatDateKey(fixture.startingAt) === new Date().toISOString().slice(0, 10))
+  const liveBannerLabel = liveBannerFixture?.status === "LIVE" ? "LIVE" : liveBannerFixture?.status;
+  const homeFixtureTitle = homePageFixtures.some((fixture) => formatDateKey(fixture.startingAt) === getTodayDateKey())
     ? "今日赛事"
     : "近期赛事";
   const trendTeam =
@@ -629,7 +654,12 @@ export default function WorldCupApp() {
               <small>2026 WORLD CUP</small>
             </div>
             <div className="topbar-right">
-              <button className="live-pill" type="button" onClick={() => openMatch(liveBannerFixture)}>
+              <button
+                className="live-pill"
+                type="button"
+                onClick={() => openMatch(liveBannerFixture)}
+                disabled={!liveBannerFixture}
+              >
                 <div className="live-dot" />
                 {liveCount} LIVE
               </button>
