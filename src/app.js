@@ -877,9 +877,9 @@ function initMatchPage() {
         pending: "开球后更新",
         opener: "揭幕信息",
         kickoffLabel: "开球时间",
-        lineupPending: "首发将在开球前公布",
-        statsPending: "技术统计会在开赛后实时出现",
-        reviewPending: "赛后这里会补上关键事件和统计",
+        lineupPending: "首发和替补名单会在开球前公布",
+        statsPending: "技术统计会在开球后实时更新",
+        reviewPending: "完场后这里会保留关键事件和比赛数据",
         backSchedule: "回到赛程页",
         toLive: "进入 live 总览",
         toPrediction: "查看预测页",
@@ -915,9 +915,9 @@ function initMatchPage() {
         pending: "Updates after kickoff",
         opener: "Match info",
         kickoffLabel: "Kickoff",
-        lineupPending: "Lineups appear closer to kickoff",
-        statsPending: "Live stats will appear after the match starts",
-        reviewPending: "Timeline and stats will fill out after full time",
+        lineupPending: "Lineups and benches appear closer to kickoff",
+        statsPending: "Live stats update after kickoff",
+        reviewPending: "Timeline and stats stay here after full time",
         backSchedule: "Back to schedule",
         toLive: "Open live overview",
         toPrediction: "Open prediction",
@@ -948,11 +948,11 @@ function initMatchPage() {
         ];
   const statTiles = match.phase === "pre_match"
     ? [
-        { label: t.possession, value: t.pending },
-        { label: t.shots, value: t.pending },
-        { label: t.shotsOnTarget, value: t.pending },
-        { label: t.corners, value: t.pending },
-        { label: t.yellowcards, value: t.pending },
+        { label: t.possession, value: t.statsPending },
+        { label: t.shots, value: t.statsPending },
+        { label: t.shotsOnTarget, value: t.statsPending },
+        { label: t.corners, value: t.statsPending },
+        { label: t.yellowcards, value: t.statsPending },
         { label: t.xg, value: t.statsPending },
       ]
     : [

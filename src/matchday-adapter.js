@@ -26,8 +26,8 @@ const localMatchDetails = {
   "wc26-mex-rsa": {
     timeline: [
       { minute: 0, type: "context", team: "墨西哥", detail: "揭幕战已经进入官方赛程，主办氛围会是这场的最大看点。" },
-      { minute: 0, type: "lineup", team: "墨西哥", detail: "阵容、首发与球场信息会在接入实时 API 后替换这里。" },
-      { minute: 0, type: "angle", team: "南非", detail: "这页后续会承接实时事件流、首发、换人和黄红牌。" },
+      { minute: 0, type: "lineup", team: "墨西哥", detail: "首发和替补名单会在开球前陆续公布。" },
+      { minute: 0, type: "angle", team: "南非", detail: "开球后这里会逐步补上事件流、换人和牌面信息。" },
     ],
     stats: { possession_home: 54, possession_away: 46, shots_home: 13, shots_away: 10, shots_on_target_home: 6, shots_on_target_away: 4, corners_home: 5, corners_away: 4, yellowcards_home: 1, yellowcards_away: 2, xg_home: 1.4, xg_away: 1.1 },
   },
@@ -35,14 +35,14 @@ const localMatchDetails = {
     timeline: [
       { minute: 0, type: "context", team: "英格兰", detail: "英格兰与克罗地亚会是首轮最受关注的强强对话之一。" },
       { minute: 0, type: "angle", team: "克罗地亚", detail: "模型页可以先看双方 Elo 差值，再回到这里看事件流。" },
-      { minute: 0, type: "lineup", team: "英格兰", detail: "接入 API 后，这里会替换成首发、事件、实时分钟和关键节点。" },
+      { minute: 0, type: "lineup", team: "英格兰", detail: "首发、事件和实时分钟会在比赛日切换到完整比赛页模式。" },
     ],
     stats: { possession_home: 57, possession_away: 43, shots_home: 15, shots_away: 9, shots_on_target_home: 5, shots_on_target_away: 3, corners_home: 6, corners_away: 2, yellowcards_home: 1, yellowcards_away: 1, xg_home: 1.6, xg_away: 0.9 },
   },
   "wc26-fra-sen": {
     timeline: [
       { minute: 0, type: "context", team: "法国", detail: "法国 vs 塞内加尔适合承接赛前预期和历史记忆的双重叙事。" },
-      { minute: 0, type: "angle", team: "塞内加尔", detail: "如果 API 覆盖事件流，这页会成为比赛期间的高频入口。" },
+      { minute: 0, type: "angle", team: "塞内加尔", detail: "比赛日这里会切到完整事件流和技术统计视图。" },
     ],
     stats: { possession_home: 61, possession_away: 39, shots_home: 16, shots_away: 8, shots_on_target_home: 7, shots_on_target_away: 2, corners_home: 7, corners_away: 3, yellowcards_home: 0, yellowcards_away: 2, xg_home: 1.8, xg_away: 0.7 },
   },
