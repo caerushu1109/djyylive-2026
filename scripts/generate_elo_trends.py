@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ELO_PATH = ROOT / "public" / "data" / "elo.json"
 HISTORY_INDEX_PATH = ROOT / "public" / "data" / "elo-history" / "index.json"
-HISTORY_TEAMS_DIR = ROOT / "public" / "data" / "elo-history" / "teams"
+HISTORY_TEAMS_DIR = ROOT / "data" / "elo-history" / "teams"
 TRENDS_PATH = ROOT / "public" / "data" / "elo-trends.json"
 ANCHOR_COUNT = 7
 TREND_COLORS = [

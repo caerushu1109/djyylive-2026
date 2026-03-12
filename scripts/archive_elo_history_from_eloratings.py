@@ -16,10 +16,11 @@ from generate_elo_trends import build_trends
 
 
 ROOT = Path(__file__).resolve().parents[1]
-HISTORY_DIR = ROOT / "public" / "data" / "elo-history"
-TEAMS_DIR = HISTORY_DIR / "teams"
-MATCHES_PATH = HISTORY_DIR / "matches.json"
-INDEX_PATH = HISTORY_DIR / "index.json"
+PUBLIC_HISTORY_DIR = ROOT / "public" / "data" / "elo-history"
+ARCHIVE_HISTORY_DIR = ROOT / "data" / "elo-history"
+TEAMS_DIR = ARCHIVE_HISTORY_DIR / "teams"
+MATCHES_PATH = ARCHIVE_HISTORY_DIR / "matches.json"
+INDEX_PATH = PUBLIC_HISTORY_DIR / "index.json"
 TEAM_DICT_URL = "https://eloratings.net/en.teams.tsv"
 SUCCESSOR_URL = "https://eloratings.net/teams.tsv"
 BASE_URL = "https://eloratings.net"
