@@ -85,7 +85,7 @@ export async function onRequestGet(context) {
   const standingsInclude =
     url.searchParams.get("standingsInclude") || DEFAULT_STANDINGS_INCLUDE;
   const baseUrl = env.SPORTMONKS_BASE_URL || DEFAULT_BASE_URL;
-  const dateWindowDays = Math.max(1, Math.min(31, Number(url.searchParams.get("dateWindowDays") || 7)));
+  const dateWindowDays = Math.max(1, Math.min(60, Number(url.searchParams.get("dateWindowDays") || 45)));
 
   if (!fixtureId || !seasonId) {
     return json(

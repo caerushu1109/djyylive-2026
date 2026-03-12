@@ -5,7 +5,7 @@
   "fixtureId": 19609127,
   "fixtureIds": [19609127],
   "seasonId": 26618,
-  "dateWindowDays": 7,
+  "dateWindowDays": 45,
   "fixtureInclude": "participants;scores;state;venue;events.type;lineups.details.type;statistics.type",
   "standingsInclude": "participant;rule;details"
 }
