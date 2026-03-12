@@ -129,7 +129,7 @@ const teamFlagMap = {
   "Soviet Union": "🇷🇺",
 };
 
-let activeGroup = "A";
+let activeGroup = getDefaultGroupKey();
 let activeVote = "巴西";
 let activeStage = "all";
 
@@ -620,8 +620,14 @@ function initGroupStandings() {
     return;
   }
 
+  activeGroup = getDefaultGroupKey();
   renderGroupTabs(groupTabs, groupTableBody);
   renderGroupTable(groupTableBody, activeGroup);
+}
+
+function getDefaultGroupKey() {
+  const groupKeys = Object.keys(groups);
+  return groupKeys[0] || "A";
 }
 
 function initPoll() {
@@ -3316,14 +3322,18 @@ function renderMatchCard(match) {
 }
 
 function renderGroupTabs(groupTabs, groupTableBody) {
-  groupTabs.innerHTML = Object.keys(groups)
+  const groupKeys = Object.keys(groups);
+  const currentGroup = groupKeys.includes(activeGroup) ? activeGroup : getDefaultGroupKey();
+  activeGroup = currentGroup;
+
+  groupTabs.innerHTML = groupKeys
     .map(
       (group) => `
         <button
           class="group-tab"
           type="button"
           role="tab"
-          aria-selected="${group === activeGroup}"
+          aria-selected="${group === currentGroup}"
           data-group="${group}"
         >
           ${displayGroupLabel(group)}
@@ -3342,7 +3352,9 @@ function renderGroupTabs(groupTabs, groupTableBody) {
 }
 
 function renderGroupTable(groupTableBody, groupKey) {
-  groupTableBody.innerHTML = groups[groupKey]
+  const rows = groups[groupKey] || groups[getDefaultGroupKey()] || [];
+
+  groupTableBody.innerHTML = rows
     .map((team, index) => {
       const rowClass = index < 2 ? "standings-row standings-row--qualified" : index === 2 ? "standings-row standings-row--playoff" : "standings-row";
       const zoneLabel = currentLocale === "zh"
