@@ -133,6 +133,24 @@ let activeGroup = getDefaultGroupKey();
 let activeVote = "巴西";
 let activeStage = "all";
 
+function sortGroupKeys(keys) {
+  return [...keys].sort((a, b) => {
+    const aCode = String(a || "").charCodeAt(0);
+    const bCode = String(b || "").charCodeAt(0);
+    return aCode - bCode || String(a).localeCompare(String(b));
+  });
+}
+
+function hasLiveStandings() {
+  return Object.values(groups).some((rows) =>
+    rows.some((row) => Number(row.played || 0) > 0 || Number(row.points || 0) > 0)
+  );
+}
+
+function isPreTournamentStandingsMode() {
+  return !hasLiveStandings();
+}
+
 function getCurrentRuntimeSource() {
   return new URLSearchParams(window.location.search).get("source");
 }
@@ -664,18 +682,28 @@ function initMatchesPreview() {
 function initGroupStandings() {
   const groupTabs = document.querySelector("#group-tabs");
   const groupTableBody = document.querySelector("#group-table-body");
+  const standingsIntro = document.querySelector("#group-standings-intro");
 
   if (!groupTabs || !groupTableBody) {
     return;
   }
 
   activeGroup = getDefaultGroupKey();
+  if (standingsIntro) {
+    standingsIntro.textContent = isPreTournamentStandingsMode()
+      ? (currentLocale === "zh"
+          ? "开赛前这里按真实分组结构展示，积分会在首轮开球后更新。"
+          : "Before kick-off this view holds the real group draw. Points go live once the first match starts.")
+      : (currentLocale === "zh"
+          ? "这里会跟着真实小组积分变化走，前两名和第三名比较区会同步更新。"
+          : "This block now follows the live group table, including the top-two race and best-third comparison.");
+  }
   renderGroupTabs(groupTabs, groupTableBody);
   renderGroupTable(groupTableBody, activeGroup);
 }
 
 function getDefaultGroupKey() {
-  const groupKeys = Object.keys(groups);
+  const groupKeys = sortGroupKeys(Object.keys(groups));
   return groupKeys[0] || "A";
 }
 
@@ -3423,7 +3451,7 @@ function renderMatchCard(match) {
 }
 
 function renderGroupTabs(groupTabs, groupTableBody) {
-  const groupKeys = Object.keys(groups);
+  const groupKeys = sortGroupKeys(Object.keys(groups));
   const currentGroup = groupKeys.includes(activeGroup) ? activeGroup : getDefaultGroupKey();
   activeGroup = currentGroup;
 
@@ -3454,16 +3482,39 @@ function renderGroupTabs(groupTabs, groupTableBody) {
 
 function renderGroupTable(groupTableBody, groupKey) {
   const rows = groups[groupKey] || groups[getDefaultGroupKey()] || [];
+  const preTournamentMode = isPreTournamentStandingsMode();
 
   groupTableBody.innerHTML = rows
     .map((team, index) => {
-      const rowClass = index < 2 ? "standings-row standings-row--qualified" : index === 2 ? "standings-row standings-row--playoff" : "standings-row";
-      const zoneLabel = currentLocale === "zh"
-        ? (index < 2 ? "直通区" : index === 2 ? "第三名比较" : "追赶区")
-        : (index < 2 ? "auto spot" : index === 2 ? "best-third race" : "chasing pack");
-      const detailLabel = currentLocale === "zh"
-        ? `净胜球 ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`
-        : `GD ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`;
+      const rowClass = preTournamentMode
+        ? "standings-row standings-row--pre"
+        : index < 2
+          ? "standings-row standings-row--qualified"
+          : index === 2
+            ? "standings-row standings-row--playoff"
+            : "standings-row";
+      const isPlaceholder = isProviderPlaceholderTeam(team.team);
+      const zoneLabel = preTournamentMode
+        ? (currentLocale === "zh"
+            ? (isPlaceholder ? "附加赛名额" : "已确定球队")
+            : (isPlaceholder ? "playoff slot" : "confirmed team"))
+        : currentLocale === "zh"
+          ? (index < 2 ? "直通区" : index === 2 ? "第三名比较" : "追赶区")
+          : (index < 2 ? "auto spot" : index === 2 ? "best-third race" : "chasing pack");
+      const detailLabel = preTournamentMode
+        ? (currentLocale === "zh"
+            ? "首轮开球后更新积分与净胜球"
+            : "Points and goal difference update after the first kick-off")
+        : currentLocale === "zh"
+          ? `净胜球 ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`
+          : `GD ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`;
+      const formMarkup = preTournamentMode
+        ? `<span class="form-dot form-dot--pending">${currentLocale === "zh" ? (isPlaceholder ? "附加赛待定" : "等待开球") : (isPlaceholder ? "playoff TBD" : "awaiting kick-off")}</span>`
+        : `
+                  <span class="form-dot form-dot--win">${currentLocale === "zh" ? "胜" : "W"} ${team.win}</span>
+                  <span class="form-dot form-dot--draw">${currentLocale === "zh" ? "平" : "D"} ${team.draw}</span>
+                  <span class="form-dot form-dot--loss">${currentLocale === "zh" ? "负" : "L"} ${team.loss}</span>
+                `;
       return `
         <tr class="${rowClass}">
           <td>
@@ -3474,9 +3525,7 @@ function renderGroupTable(groupTableBody, groupKey) {
                 <span class="standings-zone">${zoneLabel}</span>
                 <span class="standings-detail">${detailLabel}</span>
                 <div class="standings-form" aria-label="${currentLocale === "zh" ? "小组战绩" : "group record"}">
-                  <span class="form-dot form-dot--win">${currentLocale === "zh" ? "胜" : "W"} ${team.win}</span>
-                  <span class="form-dot form-dot--draw">${currentLocale === "zh" ? "平" : "D"} ${team.draw}</span>
-                  <span class="form-dot form-dot--loss">${currentLocale === "zh" ? "负" : "L"} ${team.loss}</span>
+                  ${formMarkup}
                 </div>
               </div>
             </div>

@@ -991,6 +991,10 @@ h3 {
   background: rgba(223, 166, 58, 0.08);
 }
 
+.standings-row--pre {
+  background: rgba(15, 39, 30, 0.035);
+}
+
 .standings-team {
   display: flex;
   align-items: center;
@@ -1054,6 +1058,11 @@ h3 {
 .form-dot--loss {
   background: rgba(181, 78, 54, 0.12);
   color: #8f3927;
+}
+
+.form-dot--pending {
+  background: rgba(15, 39, 30, 0.08);
+  color: var(--green-soft);
 }
 
 .standings-points {
