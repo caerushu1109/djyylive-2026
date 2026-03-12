@@ -137,6 +137,10 @@ function getCurrentRuntimeSource() {
   return new URLSearchParams(window.location.search).get("source");
 }
 
+function getCurrentMatchId() {
+  return new URLSearchParams(window.location.search).get("id");
+}
+
 function withSourceParam(href) {
   const source = getCurrentRuntimeSource();
   if (!source) {
@@ -199,6 +203,7 @@ initMatchPage();
 initLocaleSwitch();
 initMatchdaySourceNotice();
 preserveSourceAcrossDocument();
+initDynamicMatchEntryLinks();
 streamlinePageChrome();
 streamlinePageContent();
 initBottomTabBar();
@@ -303,6 +308,34 @@ function initLocaleSwitch() {
 
   switchNode.textContent = fallbackConfig.switchLabel;
   switchNode.setAttribute("href", withSourceParam(nextHref));
+}
+
+function initDynamicMatchEntryLinks() {
+  const featuredMatchId = getCurrentMatchId() || prioritizeMatches(matches, 1)[0]?.id;
+  if (!featuredMatchId) {
+    return;
+  }
+
+  document.querySelectorAll('a[href*="match.html?id="]').forEach((node) => {
+    const rawHref = node.getAttribute("href");
+    if (!rawHref || /^https?:\/\//i.test(rawHref)) {
+      return;
+    }
+
+    const url = new URL(rawHref, window.location.href);
+    if (!/match\.html$/i.test(url.pathname)) {
+      return;
+    }
+
+    url.searchParams.set(
+      "id",
+      document.body.dataset.page === "match" && node.getAttribute("aria-current") === "page"
+        ? (getCurrentMatchId() || featuredMatchId)
+        : featuredMatchId
+    );
+
+    node.setAttribute("href", withSourceParam(`${url.pathname}${url.search}`));
+  });
 }
 
 function initMatchdaySourceNotice() {
