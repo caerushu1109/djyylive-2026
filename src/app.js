@@ -1004,7 +1004,7 @@ function initMatchPage() {
         statsPending: "技术统计会在开球后实时更新",
         reviewPending: "完场后这里会保留关键事件和比赛数据",
         backSchedule: "回到赛程页",
-        toLive: "进入 live 总览",
+        toLive: "回到赛事页",
         toPrediction: "查看预测页",
       }
     : {
@@ -1062,7 +1062,7 @@ function initMatchPage() {
         statsPending: "Live stats update after kickoff",
         reviewPending: "Timeline and stats stay here after full time",
         backSchedule: "Back to schedule",
-        toLive: "Open live overview",
+        toLive: "Back to schedule",
         toPrediction: "Open prediction",
       };
   const scoreDisplay = match.phase === "pre_match" ? "×" : match.score;
@@ -1166,7 +1166,7 @@ function initMatchPage() {
   if (relatedNode) {
     relatedNode.innerHTML = `
       <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.backSchedule}</a>
-      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/live.html" : "/en/live.html")}">${t.toLive}</a>
+      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.toLive}</a>
       <a class="button button--ghost" href="${withSourceParam(predictionPath())}">${t.toPrediction}</a>
     `;
   }

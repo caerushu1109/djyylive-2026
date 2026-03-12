@@ -17,8 +17,8 @@ export const localizedRoutes = {
     en: "/en/schedule.html",
   },
   live: {
-    zh: "/zh/live.html",
-    en: "/en/live.html",
+    zh: "/zh/schedule.html",
+    en: "/en/schedule.html",
   },
   match: {
     zh: "/zh/match.html",

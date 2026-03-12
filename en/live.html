@@ -3,90 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | Live Overview</title>
-    <meta
-      name="description"
-      content="The matchday live overview page for the World Cup, showing in-progress, upcoming, and featured matches."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="WorldCup Pulse | Live Overview" />
-    <meta property="og:description" content="A matchday overview for in-progress matches, upcoming kickoffs, and featured games." />
-    <meta property="og:url" content="https://www.worldcuppulse.com/en/live.html" />
-    <meta property="og:site_name" content="WorldCup Pulse" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="WorldCup Pulse | Live Overview" />
-    <meta name="twitter:description" content="Quickly decide which match deserves your attention right now." />
-    <link rel="canonical" href="https://www.worldcuppulse.com/en/live.html" />
-    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/live.html" />
-    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/live.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/live.html" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312ba" />
+    <title>WorldCup Pulse | Redirecting to Schedule</title>
+    <meta name="description" content="The live overview has been merged into the schedule page. Redirecting now." />
+    <meta http-equiv="refresh" content="0; url=./schedule.html" />
+    <link rel="canonical" href="https://www.worldcuppulse.com/en/schedule.html" />
   </head>
-  <body data-page="live" data-locale="en" data-route-key="live">
-    <main class="site-shell">
-      <header class="masthead masthead--compact">
-        <nav class="nav">
-          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
-          <div class="nav__links">
-            <a href="./index.html">Home</a>
-            <a href="./schedule.html" aria-current="page">Schedule</a>
-            <a href="./history.html">History</a>
-            <a href="./prediction.html">Prediction</a>
-            <a href="./teams.html">Teams</a>
-            <a href="/zh/live.html" data-locale-switch>Chinese</a>
-          </div>
-        </nav>
-
-        <section class="page-hero history-hero">
-          <div class="page-hero__copy">
-            <p class="eyebrow">Live Overview</p>
-            <h1 id="live-page-title">Today’s matches</h1>
-            <p class="hero__lede" id="live-page-lede">Start with the focus fixture, then move through the next kickoffs.</p>
-          </div>
-        </section>
-
-        <nav class="history-subnav">
-          <a href="./schedule.html">Match Center</a>
-          <a href="./live.html" aria-current="page">Live Overview</a>
-          <a href="./match.html">Match Detail</a>
-        </nav>
-      </header>
-
-      <section class="section live-grid">
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow">Live Now</p>
-              <h2>In progress</h2>
-            </div>
-          </div>
-          <div id="live-now"></div>
-        </article>
-
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow">Upcoming</p>
-              <h2>Up next</h2>
-            </div>
-          </div>
-          <div id="live-upcoming"></div>
-        </article>
-      </section>
-
-      <section class="section section--alt">
-        <div class="section__heading">
-          <div>
-            <p class="eyebrow">Watchlist</p>
-            <h2>Featured matches</h2>
-          </div>
-        </div>
-        <div class="watchlist-stack" id="live-watchlist"></div>
-      </section>
-
-    </main>
-
-    <script type="module" src="../src/app.js?v=20260312ba"></script>
+  <body>
+    <script>
+      const url = new URL(window.location.href);
+      const target = new URL("./schedule.html", url);
+      url.searchParams.forEach((value, key) => target.searchParams.set(key, value));
+      window.location.replace(target.toString());
+    </script>
   </body>
 </html>

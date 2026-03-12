@@ -3,82 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | 今日比赛</title>
-    <meta
-      name="description"
-      content="世界杯今日比赛页，展示进行中、即将开始和重点关注比赛。"
-    />
-    <link rel="canonical" href="https://www.worldcuppulse.com/zh/live.html" />
-    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/live.html" />
-    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/live.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/live.html" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312ba" />
+    <title>WorldCup Pulse | 跳转到赛事页</title>
+    <meta name="description" content="今日比赛入口已并入赛事页，正在为你跳转。" />
+    <meta http-equiv="refresh" content="0; url=./schedule.html" />
+    <link rel="canonical" href="https://www.worldcuppulse.com/zh/schedule.html" />
   </head>
-  <body data-page="live" data-locale="zh" data-route-key="live">
-    <main class="site-shell">
-      <header class="masthead masthead--compact">
-        <nav class="nav">
-          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
-          <div class="nav__links">
-            <a href="./index.html">首页</a>
-            <a href="./schedule.html" aria-current="page">赛程</a>
-            <a href="./history.html">历史</a>
-            <a href="./prediction.html">预测</a>
-            <a href="./teams.html">球队</a>
-            <a href="/en/live.html" data-locale-switch>EN</a>
-          </div>
-        </nav>
-
-        <section class="page-hero history-hero">
-          <div class="page-hero__copy">
-            <p class="eyebrow">今日比赛</p>
-            <h1 id="live-page-title">今日比赛</h1>
-            <p class="hero__lede" id="live-page-lede">先看当前主推比赛，再顺着接下来的比赛往下看。</p>
-          </div>
-        </section>
-
-        <nav class="history-subnav">
-          <a href="./schedule.html">赛事中心</a>
-          <a href="./live.html" aria-current="page">今日比赛</a>
-          <a href="./match.html">比赛详情</a>
-        </nav>
-      </header>
-
-      <section class="section live-grid">
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow">正在进行</p>
-              <h2>进行中</h2>
-            </div>
-          </div>
-          <div id="live-now"></div>
-        </article>
-
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow">即将开始</p>
-              <h2>接下来</h2>
-            </div>
-          </div>
-          <div id="live-upcoming"></div>
-        </article>
-      </section>
-
-      <section class="section section--alt">
-        <div class="section__heading">
-          <div>
-            <p class="eyebrow">重点关注</p>
-            <h2>重点关注比赛</h2>
-          </div>
-        </div>
-        <div class="watchlist-stack" id="live-watchlist"></div>
-      </section>
-
-    </main>
-
-    <script type="module" src="../src/app.js?v=20260312ba"></script>
+  <body>
+    <script>
+      const url = new URL(window.location.href);
+      const target = new URL("./schedule.html", url);
+      url.searchParams.forEach((value, key) => target.searchParams.set(key, value));
+      window.location.replace(target.toString());
+    </script>
   </body>
 </html>
