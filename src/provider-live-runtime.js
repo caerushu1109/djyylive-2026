@@ -41,18 +41,30 @@ async function loadSportMonksProxyRuntimeState(defaultsUrl = "/data/provider-liv
 
   const response = await fetchJson(proxyUrl);
 
-  return buildMatchdayStateFromSportMonksApiSamples({
-    match: response.fixture,
-    matches: response.matches || [],
-    standingsRows: response.standingsRows || [],
-  });
+  try {
+    return buildMatchdayStateFromSportMonksApiSamples({
+      match: response.fixture,
+      matches: response.matches || [],
+      standingsRows: response.standingsRows || [],
+    });
+  } catch (error) {
+    throw new Error(`Proxy data mapping failed: ${error?.message || String(error)}`);
+  }
 }
 
 export async function loadSportMonksRuntimeState(configUrl = "/data/provider-live-config.json") {
+  const isLocalRuntime = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  let proxyError = null;
+
   try {
     return await loadSportMonksProxyRuntimeState();
-  } catch (proxyError) {
+  } catch (error) {
+    proxyError = error;
     console.warn("Falling back to local SportMonks runtime config", proxyError);
+  }
+
+  if (!isLocalRuntime) {
+    throw proxyError || new Error("SportMonks proxy runtime failed");
   }
 
   const config = await fetchJson(configUrl);
