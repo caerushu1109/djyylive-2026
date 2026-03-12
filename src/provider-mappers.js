@@ -147,13 +147,22 @@ export function mapSportMonksStandings(rows = []) {
 }
 
 export function mapSportMonksEvent(rawEvent) {
+  const type = (rawEvent.type?.developer_name || rawEvent.type?.code || rawEvent.type || "context").toLowerCase();
   return {
     event_id: String(rawEvent.id || rawEvent.event_id || ""),
     minute: rawEvent.minute ?? rawEvent.time?.minute ?? 0,
     stoppage_minute: rawEvent.added_time ?? rawEvent.time?.stoppage ?? null,
-    type: (rawEvent.type?.developer_name || rawEvent.type?.code || rawEvent.type || "context").toLowerCase(),
+    type,
     team: rawEvent.participant?.name || rawEvent.team_name || rawEvent.team || "",
     player: rawEvent.player_name || rawEvent.player?.display_name || rawEvent.player?.name || "",
+    related_player:
+      rawEvent.related_player_name ||
+      rawEvent.related_player?.display_name ||
+      rawEvent.related_player?.name ||
+      "",
+    result: rawEvent.result || "",
+    info: rawEvent.info || "",
+    addition: rawEvent.addition || "",
     detail: rawEvent.detail || rawEvent.info || rawEvent.addition || rawEvent.type?.name || "",
   };
 }

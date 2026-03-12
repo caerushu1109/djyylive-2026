@@ -737,6 +737,21 @@ function initMatchPage() {
   const matchId = new URLSearchParams(window.location.search).get("id") || matches[0].id;
   const detail = matchdayState.getMatchDetail(matchId);
   const match = detail.match;
+  const renderEventCopy = (event) => {
+    if (event.type === "goal") {
+      const bits = [event.player, event.result, event.info || event.addition].filter(Boolean);
+      return bits.join(" · ");
+    }
+    if (event.type === "substitution") {
+      const bits = [event.player, event.related_player ? `↔ ${event.related_player}` : "", event.info || event.addition].filter(Boolean);
+      return bits.join(" · ");
+    }
+    if (event.type === "yellowcard" || event.type === "redcard" || event.type === "card") {
+      const bits = [event.player, event.info || event.addition].filter(Boolean);
+      return bits.join(" · ");
+    }
+    return [event.player, event.detail].filter(Boolean).join(" · ") || event.detail;
+  };
   const t = currentLocale === "zh"
     ? {
         status: "当前状态",
@@ -820,7 +835,7 @@ function initMatchPage() {
       (event) => `
         <article class="event-row">
           <strong>${t.timelineLabel[event.type] || (currentLocale === "zh" ? "事件" : "Event")}</strong>
-          <span>${event.minute ? `${event.minute}' · ` : ""}${event.team ? `${displayTeam(event.team)} · ` : ""}${event.detail}</span>
+          <span>${event.minute ? `${event.minute}'${event.stoppage_minute ? `+${event.stoppage_minute}` : ""} · ` : ""}${event.team ? `${displayTeam(event.team)} · ` : ""}${renderEventCopy(event)}</span>
         </article>
       `
     )
