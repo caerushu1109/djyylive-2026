@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/schedule.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/schedule.html" />
     <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=20260312bb" />
+    <link rel="stylesheet" href="./styles.css?v=20260312ae" />
   </head>
   <body data-page="schedule" data-locale="zh" data-route-key="schedule">
     <main class="site-shell">
@@ -42,7 +42,7 @@
           <div class="page-hero__copy">
             <p class="eyebrow">赛事中心</p>
             <h1>赛事中心</h1>
-            <p class="hero__lede">先看现在最该点开的比赛，再筛完整赛程。</p>
+            <p class="hero__lede">先看现在最该点开的比赛，再顺着整届世界杯时间线往下看。</p>
             <div class="hero__actions">
               <a class="button button--primary" href="#schedule-live-now">先看今天该点哪场</a>
               <a class="button button--ghost" href="#schedule-match-detail">看当前比赛详情</a>
@@ -81,22 +81,10 @@
       <section class="section">
         <div class="section__heading">
           <div>
-            <p class="eyebrow">筛选</p>
-            <h2>赛程筛选器</h2>
+            <p class="eyebrow">完整赛程</p>
+            <h2>按时间线看全部比赛</h2>
           </div>
-          <p class="section__intro">按球队和状态筛掉无关比赛。</p>
-        </div>
-
-        <div class="filter-bar" id="schedule-filters" role="tablist" aria-label="Schedule stages"></div>
-        <div class="explorer-controls">
-          <label class="selector-card">
-            <span>球队</span>
-            <select id="schedule-team-select"></select>
-          </label>
-          <label class="selector-card">
-            <span>状态</span>
-            <select id="schedule-status-select"></select>
-          </label>
+          <p class="section__intro">V1 先把整届世界杯赛程直接摊开，不再加筛选器打断浏览。</p>
         </div>
         <div class="schedule-stack" id="schedule-list"></div>
       </section>
@@ -126,6 +114,6 @@
 
     </main>
 
-    <script type="module" src="./src/app.js?v=20260312bb"></script>
+    <script type="module" src="./src/app.js?v=20260312ae"></script>
   </body>
 </html>

@@ -1029,6 +1029,83 @@ h3 {
   gap: 16px;
 }
 
+.bracket-board {
+  display: grid;
+  gap: 18px;
+}
+
+.bracket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.bracket-column {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.bracket-column__header {
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 251, 244, 0.78);
+}
+
+.bracket-column__header h3 {
+  margin-bottom: 0;
+}
+
+.bracket-column__matches {
+  display: grid;
+  gap: 14px;
+}
+
+.bracket-match {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 251, 244, 0.86);
+}
+
+.bracket-match__meta,
+.bracket-match__venue,
+.bracket-match__pending {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.bracket-match__teams {
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.bracket-match__odds {
+  display: grid;
+  gap: 10px;
+}
+
+.bracket-odds-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bracket-odds-row strong {
+  color: var(--green);
+}
+
+.bracket-match__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .standings-table {
   width: 100%;
   border-collapse: collapse;
@@ -2810,7 +2887,8 @@ h3 {
   .history-overview,
   .timeline-grid,
   .peak-grid,
-  .chaos-grid {
+  .chaos-grid,
+  .bracket-grid {
     gap: 14px;
   }
 
@@ -2869,7 +2947,8 @@ h3 {
   .live-card__actions,
   .match-card__actions,
   .watchlist-row__actions,
-  .spotlight-match__actions {
+  .spotlight-match__actions,
+  .bracket-match__actions {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
@@ -2879,7 +2958,8 @@ h3 {
   .schedule-row__actions .button,
   .live-card__actions .button,
   .watchlist-row__actions .button,
-  .spotlight-match__actions .button {
+  .spotlight-match__actions .button,
+  .bracket-match__actions .button {
     width: 100%;
   }
 

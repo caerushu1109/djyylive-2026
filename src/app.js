@@ -53,7 +53,7 @@ import {
   getMatchdayState,
   getMatchdaySourceMeta,
   hydrateMatchdayStateFromRuntimeSource,
-} from "./matchday-source.js?v=20260312ba";
+} from "./matchday-source.js?v=20260312ae";
 import {
   defaultLocale,
   homepageCopy,
@@ -208,8 +208,10 @@ function preserveSourceAcrossDocument() {
 initPrimaryNav();
 initCountdown();
 initMatchesPreview();
+initHomeScheduleList();
 initGroupStandings();
 initHomeFocusTeams();
+initHomeBracket();
 initPoll();
 initSchedulePage();
 initHistoryHubPage();
@@ -735,6 +737,26 @@ function initMatchesPreview() {
     .join("");
 }
 
+function initHomeScheduleList() {
+  const scheduleList = document.querySelector("#home-schedule-list");
+  const introNode = document.querySelector("#home-schedule-intro");
+  if (!scheduleList) {
+    return;
+  }
+
+  const orderedMatches = sortMatchesChronologically(matches);
+  if (introNode) {
+    const opener = orderedMatches[0];
+    introNode.textContent = opener
+      ? (currentLocale === "zh"
+          ? `完整赛程按真实世界杯时间线展开，揭幕战从 ${displayTeam(opener.home)} vs ${displayTeam(opener.away)} 开始。`
+          : `The full tournament now follows the real World Cup timeline, starting with ${displayTeam(opener.home)} vs ${displayTeam(opener.away)}.`)
+      : introNode.textContent;
+  }
+
+  scheduleList.innerHTML = orderedMatches.map(renderScheduleRow).join("");
+}
+
 function initHomeFocusTeams() {
   const rail = document.querySelector("#home-focus-teams");
   if (!rail) {
@@ -763,6 +785,24 @@ function initHomeFocusTeams() {
       (team) => `<a href="${withSourceParam(`${teamHistoryPath()}?team=${encodeURIComponent(team)}`)}">${displayTeam(team)}</a>`
     )
     .join("");
+}
+
+function initHomeBracket() {
+  const bracketNode = document.querySelector("#home-bracket");
+  const introNode = document.querySelector("#home-bracket-intro");
+  if (!bracketNode) {
+    return;
+  }
+
+  const knockoutStages = buildKnockoutStages(matches);
+  if (introNode) {
+    const knockoutMatchCount = knockoutStages.reduce((total, stage) => total + stage.matches.length, 0);
+    introNode.textContent = currentLocale === "zh"
+      ? `淘汰赛当前共抓到 ${knockoutMatchCount} 场，对阵概率按站内 Elo 模型估算。附加赛待定席位会先保留为待定。`
+      : `The knockout tree currently includes ${knockoutMatchCount} fixtures, with advancement odds estimated from the site Elo model. Playoff placeholders stay marked as TBD for now.`;
+  }
+
+  bracketNode.innerHTML = renderBracketBoard(knockoutStages);
 }
 
 function initGroupStandings() {
@@ -808,12 +848,9 @@ function initPoll() {
 }
 
 function initSchedulePage() {
-  const filterNode = document.querySelector("#schedule-filters");
   const scheduleList = document.querySelector("#schedule-list");
   const liveNowNode = document.querySelector("#schedule-live-now");
   const upcomingNode = document.querySelector("#schedule-upcoming");
-  const teamSelect = document.querySelector("#schedule-team-select");
-  const statusSelect = document.querySelector("#schedule-status-select");
   const detailHeroNode = document.querySelector("#schedule-match-hero");
   const detailTimelineNode = document.querySelector("#schedule-match-timeline");
   const detailStatsNode = document.querySelector("#schedule-match-stats");
@@ -822,12 +859,11 @@ function initSchedulePage() {
   const detailStatsEyebrowNode = document.querySelector("#schedule-match-stats-eyebrow");
   const detailStatsTitleNode = document.querySelector("#schedule-match-stats-title");
 
-  if (!filterNode || !scheduleList) {
+  if (!scheduleList) {
     return;
   }
 
-  renderScheduleFilters(filterNode, scheduleList);
-  renderScheduleList(scheduleList, activeStage);
+  renderScheduleList(scheduleList);
 
   if (liveNowNode) {
     const liveMatches = matches.filter((match) => match.phase === "in_match");
@@ -845,34 +881,6 @@ function initSchedulePage() {
     upcomingNode.innerHTML = getUpcomingMatches(matches, 4)
       .map(renderMatchSpotlight)
       .join("");
-  }
-
-  if (teamSelect && statusSelect) {
-    const teams = [...new Set(matches.flatMap((match) => [match.home, match.away]))].sort();
-    teamSelect.innerHTML = [`<option value="all">${currentUi.allTeams}</option>`, ...teams.map((team) => `<option value="${team}">${displayTeamWithFlag(team)}</option>`)].join("");
-    statusSelect.innerHTML = `
-      <option value="all">${currentUi.allStatus}</option>
-      <option value="scheduled">${currentUi.statusScheduled}</option>
-      <option value="live">${currentUi.statusLive}</option>
-      <option value="finished">${currentUi.statusFinished}</option>
-    `;
-
-    const update = () => {
-      let filtered = [...matches];
-      if (teamSelect.value !== "all") {
-        filtered = filtered.filter(
-          (match) => match.home === teamSelect.value || match.away === teamSelect.value
-        );
-      }
-      if (statusSelect.value !== "all") {
-        filtered = filtered.filter((match) => match.status === statusSelect.value);
-      }
-      scheduleList.innerHTML = sortMatchesChronologically(filtered).map(renderScheduleRow).join("");
-    };
-
-    teamSelect.addEventListener("change", update);
-    statusSelect.addEventListener("change", update);
-    update();
   }
 
   if (detailHeroNode && detailTimelineNode && detailStatsNode) {
@@ -3816,41 +3824,8 @@ function renderPoll(pollNode) {
   });
 }
 
-function renderScheduleFilters(filterNode, scheduleList) {
-  const stages = ["all", ...new Set(matches.map((match) => match.stage))];
-
-  filterNode.innerHTML = stages
-    .map(
-      (stage) => `
-        <button
-          class="filter-button"
-          type="button"
-          role="tab"
-          aria-selected="${stage === activeStage}"
-          data-stage="${stage}"
-        >
-          ${stage === "all" ? (currentLocale === "zh" ? "全部" : "All") : displayStage(stage)}
-        </button>
-      `
-    )
-    .join("");
-
-  [...filterNode.querySelectorAll("[data-stage]")].forEach((button) => {
-    button.addEventListener("click", () => {
-      activeStage = button.dataset.stage;
-      renderScheduleFilters(filterNode, scheduleList);
-      renderScheduleList(scheduleList, activeStage);
-    });
-  });
-}
-
-function renderScheduleList(scheduleList, stage) {
-  const visibleMatches =
-    stage === "all"
-      ? matches
-      : matches.filter((match) => match.stage === stage);
-
-  scheduleList.innerHTML = sortMatchesChronologically(visibleMatches).map(renderScheduleRow).join("");
+function renderScheduleList(scheduleList) {
+  scheduleList.innerHTML = sortMatchesChronologically(matches).map(renderScheduleRow).join("");
 }
 
 function renderRankingList(items) {
@@ -4252,6 +4227,11 @@ function renderTeamLink(team) {
   return `<a class="team-link" href="${teamHistoryPath(team)}">${flag ? `<span class="team-flag">${flag}</span>` : ""}<span>${displayTeam(team)}</span></a>`;
 }
 
+function renderStaticTeam(team) {
+  const flag = getTeamFlag(team);
+  return `<span class="team-link team-link--static">${flag ? `<span class="team-flag">${flag}</span>` : ""}<span>${displayTeam(team)}</span></span>`;
+}
+
 function displayScore(score) {
   if (currentLocale === "zh") {
     return score;
@@ -4485,6 +4465,149 @@ function displayGroupLabel(group) {
     return `${group}${currentUi.groupLabel}`;
   }
   return `${currentUi.groupLabel} ${group}`;
+}
+
+function buildKnockoutStages(sourceMatches) {
+  const orderedStageLabels = currentLocale === "zh"
+    ? ["十六强", "八强", "半决赛", "季军赛", "决赛"]
+    : ["Round of 16", "Quarter-finals", "Semi-finals", "Third-place play-off", "Final"];
+  const knockoutMatches = sortMatchesChronologically(
+    sourceMatches.filter((match) => isKnockoutStage(match.stage))
+  );
+  const grouped = new Map();
+
+  knockoutMatches.forEach((match) => {
+    const key = normalizeKnockoutStage(match.stage);
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+    grouped.get(key).push(match);
+  });
+
+  return [...grouped.entries()]
+    .sort((a, b) => {
+      const aIndex = orderedStageLabels.indexOf(a[0]);
+      const bIndex = orderedStageLabels.indexOf(b[0]);
+      const safeA = aIndex === -1 ? orderedStageLabels.length : aIndex;
+      const safeB = bIndex === -1 ? orderedStageLabels.length : bIndex;
+      return safeA - safeB;
+    })
+    .map(([stage, stageMatches]) => ({ stage, matches: stageMatches }));
+}
+
+function renderBracketBoard(stageGroups) {
+  if (!stageGroups.length) {
+    return `
+      <article class="feature-card">
+        <h3>${currentLocale === "zh" ? "淘汰赛数据暂未就位" : "No knockout data yet"}</h3>
+        <p>${currentLocale === "zh" ? "当前 provider 还没有返回可展示的淘汰赛对阵。" : "The provider has not returned display-ready knockout fixtures yet."}</p>
+      </article>
+    `;
+  }
+
+  return `
+    <div class="bracket-grid">
+      ${stageGroups
+        .map(
+          (group) => `
+            <section class="bracket-column">
+              <div class="bracket-column__header">
+                <p class="eyebrow">${currentLocale === "zh" ? "淘汰赛" : "Knockout"}</p>
+                <h3>${group.stage}</h3>
+              </div>
+              <div class="bracket-column__matches">
+                ${group.matches.map(renderBracketMatch).join("")}
+              </div>
+            </section>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderBracketMatch(match) {
+  const probabilities = getBracketProbabilities(match);
+  return `
+    <article class="bracket-match">
+      <p class="bracket-match__meta">${match.kickoff} · ${displayVenue(match.venue)}</p>
+      <strong class="fixture-line bracket-match__teams">${renderStaticTeam(match.home)} <span>×</span> ${renderStaticTeam(match.away)}</strong>
+      ${
+        probabilities
+          ? `
+            <div class="bracket-match__odds">
+              <div class="bracket-odds-row">
+                <span>${displayTeam(match.home)}</span>
+                <strong>${formatPercent(probabilities.home)}</strong>
+              </div>
+              <div class="probability-card__bar"><i style="width:${probabilities.home.toFixed(1)}%"></i></div>
+              <div class="bracket-odds-row">
+                <span>${displayTeam(match.away)}</span>
+                <strong>${formatPercent(probabilities.away)}</strong>
+              </div>
+            </div>
+          `
+          : `<p class="bracket-match__pending">${currentLocale === "zh" ? "席位待定，概率会在对阵确定后更新。" : "Odds will update once the playoff slots are confirmed."}</p>`
+      }
+      <div class="bracket-match__actions">
+        <a class="button button--ghost" href="${matchPath(match.id)}">${currentLocale === "zh" ? "比赛页" : "Match"}</a>
+        <a class="button button--ghost" href="${predictionPath()}">${currentLocale === "zh" ? "预测" : "Prediction"}</a>
+      </div>
+    </article>
+  `;
+}
+
+function isKnockoutStage(stage) {
+  const value = String(stage || "");
+  return /十六强|八强|四分之一|半决赛|季军|决赛|round of 16|quarter|semi|third|final/i.test(value);
+}
+
+function normalizeKnockoutStage(stage) {
+  const value = String(stage || "");
+  if (currentLocale === "zh") {
+    if (/十六强|round of 16/i.test(value)) return "十六强";
+    if (/八强|四分之一|quarter/i.test(value)) return "八强";
+    if (/半决赛|semi/i.test(value)) return "半决赛";
+    if (/季军|third/i.test(value)) return "季军赛";
+    if (/决赛|final/i.test(value)) return "决赛";
+    return value || "淘汰赛";
+  }
+
+  if (/十六强|round of 16/i.test(value)) return "Round of 16";
+  if (/八强|四分之一|quarter/i.test(value)) return "Quarter-finals";
+  if (/半决赛|semi/i.test(value)) return "Semi-finals";
+  if (/季军|third/i.test(value)) return "Third-place play-off";
+  if (/决赛|final/i.test(value)) return "Final";
+  return value || "Knockout";
+}
+
+function getBracketProbabilities(match) {
+  if (isProviderPlaceholderTeam(match.home) || isProviderPlaceholderTeam(match.away)) {
+    return null;
+  }
+
+  const { knockoutA } = calculateMatchup(getTeamElo(match.home), getTeamElo(match.away));
+  return {
+    home: knockoutA,
+    away: 100 - knockoutA,
+  };
+}
+
+function getTeamElo(team) {
+  const raw = String(team || "").trim();
+  const normalized = raw.toLowerCase();
+  const aliases = {
+    "korea republic": "South Korea",
+    "cape verde islands": "Cape Verde",
+    "côte d'ivoire": "Ivory Coast",
+    "saudi arabia": "Saudi Arabia",
+  };
+  const resolved = aliases[normalized] || raw;
+  return predictionTeams.find((item) => item.team === resolved)?.elo || 1750;
+}
+
+function formatPercent(value) {
+  return `${Number(value).toFixed(1)}%`;
 }
 
 function getHomepageMatches() {

@@ -21,7 +21,7 @@
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/schedule.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/schedule.html" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312bb" />
+    <link rel="stylesheet" href="../styles.css?v=20260312ae" />
   </head>
   <body data-page="schedule" data-locale="en" data-route-key="schedule">
     <main class="site-shell">
@@ -42,7 +42,7 @@
           <div class="page-hero__copy">
             <p class="eyebrow">Match Center</p>
             <h1>Schedule</h1>
-            <p class="hero__lede">Start with the most relevant live World Cup fixture, then filter the full list.</p>
+            <p class="hero__lede">Start with the most relevant fixture, then move through the full World Cup timeline.</p>
             <div class="hero__actions">
               <a class="button button--primary" href="#schedule-live-now">See what to watch now</a>
               <a class="button button--ghost" href="#schedule-match-detail">Open match detail here</a>
@@ -81,22 +81,10 @@
       <section class="section">
         <div class="section__heading">
           <div>
-            <p class="eyebrow">Filters</p>
-            <h2>Fixture filters</h2>
+            <p class="eyebrow">Full schedule</p>
+            <h2>Every fixture on one timeline</h2>
           </div>
-          <p class="section__intro">Filter by team and state to narrow the tournament quickly.</p>
-        </div>
-
-        <div class="filter-bar" id="schedule-filters" role="tablist" aria-label="Schedule stages"></div>
-        <div class="explorer-controls">
-          <label class="selector-card">
-            <span>Team</span>
-            <select id="schedule-team-select"></select>
-          </label>
-          <label class="selector-card">
-            <span>Status</span>
-            <select id="schedule-status-select"></select>
-          </label>
+          <p class="section__intro">For V1, keep the full tournament visible instead of interrupting the browse flow with filters.</p>
         </div>
         <div class="schedule-stack" id="schedule-list"></div>
       </section>
@@ -126,6 +114,6 @@
 
     </main>
 
-    <script type="module" src="../src/app.js?v=20260312bb"></script>
+    <script type="module" src="../src/app.js?v=20260312ae"></script>
   </body>
 </html>

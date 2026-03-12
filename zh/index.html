@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/index.html" />
     <meta name="theme-color" content="#0f5c40" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312bb" />
+    <link rel="stylesheet" href="../styles.css?v=20260312ae" />
   </head>
   <body data-page="home" data-locale="zh" data-route-key="home">
     <main class="site-shell">
@@ -111,6 +111,17 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">完整赛程</p>
+            <h2>2026 全部赛程</h2>
+          </div>
+          <p class="section__intro" id="home-schedule-intro">首页直接铺开整届世界杯赛程，不用再切去另一页找比赛。</p>
+        </div>
+        <div class="schedule-stack" id="home-schedule-list"></div>
+      </section>
+
       <section class="section section--alt">
         <div class="section__heading">
           <div>
@@ -144,8 +155,19 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="section__heading">
+          <div>
+            <p class="eyebrow">晋级树</p>
+            <h2>淘汰赛晋级树与概率</h2>
+          </div>
+          <p class="section__intro" id="home-bracket-intro">按现有 World Cup 2026 对阵结构展示晋级树，概率基于站内 Elo 模型估算。</p>
+        </div>
+        <div class="bracket-board" id="home-bracket"></div>
+      </section>
+
     </main>
 
-    <script type="module" src="../src/app.js?v=20260312bb"></script>
+    <script type="module" src="../src/app.js?v=20260312ae"></script>
   </body>
 </html>
