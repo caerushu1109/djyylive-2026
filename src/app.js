@@ -3606,11 +3606,28 @@ function renderMatchStateNotice(title, copy) {
     currentLocale === "zh"
       ? (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament)
       : (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament);
+  const nextMatch = sortMatchesChronologically(
+    matches.filter((match) => match.phase === "pre_match")
+  )[0];
+  const nextMatchMarkup = nextMatch
+    ? `
+      <div class="notice-next-match">
+        <span class="story-card__tag">${currentLocale === "zh" ? "先看这场" : "Start here"}</span>
+        <strong class="fixture-line">${renderTeamLink(nextMatch.home)} <span>×</span> ${renderTeamLink(nextMatch.away)}</strong>
+        <p>${nextMatch.kickoff} · ${displayVenue(nextMatch.venue)}</p>
+        <div class="spotlight-match__actions">
+          <a class="button button--ghost" href="${matchPath(nextMatch.id)}">${currentLocale === "zh" ? "查看比赛" : "Open match"}</a>
+          <a class="button button--ghost" href="${predictionPath()}">${currentLocale === "zh" ? "看预测" : "Prediction"}</a>
+        </div>
+      </div>
+    `
+    : "";
   return `
     <article class="feature-card history-mini-card">
       <p class="story-card__tag">${label}</p>
       <h3>${title}</h3>
       <p>${copy}</p>
+      ${nextMatchMarkup}
       <a href="${pagePath("schedule")}">${currentUi.viewFullSchedule}</a>
     </article>
   `;

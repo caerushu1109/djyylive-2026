@@ -1634,6 +1634,24 @@ h3 {
   margin-top: auto;
 }
 
+.notice-next-match {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.54);
+  display: grid;
+  gap: 8px;
+}
+
+.notice-next-match strong {
+  color: var(--green);
+}
+
+.notice-next-match .spotlight-match__actions {
+  margin-top: 4px;
+}
+
 .portal-entry {
   position: relative;
   overflow: hidden;
