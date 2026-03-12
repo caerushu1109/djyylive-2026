@@ -94,20 +94,30 @@ export function normalizeStandings(rawGroups) {
   return Object.fromEntries(
     Object.entries(rawGroups).map(([group, rows]) => [
       group,
-      rows.map((row) => ({
-        group,
-        team: row.team,
-        played: row.played ?? 0,
-        win: row.win ?? row.wins ?? 0,
-        draw: row.draw ?? row.draws ?? 0,
-        loss: row.loss ?? row.losses ?? 0,
-        points: row.points ?? 0,
-        goals_for: row.goals_for ?? row.gf ?? 0,
-        goals_against: row.goals_against ?? row.ga ?? 0,
-        goal_difference:
-          row.goal_difference ??
-          ((row.goals_for ?? row.gf ?? 0) - (row.goals_against ?? row.ga ?? 0)),
-      })),
+      rows
+        .map((row) => ({
+          group,
+          team: row.team,
+          played: row.played ?? 0,
+          win: row.win ?? row.wins ?? 0,
+          draw: row.draw ?? row.draws ?? 0,
+          loss: row.loss ?? row.losses ?? 0,
+          position: row.position ?? null,
+          points: row.points ?? 0,
+          goals_for: row.goals_for ?? row.gf ?? 0,
+          goals_against: row.goals_against ?? row.ga ?? 0,
+          goal_difference:
+            row.goal_difference ??
+            ((row.goals_for ?? row.gf ?? 0) - (row.goals_against ?? row.ga ?? 0)),
+        }))
+        .sort(
+          (a, b) =>
+            (a.position ?? Number.MAX_SAFE_INTEGER) - (b.position ?? Number.MAX_SAFE_INTEGER) ||
+            b.points - a.points ||
+            b.goal_difference - a.goal_difference ||
+            b.goals_for - a.goals_for ||
+            String(a.team).localeCompare(String(b.team))
+        ),
     ])
   );
 }

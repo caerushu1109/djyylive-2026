@@ -704,6 +704,10 @@ function initGroupStandings() {
 
 function getDefaultGroupKey() {
   const groupKeys = sortGroupKeys(Object.keys(groups));
+  const focusGroup = getPrimaryMatchStream(matches).find((match) => match.group)?.group;
+  if (focusGroup && groupKeys.includes(focusGroup)) {
+    return focusGroup;
+  }
   return groupKeys[0] || "A";
 }
 
@@ -3485,11 +3489,12 @@ function renderGroupTable(groupTableBody, groupKey) {
 
   groupTableBody.innerHTML = rows
     .map((team, index) => {
+      const rank = team.position ?? index + 1;
       const rowClass = preTournamentMode
         ? "standings-row standings-row--pre"
-        : index < 2
+        : rank <= 2
           ? "standings-row standings-row--qualified"
-          : index === 2
+          : rank === 3
             ? "standings-row standings-row--playoff"
             : "standings-row";
       const isPlaceholder = isProviderPlaceholderTeam(team.team);
@@ -3498,8 +3503,8 @@ function renderGroupTable(groupTableBody, groupKey) {
             ? (isPlaceholder ? "附加赛名额" : "已确定球队")
             : (isPlaceholder ? "playoff slot" : "confirmed team"))
         : currentLocale === "zh"
-          ? (index < 2 ? "直通区" : index === 2 ? "第三名比较" : "追赶区")
-          : (index < 2 ? "auto spot" : index === 2 ? "best-third race" : "chasing pack");
+          ? (rank <= 2 ? "直通区" : rank === 3 ? "第三名比较" : "追赶区")
+          : (rank <= 2 ? "auto spot" : rank === 3 ? "best-third race" : "chasing pack");
       const detailLabel = preTournamentMode
         ? (currentLocale === "zh"
             ? "首轮开球后更新积分与净胜球"
@@ -3518,7 +3523,7 @@ function renderGroupTable(groupTableBody, groupKey) {
         <tr class="${rowClass}">
           <td>
             <div class="standings-team">
-              <span class="standings-pos">${index + 1}</span>
+              <span class="standings-pos">${rank}</span>
               <div>
                 <strong>${renderTeamLink(team.team)}</strong>
                 <span class="standings-zone">${zoneLabel}</span>
