@@ -744,10 +744,7 @@ function initSchedulePage() {
   }
 
   if (upcomingNode) {
-    upcomingNode.innerHTML = prioritizeMatches(
-      matches.filter((match) => match.phase === "pre_match"),
-      4
-    )
+    upcomingNode.innerHTML = getUpcomingMatches(matches, 4)
       .map(renderMatchSpotlight)
       .join("");
   }
@@ -791,7 +788,6 @@ function initLivePage() {
   }
 
   const liveMatches = matches.filter((match) => match.phase === "in_match");
-  const postMatches = matches.filter((match) => match.phase === "post_match");
   liveNowNode.innerHTML = liveMatches.length
     ? liveMatches.map(renderLiveCard).join("")
     : renderMatchStateNotice(
@@ -801,18 +797,15 @@ function initLivePage() {
           : "Before kickoff, start with the opener and the earliest fixtures."
       );
 
-  upcomingNode.innerHTML = matches
-    .filter((match) => match.phase === "pre_match")
-    .sort((a, b) => parseKickoffValue(a) - parseKickoffValue(b))
-    .slice(0, 8)
+  upcomingNode.innerHTML = getUpcomingMatches(matches, 8)
     .map(renderLiveCard)
     .join("");
 
-  const watchlistMatches = liveMatches.length
-    ? prioritizeMatches(liveMatches, 4)
-    : postMatches.length
-      ? prioritizeMatches(postMatches, 4)
-      : getHomepageMatches();
+  const watchlistMatches = getWatchlistMatches(matches, {
+    liveLimit: 4,
+    postLimit: 4,
+    preLimit: 4,
+  });
 
   watchlistNode.innerHTML = watchlistMatches.map(renderWatchlistCard).join("");
 }
@@ -3712,7 +3705,7 @@ function renderMatchStateNotice(title, copy) {
       ? (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament)
       : (matches.some((match) => match.phase === "in_match") ? currentUi.inMatch : currentUi.preTournament);
   const nextMatch = sortMatchesChronologically(
-    matches.filter((match) => match.phase === "pre_match")
+    getUpcomingMatches(matches, 1)
   )[0];
   const nextMatchMarkup = nextMatch
     ? `
@@ -4189,6 +4182,25 @@ function getHomepageMatches() {
 
 function getFeaturedMatchId() {
   return getPrimaryMatchStream(matches)[0]?.id || null;
+}
+
+function getUpcomingMatches(sourceMatches, limit = 4) {
+  return getPrimaryMatchStream(sourceMatches.filter((match) => match.phase === "pre_match")).slice(0, limit);
+}
+
+function getWatchlistMatches(sourceMatches, options = {}) {
+  const { liveLimit = 4, postLimit = 4, preLimit = 4 } = options;
+  const liveMatches = sourceMatches.filter((match) => match.phase === "in_match");
+  if (liveMatches.length) {
+    return prioritizeMatches(liveMatches, liveLimit);
+  }
+
+  const postMatches = sourceMatches.filter((match) => match.phase === "post_match");
+  if (postMatches.length) {
+    return prioritizeMatches(postMatches, postLimit);
+  }
+
+  return getUpcomingMatches(sourceMatches, preLimit);
 }
 
 function isRealProviderMode() {

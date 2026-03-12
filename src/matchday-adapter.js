@@ -146,7 +146,7 @@ export function getMatchDetail(matchId, normalizedMatches) {
   const local = localMatchDetails[baseMatch.id] || {
     timeline: [
       { minute: 0, type: "context", team: baseMatch.home, detail: `${baseMatch.home} vs ${baseMatch.away} 已进入官方赛程。` },
-      { minute: 0, type: "angle", team: baseMatch.away, detail: "接入 API 后，这里会替换成实时事件流、首发和关键节点。" },
+      { minute: 0, type: "angle", team: baseMatch.away, detail: "开球后这里会补上实时事件、首发和关键节点。" },
     ],
     stats: { possession_home: 50, possession_away: 50, shots_home: 0, shots_away: 0, shots_on_target_home: 0, shots_on_target_away: 0, corners_home: 0, corners_away: 0, yellowcards_home: 0, yellowcards_away: 0, xg_home: 0, xg_away: 0 },
   };
