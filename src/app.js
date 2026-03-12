@@ -3757,7 +3757,42 @@ function humanizeMatchStatus(match) {
   return currentUi.statusScheduled;
 }
 
+function isProviderPlaceholderTeam(team) {
+  const value = String(team || "").trim();
+  if (!value) {
+    return false;
+  }
+
+  if (["TBD", "待定"].includes(value)) {
+    return true;
+  }
+
+  if (!value.includes("/")) {
+    return false;
+  }
+
+  return value.split("/").filter(Boolean).length >= 2;
+}
+
+function humanizeProviderPlaceholderTeam(team) {
+  const value = String(team || "").trim();
+  if (!isProviderPlaceholderTeam(value)) {
+    return value;
+  }
+
+  if (currentLocale === "zh") {
+    return `附加赛待定（${value}）`;
+  }
+
+  return `Playoff TBD (${value})`;
+}
+
 function displayTeam(team) {
+  const placeholderLabel = humanizeProviderPlaceholderTeam(team);
+  if (placeholderLabel !== String(team || "").trim()) {
+    return placeholderLabel;
+  }
+
   if (currentLocale === "zh") {
     return team;
   }
@@ -3776,6 +3811,9 @@ function displayTeamWithFlag(team) {
 }
 
 function renderTeamLink(team) {
+  if (isProviderPlaceholderTeam(team)) {
+    return `<span class="team-link team-link--static">${displayTeamWithFlag(team)}</span>`;
+  }
   const flag = getTeamFlag(team);
   return `<a class="team-link" href="${teamHistoryPath(team)}">${flag ? `<span class="team-flag">${flag}</span>` : ""}<span>${displayTeam(team)}</span></a>`;
 }

@@ -926,6 +926,11 @@ h3 {
   border-bottom-color: rgba(15, 92, 64, 0.4);
 }
 
+.team-link--static {
+  border-bottom: 0;
+  color: var(--muted);
+}
+
 .match-card__score {
   font-size: 1rem;
   font-weight: 800;
