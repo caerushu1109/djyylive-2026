@@ -3,8 +3,8 @@ import {
   mapSportMonksEvent,
   mapSportMonksStandings,
   mapSportMonksStats,
-} from "./provider-mappers.js?v=20260312aa";
-import { createMatchdayState } from "./matchday-adapter.js?v=20260312aa";
+} from "./provider-mappers.js?v=20260312ab";
+import { createMatchdayState } from "./matchday-adapter.js?v=20260312ab";
 
 function labelSportMonksGroups(rows) {
   const rawKeys = [...new Set(rows.map((row) => row.group || ""))].filter(Boolean);

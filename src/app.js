@@ -53,7 +53,7 @@ import {
   getMatchdayState,
   getMatchdaySourceMeta,
   hydrateMatchdayStateFromRuntimeSource,
-} from "./matchday-source.js?v=20260312aa";
+} from "./matchday-source.js?v=20260312ab";
 import {
   defaultLocale,
   homepageCopy,
@@ -222,6 +222,7 @@ initLocaleSwitch();
 initMatchdaySourceNotice();
 preserveSourceAcrossDocument();
 initDynamicMatchEntryLinks();
+initDynamicFocusTeamLinks();
 streamlinePageChrome();
 streamlinePageContent();
 initBottomTabBar();
@@ -352,6 +353,40 @@ function initDynamicMatchEntryLinks() {
         : featuredMatchId
     );
 
+    node.setAttribute("href", withSourceParam(`${url.pathname}${url.search}`));
+  });
+}
+
+function initDynamicFocusTeamLinks() {
+  const currentMatchId = getCurrentMatchId();
+  const focusMatch = currentMatchId
+    ? matchdayState.getMatchDetail(currentMatchId).match
+    : getPrimaryFocusMatch(matches);
+
+  if (!focusMatch) {
+    return;
+  }
+
+  const teamMap = {
+    primary: focusMatch.home,
+    home: focusMatch.home,
+    away: focusMatch.away,
+  };
+
+  document.querySelectorAll("[data-focus-team-link]").forEach((node) => {
+    const rawHref = node.getAttribute("href");
+    const target = node.getAttribute("data-focus-team-link") || "primary";
+    const team = teamMap[target] || teamMap.primary;
+    if (!rawHref || !team || isProviderPlaceholderTeam(team)) {
+      return;
+    }
+
+    const url = new URL(rawHref, window.location.href);
+    if (!/team-history\.html$/i.test(url.pathname)) {
+      return;
+    }
+
+    url.searchParams.set("team", team);
     node.setAttribute("href", withSourceParam(`${url.pathname}${url.search}`));
   });
 }
