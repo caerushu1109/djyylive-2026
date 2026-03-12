@@ -1,0 +1,52 @@
+{
+  "code": "UH",
+  "name": "Ubangi-Shari",
+  "aliases": [],
+  "slug": "Ubangi-Shari",
+  "successorCode": "CF",
+  "ok": false,
+  "derived": true,
+  "lastModified": null,
+  "matchCount": 1,
+  "matches": [
+    {
+      "date": {
+        "year": 1956,
+        "month": 0,
+        "day": 0,
+        "iso": null
+      },
+      "homeCode": "UH",
+      "awayCode": "CM",
+      "homeGoals": 5,
+      "awayGoals": 1,
+      "tournamentCode": "F",
+      "venueCode": null,
+      "ratingChange": 17,
+      "homeEloAfter": 1417,
+      "awayEloAfter": 1442,
+      "homeRankChange": null,
+      "awayRankChange": -6,
+      "homeRankAfter": 82,
+      "awayRankAfter": 79,
+      "raw": [
+        "1956",
+        "00",
+        "00",
+        "UH",
+        "CM",
+        "5",
+        "1",
+        "F",
+        "",
+        "17",
+        "1417",
+        "1442",
+        "−",
+        "−6",
+        "82",
+        "79"
+      ]
+    }
+  ]
+}

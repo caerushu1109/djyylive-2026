@@ -1,203 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | 2026 世界杯</title>
-    <meta
-      name="description"
-      content="2026 世界杯单页入口，直接看赛程、分组、晋级树和比赛详情。"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="WorldCup Pulse | 2026 世界杯" />
-    <meta property="og:description" content="2026 世界杯单页入口，直接看赛程、分组、晋级树和比赛详情。" />
-    <meta property="og:url" content="https://www.worldcuppulse.com/zh/index.html" />
-    <meta property="og:site_name" content="WorldCup Pulse" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="WorldCup Pulse | 2026 世界杯" />
-    <meta name="twitter:description" content="直接看 2026 世界杯赛程、分组、晋级树和比赛详情。" />
-    <link rel="canonical" href="https://www.worldcuppulse.com/zh/index.html" />
-    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/index.html" />
-    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/index.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/index.html" />
-    <meta name="theme-color" content="#0f5c40" />
-    <link rel="manifest" href="./site.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=20260312ag" />
+    <title>2026 | 直播与观点</title>
+    <link rel="stylesheet" href="./styles.css?v=20260312-home1" />
   </head>
-  <body data-page="home" data-locale="zh" data-route-key="home">
-    <main class="site-shell">
-      <header class="masthead">
-        <nav class="nav">
-          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
-          <div class="nav__links">
-            <a href="./index.html" aria-current="page">2026</a>
-            <a href="./history.html">历史</a>
-            <a href="./prediction.html">预测</a>
-            <a href="./teams.html">球队</a>
-            <a href="/en/index.html" data-locale-switch>EN</a>
-          </div>
-        </nav>
-
-        <section class="mobile-home-hub" aria-label="手机端首页导览">
-          <div class="mobile-home-hub__intro">
-            <p class="eyebrow">比赛优先</p>
-            <h1>先看今天的比赛，再决定往哪一页走</h1>
-            <p>先看 2026 赛程、分组、晋级树和比赛详情，其他内容放后面。</p>
-          </div>
-          <div class="mobile-home-hub__actions">
-            <a class="mobile-home-hub__action mobile-home-hub__action--primary" href="#home-schedule-list">
-              <span>先看赛程</span>
-              <strong>揭幕周与首轮焦点</strong>
-            </a>
-            <a class="mobile-home-hub__action" href="#schedule-match-detail">
-              <span>焦点比赛</span>
-              <strong>正在踢什么，下一场是什么</strong>
-            </a>
-            <a class="mobile-home-hub__action" href="#group-tabs">
-              <span>积分与分组</span>
-              <strong>小组形势先看这里</strong>
-            </a>
-          </div>
-          <div class="mobile-home-hub__secondary">
-            <a href="./history.html">历史</a>
-            <a href="./prediction.html">预测</a>
-            <a href="./teams.html">球队</a>
-          </div>
-          <div class="mobile-home-hub__teams" id="home-focus-teams"></div>
-        </section>
-
-        <section class="hero hero--home">
-          <div class="hero__content portal-hero">
-            <div class="hero__copy">
-              <p class="eyebrow">2026 世界杯</p>
-              <h1>先看比赛，再看历史和预测</h1>
-              <p class="hero__lede">先看真实赛程、分组和当前焦点比赛。</p>
-              <div class="hero__actions">
-                <a class="button button--primary" href="#home-schedule-list">先看赛程</a>
-                <a class="button button--ghost" href="#schedule-match-detail">看焦点比赛</a>
-              </div>
-            </div>
-
-            <aside class="hero__panel portal-hero__panel">
-              <div class="countdown-card">
-                <p class="countdown-card__label">距离 2026 世界杯揭幕战</p>
-                <div class="countdown" aria-live="polite">
-                  <div class="countdown__item">
-                    <strong id="days">--</strong>
-                    <span>天</span>
-                  </div>
-                  <div class="countdown__item">
-                    <strong id="hours">--</strong>
-                    <span>小时</span>
-                  </div>
-                  <div class="countdown__item">
-                    <strong id="minutes">--</strong>
-                    <span>分钟</span>
-                  </div>
-                </div>
-                <p class="countdown-card__meta" id="home-focus-kickoff">揭幕战时间会跟着当前焦点比赛更新。</p>
-              </div>
-
-            </aside>
-          </div>
-        </section>
+  <body data-page="home">
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">World Cup 2026</p>
+          <h1 class="page-title">2026</h1>
+        </div>
+        <p class="topbar-note" id="topbar-note">先看现在最值得点开的比赛。</p>
       </header>
 
-      <section class="section">
-        <div class="section__heading">
+      <section class="home-hero">
+        <div class="home-hero-copy">
+          <p class="eyebrow">Live + Opinion</p>
+          <h2>一眼看比赛，顺手读观点。</h2>
+          <p>
+            这不是赛程堆砌页。我们先把正在发生的比赛和即将开始的场次放到最前面，让你直接找到现在最值得看的那一场。
+          </p>
+        </div>
+        <div class="home-hero-art" aria-hidden="true">
+          <div class="hero-ball"></div>
+          <div class="hero-arc hero-arc-a"></div>
+          <div class="hero-arc hero-arc-b"></div>
+          <div class="hero-mini-card">
+            <span>主线</span>
+            <strong>直播 / 观点</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero-strip">
+        <div class="hero-chip">
+          <span class="hero-chip-label">实时比赛</span>
+          <strong id="live-count">0</strong>
+        </div>
+        <div class="hero-chip">
+          <span class="hero-chip-label">即将开始</span>
+          <strong id="upcoming-count">0</strong>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
           <div>
-            <p class="eyebrow">2026 赛程</p>
-            <h2>揭幕周焦点赛程</h2>
+            <p class="eyebrow">Now</p>
+            <h2>正在进行的比赛</h2>
           </div>
-          <p class="section__intro" id="match-grid-intro">先看当前这套世界杯数据里最该先点开的比赛。</p>
         </div>
-        <div class="match-grid" id="match-grid"></div>
-        <div class="section-actions">
-          <a class="button button--primary" href="#home-schedule-list">查看完整赛程</a>
-          <a class="button button--ghost" href="#schedule-match-detail">看焦点比赛</a>
+        <div class="card-rail-wrap">
+          <div id="live-empty" class="notice-card rail-card" hidden>
+            <p class="notice-tag">赛前阶段</p>
+            <h3>现在还没有比赛进行中</h3>
+            <p>先看最近即将开始的一场，等开赛后这里会自动切成直播入口。</p>
+          </div>
+          <div id="live-list" class="card-rail"></div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="section__heading">
+      <section class="section-block">
+        <div class="section-head">
           <div>
-            <p class="eyebrow">完整赛程</p>
-            <h2>2026 全部赛程</h2>
+            <p class="eyebrow">Next</p>
+            <h2>即将到来的场次</h2>
           </div>
-          <p class="section__intro" id="home-schedule-intro">首页直接铺开整届世界杯赛程，不用再切去另一页找比赛。</p>
         </div>
-        <div class="schedule-stack" id="home-schedule-list"></div>
+        <div class="card-rail-wrap">
+          <div id="upcoming-list" class="card-rail"></div>
+        </div>
       </section>
 
-      <section class="section section--alt">
-        <div class="section__heading">
+      <section class="section-block home-promise">
+        <div class="section-head">
           <div>
-            <p class="eyebrow">分组与积分</p>
-            <h2>2026 分组与积分速览</h2>
-          </div>
-          <p class="section__intro" id="group-standings-intro">先看当前焦点比赛所在小组，再顺着真实分组往下看。</p>
-        </div>
-
-        <div class="groups">
-          <div class="group-tabs" id="group-tabs" role="tablist" aria-label="World Cup groups"></div>
-          <div class="table-card">
-            <table class="standings-table">
-              <thead>
-                <tr>
-                  <th>球队</th>
-                  <th>场次</th>
-                  <th>胜</th>
-                  <th>平</th>
-                  <th>负</th>
-                  <th>积分</th>
-                </tr>
-              </thead>
-              <tbody id="group-table-body"></tbody>
-            </table>
+            <p class="eyebrow">Why here</p>
+            <h2>我们先做两件事</h2>
           </div>
         </div>
-        <div class="section-actions">
-          <a class="button button--ghost" href="#home-schedule-list">回到完整赛程</a>
-          <a class="button button--ghost" href="./teams.html">从分组继续看球队资料</a>
+        <div class="mini-grid">
+          <article class="detail-card">
+            <p class="notice-tag">直播</p>
+            <h3>快速进入比赛现场</h3>
+            <p>比分、事件流、技术统计和我们自己的实时观点，都从这一场开始看。</p>
+          </article>
+          <article class="detail-card">
+            <p class="notice-tag">观点</p>
+            <h3>先把赛前判断讲明白</h3>
+            <p>Elo 强度、世界杯履历和分组背景先接起来，再决定后面要扩展什么。</p>
+          </article>
         </div>
       </section>
-
-      <section class="section">
-        <div class="section__heading">
-          <div>
-            <p class="eyebrow">晋级树</p>
-            <h2>淘汰赛晋级树与概率</h2>
-          </div>
-          <p class="section__intro" id="home-bracket-intro">按现有 World Cup 2026 对阵结构展示晋级树，概率基于站内 Elo 模型估算。</p>
-        </div>
-        <div class="bracket-board" id="home-bracket"></div>
-      </section>
-
-      <section class="section match-layout" id="schedule-match-detail">
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow" id="schedule-match-timeline-eyebrow">关键事件</p>
-              <h2 id="schedule-match-timeline-title">当前比赛</h2>
-            </div>
-          </div>
-          <section id="schedule-match-hero"></section>
-          <div class="event-stack" id="schedule-match-timeline"></div>
-        </article>
-
-        <aside class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow" id="schedule-match-stats-eyebrow">技术统计</p>
-              <h2 id="schedule-match-stats-title">比赛数据</h2>
-            </div>
-          </div>
-          <div class="stat-tiles" id="schedule-match-stats"></div>
-        </aside>
-      </section>
-
     </main>
 
-    <script type="module" src="./src/app.js?v=20260312ag"></script>
+    <nav class="bottom-nav">
+      <a class="bottom-nav-link is-active" href="./index.html">2026</a>
+      <a class="bottom-nav-link" href="./live.html">直播</a>
+      <a class="bottom-nav-link" href="./opinion.html">观点</a>
+    </nav>
+
+    <script type="module" src="./app.js?v=20260312-home1"></script>
   </body>
 </html>

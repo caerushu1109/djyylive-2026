@@ -1,0 +1,16 @@
+{
+  "updatedAt": "2026-03-13T00:00:00.000Z",
+  "tournaments": [
+    { "year": "2022", "host": "🇶🇦 卡塔尔", "champion": "🏆 🇦🇷 阿根廷" },
+    { "year": "2018", "host": "🇷🇺 俄罗斯", "champion": "🏆 🇫🇷 法国" },
+    { "year": "2014", "host": "🇧🇷 巴西", "champion": "🏆 🇩🇪 德国" },
+    { "year": "2010", "host": "🇿🇦 南非", "champion": "🏆 🇪🇸 西班牙" },
+    { "year": "2006", "host": "🇩🇪 德国", "champion": "🏆 🇮🇹 意大利" },
+    { "year": "2002", "host": "🇰🇷🇯🇵 韩日", "champion": "🏆 🇧🇷 巴西" },
+    { "year": "1998", "host": "🇫🇷 法国", "champion": "🏆 🇫🇷 法国" },
+    { "year": "1994", "host": "🇺🇸 美国", "champion": "🏆 🇧🇷 巴西" },
+    { "year": "1990", "host": "🇮🇹 意大利", "champion": "🏆 🇩🇪 西德" },
+    { "year": "1986", "host": "🇲🇽 墨西哥", "champion": "🏆 🇦🇷 阿根廷" },
+    { "year": "1930", "host": "🇺🇾 乌拉圭", "champion": "🏆 🇺🇾 乌拉圭" }
+  ]
+}

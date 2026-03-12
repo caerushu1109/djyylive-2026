@@ -1,0 +1,1975 @@
+{
+  "updatedAt": "2026-03-11T22:52:19+00:00",
+  "source": "elo-history",
+  "method": "基于本地 Elo 历史资料库按 2 年间隔抽样生成走势，最后一个节点使用当前最新 Elo 快照。",
+  "teams": [
+    {
+      "id": "spain",
+      "rank": 1,
+      "code": "ES",
+      "name": "西班牙",
+      "originalName": "Spain",
+      "flag": "🇪🇸",
+      "elo": 2172,
+      "color": "#c9a227",
+      "matchCount": 778,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1952
+        },
+        {
+          "label": "2016",
+          "elo": 1978
+        },
+        {
+          "label": "2018",
+          "elo": 2011
+        },
+        {
+          "label": "2020",
+          "elo": 2050
+        },
+        {
+          "label": "2022",
+          "elo": 1996
+        },
+        {
+          "label": "2024",
+          "elo": 2178
+        },
+        {
+          "label": "2026",
+          "elo": 2172
+        }
+      ]
+    },
+    {
+      "id": "argentina",
+      "rank": 2,
+      "code": "AR",
+      "name": "阿根廷",
+      "originalName": "Argentina",
+      "flag": "🇦🇷",
+      "elo": 2113,
+      "color": "#4da6ff",
+      "matchCount": 1107,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 2050
+        },
+        {
+          "label": "2016",
+          "elo": 2045
+        },
+        {
+          "label": "2018",
+          "elo": 1921
+        },
+        {
+          "label": "2020",
+          "elo": 1994
+        },
+        {
+          "label": "2022",
+          "elo": 2144
+        },
+        {
+          "label": "2024",
+          "elo": 2108
+        },
+        {
+          "label": "2026",
+          "elo": 2113
+        }
+      ]
+    },
+    {
+      "id": "france",
+      "rank": 3,
+      "code": "FR",
+      "name": "法国",
+      "originalName": "France",
+      "flag": "🇫🇷",
+      "elo": 2062,
+      "color": "#2ec4b6",
+      "matchCount": 936,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1965
+        },
+        {
+          "label": "2016",
+          "elo": 2008
+        },
+        {
+          "label": "2018",
+          "elo": 2092
+        },
+        {
+          "label": "2020",
+          "elo": 2091
+        },
+        {
+          "label": "2022",
+          "elo": 2081
+        },
+        {
+          "label": "2024",
+          "elo": 2055
+        },
+        {
+          "label": "2026",
+          "elo": 2062
+        }
+      ]
+    },
+    {
+      "id": "england",
+      "rank": 4,
+      "code": "EN",
+      "name": "英格兰",
+      "originalName": "England",
+      "flag": "🏴",
+      "elo": 2042,
+      "color": "#e63946",
+      "matchCount": 1159,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1923
+        },
+        {
+          "label": "2016",
+          "elo": 1927
+        },
+        {
+          "label": "2018",
+          "elo": 1959
+        },
+        {
+          "label": "2020",
+          "elo": 1961
+        },
+        {
+          "label": "2022",
+          "elo": 1966
+        },
+        {
+          "label": "2024",
+          "elo": 2006
+        },
+        {
+          "label": "2026",
+          "elo": 2042
+        }
+      ]
+    },
+    {
+      "id": "colombia",
+      "rank": 5,
+      "code": "CO",
+      "name": "哥伦比亚",
+      "originalName": "Colombia",
+      "flag": "🇨🇴",
+      "elo": 1998,
+      "color": "#f4a261",
+      "matchCount": 646,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 2019
+        },
+        {
+          "label": "2016",
+          "elo": 1929
+        },
+        {
+          "label": "2018",
+          "elo": 1960
+        },
+        {
+          "label": "2020",
+          "elo": 1896
+        },
+        {
+          "label": "2022",
+          "elo": 1919
+        },
+        {
+          "label": "2024",
+          "elo": 1977
+        },
+        {
+          "label": "2026",
+          "elo": 1998
+        }
+      ]
+    },
+    {
+      "id": "brazil",
+      "rank": 6,
+      "code": "BR",
+      "name": "巴西",
+      "originalName": "Brazil",
+      "flag": "🇧🇷",
+      "elo": 1978,
+      "color": "#7bd389",
+      "matchCount": 1063,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 2041
+        },
+        {
+          "label": "2016",
+          "elo": 2087
+        },
+        {
+          "label": "2018",
+          "elo": 2136
+        },
+        {
+          "label": "2020",
+          "elo": 2135
+        },
+        {
+          "label": "2022",
+          "elo": 2133
+        },
+        {
+          "label": "2024",
+          "elo": 1996
+        },
+        {
+          "label": "2026",
+          "elo": 1978
+        }
+      ]
+    },
+    {
+      "id": "portugal",
+      "rank": 7,
+      "code": "PT",
+      "name": "葡萄牙",
+      "originalName": "Portugal",
+      "flag": "🇵🇹",
+      "elo": 1976,
+      "color": "#9bbcff",
+      "matchCount": 692,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1910
+        },
+        {
+          "label": "2016",
+          "elo": 1929
+        },
+        {
+          "label": "2018",
+          "elo": 1958
+        },
+        {
+          "label": "2020",
+          "elo": 2038
+        },
+        {
+          "label": "2022",
+          "elo": 1998
+        },
+        {
+          "label": "2024",
+          "elo": 1993
+        },
+        {
+          "label": "2026",
+          "elo": 1976
+        }
+      ]
+    },
+    {
+      "id": "netherlands",
+      "rank": 8,
+      "code": "NL",
+      "name": "荷兰",
+      "originalName": "Netherlands",
+      "flag": "🇳🇱",
+      "elo": 1959,
+      "color": "#ff8fab",
+      "matchCount": 899,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 2029
+        },
+        {
+          "label": "2016",
+          "elo": 1888
+        },
+        {
+          "label": "2018",
+          "elo": 1984
+        },
+        {
+          "label": "2020",
+          "elo": 1994
+        },
+        {
+          "label": "2022",
+          "elo": 2073
+        },
+        {
+          "label": "2024",
+          "elo": 1938
+        },
+        {
+          "label": "2026",
+          "elo": 1959
+        }
+      ]
+    },
+    {
+      "id": "ecuador",
+      "rank": 9,
+      "code": "EC",
+      "name": "厄瓜多尔",
+      "originalName": "Ecuador",
+      "flag": "🇪🇨",
+      "elo": 1933,
+      "color": "#c9a227",
+      "matchCount": 596,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1847
+        },
+        {
+          "label": "2016",
+          "elo": 1849
+        },
+        {
+          "label": "2018",
+          "elo": 1772
+        },
+        {
+          "label": "2020",
+          "elo": 1826
+        },
+        {
+          "label": "2022",
+          "elo": 1842
+        },
+        {
+          "label": "2024",
+          "elo": 1910
+        },
+        {
+          "label": "2026",
+          "elo": 1933
+        }
+      ]
+    },
+    {
+      "id": "croatia",
+      "rank": 10,
+      "code": "HR",
+      "name": "克罗地亚",
+      "originalName": "Croatia",
+      "flag": "🇭🇷",
+      "elo": 1932,
+      "color": "#4da6ff",
+      "matchCount": 396,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1824
+        },
+        {
+          "label": "2016",
+          "elo": 1885
+        },
+        {
+          "label": "2018",
+          "elo": 1923
+        },
+        {
+          "label": "2020",
+          "elo": 1859
+        },
+        {
+          "label": "2022",
+          "elo": 1950
+        },
+        {
+          "label": "2024",
+          "elo": 1886
+        },
+        {
+          "label": "2026",
+          "elo": 1932
+        }
+      ]
+    },
+    {
+      "id": "norway",
+      "rank": 11,
+      "code": "NO",
+      "name": "挪威",
+      "originalName": "Norway",
+      "flag": "🇳🇴",
+      "elo": 1922,
+      "color": "#2ec4b6",
+      "matchCount": 884,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1625
+        },
+        {
+          "label": "2016",
+          "elo": 1576
+        },
+        {
+          "label": "2018",
+          "elo": 1678
+        },
+        {
+          "label": "2020",
+          "elo": 1763
+        },
+        {
+          "label": "2022",
+          "elo": 1754
+        },
+        {
+          "label": "2024",
+          "elo": 1806
+        },
+        {
+          "label": "2026",
+          "elo": 1922
+        }
+      ]
+    },
+    {
+      "id": "germany",
+      "rank": 12,
+      "code": "DE",
+      "name": "德国",
+      "originalName": "Germany",
+      "flag": "🇩🇪",
+      "elo": 1910,
+      "color": "#e63946",
+      "matchCount": 1043,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 2133
+        },
+        {
+          "label": "2016",
+          "elo": 2037
+        },
+        {
+          "label": "2018",
+          "elo": 1937
+        },
+        {
+          "label": "2020",
+          "elo": 1955
+        },
+        {
+          "label": "2022",
+          "elo": 1955
+        },
+        {
+          "label": "2024",
+          "elo": 1971
+        },
+        {
+          "label": "2026",
+          "elo": 1910
+        }
+      ]
+    },
+    {
+      "id": "switzerland",
+      "rank": 13,
+      "code": "CH",
+      "name": "瑞士",
+      "originalName": "Switzerland",
+      "flag": "🇨🇭",
+      "elo": 1897,
+      "color": "#f4a261",
+      "matchCount": 893,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1791
+        },
+        {
+          "label": "2016",
+          "elo": 1856
+        },
+        {
+          "label": "2018",
+          "elo": 1921
+        },
+        {
+          "label": "2020",
+          "elo": 1870
+        },
+        {
+          "label": "2022",
+          "elo": 1878
+        },
+        {
+          "label": "2024",
+          "elo": 1814
+        },
+        {
+          "label": "2026",
+          "elo": 1897
+        }
+      ]
+    },
+    {
+      "id": "uruguay",
+      "rank": 14,
+      "code": "UY",
+      "name": "乌拉圭",
+      "originalName": "Uruguay",
+      "flag": "🇺🇾",
+      "elo": 1890,
+      "color": "#7bd389",
+      "matchCount": 1017,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1907
+        },
+        {
+          "label": "2016",
+          "elo": 1914
+        },
+        {
+          "label": "2018",
+          "elo": 1921
+        },
+        {
+          "label": "2020",
+          "elo": 1952
+        },
+        {
+          "label": "2022",
+          "elo": 1904
+        },
+        {
+          "label": "2024",
+          "elo": 1948
+        },
+        {
+          "label": "2026",
+          "elo": 1890
+        }
+      ]
+    },
+    {
+      "id": "japan",
+      "rank": 15,
+      "code": "JP",
+      "name": "日本",
+      "originalName": "Japan",
+      "flag": "🇯🇵",
+      "elo": 1878,
+      "color": "#9bbcff",
+      "matchCount": 833,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1728
+        },
+        {
+          "label": "2016",
+          "elo": 1754
+        },
+        {
+          "label": "2018",
+          "elo": 1730
+        },
+        {
+          "label": "2020",
+          "elo": 1744
+        },
+        {
+          "label": "2022",
+          "elo": 1851
+        },
+        {
+          "label": "2024",
+          "elo": 1889
+        },
+        {
+          "label": "2026",
+          "elo": 1878
+        }
+      ]
+    },
+    {
+      "id": "senegal",
+      "rank": 16,
+      "code": "SN",
+      "name": "塞内加尔",
+      "originalName": "Senegal",
+      "flag": "🇸🇳",
+      "elo": 1869,
+      "color": "#ff8fab",
+      "matchCount": 702,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1638
+        },
+        {
+          "label": "2016",
+          "elo": 1669
+        },
+        {
+          "label": "2018",
+          "elo": 1755
+        },
+        {
+          "label": "2020",
+          "elo": 1755
+        },
+        {
+          "label": "2022",
+          "elo": 1745
+        },
+        {
+          "label": "2024",
+          "elo": 1771
+        },
+        {
+          "label": "2026",
+          "elo": 1869
+        }
+      ]
+    },
+    {
+      "id": "mexico",
+      "rank": 17,
+      "code": "MX",
+      "name": "墨西哥",
+      "originalName": "Mexico",
+      "flag": "🇲🇽",
+      "elo": 1857,
+      "color": "#c9a227",
+      "matchCount": 1025,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1892
+        },
+        {
+          "label": "2016",
+          "elo": 1911
+        },
+        {
+          "label": "2018",
+          "elo": 1779
+        },
+        {
+          "label": "2020",
+          "elo": 1928
+        },
+        {
+          "label": "2022",
+          "elo": 1812
+        },
+        {
+          "label": "2024",
+          "elo": 1769
+        },
+        {
+          "label": "2026",
+          "elo": 1857
+        }
+      ]
+    },
+    {
+      "id": "belgium",
+      "rank": 18,
+      "code": "BE",
+      "name": "比利时",
+      "originalName": "Belgium",
+      "flag": "🇧🇪",
+      "elo": 1849,
+      "color": "#4da6ff",
+      "matchCount": 874,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1897
+        },
+        {
+          "label": "2016",
+          "elo": 1904
+        },
+        {
+          "label": "2018",
+          "elo": 2034
+        },
+        {
+          "label": "2020",
+          "elo": 2110
+        },
+        {
+          "label": "2022",
+          "elo": 1947
+        },
+        {
+          "label": "2024",
+          "elo": 1851
+        },
+        {
+          "label": "2026",
+          "elo": 1849
+        }
+      ]
+    },
+    {
+      "id": "paraguay",
+      "rank": 19,
+      "code": "PY",
+      "name": "巴拉圭",
+      "originalName": "Paraguay",
+      "flag": "🇵🇾",
+      "elo": 1833,
+      "color": "#2ec4b6",
+      "matchCount": 786,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1684
+        },
+        {
+          "label": "2016",
+          "elo": 1701
+        },
+        {
+          "label": "2018",
+          "elo": 1723
+        },
+        {
+          "label": "2020",
+          "elo": 1769
+        },
+        {
+          "label": "2022",
+          "elo": 1727
+        },
+        {
+          "label": "2024",
+          "elo": 1775
+        },
+        {
+          "label": "2026",
+          "elo": 1833
+        }
+      ]
+    },
+    {
+      "id": "austria",
+      "rank": 20,
+      "code": "AT",
+      "name": "奥地利",
+      "originalName": "Austria",
+      "flag": "🇦🇹",
+      "elo": 1818,
+      "color": "#e63946",
+      "matchCount": 863,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1714
+        },
+        {
+          "label": "2016",
+          "elo": 1686
+        },
+        {
+          "label": "2018",
+          "elo": 1765
+        },
+        {
+          "label": "2020",
+          "elo": 1786
+        },
+        {
+          "label": "2022",
+          "elo": 1751
+        },
+        {
+          "label": "2024",
+          "elo": 1871
+        },
+        {
+          "label": "2026",
+          "elo": 1818
+        }
+      ]
+    },
+    {
+      "id": "morocco",
+      "rank": 21,
+      "code": "MA",
+      "name": "摩洛哥",
+      "originalName": "Morocco",
+      "flag": "🇲🇦",
+      "elo": 1806,
+      "color": "#f4a261",
+      "matchCount": 725,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1544
+        },
+        {
+          "label": "2016",
+          "elo": 1600
+        },
+        {
+          "label": "2018",
+          "elo": 1728
+        },
+        {
+          "label": "2020",
+          "elo": 1681
+        },
+        {
+          "label": "2022",
+          "elo": 1866
+        },
+        {
+          "label": "2024",
+          "elo": 1802
+        },
+        {
+          "label": "2026",
+          "elo": 1806
+        }
+      ]
+    },
+    {
+      "id": "canada",
+      "rank": 22,
+      "code": "CA",
+      "name": "加拿大",
+      "originalName": "Canada",
+      "flag": "🇨🇦",
+      "elo": 1805,
+      "color": "#7bd389",
+      "matchCount": 483,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1508
+        },
+        {
+          "label": "2016",
+          "elo": 1516
+        },
+        {
+          "label": "2018",
+          "elo": 1546
+        },
+        {
+          "label": "2020",
+          "elo": 1599
+        },
+        {
+          "label": "2022",
+          "elo": 1711
+        },
+        {
+          "label": "2024",
+          "elo": 1784
+        },
+        {
+          "label": "2026",
+          "elo": 1805
+        }
+      ]
+    },
+    {
+      "id": "scotland",
+      "rank": 23,
+      "code": "SQ",
+      "name": "苏格兰",
+      "originalName": "Scotland",
+      "flag": "🏴",
+      "elo": 1790,
+      "color": "#9bbcff",
+      "matchCount": 864,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1722
+        },
+        {
+          "label": "2016",
+          "elo": 1669
+        },
+        {
+          "label": "2018",
+          "elo": 1720
+        },
+        {
+          "label": "2020",
+          "elo": 1659
+        },
+        {
+          "label": "2022",
+          "elo": 1751
+        },
+        {
+          "label": "2024",
+          "elo": 1759
+        },
+        {
+          "label": "2026",
+          "elo": 1790
+        }
+      ]
+    },
+    {
+      "id": "korea_republic",
+      "rank": 24,
+      "code": "KR",
+      "name": "韩国",
+      "originalName": "Korea Republic",
+      "flag": "🇰🇷",
+      "elo": 1784,
+      "color": "#ff8fab",
+      "matchCount": 1048,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1784
+        },
+        {
+          "label": "2016",
+          "elo": 1784
+        },
+        {
+          "label": "2018",
+          "elo": 1784
+        },
+        {
+          "label": "2020",
+          "elo": 1784
+        },
+        {
+          "label": "2022",
+          "elo": 1784
+        },
+        {
+          "label": "2024",
+          "elo": 1784
+        },
+        {
+          "label": "2026",
+          "elo": 1784
+        }
+      ]
+    },
+    {
+      "id": "australia",
+      "rank": 25,
+      "code": "AU",
+      "name": "澳大利亚",
+      "originalName": "Australia",
+      "flag": "🇦🇺",
+      "elo": 1774,
+      "color": "#c9a227",
+      "matchCount": 633,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1652
+        },
+        {
+          "label": "2016",
+          "elo": 1712
+        },
+        {
+          "label": "2018",
+          "elo": 1736
+        },
+        {
+          "label": "2020",
+          "elo": 1713
+        },
+        {
+          "label": "2022",
+          "elo": 1773
+        },
+        {
+          "label": "2024",
+          "elo": 1719
+        },
+        {
+          "label": "2026",
+          "elo": 1774
+        }
+      ]
+    },
+    {
+      "id": "iran",
+      "rank": 26,
+      "code": "IR",
+      "name": "伊朗",
+      "originalName": "Iran",
+      "flag": "🇮🇷",
+      "elo": 1755,
+      "color": "#4da6ff",
+      "matchCount": 666,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1673
+        },
+        {
+          "label": "2016",
+          "elo": 1775
+        },
+        {
+          "label": "2018",
+          "elo": 1823
+        },
+        {
+          "label": "2020",
+          "elo": 1763
+        },
+        {
+          "label": "2022",
+          "elo": 1780
+        },
+        {
+          "label": "2024",
+          "elo": 1838
+        },
+        {
+          "label": "2026",
+          "elo": 1755
+        }
+      ]
+    },
+    {
+      "id": "united_states",
+      "rank": 27,
+      "code": "US",
+      "name": "美国",
+      "originalName": "United States",
+      "flag": "🇺🇸",
+      "elo": 1747,
+      "color": "#2ec4b6",
+      "matchCount": 823,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1813
+        },
+        {
+          "label": "2016",
+          "elo": 1735
+        },
+        {
+          "label": "2018",
+          "elo": 1742
+        },
+        {
+          "label": "2020",
+          "elo": 1745
+        },
+        {
+          "label": "2022",
+          "elo": 1817
+        },
+        {
+          "label": "2024",
+          "elo": 1758
+        },
+        {
+          "label": "2026",
+          "elo": 1747
+        }
+      ]
+    },
+    {
+      "id": "panama",
+      "rank": 28,
+      "code": "PA",
+      "name": "巴拿马",
+      "originalName": "Panama",
+      "flag": "🇵🇦",
+      "elo": 1733,
+      "color": "#e63946",
+      "matchCount": 589,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1712
+        },
+        {
+          "label": "2016",
+          "elo": 1688
+        },
+        {
+          "label": "2018",
+          "elo": 1565
+        },
+        {
+          "label": "2020",
+          "elo": 1533
+        },
+        {
+          "label": "2022",
+          "elo": 1645
+        },
+        {
+          "label": "2024",
+          "elo": 1726
+        },
+        {
+          "label": "2026",
+          "elo": 1733
+        }
+      ]
+    },
+    {
+      "id": "tur/rou/svk/kos",
+      "rank": 29,
+      "code": "Tur/Rou/Svk/Kos",
+      "name": "土/罗/斯/科",
+      "originalName": "Tur/Rou/Svk/Kos",
+      "flag": "🏳️",
+      "elo": 1731,
+      "color": "#f4a261",
+      "matchCount": 0,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1731
+        },
+        {
+          "label": "2016",
+          "elo": 1731
+        },
+        {
+          "label": "2018",
+          "elo": 1731
+        },
+        {
+          "label": "2020",
+          "elo": 1731
+        },
+        {
+          "label": "2022",
+          "elo": 1731
+        },
+        {
+          "label": "2024",
+          "elo": 1731
+        },
+        {
+          "label": "2026",
+          "elo": 1731
+        }
+      ]
+    },
+    {
+      "id": "algeria",
+      "rank": 30,
+      "code": "DZ",
+      "name": "阿尔及利亚",
+      "originalName": "Algeria",
+      "flag": "🇩🇿",
+      "elo": 1728,
+      "color": "#7bd389",
+      "matchCount": 686,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1672
+        },
+        {
+          "label": "2016",
+          "elo": 1630
+        },
+        {
+          "label": "2018",
+          "elo": 1541
+        },
+        {
+          "label": "2020",
+          "elo": 1747
+        },
+        {
+          "label": "2022",
+          "elo": 1705
+        },
+        {
+          "label": "2024",
+          "elo": 1685
+        },
+        {
+          "label": "2026",
+          "elo": 1728
+        }
+      ]
+    },
+    {
+      "id": "uzbekistan",
+      "rank": 31,
+      "code": "UZ",
+      "name": "乌兹别克斯坦",
+      "originalName": "Uzbekistan",
+      "flag": "🇺🇿",
+      "elo": 1728,
+      "color": "#9bbcff",
+      "matchCount": 363,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1648
+        },
+        {
+          "label": "2016",
+          "elo": 1668
+        },
+        {
+          "label": "2018",
+          "elo": 1591
+        },
+        {
+          "label": "2020",
+          "elo": 1552
+        },
+        {
+          "label": "2022",
+          "elo": 1575
+        },
+        {
+          "label": "2024",
+          "elo": 1684
+        },
+        {
+          "label": "2026",
+          "elo": 1728
+        }
+      ]
+    },
+    {
+      "id": "den/mkd/cze/irl",
+      "rank": 32,
+      "code": "Den/Mkd/Cze/Irl",
+      "name": "丹/北马/捷/爱",
+      "originalName": "Den/Mkd/Cze/Irl",
+      "flag": "🏳️",
+      "elo": 1719,
+      "color": "#ff8fab",
+      "matchCount": 0,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1719
+        },
+        {
+          "label": "2016",
+          "elo": 1719
+        },
+        {
+          "label": "2018",
+          "elo": 1719
+        },
+        {
+          "label": "2020",
+          "elo": 1719
+        },
+        {
+          "label": "2022",
+          "elo": 1719
+        },
+        {
+          "label": "2024",
+          "elo": 1719
+        },
+        {
+          "label": "2026",
+          "elo": 1719
+        }
+      ]
+    },
+    {
+      "id": "ukr/swe/pol/alb",
+      "rank": 33,
+      "code": "Ukr/Swe/Pol/Alb",
+      "name": "乌/瑞/波/阿",
+      "originalName": "Ukr/Swe/Pol/Alb",
+      "flag": "🏳️",
+      "elo": 1715,
+      "color": "#c9a227",
+      "matchCount": 0,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1715
+        },
+        {
+          "label": "2016",
+          "elo": 1715
+        },
+        {
+          "label": "2018",
+          "elo": 1715
+        },
+        {
+          "label": "2020",
+          "elo": 1715
+        },
+        {
+          "label": "2022",
+          "elo": 1715
+        },
+        {
+          "label": "2024",
+          "elo": 1715
+        },
+        {
+          "label": "2026",
+          "elo": 1715
+        }
+      ]
+    },
+    {
+      "id": "jordan",
+      "rank": 34,
+      "code": "JO",
+      "name": "约旦",
+      "originalName": "Jordan",
+      "flag": "🇯🇴",
+      "elo": 1689,
+      "color": "#4da6ff",
+      "matchCount": 580,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1537
+        },
+        {
+          "label": "2016",
+          "elo": 1505
+        },
+        {
+          "label": "2018",
+          "elo": 1448
+        },
+        {
+          "label": "2020",
+          "elo": 1492
+        },
+        {
+          "label": "2022",
+          "elo": 1590
+        },
+        {
+          "label": "2024",
+          "elo": 1617
+        },
+        {
+          "label": "2026",
+          "elo": 1689
+        }
+      ]
+    },
+    {
+      "id": "ita/nir/wal/bih",
+      "rank": 35,
+      "code": "Ita/Nir/Wal/BiH",
+      "name": "意/北爱/威/波黑",
+      "originalName": "Ita/Nir/Wal/BiH",
+      "flag": "🏳️",
+      "elo": 1687,
+      "color": "#2ec4b6",
+      "matchCount": 0,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1687
+        },
+        {
+          "label": "2016",
+          "elo": 1687
+        },
+        {
+          "label": "2018",
+          "elo": 1687
+        },
+        {
+          "label": "2020",
+          "elo": 1687
+        },
+        {
+          "label": "2022",
+          "elo": 1687
+        },
+        {
+          "label": "2024",
+          "elo": 1687
+        },
+        {
+          "label": "2026",
+          "elo": 1687
+        }
+      ]
+    },
+    {
+      "id": "egypt",
+      "rank": 36,
+      "code": "EG",
+      "name": "埃及",
+      "originalName": "Egypt",
+      "flag": "🇪🇬",
+      "elo": 1659,
+      "color": "#e63946",
+      "matchCount": 882,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1598
+        },
+        {
+          "label": "2016",
+          "elo": 1656
+        },
+        {
+          "label": "2018",
+          "elo": 1613
+        },
+        {
+          "label": "2020",
+          "elo": 1601
+        },
+        {
+          "label": "2022",
+          "elo": 1660
+        },
+        {
+          "label": "2024",
+          "elo": 1657
+        },
+        {
+          "label": "2026",
+          "elo": 1659
+        }
+      ]
+    },
+    {
+      "id": "cote_d'ivoire",
+      "rank": 37,
+      "code": "CI",
+      "name": "科特迪瓦",
+      "originalName": "Côte d'Ivoire",
+      "flag": "🇨🇮",
+      "elo": 1637,
+      "color": "#f4a261",
+      "matchCount": 690,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1637
+        },
+        {
+          "label": "2016",
+          "elo": 1637
+        },
+        {
+          "label": "2018",
+          "elo": 1637
+        },
+        {
+          "label": "2020",
+          "elo": 1637
+        },
+        {
+          "label": "2022",
+          "elo": 1637
+        },
+        {
+          "label": "2024",
+          "elo": 1637
+        },
+        {
+          "label": "2026",
+          "elo": 1637
+        }
+      ]
+    },
+    {
+      "id": "tunisia",
+      "rank": 38,
+      "code": "TN",
+      "name": "突尼斯",
+      "originalName": "Tunisia",
+      "flag": "🇹🇳",
+      "elo": 1614,
+      "color": "#7bd389",
+      "matchCount": 773,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1596
+        },
+        {
+          "label": "2016",
+          "elo": 1586
+        },
+        {
+          "label": "2018",
+          "elo": 1646
+        },
+        {
+          "label": "2020",
+          "elo": 1615
+        },
+        {
+          "label": "2022",
+          "elo": 1745
+        },
+        {
+          "label": "2024",
+          "elo": 1598
+        },
+        {
+          "label": "2026",
+          "elo": 1614
+        }
+      ]
+    },
+    {
+      "id": "saudi_arabia",
+      "rank": 39,
+      "code": "SA",
+      "name": "沙特阿拉伯",
+      "originalName": "Saudi Arabia",
+      "flag": "🇸🇦",
+      "elo": 1592,
+      "color": "#9bbcff",
+      "matchCount": 833,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1472
+        },
+        {
+          "label": "2016",
+          "elo": 1580
+        },
+        {
+          "label": "2018",
+          "elo": 1583
+        },
+        {
+          "label": "2020",
+          "elo": 1555
+        },
+        {
+          "label": "2022",
+          "elo": 1644
+        },
+        {
+          "label": "2024",
+          "elo": 1536
+        },
+        {
+          "label": "2026",
+          "elo": 1592
+        }
+      ]
+    },
+    {
+      "id": "new_zealand",
+      "rank": 40,
+      "code": "NZ",
+      "name": "新西兰",
+      "originalName": "New Zealand",
+      "flag": "🇳🇿",
+      "elo": 1585,
+      "color": "#ff8fab",
+      "matchCount": 437,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1517
+        },
+        {
+          "label": "2016",
+          "elo": 1547
+        },
+        {
+          "label": "2018",
+          "elo": 1502
+        },
+        {
+          "label": "2020",
+          "elo": 1485
+        },
+        {
+          "label": "2022",
+          "elo": 1527
+        },
+        {
+          "label": "2024",
+          "elo": 1583
+        },
+        {
+          "label": "2026",
+          "elo": 1585
+        }
+      ]
+    },
+    {
+      "id": "cape_verde_islands",
+      "rank": 41,
+      "code": "CV",
+      "name": "佛得角",
+      "originalName": "Cape Verde Islands",
+      "flag": "🇨🇻",
+      "elo": 1561,
+      "color": "#c9a227",
+      "matchCount": 249,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1561
+        },
+        {
+          "label": "2016",
+          "elo": 1561
+        },
+        {
+          "label": "2018",
+          "elo": 1561
+        },
+        {
+          "label": "2020",
+          "elo": 1561
+        },
+        {
+          "label": "2022",
+          "elo": 1561
+        },
+        {
+          "label": "2024",
+          "elo": 1561
+        },
+        {
+          "label": "2026",
+          "elo": 1561
+        }
+      ]
+    },
+    {
+      "id": "bol/sur/irq",
+      "rank": 42,
+      "code": "Bol/Sur/Irq",
+      "name": "玻/苏/伊",
+      "originalName": "Bol/Sur/Irq",
+      "flag": "🏳️",
+      "elo": 1560,
+      "color": "#4da6ff",
+      "matchCount": 0,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1560
+        },
+        {
+          "label": "2016",
+          "elo": 1560
+        },
+        {
+          "label": "2018",
+          "elo": 1560
+        },
+        {
+          "label": "2020",
+          "elo": 1560
+        },
+        {
+          "label": "2022",
+          "elo": 1560
+        },
+        {
+          "label": "2024",
+          "elo": 1560
+        },
+        {
+          "label": "2026",
+          "elo": 1560
+        }
+      ]
+    },
+    {
+      "id": "haiti",
+      "rank": 43,
+      "code": "HT",
+      "name": "海地",
+      "originalName": "Haiti",
+      "flag": "🇭🇹",
+      "elo": 1542,
+      "color": "#2ec4b6",
+      "matchCount": 559,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1444
+        },
+        {
+          "label": "2016",
+          "elo": 1475
+        },
+        {
+          "label": "2018",
+          "elo": 1512
+        },
+        {
+          "label": "2020",
+          "elo": 1557
+        },
+        {
+          "label": "2022",
+          "elo": 1536
+        },
+        {
+          "label": "2024",
+          "elo": 1538
+        },
+        {
+          "label": "2026",
+          "elo": 1542
+        }
+      ]
+    },
+    {
+      "id": "south_africa",
+      "rank": 44,
+      "code": "ZA",
+      "name": "南非",
+      "originalName": "South Africa",
+      "flag": "🇿🇦",
+      "elo": 1528,
+      "color": "#e63946",
+      "matchCount": 522,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1627
+        },
+        {
+          "label": "2016",
+          "elo": 1611
+        },
+        {
+          "label": "2018",
+          "elo": 1548
+        },
+        {
+          "label": "2020",
+          "elo": 1515
+        },
+        {
+          "label": "2022",
+          "elo": 1541
+        },
+        {
+          "label": "2024",
+          "elo": 1576
+        },
+        {
+          "label": "2026",
+          "elo": 1528
+        }
+      ]
+    },
+    {
+      "id": "ghana",
+      "rank": 45,
+      "code": "GH",
+      "name": "加纳",
+      "originalName": "Ghana",
+      "flag": "🇬🇭",
+      "elo": 1509,
+      "color": "#f4a261",
+      "matchCount": 773,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1678
+        },
+        {
+          "label": "2016",
+          "elo": 1590
+        },
+        {
+          "label": "2018",
+          "elo": 1622
+        },
+        {
+          "label": "2020",
+          "elo": 1603
+        },
+        {
+          "label": "2022",
+          "elo": 1593
+        },
+        {
+          "label": "2024",
+          "elo": 1429
+        },
+        {
+          "label": "2026",
+          "elo": 1509
+        }
+      ]
+    },
+    {
+      "id": "ncl/jam/cod",
+      "rank": 46,
+      "code": "Ncl/Jam/Cod",
+      "name": "新喀/牙/刚果金",
+      "originalName": "Ncl/Jam/Cod",
+      "flag": "🏳️",
+      "elo": 1492,
+      "color": "#7bd389",
+      "matchCount": 0,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1492
+        },
+        {
+          "label": "2016",
+          "elo": 1492
+        },
+        {
+          "label": "2018",
+          "elo": 1492
+        },
+        {
+          "label": "2020",
+          "elo": 1492
+        },
+        {
+          "label": "2022",
+          "elo": 1492
+        },
+        {
+          "label": "2024",
+          "elo": 1492
+        },
+        {
+          "label": "2026",
+          "elo": 1492
+        }
+      ]
+    },
+    {
+      "id": "curacao",
+      "rank": 47,
+      "code": "CW",
+      "name": "库拉索",
+      "originalName": "Curacao",
+      "flag": "🇨🇼",
+      "elo": 1466,
+      "color": "#9bbcff",
+      "matchCount": 496,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1067
+        },
+        {
+          "label": "2016",
+          "elo": 1222
+        },
+        {
+          "label": "2018",
+          "elo": 1332
+        },
+        {
+          "label": "2020",
+          "elo": 1412
+        },
+        {
+          "label": "2022",
+          "elo": 1362
+        },
+        {
+          "label": "2024",
+          "elo": 1335
+        },
+        {
+          "label": "2026",
+          "elo": 1466
+        }
+      ]
+    },
+    {
+      "id": "qatar",
+      "rank": 48,
+      "code": "QA",
+      "name": "卡塔尔",
+      "originalName": "Qatar",
+      "flag": "🇶🇦",
+      "elo": 1425,
+      "color": "#ff8fab",
+      "matchCount": 698,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1614
+        },
+        {
+          "label": "2016",
+          "elo": 1558
+        },
+        {
+          "label": "2018",
+          "elo": 1522
+        },
+        {
+          "label": "2020",
+          "elo": 1638
+        },
+        {
+          "label": "2022",
+          "elo": 1577
+        },
+        {
+          "label": "2024",
+          "elo": 1524
+        },
+        {
+          "label": "2026",
+          "elo": 1425
+        }
+      ]
+    }
+  ]
+}

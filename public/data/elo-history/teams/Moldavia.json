@@ -1,0 +1,52 @@
+{
+  "code": "OD",
+  "name": "Moldavia",
+  "aliases": [],
+  "slug": "Moldavia",
+  "successorCode": "MD",
+  "ok": false,
+  "derived": true,
+  "lastModified": null,
+  "matchCount": 1,
+  "matches": [
+    {
+      "date": {
+        "year": 1959,
+        "month": 7,
+        "day": 15,
+        "iso": "1959-07-15"
+      },
+      "homeCode": "OD",
+      "awayCode": "CN",
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "tournamentCode": "F",
+      "venueCode": null,
+      "ratingChange": 11,
+      "homeEloAfter": 1511,
+      "awayEloAfter": 1487,
+      "homeRankChange": null,
+      "awayRankChange": -3,
+      "homeRankAfter": null,
+      "awayRankAfter": 72,
+      "raw": [
+        "1959",
+        "07",
+        "15",
+        "OD",
+        "CN",
+        "2",
+        "0",
+        "F",
+        "",
+        "11",
+        "1511",
+        "1487",
+        "−",
+        "−3",
+        "−",
+        "72"
+      ]
+    }
+  ]
+}

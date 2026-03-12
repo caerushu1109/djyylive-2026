@@ -1,7 +1,13 @@
 .DS_Store
 .cache/
+node_modules/
+.next/
+out/
 scripts/__pycache__/
 djyy 2026worldcup/
 *.pyc
+.env.local
+.wrangler/
+.tooling/
 data/provider-live-config.json
 data/provider-live/

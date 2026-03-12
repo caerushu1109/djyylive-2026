@@ -1,0 +1,488 @@
+{
+  "updatedAt": "2026-03-11T22:52:19+00:00",
+  "source": "eloratings.net",
+  "sourceUrl": "https://eloratings.net/World.tsv",
+  "method": "基于 eloratings.net 的 World.tsv 每日抓取，并按 SportMonks 的 2026 世界杯 48 队名单过滤生成。",
+  "rankings": [
+    {
+      "rank": 1,
+      "code": "ES",
+      "flag": "🇪🇸",
+      "name": "西班牙",
+      "originalName": "Spain",
+      "elo": 2172,
+      "placeholder": false,
+      "width": 100
+    },
+    {
+      "rank": 2,
+      "code": "AR",
+      "flag": "🇦🇷",
+      "name": "阿根廷",
+      "originalName": "Argentina",
+      "elo": 2113,
+      "placeholder": false,
+      "width": 92
+    },
+    {
+      "rank": 3,
+      "code": "FR",
+      "flag": "🇫🇷",
+      "name": "法国",
+      "originalName": "France",
+      "elo": 2062,
+      "placeholder": false,
+      "width": 85
+    },
+    {
+      "rank": 4,
+      "code": "EN",
+      "flag": "🏴",
+      "name": "英格兰",
+      "originalName": "England",
+      "elo": 2042,
+      "placeholder": false,
+      "width": 83
+    },
+    {
+      "rank": 5,
+      "code": "CO",
+      "flag": "🇨🇴",
+      "name": "哥伦比亚",
+      "originalName": "Colombia",
+      "elo": 1998,
+      "placeholder": false,
+      "width": 77
+    },
+    {
+      "rank": 6,
+      "code": "BR",
+      "flag": "🇧🇷",
+      "name": "巴西",
+      "originalName": "Brazil",
+      "elo": 1978,
+      "placeholder": false,
+      "width": 74
+    },
+    {
+      "rank": 7,
+      "code": "PT",
+      "flag": "🇵🇹",
+      "name": "葡萄牙",
+      "originalName": "Portugal",
+      "elo": 1976,
+      "placeholder": false,
+      "width": 74
+    },
+    {
+      "rank": 8,
+      "code": "NL",
+      "flag": "🇳🇱",
+      "name": "荷兰",
+      "originalName": "Netherlands",
+      "elo": 1959,
+      "placeholder": false,
+      "width": 71
+    },
+    {
+      "rank": 9,
+      "code": "EC",
+      "flag": "🇪🇨",
+      "name": "厄瓜多尔",
+      "originalName": "Ecuador",
+      "elo": 1933,
+      "placeholder": false,
+      "width": 68
+    },
+    {
+      "rank": 10,
+      "code": "HR",
+      "flag": "🇭🇷",
+      "name": "克罗地亚",
+      "originalName": "Croatia",
+      "elo": 1932,
+      "placeholder": false,
+      "width": 68
+    },
+    {
+      "rank": 11,
+      "code": "NO",
+      "flag": "🇳🇴",
+      "name": "挪威",
+      "originalName": "Norway",
+      "elo": 1922,
+      "placeholder": false,
+      "width": 67
+    },
+    {
+      "rank": 12,
+      "code": "DE",
+      "flag": "🇩🇪",
+      "name": "德国",
+      "originalName": "Germany",
+      "elo": 1910,
+      "placeholder": false,
+      "width": 65
+    },
+    {
+      "rank": 13,
+      "code": "CH",
+      "flag": "🇨🇭",
+      "name": "瑞士",
+      "originalName": "Switzerland",
+      "elo": 1897,
+      "placeholder": false,
+      "width": 63
+    },
+    {
+      "rank": 14,
+      "code": "UY",
+      "flag": "🇺🇾",
+      "name": "乌拉圭",
+      "originalName": "Uruguay",
+      "elo": 1890,
+      "placeholder": false,
+      "width": 62
+    },
+    {
+      "rank": 15,
+      "code": "JP",
+      "flag": "🇯🇵",
+      "name": "日本",
+      "originalName": "Japan",
+      "elo": 1878,
+      "placeholder": false,
+      "width": 61
+    },
+    {
+      "rank": 16,
+      "code": "SN",
+      "flag": "🇸🇳",
+      "name": "塞内加尔",
+      "originalName": "Senegal",
+      "elo": 1869,
+      "placeholder": false,
+      "width": 59
+    },
+    {
+      "rank": 17,
+      "code": "MX",
+      "flag": "🇲🇽",
+      "name": "墨西哥",
+      "originalName": "Mexico",
+      "elo": 1857,
+      "placeholder": false,
+      "width": 58
+    },
+    {
+      "rank": 18,
+      "code": "BE",
+      "flag": "🇧🇪",
+      "name": "比利时",
+      "originalName": "Belgium",
+      "elo": 1849,
+      "placeholder": false,
+      "width": 57
+    },
+    {
+      "rank": 19,
+      "code": "PY",
+      "flag": "🇵🇾",
+      "name": "巴拉圭",
+      "originalName": "Paraguay",
+      "elo": 1833,
+      "placeholder": false,
+      "width": 55
+    },
+    {
+      "rank": 20,
+      "code": "AT",
+      "flag": "🇦🇹",
+      "name": "奥地利",
+      "originalName": "Austria",
+      "elo": 1818,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 21,
+      "code": "MA",
+      "flag": "🇲🇦",
+      "name": "摩洛哥",
+      "originalName": "Morocco",
+      "elo": 1806,
+      "placeholder": false,
+      "width": 51
+    },
+    {
+      "rank": 22,
+      "code": "CA",
+      "flag": "🇨🇦",
+      "name": "加拿大",
+      "originalName": "Canada",
+      "elo": 1805,
+      "placeholder": false,
+      "width": 51
+    },
+    {
+      "rank": 23,
+      "code": "SQ",
+      "flag": "🏴",
+      "name": "苏格兰",
+      "originalName": "Scotland",
+      "elo": 1790,
+      "placeholder": false,
+      "width": 49
+    },
+    {
+      "rank": 24,
+      "code": "KR",
+      "flag": "🇰🇷",
+      "name": "韩国",
+      "originalName": "Korea Republic",
+      "elo": 1784,
+      "placeholder": false,
+      "width": 48
+    },
+    {
+      "rank": 25,
+      "code": "AU",
+      "flag": "🇦🇺",
+      "name": "澳大利亚",
+      "originalName": "Australia",
+      "elo": 1774,
+      "placeholder": false,
+      "width": 47
+    },
+    {
+      "rank": 26,
+      "code": "IR",
+      "flag": "🇮🇷",
+      "name": "伊朗",
+      "originalName": "Iran",
+      "elo": 1755,
+      "placeholder": false,
+      "width": 44
+    },
+    {
+      "rank": 27,
+      "code": "US",
+      "flag": "🇺🇸",
+      "name": "美国",
+      "originalName": "United States",
+      "elo": 1747,
+      "placeholder": false,
+      "width": 43
+    },
+    {
+      "rank": 28,
+      "code": "PA",
+      "flag": "🇵🇦",
+      "name": "巴拿马",
+      "originalName": "Panama",
+      "elo": 1733,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "code": "Tur/Rou/Svk/Kos",
+      "flag": "🏳️",
+      "name": "土/罗/斯/科",
+      "originalName": "Tur/Rou/Svk/Kos",
+      "elo": 1731,
+      "placeholder": true,
+      "rank": 29,
+      "width": 41
+    },
+    {
+      "rank": 30,
+      "code": "DZ",
+      "flag": "🇩🇿",
+      "name": "阿尔及利亚",
+      "originalName": "Algeria",
+      "elo": 1728,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "rank": 31,
+      "code": "UZ",
+      "flag": "🇺🇿",
+      "name": "乌兹别克斯坦",
+      "originalName": "Uzbekistan",
+      "elo": 1728,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "code": "Den/Mkd/Cze/Irl",
+      "flag": "🏳️",
+      "name": "丹/北马/捷/爱",
+      "originalName": "Den/Mkd/Cze/Irl",
+      "elo": 1719,
+      "placeholder": true,
+      "rank": 32,
+      "width": 39
+    },
+    {
+      "code": "Ukr/Swe/Pol/Alb",
+      "flag": "🏳️",
+      "name": "乌/瑞/波/阿",
+      "originalName": "Ukr/Swe/Pol/Alb",
+      "elo": 1715,
+      "placeholder": true,
+      "rank": 33,
+      "width": 39
+    },
+    {
+      "rank": 34,
+      "code": "JO",
+      "flag": "🇯🇴",
+      "name": "约旦",
+      "originalName": "Jordan",
+      "elo": 1689,
+      "placeholder": false,
+      "width": 35
+    },
+    {
+      "code": "Ita/Nir/Wal/BiH",
+      "flag": "🏳️",
+      "name": "意/北爱/威/波黑",
+      "originalName": "Ita/Nir/Wal/BiH",
+      "elo": 1687,
+      "placeholder": true,
+      "rank": 35,
+      "width": 35
+    },
+    {
+      "rank": 36,
+      "code": "EG",
+      "flag": "🇪🇬",
+      "name": "埃及",
+      "originalName": "Egypt",
+      "elo": 1659,
+      "placeholder": false,
+      "width": 31
+    },
+    {
+      "rank": 37,
+      "code": "CI",
+      "flag": "🇨🇮",
+      "name": "科特迪瓦",
+      "originalName": "Côte d'Ivoire",
+      "elo": 1637,
+      "placeholder": false,
+      "width": 28
+    },
+    {
+      "rank": 38,
+      "code": "TN",
+      "flag": "🇹🇳",
+      "name": "突尼斯",
+      "originalName": "Tunisia",
+      "elo": 1614,
+      "placeholder": false,
+      "width": 25
+    },
+    {
+      "rank": 39,
+      "code": "SA",
+      "flag": "🇸🇦",
+      "name": "沙特阿拉伯",
+      "originalName": "Saudi Arabia",
+      "elo": 1592,
+      "placeholder": false,
+      "width": 22
+    },
+    {
+      "rank": 40,
+      "code": "NZ",
+      "flag": "🇳🇿",
+      "name": "新西兰",
+      "originalName": "New Zealand",
+      "elo": 1585,
+      "placeholder": false,
+      "width": 21
+    },
+    {
+      "rank": 41,
+      "code": "CV",
+      "flag": "🇨🇻",
+      "name": "佛得角",
+      "originalName": "Cape Verde Islands",
+      "elo": 1561,
+      "placeholder": false,
+      "width": 18
+    },
+    {
+      "code": "Bol/Sur/Irq",
+      "flag": "🏳️",
+      "name": "玻/苏/伊",
+      "originalName": "Bol/Sur/Irq",
+      "elo": 1560,
+      "placeholder": true,
+      "rank": 42,
+      "width": 18
+    },
+    {
+      "rank": 43,
+      "code": "HT",
+      "flag": "🇭🇹",
+      "name": "海地",
+      "originalName": "Haiti",
+      "elo": 1542,
+      "placeholder": false,
+      "width": 16
+    },
+    {
+      "rank": 44,
+      "code": "ZA",
+      "flag": "🇿🇦",
+      "name": "南非",
+      "originalName": "South Africa",
+      "elo": 1528,
+      "placeholder": false,
+      "width": 14
+    },
+    {
+      "rank": 45,
+      "code": "GH",
+      "flag": "🇬🇭",
+      "name": "加纳",
+      "originalName": "Ghana",
+      "elo": 1509,
+      "placeholder": false,
+      "width": 11
+    },
+    {
+      "code": "Ncl/Jam/Cod",
+      "flag": "🏳️",
+      "name": "新喀/牙/刚果金",
+      "originalName": "Ncl/Jam/Cod",
+      "elo": 1492,
+      "placeholder": true,
+      "rank": 46,
+      "width": 9
+    },
+    {
+      "rank": 47,
+      "code": "CW",
+      "flag": "🇨🇼",
+      "name": "库拉索",
+      "originalName": "Curacao",
+      "elo": 1466,
+      "placeholder": false,
+      "width": 6
+    },
+    {
+      "rank": 48,
+      "code": "QA",
+      "flag": "🇶🇦",
+      "name": "卡塔尔",
+      "originalName": "Qatar",
+      "elo": 1425,
+      "placeholder": false,
+      "width": 6
+    }
+  ]
+}

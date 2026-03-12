@@ -1,0 +1,2749 @@
+{
+  "updatedAt": "2026-03-12T17:02:23.273631+00:00",
+  "source": "eloratings.net",
+  "teamDictionaryUrl": "https://eloratings.net/en.teams.tsv",
+  "successorUrl": "https://eloratings.net/teams.tsv",
+  "teamCount": 304,
+  "successfulTeams": 248,
+  "failedTeams": 56,
+  "derivedTeams": 51,
+  "uniqueMatchCount": 51867,
+  "teams": [
+    {
+      "code": "DN",
+      "name": "Aden",
+      "slug": "Aden",
+      "successorCode": "YE",
+      "ok": false,
+      "derived": true,
+      "matchCount": 5
+    },
+    {
+      "code": "AF",
+      "name": "Afghanistan",
+      "slug": "Afghanistan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 163
+    },
+    {
+      "code": "AL",
+      "name": "Albania",
+      "slug": "Albania",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 406
+    },
+    {
+      "code": "DZ",
+      "name": "Algeria",
+      "slug": "Algeria",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 686
+    },
+    {
+      "code": "AD",
+      "name": "Andorra",
+      "slug": "Andorra",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 226
+    },
+    {
+      "code": "AO",
+      "name": "Angola",
+      "slug": "Angola",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 473
+    },
+    {
+      "code": "AI",
+      "name": "Anguilla",
+      "slug": "Anguilla",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 115
+    },
+    {
+      "code": "AG",
+      "name": "Antigua and Barbuda",
+      "slug": "Antigua_and_Barbuda",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 285
+    },
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "slug": "Argentina",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1107
+    },
+    {
+      "code": "AM",
+      "name": "Armenia",
+      "slug": "Armenia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 280
+    },
+    {
+      "code": "AW",
+      "name": "Aruba",
+      "slug": "Aruba",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 205
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "slug": "Australia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 633
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "slug": "Austria",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 863
+    },
+    {
+      "code": "AH",
+      "name": "Austria-Hungary",
+      "slug": "Austria-Hungary",
+      "successorCode": "AT",
+      "ok": false,
+      "derived": false,
+      "matchCount": 0
+    },
+    {
+      "code": "AZ",
+      "name": "Azerbaijan",
+      "slug": "Azerbaijan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 320
+    },
+    {
+      "code": "BS",
+      "name": "Bahamas",
+      "slug": "Bahamas",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 88
+    },
+    {
+      "code": "BH",
+      "name": "Bahrain",
+      "slug": "Bahrain",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 636
+    },
+    {
+      "code": "BD",
+      "name": "Bangladesh",
+      "slug": "Bangladesh",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 324
+    },
+    {
+      "code": "BB",
+      "name": "Barbados",
+      "slug": "Barbados",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 373
+    },
+    {
+      "code": "UT",
+      "name": "Basutoland",
+      "slug": "Basutoland",
+      "successorCode": "LS",
+      "ok": false,
+      "derived": true,
+      "matchCount": 1
+    },
+    {
+      "code": "BY",
+      "name": "Belarus",
+      "slug": "Belarus",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 304
+    },
+    {
+      "code": "BC",
+      "name": "Belgian Congo",
+      "slug": "Belgian_Congo",
+      "successorCode": "CD",
+      "ok": false,
+      "derived": true,
+      "matchCount": 4
+    },
+    {
+      "code": "BE",
+      "name": "Belgium",
+      "slug": "Belgium",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 874
+    },
+    {
+      "code": "BZ",
+      "name": "Belize",
+      "slug": "Belize",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 127
+    },
+    {
+      "code": "OR",
+      "name": "Belorussia",
+      "slug": "Belorussia",
+      "successorCode": "BY",
+      "ok": false,
+      "derived": true,
+      "matchCount": 4
+    },
+    {
+      "code": "BJ",
+      "name": "Benin",
+      "slug": "Benin",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 350
+    },
+    {
+      "code": "BM",
+      "name": "Bermuda",
+      "slug": "Bermuda",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 234
+    },
+    {
+      "code": "BT",
+      "name": "Bhutan",
+      "slug": "Bhutan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 114
+    },
+    {
+      "code": "HA",
+      "name": "Bohemia",
+      "slug": "Bohemia",
+      "successorCode": "CZ",
+      "ok": false,
+      "derived": true,
+      "matchCount": 7
+    },
+    {
+      "code": "EM",
+      "name": "Bohemia and Moravia",
+      "slug": "Bohemia_and_Moravia",
+      "successorCode": "CZ",
+      "ok": false,
+      "derived": true,
+      "matchCount": 7
+    },
+    {
+      "code": "BO",
+      "name": "Bolivia",
+      "slug": "Bolivia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 533
+    },
+    {
+      "code": "BQ",
+      "name": "Bonaire",
+      "slug": "Bonaire",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 101
+    },
+    {
+      "code": "BA",
+      "name": "Bosnia and Herzegovina",
+      "slug": "Bosnia_and_Herzegovina",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 277
+    },
+    {
+      "code": "BW",
+      "name": "Botswana",
+      "slug": "Botswana",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 366
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "slug": "Brazil",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1063
+    },
+    {
+      "code": "RG",
+      "name": "British Guiana",
+      "slug": "British_Guiana",
+      "successorCode": "GY",
+      "ok": false,
+      "derived": true,
+      "matchCount": 168
+    },
+    {
+      "code": "BX",
+      "name": "British Honduras",
+      "slug": "British_Honduras",
+      "successorCode": "BZ",
+      "ok": false,
+      "derived": true,
+      "matchCount": 2
+    },
+    {
+      "code": "RI",
+      "name": "British India",
+      "slug": "British_India",
+      "successorCode": "IN",
+      "ok": false,
+      "derived": false,
+      "matchCount": 0
+    },
+    {
+      "code": "VG",
+      "name": "British Virgin Islands",
+      "slug": "British_Virgin_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 135
+    },
+    {
+      "code": "BN",
+      "name": "Brunei",
+      "slug": "Brunei",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 150
+    },
+    {
+      "code": "BG",
+      "name": "Bulgaria",
+      "slug": "Bulgaria",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 777
+    },
+    {
+      "code": "BF",
+      "name": "Burkina Faso",
+      "slug": "Burkina_Faso",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 489
+    },
+    {
+      "code": "BU",
+      "name": "Burma",
+      "slug": "Burma",
+      "successorCode": "MM",
+      "ok": false,
+      "derived": true,
+      "matchCount": 276
+    },
+    {
+      "code": "BI",
+      "name": "Burundi",
+      "slug": "Burundi",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 238
+    },
+    {
+      "code": "KH",
+      "name": "Cambodia",
+      "slug": "Cambodia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 316
+    },
+    {
+      "code": "CM",
+      "name": "Cameroon",
+      "slug": "Cameroon",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 659
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "slug": "Canada",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 483
+    },
+    {
+      "code": "CV",
+      "name": "Cape Verde",
+      "slug": "Cape_Verde",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 249
+    },
+    {
+      "code": "KY",
+      "name": "Cayman Islands",
+      "slug": "Cayman_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 126
+    },
+    {
+      "code": "CF",
+      "name": "Central African Republic",
+      "slug": "Central_African_Republic",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 162
+    },
+    {
+      "code": "CE",
+      "name": "Ceylon",
+      "slug": "Ceylon",
+      "successorCode": "LK",
+      "ok": false,
+      "derived": true,
+      "matchCount": 28
+    },
+    {
+      "code": "TD",
+      "name": "Chad",
+      "slug": "Chad",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 180
+    },
+    {
+      "code": "HG",
+      "name": "Chagos Islands",
+      "slug": "Chagos_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 4
+    },
+    {
+      "code": "CL",
+      "name": "Chile",
+      "slug": "Chile",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 850
+    },
+    {
+      "code": "CN",
+      "name": "China",
+      "slug": "China",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 759
+    },
+    {
+      "code": "CX",
+      "name": "Christmas Island",
+      "slug": "Christmas_Island",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 10
+    },
+    {
+      "code": "CC",
+      "name": "Cocos Islands",
+      "slug": "Cocos_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 10
+    },
+    {
+      "code": "CO",
+      "name": "Colombia",
+      "slug": "Colombia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 646
+    },
+    {
+      "code": "DS",
+      "name": "Commonwealth of Independent States",
+      "slug": "Commonwealth_of_Independent_States",
+      "successorCode": "RU",
+      "ok": false,
+      "derived": true,
+      "matchCount": 10
+    },
+    {
+      "code": "KM",
+      "name": "Comoros",
+      "slug": "Comoros",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 156
+    },
+    {
+      "code": "CG",
+      "name": "Congo",
+      "slug": "Congo",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 474
+    },
+    {
+      "code": "CB",
+      "name": "Congo-Brazzaville",
+      "slug": "Congo-Brazzaville",
+      "successorCode": "CG",
+      "ok": false,
+      "derived": true,
+      "matchCount": 24
+    },
+    {
+      "code": "CQ",
+      "name": "Congo-Kinshasa",
+      "slug": "Congo-Kinshasa",
+      "successorCode": "CD",
+      "ok": false,
+      "derived": false,
+      "matchCount": 0
+    },
+    {
+      "code": "CJ",
+      "name": "Congo-Leopoldville",
+      "slug": "Congo-Leopoldville",
+      "successorCode": "CD",
+      "ok": false,
+      "derived": true,
+      "matchCount": 11
+    },
+    {
+      "code": "CK",
+      "name": "Cook Islands",
+      "slug": "Cook_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 56
+    },
+    {
+      "code": "CR",
+      "name": "Costa Rica",
+      "slug": "Costa_Rica",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 787
+    },
+    {
+      "code": "HR",
+      "name": "Croatia",
+      "slug": "Croatia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 396
+    },
+    {
+      "code": "CU",
+      "name": "Cuba",
+      "slug": "Cuba",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 481
+    },
+    {
+      "code": "CW",
+      "name": "Curaçao",
+      "slug": "Curacao",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 496
+    },
+    {
+      "code": "CY",
+      "name": "Cyprus",
+      "slug": "Cyprus",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 425
+    },
+    {
+      "code": "CZ",
+      "name": "Czechia",
+      "slug": "Czechia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 880
+    },
+    {
+      "code": "CS",
+      "name": "Czechoslovakia",
+      "slug": "Czechoslovakia",
+      "successorCode": "CZ",
+      "ok": false,
+      "derived": true,
+      "matchCount": 510
+    },
+    {
+      "code": "CD",
+      "name": "DR Congo",
+      "slug": "DR_Congo",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 545
+    },
+    {
+      "code": "DH",
+      "name": "Dahomey",
+      "slug": "Dahomey",
+      "successorCode": "BJ",
+      "ok": false,
+      "derived": true,
+      "matchCount": 58
+    },
+    {
+      "code": "DK",
+      "name": "Denmark",
+      "slug": "Denmark",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 901
+    },
+    {
+      "code": "DJ",
+      "name": "Djibouti",
+      "slug": "Djibouti",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 119
+    },
+    {
+      "code": "DM",
+      "name": "Dominica",
+      "slug": "Dominica",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 244
+    },
+    {
+      "code": "DO",
+      "name": "Dominican Republic",
+      "slug": "Dominican_Republic",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 187
+    },
+    {
+      "code": "DI",
+      "name": "Dutch East Indies",
+      "slug": "Dutch_East_Indies",
+      "successorCode": "ID",
+      "ok": false,
+      "derived": true,
+      "matchCount": 6
+    },
+    {
+      "code": "DD",
+      "name": "East Germany",
+      "slug": "East_Germany",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 322
+    },
+    {
+      "code": "EP",
+      "name": "East Pakistan",
+      "slug": "East_Pakistan",
+      "successorCode": "BD",
+      "ok": false,
+      "derived": true,
+      "matchCount": 1
+    },
+    {
+      "code": "TL",
+      "name": "East Timor",
+      "slug": "East_Timor",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 89
+    },
+    {
+      "code": "AS",
+      "name": "Eastern Samoa",
+      "slug": "Eastern_Samoa",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 57
+    },
+    {
+      "code": "EC",
+      "name": "Ecuador",
+      "slug": "Ecuador",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 596
+    },
+    {
+      "code": "EG",
+      "name": "Egypt",
+      "slug": "Egypt",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 882
+    },
+    {
+      "code": "SV",
+      "name": "El Salvador",
+      "slug": "El_Salvador",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 683
+    },
+    {
+      "code": "EN",
+      "name": "England",
+      "slug": "England",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1159
+    },
+    {
+      "code": "GQ",
+      "name": "Equatorial Guinea",
+      "slug": "Equatorial_Guinea",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 193
+    },
+    {
+      "code": "ER",
+      "name": "Eritrea",
+      "slug": "Eritrea",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 84
+    },
+    {
+      "code": "EE",
+      "name": "Estonia",
+      "slug": "Estonia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 537
+    },
+    {
+      "code": "SW",
+      "name": "Eswatini",
+      "slug": "Eswatini",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 322
+    },
+    {
+      "code": "ET",
+      "name": "Ethiopia",
+      "slug": "Ethiopia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 470
+    },
+    {
+      "code": "FM",
+      "name": "FS Micronesia",
+      "slug": "FS_Micronesia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 8
+    },
+    {
+      "code": "FK",
+      "name": "Falkland Islands",
+      "slug": "Falkland_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 4
+    },
+    {
+      "code": "FO",
+      "name": "Faroe Islands",
+      "slug": "Faroe_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 280
+    },
+    {
+      "code": "FJ",
+      "name": "Fiji",
+      "slug": "Fiji",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 286
+    },
+    {
+      "code": "FI",
+      "name": "Finland",
+      "slug": "Finland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 821
+    },
+    {
+      "code": "FR",
+      "name": "France",
+      "slug": "France",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 936
+    },
+    {
+      "code": "FC",
+      "name": "French Congo",
+      "slug": "French_Congo",
+      "successorCode": "CG",
+      "ok": false,
+      "derived": true,
+      "matchCount": 1
+    },
+    {
+      "code": "GF",
+      "name": "French Guiana",
+      "slug": "French_Guiana",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 190
+    },
+    {
+      "code": "FS",
+      "name": "French Somaliland",
+      "slug": "French_Somaliland",
+      "successorCode": "DJ",
+      "ok": false,
+      "derived": true,
+      "matchCount": 8
+    },
+    {
+      "code": "FN",
+      "name": "French Sudan",
+      "slug": "French_Sudan",
+      "successorCode": "ML",
+      "ok": false,
+      "derived": true,
+      "matchCount": 2
+    },
+    {
+      "code": "FT",
+      "name": "French Togoland",
+      "slug": "French_Togoland",
+      "successorCode": "TG",
+      "ok": false,
+      "derived": true,
+      "matchCount": 5
+    },
+    {
+      "code": "GA",
+      "name": "Gabon",
+      "slug": "Gabon",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 460
+    },
+    {
+      "code": "GM",
+      "name": "Gambia",
+      "slug": "Gambia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 297
+    },
+    {
+      "code": "GE",
+      "name": "Georgia",
+      "slug": "Georgia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 317
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "slug": "Germany",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1043
+    },
+    {
+      "code": "GH",
+      "name": "Ghana",
+      "slug": "Ghana",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 773
+    },
+    {
+      "code": "GI",
+      "name": "Gibraltar",
+      "slug": "Gibraltar",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 114
+    },
+    {
+      "code": "GC",
+      "name": "Gold Coast",
+      "slug": "Gold_Coast",
+      "successorCode": "GH",
+      "ok": false,
+      "derived": true,
+      "matchCount": 15
+    },
+    {
+      "code": "GB",
+      "name": "Great Britain",
+      "slug": "Great_Britain",
+      "successorCode": "EN",
+      "ok": false,
+      "derived": false,
+      "matchCount": 0
+    },
+    {
+      "code": "GR",
+      "name": "Greece",
+      "slug": "Greece",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 654
+    },
+    {
+      "code": "GL",
+      "name": "Greenland",
+      "slug": "Greenland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 22
+    },
+    {
+      "code": "GD",
+      "name": "Grenada",
+      "slug": "Grenada",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 307
+    },
+    {
+      "code": "GP",
+      "name": "Guadeloupe",
+      "slug": "Guadeloupe",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 293
+    },
+    {
+      "code": "GU",
+      "name": "Guam",
+      "slug": "Guam",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 128
+    },
+    {
+      "code": "GT",
+      "name": "Guatemala",
+      "slug": "Guatemala",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 625
+    },
+    {
+      "code": "GN",
+      "name": "Guinea",
+      "slug": "Guinea",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 645
+    },
+    {
+      "code": "GW",
+      "name": "Guinea-Bissau",
+      "slug": "Guinea-Bissau",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 213
+    },
+    {
+      "code": "GY",
+      "name": "Guyana",
+      "slug": "Guyana",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 454
+    },
+    {
+      "code": "HT",
+      "name": "Haiti",
+      "slug": "Haiti",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 559
+    },
+    {
+      "code": "HN",
+      "name": "Honduras",
+      "slug": "Honduras",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 666
+    },
+    {
+      "code": "HK",
+      "name": "Hong Kong",
+      "slug": "Hong_Kong",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 511
+    },
+    {
+      "code": "HU",
+      "name": "Hungary",
+      "slug": "Hungary",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1031
+    },
+    {
+      "code": "IS",
+      "name": "Iceland",
+      "slug": "Iceland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 523
+    },
+    {
+      "code": "IN",
+      "name": "India",
+      "slug": "India",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 604
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "slug": "Indonesia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 781
+    },
+    {
+      "code": "IR",
+      "name": "Iran",
+      "slug": "Iran",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 666
+    },
+    {
+      "code": "IQ",
+      "name": "Iraq",
+      "slug": "Iraq",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 757
+    },
+    {
+      "code": "IE",
+      "name": "Ireland",
+      "slug": "Ireland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 738
+    },
+    {
+      "code": "IL",
+      "name": "Israel",
+      "slug": "Israel",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 522
+    },
+    {
+      "code": "IT",
+      "name": "Italy",
+      "slug": "Italy",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 900
+    },
+    {
+      "code": "CI",
+      "name": "Ivory Coast",
+      "slug": "Ivory_Coast",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 690
+    },
+    {
+      "code": "JM",
+      "name": "Jamaica",
+      "slug": "Jamaica",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 714
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "slug": "Japan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 833
+    },
+    {
+      "code": "JO",
+      "name": "Jordan",
+      "slug": "Jordan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 580
+    },
+    {
+      "code": "KZ",
+      "name": "Kazakhstan",
+      "slug": "Kazakhstan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 268
+    },
+    {
+      "code": "KE",
+      "name": "Kenya",
+      "slug": "Kenya",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 777
+    },
+    {
+      "code": "KU",
+      "name": "Khmer Republic",
+      "slug": "Khmer_Republic",
+      "successorCode": "KH",
+      "ok": false,
+      "derived": true,
+      "matchCount": 69
+    },
+    {
+      "code": "KI",
+      "name": "Kiribati",
+      "slug": "Kiribati",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 11
+    },
+    {
+      "code": "KA",
+      "name": "Korea",
+      "slug": "Korea",
+      "successorCode": "KR",
+      "ok": false,
+      "derived": true,
+      "matchCount": 1
+    },
+    {
+      "code": "KO",
+      "name": "Kosovo",
+      "slug": "Kosovo",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 105
+    },
+    {
+      "code": "KD",
+      "name": "Kurdistan",
+      "slug": "Kurdistan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 4
+    },
+    {
+      "code": "KW",
+      "name": "Kuwait",
+      "slug": "Kuwait",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 761
+    },
+    {
+      "code": "KG",
+      "name": "Kyrgyzstan",
+      "slug": "Kyrgyzstan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 188
+    },
+    {
+      "code": "LA",
+      "name": "Laos",
+      "slug": "Laos",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 234
+    },
+    {
+      "code": "LV",
+      "name": "Latvia",
+      "slug": "Latvia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 455
+    },
+    {
+      "code": "LB",
+      "name": "Lebanon",
+      "slug": "Lebanon",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 419
+    },
+    {
+      "code": "LS",
+      "name": "Lesotho",
+      "slug": "Lesotho",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 350
+    },
+    {
+      "code": "LR",
+      "name": "Liberia",
+      "slug": "Liberia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 338
+    },
+    {
+      "code": "LY",
+      "name": "Libya",
+      "slug": "Libya",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 457
+    },
+    {
+      "code": "LI",
+      "name": "Liechtenstein",
+      "slug": "Liechtenstein",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 255
+    },
+    {
+      "code": "LT",
+      "name": "Lithuania",
+      "slug": "Lithuania",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 414
+    },
+    {
+      "code": "LU",
+      "name": "Luxembourg",
+      "slug": "Luxembourg",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 471
+    },
+    {
+      "code": "MO",
+      "name": "Macao",
+      "slug": "Macao",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 160
+    },
+    {
+      "code": "MK",
+      "name": "Macedonia",
+      "slug": "Macedonia",
+      "successorCode": "NM",
+      "ok": false,
+      "derived": true,
+      "matchCount": 227
+    },
+    {
+      "code": "MG",
+      "name": "Madagascar",
+      "slug": "Madagascar",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 354
+    },
+    {
+      "code": "MW",
+      "name": "Malawi",
+      "slug": "Malawi",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 697
+    },
+    {
+      "code": "AY",
+      "name": "Malaya",
+      "slug": "Malaya",
+      "successorCode": "MY",
+      "ok": false,
+      "derived": true,
+      "matchCount": 79
+    },
+    {
+      "code": "MY",
+      "name": "Malaysia",
+      "slug": "Malaysia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 928
+    },
+    {
+      "code": "MV",
+      "name": "Maldives",
+      "slug": "Maldives",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 238
+    },
+    {
+      "code": "ML",
+      "name": "Mali",
+      "slug": "Mali",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 623
+    },
+    {
+      "code": "MI",
+      "name": "Mali Federation",
+      "slug": "Mali_Federation",
+      "successorCode": "ML",
+      "ok": false,
+      "derived": true,
+      "matchCount": 4
+    },
+    {
+      "code": "MT",
+      "name": "Malta",
+      "slug": "Malta",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 452
+    },
+    {
+      "code": "MH",
+      "name": "Marshall Islands",
+      "slug": "Marshall_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 2
+    },
+    {
+      "code": "MQ",
+      "name": "Martinique",
+      "slug": "Martinique",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 369
+    },
+    {
+      "code": "MR",
+      "name": "Mauritania",
+      "slug": "Mauritania",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 297
+    },
+    {
+      "code": "MU",
+      "name": "Mauritius",
+      "slug": "Mauritius",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 357
+    },
+    {
+      "code": "YT",
+      "name": "Mayotte",
+      "slug": "Mayotte",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 41
+    },
+    {
+      "code": "MX",
+      "name": "Mexico",
+      "slug": "Mexico",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1025
+    },
+    {
+      "code": "OD",
+      "name": "Moldavia",
+      "slug": "Moldavia",
+      "successorCode": "MD",
+      "ok": false,
+      "derived": true,
+      "matchCount": 1
+    },
+    {
+      "code": "MD",
+      "name": "Moldova",
+      "slug": "Moldova",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 298
+    },
+    {
+      "code": "MC",
+      "name": "Monaco",
+      "slug": "Monaco",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 9
+    },
+    {
+      "code": "MN",
+      "name": "Mongolia",
+      "slug": "Mongolia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 100
+    },
+    {
+      "code": "ME",
+      "name": "Montenegro",
+      "slug": "Montenegro",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 170
+    },
+    {
+      "code": "MS",
+      "name": "Montserrat",
+      "slug": "Montserrat",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 74
+    },
+    {
+      "code": "MA",
+      "name": "Morocco",
+      "slug": "Morocco",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 725
+    },
+    {
+      "code": "MZ",
+      "name": "Mozambique",
+      "slug": "Mozambique",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 442
+    },
+    {
+      "code": "MM",
+      "name": "Myanmar",
+      "slug": "Myanmar",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 549
+    },
+    {
+      "code": "NA",
+      "name": "Namibia",
+      "slug": "Namibia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 302
+    },
+    {
+      "code": "NP",
+      "name": "Nepal",
+      "slug": "Nepal",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 294
+    },
+    {
+      "code": "NL",
+      "name": "Netherlands",
+      "slug": "Netherlands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 899
+    },
+    {
+      "code": "AN",
+      "name": "Netherlands Antilles",
+      "slug": "Netherlands_Antilles",
+      "successorCode": "CW",
+      "ok": false,
+      "derived": true,
+      "matchCount": 219
+    },
+    {
+      "code": "NC",
+      "name": "New Caledonia",
+      "slug": "New_Caledonia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 284
+    },
+    {
+      "code": "NH",
+      "name": "New Hebrides",
+      "slug": "New_Hebrides",
+      "successorCode": "VU",
+      "ok": false,
+      "derived": true,
+      "matchCount": 40
+    },
+    {
+      "code": "NZ",
+      "name": "New Zealand",
+      "slug": "New_Zealand",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 437
+    },
+    {
+      "code": "NI",
+      "name": "Nicaragua",
+      "slug": "Nicaragua",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 250
+    },
+    {
+      "code": "NE",
+      "name": "Niger",
+      "slug": "Niger",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 288
+    },
+    {
+      "code": "NG",
+      "name": "Nigeria",
+      "slug": "Nigeria",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 711
+    },
+    {
+      "code": "NU",
+      "name": "Niue",
+      "slug": "Niue",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 2
+    },
+    {
+      "code": "KP",
+      "name": "North Korea",
+      "slug": "North_Korea",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 417
+    },
+    {
+      "code": "NM",
+      "name": "North Macedonia",
+      "slug": "North_Macedonia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 301
+    },
+    {
+      "code": "NV",
+      "name": "North Vietnam",
+      "slug": "North_Vietnam",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 27
+    },
+    {
+      "code": "NY",
+      "name": "North Yemen",
+      "slug": "North_Yemen",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 39
+    },
+    {
+      "code": "NS",
+      "name": "Northern Cyprus",
+      "slug": "Northern_Cyprus",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 17
+    },
+    {
+      "code": "EI",
+      "name": "Northern Ireland",
+      "slug": "Northern_Ireland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 608
+    },
+    {
+      "code": "MP",
+      "name": "Northern Mariana Islands",
+      "slug": "Northern_Mariana_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 36
+    },
+    {
+      "code": "ND",
+      "name": "Northern Rhodesia",
+      "slug": "Northern_Rhodesia",
+      "successorCode": "ZM",
+      "ok": false,
+      "derived": true,
+      "matchCount": 35
+    },
+    {
+      "code": "NO",
+      "name": "Norway",
+      "slug": "Norway",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 884
+    },
+    {
+      "code": "NN",
+      "name": "Nyasaland",
+      "slug": "Nyasaland",
+      "successorCode": "MW",
+      "ok": false,
+      "derived": true,
+      "matchCount": 6
+    },
+    {
+      "code": "OM",
+      "name": "Oman",
+      "slug": "Oman",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 591
+    },
+    {
+      "code": "PK",
+      "name": "Pakistan",
+      "slug": "Pakistan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 283
+    },
+    {
+      "code": "PW",
+      "name": "Palau",
+      "slug": "Palau",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 2
+    },
+    {
+      "code": "PS",
+      "name": "Palestine",
+      "slug": "Palestine",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 289
+    },
+    {
+      "code": "PA",
+      "name": "Panama",
+      "slug": "Panama",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 589
+    },
+    {
+      "code": "PG",
+      "name": "Papua New Guinea",
+      "slug": "Papua_New_Guinea",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 165
+    },
+    {
+      "code": "PY",
+      "name": "Paraguay",
+      "slug": "Paraguay",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 786
+    },
+    {
+      "code": "PE",
+      "name": "Peru",
+      "slug": "Peru",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 706
+    },
+    {
+      "code": "PH",
+      "name": "Philippines",
+      "slug": "Philippines",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 396
+    },
+    {
+      "code": "PL",
+      "name": "Poland",
+      "slug": "Poland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 917
+    },
+    {
+      "code": "PT",
+      "name": "Portugal",
+      "slug": "Portugal",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 692
+    },
+    {
+      "code": "PU",
+      "name": "Portuguese Guinea",
+      "slug": "Portuguese_Guinea",
+      "successorCode": "GW",
+      "ok": false,
+      "derived": true,
+      "matchCount": 7
+    },
+    {
+      "code": "PR",
+      "name": "Puerto Rico",
+      "slug": "Puerto_Rico",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 193
+    },
+    {
+      "code": "QA",
+      "name": "Qatar",
+      "slug": "Qatar",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 698
+    },
+    {
+      "code": "RE",
+      "name": "Reunion",
+      "slug": "Reunion",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 139
+    },
+    {
+      "code": "RH",
+      "name": "Rhodesia",
+      "slug": "Rhodesia",
+      "successorCode": "ZW",
+      "ok": false,
+      "derived": true,
+      "matchCount": 17
+    },
+    {
+      "code": "RO",
+      "name": "Romania",
+      "slug": "Romania",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 798
+    },
+    {
+      "code": "RB",
+      "name": "Ruanda-Urundi",
+      "slug": "Ruanda-Urundi",
+      "successorCode": "BI",
+      "ok": false,
+      "derived": true,
+      "matchCount": 1
+    },
+    {
+      "code": "RU",
+      "name": "Russia",
+      "slug": "Russia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 810
+    },
+    {
+      "code": "RW",
+      "name": "Rwanda",
+      "slug": "Rwanda",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 288
+    },
+    {
+      "code": "SP",
+      "name": "Saar",
+      "slug": "Saar",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 21
+    },
+    {
+      "code": "AB",
+      "name": "Saba",
+      "slug": "Saba",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 8
+    },
+    {
+      "code": "BL",
+      "name": "Saint Barthelemy",
+      "slug": "Saint_Barthelemy",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 10
+    },
+    {
+      "code": "KT",
+      "name": "Saint Kitts",
+      "slug": "Saint_Kitts",
+      "successorCode": "KN",
+      "ok": false,
+      "derived": true,
+      "matchCount": 12
+    },
+    {
+      "code": "KN",
+      "name": "Saint Kitts and Nevis",
+      "slug": "Saint_Kitts_and_Nevis",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 250
+    },
+    {
+      "code": "LC",
+      "name": "Saint Lucia",
+      "slug": "Saint_Lucia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 263
+    },
+    {
+      "code": "MF",
+      "name": "Saint Martin",
+      "slug": "Saint_Martin",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 84
+    },
+    {
+      "code": "PM",
+      "name": "Saint Pierre and Miquelon",
+      "slug": "Saint_Pierre_and_Miquelon",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 7
+    },
+    {
+      "code": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "slug": "Saint_Vincent_and_the_Grenadines",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 363
+    },
+    {
+      "code": "WS",
+      "name": "Samoa",
+      "slug": "Samoa",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 77
+    },
+    {
+      "code": "SM",
+      "name": "San Marino",
+      "slug": "San_Marino",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 224
+    },
+    {
+      "code": "ST",
+      "name": "Sao Tome and Principe",
+      "slug": "Sao_Tome_and_Principe",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 80
+    },
+    {
+      "code": "SA",
+      "name": "Saudi Arabia",
+      "slug": "Saudi_Arabia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 833
+    },
+    {
+      "code": "SQ",
+      "name": "Scotland",
+      "slug": "Scotland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 864
+    },
+    {
+      "code": "SN",
+      "name": "Senegal",
+      "slug": "Senegal",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 702
+    },
+    {
+      "code": "RS",
+      "name": "Serbia",
+      "slug": "Serbia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 858
+    },
+    {
+      "code": "RM",
+      "name": "Serbia and Montenegro",
+      "slug": "Serbia_and_Montenegro",
+      "successorCode": "RS",
+      "ok": false,
+      "derived": true,
+      "matchCount": 36
+    },
+    {
+      "code": "SC",
+      "name": "Seychelles",
+      "slug": "Seychelles",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 188
+    },
+    {
+      "code": "SL",
+      "name": "Sierra Leone",
+      "slug": "Sierra_Leone",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 335
+    },
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "slug": "Singapore",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 770
+    },
+    {
+      "code": "EU",
+      "name": "Sint Eustatius",
+      "slug": "Sint_Eustatius",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 11
+    },
+    {
+      "code": "SX",
+      "name": "Sint Maarten",
+      "slug": "Sint_Maarten",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 73
+    },
+    {
+      "code": "SK",
+      "name": "Slovakia",
+      "slug": "Slovakia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 364
+    },
+    {
+      "code": "SI",
+      "name": "Slovenia",
+      "slug": "Slovenia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 317
+    },
+    {
+      "code": "SB",
+      "name": "Solomon Islands",
+      "slug": "Solomon_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 221
+    },
+    {
+      "code": "SO",
+      "name": "Somalia",
+      "slug": "Somalia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 148
+    },
+    {
+      "code": "JS",
+      "name": "Somaliland",
+      "slug": "Somaliland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 2
+    },
+    {
+      "code": "ZA",
+      "name": "South Africa",
+      "slug": "South_Africa",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 522
+    },
+    {
+      "code": "KR",
+      "name": "South Korea",
+      "slug": "South_Korea",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1048
+    },
+    {
+      "code": "SS",
+      "name": "South Sudan",
+      "slug": "South_Sudan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 79
+    },
+    {
+      "code": "RV",
+      "name": "South Vietnam",
+      "slug": "South_Vietnam",
+      "successorCode": "VN",
+      "ok": false,
+      "derived": true,
+      "matchCount": 223
+    },
+    {
+      "code": "DY",
+      "name": "South Yemen",
+      "slug": "South_Yemen",
+      "successorCode": "YE",
+      "ok": false,
+      "derived": true,
+      "matchCount": 45
+    },
+    {
+      "code": "ZD",
+      "name": "Southern Rhodesia",
+      "slug": "Southern_Rhodesia",
+      "successorCode": "ZW",
+      "ok": false,
+      "derived": true,
+      "matchCount": 32
+    },
+    {
+      "code": "SU",
+      "name": "Soviet Union",
+      "slug": "Soviet_Union",
+      "successorCode": "RU",
+      "ok": false,
+      "derived": true,
+      "matchCount": 414
+    },
+    {
+      "code": "ES",
+      "name": "Spain",
+      "slug": "Spain",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 778
+    },
+    {
+      "code": "LK",
+      "name": "Sri Lanka",
+      "slug": "Sri_Lanka",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 282
+    },
+    {
+      "code": "SD",
+      "name": "Sudan",
+      "slug": "Sudan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 553
+    },
+    {
+      "code": "UM",
+      "name": "Surinam",
+      "slug": "Surinam",
+      "successorCode": "SR",
+      "ok": false,
+      "derived": true,
+      "matchCount": 258
+    },
+    {
+      "code": "SR",
+      "name": "Suriname",
+      "slug": "Suriname",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 542
+    },
+    {
+      "code": "SZ",
+      "name": "Swaziland",
+      "slug": "Swaziland",
+      "successorCode": "SW",
+      "ok": false,
+      "derived": true,
+      "matchCount": 244
+    },
+    {
+      "code": "SE",
+      "name": "Sweden",
+      "slug": "Sweden",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1116
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland",
+      "slug": "Switzerland",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 893
+    },
+    {
+      "code": "SY",
+      "name": "Syria",
+      "slug": "Syria",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 595
+    },
+    {
+      "code": "TI",
+      "name": "Tahiti",
+      "slug": "Tahiti",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 254
+    },
+    {
+      "code": "TW",
+      "name": "Taiwan",
+      "slug": "Taiwan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 338
+    },
+    {
+      "code": "TJ",
+      "name": "Tajikistan",
+      "slug": "Tajikistan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 209
+    },
+    {
+      "code": "TY",
+      "name": "Tanganyika",
+      "slug": "Tanganyika",
+      "successorCode": "TZ",
+      "ok": false,
+      "derived": true,
+      "matchCount": 58
+    },
+    {
+      "code": "TZ",
+      "name": "Tanzania",
+      "slug": "Tanzania",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 653
+    },
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "slug": "Thailand",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 932
+    },
+    {
+      "code": "TE",
+      "name": "Tibet",
+      "slug": "Tibet",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 10
+    },
+    {
+      "code": "TG",
+      "name": "Togo",
+      "slug": "Togo",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 491
+    },
+    {
+      "code": "TO",
+      "name": "Tonga",
+      "slug": "Tonga",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 70
+    },
+    {
+      "code": "TT",
+      "name": "Trinidad and Tobago",
+      "slug": "Trinidad_and_Tobago",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 867
+    },
+    {
+      "code": "TN",
+      "name": "Tunisia",
+      "slug": "Tunisia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 773
+    },
+    {
+      "code": "TR",
+      "name": "Turkey",
+      "slug": "Turkey",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 667
+    },
+    {
+      "code": "TM",
+      "name": "Turkmenistan",
+      "slug": "Turkmenistan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 186
+    },
+    {
+      "code": "TC",
+      "name": "Turks and Caicos Islands",
+      "slug": "Turks_and_Caicos_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 56
+    },
+    {
+      "code": "TV",
+      "name": "Tuvalu",
+      "slug": "Tuvalu",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 34
+    },
+    {
+      "code": "VI",
+      "name": "US Virgin Islands",
+      "slug": "US_Virgin_Islands",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 79
+    },
+    {
+      "code": "UH",
+      "name": "Ubangi-Shari",
+      "slug": "Ubangi-Shari",
+      "successorCode": "CF",
+      "ok": false,
+      "derived": true,
+      "matchCount": 1
+    },
+    {
+      "code": "UG",
+      "name": "Uganda",
+      "slug": "Uganda",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 734
+    },
+    {
+      "code": "UA",
+      "name": "Ukraine",
+      "slug": "Ukraine",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 336
+    },
+    {
+      "code": "AE",
+      "name": "United Arab Emirates",
+      "slug": "United_Arab_Emirates",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 674
+    },
+    {
+      "code": "RR",
+      "name": "United Arab Republic",
+      "slug": "United_Arab_Republic",
+      "successorCode": "EG",
+      "ok": false,
+      "derived": true,
+      "matchCount": 27
+    },
+    {
+      "code": "UK",
+      "name": "United Kingdom",
+      "slug": "United_Kingdom",
+      "successorCode": "EN",
+      "ok": false,
+      "derived": false,
+      "matchCount": 0
+    },
+    {
+      "code": "US",
+      "name": "United States",
+      "slug": "United_States",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 823
+    },
+    {
+      "code": "UV",
+      "name": "Upper Volta",
+      "slug": "Upper_Volta",
+      "successorCode": "BF",
+      "ok": false,
+      "derived": true,
+      "matchCount": 80
+    },
+    {
+      "code": "UY",
+      "name": "Uruguay",
+      "slug": "Uruguay",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1017
+    },
+    {
+      "code": "UZ",
+      "name": "Uzbekistan",
+      "slug": "Uzbekistan",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 363
+    },
+    {
+      "code": "VU",
+      "name": "Vanuatu",
+      "slug": "Vanuatu",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 225
+    },
+    {
+      "code": "VA",
+      "name": "Vatican",
+      "slug": "Vatican",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 5
+    },
+    {
+      "code": "VE",
+      "name": "Venezuela",
+      "slug": "Venezuela",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 479
+    },
+    {
+      "code": "VN",
+      "name": "Vietnam",
+      "slug": "Vietnam",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 524
+    },
+    {
+      "code": "WA",
+      "name": "Wales",
+      "slug": "Wales",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 731
+    },
+    {
+      "code": "WF",
+      "name": "Wallis and Futuna",
+      "slug": "Wallis_and_Futuna",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 24
+    },
+    {
+      "code": "WG",
+      "name": "West Germany",
+      "slug": "West_Germany",
+      "successorCode": "DE",
+      "ok": false,
+      "derived": true,
+      "matchCount": 378
+    },
+    {
+      "code": "EH",
+      "name": "Western Sahara",
+      "slug": "Western_Sahara",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 1
+    },
+    {
+      "code": "WM",
+      "name": "Western Samoa",
+      "slug": "Western_Samoa",
+      "successorCode": "WS",
+      "ok": false,
+      "derived": true,
+      "matchCount": 21
+    },
+    {
+      "code": "YE",
+      "name": "Yemen",
+      "slug": "Yemen",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 294
+    },
+    {
+      "code": "YU",
+      "name": "Yugoslavia",
+      "slug": "Yugoslavia",
+      "successorCode": "RS",
+      "ok": false,
+      "derived": true,
+      "matchCount": 609
+    },
+    {
+      "code": "ZR",
+      "name": "Zaire",
+      "slug": "Zaire",
+      "successorCode": "CD",
+      "ok": false,
+      "derived": true,
+      "matchCount": 181
+    },
+    {
+      "code": "ZM",
+      "name": "Zambia",
+      "slug": "Zambia",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 878
+    },
+    {
+      "code": "ZN",
+      "name": "Zanzibar",
+      "slug": "Zanzibar",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 216
+    },
+    {
+      "code": "ZW",
+      "name": "Zimbabwe",
+      "slug": "Zimbabwe",
+      "successorCode": null,
+      "ok": true,
+      "derived": false,
+      "matchCount": 550
+    }
+  ]
+}

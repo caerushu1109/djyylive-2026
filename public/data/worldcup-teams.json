@@ -1,0 +1,294 @@
+{
+  "updatedAt": "2026-03-11T22:52:19+00:00",
+  "source": "sportmonks",
+  "teams": [
+    {
+      "name": "Spain",
+      "displayName": "西班牙",
+      "flag": "🇪🇸",
+      "placeholder": false
+    },
+    {
+      "name": "Argentina",
+      "displayName": "阿根廷",
+      "flag": "🇦🇷",
+      "placeholder": false
+    },
+    {
+      "name": "France",
+      "displayName": "法国",
+      "flag": "🇫🇷",
+      "placeholder": false
+    },
+    {
+      "name": "England",
+      "displayName": "英格兰",
+      "flag": "🏴",
+      "placeholder": false
+    },
+    {
+      "name": "Colombia",
+      "displayName": "哥伦比亚",
+      "flag": "🇨🇴",
+      "placeholder": false
+    },
+    {
+      "name": "Brazil",
+      "displayName": "巴西",
+      "flag": "🇧🇷",
+      "placeholder": false
+    },
+    {
+      "name": "Portugal",
+      "displayName": "葡萄牙",
+      "flag": "🇵🇹",
+      "placeholder": false
+    },
+    {
+      "name": "Netherlands",
+      "displayName": "荷兰",
+      "flag": "🇳🇱",
+      "placeholder": false
+    },
+    {
+      "name": "Ecuador",
+      "displayName": "厄瓜多尔",
+      "flag": "🇪🇨",
+      "placeholder": false
+    },
+    {
+      "name": "Croatia",
+      "displayName": "克罗地亚",
+      "flag": "🇭🇷",
+      "placeholder": false
+    },
+    {
+      "name": "Norway",
+      "displayName": "挪威",
+      "flag": "🇳🇴",
+      "placeholder": false
+    },
+    {
+      "name": "Germany",
+      "displayName": "德国",
+      "flag": "🇩🇪",
+      "placeholder": false
+    },
+    {
+      "name": "Switzerland",
+      "displayName": "瑞士",
+      "flag": "🇨🇭",
+      "placeholder": false
+    },
+    {
+      "name": "Uruguay",
+      "displayName": "乌拉圭",
+      "flag": "🇺🇾",
+      "placeholder": false
+    },
+    {
+      "name": "Japan",
+      "displayName": "日本",
+      "flag": "🇯🇵",
+      "placeholder": false
+    },
+    {
+      "name": "Senegal",
+      "displayName": "塞内加尔",
+      "flag": "🇸🇳",
+      "placeholder": false
+    },
+    {
+      "name": "Mexico",
+      "displayName": "墨西哥",
+      "flag": "🇲🇽",
+      "placeholder": false
+    },
+    {
+      "name": "Belgium",
+      "displayName": "比利时",
+      "flag": "🇧🇪",
+      "placeholder": false
+    },
+    {
+      "name": "Paraguay",
+      "displayName": "巴拉圭",
+      "flag": "🇵🇾",
+      "placeholder": false
+    },
+    {
+      "name": "Austria",
+      "displayName": "奥地利",
+      "flag": "🇦🇹",
+      "placeholder": false
+    },
+    {
+      "name": "Morocco",
+      "displayName": "摩洛哥",
+      "flag": "🇲🇦",
+      "placeholder": false
+    },
+    {
+      "name": "Canada",
+      "displayName": "加拿大",
+      "flag": "🇨🇦",
+      "placeholder": false
+    },
+    {
+      "name": "Scotland",
+      "displayName": "苏格兰",
+      "flag": "🏴",
+      "placeholder": false
+    },
+    {
+      "name": "Korea Republic",
+      "displayName": "韩国",
+      "flag": "🇰🇷",
+      "placeholder": false
+    },
+    {
+      "name": "Australia",
+      "displayName": "澳大利亚",
+      "flag": "🇦🇺",
+      "placeholder": false
+    },
+    {
+      "name": "Iran",
+      "displayName": "伊朗",
+      "flag": "🇮🇷",
+      "placeholder": false
+    },
+    {
+      "name": "United States",
+      "displayName": "美国",
+      "flag": "🇺🇸",
+      "placeholder": false
+    },
+    {
+      "name": "Panama",
+      "displayName": "巴拿马",
+      "flag": "🇵🇦",
+      "placeholder": false
+    },
+    {
+      "name": "Tur/Rou/Svk/Kos",
+      "displayName": "土/罗/斯/科",
+      "flag": "🏳️",
+      "placeholder": true
+    },
+    {
+      "name": "Algeria",
+      "displayName": "阿尔及利亚",
+      "flag": "🇩🇿",
+      "placeholder": false
+    },
+    {
+      "name": "Uzbekistan",
+      "displayName": "乌兹别克斯坦",
+      "flag": "🇺🇿",
+      "placeholder": false
+    },
+    {
+      "name": "Den/Mkd/Cze/Irl",
+      "displayName": "丹/北马/捷/爱",
+      "flag": "🏳️",
+      "placeholder": true
+    },
+    {
+      "name": "Ukr/Swe/Pol/Alb",
+      "displayName": "乌/瑞/波/阿",
+      "flag": "🏳️",
+      "placeholder": true
+    },
+    {
+      "name": "Jordan",
+      "displayName": "约旦",
+      "flag": "🇯🇴",
+      "placeholder": false
+    },
+    {
+      "name": "Ita/Nir/Wal/BiH",
+      "displayName": "意/北爱/威/波黑",
+      "flag": "🏳️",
+      "placeholder": true
+    },
+    {
+      "name": "Egypt",
+      "displayName": "埃及",
+      "flag": "🇪🇬",
+      "placeholder": false
+    },
+    {
+      "name": "Côte d'Ivoire",
+      "displayName": "科特迪瓦",
+      "flag": "🇨🇮",
+      "placeholder": false
+    },
+    {
+      "name": "Tunisia",
+      "displayName": "突尼斯",
+      "flag": "🇹🇳",
+      "placeholder": false
+    },
+    {
+      "name": "Saudi Arabia",
+      "displayName": "沙特阿拉伯",
+      "flag": "🇸🇦",
+      "placeholder": false
+    },
+    {
+      "name": "New Zealand",
+      "displayName": "新西兰",
+      "flag": "🇳🇿",
+      "placeholder": false
+    },
+    {
+      "name": "Cape Verde Islands",
+      "displayName": "佛得角",
+      "flag": "🇨🇻",
+      "placeholder": false
+    },
+    {
+      "name": "Bol/Sur/Irq",
+      "displayName": "玻/苏/伊",
+      "flag": "🏳️",
+      "placeholder": true
+    },
+    {
+      "name": "Haiti",
+      "displayName": "海地",
+      "flag": "🇭🇹",
+      "placeholder": false
+    },
+    {
+      "name": "South Africa",
+      "displayName": "南非",
+      "flag": "🇿🇦",
+      "placeholder": false
+    },
+    {
+      "name": "Ghana",
+      "displayName": "加纳",
+      "flag": "🇬🇭",
+      "placeholder": false
+    },
+    {
+      "name": "Ncl/Jam/Cod",
+      "displayName": "新喀/牙/刚果金",
+      "flag": "🏳️",
+      "placeholder": true
+    },
+    {
+      "name": "Curacao",
+      "displayName": "库拉索",
+      "flag": "🇨🇼",
+      "placeholder": false
+    },
+    {
+      "name": "Qatar",
+      "displayName": "卡塔尔",
+      "flag": "🇶🇦",
+      "placeholder": false
+    }
+  ]
+}

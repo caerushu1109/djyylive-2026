@@ -1,20 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | 跳转到赛事页</title>
-    <meta name="description" content="今日比赛入口已并入赛事页，正在为你跳转。" />
-    <meta http-equiv="refresh" content="0; url=./index.html#home-schedule-list" />
-    <link rel="canonical" href="https://www.worldcuppulse.com/zh/index.html" />
+    <title>直播 | 2026</title>
+    <link rel="stylesheet" href="./styles.css?v=20260312-home1" />
   </head>
-  <body>
-    <script>
-      const url = new URL(window.location.href);
-      const target = new URL("./index.html", url);
-      url.searchParams.forEach((value, key) => target.searchParams.set(key, value));
-      target.hash = "home-schedule-list";
-      window.location.replace(target.toString());
-    </script>
+  <body data-page="live">
+    <main class="app-shell">
+      <header class="topbar topbar-compact">
+        <div>
+          <p class="eyebrow">Live</p>
+          <h1 class="page-title">直播</h1>
+        </div>
+        <a class="text-link" href="./index.html">返回 2026</a>
+      </header>
+
+      <section id="live-hero" class="feature-card"></section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Live View</p>
+            <h2>比赛视图</h2>
+          </div>
+        </div>
+        <div id="live-tabs" class="switch-tabs" role="tablist" aria-label="比赛视图切换">
+          <button class="switch-tab is-active" type="button" data-live-tab="opinion">实时观点</button>
+          <button class="switch-tab" type="button" data-live-tab="probability">比赛概率</button>
+          <button class="switch-tab" type="button" data-live-tab="events">现场数据</button>
+          <button class="switch-tab" type="button" data-live-tab="stats">技术统计</button>
+          <button class="switch-tab" type="button" data-live-tab="lineup">阵容与换人</button>
+          <button class="switch-tab" type="button" data-live-tab="info">比赛信息</button>
+        </div>
+        <div id="live-panel" class="live-panel"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <a class="bottom-nav-link" href="./index.html">2026</a>
+      <a class="bottom-nav-link is-active" href="./live.html">直播</a>
+      <a class="bottom-nav-link" href="./opinion.html">观点</a>
+    </nav>
+
+    <script type="module" src="./app.js?v=20260312-home1"></script>
   </body>
 </html>

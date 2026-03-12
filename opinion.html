@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>观点 | 2026</title>
+    <link rel="stylesheet" href="./styles.css?v=20260312-opinion6" />
+  </head>
+  <body data-page="opinion">
+    <main class="app-shell">
+      <header class="topbar topbar-compact">
+        <div>
+          <p class="eyebrow">本届前瞻</p>
+          <h1 class="page-title">观点</h1>
+        </div>
+        <a class="text-link" href="./index.html">返回 2026</a>
+      </header>
+
+      <section id="opinion-hero" class="feature-card"></section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">本届格局</p>
+            <h2>先看整体情况</h2>
+          </div>
+        </div>
+        <div id="opinion-overview" class="panel-stack"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">分组</p>
+            <h2>小组情况</h2>
+          </div>
+        </div>
+        <div id="opinion-groups" class="card-rail-wrap">
+          <div class="card-rail"></div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">淘汰赛</p>
+            <h2>晋级树</h2>
+          </div>
+        </div>
+        <div id="opinion-bracket" class="bracket-board"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">焦点比赛</p>
+            <h2>点一场看具体观点</h2>
+          </div>
+        </div>
+        <div id="opinion-fixtures" class="card-rail-wrap">
+          <div class="card-rail"></div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">单场观点</p>
+            <h2>这场怎么看</h2>
+          </div>
+        </div>
+        <div id="opinion-tabs" class="switch-tabs" role="tablist" aria-label="赛前视图切换">
+          <button class="switch-tab is-active" type="button" data-opinion-tab="elo">Elo 对比</button>
+          <button class="switch-tab" type="button" data-opinion-tab="core">核心观点</button>
+          <button class="switch-tab" type="button" data-opinion-tab="history">历史背景</button>
+          <button class="switch-tab" type="button" data-opinion-tab="lineup">阵容信息</button>
+          <button class="switch-tab" type="button" data-opinion-tab="group">分组背景</button>
+        </div>
+        <div id="opinion-panel" class="live-panel"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <a class="bottom-nav-link" href="./index.html">2026</a>
+      <a class="bottom-nav-link" href="./live.html">直播</a>
+      <a class="bottom-nav-link is-active" href="./opinion.html">观点</a>
+    </nav>
+
+    <script type="module" src="./app.js?v=20260312-opinion6"></script>
+  </body>
+</html>

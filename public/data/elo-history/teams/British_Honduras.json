@@ -1,0 +1,91 @@
+{
+  "code": "BX",
+  "name": "British Honduras",
+  "aliases": [],
+  "slug": "British_Honduras",
+  "successorCode": "BZ",
+  "ok": false,
+  "derived": true,
+  "lastModified": null,
+  "matchCount": 2,
+  "matches": [
+    {
+      "date": {
+        "year": 1928,
+        "month": 2,
+        "day": 19,
+        "iso": "1928-02-19"
+      },
+      "homeCode": "BX",
+      "awayCode": "HN",
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "tournamentCode": "F",
+      "venueCode": null,
+      "ratingChange": 15,
+      "homeEloAfter": 1115,
+      "awayEloAfter": 1377,
+      "homeRankChange": null,
+      "awayRankChange": 0,
+      "homeRankAfter": 61,
+      "awayRankAfter": 48,
+      "raw": [
+        "1928",
+        "02",
+        "19",
+        "BX",
+        "HN",
+        "1",
+        "0",
+        "F",
+        "",
+        "15",
+        "1115",
+        "1377",
+        "−",
+        "0",
+        "61",
+        "48"
+      ]
+    },
+    {
+      "date": {
+        "year": 1963,
+        "month": 4,
+        "day": 1,
+        "iso": "1963-04-01"
+      },
+      "homeCode": "BX",
+      "awayCode": "JM",
+      "homeGoals": 2,
+      "awayGoals": 2,
+      "tournamentCode": "F",
+      "venueCode": null,
+      "ratingChange": 2,
+      "homeEloAfter": 1117,
+      "awayEloAfter": 1277,
+      "homeRankChange": 0,
+      "awayRankChange": -1,
+      "homeRankAfter": 139,
+      "awayRankAfter": 118,
+      "raw": [
+        "1963",
+        "04",
+        "01",
+        "BX",
+        "JM",
+        "2",
+        "2",
+        "F",
+        "",
+        "2",
+        "1117",
+        "1277",
+        "0",
+        "−1",
+        "139",
+        "118"
+      ]
+    }
+  ]
+}

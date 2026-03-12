@@ -1,63 +1,94 @@
-# Deployment Guide
+# Cloudflare Deployment
 
-## Recommended Stack
+## Recommended Path
 
-- Hosting: Vercel
-- DNS: your domain registrar or Cloudflare
-- Public root: `/zh/index.html`
+This project is a Next.js 14 app with App Router and API routes, so it should be deployed as a Cloudflare full-stack app on Workers, not as a static Pages export.
 
-This project is currently a static site and is already structured to deploy without a custom backend.
+Recommended setup:
 
-## Current Deployment Assets
+1. GitHub as the source of truth
+2. Cloudflare Workers deployment for this repository
+3. `main` branch as production
+4. Custom domain: `2026.djyylive.com`
+5. GitHub Actions updates Elo JSON once per day
+6. Cloudflare rebuilds and redeploys after each push
 
-- `vercel.json`
-- `404.html`
-- `robots.txt`
-- `sitemap.xml`
-- `site.webmanifest`
+## Before Deploying
 
-## Local Preview
+Make sure these are ready:
 
-```bash
-cd /Users/caerushu/Documents/New\ project
-python3 -m http.server 8090
+1. A clean production branch
+2. One Cloudflare project for this version only
+3. One active domain target only
+4. SportMonks token available
+
+Because you mentioned there are old failed versions, do not reuse those old project names blindly. First confirm which Cloudflare Worker / build target and which domain binding should remain active.
+
+## Required Environment Variables
+
+Set these in Cloudflare build variables / secrets:
+
+1. `SPORTMONKS_API_TOKEN`
+2. `SPORTMONKS_BASE_URL`
+
+Suggested value for `SPORTMONKS_BASE_URL`:
+
+```text
+https://api.sportmonks.com/v3/football
 ```
 
-Then open:
+## Local Verification
 
-- `http://localhost:8090/zh/index.html`
-- `http://localhost:8090/en/index.html`
+Run these before the first real deploy:
 
-## Vercel Deployment Steps
+```bash
+npm run build
+npm run update:elo
+```
 
-1. Import the GitHub repository into Vercel
-2. Set the project as a static site
-3. Keep the output directory as the repository root
-4. Confirm redirects from:
-   - `/` -> `/zh/index.html`
-   - `/zh` -> `/zh/index.html`
-   - `/en` -> `/en/index.html`
-5. Verify localized pages load correctly
+## GitHub Automation
 
-## Domain Binding
+This repo includes:
 
-Buy the domain when:
+`/.github/workflows/daily-elo-sync.yml`
 
-- the homepage visual direction is stable
-- the bilingual path structure is stable
-- you are ready to keep the project public on a real URL
+What it does:
 
-After purchase:
+1. Runs once per day
+2. Pulls the latest Elo data
+3. Regenerates:
+   - `public/data/elo.json`
+   - `public/data/predictions.json`
+   - `public/data/elo-trends.json`
+   - `public/data/worldcup-teams.json`
+4. Commits changes back to the repo
 
-1. Add the domain in Vercel
-2. Update DNS records at the registrar
-3. Verify HTTPS
-4. Recheck canonical and hreflang tags
+Required GitHub secret:
 
-## Before Public Launch
+1. `SPORTMONKS_API_TOKEN`
 
-- Check mobile layout on homepage, schedule, live, and match pages
-- Verify both `/zh` and `/en` paths
-- Verify `robots.txt` and `sitemap.xml`
-- Confirm launch-critical pages are visually stable
-- Confirm API provider selection for live data if tournament launch is near
+## Cloudflare Checklist
+
+When you start the actual Cloudflare setup, confirm:
+
+1. Correct GitHub repo connected
+2. Correct production branch selected
+3. Correct custom domain attached: `2026.djyylive.com`
+4. Old `wc.djyylive.com` bindings are not reused
+5. Old failed project bindings are disabled or left untouched until cutover is verified
+6. New deployment points to this Next.js app only
+
+## Old Version Cleanup
+
+Because you have old residual versions, check these before cutover:
+
+1. Old Cloudflare Worker / Pages project names
+2. Old custom domain bindings
+3. Old preview aliases
+4. Old GitHub webhook/build connections
+
+Do not delete anything yet until the new deployment is verified.
+
+## Official Direction
+
+Cloudflare's current official guidance for existing full-stack Next.js apps is to deploy them on Workers using Wrangler auto-configuration (`wrangler deploy --x-autoconfig`) rather than using static Pages export for SSR/API applications.

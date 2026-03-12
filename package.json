@@ -1,0 +1,27 @@
+{
+  "name": "djyy-2026-worldcup",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "cf:deploy": "wrangler deploy --x-autoconfig",
+    "cf:setup": "wrangler setup",
+    "update:elo": "python3 scripts/update_elo_from_eloratings.py",
+    "archive:elo-history": "python3 scripts/archive_elo_history_from_eloratings.py",
+    "generate:elo-trends": "python3 scripts/generate_elo_trends.py"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.17",
+    "wrangler": "^4.55.0"
+  }
+}

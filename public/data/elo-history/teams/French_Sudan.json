@@ -1,0 +1,91 @@
+{
+  "code": "FN",
+  "name": "French Sudan",
+  "aliases": [],
+  "slug": "French_Sudan",
+  "successorCode": "ML",
+  "ok": false,
+  "derived": true,
+  "lastModified": null,
+  "matchCount": 2,
+  "matches": [
+    {
+      "date": {
+        "year": 1954,
+        "month": 0,
+        "day": 0,
+        "iso": null
+      },
+      "homeCode": "CI",
+      "awayCode": "FN",
+      "homeGoals": 4,
+      "awayGoals": 0,
+      "tournamentCode": "JAM",
+      "venueCode": null,
+      "ratingChange": 25,
+      "homeEloAfter": 1645,
+      "awayEloAfter": 1575,
+      "homeRankChange": null,
+      "awayRankChange": null,
+      "homeRankAfter": 30,
+      "awayRankAfter": 46,
+      "raw": [
+        "1954",
+        "00",
+        "00",
+        "CI",
+        "FN",
+        "4",
+        "0",
+        "JAM",
+        "",
+        "25",
+        "1645",
+        "1575",
+        "−",
+        "−",
+        "30",
+        "46"
+      ]
+    },
+    {
+      "date": {
+        "year": 1955,
+        "month": 0,
+        "day": 0,
+        "iso": null
+      },
+      "homeCode": "FT",
+      "awayCode": "FN",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "tournamentCode": "FT",
+      "venueCode": "CI",
+      "ratingChange": 16,
+      "homeEloAfter": 1557,
+      "awayEloAfter": 1559,
+      "homeRankChange": 6,
+      "awayRankChange": -4,
+      "homeRankAfter": 53,
+      "awayRankAfter": 52,
+      "raw": [
+        "1955",
+        "00",
+        "00",
+        "FT",
+        "FN",
+        "2",
+        "1",
+        "FT",
+        "CI",
+        "16",
+        "1557",
+        "1559",
+        "+6",
+        "−4",
+        "53",
+        "52"
+      ]
+    }
+  ]
+}
