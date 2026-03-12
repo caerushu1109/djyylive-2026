@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | 世界杯门户首页</title>
+    <title>WorldCup Pulse | 2026 世界杯</title>
     <meta
       name="description"
-      content="世界杯门户首页，聚合赛程、分组、历史、球队与预测入口。"
+      content="2026 世界杯单页入口，直接看赛程、分组、晋级树和比赛详情。"
     />
     <link rel="canonical" href="https://www.worldcuppulse.com/zh/index.html" />
     <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/index.html" />
@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/index.html" />
     <meta name="theme-color" content="#0f5c40" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312af" />
+    <link rel="stylesheet" href="../styles.css?v=20260312ag" />
   </head>
   <body data-page="home" data-locale="zh" data-route-key="home">
     <main class="site-shell">
@@ -22,8 +22,7 @@
         <nav class="nav">
           <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
           <div class="nav__links">
-            <a href="./index.html" aria-current="page">首页</a>
-            <a href="./schedule.html">赛程</a>
+            <a href="./index.html" aria-current="page">2026</a>
             <a href="./history.html">历史</a>
             <a href="./prediction.html">预测</a>
             <a href="./teams.html">球队</a>
@@ -35,14 +34,14 @@
           <div class="mobile-home-hub__intro">
             <p class="eyebrow">比赛优先</p>
             <h1>先看今天的比赛，再决定往哪一页走</h1>
-            <p>先看赛程、焦点比赛和积分，后面再去历史、球队和预测。</p>
+            <p>先看 2026 赛程、分组、晋级树和比赛详情，其他内容放后面。</p>
           </div>
           <div class="mobile-home-hub__actions">
-            <a class="mobile-home-hub__action mobile-home-hub__action--primary" href="./schedule.html">
+            <a class="mobile-home-hub__action mobile-home-hub__action--primary" href="#home-schedule-list">
               <span>先看赛程</span>
               <strong>揭幕周与首轮焦点</strong>
             </a>
-            <a class="mobile-home-hub__action" href="./schedule.html">
+            <a class="mobile-home-hub__action" href="#schedule-match-detail">
               <span>焦点比赛</span>
               <strong>正在踢什么，下一场是什么</strong>
             </a>
@@ -62,12 +61,12 @@
         <section class="hero hero--home">
           <div class="hero__content portal-hero">
             <div class="hero__copy">
-              <p class="eyebrow">世界杯网站</p>
+              <p class="eyebrow">2026 世界杯</p>
               <h1>先看比赛，再看历史和预测</h1>
               <p class="hero__lede">先看真实赛程、分组和当前焦点比赛。</p>
               <div class="hero__actions">
-                <a class="button button--primary" href="./schedule.html">先看赛程</a>
-                <a class="button button--ghost" href="./schedule.html">看焦点比赛</a>
+                <a class="button button--primary" href="#home-schedule-list">先看赛程</a>
+                <a class="button button--ghost" href="#schedule-match-detail">看焦点比赛</a>
               </div>
             </div>
 
@@ -106,8 +105,8 @@
         </div>
         <div class="match-grid" id="match-grid"></div>
         <div class="section-actions">
-          <a class="button button--primary" href="./schedule.html">查看完整赛程</a>
-          <a class="button button--ghost" href="./schedule.html">看焦点比赛</a>
+          <a class="button button--primary" href="#home-schedule-list">查看完整赛程</a>
+          <a class="button button--ghost" href="#schedule-match-detail">看焦点比赛</a>
         </div>
       </section>
 
@@ -150,7 +149,7 @@
           </div>
         </div>
         <div class="section-actions">
-          <a class="button button--ghost" href="./schedule.html">去赛事中心看全部比赛</a>
+          <a class="button button--ghost" href="#home-schedule-list">回到完整赛程</a>
           <a class="button button--ghost" href="./teams.html">从分组继续看球队资料</a>
         </div>
       </section>
@@ -166,8 +165,31 @@
         <div class="bracket-board" id="home-bracket"></div>
       </section>
 
+      <section class="section match-layout" id="schedule-match-detail">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow" id="schedule-match-timeline-eyebrow">关键事件</p>
+              <h2 id="schedule-match-timeline-title">当前比赛</h2>
+            </div>
+          </div>
+          <section id="schedule-match-hero"></section>
+          <div class="event-stack" id="schedule-match-timeline"></div>
+        </article>
+
+        <aside class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow" id="schedule-match-stats-eyebrow">技术统计</p>
+              <h2 id="schedule-match-stats-title">比赛数据</h2>
+            </div>
+          </div>
+          <div class="stat-tiles" id="schedule-match-stats"></div>
+        </aside>
+      </section>
+
     </main>
 
-    <script type="module" src="../src/app.js?v=20260312af"></script>
+    <script type="module" src="../src/app.js?v=20260312ag"></script>
   </body>
 </html>

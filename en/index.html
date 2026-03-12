@@ -3,26 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | World Cup Portal</title>
+    <title>WorldCup Pulse | 2026 World Cup</title>
     <meta
       name="description"
-      content="A World Cup portal that brings together fixtures, groups, history, teams, and prediction tools."
+      content="A single 2026 World Cup page with fixtures, groups, bracket, and match detail."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="WorldCup Pulse | World Cup Portal" />
-    <meta property="og:description" content="A World Cup front page built around fixtures, groups, Live entry points, history, teams, and prediction." />
+    <meta property="og:title" content="WorldCup Pulse | 2026 World Cup" />
+    <meta property="og:description" content="A single 2026 World Cup page with fixtures, groups, bracket, and match detail." />
     <meta property="og:url" content="https://www.worldcuppulse.com/en/index.html" />
     <meta property="og:site_name" content="WorldCup Pulse" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="WorldCup Pulse | World Cup Portal" />
-    <meta name="twitter:description" content="Start with schedule, groups, and the focus fixture, then move into history, teams, and prediction." />
+    <meta name="twitter:title" content="WorldCup Pulse | 2026 World Cup" />
+    <meta name="twitter:description" content="Open one page for the 2026 World Cup schedule, groups, bracket, and match detail." />
     <link rel="canonical" href="https://www.worldcuppulse.com/en/index.html" />
     <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/index.html" />
     <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/index.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/index.html" />
     <meta name="theme-color" content="#0f5c40" />
     <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312af" />
+    <link rel="stylesheet" href="../styles.css?v=20260312ag" />
   </head>
   <body data-page="home" data-locale="en" data-route-key="home">
     <main class="site-shell">
@@ -30,8 +30,7 @@
         <nav class="nav">
           <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
           <div class="nav__links">
-            <a href="./index.html" aria-current="page">Home</a>
-            <a href="./schedule.html">Schedule</a>
+            <a href="./index.html" aria-current="page">2026</a>
             <a href="./history.html">History</a>
             <a href="./prediction.html">Prediction</a>
             <a href="./teams.html">Teams</a>
@@ -43,14 +42,14 @@
           <div class="mobile-home-hub__intro">
             <p class="eyebrow">Matchday first</p>
             <h1>Start with today's matches, then choose where to go next</h1>
-            <p>Start with the live schedule, the next match, and the current group before going deeper.</p>
+            <p>Start with the 2026 schedule, groups, bracket, and match detail before going deeper.</p>
           </div>
           <div class="mobile-home-hub__actions">
-            <a class="mobile-home-hub__action mobile-home-hub__action--primary" href="./schedule.html">
+            <a class="mobile-home-hub__action mobile-home-hub__action--primary" href="#home-schedule-list">
               <span>Schedule</span>
               <strong>Opening week and first-round focus</strong>
             </a>
-            <a class="mobile-home-hub__action" href="./schedule.html">
+            <a class="mobile-home-hub__action" href="#schedule-match-detail">
               <span>Focus match</span>
               <strong>What's on now and what's next</strong>
             </a>
@@ -70,12 +69,12 @@
         <section class="hero hero--home">
           <div class="hero__content portal-hero">
             <div class="hero__copy">
-              <p class="eyebrow">World Cup Portal</p>
+              <p class="eyebrow">2026 World Cup</p>
               <h1>Start with the real schedule, then move deeper</h1>
               <p class="hero__lede">This front page now follows the live World Cup match flow first.</p>
               <div class="hero__actions">
-                <a class="button button--primary" href="./schedule.html">View schedule</a>
-                <a class="button button--ghost" href="./schedule.html">Open schedule</a>
+                <a class="button button--primary" href="#home-schedule-list">View schedule</a>
+                <a class="button button--ghost" href="#schedule-match-detail">Focus fixture</a>
               </div>
             </div>
 
@@ -114,8 +113,8 @@
         </div>
         <div class="match-grid" id="match-grid"></div>
         <div class="section-actions">
-          <a class="button button--primary" href="./schedule.html">View full schedule</a>
-          <a class="button button--ghost" href="./schedule.html">Open schedule</a>
+          <a class="button button--primary" href="#home-schedule-list">View full schedule</a>
+          <a class="button button--ghost" href="#schedule-match-detail">Open focus fixture</a>
         </div>
       </section>
 
@@ -158,7 +157,7 @@
           </div>
         </div>
         <div class="section-actions">
-          <a class="button button--ghost" href="./schedule.html">Go to match center</a>
+          <a class="button button--ghost" href="#home-schedule-list">Back to the full schedule</a>
           <a class="button button--ghost" href="./teams.html">Browse teams from the groups</a>
         </div>
       </section>
@@ -174,8 +173,31 @@
         <div class="bracket-board" id="home-bracket"></div>
       </section>
 
+      <section class="section match-layout" id="schedule-match-detail">
+        <article class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow" id="schedule-match-timeline-eyebrow">Key moments</p>
+              <h2 id="schedule-match-timeline-title">Current match</h2>
+            </div>
+          </div>
+          <section id="schedule-match-hero"></section>
+          <div class="event-stack" id="schedule-match-timeline"></div>
+        </article>
+
+        <aside class="history-panel">
+          <div class="section__heading section__heading--stack">
+            <div>
+              <p class="eyebrow" id="schedule-match-stats-eyebrow">Match stats</p>
+              <h2 id="schedule-match-stats-title">Numbers</h2>
+            </div>
+          </div>
+          <div class="stat-tiles" id="schedule-match-stats"></div>
+        </aside>
+      </section>
+
     </main>
 
-    <script type="module" src="../src/app.js?v=20260312af"></script>
+    <script type="module" src="../src/app.js?v=20260312ag"></script>
   </body>
 </html>

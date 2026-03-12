@@ -3,109 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldCup Pulse | 世界杯赛事中心</title>
-    <meta
-      name="description"
-      content="世界杯赛事中心，聚合焦点赛程、实时入口、筛选器和后续 standings 与 bracket 结构。"
-    />
-    <link rel="canonical" href="https://www.worldcuppulse.com/zh/schedule.html" />
-    <link rel="alternate" hreflang="zh-CN" href="https://www.worldcuppulse.com/zh/schedule.html" />
-    <link rel="alternate" hreflang="en" href="https://www.worldcuppulse.com/en/schedule.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.worldcuppulse.com/zh/schedule.html" />
-    <link rel="manifest" href="../site.webmanifest" />
-    <link rel="stylesheet" href="../styles.css?v=20260312af" />
+    <title>WorldCup Pulse | 跳转到 2026 页面</title>
+    <meta name="description" content="赛程已并入 2026 主页面，正在为你跳转。" />
+    <meta http-equiv="refresh" content="0; url=./index.html#home-schedule-list" />
+    <link rel="canonical" href="https://www.worldcuppulse.com/zh/index.html" />
   </head>
-  <body data-page="schedule" data-locale="zh" data-route-key="schedule">
-    <main class="site-shell">
-      <header class="masthead masthead--compact">
-        <nav class="nav">
-          <a class="nav__brand" href="./index.html">WorldCup Pulse</a>
-          <div class="nav__links">
-            <a href="./index.html">首页</a>
-            <a href="./schedule.html" aria-current="page">赛程</a>
-            <a href="./history.html">历史</a>
-            <a href="./prediction.html">预测</a>
-            <a href="./teams.html">球队</a>
-            <a href="/en/schedule.html" data-locale-switch>EN</a>
-          </div>
-        </nav>
-
-        <section class="page-hero history-hero">
-          <div class="page-hero__copy">
-            <p class="eyebrow">赛事中心</p>
-            <h1>赛事中心</h1>
-            <p class="hero__lede">先看现在最该点开的比赛，再顺着整届世界杯时间线往下看。</p>
-            <div class="hero__actions">
-              <a class="button button--primary" href="#schedule-live-now">先看今天该点哪场</a>
-              <a class="button button--ghost" href="#schedule-match-detail">看当前比赛详情</a>
-            </div>
-          </div>
-        </section>
-
-        <nav class="history-subnav">
-          <a href="./schedule.html" aria-current="page">赛事页</a>
-          <a href="#schedule-match-detail">当前比赛</a>
-        </nav>
-      </header>
-
-      <section class="section schedule-hub">
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow">正在进行</p>
-              <h2>进行中的比赛</h2>
-            </div>
-          </div>
-          <div id="schedule-live-now"></div>
-        </article>
-
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow">即将开始</p>
-              <h2>即将开始</h2>
-            </div>
-          </div>
-          <div id="schedule-upcoming"></div>
-        </article>
-      </section>
-
-      <section class="section">
-        <div class="section__heading">
-          <div>
-            <p class="eyebrow">完整赛程</p>
-            <h2>按时间线看全部比赛</h2>
-          </div>
-          <p class="section__intro">V1 先把整届世界杯赛程直接摊开，不再加筛选器打断浏览。</p>
-        </div>
-        <div class="schedule-stack" id="schedule-list"></div>
-      </section>
-
-      <section class="section match-layout" id="schedule-match-detail">
-        <article class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow" id="schedule-match-timeline-eyebrow">关键事件</p>
-              <h2 id="schedule-match-timeline-title">当前比赛</h2>
-            </div>
-          </div>
-          <section id="schedule-match-hero"></section>
-          <div class="event-stack" id="schedule-match-timeline"></div>
-        </article>
-
-        <aside class="history-panel">
-          <div class="section__heading section__heading--stack">
-            <div>
-              <p class="eyebrow" id="schedule-match-stats-eyebrow">技术统计</p>
-              <h2 id="schedule-match-stats-title">比赛数据</h2>
-            </div>
-          </div>
-          <div class="stat-tiles" id="schedule-match-stats"></div>
-        </aside>
-      </section>
-
-    </main>
-
-    <script type="module" src="../src/app.js?v=20260312af"></script>
+  <body>
+    <script>
+      const url = new URL(window.location.href);
+      const target = new URL("./index.html", url);
+      url.searchParams.forEach((value, key) => target.searchParams.set(key, value));
+      target.hash = "home-schedule-list";
+      window.location.replace(target.toString());
+    </script>
   </body>
 </html>

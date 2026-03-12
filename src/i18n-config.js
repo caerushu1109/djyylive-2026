@@ -13,16 +13,16 @@ export const localizedRoutes = {
     en: "/en/index.html",
   },
   schedule: {
-    zh: "/zh/schedule.html",
-    en: "/en/schedule.html",
+    zh: "/zh/index.html",
+    en: "/en/index.html",
   },
   live: {
-    zh: "/zh/schedule.html",
-    en: "/en/schedule.html",
+    zh: "/zh/index.html",
+    en: "/en/index.html",
   },
   match: {
-    zh: "/zh/schedule.html",
-    en: "/en/schedule.html",
+    zh: "/zh/index.html",
+    en: "/en/index.html",
   },
   history: {
     zh: "/zh/history.html",

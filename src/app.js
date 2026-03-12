@@ -160,7 +160,7 @@ function getCurrentMatchId() {
 }
 
 function getScheduleDetailMatchId() {
-  return document.body.dataset.page === "schedule" ? getCurrentMatchId() : null;
+  return ["home", "schedule"].includes(document.body.dataset.page) ? getCurrentMatchId() : null;
 }
 
 function withSourceParam(href) {
@@ -212,6 +212,7 @@ initHomeScheduleList();
 initGroupStandings();
 initHomeFocusTeams();
 initHomeBracket();
+initHomeMatchDetail();
 initPoll();
 initSchedulePage();
 initHistoryHubPage();
@@ -246,15 +247,13 @@ function initPrimaryNav() {
   const localeSwitch = homepageCopy[currentLocale] || homepageCopy[defaultLocale];
   const links = currentLocale === "zh"
     ? [
-        { key: "home", href: "/zh/index.html", label: "首页" },
-        { key: "schedule", href: "/zh/schedule.html", label: "赛程" },
+        { key: "home", href: "/zh/index.html", label: "2026" },
         { key: "history", href: "/zh/history.html", label: "历史" },
         { key: "prediction", href: "/zh/prediction.html", label: "预测" },
         { key: "teams", href: "/zh/teams.html", label: "球队" },
       ]
     : [
-        { key: "home", href: "/en/index.html", label: "Home" },
-        { key: "schedule", href: "/en/schedule.html", label: "Schedule" },
+        { key: "home", href: "/en/index.html", label: "2026" },
         { key: "history", href: "/en/history.html", label: "History" },
         { key: "prediction", href: "/en/prediction.html", label: "Prediction" },
         { key: "teams", href: "/en/teams.html", label: "Teams" },
@@ -278,11 +277,8 @@ function initPrimaryNav() {
 
 function getNavGroup() {
   const page = document.body.dataset.page;
-  if (page === "home") {
+  if (page === "home" || ["schedule", "live", "match"].includes(page)) {
     return "home";
-  }
-  if (["schedule", "live", "match"].includes(page)) {
-    return "schedule";
   }
   if (
     ["history-hub", "history", "history-upsets", "history-archive", "history-players", "history-matches"]
@@ -359,7 +355,7 @@ function initDynamicDetailEntryLinks() {
       document.body.dataset.page === "match" && node.getAttribute("aria-current") === "page"
         ? (getCurrentMatchId() || featuredMatchId)
         : featuredMatchId;
-    const nextPath = `${pagePath("schedule")}?id=${targetId}#schedule-match-detail`;
+    const nextPath = matchPath(targetId);
     node.setAttribute("href", withSourceParam(nextPath));
   });
 }
@@ -624,13 +620,13 @@ function initBottomTabBar() {
   const activeGroup = getNavGroup();
   const tabs = currentLocale === "zh"
     ? [
-        { key: "schedule", href: "/zh/schedule.html", label: "赛程" },
+        { key: "home", href: "/zh/index.html", label: "2026" },
         { key: "history", href: "/zh/history.html", label: "历史" },
         { key: "prediction", href: "/zh/prediction.html", label: "预测" },
         { key: "teams", href: "/zh/teams.html", label: "球队" },
       ]
     : [
-        { key: "schedule", href: "/en/schedule.html", label: "Schedule" },
+        { key: "home", href: "/en/index.html", label: "2026" },
         { key: "history", href: "/en/history.html", label: "History" },
         { key: "prediction", href: "/en/prediction.html", label: "Prediction" },
         { key: "teams", href: "/en/teams.html", label: "Teams" },
@@ -859,6 +855,34 @@ function initHomeBracket() {
   bracketNode.innerHTML = renderBracketBoard(knockoutStages);
 }
 
+function initHomeMatchDetail() {
+  const detailHeroNode = document.querySelector("#schedule-match-hero");
+  const detailTimelineNode = document.querySelector("#schedule-match-timeline");
+  const detailStatsNode = document.querySelector("#schedule-match-stats");
+  const detailTimelineEyebrowNode = document.querySelector("#schedule-match-timeline-eyebrow");
+  const detailTimelineTitleNode = document.querySelector("#schedule-match-timeline-title");
+  const detailStatsEyebrowNode = document.querySelector("#schedule-match-stats-eyebrow");
+  const detailStatsTitleNode = document.querySelector("#schedule-match-stats-title");
+
+  if (!detailHeroNode || !detailTimelineNode || !detailStatsNode) {
+    return;
+  }
+
+  const matchId = getScheduleDetailMatchId() || getFeaturedMatchId() || matches[0]?.id;
+  renderMatchDetailView(matchId, {
+    heroNode: detailHeroNode,
+    timelineNode: detailTimelineNode,
+    statsNode: detailStatsNode,
+    timelineEyebrowNode: detailTimelineEyebrowNode,
+    timelineTitleNode: detailTimelineTitleNode,
+    statsEyebrowNode: detailStatsEyebrowNode,
+    statsTitleNode: detailStatsTitleNode,
+    pageTitleNode: null,
+    pageLedeNode: null,
+    embedded: true,
+  });
+}
+
 function initGroupStandings() {
   const groupTabs = document.querySelector("#group-tabs");
   const groupTableBody = document.querySelector("#group-table-body");
@@ -913,11 +937,20 @@ function initSchedulePage() {
   const detailStatsEyebrowNode = document.querySelector("#schedule-match-stats-eyebrow");
   const detailStatsTitleNode = document.querySelector("#schedule-match-stats-title");
 
-  if (!scheduleList) {
+  if (
+    !scheduleList
+    && !liveNowNode
+    && !upcomingNode
+    && !detailHeroNode
+    && !detailTimelineNode
+    && !detailStatsNode
+  ) {
     return;
   }
 
-  renderScheduleList(scheduleList);
+  if (scheduleList) {
+    renderScheduleList(scheduleList);
+  }
 
   if (liveNowNode) {
     const liveMatches = matches.filter((match) => match.phase === "in_match");
@@ -1118,8 +1151,8 @@ function renderMatchDetailView(matchId, nodes) {
         lineupPending: "首发和替补名单会在开球前公布",
         statsPending: "技术统计会在开球后实时更新",
         reviewPending: "完场后这里会保留关键事件和比赛数据",
-        backSchedule: "回到赛程页",
-        toLive: "回到赛事页",
+        backSchedule: "回到 2026",
+        toLive: "回到 2026",
         toPrediction: "查看预测页",
       }
     : {
@@ -1176,8 +1209,8 @@ function renderMatchDetailView(matchId, nodes) {
         lineupPending: "Lineups and benches appear closer to kickoff",
         statsPending: "Live stats update after kickoff",
         reviewPending: "Timeline and stats stay here after full time",
-        backSchedule: "Back to schedule",
-        toLive: "Back to schedule",
+        backSchedule: "Back to 2026",
+        toLive: "Back to 2026",
         toPrediction: "Open prediction",
       };
   const scoreDisplay = match.phase === "pre_match" ? "×" : match.score;
@@ -1281,8 +1314,8 @@ function renderMatchDetailView(matchId, nodes) {
 
   if (relatedNode) {
     relatedNode.innerHTML = `
-      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.backSchedule}</a>
-      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/schedule.html" : "/en/schedule.html")}">${t.toLive}</a>
+      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/index.html#home-schedule-list" : "/en/index.html#home-schedule-list")}">${t.backSchedule}</a>
+      <a class="button button--ghost" href="${withSourceParam(currentLocale === "zh" ? "/zh/index.html#home-schedule-list" : "/en/index.html#home-schedule-list")}">${t.toLive}</a>
       <a class="button button--ghost" href="${withSourceParam(predictionPath())}">${t.toPrediction}</a>
     `;
   }
@@ -4003,7 +4036,7 @@ function renderMatchStateNotice(title, copy) {
       <h3>${title}</h3>
       <p>${copy}</p>
       ${nextMatchMarkup}
-      <a href="${pagePath("schedule")}">${currentUi.viewFullSchedule}</a>
+      <a href="${pagePath("home")}#home-schedule-list">${currentUi.viewFullSchedule}</a>
     </article>
   `;
 }
@@ -4078,7 +4111,7 @@ function pagePath(routeKey) {
 }
 
 function matchPath(matchId) {
-  return `${pagePath("schedule")}?id=${matchId}#schedule-match-detail`;
+  return `${pagePath("home")}?id=${matchId}#schedule-match-detail`;
 }
 
 function predictionPath() {
