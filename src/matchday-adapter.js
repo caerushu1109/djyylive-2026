@@ -29,7 +29,7 @@ const localMatchDetails = {
       { minute: 0, type: "lineup", team: "墨西哥", detail: "阵容、首发与球场信息会在接入实时 API 后替换这里。" },
       { minute: 0, type: "angle", team: "南非", detail: "这页后续会承接实时事件流、首发、换人和黄红牌。" },
     ],
-    stats: { possession_home: 54, possession_away: 46, shots_home: 13, shots_away: 10, shots_on_target_home: 6, shots_on_target_away: 4, xg_home: 1.4, xg_away: 1.1 },
+    stats: { possession_home: 54, possession_away: 46, shots_home: 13, shots_away: 10, shots_on_target_home: 6, shots_on_target_away: 4, corners_home: 5, corners_away: 4, yellowcards_home: 1, yellowcards_away: 2, xg_home: 1.4, xg_away: 1.1 },
   },
   "wc26-eng-cro": {
     timeline: [
@@ -37,14 +37,14 @@ const localMatchDetails = {
       { minute: 0, type: "angle", team: "克罗地亚", detail: "模型页可以先看双方 Elo 差值，再回到这里看事件流。" },
       { minute: 0, type: "lineup", team: "英格兰", detail: "接入 API 后，这里会替换成首发、事件、实时分钟和关键节点。" },
     ],
-    stats: { possession_home: 57, possession_away: 43, shots_home: 15, shots_away: 9, shots_on_target_home: 5, shots_on_target_away: 3, xg_home: 1.6, xg_away: 0.9 },
+    stats: { possession_home: 57, possession_away: 43, shots_home: 15, shots_away: 9, shots_on_target_home: 5, shots_on_target_away: 3, corners_home: 6, corners_away: 2, yellowcards_home: 1, yellowcards_away: 1, xg_home: 1.6, xg_away: 0.9 },
   },
   "wc26-fra-sen": {
     timeline: [
       { minute: 0, type: "context", team: "法国", detail: "法国 vs 塞内加尔适合承接赛前预期和历史记忆的双重叙事。" },
       { minute: 0, type: "angle", team: "塞内加尔", detail: "如果 API 覆盖事件流，这页会成为比赛期间的高频入口。" },
     ],
-    stats: { possession_home: 61, possession_away: 39, shots_home: 16, shots_away: 8, shots_on_target_home: 7, shots_on_target_away: 2, xg_home: 1.8, xg_away: 0.7 },
+    stats: { possession_home: 61, possession_away: 39, shots_home: 16, shots_away: 8, shots_on_target_home: 7, shots_on_target_away: 2, corners_home: 7, corners_away: 3, yellowcards_home: 0, yellowcards_away: 2, xg_home: 1.8, xg_away: 0.7 },
   },
 };
 
@@ -132,6 +132,10 @@ export function normalizeMatchStats(rawStats = {}) {
     shots_away: rawStats.shots_away ?? 0,
     shots_on_target_home: rawStats.shots_on_target_home ?? 0,
     shots_on_target_away: rawStats.shots_on_target_away ?? 0,
+    corners_home: rawStats.corners_home ?? 0,
+    corners_away: rawStats.corners_away ?? 0,
+    yellowcards_home: rawStats.yellowcards_home ?? 0,
+    yellowcards_away: rawStats.yellowcards_away ?? 0,
     xg_home: rawStats.xg_home ?? 0,
     xg_away: rawStats.xg_away ?? 0,
   };
@@ -144,7 +148,7 @@ export function getMatchDetail(matchId, normalizedMatches) {
       { minute: 0, type: "context", team: baseMatch.home, detail: `${baseMatch.home} vs ${baseMatch.away} 已进入官方赛程。` },
       { minute: 0, type: "angle", team: baseMatch.away, detail: "接入 API 后，这里会替换成实时事件流、首发和关键节点。" },
     ],
-    stats: { possession_home: 50, possession_away: 50, shots_home: 0, shots_away: 0, shots_on_target_home: 0, shots_on_target_away: 0, xg_home: 0, xg_away: 0 },
+    stats: { possession_home: 50, possession_away: 50, shots_home: 0, shots_away: 0, shots_on_target_home: 0, shots_on_target_away: 0, corners_home: 0, corners_away: 0, yellowcards_home: 0, yellowcards_away: 0, xg_home: 0, xg_away: 0 },
   };
 
   return {

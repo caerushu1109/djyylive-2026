@@ -168,6 +168,10 @@ export function mapSportMonksStats(rawStats = {}) {
       shots_away: toNumber(grouped.away["shots-total"], 0),
       shots_on_target_home: toNumber(grouped.home["shots-on-target"], 0),
       shots_on_target_away: toNumber(grouped.away["shots-on-target"], 0),
+      corners_home: toNumber(grouped.home.corners, 0),
+      corners_away: toNumber(grouped.away.corners, 0),
+      yellowcards_home: toNumber(grouped.home.yellowcards, 0),
+      yellowcards_away: toNumber(grouped.away.yellowcards, 0),
       xg_home: toNumber(grouped.home["expected-goals"], 0),
       xg_away: toNumber(grouped.away["expected-goals"], 0),
     };
@@ -180,6 +184,10 @@ export function mapSportMonksStats(rawStats = {}) {
     shots_away: rawStats.shots_away ?? rawStats.shots?.away ?? 0,
     shots_on_target_home: rawStats.shots_on_target_home ?? rawStats.shots_on_target?.home ?? 0,
     shots_on_target_away: rawStats.shots_on_target_away ?? rawStats.shots_on_target?.away ?? 0,
+    corners_home: rawStats.corners_home ?? rawStats.corners?.home ?? 0,
+    corners_away: rawStats.corners_away ?? rawStats.corners?.away ?? 0,
+    yellowcards_home: rawStats.yellowcards_home ?? rawStats.yellowcards?.home ?? 0,
+    yellowcards_away: rawStats.yellowcards_away ?? rawStats.yellowcards?.away ?? 0,
     xg_home: rawStats.xg_home ?? rawStats.xg?.home ?? 0,
     xg_away: rawStats.xg_away ?? rawStats.xg?.away ?? 0,
   };

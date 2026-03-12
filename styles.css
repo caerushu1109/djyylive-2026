@@ -1011,6 +1011,13 @@ h3 {
   font-weight: 700;
 }
 
+.standings-detail {
+  display: block;
+  margin-top: 4px;
+  color: rgba(22, 37, 31, 0.72);
+  font-size: 0.78rem;
+}
+
 .standings-form {
   display: flex;
   flex-wrap: wrap;

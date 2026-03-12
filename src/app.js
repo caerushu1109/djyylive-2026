@@ -763,6 +763,8 @@ function initMatchPage() {
         possession: "控球",
         shots: "射门",
         shotsOnTarget: "射正",
+        corners: "角球",
+        yellowcards: "黄牌",
         xg: "xG 占位",
         backSchedule: "回到赛程页",
         toLive: "进入 live 总览",
@@ -793,6 +795,8 @@ function initMatchPage() {
         possession: "Possession",
         shots: "Shots",
         shotsOnTarget: "Shots on target",
+        corners: "Corners",
+        yellowcards: "Yellow cards",
         xg: "xG",
         backSchedule: "Back to schedule",
         toLive: "Open live overview",
@@ -826,6 +830,8 @@ function initMatchPage() {
     <article class="stat-tile"><span>${t.possession}</span><strong>${detail.stats.possession_home}% / ${detail.stats.possession_away}%</strong></article>
     <article class="stat-tile"><span>${t.shots}</span><strong>${detail.stats.shots_home} / ${detail.stats.shots_away}</strong></article>
     <article class="stat-tile"><span>${t.shotsOnTarget}</span><strong>${detail.stats.shots_on_target_home} / ${detail.stats.shots_on_target_away}</strong></article>
+    <article class="stat-tile"><span>${t.corners}</span><strong>${detail.stats.corners_home} / ${detail.stats.corners_away}</strong></article>
+    <article class="stat-tile"><span>${t.yellowcards}</span><strong>${detail.stats.yellowcards_home} / ${detail.stats.yellowcards_away}</strong></article>
     <article class="stat-tile"><span>${t.xg}</span><strong>${detail.stats.xg_home} / ${detail.stats.xg_away}</strong></article>
   `;
 
@@ -3311,6 +3317,9 @@ function renderGroupTable(groupTableBody, groupKey) {
       const zoneLabel = currentLocale === "zh"
         ? (index < 2 ? "直通区" : index === 2 ? "第三名比较" : "追赶区")
         : (index < 2 ? "auto spot" : index === 2 ? "best-third race" : "chasing pack");
+      const detailLabel = currentLocale === "zh"
+        ? `净胜球 ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`
+        : `GD ${team.goal_difference > 0 ? `+${team.goal_difference}` : team.goal_difference} · ${team.goals_for}:${team.goals_against}`;
       return `
         <tr class="${rowClass}">
           <td>
@@ -3319,6 +3328,7 @@ function renderGroupTable(groupTableBody, groupKey) {
               <div>
                 <strong>${renderTeamLink(team.team)}</strong>
                 <span class="standings-zone">${zoneLabel}</span>
+                <span class="standings-detail">${detailLabel}</span>
                 <div class="standings-form" aria-label="${currentLocale === "zh" ? "小组战绩" : "group record"}">
                   <span class="form-dot form-dot--win">${currentLocale === "zh" ? "胜" : "W"} ${team.win}</span>
                   <span class="form-dot form-dot--draw">${currentLocale === "zh" ? "平" : "D"} ${team.draw}</span>
