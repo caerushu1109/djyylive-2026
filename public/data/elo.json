@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-11T22:52:19+00:00",
+  "updatedAt": "2026-03-12T22:30:08+00:00",
   "source": "eloratings.net",
   "sourceUrl": "https://eloratings.net/World.tsv",
   "method": "基于 eloratings.net 的 World.tsv 每日抓取，并按 SportMonks 的 2026 世界杯 48 队名单过滤生成。",
@@ -22,7 +22,7 @@
       "originalName": "Argentina",
       "elo": 2113,
       "placeholder": false,
-      "width": 92
+      "width": 97
     },
     {
       "rank": 3,
@@ -32,7 +32,7 @@
       "originalName": "France",
       "elo": 2062,
       "placeholder": false,
-      "width": 85
+      "width": 94
     },
     {
       "rank": 4,
@@ -42,7 +42,7 @@
       "originalName": "England",
       "elo": 2042,
       "placeholder": false,
-      "width": 83
+      "width": 93
     },
     {
       "rank": 5,
@@ -52,7 +52,7 @@
       "originalName": "Colombia",
       "elo": 1998,
       "placeholder": false,
-      "width": 77
+      "width": 90
     },
     {
       "rank": 6,
@@ -62,7 +62,7 @@
       "originalName": "Brazil",
       "elo": 1978,
       "placeholder": false,
-      "width": 74
+      "width": 89
     },
     {
       "rank": 7,
@@ -72,7 +72,7 @@
       "originalName": "Portugal",
       "elo": 1976,
       "placeholder": false,
-      "width": 74
+      "width": 89
     },
     {
       "rank": 8,
@@ -82,7 +82,7 @@
       "originalName": "Netherlands",
       "elo": 1959,
       "placeholder": false,
-      "width": 71
+      "width": 88
     },
     {
       "rank": 9,
@@ -92,7 +92,7 @@
       "originalName": "Ecuador",
       "elo": 1933,
       "placeholder": false,
-      "width": 68
+      "width": 87
     },
     {
       "rank": 10,
@@ -102,7 +102,7 @@
       "originalName": "Croatia",
       "elo": 1932,
       "placeholder": false,
-      "width": 68
+      "width": 87
     },
     {
       "rank": 11,
@@ -112,7 +112,7 @@
       "originalName": "Norway",
       "elo": 1922,
       "placeholder": false,
-      "width": 67
+      "width": 86
     },
     {
       "rank": 12,
@@ -122,7 +122,7 @@
       "originalName": "Germany",
       "elo": 1910,
       "placeholder": false,
-      "width": 65
+      "width": 85
     },
     {
       "rank": 13,
@@ -132,7 +132,7 @@
       "originalName": "Switzerland",
       "elo": 1897,
       "placeholder": false,
-      "width": 63
+      "width": 85
     },
     {
       "rank": 14,
@@ -142,345 +142,2305 @@
       "originalName": "Uruguay",
       "elo": 1890,
       "placeholder": false,
-      "width": 62
+      "width": 84
     },
     {
       "rank": 15,
+      "code": "TR",
+      "flag": "🇹🇷",
+      "name": "土耳其",
+      "originalName": "Turkey",
+      "elo": 1880,
+      "placeholder": false,
+      "width": 84
+    },
+    {
+      "rank": 16,
       "code": "JP",
       "flag": "🇯🇵",
       "name": "日本",
       "originalName": "Japan",
       "elo": 1878,
       "placeholder": false,
-      "width": 61
+      "width": 84
     },
     {
-      "rank": 16,
+      "rank": 17,
       "code": "SN",
       "flag": "🇸🇳",
       "name": "塞内加尔",
       "originalName": "Senegal",
       "elo": 1869,
       "placeholder": false,
-      "width": 59
+      "width": 83
     },
     {
-      "rank": 17,
+      "rank": 18,
+      "code": "DK",
+      "flag": "🇩🇰",
+      "name": "丹麦",
+      "originalName": "Denmark",
+      "elo": 1864,
+      "placeholder": false,
+      "width": 83
+    },
+    {
+      "rank": 19,
+      "code": "IT",
+      "flag": "🇮🇹",
+      "name": "意大利",
+      "originalName": "Italy",
+      "elo": 1859,
+      "placeholder": false,
+      "width": 82
+    },
+    {
+      "rank": 20,
       "code": "MX",
       "flag": "🇲🇽",
       "name": "墨西哥",
       "originalName": "Mexico",
       "elo": 1857,
       "placeholder": false,
-      "width": 58
+      "width": 82
     },
     {
-      "rank": 18,
+      "rank": 21,
       "code": "BE",
       "flag": "🇧🇪",
       "name": "比利时",
       "originalName": "Belgium",
       "elo": 1849,
       "placeholder": false,
-      "width": 57
+      "width": 82
     },
     {
-      "rank": 19,
+      "rank": 22,
       "code": "PY",
       "flag": "🇵🇾",
       "name": "巴拉圭",
       "originalName": "Paraguay",
       "elo": 1833,
       "placeholder": false,
-      "width": 55
+      "width": 81
     },
     {
-      "rank": 20,
+      "rank": 23,
       "code": "AT",
       "flag": "🇦🇹",
       "name": "奥地利",
       "originalName": "Austria",
       "elo": 1818,
       "placeholder": false,
-      "width": 53
+      "width": 80
     },
     {
-      "rank": 21,
+      "rank": 24,
       "code": "MA",
       "flag": "🇲🇦",
       "name": "摩洛哥",
       "originalName": "Morocco",
       "elo": 1806,
       "placeholder": false,
-      "width": 51
+      "width": 79
     },
     {
-      "rank": 22,
+      "rank": 25,
       "code": "CA",
       "flag": "🇨🇦",
       "name": "加拿大",
       "originalName": "Canada",
       "elo": 1805,
       "placeholder": false,
-      "width": 51
+      "width": 79
     },
     {
-      "rank": 23,
+      "rank": 26,
+      "code": "UA",
+      "flag": "🇺🇦",
+      "name": "乌克兰",
+      "originalName": "Ukraine",
+      "elo": 1802,
+      "placeholder": false,
+      "width": 79
+    },
+    {
+      "rank": 27,
       "code": "SQ",
       "flag": "🏴",
       "name": "苏格兰",
       "originalName": "Scotland",
       "elo": 1790,
       "placeholder": false,
-      "width": 49
+      "width": 79
     },
     {
-      "rank": 24,
+      "rank": 28,
       "code": "KR",
       "flag": "🇰🇷",
       "name": "韩国",
-      "originalName": "Korea Republic",
+      "originalName": "South Korea",
       "elo": 1784,
       "placeholder": false,
-      "width": 48
+      "width": 78
     },
     {
-      "rank": 25,
+      "rank": 29,
+      "code": "RU",
+      "flag": "🇷🇺",
+      "name": "俄罗斯",
+      "originalName": "Russia",
+      "elo": 1782,
+      "placeholder": false,
+      "width": 78
+    },
+    {
+      "rank": 30,
       "code": "AU",
       "flag": "🇦🇺",
       "name": "澳大利亚",
       "originalName": "Australia",
       "elo": 1774,
       "placeholder": false,
-      "width": 47
+      "width": 78
     },
     {
-      "rank": 26,
+      "rank": 31,
+      "code": "RS",
+      "flag": "🇷🇸",
+      "name": "塞尔维亚",
+      "originalName": "Serbia",
+      "elo": 1768,
+      "placeholder": false,
+      "width": 77
+    },
+    {
+      "rank": 32,
+      "code": "GR",
+      "flag": "🇬🇷",
+      "name": "希腊",
+      "originalName": "Greece",
+      "elo": 1761,
+      "placeholder": false,
+      "width": 77
+    },
+    {
+      "rank": 33,
       "code": "IR",
       "flag": "🇮🇷",
       "name": "伊朗",
       "originalName": "Iran",
       "elo": 1755,
       "placeholder": false,
-      "width": 44
+      "width": 77
     },
     {
-      "rank": 27,
+      "rank": 34,
       "code": "US",
       "flag": "🇺🇸",
       "name": "美国",
       "originalName": "United States",
       "elo": 1747,
       "placeholder": false,
-      "width": 43
+      "width": 76
     },
     {
-      "rank": 28,
+      "rank": 35,
+      "code": "NG",
+      "flag": "🇳🇬",
+      "name": "尼日利亚",
+      "originalName": "Nigeria",
+      "elo": 1739,
+      "placeholder": false,
+      "width": 76
+    },
+    {
+      "rank": 36,
+      "code": "PL",
+      "flag": "🇵🇱",
+      "name": "波兰",
+      "originalName": "Poland",
+      "elo": 1735,
+      "placeholder": false,
+      "width": 76
+    },
+    {
+      "rank": 37,
       "code": "PA",
       "flag": "🇵🇦",
       "name": "巴拿马",
       "originalName": "Panama",
       "elo": 1733,
       "placeholder": false,
-      "width": 41
+      "width": 75
     },
     {
-      "code": "Tur/Rou/Svk/Kos",
-      "flag": "🏳️",
-      "name": "土/罗/斯/科",
-      "originalName": "Tur/Rou/Svk/Kos",
+      "rank": 38,
+      "code": "CZ",
+      "flag": "🇨🇿",
+      "name": "捷克",
+      "originalName": "Czechia",
       "elo": 1731,
-      "placeholder": true,
-      "rank": 29,
-      "width": 41
+      "placeholder": false,
+      "width": 75
     },
     {
-      "rank": 30,
+      "rank": 39,
+      "code": "CL",
+      "flag": "🇨🇱",
+      "name": "智利",
+      "originalName": "Chile",
+      "elo": 1731,
+      "placeholder": false,
+      "width": 75
+    },
+    {
+      "rank": 40,
       "code": "DZ",
       "flag": "🇩🇿",
       "name": "阿尔及利亚",
       "originalName": "Algeria",
       "elo": 1728,
       "placeholder": false,
-      "width": 41
+      "width": 75
     },
     {
-      "rank": 31,
+      "rank": 41,
       "code": "UZ",
       "flag": "🇺🇿",
       "name": "乌兹别克斯坦",
       "originalName": "Uzbekistan",
       "elo": 1728,
       "placeholder": false,
-      "width": 41
+      "width": 75
     },
     {
-      "code": "Den/Mkd/Cze/Irl",
-      "flag": "🏳️",
-      "name": "丹/北马/捷/爱",
-      "originalName": "Den/Mkd/Cze/Irl",
-      "elo": 1719,
-      "placeholder": true,
-      "rank": 32,
-      "width": 39
-    },
-    {
-      "code": "Ukr/Swe/Pol/Alb",
-      "flag": "🏳️",
-      "name": "乌/瑞/波/阿",
-      "originalName": "Ukr/Swe/Pol/Alb",
+      "rank": 42,
+      "code": "WA",
+      "flag": "🏴",
+      "name": "威尔士",
+      "originalName": "Wales",
       "elo": 1715,
-      "placeholder": true,
-      "rank": 33,
-      "width": 39
+      "placeholder": false,
+      "width": 74
     },
     {
-      "rank": 34,
+      "rank": 43,
+      "code": "VE",
+      "flag": "🇻🇪",
+      "name": "Venezuela",
+      "originalName": "Venezuela",
+      "elo": 1715,
+      "placeholder": false,
+      "width": 74
+    },
+    {
+      "rank": 44,
+      "code": "KO",
+      "flag": "🇽🇰",
+      "name": "科索沃",
+      "originalName": "Kosovo",
+      "elo": 1714,
+      "placeholder": false,
+      "width": 74
+    },
+    {
+      "rank": 45,
+      "code": "PE",
+      "flag": "🇵🇪",
+      "name": "秘鲁",
+      "originalName": "Peru",
+      "elo": 1707,
+      "placeholder": false,
+      "width": 74
+    },
+    {
+      "rank": 46,
+      "code": "HU",
+      "flag": "🇭🇺",
+      "name": "Hungary",
+      "originalName": "Hungary",
+      "elo": 1698,
+      "placeholder": false,
+      "width": 73
+    },
+    {
+      "rank": 47,
+      "code": "SI",
+      "flag": "🇸🇮",
+      "name": "斯洛文尼亚",
+      "originalName": "Slovenia",
+      "elo": 1695,
+      "placeholder": false,
+      "width": 73
+    },
+    {
+      "rank": 48,
       "code": "JO",
       "flag": "🇯🇴",
       "name": "约旦",
       "originalName": "Jordan",
       "elo": 1689,
       "placeholder": false,
-      "width": 35
+      "width": 73
     },
     {
-      "code": "Ita/Nir/Wal/BiH",
-      "flag": "🏳️",
-      "name": "意/北爱/威/波黑",
-      "originalName": "Ita/Nir/Wal/BiH",
+      "rank": 49,
+      "code": "IE",
+      "flag": "🇮🇪",
+      "name": "爱尔兰",
+      "originalName": "Ireland",
+      "elo": 1688,
+      "placeholder": false,
+      "width": 73
+    },
+    {
+      "rank": 50,
+      "code": "SK",
+      "flag": "🇸🇰",
+      "name": "斯洛伐克",
+      "originalName": "Slovakia",
       "elo": 1687,
-      "placeholder": true,
-      "rank": 35,
-      "width": 35
+      "placeholder": false,
+      "width": 73
     },
     {
-      "rank": 36,
+      "rank": 51,
+      "code": "AL",
+      "flag": "🇦🇱",
+      "name": "阿尔巴尼亚",
+      "originalName": "Albania",
+      "elo": 1664,
+      "placeholder": false,
+      "width": 72
+    },
+    {
+      "rank": 52,
+      "code": "SE",
+      "flag": "🇸🇪",
+      "name": "瑞典",
+      "originalName": "Sweden",
+      "elo": 1660,
+      "placeholder": false,
+      "width": 71
+    },
+    {
+      "rank": 53,
       "code": "EG",
       "flag": "🇪🇬",
       "name": "埃及",
       "originalName": "Egypt",
       "elo": 1659,
       "placeholder": false,
-      "width": 31
+      "width": 71
     },
     {
-      "rank": 37,
+      "rank": 54,
+      "code": "BO",
+      "flag": "🇧🇴",
+      "name": "玻利维亚",
+      "originalName": "Bolivia",
+      "elo": 1657,
+      "placeholder": false,
+      "width": 71
+    },
+    {
+      "rank": 55,
+      "code": "GE",
+      "flag": "🇬🇪",
+      "name": "Georgia",
+      "originalName": "Georgia",
+      "elo": 1650,
+      "placeholder": false,
+      "width": 71
+    },
+    {
+      "rank": 56,
+      "code": "RO",
+      "flag": "🇷🇴",
+      "name": "罗马尼亚",
+      "originalName": "Romania",
+      "elo": 1642,
+      "placeholder": false,
+      "width": 70
+    },
+    {
+      "rank": 57,
+      "code": "CD",
+      "flag": "🇨🇩",
+      "name": "刚果（金）",
+      "originalName": "DR Congo",
+      "elo": 1639,
+      "placeholder": false,
+      "width": 70
+    },
+    {
+      "rank": 58,
       "code": "CI",
       "flag": "🇨🇮",
       "name": "科特迪瓦",
-      "originalName": "Côte d'Ivoire",
+      "originalName": "Ivory Coast",
       "elo": 1637,
       "placeholder": false,
-      "width": 28
+      "width": 70
     },
     {
-      "rank": 38,
+      "rank": 59,
+      "code": "CR",
+      "flag": "🇨🇷",
+      "name": "哥斯达黎加",
+      "originalName": "Costa Rica",
+      "elo": 1632,
+      "placeholder": false,
+      "width": 70
+    },
+    {
+      "rank": 60,
+      "code": "IL",
+      "flag": "🇮🇱",
+      "name": "Israel",
+      "originalName": "Israel",
+      "elo": 1631,
+      "placeholder": false,
+      "width": 70
+    },
+    {
+      "rank": 61,
       "code": "TN",
       "flag": "🇹🇳",
       "name": "突尼斯",
       "originalName": "Tunisia",
       "elo": 1614,
       "placeholder": false,
-      "width": 25
+      "width": 69
     },
     {
-      "rank": 39,
+      "rank": 62,
+      "code": "CM",
+      "flag": "🇨🇲",
+      "name": "喀麦隆",
+      "originalName": "Cameroon",
+      "elo": 1606,
+      "placeholder": false,
+      "width": 68
+    },
+    {
+      "rank": 63,
+      "code": "EI",
+      "flag": "🇬🇧",
+      "name": "北爱尔兰",
+      "originalName": "Northern Ireland",
+      "elo": 1602,
+      "placeholder": false,
+      "width": 68
+    },
+    {
+      "rank": 64,
+      "code": "NM",
+      "flag": "🇲🇰",
+      "name": "北马其顿",
+      "originalName": "North Macedonia",
+      "elo": 1592,
+      "placeholder": false,
+      "width": 67
+    },
+    {
+      "rank": 65,
       "code": "SA",
       "flag": "🇸🇦",
       "name": "沙特阿拉伯",
       "originalName": "Saudi Arabia",
       "elo": 1592,
       "placeholder": false,
-      "width": 22
+      "width": 67
     },
     {
-      "rank": 40,
+      "rank": 66,
+      "code": "ML",
+      "flag": "🇲🇱",
+      "name": "Mali",
+      "originalName": "Mali",
+      "elo": 1589,
+      "placeholder": false,
+      "width": 67
+    },
+    {
+      "rank": 67,
       "code": "NZ",
       "flag": "🇳🇿",
       "name": "新西兰",
       "originalName": "New Zealand",
       "elo": 1585,
       "placeholder": false,
-      "width": 21
+      "width": 67
     },
     {
-      "rank": 41,
+      "rank": 68,
+      "code": "IQ",
+      "flag": "🇮🇶",
+      "name": "伊拉克",
+      "originalName": "Iraq",
+      "elo": 1582,
+      "placeholder": false,
+      "width": 67
+    },
+    {
+      "rank": 69,
+      "code": "BA",
+      "flag": "🇧🇦",
+      "name": "波黑",
+      "originalName": "Bosnia and Herzegovina",
+      "elo": 1572,
+      "placeholder": false,
+      "width": 66
+    },
+    {
+      "rank": 70,
+      "code": "HN",
+      "flag": "🇭🇳",
+      "name": "洪都拉斯",
+      "originalName": "Honduras",
+      "elo": 1567,
+      "placeholder": false,
+      "width": 66
+    },
+    {
+      "rank": 71,
+      "code": "IS",
+      "flag": "🇮🇸",
+      "name": "Iceland",
+      "originalName": "Iceland",
+      "elo": 1562,
+      "placeholder": false,
+      "width": 66
+    },
+    {
+      "rank": 72,
       "code": "CV",
       "flag": "🇨🇻",
       "name": "佛得角",
-      "originalName": "Cape Verde Islands",
+      "originalName": "Cape Verde",
       "elo": 1561,
       "placeholder": false,
-      "width": 18
+      "width": 66
     },
     {
-      "code": "Bol/Sur/Irq",
-      "flag": "🏳️",
-      "name": "玻/苏/伊",
-      "originalName": "Bol/Sur/Irq",
-      "elo": 1560,
-      "placeholder": true,
-      "rank": 42,
-      "width": 18
+      "rank": 73,
+      "code": "AO",
+      "flag": "🇦🇴",
+      "name": "Angola",
+      "originalName": "Angola",
+      "elo": 1543,
+      "placeholder": false,
+      "width": 65
     },
     {
-      "rank": 43,
+      "rank": 74,
+      "code": "JM",
+      "flag": "🇯🇲",
+      "name": "牙买加",
+      "originalName": "Jamaica",
+      "elo": 1542,
+      "placeholder": false,
+      "width": 65
+    },
+    {
+      "rank": 75,
       "code": "HT",
       "flag": "🇭🇹",
       "name": "海地",
       "originalName": "Haiti",
       "elo": 1542,
       "placeholder": false,
-      "width": 16
+      "width": 65
     },
     {
-      "rank": 44,
+      "rank": 76,
+      "code": "AE",
+      "flag": "🇦🇪",
+      "name": "United Arab Emirates",
+      "originalName": "United Arab Emirates",
+      "elo": 1540,
+      "placeholder": false,
+      "width": 65
+    },
+    {
+      "rank": 77,
+      "code": "BF",
+      "flag": "🇧🇫",
+      "name": "Burkina Faso",
+      "originalName": "Burkina Faso",
+      "elo": 1534,
+      "placeholder": false,
+      "width": 64
+    },
+    {
+      "rank": 78,
       "code": "ZA",
       "flag": "🇿🇦",
       "name": "南非",
       "originalName": "South Africa",
       "elo": 1528,
       "placeholder": false,
-      "width": 14
+      "width": 64
     },
     {
-      "rank": 45,
+      "rank": 79,
+      "code": "GT",
+      "flag": "🇬🇹",
+      "name": "Guatemala",
+      "originalName": "Guatemala",
+      "elo": 1526,
+      "placeholder": false,
+      "width": 64
+    },
+    {
+      "rank": 80,
       "code": "GH",
       "flag": "🇬🇭",
       "name": "加纳",
       "originalName": "Ghana",
       "elo": 1509,
       "placeholder": false,
-      "width": 11
+      "width": 63
     },
     {
-      "code": "Ncl/Jam/Cod",
-      "flag": "🏳️",
-      "name": "新喀/牙/刚果金",
-      "originalName": "Ncl/Jam/Cod",
-      "elo": 1492,
-      "placeholder": true,
-      "rank": 46,
-      "width": 9
+      "rank": 81,
+      "code": "FI",
+      "flag": "🇫🇮",
+      "name": "Finland",
+      "originalName": "Finland",
+      "elo": 1508,
+      "placeholder": false,
+      "width": 63
     },
     {
-      "rank": 47,
+      "rank": 82,
+      "code": "BY",
+      "flag": "🇧🇾",
+      "name": "Belarus",
+      "originalName": "Belarus",
+      "elo": 1496,
+      "placeholder": false,
+      "width": 62
+    },
+    {
+      "rank": 83,
+      "code": "OM",
+      "flag": "🇴🇲",
+      "name": "Oman",
+      "originalName": "Oman",
+      "elo": 1490,
+      "placeholder": false,
+      "width": 62
+    },
+    {
+      "rank": 84,
+      "code": "GN",
+      "flag": "🇬🇳",
+      "name": "Guinea",
+      "originalName": "Guinea",
+      "elo": 1486,
+      "placeholder": false,
+      "width": 62
+    },
+    {
+      "rank": 85,
+      "code": "SY",
+      "flag": "🇸🇾",
+      "name": "Syria",
+      "originalName": "Syria",
+      "elo": 1486,
+      "placeholder": false,
+      "width": 62
+    },
+    {
+      "rank": 86,
+      "code": "PS",
+      "flag": "🇵🇸",
+      "name": "Palestine",
+      "originalName": "Palestine",
+      "elo": 1469,
+      "placeholder": false,
+      "width": 61
+    },
+    {
+      "rank": 87,
       "code": "CW",
       "flag": "🇨🇼",
       "name": "库拉索",
-      "originalName": "Curacao",
+      "originalName": "Curaçao",
       "elo": 1466,
       "placeholder": false,
-      "width": 6
+      "width": 60
     },
     {
-      "rank": 48,
+      "rank": 88,
+      "code": "NS",
+      "flag": "🇳🇸",
+      "name": "Northern Cyprus",
+      "originalName": "Northern Cyprus",
+      "elo": 1457,
+      "placeholder": false,
+      "width": 60
+    },
+    {
+      "rank": 89,
+      "code": "BG",
+      "flag": "🇧🇬",
+      "name": "Bulgaria",
+      "originalName": "Bulgaria",
+      "elo": 1453,
+      "placeholder": false,
+      "width": 60
+    },
+    {
+      "rank": 90,
+      "code": "ME",
+      "flag": "🇲🇪",
+      "name": "Montenegro",
+      "originalName": "Montenegro",
+      "elo": 1443,
+      "placeholder": false,
+      "width": 59
+    },
+    {
+      "rank": 91,
+      "code": "SR",
+      "flag": "🇸🇷",
+      "name": "苏里南",
+      "originalName": "Suriname",
+      "elo": 1440,
+      "placeholder": false,
+      "width": 59
+    },
+    {
+      "rank": 92,
+      "code": "LY",
+      "flag": "🇱🇾",
+      "name": "Libya",
+      "originalName": "Libya",
+      "elo": 1425,
+      "placeholder": false,
+      "width": 58
+    },
+    {
+      "rank": 93,
       "code": "QA",
       "flag": "🇶🇦",
       "name": "卡塔尔",
       "originalName": "Qatar",
       "elo": 1425,
+      "placeholder": false,
+      "width": 58
+    },
+    {
+      "rank": 94,
+      "code": "GM",
+      "flag": "🇬🇲",
+      "name": "Gambia",
+      "originalName": "Gambia",
+      "elo": 1424,
+      "placeholder": false,
+      "width": 58
+    },
+    {
+      "rank": 95,
+      "code": "KD",
+      "flag": "🇰🇩",
+      "name": "Kurdistan",
+      "originalName": "Kurdistan",
+      "elo": 1424,
+      "placeholder": false,
+      "width": 58
+    },
+    {
+      "rank": 96,
+      "code": "BH",
+      "flag": "🇧🇭",
+      "name": "Bahrain",
+      "originalName": "Bahrain",
+      "elo": 1418,
+      "placeholder": false,
+      "width": 58
+    },
+    {
+      "rank": 97,
+      "code": "KZ",
+      "flag": "🇰🇿",
+      "name": "Kazakhstan",
+      "originalName": "Kazakhstan",
+      "elo": 1410,
+      "placeholder": false,
+      "width": 57
+    },
+    {
+      "rank": 98,
+      "code": "CN",
+      "flag": "🇨🇳",
+      "name": "China",
+      "originalName": "China",
+      "elo": 1410,
+      "placeholder": false,
+      "width": 57
+    },
+    {
+      "rank": 99,
+      "code": "BJ",
+      "flag": "🇧🇯",
+      "name": "Benin",
+      "originalName": "Benin",
+      "elo": 1410,
+      "placeholder": false,
+      "width": 57
+    },
+    {
+      "rank": 100,
+      "code": "GA",
+      "flag": "🇬🇦",
+      "name": "Gabon",
+      "originalName": "Gabon",
+      "elo": 1405,
+      "placeholder": false,
+      "width": 57
+    },
+    {
+      "rank": 101,
+      "code": "NE",
+      "flag": "🇳🇪",
+      "name": "Niger",
+      "originalName": "Niger",
+      "elo": 1404,
+      "placeholder": false,
+      "width": 57
+    },
+    {
+      "rank": 102,
+      "code": "TT",
+      "flag": "🇹🇹",
+      "name": "Trinidad and Tobago",
+      "originalName": "Trinidad and Tobago",
+      "elo": 1403,
+      "placeholder": false,
+      "width": 57
+    },
+    {
+      "rank": 103,
+      "code": "LU",
+      "flag": "🇱🇺",
+      "name": "Luxembourg",
+      "originalName": "Luxembourg",
+      "elo": 1395,
+      "placeholder": false,
+      "width": 56
+    },
+    {
+      "rank": 104,
+      "code": "UG",
+      "flag": "🇺🇬",
+      "name": "Uganda",
+      "originalName": "Uganda",
+      "elo": 1394,
+      "placeholder": false,
+      "width": 56
+    },
+    {
+      "rank": 105,
+      "code": "AM",
+      "flag": "🇦🇲",
+      "name": "Armenia",
+      "originalName": "Armenia",
+      "elo": 1389,
+      "placeholder": false,
+      "width": 56
+    },
+    {
+      "rank": 106,
+      "code": "GQ",
+      "flag": "🇬🇶",
+      "name": "Equatorial Guinea",
+      "originalName": "Equatorial Guinea",
+      "elo": 1383,
+      "placeholder": false,
+      "width": 56
+    },
+    {
+      "rank": 107,
+      "code": "FO",
+      "flag": "🇫🇴",
+      "name": "Faroe Islands",
+      "originalName": "Faroe Islands",
+      "elo": 1381,
+      "placeholder": false,
+      "width": 56
+    },
+    {
+      "rank": 108,
+      "code": "KP",
+      "flag": "🇰🇵",
+      "name": "North Korea",
+      "originalName": "North Korea",
+      "elo": 1375,
+      "placeholder": false,
+      "width": 55
+    },
+    {
+      "rank": 109,
+      "code": "KM",
+      "flag": "🇰🇲",
+      "name": "Comoros",
+      "originalName": "Comoros",
+      "elo": 1374,
+      "placeholder": false,
+      "width": 55
+    },
+    {
+      "rank": 110,
+      "code": "MZ",
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "originalName": "Mozambique",
+      "elo": 1372,
+      "placeholder": false,
+      "width": 55
+    },
+    {
+      "rank": 111,
+      "code": "ZM",
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "originalName": "Zambia",
+      "elo": 1370,
+      "placeholder": false,
+      "width": 55
+    },
+    {
+      "rank": 112,
+      "code": "MG",
+      "flag": "🇲🇬",
+      "name": "Madagascar",
+      "originalName": "Madagascar",
+      "elo": 1368,
+      "placeholder": false,
+      "width": 55
+    },
+    {
+      "rank": 113,
+      "code": "TH",
+      "flag": "🇹🇭",
+      "name": "Thailand",
+      "originalName": "Thailand",
+      "elo": 1368,
+      "placeholder": false,
+      "width": 55
+    },
+    {
+      "rank": 114,
+      "code": "EE",
+      "flag": "🇪🇪",
+      "name": "Estonia",
+      "originalName": "Estonia",
+      "elo": 1359,
+      "placeholder": false,
+      "width": 54
+    },
+    {
+      "rank": 115,
+      "code": "SD",
+      "flag": "🇸🇩",
+      "name": "Sudan",
+      "originalName": "Sudan",
+      "elo": 1350,
+      "placeholder": false,
+      "width": 54
+    },
+    {
+      "rank": 116,
+      "code": "RE",
+      "flag": "🇷🇪",
+      "name": "Reunion",
+      "originalName": "Reunion",
+      "elo": 1345,
+      "placeholder": false,
+      "width": 54
+    },
+    {
+      "rank": 117,
+      "code": "SL",
+      "flag": "🇸🇱",
+      "name": "Sierra Leone",
+      "originalName": "Sierra Leone",
+      "elo": 1344,
+      "placeholder": false,
+      "width": 54
+    },
+    {
+      "rank": 118,
+      "code": "KE",
+      "flag": "🇰🇪",
+      "name": "Kenya",
+      "originalName": "Kenya",
+      "elo": 1344,
+      "placeholder": false,
+      "width": 54
+    },
+    {
+      "rank": 119,
+      "code": "ZW",
+      "flag": "🇿🇼",
+      "name": "Zimbabwe",
+      "originalName": "Zimbabwe",
+      "elo": 1342,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 120,
+      "code": "TG",
+      "flag": "🇹🇬",
+      "name": "Togo",
+      "originalName": "Togo",
+      "elo": 1342,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 121,
+      "code": "ID",
+      "flag": "🇮🇩",
+      "name": "Indonesia",
+      "originalName": "Indonesia",
+      "elo": 1341,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 122,
+      "code": "TZ",
+      "flag": "🇹🇿",
+      "name": "Tanzania",
+      "originalName": "Tanzania",
+      "elo": 1340,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 123,
+      "code": "AZ",
+      "flag": "🇦🇿",
+      "name": "Azerbaijan",
+      "originalName": "Azerbaijan",
+      "elo": 1339,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 124,
+      "code": "GP",
+      "flag": "🇬🇵",
+      "name": "Guadeloupe",
+      "originalName": "Guadeloupe",
+      "elo": 1338,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 125,
+      "code": "LB",
+      "flag": "🇱🇧",
+      "name": "Lebanon",
+      "originalName": "Lebanon",
+      "elo": 1332,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 126,
+      "code": "MQ",
+      "flag": "🇲🇶",
+      "name": "Martinique",
+      "originalName": "Martinique",
+      "elo": 1330,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 127,
+      "code": "VN",
+      "flag": "🇻🇳",
+      "name": "Vietnam",
+      "originalName": "Vietnam",
+      "elo": 1329,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 128,
+      "code": "KW",
+      "flag": "🇰🇼",
+      "name": "Kuwait",
+      "originalName": "Kuwait",
+      "elo": 1328,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 129,
+      "code": "NI",
+      "flag": "🇬🇧",
+      "name": "Nicaragua",
+      "originalName": "Nicaragua",
+      "elo": 1328,
+      "placeholder": false,
+      "width": 53
+    },
+    {
+      "rank": 130,
+      "code": "SV",
+      "flag": "🇸🇻",
+      "name": "El Salvador",
+      "originalName": "El Salvador",
+      "elo": 1324,
+      "placeholder": false,
+      "width": 52
+    },
+    {
+      "rank": 131,
+      "code": "ZN",
+      "flag": "🇿🇳",
+      "name": "Zanzibar",
+      "originalName": "Zanzibar",
+      "elo": 1321,
+      "placeholder": false,
+      "width": 52
+    },
+    {
+      "rank": 132,
+      "code": "MY",
+      "flag": "🇲🇾",
+      "name": "Malaysia",
+      "originalName": "Malaysia",
+      "elo": 1313,
+      "placeholder": false,
+      "width": 52
+    },
+    {
+      "rank": 133,
+      "code": "KG",
+      "flag": "🇰🇬",
+      "name": "Kyrgyzstan",
+      "originalName": "Kyrgyzstan",
+      "elo": 1313,
+      "placeholder": false,
+      "width": 52
+    },
+    {
+      "rank": 134,
+      "code": "NA",
+      "flag": "🇳🇦",
+      "name": "Namibia",
+      "originalName": "Namibia",
+      "elo": 1311,
+      "placeholder": false,
+      "width": 52
+    },
+    {
+      "rank": 135,
+      "code": "MR",
+      "flag": "🇲🇷",
+      "name": "Mauritania",
+      "originalName": "Mauritania",
+      "elo": 1311,
+      "placeholder": false,
+      "width": 52
+    },
+    {
+      "rank": 136,
+      "code": "RW",
+      "flag": "🇷🇼",
+      "name": "Rwanda",
+      "originalName": "Rwanda",
+      "elo": 1309,
+      "placeholder": false,
+      "width": 52
+    },
+    {
+      "rank": 137,
+      "code": "CY",
+      "flag": "🇨🇾",
+      "name": "Cyprus",
+      "originalName": "Cyprus",
+      "elo": 1302,
+      "placeholder": false,
+      "width": 51
+    },
+    {
+      "rank": 138,
+      "code": "LR",
+      "flag": "🇱🇷",
+      "name": "Liberia",
+      "originalName": "Liberia",
+      "elo": 1300,
+      "placeholder": false,
+      "width": 51
+    },
+    {
+      "rank": 139,
+      "code": "TJ",
+      "flag": "🇹🇯",
+      "name": "Tajikistan",
+      "originalName": "Tajikistan",
+      "elo": 1297,
+      "placeholder": false,
+      "width": 51
+    },
+    {
+      "rank": 140,
+      "code": "NC",
+      "flag": "🇳🇨",
+      "name": "新喀里多尼亚",
+      "originalName": "New Caledonia",
+      "elo": 1294,
+      "placeholder": false,
+      "width": 51
+    },
+    {
+      "rank": 141,
+      "code": "DO",
+      "flag": "🇩🇴",
+      "name": "Dominican Republic",
+      "originalName": "Dominican Republic",
+      "elo": 1293,
+      "placeholder": false,
+      "width": 51
+    },
+    {
+      "rank": 142,
+      "code": "MD",
+      "flag": "🇲🇩",
+      "name": "Moldova",
+      "originalName": "Moldova",
+      "elo": 1288,
+      "placeholder": false,
+      "width": 50
+    },
+    {
+      "rank": 143,
+      "code": "LV",
+      "flag": "🇱🇻",
+      "name": "Latvia",
+      "originalName": "Latvia",
+      "elo": 1286,
+      "placeholder": false,
+      "width": 50
+    },
+    {
+      "rank": 144,
+      "code": "BW",
+      "flag": "🇧🇼",
+      "name": "Botswana",
+      "originalName": "Botswana",
+      "elo": 1285,
+      "placeholder": false,
+      "width": 50
+    },
+    {
+      "rank": 145,
+      "code": "MT",
+      "flag": "🇲🇹",
+      "name": "Malta",
+      "originalName": "Malta",
+      "elo": 1278,
+      "placeholder": false,
+      "width": 50
+    },
+    {
+      "rank": 146,
+      "code": "LT",
+      "flag": "🇱🇹",
+      "name": "Lithuania",
+      "originalName": "Lithuania",
+      "elo": 1276,
+      "placeholder": false,
+      "width": 50
+    },
+    {
+      "rank": 147,
+      "code": "GY",
+      "flag": "🇬🇾",
+      "name": "Guyana",
+      "originalName": "Guyana",
+      "elo": 1275,
+      "placeholder": false,
+      "width": 50
+    },
+    {
+      "rank": 148,
+      "code": "ET",
+      "flag": "🇪🇹",
+      "name": "Ethiopia",
+      "originalName": "Ethiopia",
+      "elo": 1264,
+      "placeholder": false,
+      "width": 49
+    },
+    {
+      "rank": 149,
+      "code": "MW",
+      "flag": "🇲🇼",
+      "name": "Malawi",
+      "originalName": "Malawi",
+      "elo": 1252,
+      "placeholder": false,
+      "width": 48
+    },
+    {
+      "rank": 150,
+      "code": "GW",
+      "flag": "🇬🇼",
+      "name": "Guinea-Bissau",
+      "originalName": "Guinea-Bissau",
+      "elo": 1244,
+      "placeholder": false,
+      "width": 48
+    },
+    {
+      "rank": 151,
+      "code": "BI",
+      "flag": "🇧🇮",
+      "name": "Burundi",
+      "originalName": "Burundi",
+      "elo": 1239,
+      "placeholder": false,
+      "width": 48
+    },
+    {
+      "rank": 152,
+      "code": "CF",
+      "flag": "🇨🇫",
+      "name": "Central African Republic",
+      "originalName": "Central African Republic",
+      "elo": 1237,
+      "placeholder": false,
+      "width": 48
+    },
+    {
+      "rank": 153,
+      "code": "CU",
+      "flag": "🇨🇺",
+      "name": "Cuba",
+      "originalName": "Cuba",
+      "elo": 1229,
+      "placeholder": false,
+      "width": 47
+    },
+    {
+      "rank": 154,
+      "code": "GF",
+      "flag": "🇬🇫",
+      "name": "French Guiana",
+      "originalName": "French Guiana",
+      "elo": 1223,
+      "placeholder": false,
+      "width": 47
+    },
+    {
+      "rank": 155,
+      "code": "TM",
+      "flag": "🇹🇲",
+      "name": "Turkmenistan",
+      "originalName": "Turkmenistan",
+      "elo": 1217,
+      "placeholder": false,
+      "width": 46
+    },
+    {
+      "rank": 156,
+      "code": "LS",
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "originalName": "Lesotho",
+      "elo": 1216,
+      "placeholder": false,
+      "width": 46
+    },
+    {
+      "rank": 157,
+      "code": "YT",
+      "flag": "🇾🇹",
+      "name": "Mayotte",
+      "originalName": "Mayotte",
+      "elo": 1216,
+      "placeholder": false,
+      "width": 46
+    },
+    {
+      "rank": 158,
+      "code": "SW",
+      "flag": "🇸🇼",
+      "name": "Eswatini",
+      "originalName": "Eswatini",
+      "elo": 1211,
+      "placeholder": false,
+      "width": 46
+    },
+    {
+      "rank": 159,
+      "code": "CG",
+      "flag": "🇨🇬",
+      "name": "Congo",
+      "originalName": "Congo",
+      "elo": 1207,
+      "placeholder": false,
+      "width": 46
+    },
+    {
+      "rank": 160,
+      "code": "TI",
+      "flag": "🇹🇮",
+      "name": "Tahiti",
+      "originalName": "Tahiti",
+      "elo": 1176,
+      "placeholder": false,
+      "width": 44
+    },
+    {
+      "rank": 161,
+      "code": "VC",
+      "flag": "🇻🇨",
+      "name": "Saint Vincent and the Grenadines",
+      "originalName": "Saint Vincent and the Grenadines",
+      "elo": 1171,
+      "placeholder": false,
+      "width": 44
+    },
+    {
+      "rank": 162,
+      "code": "PH",
+      "flag": "🇵🇭",
+      "name": "Philippines",
+      "originalName": "Philippines",
+      "elo": 1155,
+      "placeholder": false,
+      "width": 43
+    },
+    {
+      "rank": 163,
+      "code": "YE",
+      "flag": "🇾🇪",
+      "name": "Yemen",
+      "originalName": "Yemen",
+      "elo": 1151,
+      "placeholder": false,
+      "width": 43
+    },
+    {
+      "rank": 164,
+      "code": "ER",
+      "flag": "🇪🇷",
+      "name": "Eritrea",
+      "originalName": "Eritrea",
+      "elo": 1140,
+      "placeholder": false,
+      "width": 42
+    },
+    {
+      "rank": 165,
+      "code": "HK",
+      "flag": "🇭🇰",
+      "name": "Hong Kong",
+      "originalName": "Hong Kong",
+      "elo": 1135,
+      "placeholder": false,
+      "width": 42
+    },
+    {
+      "rank": 166,
+      "code": "PG",
+      "flag": "🇵🇬",
+      "name": "Papua New Guinea",
+      "originalName": "Papua New Guinea",
+      "elo": 1135,
+      "placeholder": false,
+      "width": 42
+    },
+    {
+      "rank": 167,
+      "code": "SS",
+      "flag": "🇸🇸",
+      "name": "South Sudan",
+      "originalName": "South Sudan",
+      "elo": 1134,
+      "placeholder": false,
+      "width": 42
+    },
+    {
+      "rank": 168,
+      "code": "PR",
+      "flag": "🇵🇷",
+      "name": "Puerto Rico",
+      "originalName": "Puerto Rico",
+      "elo": 1133,
+      "placeholder": false,
+      "width": 42
+    },
+    {
+      "rank": 169,
+      "code": "SG",
+      "flag": "🇸🇬",
+      "name": "Singapore",
+      "originalName": "Singapore",
+      "elo": 1131,
+      "placeholder": false,
+      "width": 42
+    },
+    {
+      "rank": 170,
+      "code": "IN",
+      "flag": "🇮🇳",
+      "name": "India",
+      "originalName": "India",
+      "elo": 1123,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "rank": 171,
+      "code": "TD",
+      "flag": "🇹🇩",
+      "name": "Chad",
+      "originalName": "Chad",
+      "elo": 1120,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "rank": 172,
+      "code": "GD",
+      "flag": "🇬🇩",
+      "name": "Grenada",
+      "originalName": "Grenada",
+      "elo": 1119,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "rank": 173,
+      "code": "BM",
+      "flag": "🇧🇲",
+      "name": "Bermuda",
+      "originalName": "Bermuda",
+      "elo": 1119,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "rank": 174,
+      "code": "VU",
+      "flag": "🇻🇺",
+      "name": "Vanuatu",
+      "originalName": "Vanuatu",
+      "elo": 1114,
+      "placeholder": false,
+      "width": 41
+    },
+    {
+      "rank": 175,
+      "code": "FJ",
+      "flag": "🇫🇯",
+      "name": "Fiji",
+      "originalName": "Fiji",
+      "elo": 1108,
+      "placeholder": false,
+      "width": 40
+    },
+    {
+      "rank": 176,
+      "code": "BZ",
+      "flag": "🇧🇿",
+      "name": "Belize",
+      "originalName": "Belize",
+      "elo": 1105,
+      "placeholder": false,
+      "width": 40
+    },
+    {
+      "rank": 177,
+      "code": "MU",
+      "flag": "🇲🇺",
+      "name": "Mauritius",
+      "originalName": "Mauritius",
+      "elo": 1091,
+      "placeholder": false,
+      "width": 39
+    },
+    {
+      "rank": 178,
+      "code": "SB",
+      "flag": "🇸🇧",
+      "name": "Solomon Islands",
+      "originalName": "Solomon Islands",
+      "elo": 1090,
+      "placeholder": false,
+      "width": 39
+    },
+    {
+      "rank": 179,
+      "code": "AD",
+      "flag": "🇦🇩",
+      "name": "Andorra",
+      "originalName": "Andorra",
+      "elo": 1083,
+      "placeholder": false,
+      "width": 39
+    },
+    {
+      "rank": 180,
+      "code": "ST",
+      "flag": "🇸🇹",
+      "name": "Sao Tome and Principe",
+      "originalName": "Sao Tome and Principe",
+      "elo": 1056,
+      "placeholder": false,
+      "width": 37
+    },
+    {
+      "rank": 181,
+      "code": "AF",
+      "flag": "🇦🇫",
+      "name": "Afghanistan",
+      "originalName": "Afghanistan",
+      "elo": 1035,
+      "placeholder": false,
+      "width": 36
+    },
+    {
+      "rank": 182,
+      "code": "GI",
+      "flag": "🇬🇮",
+      "name": "Gibraltar",
+      "originalName": "Gibraltar",
+      "elo": 1017,
+      "placeholder": false,
+      "width": 35
+    },
+    {
+      "rank": 183,
+      "code": "LC",
+      "flag": "🇱🇨",
+      "name": "Saint Lucia",
+      "originalName": "Saint Lucia",
+      "elo": 1008,
+      "placeholder": false,
+      "width": 35
+    },
+    {
+      "rank": 184,
+      "code": "KN",
+      "flag": "🇰🇳",
+      "name": "Saint Kitts and Nevis",
+      "originalName": "Saint Kitts and Nevis",
+      "elo": 1005,
+      "placeholder": false,
+      "width": 35
+    },
+    {
+      "rank": 185,
+      "code": "JS",
+      "flag": "🇯🇸",
+      "name": "Somaliland",
+      "originalName": "Somaliland",
+      "elo": 1005,
+      "placeholder": false,
+      "width": 35
+    },
+    {
+      "rank": 186,
+      "code": "MF",
+      "flag": "🇲🇫",
+      "name": "Saint Martin",
+      "originalName": "Saint Martin",
+      "elo": 1003,
+      "placeholder": false,
+      "width": 34
+    },
+    {
+      "rank": 187,
+      "code": "EH",
+      "flag": "🇪🇭",
+      "name": "Western Sahara",
+      "originalName": "Western Sahara",
+      "elo": 996,
+      "placeholder": false,
+      "width": 34
+    },
+    {
+      "rank": 188,
+      "code": "MS",
+      "flag": "🇲🇸",
+      "name": "Montserrat",
+      "originalName": "Montserrat",
+      "elo": 971,
+      "placeholder": false,
+      "width": 33
+    },
+    {
+      "rank": 189,
+      "code": "SO",
+      "flag": "🇸🇴",
+      "name": "Somalia",
+      "originalName": "Somalia",
+      "elo": 961,
+      "placeholder": false,
+      "width": 32
+    },
+    {
+      "rank": 190,
+      "code": "SX",
+      "flag": "🇸🇽",
+      "name": "Sint Maarten",
+      "originalName": "Sint Maarten",
+      "elo": 956,
+      "placeholder": false,
+      "width": 32
+    },
+    {
+      "rank": 191,
+      "code": "AW",
+      "flag": "🇦🇼",
+      "name": "Aruba",
+      "originalName": "Aruba",
+      "elo": 949,
+      "placeholder": false,
+      "width": 31
+    },
+    {
+      "rank": 192,
+      "code": "GL",
+      "flag": "🇬🇱",
+      "name": "Greenland",
+      "originalName": "Greenland",
+      "elo": 946,
+      "placeholder": false,
+      "width": 31
+    },
+    {
+      "rank": 193,
+      "code": "MM",
+      "flag": "🇲🇲",
+      "name": "Myanmar",
+      "originalName": "Myanmar",
+      "elo": 945,
+      "placeholder": false,
+      "width": 31
+    },
+    {
+      "rank": 194,
+      "code": "BD",
+      "flag": "🇧🇩",
+      "name": "Bangladesh",
+      "originalName": "Bangladesh",
+      "elo": 940,
+      "placeholder": false,
+      "width": 31
+    },
+    {
+      "rank": 195,
+      "code": "DM",
+      "flag": "🇩🇲",
+      "name": "Dominica",
+      "originalName": "Dominica",
+      "elo": 938,
+      "placeholder": false,
+      "width": 31
+    },
+    {
+      "rank": 196,
+      "code": "BB",
+      "flag": "🇧🇧",
+      "name": "Barbados",
+      "originalName": "Barbados",
+      "elo": 921,
+      "placeholder": false,
+      "width": 30
+    },
+    {
+      "rank": 197,
+      "code": "NP",
+      "flag": "🇳🇵",
+      "name": "Nepal",
+      "originalName": "Nepal",
+      "elo": 919,
+      "placeholder": false,
+      "width": 30
+    },
+    {
+      "rank": 198,
+      "code": "DJ",
+      "flag": "🇩🇯",
+      "name": "Djibouti",
+      "originalName": "Djibouti",
+      "elo": 915,
+      "placeholder": false,
+      "width": 30
+    },
+    {
+      "rank": 199,
+      "code": "MC",
+      "flag": "🇲🇨",
+      "name": "Monaco",
+      "originalName": "Monaco",
+      "elo": 903,
+      "placeholder": false,
+      "width": 29
+    },
+    {
+      "rank": 200,
+      "code": "LI",
+      "flag": "🇱🇮",
+      "name": "Liechtenstein",
+      "originalName": "Liechtenstein",
+      "elo": 900,
+      "placeholder": false,
+      "width": 29
+    },
+    {
+      "rank": 201,
+      "code": "AG",
+      "flag": "🇦🇬",
+      "name": "Antigua and Barbuda",
+      "originalName": "Antigua and Barbuda",
+      "elo": 894,
+      "placeholder": false,
+      "width": 28
+    },
+    {
+      "rank": 202,
+      "code": "TW",
+      "flag": "🇹🇼",
+      "name": "Taiwan",
+      "originalName": "Taiwan",
+      "elo": 866,
+      "placeholder": false,
+      "width": 27
+    },
+    {
+      "rank": 203,
+      "code": "KH",
+      "flag": "🇰🇭",
+      "name": "Cambodia",
+      "originalName": "Cambodia",
+      "elo": 844,
+      "placeholder": false,
+      "width": 26
+    },
+    {
+      "rank": 204,
+      "code": "SC",
+      "flag": "🏴",
+      "name": "Seychelles",
+      "originalName": "Seychelles",
+      "elo": 842,
+      "placeholder": false,
+      "width": 25
+    },
+    {
+      "rank": 205,
+      "code": "MV",
+      "flag": "🇲🇻",
+      "name": "Maldives",
+      "originalName": "Maldives",
+      "elo": 841,
+      "placeholder": false,
+      "width": 25
+    },
+    {
+      "rank": 206,
+      "code": "SM",
+      "flag": "🇸🇲",
+      "name": "San Marino",
+      "originalName": "San Marino",
+      "elo": 833,
+      "placeholder": false,
+      "width": 25
+    },
+    {
+      "rank": 207,
+      "code": "PK",
+      "flag": "🇵🇰",
+      "name": "Pakistan",
+      "originalName": "Pakistan",
+      "elo": 830,
+      "placeholder": false,
+      "width": 25
+    },
+    {
+      "rank": 208,
+      "code": "BQ",
+      "flag": "🇧🇶",
+      "name": "Bonaire",
+      "originalName": "Bonaire",
+      "elo": 823,
+      "placeholder": false,
+      "width": 24
+    },
+    {
+      "rank": 209,
+      "code": "KY",
+      "flag": "🇰🇾",
+      "name": "Cayman Islands",
+      "originalName": "Cayman Islands",
+      "elo": 806,
+      "placeholder": false,
+      "width": 23
+    },
+    {
+      "rank": 210,
+      "code": "LK",
+      "flag": "🇱🇰",
+      "name": "Sri Lanka",
+      "originalName": "Sri Lanka",
+      "elo": 782,
+      "placeholder": false,
+      "width": 22
+    },
+    {
+      "rank": 211,
+      "code": "HG",
+      "flag": "🇭🇬",
+      "name": "Chagos Islands",
+      "originalName": "Chagos Islands",
+      "elo": 782,
+      "placeholder": false,
+      "width": 22
+    },
+    {
+      "rank": 212,
+      "code": "TV",
+      "flag": "🇹🇻",
+      "name": "Tuvalu",
+      "originalName": "Tuvalu",
+      "elo": 756,
+      "placeholder": false,
+      "width": 21
+    },
+    {
+      "rank": 213,
+      "code": "EU",
+      "flag": "🇪🇺",
+      "name": "Sint Eustatius",
+      "originalName": "Sint Eustatius",
+      "elo": 737,
+      "placeholder": false,
+      "width": 20
+    },
+    {
+      "rank": 214,
+      "code": "MN",
+      "flag": "🇲🇳",
+      "name": "Mongolia",
+      "originalName": "Mongolia",
+      "elo": 730,
+      "placeholder": false,
+      "width": 19
+    },
+    {
+      "rank": 215,
+      "code": "WS",
+      "flag": "🇼🇸",
+      "name": "Samoa",
+      "originalName": "Samoa",
+      "elo": 728,
+      "placeholder": false,
+      "width": 19
+    },
+    {
+      "rank": 216,
+      "code": "BL",
+      "flag": "🇧🇱",
+      "name": "Saint Barthelemy",
+      "originalName": "Saint Barthelemy",
+      "elo": 725,
+      "placeholder": false,
+      "width": 19
+    },
+    {
+      "rank": 217,
+      "code": "BS",
+      "flag": "🇧🇸",
+      "name": "Bahamas",
+      "originalName": "Bahamas",
+      "elo": 719,
+      "placeholder": false,
+      "width": 19
+    },
+    {
+      "rank": 218,
+      "code": "GU",
+      "flag": "🇬🇺",
+      "name": "Guam",
+      "originalName": "Guam",
+      "elo": 714,
+      "placeholder": false,
+      "width": 18
+    },
+    {
+      "rank": 219,
+      "code": "LA",
+      "flag": "🇱🇦",
+      "name": "Laos",
+      "originalName": "Laos",
+      "elo": 708,
+      "placeholder": false,
+      "width": 18
+    },
+    {
+      "rank": 220,
+      "code": "WF",
+      "flag": "🇼🇫",
+      "name": "Wallis and Futuna",
+      "originalName": "Wallis and Futuna",
+      "elo": 699,
+      "placeholder": false,
+      "width": 17
+    },
+    {
+      "rank": 221,
+      "code": "VG",
+      "flag": "🇻🇬",
+      "name": "British Virgin Islands",
+      "originalName": "British Virgin Islands",
+      "elo": 693,
+      "placeholder": false,
+      "width": 17
+    },
+    {
+      "rank": 222,
+      "code": "VA",
+      "flag": "🇻🇦",
+      "name": "Vatican",
+      "originalName": "Vatican",
+      "elo": 692,
+      "placeholder": false,
+      "width": 17
+    },
+    {
+      "rank": 223,
+      "code": "AB",
+      "flag": "🇦🇧",
+      "name": "Saba",
+      "originalName": "Saba",
+      "elo": 691,
+      "placeholder": false,
+      "width": 17
+    },
+    {
+      "rank": 224,
+      "code": "TL",
+      "flag": "🇹🇱",
+      "name": "East Timor",
+      "originalName": "East Timor",
+      "elo": 680,
+      "placeholder": false,
+      "width": 16
+    },
+    {
+      "rank": 225,
+      "code": "PM",
+      "flag": "🇵🇲",
+      "name": "Saint Pierre and Miquelon",
+      "originalName": "Saint Pierre and Miquelon",
+      "elo": 677,
+      "placeholder": false,
+      "width": 16
+    },
+    {
+      "rank": 226,
+      "code": "TC",
+      "flag": "🇹🇨",
+      "name": "Turks and Caicos Islands",
+      "originalName": "Turks and Caicos Islands",
+      "elo": 657,
+      "placeholder": false,
+      "width": 15
+    },
+    {
+      "rank": 227,
+      "code": "BN",
+      "flag": "🇧🇳",
+      "name": "Brunei",
+      "originalName": "Brunei",
+      "elo": 655,
+      "placeholder": false,
+      "width": 15
+    },
+    {
+      "rank": 228,
+      "code": "AI",
+      "flag": "🇦🇮",
+      "name": "Anguilla",
+      "originalName": "Anguilla",
+      "elo": 645,
+      "placeholder": false,
+      "width": 14
+    },
+    {
+      "rank": 229,
+      "code": "TE",
+      "flag": "🇹🇪",
+      "name": "Tibet",
+      "originalName": "Tibet",
+      "elo": 629,
+      "placeholder": false,
+      "width": 14
+    },
+    {
+      "rank": 230,
+      "code": "CK",
+      "flag": "🇨🇰",
+      "name": "Cook Islands",
+      "originalName": "Cook Islands",
+      "elo": 622,
+      "placeholder": false,
+      "width": 13
+    },
+    {
+      "rank": 231,
+      "code": "VI",
+      "flag": "🇻🇮",
+      "name": "US Virgin Islands",
+      "originalName": "US Virgin Islands",
+      "elo": 617,
+      "placeholder": false,
+      "width": 13
+    },
+    {
+      "rank": 232,
+      "code": "BT",
+      "flag": "🇧🇹",
+      "name": "Bhutan",
+      "originalName": "Bhutan",
+      "elo": 615,
+      "placeholder": false,
+      "width": 13
+    },
+    {
+      "rank": 233,
+      "code": "MO",
+      "flag": "🇲🇴",
+      "name": "Macao",
+      "originalName": "Macao",
+      "elo": 596,
+      "placeholder": false,
+      "width": 12
+    },
+    {
+      "rank": 234,
+      "code": "CX",
+      "flag": "🇨🇽",
+      "name": "Christmas Island",
+      "originalName": "Christmas Island",
+      "elo": 578,
+      "placeholder": false,
+      "width": 11
+    },
+    {
+      "rank": 235,
+      "code": "FK",
+      "flag": "🇫🇰",
+      "name": "Falkland Islands",
+      "originalName": "Falkland Islands",
+      "elo": 571,
+      "placeholder": false,
+      "width": 10
+    },
+    {
+      "rank": 236,
+      "code": "FM",
+      "flag": "🇫🇲",
+      "name": "FS Micronesia",
+      "originalName": "FS Micronesia",
+      "elo": 563,
+      "placeholder": false,
+      "width": 10
+    },
+    {
+      "rank": 237,
+      "code": "MH",
+      "flag": "🇲🇭",
+      "name": "Marshall Islands",
+      "originalName": "Marshall Islands",
+      "elo": 559,
+      "placeholder": false,
+      "width": 10
+    },
+    {
+      "rank": 238,
+      "code": "KI",
+      "flag": "🇰🇮",
+      "name": "Kiribati",
+      "originalName": "Kiribati",
+      "elo": 544,
+      "placeholder": false,
+      "width": 9
+    },
+    {
+      "rank": 239,
+      "code": "TO",
+      "flag": "🇹🇴",
+      "name": "Tonga",
+      "originalName": "Tonga",
+      "elo": 520,
+      "placeholder": false,
+      "width": 7
+    },
+    {
+      "rank": 240,
+      "code": "NU",
+      "flag": "🇳🇺",
+      "name": "Niue",
+      "originalName": "Niue",
+      "elo": 496,
+      "placeholder": false,
+      "width": 6
+    },
+    {
+      "rank": 241,
+      "code": "MP",
+      "flag": "🇲🇵",
+      "name": "Northern Mariana Islands",
+      "originalName": "Northern Mariana Islands",
+      "elo": 432,
+      "placeholder": false,
+      "width": 6
+    },
+    {
+      "rank": 242,
+      "code": "CC",
+      "flag": "🇨🇨",
+      "name": "Cocos Islands",
+      "originalName": "Cocos Islands",
+      "elo": 422,
+      "placeholder": false,
+      "width": 6
+    },
+    {
+      "rank": 243,
+      "code": "PW",
+      "flag": "🇵🇼",
+      "name": "Palau",
+      "originalName": "Palau",
+      "elo": 402,
+      "placeholder": false,
+      "width": 6
+    },
+    {
+      "rank": 244,
+      "code": "AS",
+      "flag": "🇦🇸",
+      "name": "Eastern Samoa",
+      "originalName": "Eastern Samoa",
+      "elo": 388,
       "placeholder": false,
       "width": 6
     }
