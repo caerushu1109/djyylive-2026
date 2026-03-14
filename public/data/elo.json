@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-12T22:30:08+00:00",
+  "updatedAt": "2026-03-13T14:24:48+00:00",
   "source": "eloratings.net",
   "sourceUrl": "https://eloratings.net/World.tsv",
   "method": "基于 eloratings.net 的 World.tsv 每日抓取，并按 SportMonks 的 2026 世界杯 48 队名单过滤生成。",
@@ -210,7 +210,7 @@
       "flag": "🇧🇪",
       "name": "比利时",
       "originalName": "Belgium",
-      "elo": 1849,
+      "elo": 1850,
       "placeholder": false,
       "width": 82
     },
@@ -450,7 +450,7 @@
       "flag": "🇵🇪",
       "name": "秘鲁",
       "originalName": "Peru",
-      "elo": 1707,
+      "elo": 1708,
       "placeholder": false,
       "width": 74
     },
@@ -860,7 +860,7 @@
       "flag": "🇵🇸",
       "name": "Palestine",
       "originalName": "Palestine",
-      "elo": 1469,
+      "elo": 1470,
       "placeholder": false,
       "width": 61
     },
@@ -1360,7 +1360,7 @@
       "flag": "🇷🇼",
       "name": "Rwanda",
       "originalName": "Rwanda",
-      "elo": 1309,
+      "elo": 1308,
       "placeholder": false,
       "width": 52
     },
@@ -1380,7 +1380,7 @@
       "flag": "🇱🇷",
       "name": "Liberia",
       "originalName": "Liberia",
-      "elo": 1300,
+      "elo": 1299,
       "placeholder": false,
       "width": 51
     },
@@ -1460,7 +1460,7 @@
       "flag": "🇱🇹",
       "name": "Lithuania",
       "originalName": "Lithuania",
-      "elo": 1276,
+      "elo": 1277,
       "placeholder": false,
       "width": 50
     },
@@ -1640,7 +1640,7 @@
       "flag": "🇪🇷",
       "name": "Eritrea",
       "originalName": "Eritrea",
-      "elo": 1140,
+      "elo": 1139,
       "placeholder": false,
       "width": 42
     },
@@ -1650,7 +1650,7 @@
       "flag": "🇭🇰",
       "name": "Hong Kong",
       "originalName": "Hong Kong",
-      "elo": 1135,
+      "elo": 1136,
       "placeholder": false,
       "width": 42
     },
@@ -1810,7 +1810,7 @@
       "flag": "🇦🇫",
       "name": "Afghanistan",
       "originalName": "Afghanistan",
-      "elo": 1035,
+      "elo": 1034,
       "placeholder": false,
       "width": 36
     },

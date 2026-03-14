@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-12T22:30:08+00:00",
+  "updatedAt": "2026-03-13T14:24:48+00:00",
   "simulationCount": 10000,
   "method": "基于当前 Elo 快照，按 Elo 差值换算相对强度后进行 10000 次蒙特卡洛冠军抽样预计算，并导出为静态 JSON；当前为先验概率版，后续可替换为完整 48 队赛程路径模拟。",
   "teams": [
@@ -19,9 +19,9 @@
       "name": "阿根廷",
       "elo": 2113,
       "titleProbability": "6.4%",
-      "probabilityValue": 6.42,
-      "width": 71,
-      "wins": 642
+      "probabilityValue": 6.4,
+      "width": 70,
+      "wins": 640
     },
     {
       "rank": 3,
@@ -29,9 +29,9 @@
       "name": "法国",
       "elo": 2062,
       "titleProbability": "5.2%",
-      "probabilityValue": 5.2,
+      "probabilityValue": 5.22,
       "width": 57,
-      "wins": 520
+      "wins": 522
     },
     {
       "rank": 4,
@@ -89,9 +89,9 @@
       "name": "克罗地亚",
       "elo": 1932,
       "titleProbability": "2.5%",
-      "probabilityValue": 2.48,
+      "probabilityValue": 2.49,
       "width": 27,
-      "wins": 248
+      "wins": 249
     },
     {
       "rank": 10,
@@ -99,9 +99,9 @@
       "name": "厄瓜多尔",
       "elo": 1933,
       "titleProbability": "2.2%",
-      "probabilityValue": 2.23,
-      "width": 25,
-      "wins": 223
+      "probabilityValue": 2.22,
+      "width": 24,
+      "wins": 222
     },
     {
       "rank": 11,
@@ -129,9 +129,9 @@
       "name": "德国",
       "elo": 1910,
       "titleProbability": "1.8%",
-      "probabilityValue": 1.82,
+      "probabilityValue": 1.81,
       "width": 20,
-      "wins": 182
+      "wins": 181
     },
     {
       "rank": 14,
@@ -139,9 +139,9 @@
       "name": "丹麦",
       "elo": 1864,
       "titleProbability": "1.8%",
-      "probabilityValue": 1.81,
+      "probabilityValue": 1.8,
       "width": 20,
-      "wins": 181
+      "wins": 180
     },
     {
       "rank": 15,
@@ -159,19 +159,19 @@
       "name": "乌拉圭",
       "elo": 1890,
       "titleProbability": "1.7%",
-      "probabilityValue": 1.66,
+      "probabilityValue": 1.67,
       "width": 18,
-      "wins": 166
+      "wins": 167
     },
     {
       "rank": 17,
       "flag": "🇧🇪",
       "name": "比利时",
-      "elo": 1849,
-      "titleProbability": "1.6%",
-      "probabilityValue": 1.65,
+      "elo": 1850,
+      "titleProbability": "1.7%",
+      "probabilityValue": 1.66,
       "width": 18,
-      "wins": 165
+      "wins": 166
     },
     {
       "rank": 18,
@@ -179,9 +179,9 @@
       "name": "土耳其",
       "elo": 1880,
       "titleProbability": "1.6%",
-      "probabilityValue": 1.56,
+      "probabilityValue": 1.55,
       "width": 17,
-      "wins": 156
+      "wins": 155
     },
     {
       "rank": 19,
@@ -199,9 +199,9 @@
       "name": "塞内加尔",
       "elo": 1869,
       "titleProbability": "1.5%",
-      "probabilityValue": 1.5,
-      "width": 16,
-      "wins": 150
+      "probabilityValue": 1.51,
+      "width": 17,
+      "wins": 151
     },
     {
       "rank": 21,
@@ -299,9 +299,9 @@
       "name": "塞尔维亚",
       "elo": 1768,
       "titleProbability": "1.0%",
-      "probabilityValue": 0.99,
+      "probabilityValue": 1.0,
       "width": 11,
-      "wins": 99
+      "wins": 100
     },
     {
       "rank": 31,
@@ -309,9 +309,9 @@
       "name": "澳大利亚",
       "elo": 1774,
       "titleProbability": "0.9%",
-      "probabilityValue": 0.94,
+      "probabilityValue": 0.93,
       "width": 10,
-      "wins": 94
+      "wins": 93
     },
     {
       "rank": 32,
@@ -399,9 +399,9 @@
       "name": "Venezuela",
       "elo": 1715,
       "titleProbability": "0.7%",
-      "probabilityValue": 0.7,
+      "probabilityValue": 0.71,
       "width": 8,
-      "wins": 70
+      "wins": 71
     },
     {
       "rank": 41,
@@ -428,10 +428,10 @@
       "flag": "🏴",
       "name": "威尔士",
       "elo": 1715,
-      "titleProbability": "0.7%",
-      "probabilityValue": 0.65,
+      "titleProbability": "0.6%",
+      "probabilityValue": 0.64,
       "width": 7,
-      "wins": 65
+      "wins": 64
     },
     {
       "rank": 44,
@@ -449,9 +449,9 @@
       "name": "爱尔兰",
       "elo": 1688,
       "titleProbability": "0.6%",
-      "probabilityValue": 0.63,
+      "probabilityValue": 0.64,
       "width": 7,
-      "wins": 63
+      "wins": 64
     },
     {
       "rank": 46,
@@ -475,19 +475,19 @@
     },
     {
       "rank": 48,
-      "flag": "🇸🇰",
-      "name": "斯洛伐克",
-      "elo": 1687,
-      "titleProbability": "0.6%",
-      "probabilityValue": 0.55,
-      "width": 6,
-      "wins": 55
-    },
-    {
-      "rank": 49,
       "flag": "🇯🇴",
       "name": "约旦",
       "elo": 1689,
+      "titleProbability": "0.5%",
+      "probabilityValue": 0.54,
+      "width": 6,
+      "wins": 54
+    },
+    {
+      "rank": 49,
+      "flag": "🇸🇰",
+      "name": "斯洛伐克",
+      "elo": 1687,
       "titleProbability": "0.5%",
       "probabilityValue": 0.54,
       "width": 6,
@@ -527,7 +527,7 @@
       "rank": 53,
       "flag": "🇵🇪",
       "name": "秘鲁",
-      "elo": 1707,
+      "elo": 1708,
       "titleProbability": "0.5%",
       "probabilityValue": 0.48,
       "width": 6,
@@ -545,9 +545,9 @@
     },
     {
       "rank": 55,
-      "flag": "🇨🇩",
-      "name": "刚果（金）",
-      "elo": 1639,
+      "flag": "🇷🇴",
+      "name": "罗马尼亚",
+      "elo": 1642,
       "titleProbability": "0.5%",
       "probabilityValue": 0.46,
       "width": 6,
@@ -555,9 +555,9 @@
     },
     {
       "rank": 56,
-      "flag": "🇷🇴",
-      "name": "罗马尼亚",
-      "elo": 1642,
+      "flag": "🇨🇩",
+      "name": "刚果（金）",
+      "elo": 1639,
       "titleProbability": "0.4%",
       "probabilityValue": 0.44,
       "width": 6,
@@ -665,19 +665,19 @@
     },
     {
       "rank": 67,
-      "flag": "🇮🇶",
-      "name": "伊拉克",
-      "elo": 1582,
-      "titleProbability": "0.3%",
-      "probabilityValue": 0.28,
-      "width": 6,
-      "wins": 28
-    },
-    {
-      "rank": 68,
       "flag": "🇦🇴",
       "name": "Angola",
       "elo": 1543,
+      "titleProbability": "0.3%",
+      "probabilityValue": 0.29,
+      "width": 6,
+      "wins": 29
+    },
+    {
+      "rank": 68,
+      "flag": "🇮🇶",
+      "name": "伊拉克",
+      "elo": 1582,
       "titleProbability": "0.3%",
       "probabilityValue": 0.28,
       "width": 6,
@@ -745,16 +745,6 @@
     },
     {
       "rank": 75,
-      "flag": "🇯🇲",
-      "name": "牙买加",
-      "elo": 1542,
-      "titleProbability": "0.2%",
-      "probabilityValue": 0.22,
-      "width": 6,
-      "wins": 22
-    },
-    {
-      "rank": 76,
       "flag": "🇦🇪",
       "name": "United Arab Emirates",
       "elo": 1540,
@@ -762,6 +752,16 @@
       "probabilityValue": 0.22,
       "width": 6,
       "wins": 22
+    },
+    {
+      "rank": 76,
+      "flag": "🇯🇲",
+      "name": "牙买加",
+      "elo": 1542,
+      "titleProbability": "0.2%",
+      "probabilityValue": 0.21,
+      "width": 6,
+      "wins": 21
     },
     {
       "rank": 77,
@@ -815,9 +815,9 @@
     },
     {
       "rank": 82,
-      "flag": "🇰🇿",
-      "name": "Kazakhstan",
-      "elo": 1410,
+      "flag": "🇵🇸",
+      "name": "Palestine",
+      "elo": 1470,
       "titleProbability": "0.2%",
       "probabilityValue": 0.17,
       "width": 6,
@@ -835,9 +835,9 @@
     },
     {
       "rank": 84,
-      "flag": "🇵🇸",
-      "name": "Palestine",
-      "elo": 1469,
+      "flag": "🇰🇿",
+      "name": "Kazakhstan",
+      "elo": 1410,
       "titleProbability": "0.2%",
       "probabilityValue": 0.16,
       "width": 6,
@@ -869,9 +869,9 @@
       "name": "库拉索",
       "elo": 1466,
       "titleProbability": "0.1%",
-      "probabilityValue": 0.15,
+      "probabilityValue": 0.14,
       "width": 6,
-      "wins": 15
+      "wins": 14
     },
     {
       "rank": 88,
@@ -885,6 +885,16 @@
     },
     {
       "rank": 89,
+      "flag": "🇬🇲",
+      "name": "Gambia",
+      "elo": 1424,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.14,
+      "width": 6,
+      "wins": 14
+    },
+    {
+      "rank": 90,
       "flag": "🇨🇳",
       "name": "China",
       "elo": 1410,
@@ -894,7 +904,7 @@
       "wins": 14
     },
     {
-      "rank": 90,
+      "rank": 91,
       "flag": "🇬🇦",
       "name": "Gabon",
       "elo": 1405,
@@ -904,7 +914,7 @@
       "wins": 14
     },
     {
-      "rank": 91,
+      "rank": 92,
       "flag": "🇫🇴",
       "name": "Faroe Islands",
       "elo": 1381,
@@ -914,7 +924,7 @@
       "wins": 14
     },
     {
-      "rank": 92,
+      "rank": 93,
       "flag": "🇬🇭",
       "name": "加纳",
       "elo": 1509,
@@ -924,7 +934,7 @@
       "wins": 13
     },
     {
-      "rank": 93,
+      "rank": 94,
       "flag": "🇶🇦",
       "name": "卡塔尔",
       "elo": 1425,
@@ -934,17 +944,27 @@
       "wins": 13
     },
     {
-      "rank": 94,
-      "flag": "🇬🇲",
-      "name": "Gambia",
-      "elo": 1424,
+      "rank": 95,
+      "flag": "🇧🇭",
+      "name": "Bahrain",
+      "elo": 1418,
       "titleProbability": "0.1%",
       "probabilityValue": 0.13,
       "width": 6,
       "wins": 13
     },
     {
-      "rank": 95,
+      "rank": 96,
+      "flag": "🇺🇬",
+      "name": "Uganda",
+      "elo": 1394,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.13,
+      "width": 6,
+      "wins": 13
+    },
+    {
+      "rank": 97,
       "flag": "🇪🇪",
       "name": "Estonia",
       "elo": 1359,
@@ -954,7 +974,7 @@
       "wins": 13
     },
     {
-      "rank": 96,
+      "rank": 98,
       "flag": "🇲🇪",
       "name": "Montenegro",
       "elo": 1443,
@@ -964,17 +984,7 @@
       "wins": 12
     },
     {
-      "rank": 97,
-      "flag": "🇧🇭",
-      "name": "Bahrain",
-      "elo": 1418,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.12,
-      "width": 6,
-      "wins": 12
-    },
-    {
-      "rank": 98,
+      "rank": 99,
       "flag": "🇳🇪",
       "name": "Niger",
       "elo": 1404,
@@ -984,20 +994,10 @@
       "wins": 12
     },
     {
-      "rank": 99,
+      "rank": 100,
       "flag": "🇱🇺",
       "name": "Luxembourg",
       "elo": 1395,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.12,
-      "width": 6,
-      "wins": 12
-    },
-    {
-      "rank": 100,
-      "flag": "🇺🇬",
-      "name": "Uganda",
-      "elo": 1394,
       "titleProbability": "0.1%",
       "probabilityValue": 0.12,
       "width": 6,
@@ -1045,6 +1045,16 @@
     },
     {
       "rank": 105,
+      "flag": "🇹🇿",
+      "name": "Tanzania",
+      "elo": 1340,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.11,
+      "width": 6,
+      "wins": 11
+    },
+    {
+      "rank": 106,
       "flag": "🇸🇷",
       "name": "苏里南",
       "elo": 1440,
@@ -1054,20 +1064,10 @@
       "wins": 10
     },
     {
-      "rank": 106,
+      "rank": 107,
       "flag": "🇸🇱",
       "name": "Sierra Leone",
       "elo": 1344,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.1,
-      "width": 6,
-      "wins": 10
-    },
-    {
-      "rank": 107,
-      "flag": "🇹🇿",
-      "name": "Tanzania",
-      "elo": 1340,
       "titleProbability": "0.1%",
       "probabilityValue": 0.1,
       "width": 6,
@@ -1085,19 +1085,19 @@
     },
     {
       "rank": 109,
-      "flag": "🇰🇲",
-      "name": "Comoros",
-      "elo": 1374,
+      "flag": "🇲🇷",
+      "name": "Mauritania",
+      "elo": 1311,
       "titleProbability": "0.1%",
-      "probabilityValue": 0.09,
+      "probabilityValue": 0.1,
       "width": 6,
-      "wins": 9
+      "wins": 10
     },
     {
       "rank": 110,
-      "flag": "🇿🇲",
-      "name": "Zambia",
-      "elo": 1370,
+      "flag": "🇰🇲",
+      "name": "Comoros",
+      "elo": 1374,
       "titleProbability": "0.1%",
       "probabilityValue": 0.09,
       "width": 6,
@@ -1125,16 +1125,6 @@
     },
     {
       "rank": 113,
-      "flag": "🇲🇷",
-      "name": "Mauritania",
-      "elo": 1311,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.09,
-      "width": 6,
-      "wins": 9
-    },
-    {
-      "rank": 114,
       "flag": "🇧🇼",
       "name": "Botswana",
       "elo": 1285,
@@ -1144,7 +1134,7 @@
       "wins": 9
     },
     {
-      "rank": 115,
+      "rank": 114,
       "flag": "🇰🇵",
       "name": "North Korea",
       "elo": 1375,
@@ -1154,7 +1144,27 @@
       "wins": 8
     },
     {
+      "rank": 115,
+      "flag": "🇲🇿",
+      "name": "Mozambique",
+      "elo": 1372,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.08,
+      "width": 6,
+      "wins": 8
+    },
+    {
       "rank": 116,
+      "flag": "🇿🇲",
+      "name": "Zambia",
+      "elo": 1370,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.08,
+      "width": 6,
+      "wins": 8
+    },
+    {
+      "rank": 117,
       "flag": "🇹🇭",
       "name": "Thailand",
       "elo": 1368,
@@ -1164,7 +1174,7 @@
       "wins": 8
     },
     {
-      "rank": 117,
+      "rank": 118,
       "flag": "🇹🇬",
       "name": "Togo",
       "elo": 1342,
@@ -1174,20 +1184,10 @@
       "wins": 8
     },
     {
-      "rank": 118,
-      "flag": "🇷🇼",
-      "name": "Rwanda",
-      "elo": 1309,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.08,
-      "width": 6,
-      "wins": 8
-    },
-    {
       "rank": 119,
       "flag": "🇱🇹",
       "name": "Lithuania",
-      "elo": 1276,
+      "elo": 1277,
       "titleProbability": "0.1%",
       "probabilityValue": 0.08,
       "width": 6,
@@ -1195,16 +1195,6 @@
     },
     {
       "rank": 120,
-      "flag": "🇰🇩",
-      "name": "Kurdistan",
-      "elo": 1424,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.07,
-      "width": 6,
-      "wins": 7
-    },
-    {
-      "rank": 121,
       "flag": "🇹🇹",
       "name": "Trinidad and Tobago",
       "elo": 1403,
@@ -1214,17 +1204,7 @@
       "wins": 7
     },
     {
-      "rank": 122,
-      "flag": "🇲🇿",
-      "name": "Mozambique",
-      "elo": 1372,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.07,
-      "width": 6,
-      "wins": 7
-    },
-    {
-      "rank": 123,
+      "rank": 121,
       "flag": "🇰🇪",
       "name": "Kenya",
       "elo": 1344,
@@ -1234,17 +1214,7 @@
       "wins": 7
     },
     {
-      "rank": 124,
-      "flag": "🇦🇿",
-      "name": "Azerbaijan",
-      "elo": 1339,
-      "titleProbability": "0.1%",
-      "probabilityValue": 0.07,
-      "width": 6,
-      "wins": 7
-    },
-    {
-      "rank": 125,
+      "rank": 122,
       "flag": "🇰🇼",
       "name": "Kuwait",
       "elo": 1328,
@@ -1254,7 +1224,17 @@
       "wins": 7
     },
     {
-      "rank": 126,
+      "rank": 123,
+      "flag": "🇷🇼",
+      "name": "Rwanda",
+      "elo": 1308,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.07,
+      "width": 6,
+      "wins": 7
+    },
+    {
+      "rank": 124,
       "flag": "🇳🇨",
       "name": "新喀里多尼亚",
       "elo": 1294,
@@ -1264,7 +1244,7 @@
       "wins": 7
     },
     {
-      "rank": 127,
+      "rank": 125,
       "flag": "🇪🇹",
       "name": "Ethiopia",
       "elo": 1264,
@@ -1274,7 +1254,17 @@
       "wins": 7
     },
     {
-      "rank": 128,
+      "rank": 126,
+      "flag": "🇰🇩",
+      "name": "Kurdistan",
+      "elo": 1424,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.06,
+      "width": 6,
+      "wins": 6
+    },
+    {
+      "rank": 127,
       "flag": "🇧🇯",
       "name": "Benin",
       "elo": 1410,
@@ -1284,17 +1274,17 @@
       "wins": 6
     },
     {
-      "rank": 129,
-      "flag": "🇦🇲",
-      "name": "Armenia",
-      "elo": 1389,
+      "rank": 128,
+      "flag": "🇦🇿",
+      "name": "Azerbaijan",
+      "elo": 1339,
       "titleProbability": "0.1%",
       "probabilityValue": 0.06,
       "width": 6,
       "wins": 6
     },
     {
-      "rank": 130,
+      "rank": 129,
       "flag": "🇱🇧",
       "name": "Lebanon",
       "elo": 1332,
@@ -1304,7 +1294,7 @@
       "wins": 6
     },
     {
-      "rank": 131,
+      "rank": 130,
       "flag": "🇻🇳",
       "name": "Vietnam",
       "elo": 1329,
@@ -1314,7 +1304,7 @@
       "wins": 6
     },
     {
-      "rank": 132,
+      "rank": 131,
       "flag": "🇩🇴",
       "name": "Dominican Republic",
       "elo": 1293,
@@ -1322,6 +1312,16 @@
       "probabilityValue": 0.06,
       "width": 6,
       "wins": 6
+    },
+    {
+      "rank": 132,
+      "flag": "🇦🇲",
+      "name": "Armenia",
+      "elo": 1389,
+      "titleProbability": "0.1%",
+      "probabilityValue": 0.05,
+      "width": 6,
+      "wins": 5
     },
     {
       "rank": 133,
@@ -1367,7 +1367,7 @@
       "rank": 137,
       "flag": "🇱🇷",
       "name": "Liberia",
-      "elo": 1300,
+      "elo": 1299,
       "titleProbability": "0.1%",
       "probabilityValue": 0.05,
       "width": 6,
@@ -1465,9 +1465,9 @@
     },
     {
       "rank": 147,
-      "flag": "🇱🇸",
-      "name": "Lesotho",
-      "elo": 1216,
+      "flag": "🇪🇷",
+      "name": "Eritrea",
+      "elo": 1139,
       "titleProbability": "0.0%",
       "probabilityValue": 0.04,
       "width": 6,
@@ -1475,16 +1475,6 @@
     },
     {
       "rank": 148,
-      "flag": "🇪🇷",
-      "name": "Eritrea",
-      "elo": 1140,
-      "titleProbability": "0.0%",
-      "probabilityValue": 0.04,
-      "width": 6,
-      "wins": 4
-    },
-    {
-      "rank": 149,
       "flag": "🇻🇺",
       "name": "Vanuatu",
       "elo": 1114,
@@ -1494,7 +1484,7 @@
       "wins": 4
     },
     {
-      "rank": 150,
+      "rank": 149,
       "flag": "🇳🇦",
       "name": "Namibia",
       "elo": 1311,
@@ -1504,7 +1494,7 @@
       "wins": 3
     },
     {
-      "rank": 151,
+      "rank": 150,
       "flag": "🇧🇮",
       "name": "Burundi",
       "elo": 1239,
@@ -1514,7 +1504,7 @@
       "wins": 3
     },
     {
-      "rank": 152,
+      "rank": 151,
       "flag": "🇨🇺",
       "name": "Cuba",
       "elo": 1229,
@@ -1524,7 +1514,27 @@
       "wins": 3
     },
     {
+      "rank": 152,
+      "flag": "🇹🇲",
+      "name": "Turkmenistan",
+      "elo": 1217,
+      "titleProbability": "0.0%",
+      "probabilityValue": 0.03,
+      "width": 6,
+      "wins": 3
+    },
+    {
       "rank": 153,
+      "flag": "🇱🇸",
+      "name": "Lesotho",
+      "elo": 1216,
+      "titleProbability": "0.0%",
+      "probabilityValue": 0.03,
+      "width": 6,
+      "wins": 3
+    },
+    {
+      "rank": 154,
       "flag": "🇹🇮",
       "name": "Tahiti",
       "elo": 1176,
@@ -1534,7 +1544,7 @@
       "wins": 3
     },
     {
-      "rank": 154,
+      "rank": 155,
       "flag": "🇻🇨",
       "name": "Saint Vincent and the Grenadines",
       "elo": 1171,
@@ -1544,7 +1554,7 @@
       "wins": 3
     },
     {
-      "rank": 155,
+      "rank": 156,
       "flag": "🇵🇷",
       "name": "Puerto Rico",
       "elo": 1133,
@@ -1554,7 +1564,7 @@
       "wins": 3
     },
     {
-      "rank": 156,
+      "rank": 157,
       "flag": "🇫🇯",
       "name": "Fiji",
       "elo": 1108,
@@ -1564,7 +1574,7 @@
       "wins": 3
     },
     {
-      "rank": 157,
+      "rank": 158,
       "flag": "🇧🇿",
       "name": "Belize",
       "elo": 1105,
@@ -1574,7 +1584,7 @@
       "wins": 3
     },
     {
-      "rank": 158,
+      "rank": 159,
       "flag": "🇸🇧",
       "name": "Solomon Islands",
       "elo": 1090,
@@ -1584,7 +1594,7 @@
       "wins": 3
     },
     {
-      "rank": 159,
+      "rank": 160,
       "flag": "🇦🇩",
       "name": "Andorra",
       "elo": 1083,
@@ -1594,17 +1604,17 @@
       "wins": 3
     },
     {
-      "rank": 160,
+      "rank": 161,
       "flag": "🇦🇫",
       "name": "Afghanistan",
-      "elo": 1035,
+      "elo": 1034,
       "titleProbability": "0.0%",
       "probabilityValue": 0.03,
       "width": 6,
       "wins": 3
     },
     {
-      "rank": 161,
+      "rank": 162,
       "flag": "🇮🇩",
       "name": "Indonesia",
       "elo": 1341,
@@ -1614,7 +1624,7 @@
       "wins": 2
     },
     {
-      "rank": 162,
+      "rank": 163,
       "flag": "🇿🇳",
       "name": "Zanzibar",
       "elo": 1321,
@@ -1624,7 +1634,7 @@
       "wins": 2
     },
     {
-      "rank": 163,
+      "rank": 164,
       "flag": "🇹🇯",
       "name": "Tajikistan",
       "elo": 1297,
@@ -1634,7 +1644,7 @@
       "wins": 2
     },
     {
-      "rank": 164,
+      "rank": 165,
       "flag": "🇲🇩",
       "name": "Moldova",
       "elo": 1288,
@@ -1644,7 +1654,7 @@
       "wins": 2
     },
     {
-      "rank": 165,
+      "rank": 166,
       "flag": "🇬🇾",
       "name": "Guyana",
       "elo": 1275,
@@ -1654,20 +1664,10 @@
       "wins": 2
     },
     {
-      "rank": 166,
+      "rank": 167,
       "flag": "🇲🇼",
       "name": "Malawi",
       "elo": 1252,
-      "titleProbability": "0.0%",
-      "probabilityValue": 0.02,
-      "width": 6,
-      "wins": 2
-    },
-    {
-      "rank": 167,
-      "flag": "🇹🇲",
-      "name": "Turkmenistan",
-      "elo": 1217,
       "titleProbability": "0.0%",
       "probabilityValue": 0.02,
       "width": 6,
@@ -1967,7 +1967,7 @@
       "rank": 197,
       "flag": "🇭🇰",
       "name": "Hong Kong",
-      "elo": 1135,
+      "elo": 1136,
       "titleProbability": "0.0%",
       "probabilityValue": 0.0,
       "width": 6,

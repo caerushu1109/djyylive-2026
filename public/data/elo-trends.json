@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-12T22:30:08+00:00",
+  "updatedAt": "2026-03-13T14:24:48+00:00",
   "source": "elo-history",
   "method": "基于本地 Elo 历史资料库按 2 年间隔抽样生成走势，最后一个节点使用当前最新 Elo 快照。",
   "teams": [
@@ -830,7 +830,7 @@
       "name": "比利时",
       "originalName": "Belgium",
       "flag": "🇧🇪",
-      "elo": 1849,
+      "elo": 1850,
       "color": "#f4a261",
       "matchCount": 874,
       "points": [
@@ -860,7 +860,7 @@
         },
         {
           "label": "2026",
-          "elo": 1849
+          "elo": 1850
         }
       ]
     },
@@ -1814,7 +1814,7 @@
       "name": "秘鲁",
       "originalName": "Peru",
       "flag": "🇵🇪",
-      "elo": 1707,
+      "elo": 1708,
       "color": "#f4a261",
       "matchCount": 706,
       "points": [
@@ -1844,7 +1844,7 @@
         },
         {
           "label": "2026",
-          "elo": 1707
+          "elo": 1708
         }
       ]
     },
@@ -3495,7 +3495,7 @@
       "name": "Palestine",
       "originalName": "Palestine",
       "flag": "🇵🇸",
-      "elo": 1469,
+      "elo": 1470,
       "color": "#7bd389",
       "matchCount": 289,
       "points": [
@@ -3525,7 +3525,7 @@
         },
         {
           "label": "2026",
-          "elo": 1469
+          "elo": 1470
         }
       ]
     },
@@ -5545,7 +5545,7 @@
       "name": "Rwanda",
       "originalName": "Rwanda",
       "flag": "🇷🇼",
-      "elo": 1309,
+      "elo": 1308,
       "color": "#ff8fab",
       "matchCount": 288,
       "points": [
@@ -5575,7 +5575,7 @@
         },
         {
           "label": "2026",
-          "elo": 1309
+          "elo": 1308
         }
       ]
     },
@@ -5627,7 +5627,7 @@
       "name": "Liberia",
       "originalName": "Liberia",
       "flag": "🇱🇷",
-      "elo": 1300,
+      "elo": 1299,
       "color": "#4da6ff",
       "matchCount": 338,
       "points": [
@@ -5657,7 +5657,7 @@
         },
         {
           "label": "2026",
-          "elo": 1300
+          "elo": 1299
         }
       ]
     },
@@ -5955,7 +5955,7 @@
       "name": "Lithuania",
       "originalName": "Lithuania",
       "flag": "🇱🇹",
-      "elo": 1276,
+      "elo": 1277,
       "color": "#4da6ff",
       "matchCount": 414,
       "points": [
@@ -5985,7 +5985,7 @@
         },
         {
           "label": "2026",
-          "elo": 1276
+          "elo": 1277
         }
       ]
     },
@@ -6693,7 +6693,7 @@
       "name": "Eritrea",
       "originalName": "Eritrea",
       "flag": "🇪🇷",
-      "elo": 1140,
+      "elo": 1139,
       "color": "#e63946",
       "matchCount": 84,
       "points": [
@@ -6723,7 +6723,7 @@
         },
         {
           "label": "2026",
-          "elo": 1140
+          "elo": 1139
         }
       ]
     },
@@ -6734,7 +6734,7 @@
       "name": "Hong Kong",
       "originalName": "Hong Kong",
       "flag": "🇭🇰",
-      "elo": 1135,
+      "elo": 1136,
       "color": "#f4a261",
       "matchCount": 511,
       "points": [
@@ -6764,7 +6764,7 @@
         },
         {
           "label": "2026",
-          "elo": 1135
+          "elo": 1136
         }
       ]
     },
@@ -7390,7 +7390,7 @@
       "name": "Afghanistan",
       "originalName": "Afghanistan",
       "flag": "🇦🇫",
-      "elo": 1035,
+      "elo": 1034,
       "color": "#f4a261",
       "matchCount": 163,
       "points": [
@@ -7420,7 +7420,7 @@
         },
         {
           "label": "2026",
-          "elo": 1035
+          "elo": 1034
         }
       ]
     },
