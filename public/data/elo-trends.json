@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-14T16:40:40+00:00",
+  "updatedAt": "2026-03-15T22:10:30+00:00",
   "source": "elo-history",
   "method": "基于本地 Elo 历史资料库按 2 年间隔抽样生成走势，最后一个节点使用当前最新 Elo 快照。",
   "teams": [
@@ -2095,14 +2095,55 @@
       ]
     },
     {
-      "id": "sweden",
+      "id": "bolivia",
       "rank": 52,
+      "code": "BO",
+      "name": "玻利维亚",
+      "originalName": "Bolivia",
+      "flag": "🇧🇴",
+      "elo": 1661,
+      "color": "#e63946",
+      "matchCount": 533,
+      "points": [
+        {
+          "label": "2014",
+          "elo": 1627
+        },
+        {
+          "label": "2016",
+          "elo": 1632
+        },
+        {
+          "label": "2018",
+          "elo": 1655
+        },
+        {
+          "label": "2020",
+          "elo": 1583
+        },
+        {
+          "label": "2022",
+          "elo": 1617
+        },
+        {
+          "label": "2024",
+          "elo": 1658
+        },
+        {
+          "label": "2026",
+          "elo": 1661
+        }
+      ]
+    },
+    {
+      "id": "sweden",
+      "rank": 53,
       "code": "SE",
       "name": "瑞典",
       "originalName": "Sweden",
       "flag": "🇸🇪",
       "elo": 1660,
-      "color": "#e63946",
+      "color": "#f4a261",
       "matchCount": 1116,
       "points": [
         {
@@ -2137,13 +2178,13 @@
     },
     {
       "id": "egypt",
-      "rank": 53,
+      "rank": 54,
       "code": "EG",
       "name": "埃及",
       "originalName": "Egypt",
       "flag": "🇪🇬",
       "elo": 1659,
-      "color": "#f4a261",
+      "color": "#7bd389",
       "matchCount": 882,
       "points": [
         {
@@ -2173,47 +2214,6 @@
         {
           "label": "2026",
           "elo": 1659
-        }
-      ]
-    },
-    {
-      "id": "bolivia",
-      "rank": 54,
-      "code": "BO",
-      "name": "玻利维亚",
-      "originalName": "Bolivia",
-      "flag": "🇧🇴",
-      "elo": 1657,
-      "color": "#7bd389",
-      "matchCount": 533,
-      "points": [
-        {
-          "label": "2014",
-          "elo": 1627
-        },
-        {
-          "label": "2016",
-          "elo": 1632
-        },
-        {
-          "label": "2018",
-          "elo": 1655
-        },
-        {
-          "label": "2020",
-          "elo": 1583
-        },
-        {
-          "label": "2022",
-          "elo": 1617
-        },
-        {
-          "label": "2024",
-          "elo": 1658
-        },
-        {
-          "label": "2026",
-          "elo": 1657
         }
       ]
     },
@@ -4151,7 +4151,7 @@
       "name": "Trinidad and Tobago",
       "originalName": "Trinidad and Tobago",
       "flag": "🇹🇹",
-      "elo": 1403,
+      "elo": 1399,
       "color": "#7bd389",
       "matchCount": 867,
       "points": [
@@ -4181,7 +4181,7 @@
         },
         {
           "label": "2026",
-          "elo": 1403
+          "elo": 1399
         }
       ]
     },

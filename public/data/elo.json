@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-14T16:40:40+00:00",
+  "updatedAt": "2026-03-15T22:10:30+00:00",
   "source": "eloratings.net",
   "sourceUrl": "https://eloratings.net/World.tsv",
   "method": "基于 eloratings.net 的 World.tsv 每日抓取，并按 SportMonks 的 2026 世界杯 48 队名单过滤生成。",
@@ -516,6 +516,16 @@
     },
     {
       "rank": 52,
+      "code": "BO",
+      "flag": "🇧🇴",
+      "name": "玻利维亚",
+      "originalName": "Bolivia",
+      "elo": 1661,
+      "placeholder": false,
+      "width": 71
+    },
+    {
+      "rank": 53,
       "code": "SE",
       "flag": "🇸🇪",
       "name": "瑞典",
@@ -525,22 +535,12 @@
       "width": 71
     },
     {
-      "rank": 53,
+      "rank": 54,
       "code": "EG",
       "flag": "🇪🇬",
       "name": "埃及",
       "originalName": "Egypt",
       "elo": 1659,
-      "placeholder": false,
-      "width": 71
-    },
-    {
-      "rank": 54,
-      "code": "BO",
-      "flag": "🇧🇴",
-      "name": "玻利维亚",
-      "originalName": "Bolivia",
-      "elo": 1657,
       "placeholder": false,
       "width": 71
     },
@@ -1020,7 +1020,7 @@
       "flag": "🇹🇹",
       "name": "Trinidad and Tobago",
       "originalName": "Trinidad and Tobago",
-      "elo": 1403,
+      "elo": 1399,
       "placeholder": false,
       "width": 57
     },

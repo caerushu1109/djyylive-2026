@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-14T16:40:40+00:00",
+  "updatedAt": "2026-03-15T22:10:30+00:00",
   "source": "sportmonks",
   "teams": [
     {
@@ -309,6 +309,12 @@
       "placeholder": false
     },
     {
+      "name": "Bolivia",
+      "displayName": "玻利维亚",
+      "flag": "🇧🇴",
+      "placeholder": false
+    },
+    {
       "name": "Sweden",
       "displayName": "瑞典",
       "flag": "🇸🇪",
@@ -318,12 +324,6 @@
       "name": "Egypt",
       "displayName": "埃及",
       "flag": "🇪🇬",
-      "placeholder": false
-    },
-    {
-      "name": "Bolivia",
-      "displayName": "玻利维亚",
-      "flag": "🇧🇴",
       "placeholder": false
     },
     {
