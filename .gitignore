@@ -13,4 +13,5 @@ djyy 2026worldcup/
 .tooling/
 data/provider-live-config.json
 data/provider-live/
+data/elo-history/
 .superpowers/
