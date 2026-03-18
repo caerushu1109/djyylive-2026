@@ -68,9 +68,9 @@ def load_local_env():
         os.environ.setdefault(key.strip(), value.strip())
 
 SPECIAL_FLAGS = {
-    "EN": "🏴",
-    "WA": "🏴",
-    "SC": "🏴",
+    "EN": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "WA": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "SC": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
     "NI": "🇬🇧",
     "XK": "🇽🇰",
 }

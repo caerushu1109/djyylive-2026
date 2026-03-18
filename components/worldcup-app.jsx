@@ -150,16 +150,7 @@ function buildQuickStats(fixtures, standingsGroups) {
   });
 
   const cityCount = new Set(fixtures.map((fixture) => fixture.venue).filter(Boolean)).size;
-  const firstKickoff = fixtures[0]?.startingAt;
-  const openingDay = firstKickoff
-    ? new Intl.DateTimeFormat("zh-CN", {
-        month: "2-digit",
-        day: "2-digit",
-        timeZone: "Asia/Tokyo",
-      })
-        .format(new Date(firstKickoff))
-        .replace("/", ".")
-    : "06.11";
+  const openingDay = "06.11";
 
   return [
     { value: String(teamSet.size || 48), label: "参赛球队" },
@@ -490,6 +481,10 @@ export default function WorldCupApp() {
   const [matchDetails, setMatchDetails] = useState({});
   const [historyTeamOpen, setHistoryTeamOpen] = useState(false);
   const [activeHistoryTeam, setActiveHistoryTeam] = useState(null);
+  const [groupsTab, setGroupsTab] = useState("standings");
+  const [historySearch, setHistorySearch] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const initialSimulatorScenarios = buildAdaptiveSimulatorScenarios(standings, groupedFixtures, simulatorScenarios);
   const [activeSimulatorGroup, setActiveSimulatorGroup] = useState(initialSimulatorScenarios[0].group);
   const initialDateTabs = buildDateTabs([]);
@@ -615,6 +610,13 @@ export default function WorldCupApp() {
     loadStaticData();
     return () => { ignore = true; };
   }, []);
+
+  // ─── Close history drawer on page change ─────────────────────────────────
+  useEffect(() => {
+    if (activePage !== "history") {
+      setHistoryTeamOpen(false);
+    }
+  }, [activePage]);
 
   // ─── Touch swipe to close detail ─────────────────────────────────────────
   useEffect(() => {
@@ -887,7 +889,7 @@ export default function WorldCupApp() {
                 <div className="live-dot" />
                 {liveCount} LIVE
               </button>
-              <button className="search-btn" type="button" aria-label="搜索">
+              <button className="search-btn" type="button" aria-label="搜索" onClick={() => { setSearchOpen(true); setSearchQuery(""); }}>
                 <Search size={15} />
               </button>
             </div>
@@ -1035,6 +1037,25 @@ export default function WorldCupApp() {
 
             {/* ── Groups page ───────────────────────────────────────────── */}
             <div className={cn("page", activePage === "groups" && "active")}>
+              <div className="groups-page-tabs">
+                <button
+                  type="button"
+                  className={cn("groups-page-tab", groupsTab === "standings" && "active")}
+                  onClick={() => setGroupsTab("standings")}
+                >
+                  积分榜
+                </button>
+                <button
+                  type="button"
+                  className={cn("groups-page-tab", groupsTab === "simulator" && "active")}
+                  onClick={() => setGroupsTab("simulator")}
+                >
+                  出线模拟器
+                </button>
+              </div>
+
+              {groupsTab === "standings" && (
+              <>
               <div className="legend-strip">
                 {groupLegend.map((item) => (
                   <div className="legend-item" key={item.label}>
@@ -1088,7 +1109,11 @@ export default function WorldCupApp() {
                   </div>
                 </div>
               )}
+              </>
+              )}
 
+              {groupsTab === "simulator" && (
+              <>
               <SectionTitle title="小组出线模拟器" />
               <div className="group-card simulator-card">
                 <div className="group-header">
@@ -1168,6 +1193,8 @@ export default function WorldCupApp() {
                   ))}
                 </div>
               </div>
+              </>
+              )}
               <div className="page-space" />
             </div>
 
@@ -1177,8 +1204,8 @@ export default function WorldCupApp() {
 
               {/* Top 3 podium cards */}
               <div className="card">
-                <PredictionTop3 teams={predictionData.teams} />
-                {predictionData.teams.map((team) => (
+                <PredictionTop3 teams={predictionData.teams.filter((t) => !t.placeholder)} />
+                {predictionData.teams.filter((t) => !t.placeholder).map((team) => (
                   <div className="pred-list-item" key={team.rank}>
                     <div className="pred-rank">{team.rank}</div>
                     <div className="pred-team">
@@ -1320,36 +1347,62 @@ export default function WorldCupApp() {
                 <span className="history-search-icon">
                   <Search size={14} />
                 </span>
-                <input type="text" placeholder="搜索球队、球员、届次…" readOnly />
+                <input
+                  type="text"
+                  placeholder="搜索球队、届次…"
+                  value={historySearch}
+                  onChange={(e) => setHistorySearch(e.target.value)}
+                />
               </div>
 
               <SectionTitle title="历届世界杯" />
               {/* Horizontal scrollable timeline */}
               <div className="wc-timeline-scroll">
-                {historyData.tournaments.map((item) => (
-                  <button className="wc-timeline-card" key={item.year} type="button">
-                    <div className="wc-timeline-year">{item.year}</div>
-                    <div className="wc-timeline-host">{item.host}</div>
-                    <div className="wc-timeline-champ">
-                      <Trophy size={11} style={{ color: "var(--gold)", flexShrink: 0 }} />
-                      {item.champion}
+                {historyData.tournaments
+                  .filter((item) => {
+                    if (!historySearch) return true;
+                    const q = historySearch.toLowerCase();
+                    return (
+                      String(item.year).includes(q) ||
+                      (item.host || "").toLowerCase().includes(q) ||
+                      (item.champion || "").toLowerCase().includes(q)
+                    );
+                  })
+                  .map((item) => (
+                    <button className="wc-timeline-card" key={item.year} type="button">
+                      <div className="wc-timeline-year">{item.year}</div>
+                      <div className="wc-timeline-host">{item.host}</div>
+                      <div className="wc-timeline-champ">
+                        <Trophy size={11} style={{ color: "var(--gold)", flexShrink: 0 }} />
+                        {item.champion}
+                      </div>
+                    </button>
+                  ))}
+                {/* 2026 current edition */}
+                {(!historySearch || "2026".includes(historySearch) || "北美".includes(historySearch)) && (
+                  <button className="wc-timeline-card" type="button" style={{ borderColor: "rgba(201,162,39,0.4)" }}>
+                    <div className="wc-timeline-year" style={{ color: "var(--green)" }}>2026</div>
+                    <div className="wc-timeline-host">🇺🇸🇨🇦🇲🇽 北美</div>
+                    <div className="wc-timeline-champ" style={{ color: "var(--text-dim)" }}>
+                      <Zap size={11} style={{ color: "var(--green)", flexShrink: 0 }} />
+                      进行中
                     </div>
                   </button>
-                ))}
-                {/* 2026 current edition */}
-                <button className="wc-timeline-card" type="button" style={{ borderColor: "rgba(201,162,39,0.4)" }}>
-                  <div className="wc-timeline-year" style={{ color: "var(--green)" }}>2026</div>
-                  <div className="wc-timeline-host">🇺🇸🇨🇦🇲🇽 北美</div>
-                  <div className="wc-timeline-champ" style={{ color: "var(--text-dim)" }}>
-                    <Zap size={11} style={{ color: "var(--green)", flexShrink: 0 }} />
-                    进行中
-                  </div>
-                </button>
+                )}
               </div>
 
               <SectionTitle title="历史球队" action="热门 →" />
               <div className="history-team-grid">
-                {historyTeams.map((team) => (
+                {historyTeams
+                  .filter((team) => {
+                    if (!historySearch) return true;
+                    const q = historySearch.toLowerCase();
+                    return (
+                      (team.name || "").toLowerCase().includes(q) ||
+                      (team.id || "").toLowerCase().includes(q)
+                    );
+                  })
+                  .map((team) => (
                   <button className="history-team-card" key={team.id} type="button" onClick={() => openHistoryTeam(team)}>
                     <div className="history-team-flag">{team.flag}</div>
                     <div className="history-team-name">{team.name}</div>
@@ -1431,6 +1484,15 @@ export default function WorldCupApp() {
         <div className="detail-body">
           {detailTab === "live" ? (
             <>
+              {detailFixture.status === "NS" || detailFixture.status === "TBD" ? (
+                <div className="detail-section">
+                  <div className="state-card">
+                    <div className="state-title">比赛尚未开始</div>
+                    <div className="state-copy">{formatFixtureInfoLine(detailFixture)}</div>
+                  </div>
+                </div>
+              ) : (
+              <>
               <div className="detail-section">
                 <div className="detail-section-title">实时数据</div>
                 {detailLiveStats.map((stat) => (
@@ -1462,6 +1524,8 @@ export default function WorldCupApp() {
                   ))}
                 </div>
               </div>
+              </>
+              )}
             </>
           ) : null}
 
@@ -1642,6 +1706,89 @@ export default function WorldCupApp() {
           </>
         ) : null}
       </aside>
+
+      {/* ── Global search overlay ─────────────────────────────────────────── */}
+      {searchOpen && (
+        <div className="search-overlay" onClick={() => setSearchOpen(false)}>
+          <div className="search-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="search-modal-bar">
+              <Search size={15} className="search-modal-icon" />
+              <input
+                autoFocus
+                className="search-modal-input"
+                placeholder="搜索球队、赛程、届次…"
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button
+                className="search-modal-close"
+                type="button"
+                onClick={() => setSearchOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+            {searchQuery && (
+              <div className="search-modal-results">
+                {(() => {
+                  const q = searchQuery.toLowerCase();
+                  const teamResults = eloData.rankings.filter(
+                    (t) => (t.name || "").toLowerCase().includes(q) || (t.originalName || "").toLowerCase().includes(q)
+                  ).slice(0, 5);
+                  const fixtureResults = fixtures.filter(
+                    (f) =>
+                      (f.home?.name || "").toLowerCase().includes(q) ||
+                      (f.away?.name || "").toLowerCase().includes(q) ||
+                      (f.venue || "").toLowerCase().includes(q)
+                  ).slice(0, 5);
+                  if (!teamResults.length && !fixtureResults.length) {
+                    return <div className="search-no-result">暂无匹配结果</div>;
+                  }
+                  return (
+                    <>
+                      {teamResults.length > 0 && (
+                        <div className="search-section">
+                          <div className="search-section-title">球队</div>
+                          {teamResults.map((team) => (
+                            <button
+                              key={team.rank}
+                              className="search-result-item"
+                              type="button"
+                              onClick={() => { setActivePage("predict"); setSearchOpen(false); }}
+                            >
+                              <span>{team.flag}</span>
+                              <span>{team.name}</span>
+                              <span className="search-result-sub">ELO {team.elo}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      {fixtureResults.length > 0 && (
+                        <div className="search-section">
+                          <div className="search-section-title">赛程</div>
+                          {fixtureResults.map((f) => (
+                            <button
+                              key={f.id}
+                              className="search-result-item"
+                              type="button"
+                              onClick={() => { openMatch(f); setSearchOpen(false); }}
+                            >
+                              <span>{f.home?.flag} {f.home?.name}</span>
+                              <span className="search-result-vs">vs</span>
+                              <span>{f.away?.flag} {f.away?.name}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  );
+                })()}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* ── Toast ─────────────────────────────────────────────────────────── */}
       <div className={cn("toast", toast.visible && "show")}>{toast.text}</div>
