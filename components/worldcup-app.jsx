@@ -251,7 +251,8 @@ function useToast() {
 function useFavorites() {
   const [favorites, setFavorites] = useState(() => {
     try {
-      return new Set(JSON.parse(window?.localStorage?.getItem("wc-favorites") || "[]"));
+      if (typeof window === "undefined") return new Set();
+      return new Set(JSON.parse(localStorage.getItem("wc-favorites") || "[]"));
     } catch {
       return new Set();
     }
@@ -854,7 +855,8 @@ export default function WorldCupApp() {
     if (!adaptiveScenarios.some((scenario) => scenario.group === activeSimulatorGroup)) {
       setActiveSimulatorGroup(adaptiveScenarios[0].group);
     }
-  }, [activeSimulatorGroup, groups, standingsGroups]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [groups, standingsGroups]);
 
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
@@ -1685,6 +1687,7 @@ function buildSimulatedStandings(baseTeams, matches) {
 }
 
 function EloTrendChart({ team }) {
+  if (!team || !team.points?.length) return null;
   const width = 320;
   const height = 164;
   const padding = 18;
