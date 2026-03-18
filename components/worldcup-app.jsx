@@ -1,6 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import {
+  Home,
+  Calendar,
+  BarChart2,
+  Target,
+  BookOpen,
+  Search,
+  ChevronLeft,
+  Share2,
+  Heart,
+  Trophy,
+  ChevronRight,
+  Zap,
+} from "lucide-react";
 import {
   detailTabs,
   groupLegend,
@@ -21,18 +35,24 @@ import {
 } from "@/src/mock/worldcup-data";
 import { normalizeTeamDisplay } from "@/src/lib/team-meta";
 
+// ─── Nav items with Lucide icons ─────────────────────────────────────────────
 const NAV_ITEMS = [
-  { id: "home", icon: "🏠", label: "首页" },
-  { id: "fixtures", icon: "📅", label: "赛程" },
-  { id: "groups", icon: "📊", label: "积分" },
-  { id: "predict", icon: "🎯", label: "预测" },
-  { id: "history", icon: "📚", label: "历史" },
+  { id: "home",     Icon: Home,      label: "首页" },
+  { id: "fixtures", Icon: Calendar,  label: "赛程" },
+  { id: "groups",   Icon: BarChart2, label: "积分" },
+  { id: "predict",  Icon: Target,    label: "预测" },
+  { id: "history",  Icon: BookOpen,  label: "历史" },
 ];
 
 const DATA_MODES = {
   LIVE: "live",
   DRILL: "drill",
 };
+
+// ─── 2026 World Cup opening day (UTC) ────────────────────────────────────────
+const WC_OPENING = new Date("2026-06-11T18:00:00Z");
+
+// ─── Helper functions ─────────────────────────────────────────────────────────
 
 function cn(...values) {
   return values.filter(Boolean).join(" ");
@@ -113,11 +133,7 @@ function buildDateTabs(fixtures) {
       label = "明天";
     }
 
-    return {
-      key: date,
-      day,
-      label,
-    };
+    return { key: date, day, label };
   });
 }
 
@@ -178,15 +194,9 @@ function formatFixtureInfoLine(fixture) {
 }
 
 function formatDateTimeLabel(value) {
-  if (!value) {
-    return "—";
-  }
-
+  if (!value) return "—";
   const dateValue = new Date(value);
-  if (Number.isNaN(dateValue.getTime())) {
-    return "—";
-  }
-
+  if (Number.isNaN(dateValue.getTime())) return "—";
   return new Intl.DateTimeFormat("zh-CN", {
     month: "2-digit",
     day: "2-digit",
@@ -200,6 +210,92 @@ function formatDateTimeLabel(value) {
     .replace(" ", " ");
 }
 
+// ─── Countdown hook ───────────────────────────────────────────────────────────
+
+function useCountdown(target) {
+  const [remaining, setRemaining] = useState(() => Math.max(0, target - Date.now()));
+
+  useEffect(() => {
+    const tick = () => setRemaining(Math.max(0, target - Date.now()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [target]);
+
+  const totalSecs = Math.floor(remaining / 1000);
+  const days    = Math.floor(totalSecs / 86400);
+  const hours   = Math.floor((totalSecs % 86400) / 3600);
+  const minutes = Math.floor((totalSecs % 3600) / 60);
+  const seconds = totalSecs % 60;
+
+  return { days, hours, minutes, seconds, started: remaining <= 0 };
+}
+
+// ─── Toast hook ───────────────────────────────────────────────────────────────
+
+function useToast() {
+  const [toast, setToast] = useState({ visible: false, text: "" });
+  const timerRef = useRef(null);
+
+  const showToast = useCallback((text) => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setToast({ visible: true, text });
+    timerRef.current = setTimeout(() => setToast({ visible: false, text: "" }), 2200);
+  }, []);
+
+  return { toast, showToast };
+}
+
+// ─── Favorites hook ───────────────────────────────────────────────────────────
+
+function useFavorites() {
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      return new Set(JSON.parse(window?.localStorage?.getItem("wc-favorites") || "[]"));
+    } catch {
+      return new Set();
+    }
+  });
+
+  const toggle = useCallback((id) => {
+    setFavorites((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      try {
+        window.localStorage.setItem("wc-favorites", JSON.stringify([...next]));
+      } catch {}
+      return next;
+    });
+  }, []);
+
+  return { favorites, toggle };
+}
+
+// ─── Skeleton loader ──────────────────────────────────────────────────────────
+
+function SkeletonRows({ count = 4 }) {
+  return (
+    <>
+      {Array.from({ length: count }).map((_, i) => (
+        <div className="skeleton-row" key={i}>
+          <div className="skeleton skeleton-circle" />
+          <div className="skeleton-lines">
+            <div className="skeleton skeleton-block" style={{ width: "55%" }} />
+            <div className="skeleton skeleton-block" style={{ width: "35%" }} />
+          </div>
+          <div className="skeleton skeleton-block" style={{ width: 40, height: 14 }} />
+        </div>
+      ))}
+    </>
+  );
+}
+
+// ─── Fixture row ──────────────────────────────────────────────────────────────
+
 function FixtureRow({ fixture, onOpen }) {
   const hasScore =
     typeof fixture.homeScore === "number" && typeof fixture.awayScore === "number";
@@ -207,15 +303,21 @@ function FixtureRow({ fixture, onOpen }) {
   return (
     <button className="fixture-row" type="button" onClick={() => onOpen(fixture)}>
       <div className="fix-time-col">
-        <div
-          className={cn(
-            fixture.status === "LIVE" && "fix-status-live",
-            fixture.status === "FT" && "fix-status-ft",
-            fixture.status === "NS" && "fix-status-ns"
-          )}
-        >
-          {fixture.status === "LIVE" ? "● LIVE" : fixture.status}
-        </div>
+        {fixture.status === "LIVE" ? (
+          <div className="fix-status-live">
+            <span className="fix-live-dot" />
+            LIVE
+          </div>
+        ) : (
+          <div
+            className={cn(
+              fixture.status === "FT" && "fix-status-ft",
+              fixture.status === "NS" && "fix-status-ns"
+            )}
+          >
+            {fixture.status}
+          </div>
+        )}
         <div className="fix-time">
           {fixture.status === "FT" ? "" : fixture.minute || fixture.kickoff}
         </div>
@@ -256,19 +358,93 @@ function FixtureRow({ fixture, onOpen }) {
           <div className="fix-goal is-muted">—</div>
         )}
       </div>
-      <div className="fix-arrow">›</div>
+      <div className="fix-arrow">
+        <ChevronRight size={14} />
+      </div>
     </button>
   );
 }
 
-function SectionTitle({ title, action }) {
+// ─── Section title ────────────────────────────────────────────────────────────
+
+function SectionTitle({ title, action, onAction }) {
   return (
     <div className="section-title">
       <span>{title}</span>
-      {action ? <a href="#">{action}</a> : null}
+      {action ? (
+        <a href="#" onClick={onAction ? (e) => { e.preventDefault(); onAction(); } : undefined}>
+          {action}
+        </a>
+      ) : null}
     </div>
   );
 }
+
+// ─── Countdown card ───────────────────────────────────────────────────────────
+
+function CountdownCard() {
+  const { days, hours, minutes, seconds, started } = useCountdown(WC_OPENING.getTime());
+
+  if (started) return null;
+
+  const pad = (n) => String(n).padStart(2, "0");
+
+  return (
+    <div className="countdown-card">
+      <div className="countdown-label">
+        <Zap size={10} />
+        距离世界杯开幕
+      </div>
+      <div className="countdown-units">
+        <div className="countdown-unit">
+          <div className="countdown-num">{days}</div>
+          <div className="countdown-sublabel">DAYS</div>
+        </div>
+        <div className="countdown-sep">:</div>
+        <div className="countdown-unit">
+          <div className="countdown-num">{pad(hours)}</div>
+          <div className="countdown-sublabel">HRS</div>
+        </div>
+        <div className="countdown-sep">:</div>
+        <div className="countdown-unit">
+          <div className="countdown-num">{pad(minutes)}</div>
+          <div className="countdown-sublabel">MIN</div>
+        </div>
+        <div className="countdown-sep">:</div>
+        <div className="countdown-unit">
+          <div className="countdown-num">{pad(seconds)}</div>
+          <div className="countdown-sublabel">SEC</div>
+        </div>
+      </div>
+      <div className="countdown-sub">🇺🇸 🇨🇦 🇲🇽 · 2026.06.11 开幕 · 48 支球队</div>
+    </div>
+  );
+}
+
+// ─── Prediction Top-3 cards ───────────────────────────────────────────────────
+
+function PredictionTop3({ teams }) {
+  const medals = ["🥇", "🥈", "🥉"];
+  const rankClass = ["rank-1", "rank-2", "rank-3"];
+  const top3 = teams.slice(0, 3);
+
+  if (!top3.length) return null;
+
+  return (
+    <div className="pred-top3">
+      {top3.map((team, i) => (
+        <div key={team.rank} className={cn("pred-top3-card", rankClass[i])}>
+          <div className="pred-top3-medal">{medals[i]}</div>
+          <div className="pred-top3-flag">{team.flag}</div>
+          <div className="pred-top3-name">{team.name}</div>
+          <div className="pred-top3-pct">{team.titleProbability || "—"}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Main component ───────────────────────────────────────────────────────────
 
 export default function WorldCupApp() {
   const [activePage, setActivePage] = useState("home");
@@ -309,22 +485,31 @@ export default function WorldCupApp() {
     tournaments: historyTournaments,
     teams: [],
   });
-  const [historyMetrics, setHistoryMetrics] = useState({
-    byName: {},
-  });
+  const [historyMetrics, setHistoryMetrics] = useState({ byName: {} });
   const [matchDetails, setMatchDetails] = useState({});
   const [historyTeamOpen, setHistoryTeamOpen] = useState(false);
   const [activeHistoryTeam, setActiveHistoryTeam] = useState(null);
   const initialSimulatorScenarios = buildAdaptiveSimulatorScenarios(standings, groupedFixtures, simulatorScenarios);
   const [activeSimulatorGroup, setActiveSimulatorGroup] = useState(initialSimulatorScenarios[0].group);
   const initialDateTabs = buildDateTabs([]);
-  const [activeFixtureDate, setActiveFixtureDate] = useState(initialDateTabs[0]?.key || "");
+
+  // ─── Default date tab to today ───────────────────────────────────────────
+  const [activeFixtureDate, setActiveFixtureDate] = useState(() => {
+    const today = getTodayDateKey();
+    return initialDateTabs.find((t) => t.key === today)?.key || initialDateTabs[0]?.key || "";
+  });
+
   const [simulatorState, setSimulatorState] = useState(() =>
     Object.fromEntries(initialSimulatorScenarios.map((scenario) => [scenario.group, scenario.matches]))
   );
   const detailRef = useRef(null);
   const touchStartRef = useRef(0);
+  const dateTabsRef = useRef(null);
 
+  const { toast, showToast } = useToast();
+  const { favorites, toggle: toggleFavorite } = useFavorites();
+
+  // ─── Load saved data mode ─────────────────────────────────────────────────
   useEffect(() => {
     const savedMode = window.localStorage.getItem("worldcup-data-mode");
     if (savedMode === DATA_MODES.DRILL) {
@@ -336,6 +521,7 @@ export default function WorldCupApp() {
     window.localStorage.setItem("worldcup-data-mode", dataMode);
   }, [dataMode]);
 
+  // ─── Load static data ─────────────────────────────────────────────────────
   useEffect(() => {
     let ignore = false;
 
@@ -426,17 +612,13 @@ export default function WorldCupApp() {
     }
 
     loadStaticData();
-
-    return () => {
-      ignore = true;
-    };
+    return () => { ignore = true; };
   }, []);
 
+  // ─── Touch swipe to close detail ─────────────────────────────────────────
   useEffect(() => {
     const node = detailRef.current;
-    if (!node) {
-      return undefined;
-    }
+    if (!node) return undefined;
 
     function handleTouchStart(event) {
       touchStartRef.current = event.touches[0]?.clientX || 0;
@@ -458,6 +640,7 @@ export default function WorldCupApp() {
     };
   }, []);
 
+  // ─── Fixture loading ──────────────────────────────────────────────────────
   async function loadFixtures() {
     setIsFixturesLoading(true);
     try {
@@ -479,11 +662,15 @@ export default function WorldCupApp() {
         standings: nextStandings,
         liveCount: typeof payload.liveCount === "number" ? payload.liveCount : 0,
       });
+
       const nextDateTabs = buildDateTabs(nextFixtures);
       if (nextDateTabs.length) {
-        setActiveFixtureDate((current) =>
-          nextDateTabs.some((tab) => tab.key === current) ? current : nextDateTabs[0].key
-        );
+        setActiveFixtureDate((current) => {
+          // Auto-select today if available, otherwise keep current or first
+          const today = getTodayDateKey();
+          if (nextDateTabs.some((t) => t.key === today)) return today;
+          return nextDateTabs.some((t) => t.key === current) ? current : nextDateTabs[0].key;
+        });
       } else {
         setActiveFixtureDate("");
       }
@@ -502,21 +689,13 @@ export default function WorldCupApp() {
 
   async function loadMatchDetail(fixtureId, options = {}) {
     const { force = false } = options;
-
-    if (!force && matchDetails[fixtureId]) {
-      return matchDetails[fixtureId];
-    }
+    if (!force && matchDetails[fixtureId]) return matchDetails[fixtureId];
 
     try {
       const response = await fetch(`/api/match/${fixtureId}?mode=${dataMode}`, { cache: "no-store" });
-      if (!response.ok) {
-        return null;
-      }
+      if (!response.ok) return null;
       const payload = await response.json();
-      setMatchDetails((current) => ({
-        ...current,
-        [fixtureId]: payload,
-      }));
+      setMatchDetails((current) => ({ ...current, [fixtureId]: payload }));
       return payload;
     } catch (error) {
       console.warn("Failed to load match detail.", error);
@@ -530,44 +709,34 @@ export default function WorldCupApp() {
   }, [dataMode]);
 
   useEffect(() => {
-    if (!fixturesData.liveCount || !["home", "fixtures"].includes(activePage)) {
-      return undefined;
-    }
-
-    const intervalId = window.setInterval(() => {
-      loadFixtures();
-    }, 30000);
-
-    return () => {
-      window.clearInterval(intervalId);
-    };
+    if (!fixturesData.liveCount || !["home", "fixtures"].includes(activePage)) return undefined;
+    const intervalId = window.setInterval(() => { loadFixtures(); }, 30000);
+    return () => { window.clearInterval(intervalId); };
   }, [activePage, fixturesData.liveCount]);
 
   useEffect(() => {
-    if (!detailOpen || !activeFixture || detailTab !== "live" || activeFixture.status !== "LIVE") {
-      return undefined;
-    }
-
+    if (!detailOpen || !activeFixture || detailTab !== "live" || activeFixture.status !== "LIVE") return undefined;
     loadMatchDetail(activeFixture.id, { force: true });
-
     const intervalId = window.setInterval(() => {
       loadMatchDetail(activeFixture.id, { force: true });
     }, 30000);
-
-    return () => {
-      window.clearInterval(intervalId);
-    };
+    return () => { window.clearInterval(intervalId); };
   }, [activeFixture?.id, activeFixture?.status, detailOpen, detailTab]);
 
-  async function openMatch(fixture) {
-    if (!fixture) {
-      return;
+  // ─── Scroll date tab to today ──────────────────────────────────────────────
+  useEffect(() => {
+    if (!dateTabsRef.current) return;
+    const activeTab = dateTabsRef.current.querySelector(".date-tab.active");
+    if (activeTab) {
+      activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
+  }, [activeFixtureDate, activePage]);
 
+  async function openMatch(fixture) {
+    if (!fixture) return;
     setActiveFixture(fixture);
     setDetailTab("live");
     setDetailOpen(true);
-
     await loadMatchDetail(fixture.id, { force: fixture.status === "LIVE" });
   }
 
@@ -575,6 +744,19 @@ export default function WorldCupApp() {
     setDataMode((current) => (current === DATA_MODES.LIVE ? DATA_MODES.DRILL : DATA_MODES.LIVE));
   }
 
+  // ─── Share prediction ─────────────────────────────────────────────────────
+  function sharePrediction(team) {
+    const text = `我预测 ${team.flag} ${team.name} 夺得2026世界杯冠军！概率 ${team.titleProbability} 🏆\n2026.djyylive.com`;
+    if (navigator.share) {
+      navigator.share({ title: "2026世界杯冠军预测", text }).catch(() => {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => showToast("已复制到剪贴板 ✓"));
+    } else {
+      showToast("分享功能需要 HTTPS 环境");
+    }
+  }
+
+  // ─── Derived state ────────────────────────────────────────────────────────
   const fixtures = fixturesData.fixtures;
   const groups = fixturesData.groupedFixtures;
   const standingsGroups = fixturesData.standings;
@@ -637,12 +819,7 @@ export default function WorldCupApp() {
     setSimulatorState((current) => ({
       ...current,
       [activeScenario.group]: current[activeScenario.group].map((match) =>
-        match.id === matchId
-          ? {
-              ...match,
-              [side]: nextValue,
-            }
-          : match
+        match.id === matchId ? { ...match, [side]: nextValue } : match
       ),
     }));
   }
@@ -659,11 +836,12 @@ export default function WorldCupApp() {
     setHistoryTeamOpen(true);
   }
 
-  const historyTeams = historyData.teams.map((team) => enrichHistoryTeam(team, eloData.rankings, historyMetrics.byName));
+  const historyTeams = historyData.teams.map((team) =>
+    enrichHistoryTeam(team, eloData.rankings, historyMetrics.byName)
+  );
 
   useEffect(() => {
     const adaptiveScenarios = buildAdaptiveSimulatorScenarios(standingsGroups, groups, simulatorScenarios);
-
     setSimulatorState((current) => {
       const nextState = { ...current };
       adaptiveScenarios.forEach((scenario) => {
@@ -673,16 +851,18 @@ export default function WorldCupApp() {
       });
       return nextState;
     });
-
     if (!adaptiveScenarios.some((scenario) => scenario.group === activeSimulatorGroup)) {
       setActiveSimulatorGroup(adaptiveScenarios[0].group);
     }
   }, [activeSimulatorGroup, groups, standingsGroups]);
 
+  // ─── Render ───────────────────────────────────────────────────────────────
   return (
     <main className="site-shell">
       <div className="app-frame">
         <div className="app">
+
+          {/* ── Topbar ────────────────────────────────────────────────────── */}
           <header className="topbar">
             <div className="topbar-logo">
               DJYY
@@ -706,12 +886,15 @@ export default function WorldCupApp() {
                 {liveCount} LIVE
               </button>
               <button className="search-btn" type="button" aria-label="搜索">
-                🔍
+                <Search size={15} />
               </button>
             </div>
           </header>
 
+          {/* ── Pages ─────────────────────────────────────────────────────── */}
           <div className="pages">
+
+            {/* ── Home page ─────────────────────────────────────────────── */}
             <div className={cn("page", activePage === "home" && "active")}>
               {dataMode === DATA_MODES.DRILL ? (
                 <div className="mode-banner">
@@ -719,6 +902,11 @@ export default function WorldCupApp() {
                   <div className="mode-banner-copy">当前展示的是用于赛时演练的模拟比赛、积分与详情数据，不影响正式线上链路。</div>
                 </div>
               ) : null}
+
+              {/* Countdown */}
+              <CountdownCard />
+
+              {/* Live banner */}
               {fixturesData.liveCount ? (
                 <div className="live-banner" onClick={() => openMatch(liveBannerFixture)}>
                   <div>
@@ -740,14 +928,13 @@ export default function WorldCupApp() {
                       {typeof liveBannerFixture.homeScore === "number" ? liveBannerFixture.homeScore : "—"} -{" "}
                       {typeof liveBannerFixture.awayScore === "number" ? liveBannerFixture.awayScore : "—"}
                     </div>
-                    <div>
-                      <span className="min-badge">{liveBannerFixture.minute}</span>
-                    </div>
+                    <span className="min-badge">{liveBannerFixture.minute}</span>
                     <div className="banner-hint">点击查看详情 →</div>
                   </div>
                 </div>
               ) : null}
 
+              {/* Quick stats */}
               <div className="card">
                 <div className="stats-strip">
                   {quickStats.map((item) => (
@@ -759,13 +946,11 @@ export default function WorldCupApp() {
                 </div>
               </div>
 
-              <SectionTitle title={homeFixtureTitle} action="全部 →" />
+              {/* Today's fixtures */}
+              <SectionTitle title={homeFixtureTitle} action="全部 →" onAction={() => setActivePage("fixtures")} />
               <div className="card">
                 {isFixturesLoading ? (
-                  <div className="state-card">
-                    <div className="state-title">正在同步赛程数据</div>
-                    <div className="state-copy">首页会优先显示今天或最近的比赛。</div>
-                  </div>
+                  <SkeletonRows count={3} />
                 ) : homePageFixtures.length ? (
                   homePageFixtures.map((fixture) => (
                     <FixtureRow fixture={fixture} key={fixture.id} onOpen={openMatch} />
@@ -778,30 +963,36 @@ export default function WorldCupApp() {
                 )}
               </div>
 
-              <SectionTitle title="Elo 实力排名" action="完整榜 →" />
+              {/* Elo rankings */}
+              <SectionTitle title="Elo 实力排名" action="完整榜 →" onAction={() => setActivePage("predict")} />
               <div className="card">
-                {eloData.rankings.slice(0, 5).map((team) => (
-                  <div className="elo-row" key={team.rank}>
-                    <div className="elo-rank">{team.rank}</div>
-                    <div className="elo-team">
-                      <span>{team.flag}</span>
-                      <span>{team.name}</span>
-                    </div>
-                    <div>
-                      <div className="elo-score">{team.elo}</div>
-                      <div className="elo-bar">
-                        <div className="elo-fill" style={{ width: `${team.width}%` }} />
+                {isFixturesLoading ? (
+                  <SkeletonRows count={5} />
+                ) : (
+                  eloData.rankings.slice(0, 5).map((team) => (
+                    <div className="elo-row" key={team.rank}>
+                      <div className="elo-rank">{team.rank}</div>
+                      <div className="elo-team">
+                        <span>{team.flag}</span>
+                        <span>{team.name}</span>
+                      </div>
+                      <div>
+                        <div className="elo-score">{team.elo}</div>
+                        <div className="elo-bar">
+                          <div className="elo-fill" style={{ width: `${team.width}%` }} />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
               <div className="page-space" />
             </div>
 
+            {/* ── Fixtures page ─────────────────────────────────────────── */}
             <div className={cn("page", activePage === "fixtures" && "active")}>
               {dateTabs.length ? (
-                <div className="date-tabs">
+                <div className="date-tabs" ref={dateTabsRef}>
                   {dateTabs.map((date) => (
                     <button
                       className={cn("date-tab", activeFixtureDate === date.key && "active")}
@@ -817,10 +1008,7 @@ export default function WorldCupApp() {
               ) : null}
               {isFixturesLoading ? (
                 <div className="group-card">
-                  <div className="state-card">
-                    <div className="state-title">正在加载整届赛程</div>
-                    <div className="state-copy">完成后这里会按日期和小组显示所有比赛。</div>
-                  </div>
+                  <SkeletonRows count={6} />
                 </div>
               ) : visibleGroups.length ? (
                 visibleGroups.map((group) => (
@@ -843,6 +1031,7 @@ export default function WorldCupApp() {
               )}
             </div>
 
+            {/* ── Groups page ───────────────────────────────────────────── */}
             <div className={cn("page", activePage === "groups" && "active")}>
               <div className="legend-strip">
                 {groupLegend.map((item) => (
@@ -855,10 +1044,7 @@ export default function WorldCupApp() {
 
               {isFixturesLoading ? (
                 <div className="group-card">
-                  <div className="state-card">
-                    <div className="state-title">正在同步积分榜</div>
-                    <div className="state-copy">小组赛数据拉取完成后，会按 A 组开始展示。</div>
-                  </div>
+                  <SkeletonRows count={8} />
                 </div>
               ) : standingsGroups.length ? (
                 standingsGroups.map((group) => (
@@ -873,7 +1059,6 @@ export default function WorldCupApp() {
                         <span>分</span>
                       </div>
                     </div>
-
                     {group.rows.map((row) => (
                       <div className="group-team-row" key={`${group.group}-${row.name}`}>
                         <span className="gt-pos">{row.pos}</span>
@@ -923,7 +1108,6 @@ export default function WorldCupApp() {
                   ))}
                 </div>
                 <div className="simulator-intro">{activeScenario.note}</div>
-
                 <div className="simulator-match-list">
                   {simulatorMatches.map((match) => (
                     <div className="simulator-match" key={match.id}>
@@ -957,15 +1141,8 @@ export default function WorldCupApp() {
                     </div>
                   ))}
                 </div>
-
                 <div className="simulator-cols">
-                  <span>场</span>
-                  <span>胜</span>
-                  <span>平</span>
-                  <span>负</span>
-                  <span>净</span>
-                  <span>进</span>
-                  <span>分</span>
+                  <span>场</span><span>胜</span><span>平</span><span>负</span><span>净</span><span>进</span><span>分</span>
                 </div>
                 <div className="simulator-table">
                   {simulatedStandings.map((row) => (
@@ -992,9 +1169,13 @@ export default function WorldCupApp() {
               <div className="page-space" />
             </div>
 
+            {/* ── Predict page ──────────────────────────────────────────── */}
             <div className={cn("page", activePage === "predict" && "active")}>
               <SectionTitle title="夺冠概率 · Elo 模型" />
+
+              {/* Top 3 podium cards */}
               <div className="card">
+                <PredictionTop3 teams={predictionData.teams} />
                 {predictionData.teams.map((team) => (
                   <div className="pred-list-item" key={team.rank}>
                     <div className="pred-rank">{team.rank}</div>
@@ -1002,15 +1183,35 @@ export default function WorldCupApp() {
                       <span>{team.flag}</span>
                       <span>{team.name}</span>
                     </div>
+                    <button
+                      className={cn("fav-btn", favorites.has(`pred-${team.rank}`) && "active")}
+                      type="button"
+                      aria-label="收藏"
+                      onClick={() => {
+                        toggleFavorite(`pred-${team.rank}`);
+                        showToast(favorites.has(`pred-${team.rank}`) ? "已取消收藏" : `已收藏 ${team.name}`);
+                      }}
+                    >
+                      <Heart size={13} fill={favorites.has(`pred-${team.rank}`) ? "currentColor" : "none"} />
+                    </button>
                     <div className="pred-right">
                       <div className="pred-pct">{team.titleProbability || predictions.find((item) => item.rank === team.rank)?.pct || "—"}</div>
                       <div className="pred-bar-wrap">
                         <div className="pred-bar-fill" style={{ width: `${team.width}%` }} />
                       </div>
                     </div>
+                    <button
+                      className="share-btn"
+                      type="button"
+                      onClick={() => sharePrediction(team)}
+                      aria-label="分享"
+                    >
+                      <Share2 size={12} />
+                    </button>
                   </div>
                 ))}
               </div>
+
               <SectionTitle title="当前 Elo 排名" action="Top 10" />
               <div className="card">
                 {eloData.rankings.slice(0, 10).map((team) => (
@@ -1029,6 +1230,7 @@ export default function WorldCupApp() {
                   </div>
                 ))}
               </div>
+
               {trendTeam ? (
                 <>
                   <SectionTitle title="Elo 走势" action="近 12 年 →" />
@@ -1063,9 +1265,7 @@ export default function WorldCupApp() {
                     </div>
                     <div className="trend-head">
                       <div>
-                        <div className="trend-title">
-                          {trendTeam.flag} {trendTeam.name}
-                        </div>
+                        <div className="trend-title">{trendTeam.flag} {trendTeam.name}</div>
                         <div className="trend-subtitle">来自本地 Elo 历史资料库的近 12 年抽样走势</div>
                       </div>
                       <div className="trend-current">{trendTeam.points[trendTeam.points.length - 1]?.elo}</div>
@@ -1088,6 +1288,7 @@ export default function WorldCupApp() {
                   </div>
                 </>
               ) : null}
+
               <SectionTitle title="说明" />
               <div className="predict-note">
                 <div className="elo-meta-grid">
@@ -1111,24 +1312,39 @@ export default function WorldCupApp() {
               </div>
             </div>
 
+            {/* ── History page ──────────────────────────────────────────── */}
             <div className={cn("page", activePage === "history" && "active")}>
               <div className="history-search">
-                <span className="history-search-icon">🔍</span>
+                <span className="history-search-icon">
+                  <Search size={14} />
+                </span>
                 <input type="text" placeholder="搜索球队、球员、届次…" readOnly />
               </div>
+
               <SectionTitle title="历届世界杯" />
-              <div className="wc-timeline">
+              {/* Horizontal scrollable timeline */}
+              <div className="wc-timeline-scroll">
                 {historyData.tournaments.map((item) => (
-                  <button className="wc-year" key={item.year} type="button">
-                    <div className="wc-y">{item.year}</div>
-                    <div className="wc-info">
-                      <div className="wc-host">{item.host}</div>
-                      <div className="wc-champ">{item.champion}</div>
+                  <button className="wc-timeline-card" key={item.year} type="button">
+                    <div className="wc-timeline-year">{item.year}</div>
+                    <div className="wc-timeline-host">{item.host}</div>
+                    <div className="wc-timeline-champ">
+                      <Trophy size={11} style={{ color: "var(--gold)", flexShrink: 0 }} />
+                      {item.champion}
                     </div>
-                    <div className="wc-arrow">›</div>
                   </button>
                 ))}
+                {/* 2026 current edition */}
+                <button className="wc-timeline-card" type="button" style={{ borderColor: "rgba(201,162,39,0.4)" }}>
+                  <div className="wc-timeline-year" style={{ color: "var(--green)" }}>2026</div>
+                  <div className="wc-timeline-host">🇺🇸🇨🇦🇲🇽 北美</div>
+                  <div className="wc-timeline-champ" style={{ color: "var(--text-dim)" }}>
+                    <Zap size={11} style={{ color: "var(--green)", flexShrink: 0 }} />
+                    进行中
+                  </div>
+                </button>
               </div>
+
               <SectionTitle title="历史球队" action="热门 →" />
               <div className="history-team-grid">
                 {historyTeams.map((team) => (
@@ -1147,26 +1363,30 @@ export default function WorldCupApp() {
             </div>
           </div>
 
+          {/* ── Bottom navigation ─────────────────────────────────────────── */}
           <nav className="bottom-nav">
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.map(({ id, Icon, label }) => (
               <button
-                className={cn("nav-item", activePage === item.id && "active")}
-                key={item.id}
+                className={cn("nav-item", activePage === id && "active")}
+                key={id}
                 type="button"
-                onClick={() => setActivePage(item.id)}
+                onClick={() => setActivePage(id)}
               >
-                <div className="nav-icon">{item.icon}</div>
-                {item.label}
+                <div className="nav-icon">
+                  <Icon size={20} strokeWidth={activePage === id ? 2 : 1.5} />
+                </div>
+                {label}
               </button>
             ))}
           </nav>
         </div>
       </div>
 
+      {/* ── Match detail panel ─────────────────────────────────────────────── */}
       <aside className={cn("match-detail-page", detailOpen && "open")} ref={detailRef}>
         <div className="detail-topbar">
           <button className="back-btn" type="button" onClick={() => setDetailOpen(false)} aria-label="返回">
-            ‹
+            <ChevronLeft size={18} />
           </button>
           <div className="detail-title">比赛详情 · {detailFixture.stage}</div>
         </div>
@@ -1184,9 +1404,7 @@ export default function WorldCupApp() {
                 {detailFixture.status === "LIVE" ? `● ${detailFixture.minute}` : detailFixture.status}
               </span>
             </div>
-            <div className="sc-info">
-              {formatFixtureInfoLine(detailFixture)}
-            </div>
+            <div className="sc-info">{formatFixtureInfoLine(detailFixture)}</div>
           </div>
           <div className="sc-team">
             <div className="sc-flag">{detailFixture.away.flag}</div>
@@ -1227,7 +1445,6 @@ export default function WorldCupApp() {
                   </div>
                 ))}
               </div>
-
               <div className="detail-section">
                 <div className="detail-section-title">事件流</div>
                 <div className="event-list">
@@ -1252,16 +1469,12 @@ export default function WorldCupApp() {
                 <div className="prob-title">ELO 胜率预测（赛前）</div>
                 <div className="elo-compare">
                   <div className="elo-box">
-                    <div className="elo-box-label">
-                      {detailFixture.home.flag} {detailFixture.home.name}
-                    </div>
+                    <div className="elo-box-label">{detailFixture.home.flag} {detailFixture.home.name}</div>
                     <div className="elo-big">{detailFixture.home.elo ?? "—"}</div>
                     <div className="elo-trend up">↑ +12 近10场</div>
                   </div>
                   <div className="elo-box">
-                    <div className="elo-box-label">
-                      {detailFixture.away.flag} {detailFixture.away.name}
-                    </div>
+                    <div className="elo-box-label">{detailFixture.away.flag} {detailFixture.away.name}</div>
                     <div className="elo-big">{detailFixture.away.elo ?? "—"}</div>
                     <div className="elo-trend dn">↓ -8 近10场</div>
                   </div>
@@ -1270,13 +1483,9 @@ export default function WorldCupApp() {
               <div className="detail-section">
                 <div className="detail-section-title">胜平负概率</div>
                 <div className="prob-teams">
-                  <span className="blue">
-                    {detailFixture.home.flag} {detailFixture.home.name}胜
-                  </span>
+                  <span className="blue">{detailFixture.home.flag} {detailFixture.home.name}胜</span>
                   <span className="dim">平局</span>
-                  <span className="red">
-                    {detailFixture.away.flag} {detailFixture.away.name}胜
-                  </span>
+                  <span className="red">{detailFixture.away.flag} {detailFixture.away.name}胜</span>
                 </div>
                 <div className="prob-bar">
                   <div className="prob-w" style={{ width: `${detailProbabilities.home}%` }} />
@@ -1339,10 +1548,11 @@ export default function WorldCupApp() {
         </div>
       </aside>
 
+      {/* ── History team detail panel ─────────────────────────────────────── */}
       <aside className={cn("match-detail-page", historyTeamOpen && "open")}>
         <div className="detail-topbar">
           <button className="back-btn" type="button" onClick={() => setHistoryTeamOpen(false)} aria-label="返回">
-            ‹
+            <ChevronLeft size={18} />
           </button>
           <div className="detail-title">历史球队详情</div>
         </div>
@@ -1383,13 +1593,10 @@ export default function WorldCupApp() {
                 <div className="detail-section-title">历史亮点</div>
                 <div className="history-highlight-list">
                   {activeHistoryTeam.highlights.map((item) => (
-                    <div className="history-highlight-item" key={item}>
-                      {item}
-                    </div>
+                    <div className="history-highlight-item" key={item}>{item}</div>
                   ))}
                 </div>
               </div>
-
               <div className="detail-section">
                 <div className="detail-section-title">世界杯时间线</div>
                 <div className="history-timeline-list">
@@ -1404,7 +1611,6 @@ export default function WorldCupApp() {
                   ))}
                 </div>
               </div>
-
               <div className="detail-section">
                 <div className="detail-section-title">球队印象</div>
                 <div className="history-impression-grid">
@@ -1418,11 +1624,15 @@ export default function WorldCupApp() {
                   </div>
                   <div className="history-impression-card">
                     <div className="history-impression-label">当前 Elo 排名</div>
-                    <div className="history-impression-value">{activeHistoryTeam.currentEloRank ? `第 ${activeHistoryTeam.currentEloRank} 位` : "暂无"}</div>
+                    <div className="history-impression-value">
+                      {activeHistoryTeam.currentEloRank ? `第 ${activeHistoryTeam.currentEloRank} 位` : "暂无"}
+                    </div>
                   </div>
                   <div className="history-impression-card">
                     <div className="history-impression-label">历史 Elo 样本</div>
-                    <div className="history-impression-value">{activeHistoryTeam.historyMatchCount ? `${activeHistoryTeam.historyMatchCount} 场记录` : "资料待补充"}</div>
+                    <div className="history-impression-value">
+                      {activeHistoryTeam.historyMatchCount ? `${activeHistoryTeam.historyMatchCount} 场记录` : "资料待补充"}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1430,63 +1640,42 @@ export default function WorldCupApp() {
           </>
         ) : null}
       </aside>
+
+      {/* ── Toast ─────────────────────────────────────────────────────────── */}
+      <div className={cn("toast", toast.visible && "show")}>{toast.text}</div>
     </main>
   );
 }
 
+// ─── Utilities ────────────────────────────────────────────────────────────────
+
 function buildSimulatedStandings(baseTeams, matches) {
-  const table = new Map(
-    baseTeams.map((team) => [
-      team.name,
-      {
-        ...team,
-      },
-    ])
-  );
+  const table = new Map(baseTeams.map((team) => [team.name, { ...team }]));
 
   matches.forEach((match) => {
     const homeScore = Number(match.homeScore);
     const awayScore = Number(match.awayScore);
-
-    if (Number.isNaN(homeScore) || Number.isNaN(awayScore)) {
-      return;
-    }
+    if (Number.isNaN(homeScore) || Number.isNaN(awayScore)) return;
 
     const home = table.get(match.home.name);
     const away = table.get(match.away.name);
+    if (!home || !away) return;
 
-    if (!home || !away) {
-      return;
-    }
-
-    home.p += 1;
-    away.p += 1;
-    home.gf += homeScore;
-    home.ga += awayScore;
-    away.gf += awayScore;
-    away.ga += homeScore;
+    home.p += 1; away.p += 1;
+    home.gf += homeScore; home.ga += awayScore;
+    away.gf += awayScore; away.ga += homeScore;
 
     if (homeScore > awayScore) {
-      home.w += 1;
-      away.l += 1;
-      home.pts += 3;
+      home.w += 1; away.l += 1; home.pts += 3;
     } else if (homeScore < awayScore) {
-      away.w += 1;
-      home.l += 1;
-      away.pts += 3;
+      away.w += 1; home.l += 1; away.pts += 3;
     } else {
-      home.d += 1;
-      away.d += 1;
-      home.pts += 1;
-      away.pts += 1;
+      home.d += 1; away.d += 1; home.pts += 1; away.pts += 1;
     }
   });
 
   return [...table.values()]
-    .map((team) => ({
-      ...team,
-      gd: team.gf - team.ga,
-    }))
+    .map((team) => ({ ...team, gd: team.gf - team.ga }))
     .sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || a.name.localeCompare(b.name))
     .map((team, index, list) => ({
       ...team,
@@ -1528,16 +1717,14 @@ function EloTrendChart({ team }) {
           return <line key={index} x1={padding} y1={y} x2={width - padding} y2={y} className="trend-grid-line" />;
         })}
         <path
-          d={`${path} L ${coordinates[coordinates.length - 1].x.toFixed(2)} ${height - padding} L ${coordinates[0].x.toFixed(
-            2
-          )} ${height - padding} Z`}
+          d={`${path} L ${coordinates[coordinates.length - 1].x.toFixed(2)} ${height - padding} L ${coordinates[0].x.toFixed(2)} ${height - padding} Z`}
           fill={`url(#trend-fill-${team.id})`}
         />
         <path d={path} fill="none" stroke={team.color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         {coordinates.map((point) => (
           <g key={`${team.id}-${point.label}`}>
             <circle cx={point.x} cy={point.y} r="4.5" fill={team.color} />
-            <circle cx={point.x} cy={point.y} r="2" fill="#080c10" />
+            <circle cx={point.x} cy={point.y} r="2" fill="#070b0f" />
           </g>
         ))}
       </svg>
@@ -1551,59 +1738,32 @@ function EloTrendChart({ team }) {
 }
 
 function buildKeywords(team) {
-  if (team.id === "brazil") {
-    return "技术、天赋、进攻传承";
-  }
-  if (team.id === "germany") {
-    return "体系、纪律、大赛执行力";
-  }
-  if (team.id === "argentina") {
-    return "球星、韧性、关键战表现";
-  }
-  if (team.id === "france") {
-    return "天赋深度、速度、爆发力";
-  }
-  if (team.id === "spain") {
-    return "控球、中场、节奏掌控";
-  }
-  if (team.id === "england") {
-    return "身体对抗、年轻化、边路火力";
-  }
-  if (team.id === "italy") {
-    return "防守、经验、淘汰赛气质";
-  }
+  if (team.id === "brazil")    return "技术、天赋、进攻传承";
+  if (team.id === "germany")   return "体系、纪律、大赛执行力";
+  if (team.id === "argentina") return "球星、韧性、关键战表现";
+  if (team.id === "france")    return "天赋深度、速度、爆发力";
+  if (team.id === "spain")     return "控球、中场、节奏掌控";
+  if (team.id === "england")   return "身体对抗、年轻化、边路火力";
+  if (team.id === "italy")     return "防守、经验、淘汰赛气质";
   return "传统、竞争力、世界杯底蕴";
 }
 
 function buildLegacy(team) {
-  if (Number(team.titles) >= 4) {
-    return "顶级历史豪门，任何时代都具备冠军叙事。";
-  }
-  if (Number(team.titles) >= 2) {
-    return "稳定的世界级强队，具备完整冠军周期。";
-  }
+  if (Number(team.titles) >= 4) return "顶级历史豪门，任何时代都具备冠军叙事。";
+  if (Number(team.titles) >= 2) return "稳定的世界级强队，具备完整冠军周期。";
   return "拥有鲜明黄金时代或独特战术印记的世界强队。";
 }
 
 function enrichHistoryTeam(team, eloRankings, historyIndexByName) {
   const englishNameMap = {
-    brazil: "Brazil",
-    germany: "Germany",
-    argentina: "Argentina",
-    france: "France",
-    spain: "Spain",
-    england: "England",
-    italy: "Italy",
-    uruguay: "Uruguay",
-    netherlands: "Netherlands",
-    croatia: "Croatia",
-    mexico: "Mexico",
+    brazil: "Brazil", germany: "Germany", argentina: "Argentina",
+    france: "France", spain: "Spain", england: "England",
+    italy: "Italy", uruguay: "Uruguay", netherlands: "Netherlands",
+    croatia: "Croatia", mexico: "Mexico",
   };
-
   const originalName = englishNameMap[team.id];
   const eloRow = eloRankings.find((item) => item.originalName === originalName);
   const historyMeta = (originalName && historyIndexByName[originalName]) || historyIndexByName[team.name] || null;
-
   return {
     ...team,
     currentElo: eloRow?.elo ?? null,
@@ -1613,43 +1773,26 @@ function enrichHistoryTeam(team, eloRankings, historyIndexByName) {
 }
 
 function buildAdaptiveSimulatorScenarios(currentStandings, groupedFixtures, fallbackScenarios) {
-  if (!currentStandings?.length) {
-    return fallbackScenarios;
-  }
+  if (!currentStandings?.length) return fallbackScenarios;
 
   return currentStandings.map((group) => {
     const fallback = fallbackScenarios.find((scenario) => scenario.group === group.group);
     const realGroupFixtures = groupedFixtures?.find((item) => item.label === group.group)?.matches || [];
     const rows = group.rows.slice(0, 4).map((row) => ({
-      name: row.name,
-      flag: row.flag,
-      p: row.p,
-      w: row.w,
-      d: row.d,
-      l: row.l,
-      gf: row.gf ?? 0,
-      ga: row.ga ?? 0,
-      pts: row.pts,
+      name: row.name, flag: row.flag,
+      p: row.p, w: row.w, d: row.d, l: row.l,
+      gf: row.gf ?? 0, ga: row.ga ?? 0, pts: row.pts,
     }));
 
     const realFinalRoundMatches =
       realGroupFixtures.length >= 2
         ? [...realGroupFixtures]
-            .sort(
-              (left, right) =>
-                new Date(left.startingAt || 0).getTime() - new Date(right.startingAt || 0).getTime()
-            )
+            .sort((l, r) => new Date(l.startingAt || 0).getTime() - new Date(r.startingAt || 0).getTime())
             .slice(-2)
             .map((fixture) => ({
               id: `sim-${fixture.id}`,
-              home: {
-                name: fixture.home.name,
-                flag: fixture.home.flag,
-              },
-              away: {
-                name: fixture.away.name,
-                flag: fixture.away.flag,
-              },
+              home: { name: fixture.home.name, flag: fixture.home.flag },
+              away: { name: fixture.away.name, flag: fixture.away.flag },
               homeScore: typeof fixture.homeScore === "number" ? fixture.homeScore : 1,
               awayScore: typeof fixture.awayScore === "number" ? fixture.awayScore : 0,
             }))
@@ -1663,15 +1806,13 @@ function buildAdaptiveSimulatorScenarios(currentStandings, groupedFixtures, fall
           id: `${group.group}-m1`,
           home: { name: rows[0]?.name || "主队", flag: rows[0]?.flag || "🏳️" },
           away: { name: rows[3]?.name || "客队", flag: rows[3]?.flag || "🏳️" },
-          homeScore: 1,
-          awayScore: 0,
+          homeScore: 1, awayScore: 0,
         },
         {
           id: `${group.group}-m2`,
           home: { name: rows[1]?.name || "主队", flag: rows[1]?.flag || "🏳️" },
           away: { name: rows[2]?.name || "客队", flag: rows[2]?.flag || "🏳️" },
-          homeScore: 1,
-          awayScore: 1,
+          homeScore: 1, awayScore: 1,
         },
       ];
 
