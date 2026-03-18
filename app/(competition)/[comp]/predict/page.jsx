@@ -1,83 +1,76 @@
 "use client";
+import { useParams } from "next/navigation";
 import { usePredictions } from "@/lib/hooks/usePredictions";
-import { useElo } from "@/lib/hooks/useElo";
-import PredictionChart from "@/components/shared/PredictionChart";
-import SectionTitle from "@/components/ui/SectionTitle";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import { TrendingUp, Info } from "lucide-react";
 
 export default function PredictPage() {
-  const { data: predData, loading: predLoading } = usePredictions();
-  const { data: eloData, loading: eloLoading } = useElo();
-
-  const teams = predData?.teams?.filter((t) => !t.placeholder) || [];
+  const { comp } = useParams();
+  const { data, loading } = usePredictions();
+  const teams = (data?.teams || []).filter(t => !t.placeholder);
+  const maxProb = teams[0]?.prob || 1;
 
   return (
     <div>
+      {/* TopBar */}
       <div style={{
         height: "var(--topbar-h)", background: "var(--surface)",
         borderBottom: "1px solid var(--border)",
-        display: "flex", alignItems: "center", padding: "0 16px",
-        position: "sticky", top: 0, zIndex: 50,
+        display: "flex", alignItems: "center", padding: "0 12px",
+        position: "sticky", top: 0, zIndex: 50, gap: 10,
       }}>
-        <TrendingUp size={18} style={{ color: "var(--blue)", marginRight: 8 }} />
-        <span style={{ fontSize: 16, fontWeight: 700 }}>夺冠预测</span>
-      </div>
-
-      <div style={{ padding: "12px 16px", display: "flex", flexDirection: "column", gap: 16 }}>
-        <div style={{
-          display: "flex", gap: 8, padding: "10px 12px",
-          background: "rgba(92,158,255,0.08)",
-          border: "1px solid rgba(92,158,255,0.2)",
-          borderRadius: 8,
-        }}>
-          <Info size={14} style={{ color: "var(--blue)", flexShrink: 0, marginTop: 1 }} />
-          <p style={{ margin: 0, fontSize: 12, color: "var(--text-dim)", lineHeight: 1.5 }}>
-            {predData?.method || "基于 ELO 排名的蒙特卡洛模拟（10,000次），计算各队夺冠概率。"}
-            {predData?.updatedAt && (
-              <span style={{ display: "block", marginTop: 2, opacity: 0.6 }}>
-                更新于 {new Date(predData.updatedAt).toLocaleDateString("zh-CN")}
-              </span>
-            )}
-          </p>
-        </div>
-
-        <section>
-          <SectionTitle>夺冠概率排名</SectionTitle>
-          {predLoading ? <LoadingSpinner /> : (
-            <PredictionChart teams={teams} showElo={true} />
+        <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
+          DJ<span style={{ color: "var(--blue)" }}>YY</span>
+        </span>
+        <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text-dim)" }}>夺冠预测</span>
+        <div style={{ marginLeft: "auto" }}>
+          {data?.updatedAt && (
+            <span style={{ fontSize: 10, color: "var(--text-muted)" }}>
+              更新 {new Date(data.updatedAt).toLocaleDateString("zh-CN")}
+            </span>
           )}
-        </section>
-
-        {!eloLoading && eloData && (
-          <section>
-            <SectionTitle>当前 ELO 排名（前 20）</SectionTitle>
-            <div style={{
-              background: "var(--card)", border: "1px solid var(--border)",
-              borderRadius: 12, overflow: "hidden",
-            }}>
-              {(eloData.rankings || []).slice(0, 20).map((row, i) => (
-                <div key={row.code} style={{
-                  display: "flex", alignItems: "center", gap: 10,
-                  padding: "8px 14px",
-                  borderBottom: i < 19 ? "1px solid var(--border)" : "none",
-                }}>
-                  <span style={{
-                    width: 24, textAlign: "right", fontSize: 12,
-                    color: i < 3 ? "var(--gold)" : "var(--text-dim)",
-                    fontWeight: 600,
-                  }}>{row.rank}</span>
-                  <span style={{ fontSize: 20 }}>{row.flag}</span>
-                  <span style={{ flex: 1, fontSize: 14 }}>{row.name}</span>
-                  <span style={{ fontSize: 13, color: "var(--blue)", fontFamily: "var(--font-mono)" }}>
-                    {row.elo}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+        </div>
       </div>
+
+      {/* Method note */}
+      <div style={{
+        margin: "12px 12px 8px",
+        background: "var(--blue-dim)", border: "1px solid rgba(92,158,255,0.2)",
+        borderRadius: "var(--radius-sm)", padding: "8px 12px",
+        fontSize: 11, color: "var(--text-dim)", lineHeight: 1.5,
+      }}>
+        {data?.method || "基于 ELO 排名的蒙特卡洛模拟（10,000次），计算各队夺冠概率。"}
+      </div>
+
+      {loading ? <LoadingSpinner /> : (
+        <div style={{ padding: "0 12px 80px" }}>
+          {teams.map((team, i) => {
+            const pct = team.prob !== undefined ? (team.prob * 100) : 0;
+            const barWidth = maxProb > 0 ? (team.prob / maxProb) * 100 : 0;
+            return (
+              <div key={team.code} style={{
+                display: "flex", alignItems: "center",
+                padding: "9px 0", gap: 8,
+                borderBottom: "1px solid var(--border)",
+              }}>
+                <span style={{ fontSize: 11, color: "var(--text-muted)", width: 18, fontWeight: 700 }}>
+                  {i + 1}
+                </span>
+                <span style={{ fontSize: 18, flexShrink: 0 }}>{team.flag}</span>
+                <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", flex: 1 }}>{team.name}</span>
+                <div style={{ width: 80, height: 4, background: "var(--card2)", borderRadius: 999, overflow: "hidden" }}>
+                  <div style={{
+                    width: `${barWidth}%`, height: "100%", borderRadius: 999,
+                    background: "linear-gradient(90deg, var(--blue), var(--purple))",
+                  }} />
+                </div>
+                <span style={{ fontSize: 12, fontWeight: 900, color: "var(--text)", width: 42, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                  {pct.toFixed(1)}%
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

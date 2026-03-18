@@ -1,50 +1,51 @@
 "use client";
 import Link from "next/link";
-import Badge from "@/components/ui/Badge";
 
 function LiveDot() {
   return (
     <span style={{
-      display: "inline-block", width: 6, height: 6,
+      display: "inline-block", width: 7, height: 7,
       borderRadius: "50%", background: "var(--live)",
-      marginRight: 4, animation: "livepulse 1.2s ease-in-out infinite",
+      animation: "ringpulse 1.5s infinite",
+      flexShrink: 0,
     }} />
   );
 }
 
-function TeamRow({ flag, name, score, winner }) {
-  return (
-    <div style={{
-      display: "flex", alignItems: "center", gap: 8, padding: "5px 0",
-    }}>
-      <span style={{ fontSize: 22, lineHeight: 1 }}>{flag}</span>
-      <span style={{
-        flex: 1, fontSize: 14, fontWeight: winner ? 700 : 400,
-        color: winner ? "var(--text)" : "var(--text-dim)",
-        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-      }}>
-        {name}
-      </span>
-      <span style={{
-        fontSize: 18, fontWeight: 700, minWidth: 24, textAlign: "right",
-        color: winner ? "var(--text)" : "var(--text-dim)",
-      }}>
-        {score !== null && score !== undefined ? score : ""}
-      </span>
-    </div>
-  );
-}
-
-function StatusBadge({ fixture }) {
-  if (fixture.status === "LIVE") {
+function ScoreCenter({ fixture }) {
+  const { status, homeScore, awayScore, minute, kickoff } = fixture;
+  if (status === "LIVE") {
     return (
-      <Badge tone="live">
-        <LiveDot />{fixture.minute || "LIVE"}
-      </Badge>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 64, flexShrink: 0 }}>
+        <div style={{ fontSize: 19, fontWeight: 900, color: "var(--text)", letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>
+          {homeScore ?? 0}–{awayScore ?? 0}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 3, marginTop: 2 }}>
+          <LiveDot />
+          <span style={{ fontSize: 9, color: "var(--live)", fontWeight: 700 }}>{minute || "LIVE"}</span>
+        </div>
+      </div>
     );
   }
-  if (fixture.status === "FT") return <Badge tone="ft">终</Badge>;
-  return <Badge tone="ns">{fixture.kickoff}</Badge>;
+  if (status === "FT") {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 64, flexShrink: 0 }}>
+        <div style={{ fontSize: 19, fontWeight: 900, color: "var(--text)", letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>
+          {homeScore ?? 0}–{awayScore ?? 0}
+        </div>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text-muted)", background: "var(--card2)", padding: "2px 5px", borderRadius: 4, marginTop: 2 }}>
+          终场
+        </div>
+      </div>
+    );
+  }
+  // Not started
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 64, flexShrink: 0 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text-dim)" }}>{kickoff || "--:--"}</div>
+      <div style={{ fontSize: 9, color: "var(--text-muted)", marginTop: 2 }}>今日</div>
+    </div>
+  );
 }
 
 export default function MatchCard({ fixture, onClick }) {
@@ -57,23 +58,43 @@ export default function MatchCard({ fixture, onClick }) {
     <div style={{
       background: "var(--card)",
       border: "1px solid var(--border)",
-      borderRadius: 12,
-      padding: "12px 14px",
+      borderRadius: "var(--radius)",
+      margin: "0 12px 8px",
+      padding: "10px 12px",
       cursor: "pointer",
     }}>
-      <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        marginBottom: 8,
-      }}>
-        <span style={{ fontSize: 11, color: "var(--text-dim)" }}>{stage}</span>
-        <StatusBadge fixture={fixture} />
+      {/* Stage label */}
+      {stage && (
+        <div style={{ fontSize: 9, fontWeight: 800, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
+          {stage}
+        </div>
+      )}
+      {/* Teams row */}
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        {/* Home team */}
+        <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
+          <span style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{home.flag}</span>
+          <span style={{
+            fontSize: 12, fontWeight: 700, color: homeWins ? "var(--text)" : awayWins ? "var(--text-dim)" : "var(--text)",
+            overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+          }}>{home.name}</span>
+        </div>
+        {/* Score center */}
+        <ScoreCenter fixture={fixture} />
+        {/* Away team */}
+        <div style={{ flex: 1, display: "flex", alignItems: "center", flexDirection: "row-reverse", gap: 6, minWidth: 0 }}>
+          <span style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{away.flag}</span>
+          <span style={{
+            fontSize: 12, fontWeight: 700, color: awayWins ? "var(--text)" : homeWins ? "var(--text-dim)" : "var(--text)",
+            overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "right",
+          }}>{away.name}</span>
+        </div>
       </div>
-      <TeamRow flag={home.flag} name={home.name} score={homeScore} winner={homeWins} />
-      <TeamRow flag={away.flag} name={away.name} score={awayScore} winner={awayWins} />
+      {/* Venue */}
       {venue && (
-        <p style={{ margin: "6px 0 0", fontSize: 11, color: "var(--text-dim)", opacity: 0.7 }}>
+        <div style={{ marginTop: 6, fontSize: 9, color: "var(--text-muted)" }}>
           📍 {venue}
-        </p>
+        </div>
       )}
     </div>
   );

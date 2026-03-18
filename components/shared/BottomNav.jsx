@@ -38,13 +38,18 @@ export default function BottomNav({ comp }) {
             style={{
               flex: 1, display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center", gap: 3,
-              color: active ? "var(--blue)" : "var(--text-dim)",
-              fontSize: 10, fontWeight: active ? 600 : 400,
-              transition: "color 0.15s",
+              color: active ? "var(--blue)" : "var(--text-muted)",
+              textDecoration: "none",
             }}
           >
-            <Icon size={22} strokeWidth={active ? 2.2 : 1.8} />
-            <span>{label}</span>
+            <Icon size={20} strokeWidth={active ? 2.2 : 1.6} />
+            <span style={{
+              fontSize: 9, fontWeight: 600,
+              textTransform: "uppercase", letterSpacing: "0.04em",
+              color: active ? "var(--blue)" : "var(--text-muted)",
+            }}>
+              {label}
+            </span>
           </Link>
         );
       })}
