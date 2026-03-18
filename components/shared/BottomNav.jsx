@@ -31,6 +31,7 @@ export default function BottomNav({ comp }) {
         const active = path === ""
           ? pathname === base || pathname === base + "/"
           : pathname.startsWith(base + path);
+        const color = active ? "var(--blue)" : "var(--text3)";
         return (
           <Link
             key={id}
@@ -38,15 +39,15 @@ export default function BottomNav({ comp }) {
             style={{
               flex: 1, display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center", gap: 3,
-              color: active ? "var(--blue)" : "var(--text-muted)",
+              color: color,
               textDecoration: "none",
             }}
           >
-            <Icon size={20} strokeWidth={active ? 2.2 : 1.6} />
+            <Icon size={20} strokeWidth={1.8} color={color} />
             <span style={{
               fontSize: 9, fontWeight: 600,
               textTransform: "uppercase", letterSpacing: "0.04em",
-              color: active ? "var(--blue)" : "var(--text-muted)",
+              color: color,
             }}>
               {label}
             </span>

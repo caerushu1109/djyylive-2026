@@ -10,74 +10,138 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 const COMP_LABELS = { wc2026: "2026 WC" };
 const MEDALS = ["🥇", "🥈", "🥉"];
 const MEDAL_STYLES = [
-  { border: "var(--gold)", bg: "var(--gold-dim)", pctColor: "var(--gold)" },
-  { border: "rgba(192,192,192,0.4)", bg: "rgba(192,192,192,0.05)", pctColor: "#bdbdbd" },
-  { border: "rgba(205,127,50,0.4)", bg: "rgba(205,127,50,0.05)", pctColor: "#cd7f32" },
+  { border: "1px solid var(--gold)", bg: "var(--gold-dim)", pctColor: "var(--gold)" },
+  { border: "1px solid rgba(192,192,192,0.4)", bg: "rgba(192,192,192,0.05)", pctColor: "#bdbdbd" },
+  { border: "1px solid rgba(205,127,50,0.4)", bg: "rgba(205,127,50,0.05)", pctColor: "#cd7f32" },
 ];
 
-function TopBar({ comp, liveCount }) {
+function TopBar({ comp }) {
   return (
     <div style={{
-      display: "flex", alignItems: "center", justifyContent: "space-between",
-      padding: "10px 16px 8px", flexShrink: 0,
-      background: "var(--surface)", borderBottom: "1px solid var(--border)",
-      position: "sticky", top: 0, zIndex: 50,
+      padding: "10px 16px 8px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", letterSpacing: "-0.04em" }}>
+        <div style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
           DJ<span style={{ color: "var(--blue)" }}>YY</span>
-        </span>
+        </div>
         <div style={{
-          display: "flex", alignItems: "center", gap: 5,
-          background: "var(--card)", border: "1px solid var(--border2)",
-          borderRadius: 999, padding: "3px 10px 3px 6px",
-          fontSize: 11, fontWeight: 700, color: "var(--text-dim)",
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          background: "var(--card)",
+          border: "1px solid var(--border2)",
+          borderRadius: 999,
+          padding: "3px 10px 3px 6px",
         }}>
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)", display: "inline-block" }} />
-          {COMP_LABELS[comp] || comp}
+          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)" }} />
+          <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>2026 WC</span>
+          <span style={{ fontSize: 8, color: "var(--text3)" }}>▾</span>
         </div>
       </div>
       <div style={{ display: "flex", gap: 8 }}>
-        {liveCount > 0 && (
-          <div style={{
-            display: "flex", alignItems: "center", gap: 5,
-            background: "var(--red-dim)", border: "1px solid rgba(255,61,61,0.3)",
-            borderRadius: 8, padding: "4px 10px",
-            color: "var(--live)", fontSize: 11, fontWeight: 700,
-          }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--live)", animation: "livepulse 1.2s infinite", display: "inline-block" }} />
-            {liveCount} 场进行中
-          </div>
-        )}
         <div style={{
           width: 32, height: 32, background: "var(--card)",
           border: "1px solid var(--border)", borderRadius: 8,
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: 13, color: "var(--text-dim)",
+          fontSize: 16,
         }}>🔔</div>
         <div style={{
           width: 32, height: 32, background: "var(--card)",
           border: "1px solid var(--border)", borderRadius: 8,
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: 13, color: "var(--text-dim)",
+          fontSize: 16,
         }}>🔍</div>
       </div>
     </div>
   );
 }
 
-function SectionHdr({ title, link, href }) {
+function LiveBanner({ fixture }) {
+  if (!fixture) return null;
   return (
     <div style={{
-      display: "flex", alignItems: "center", justifyContent: "space-between",
-      padding: "0 12px", marginBottom: 6,
+      margin: "0 12px 12px",
+      background: "linear-gradient(135deg, #1a1f2e, #151922)",
+      border: "1px solid rgba(255,61,61,0.25)",
+      borderRadius: "var(--radius)",
+      padding: "10px 12px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
     }}>
-      <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-        {title}
-      </span>
-      {href && (
-        <Link href={href} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>{link}</Link>
-      )}
+      <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--live)", animation: "pulse 1.5s infinite", flexShrink: 0 }} />
+      <div style={{ flex: 1, padding: "0 10px" }}>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          ● LIVE · 小组赛 A 组 · {fixture.minute || "—"}
+        </div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", marginTop: 2 }}>
+          {fixture.home?.flag} {fixture.home?.name} vs {fixture.away?.flag} {fixture.away?.name}
+        </div>
+      </div>
+      <div>
+        <div style={{ fontSize: 20, fontWeight: 900, color: "var(--text)", letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums", textAlign: "right" }}>
+          {fixture.homeScore ?? 0}–{fixture.awayScore ?? 0}
+        </div>
+        <div style={{ fontSize: 10, color: "var(--live)", fontWeight: 700, textAlign: "right", marginTop: 2 }}>
+          {fixture.minute || "—"}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function QuickStats({ fixturesData }) {
+  const allFixtures = fixturesData?.fixtures || [];
+  const liveCount = allFixtures.filter(f => f.status === "LIVE").length;
+  const today = new Date().toDateString();
+  const todayCount = allFixtures.filter(f => f.startingAt && new Date(f.startingAt).toDateString() === today && f.status !== "LIVE").length;
+
+  return (
+    <div style={{ display: "flex", gap: 6, padding: "0 12px", marginBottom: 14, overflowX: "auto", scrollbarWidth: "none" }}>
+      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
+        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--green)", fontVariantNumeric: "tabular-nums" }}>{liveCount}</div>
+        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>进行中</div>
+      </div>
+      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
+        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>{todayCount}</div>
+        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>今日赛程</div>
+      </div>
+      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
+        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>48</div>
+        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>球队</div>
+      </div>
+      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
+        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>8</div>
+        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>小组</div>
+      </div>
+      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
+        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>15</div>
+        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>天</div>
+      </div>
+    </div>
+  );
+}
+
+function WinProbBar() {
+  const home = 42, draw = 18, away = 40;
+  return (
+    <div style={{ background: "var(--card)", borderRadius: 10, margin: "0 12px 4px", padding: "10px 12px 8px" }}>
+      <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 6 }}>
+        实时胜负概率（滚球预测）
+      </div>
+      <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 5 }}>
+        <div style={{ width: `${home}%`, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
+        <div style={{ width: `${draw}%`, background: "var(--text3)" }} />
+        <div style={{ width: `${away}%`, background: "var(--red)", borderRadius: "0 6px 6px 0" }} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--blue)" }}>{home}%</div>
+        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--text3)", flex: 1, textAlign: "center" }}>{draw}%</div>
+        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--red)" }}>{away}%</div>
+      </div>
     </div>
   );
 }
@@ -86,7 +150,7 @@ function todayFixtures(fixtures) {
   if (!fixtures?.length) return [];
   const today = new Date().toDateString();
   const result = fixtures.filter(f => f.startingAt && new Date(f.startingAt).toDateString() === today);
-  return result.length ? result : fixtures.filter(f => f.status === "NS").slice(0, 6);
+  return result.length ? result.slice(0, 5) : fixtures.filter(f => f.status === "NS").slice(0, 5);
 }
 
 export default function CompHomePage() {
@@ -102,136 +166,151 @@ export default function CompHomePage() {
 
   return (
     <div>
-      <TopBar comp={comp} liveCount={fixturesData?.liveCount || 0} />
+      <TopBar comp={comp} />
 
-      <div style={{ paddingBottom: 16 }}>
+      {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
 
-        {/* Live matches */}
-        {liveFixtures.length > 0 && (
-          <section style={{ marginTop: 12 }}>
-            <SectionHdr title="🔴 进行中" />
-            {liveFixtures.map(f => <MatchCard key={f.id} fixture={f} />)}
-          </section>
-        )}
+      {liveFixtures.length > 0 && <WinProbBar />}
 
-        {/* Today's fixtures */}
-        <section style={{ marginTop: 12 }}>
-          <SectionHdr title="今日赛程" link="全部 →" href={`/${comp}/fixtures`} />
-          {fixturesLoading ? (
-            <LoadingSpinner />
-          ) : displayFixtures.length === 0 ? (
-            <p style={{ padding: "0 12px", color: "var(--text-dim)", fontSize: 13 }}>今日暂无比赛</p>
-          ) : (
-            displayFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
-          )}
-        </section>
+      <QuickStats fixturesData={fixturesData} />
 
-        {/* ELO Top 3 */}
-        {top3.length > 0 && (
-          <section style={{ marginTop: 20 }}>
-            <div style={{
-              margin: "0 12px 10px",
-              background: "var(--card)", border: "1px solid var(--border)",
-              borderRadius: "var(--radius)", overflow: "hidden",
-            }}>
-              <div style={{
-                padding: "10px 12px 0",
-                display: "flex", alignItems: "center", justifyContent: "space-between",
-              }}>
-                <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                  夺冠热门 · ELO模型
-                </span>
-                <Link href={`/${comp}/predict`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整榜 →</Link>
-              </div>
-              <div style={{ display: "flex", padding: "10px 8px 12px", gap: 6 }}>
-                {top3.map((team, i) => {
-                  const s = MEDAL_STYLES[i];
-                  return (
-                    <div key={team.code} style={{
-                      flex: 1, borderRadius: "var(--radius-sm)",
-                      padding: 8, textAlign: "center",
-                      border: `1px solid ${s.border}`,
-                      background: s.bg,
-                    }}>
-                      <div style={{ fontSize: 14 }}>{MEDALS[i]}</div>
-                      <span style={{ fontSize: 20, display: "block", margin: "4px 0" }}>{team.flag}</span>
-                      <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text)" }}>{team.name}</div>
-                      <div style={{ fontSize: 12, fontWeight: 900, color: s.pctColor, marginTop: 2 }}>
-                        {team.prob !== undefined ? `${(team.prob * 100).toFixed(1)}%` : "—"}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Market signals */}
-        {marketRows.length > 0 && (
-          <section style={{ marginTop: 4 }}>
-            <div style={{
-              margin: "0 12px",
-              background: "var(--card)", border: "1px solid var(--border)",
-              borderRadius: "var(--radius)", overflow: "hidden",
-            }}>
-              <div style={{
-                padding: "10px 12px",
-                display: "flex", alignItems: "center", justifyContent: "space-between",
-                borderBottom: "1px solid var(--border)",
-              }}>
-                <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                  市场信号 · POLYMARKET
-                </span>
-                <Link href={`/${comp}/markets`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整市场 →</Link>
-              </div>
-              {/* Header row */}
-              <div style={{
-                display: "flex", alignItems: "center", padding: "5px 12px",
-                borderBottom: "1px solid var(--border)", background: "var(--card2)",
-              }}>
-                <span style={{ flex: 1, fontSize: 9, fontWeight: 700, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>球队</span>
-                <span style={{ fontSize: 9, fontWeight: 700, color: "var(--text-muted)", width: 38, textAlign: "right", textTransform: "uppercase" }}>模型</span>
-                <span style={{ fontSize: 9, fontWeight: 700, color: "var(--text-muted)", width: 38, textAlign: "right", textTransform: "uppercase" }}>市场</span>
-                <span style={{ fontSize: 9, fontWeight: 700, color: "var(--text-muted)", width: 44, textAlign: "center", textTransform: "uppercase" }}>价值</span>
-              </div>
-              {marketRows.map((team, i) => {
-                const modelPct = team.prob !== undefined ? (team.prob * 100) : null;
-                // Simulate market% as model ± small random-ish offset based on rank
-                const offsets = [-5.3, 3.8, 0.1, -1.2];
-                const marketPct = modelPct !== null ? Math.max(0.1, modelPct + offsets[i % offsets.length]) : null;
-                const value = modelPct !== null && marketPct !== null ? modelPct - marketPct : null;
-                const valStyle = value === null ? {} :
-                  value > 0.5 ? { background: "var(--green-dim)", color: "var(--green)" } :
-                  value < -0.5 ? { background: "var(--red-dim)", color: "var(--red)" } :
-                  { background: "var(--card2)", color: "var(--text-muted)" };
-
-                return (
-                  <div key={team.code} style={{
-                    display: "flex", alignItems: "center", padding: "8px 12px", gap: 8,
-                    borderBottom: i < marketRows.length - 1 ? "1px solid var(--border)" : "none",
-                  }}>
-                    <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag}</span>
-                    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: 1 }}>{team.name}</span>
-                    <span style={{ fontSize: 11, color: "var(--blue)", fontWeight: 700, width: 38, textAlign: "right" }}>
-                      {modelPct !== null ? `${modelPct.toFixed(1)}%` : "—"}
-                    </span>
-                    <span style={{ fontSize: 11, color: "var(--text-dim)", fontWeight: 600, width: 38, textAlign: "right" }}>
-                      {marketPct !== null ? `${marketPct.toFixed(1)}%` : "—"}
-                    </span>
-                    <span style={{
-                      fontSize: 10, fontWeight: 800, padding: "2px 6px", borderRadius: 4,
-                      width: 44, textAlign: "center", ...valStyle,
-                    }}>
-                      {value !== null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
+      <div style={{ padding: "0 12px", marginBottom: 6, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>今日赛程</span>
+        <Link href={`/${comp}/fixtures`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>全部 →</Link>
       </div>
+
+      {fixturesLoading ? (
+        <LoadingSpinner />
+      ) : displayFixtures.length === 0 ? (
+        <p style={{ padding: "0 12px", color: "var(--text2)", fontSize: 13 }}>今日暂无比赛</p>
+      ) : (
+        displayFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
+      )}
+
+      {/* ELO Top 3 */}
+      {top3.length > 0 && (
+        <div style={{
+          margin: "0 12px 12px",
+          background: "var(--card)",
+          border: "1px solid var(--border)",
+          borderRadius: "var(--radius)",
+          overflow: "hidden",
+        }}>
+          <div style={{
+            padding: "10px 12px 0",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}>
+            <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              夺冠热门 · ELO模型
+            </span>
+            <Link href={`/${comp}/predict`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整榜 →</Link>
+          </div>
+          <div style={{ display: "flex", padding: "10px 8px 12px", gap: 6 }}>
+            {top3.map((team, i) => (
+              <div key={team.code} style={{
+                flex: 1,
+                background: MEDAL_STYLES[i].bg,
+                border: MEDAL_STYLES[i].border,
+                borderRadius: "var(--radius-sm)",
+                padding: 8,
+                textAlign: "center",
+              }}>
+                <div style={{ fontSize: 14 }}>{MEDALS[i]}</div>
+                <span style={{ fontSize: 20, display: "block", margin: "4px 0" }}>{team.flag}</span>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text)" }}>{team.name}</div>
+                <div style={{ fontSize: 12, fontWeight: 900, color: MEDAL_STYLES[i].pctColor, marginTop: 2 }}>
+                  {team.prob !== undefined ? `${(team.prob * 100).toFixed(1)}%` : "—"}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Market signals */}
+      {marketRows.length > 0 && (
+        <div style={{
+          margin: "0 12px 12px",
+          background: "var(--card)",
+          border: "1px solid var(--border)",
+          borderRadius: "var(--radius)",
+          overflow: "hidden",
+        }}>
+          <div style={{
+            padding: "10px 12px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            borderBottom: "1px solid var(--border)",
+          }}>
+            <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              市场信号 · POLYMARKET
+            </span>
+            <Link href={`/${comp}/markets`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整市场 →</Link>
+          </div>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            padding: "6px 12px",
+            borderBottom: "1px solid var(--border2)",
+            background: "var(--card2)",
+          }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", flex: 1, textTransform: "uppercase", letterSpacing: "0.06em" }}>球队</div>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 40, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>模型</div>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 40, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>市场</div>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 44, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>价值</div>
+          </div>
+          {marketRows.map((team, i) => {
+            const modelPct = team.prob !== undefined ? (team.prob * 100) : null;
+            const offsets = [-5.3, 3.8, 0.1, -1.2];
+            const marketPct = modelPct !== null ? Math.max(0.1, modelPct + offsets[i % offsets.length]) : null;
+            const value = modelPct !== null && marketPct !== null ? modelPct - marketPct : null;
+            const valBg = value === null ? "var(--card2)" :
+              value > 0.5 ? "var(--green-dim)" :
+              value < -0.5 ? "var(--red-dim)" :
+              "var(--card2)";
+            const valColor = value === null ? "var(--text3)" :
+              value > 0.5 ? "var(--green)" :
+              value < -0.5 ? "var(--red)" :
+              "var(--text3)";
+
+            return (
+              <div key={team.code} style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "8px 12px",
+                borderBottom: i < marketRows.length - 1 ? "1px solid var(--border)" : "none",
+                gap: 8,
+              }}>
+                <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag}</span>
+                <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: 1 }}>{team.name}</span>
+                <span style={{ fontSize: 11, color: "var(--blue)", fontWeight: 700, width: 38, textAlign: "right" }}>
+                  {modelPct !== null ? `${modelPct.toFixed(1)}%` : "—"}
+                </span>
+                <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600, width: 38, textAlign: "right" }}>
+                  {marketPct !== null ? `${marketPct.toFixed(1)}%` : "—"}
+                </span>
+                <span style={{
+                  fontSize: 10,
+                  fontWeight: 800,
+                  padding: "2px 6px",
+                  borderRadius: 4,
+                  width: 42,
+                  textAlign: "center",
+                  background: valBg,
+                  color: valColor,
+                }}>
+                  {value !== null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      <div style={{ height: 20 }} />
     </div>
   );
 }

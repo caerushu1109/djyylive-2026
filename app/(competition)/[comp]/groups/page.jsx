@@ -21,43 +21,63 @@ export default function GroupsPage() {
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* TopBar */}
       <div style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "10px 16px 8px", flexShrink: 0,
-        background: "var(--surface)", borderBottom: "1px solid var(--border)",
-        position: "sticky", top: 0, zIndex: 50,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "10px 16px 8px",
+        flexShrink: 0,
       }}>
         <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
           DJ<span style={{ color: "var(--blue)" }}>YY</span>
         </span>
         <div style={{
-          display: "flex", alignItems: "center", gap: 5,
-          background: "var(--card)", border: "1px solid var(--border2)",
-          borderRadius: 999, padding: "3px 10px 3px 6px",
-          fontSize: 11, fontWeight: 700, color: "var(--text-dim)",
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          background: "var(--card)",
+          border: "1px solid var(--border2)",
+          borderRadius: 999,
+          padding: "3px 10px 3px 6px",
         }}>
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)", display: "inline-block" }} />
-          2026 WC
+          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)" }} />
+          <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>2026 WC</span>
+          <span style={{ fontSize: 8, color: "var(--text3)" }}>▾</span>
         </div>
         <div style={{
-          width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
-          borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13,
+          width: 32,
+          height: 32,
+          background: "var(--card)",
+          border: "1px solid var(--border)",
+          borderRadius: 8,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 16,
         }}>🔍</div>
       </div>
 
       {/* Group letter tabs */}
       <div style={{
-        display: "flex", overflowX: "auto", padding: "8px 12px 0",
-        gap: 6, flexShrink: 0, borderBottom: "1px solid var(--border)",
-        background: "var(--bg)", scrollbarWidth: "none",
+        display: "flex",
+        overflowX: "auto",
+        padding: "8px 12px 0",
+        gap: 6,
+        flexShrink: 0,
+        borderBottom: "1px solid var(--border)",
+        background: "var(--bg)",
+        scrollbarWidth: "none",
       }}>
         <button
           onClick={() => setActiveGroup(null)}
           style={{
-            padding: "5px 10px 8px", fontSize: 11, fontWeight: 800,
-            color: activeGroup === null ? "var(--blue)" : "var(--text-muted)",
+            padding: "5px 10px 8px",
+            fontSize: 11,
+            fontWeight: 800,
+            color: activeGroup === null ? "var(--blue)" : "var(--text3)",
             borderBottom: activeGroup === null ? "2px solid var(--blue)" : "2px solid transparent",
-            whiteSpace: "nowrap", background: "none", border: "none",
-            borderBottom: activeGroup === null ? "2px solid var(--blue)" : "2px solid transparent",
+            whiteSpace: "nowrap",
+            background: "none",
+            border: "none",
             cursor: "pointer",
           }}
         >
@@ -68,10 +88,14 @@ export default function GroupsPage() {
             key={g}
             onClick={() => setActiveGroup(g)}
             style={{
-              padding: "5px 10px 8px", fontSize: 11, fontWeight: 800,
-              color: activeGroup === g ? "var(--blue)" : "var(--text-muted)",
+              padding: "5px 10px 8px",
+              fontSize: 11,
+              fontWeight: 800,
+              color: activeGroup === g ? "var(--blue)" : "var(--text3)",
               borderBottom: activeGroup === g ? "2px solid var(--blue)" : "2px solid transparent",
-              whiteSpace: "nowrap", background: "none", border: "none",
+              whiteSpace: "nowrap",
+              background: "none",
+              border: "none",
               cursor: "pointer",
             }}
           >
@@ -82,8 +106,11 @@ export default function GroupsPage() {
 
       {/* Sub tabs */}
       <div style={{
-        display: "flex", padding: "0 12px",
-        gap: 4, flexShrink: 0, background: "var(--bg)",
+        display: "flex",
+        padding: "0 12px",
+        gap: 4,
+        flexShrink: 0,
+        background: "var(--bg)",
         borderBottom: "1px solid var(--border)",
       }}>
         {SUB_TABS.map(t => (
@@ -91,13 +118,18 @@ export default function GroupsPage() {
             key={t}
             onClick={() => setSubTab(t)}
             style={{
-              flex: 1, textAlign: "center", padding: "9px 0",
-              fontSize: 10, fontWeight: 700,
-              color: subTab === t ? "var(--blue)" : "var(--text-muted)",
+              flex: 1,
+              textAlign: "center",
+              padding: "9px 0",
+              fontSize: 10,
+              fontWeight: 700,
+              color: subTab === t ? "var(--blue)" : "var(--text3)",
               borderBottom: subTab === t ? "2px solid var(--blue)" : "2px solid transparent",
-              textTransform: "uppercase", letterSpacing: "0.05em",
-              background: "none", border: "none", cursor: "pointer",
-              borderBottom: subTab === t ? "2px solid var(--blue)" : "2px solid transparent",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
             }}
           >
             {t}
@@ -120,7 +152,7 @@ export default function GroupsPage() {
         ) : subTab === "模拟器" ? (
           <GroupSimulator standings={standings} fixtures={data?.fixtures} />
         ) : (
-          <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text-dim)", fontSize: 13 }}>
+          <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
             淘汰赛对阵图将在小组赛结束后显示
           </div>
         )}

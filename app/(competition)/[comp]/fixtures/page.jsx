@@ -4,7 +4,6 @@ import { useParams } from "next/navigation";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import EmptyState from "@/components/ui/EmptyState";
 
 function formatDateLabel(dateStr) {
   const d = new Date(dateStr + "T00:00:00Z");
@@ -45,35 +44,47 @@ export default function FixturesPage() {
     <div>
       {/* TopBar */}
       <div style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
         padding: "10px 16px 8px",
-        background: "var(--surface)", borderBottom: "1px solid var(--border)",
-        position: "sticky", top: 0, zIndex: 50,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
             DJ<span style={{ color: "var(--blue)" }}>YY</span>
           </span>
-          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text-dim)" }}>赛程</span>
+          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>赛程</span>
         </div>
       </div>
 
       {/* Date tabs */}
       <div style={{
-        display: "flex", overflowX: "auto", padding: "0 12px",
-        gap: 2, flexShrink: 0, borderBottom: "1px solid var(--border)",
-        background: "var(--bg)", position: "sticky", top: "var(--topbar-h)", zIndex: 40,
+        display: "flex",
+        overflowX: "auto",
+        padding: "0 12px",
+        gap: 2,
+        flexShrink: 0,
+        borderBottom: "1px solid var(--border)",
+        background: "var(--bg)",
+        position: "sticky",
+        top: 52,
+        zIndex: 40,
+        scrollbarWidth: "none",
       }}>
         {tabs.map(t => (
           <button
             key={t.id}
             onClick={() => setActiveDate(t.id)}
             style={{
-              padding: "10px 12px", fontSize: 11, fontWeight: 700,
-              color: t.id === selectedDate ? "var(--blue)" : "var(--text-muted)",
+              padding: "10px 12px",
+              fontSize: 11,
+              fontWeight: 700,
+              color: t.id === selectedDate ? "var(--blue)" : "var(--text3)",
               borderBottom: t.id === selectedDate ? "2px solid var(--blue)" : "2px solid transparent",
-              whiteSpace: "nowrap", background: "none", border: "none", cursor: "pointer",
-              borderBottom: t.id === selectedDate ? "2px solid var(--blue)" : "2px solid transparent",
+              whiteSpace: "nowrap",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
             }}
           >
             {t.label}
@@ -83,7 +94,7 @@ export default function FixturesPage() {
 
       <div style={{ paddingBottom: 80, paddingTop: 8 }}>
         {visibleFixtures.length === 0 ? (
-          <EmptyState icon="📅" title="该日期暂无比赛" />
+          <p style={{ padding: "24px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>该日期暂无比赛</p>
         ) : (
           visibleFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
         )}
