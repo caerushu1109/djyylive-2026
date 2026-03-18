@@ -12,8 +12,7 @@ function LiveDot() {
   );
 }
 
-function ScoreCenter({ fixture }) {
-  const { status, homeScore, awayScore, minute, kickoff } = fixture;
+function ScoreCenter({ status, homeScore, awayScore, minute, kickoff }) {
   if (status === "LIVE") {
     return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 64, flexShrink: 0 }}>
@@ -39,7 +38,6 @@ function ScoreCenter({ fixture }) {
       </div>
     );
   }
-  // Not started
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 64, flexShrink: 0 }}>
       <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text-dim)" }}>{kickoff || "--:--"}</div>
@@ -50,7 +48,9 @@ function ScoreCenter({ fixture }) {
 
 export default function MatchCard({ fixture, onClick }) {
   if (!fixture) return null;
-  const { id, home, away, homeScore, awayScore, stage, venue, status } = fixture;
+  const { id, home, away, homeScore, awayScore, stage, venue, status, minute, kickoff } = fixture;
+  if (!home || !away) return null;
+
   const homeWins = status === "FT" && homeScore > awayScore;
   const awayWins = status === "FT" && awayScore > homeScore;
 
@@ -63,38 +63,35 @@ export default function MatchCard({ fixture, onClick }) {
       padding: "10px 12px",
       cursor: "pointer",
     }}>
-      {/* Stage label */}
       {stage && (
         <div style={{ fontSize: 9, fontWeight: 800, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>
           {stage}
         </div>
       )}
-      {/* Teams row */}
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        {/* Home team */}
+        {/* Home */}
         <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
-          <span style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{home.flag}</span>
+          <span style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{home.flag || "🏴"}</span>
           <span style={{
-            fontSize: 12, fontWeight: 700, color: homeWins ? "var(--text)" : awayWins ? "var(--text-dim)" : "var(--text)",
+            fontSize: 12, fontWeight: 700,
+            color: homeWins ? "var(--text)" : awayWins ? "var(--text-dim)" : "var(--text)",
             overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
           }}>{home.name}</span>
         </div>
-        {/* Score center */}
-        <ScoreCenter fixture={fixture} />
-        {/* Away team */}
+        {/* Score */}
+        <ScoreCenter status={status} homeScore={homeScore} awayScore={awayScore} minute={minute} kickoff={kickoff} />
+        {/* Away */}
         <div style={{ flex: 1, display: "flex", alignItems: "center", flexDirection: "row-reverse", gap: 6, minWidth: 0 }}>
-          <span style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{away.flag}</span>
+          <span style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{away.flag || "🏴"}</span>
           <span style={{
-            fontSize: 12, fontWeight: 700, color: awayWins ? "var(--text)" : homeWins ? "var(--text-dim)" : "var(--text)",
+            fontSize: 12, fontWeight: 700,
+            color: awayWins ? "var(--text)" : homeWins ? "var(--text-dim)" : "var(--text)",
             overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "right",
           }}>{away.name}</span>
         </div>
       </div>
-      {/* Venue */}
       {venue && (
-        <div style={{ marginTop: 6, fontSize: 9, color: "var(--text-muted)" }}>
-          📍 {venue}
-        </div>
+        <div style={{ marginTop: 6, fontSize: 9, color: "var(--text-muted)" }}>📍 {venue}</div>
       )}
     </div>
   );

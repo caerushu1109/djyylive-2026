@@ -148,7 +148,7 @@ export default function CompHomePage() {
                   const s = MEDAL_STYLES[i];
                   return (
                     <div key={team.code} style={{
-                      flex: 1, background: "var(--card2)", borderRadius: "var(--radius-sm)",
+                      flex: 1, borderRadius: "var(--radius-sm)",
                       padding: 8, textAlign: "center",
                       border: `1px solid ${s.border}`,
                       background: s.bg,

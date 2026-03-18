@@ -1,7 +1,11 @@
+"use client";
+import { useParams } from "next/navigation";
 import BottomNav from "@/components/shared/BottomNav";
 
-export default function CompetitionLayout({ children, params }) {
-  const { comp } = params;
+export default function CompetitionLayout({ children }) {
+  const params = useParams();
+  const comp = params?.comp || "wc2026";
+
   return (
     <div style={{
       maxWidth: 480,
