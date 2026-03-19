@@ -1,0 +1,217 @@
+{
+  "isoCode": "CW",
+  "shortCode": "CUW",
+  "players": [
+    {
+      "id": 1370,
+      "name": "R. Martina",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23278580,
+      "name": "S. Hansen",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 29444,
+      "name": "A. Obispo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 38203941,
+      "name": "L. Merencia",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 28854,
+      "name": "J. Gaari",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37565351,
+      "name": "L. Comenencia",
+      "position": "DF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 25217663,
+      "name": "J. Antonisse",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 24803,
+      "name": "J. Locadia",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 25680,
+      "name": "B. Kuwas",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 28447,
+      "name": "J. Carolina",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37727819,
+      "name": "T. Mercera",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37622964,
+      "name": "R. Rosario",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 25588,
+      "name": "R. Bazoer",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25081,
+      "name": "J. Brenet",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 9939197,
+      "name": "S. Sambo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37654460,
+      "name": "J. Paulina",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 26073,
+      "name": "S. Floranus",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 4640,
+      "name": "K. Gorré",
+      "position": "FW",
+      "shirtNumber": 14
+    },
+    {
+      "id": 3219352,
+      "name": "T. Doornbusch",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 23995,
+      "name": "E. Room",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 12790692,
+      "name": "R. van Eijma",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 30782,
+      "name": "G. Roemeratoe",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 25515,
+      "name": "J. Bacuna",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37400489,
+      "name": "J. Margaritha",
+      "position": "FW",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37336994,
+      "name": "A. Martha",
+      "position": "FW",
+      "shirtNumber": 15
+    },
+    {
+      "id": 25604,
+      "name": "G. Kastaneer",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 24529,
+      "name": "R. Janga",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37618295,
+      "name": "D. Fonville",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37452955,
+      "name": "T. Noslin",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 37576588,
+      "name": "J. Candelaria",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1494236,
+      "name": "T. Chong",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 3568504,
+      "name": "K. Felida",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 32810192,
+      "name": "J. Zimmerman",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 34862786,
+      "name": "T. Bodak",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 871,
+      "name": "L. Bacuna",
+      "position": "MF",
+      "shirtNumber": 10
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.669Z"
+}

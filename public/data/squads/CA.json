@@ -1,0 +1,229 @@
+{
+  "isoCode": "CA",
+  "shortCode": "CAN",
+  "players": [
+    {
+      "id": 7892,
+      "name": "S. Adekugbe",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262644,
+      "name": "A. Davies",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 261991,
+      "name": "J. Osorio",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37682671,
+      "name": "M. Bombito",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 17158444,
+      "name": "K. Miller",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 4545516,
+      "name": "L. Millar",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 35659846,
+      "name": "A. Johnston",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37625846,
+      "name": "A. Ahmed",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31625208,
+      "name": "J. Marshall-Rutty",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37569765,
+      "name": "P. Akinpelu",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37391641,
+      "name": "D. Jebbison",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 371386,
+      "name": "S. Antunes Eustáquio",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31627620,
+      "name": "D. St Clair",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37614779,
+      "name": "L. Gavran",
+      "position": "GK",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37537859,
+      "name": "O. Goodman",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 784790,
+      "name": "Z. Bassong",
+      "position": "MF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37641612,
+      "name": "J. Hibbert",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 581045,
+      "name": "A. Jones",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23241281,
+      "name": "J. Nelson",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37614807,
+      "name": "T. Oluwaseyi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 261,
+      "name": "D. Hoilett",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37582178,
+      "name": "I. Koné",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262142,
+      "name": "M. Crépeau",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 409137,
+      "name": "J. Waterman",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 31216826,
+      "name": "J. Shaffelburg",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 581004,
+      "name": "T. McGill",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 586846,
+      "name": "D. Cornelius",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31238822,
+      "name": "T. Buchanan",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37694071,
+      "name": "N. Sigur",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37581727,
+      "name": "L. De Fougerolles",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262216,
+      "name": "C. Larin",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 16827175,
+      "name": "J. David",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 785924,
+      "name": "T. Bair",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37609158,
+      "name": "J. Knight-Lebel",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262290,
+      "name": "R. Laryea",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37551076,
+      "name": "N. Saliba",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 20326101,
+      "name": "M. Choiniere",
+      "position": "MF",
+      "shirtNumber": 6
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

@@ -1,0 +1,211 @@
+{
+  "isoCode": "HR",
+  "shortCode": "CRO",
+  "players": [
+    {
+      "id": 74116,
+      "name": "Lovro Majer",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 22528446,
+      "name": "Luka Sucic",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 74000,
+      "name": "Josip Juranovic",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3568416,
+      "name": "Domagoj Bradarić",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 74160,
+      "name": "Borna Sosa",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32405608,
+      "name": "Ivan Smolcic",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 73147,
+      "name": "Mateo Kovacic ",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37550680,
+      "name": "Martin Baturina",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3862681,
+      "name": "Marco Pašalić",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 20355429,
+      "name": "Ivor Pandur",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 72977,
+      "name": "Mislav Orsic",
+      "position": "FW",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37543226,
+      "name": "Toni Fruk",
+      "position": "MF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 73906,
+      "name": "Nikola Vlašić",
+      "position": "MF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 74250,
+      "name": "Petar Musa",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 1232,
+      "name": "Andrej Kramaric",
+      "position": "MF",
+      "shirtNumber": 9
+    },
+    {
+      "id": 133712,
+      "name": "Martin Erlić",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37683059,
+      "name": "Petar Sučić",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 74957,
+      "name": "Nikola Moro",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 73721,
+      "name": "Dominik Livakovic",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 268,
+      "name": "Luka Modrić",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 73603,
+      "name": "Mario Pašalić",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 36681,
+      "name": "Marin Pongracic",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37371082,
+      "name": "Franjo Ivanović",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37417027,
+      "name": "Igor Matanovic",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 3862426,
+      "name": "Josip Stanisic",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 24838191,
+      "name": "Josko Gvardiol ",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 37657587,
+      "name": "Luka Vuskovic",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 540162,
+      "name": "Dominik Kotarski",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 34700,
+      "name": "Ante Budimir",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 540711,
+      "name": "Josip Sutalo",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 31002,
+      "name": "Ivan Perišić",
+      "position": "FW",
+      "shirtNumber": 14
+    },
+    {
+      "id": 74121,
+      "name": "Kristijan Jakic",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 52573,
+      "name": "Duje Caleta-Car",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 73976,
+      "name": "Ivica Ivusic",
+      "position": "GK",
+      "shirtNumber": 23
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

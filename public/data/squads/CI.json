@@ -1,0 +1,157 @@
+{
+  "isoCode": "CI",
+  "shortCode": "CIV",
+  "players": [
+    {
+      "id": 433194,
+      "name": "Y. Fofana",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 96798,
+      "name": "A. Lafont",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37618570,
+      "name": "O. Diomande",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37316600,
+      "name": "G. Doué",
+      "position": "DF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 37922937,
+      "name": "Y. Diomande",
+      "position": "FW",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37658280,
+      "name": "B. Touré",
+      "position": "FW",
+      "shirtNumber": 24
+    },
+    {
+      "id": 6301,
+      "name": "S. Fofana",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 37261923,
+      "name": "E. Agbadou",
+      "position": "DF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 96518,
+      "name": "J. Seri",
+      "position": "MF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 28931733,
+      "name": "K. Odilon",
+      "position": "DF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37289235,
+      "name": "C. Akpa",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37553666,
+      "name": "B. Traore",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 31640130,
+      "name": "W. Singo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37555816,
+      "name": "S. Adingra",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 32387131,
+      "name": "S. Wahi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37622796,
+      "name": "M. Godo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 99534,
+      "name": "O. N'Dicka",
+      "position": "DF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37508678,
+      "name": "P. Guiagon",
+      "position": "FW",
+      "shirtNumber": 27
+    },
+    {
+      "id": 37537131,
+      "name": "M. Kone",
+      "position": "GK",
+      "shirtNumber": 16
+    },
+    {
+      "id": 96943,
+      "name": "I. Sangaré",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37317015,
+      "name": "A. Traoré",
+      "position": "FW",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37761103,
+      "name": "C. Inao Oulaï",
+      "position": "MF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 21782219,
+      "name": "E. Guessand",
+      "position": "FW",
+      "shirtNumber": 22
+    },
+    {
+      "id": 161197,
+      "name": "G. Konan",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 129906,
+      "name": "F. Kessié",
+      "position": "MF",
+      "shirtNumber": 8
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.669Z"
+}

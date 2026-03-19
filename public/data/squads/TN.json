@@ -1,0 +1,175 @@
+{
+  "isoCode": "TN",
+  "shortCode": "TUN",
+  "players": [
+    {
+      "id": 37429027,
+      "name": "Noureddine Farhati",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37566137,
+      "name": "Ismaël Gharbi",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 15169863,
+      "name": "Sebastian Tounekti",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 467005,
+      "name": "Firas Chaouat",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 35709049,
+      "name": "Mohamed Belhadj Mahmoud",
+      "position": "MF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37732715,
+      "name": "Anisse Saidi",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37758643,
+      "name": "Rayan Elloumi",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37652834,
+      "name": "Louey Ben Farhat",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37551481,
+      "name": "Ghaith Zaalouni",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 32422608,
+      "name": "Alaa Ghram",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 21414391,
+      "name": "Omar Rekik",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37516978,
+      "name": "Sayfallah Ltaief",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37744066,
+      "name": "K. Ayari",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37644692,
+      "name": "Moutaz Neffati",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 466999,
+      "name": "Mohamed Amine Ben Hamida",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 31907,
+      "name": "Rani Khedira",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37357411,
+      "name": "Anis Slimane",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37744755,
+      "name": "O. Ben Ali",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 430779,
+      "name": "Sabri Ben Hessen",
+      "position": "GK",
+      "shirtNumber": 26
+    },
+    {
+      "id": 96364,
+      "name": "Ellyes Skhiri",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 305358,
+      "name": "Ali Abdi",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 581043,
+      "name": "Yan Valery",
+      "position": "DF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37316858,
+      "name": "Hannibal",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37579757,
+      "name": "Elias Saad",
+      "position": "FW",
+      "shirtNumber": 8
+    },
+    {
+      "id": 305950,
+      "name": "Mortadha Ben Ouanes",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37603157,
+      "name": "Hazem Mastouri",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 600694,
+      "name": "Aymen Dahmen",
+      "position": "GK",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37667492,
+      "name": "Adem Arous",
+      "position": "DF",
+      "shirtNumber": 15
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

@@ -1,0 +1,283 @@
+{
+  "isoCode": "MX",
+  "shortCode": "MEX",
+  "players": [
+    {
+      "id": 3169754,
+      "name": "Jesús Angulo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 255156,
+      "name": "Érick Sánchez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1525361,
+      "name": "Luis Romo",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23260605,
+      "name": "Julián Araujo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 254057,
+      "name": "Julián Quiñones",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 5666523,
+      "name": "Alexis Gutiérrez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 95174,
+      "name": "Guillermo Ochoa",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 254021,
+      "name": "Alexis Vega",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 2170259,
+      "name": "Efraín Álvarez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 252509,
+      "name": "Ángel Sepúlveda",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 25939661,
+      "name": "Gilberto Sepúlveda López",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10947888,
+      "name": "Kevin Álvarez",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 34862161,
+      "name": "Emilio Lara",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37739232,
+      "name": "Gilberto Mora",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37600543,
+      "name": "Jorge Ruvalcaba",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 254052,
+      "name": "Edson Álvarez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37530277,
+      "name": "Raúl Rangel",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 160217,
+      "name": "Raúl Jiménez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37565765,
+      "name": "Rodrigo Huescas",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 253683,
+      "name": "Orbelín Pineda",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 253737,
+      "name": "Jesús Gallardo",
+      "position": "DF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 1525399,
+      "name": "Johan Vásquez",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5666528,
+      "name": "César Huerta",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 255102,
+      "name": "Carlos Rodríguez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 253754,
+      "name": "Jorge Sánchez",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 30287102,
+      "name": "Jeremy Márquez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37547842,
+      "name": "Armando González",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37546337,
+      "name": "Jesús Orozco Chiquete",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 20336077,
+      "name": "Marcel Ruiz",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 12789591,
+      "name": "Carlos Agustín Moreno Luna",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37250424,
+      "name": "Ramón Juárez",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3876654,
+      "name": "Juan Sánchez Purata",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37661731,
+      "name": "Mateo Chávez",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 253957,
+      "name": "Luis Malagón",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37253495,
+      "name": "Israel Reyes",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 253753,
+      "name": "Carlos Acevedo",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 254106,
+      "name": "Roberto Alvarado",
+      "position": "FW",
+      "shirtNumber": 25
+    },
+    {
+      "id": 2503729,
+      "name": "Santiago Gimenez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37356489,
+      "name": "Fidel Ambríz",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37569331,
+      "name": "Obed Vargas",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 455810,
+      "name": "Germán Berterame",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 253463,
+      "name": "Hirving Lozano",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 21045321,
+      "name": "Érik Lira",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 253833,
+      "name": "Luis Chávez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 253701,
+      "name": "César Montes",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 254456,
+      "name": "Diego Lainez",
+      "position": "FW",
+      "shirtNumber": null
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

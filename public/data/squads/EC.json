@@ -1,0 +1,229 @@
+{
+  "isoCode": "EC",
+  "shortCode": "ECU",
+  "players": [
+    {
+      "id": 37683455,
+      "name": "Cristhian Loor",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 13633475,
+      "name": "Jordy Alcívar",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 37585108,
+      "name": "Patrik Mercado",
+      "position": "MF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37614088,
+      "name": "Jeremy Arévalo",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 245162,
+      "name": "Xavier Arreaga",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37761768,
+      "name": "Darwin Guagua",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 245193,
+      "name": "Gonzalo Valle ",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 458518,
+      "name": "David Cabezas",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 244489,
+      "name": "Janner Corozo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 244648,
+      "name": "Jhegson Méndez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37690304,
+      "name": "Keny Arroyo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37341910,
+      "name": "Pedro Vite",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37567350,
+      "name": "Nilson Angulo",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 187969,
+      "name": "Pervis Estupiñán",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37620568,
+      "name": "Bryan Ramírez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 32778,
+      "name": "Cristian Ramírez",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37595363,
+      "name": "Denil Castillo",
+      "position": "MF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 37563897,
+      "name": "Yaimar Medina",
+      "position": "DF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 12393393,
+      "name": "Angelo Preciado",
+      "position": "DF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 1244,
+      "name": "Enner Valencia",
+      "position": "FW",
+      "shirtNumber": 13
+    },
+    {
+      "id": 214255,
+      "name": "Hernán Galíndez ",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 12393419,
+      "name": "Willian Pacho",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 37618415,
+      "name": "Joel Ordóñez",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 3861724,
+      "name": "John Yeboah",
+      "position": "MF",
+      "shirtNumber": 9
+    },
+    {
+      "id": 455748,
+      "name": "Félix Torres",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 471304,
+      "name": "Alan Franco",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 11658217,
+      "name": "Moisés Ramírez",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 29336847,
+      "name": "Leonardo Campana",
+      "position": "FW",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37261496,
+      "name": "Piero Hincapié",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37341905,
+      "name": "John Mercado",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 12393396,
+      "name": "Gonzalo Plata",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 31255673,
+      "name": "Léo Realpe",
+      "position": "DF",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37341896,
+      "name": "Jhoanner Chávez",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37538779,
+      "name": "Alan Minda",
+      "position": "FW",
+      "shirtNumber": 14
+    },
+    {
+      "id": 37261500,
+      "name": "Moisés Caicedo",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37682244,
+      "name": "Kendry Páez",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37627691,
+      "name": "Kevin Rodríguez",
+      "position": "FW",
+      "shirtNumber": 11
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

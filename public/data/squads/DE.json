@@ -1,0 +1,271 @@
+{
+  "isoCode": "DE",
+  "shortCode": "GER",
+  "players": [
+    {
+      "id": 31837,
+      "name": "Antonio Rüdiger ",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32738,
+      "name": "Thilo Kehrer",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37316456,
+      "name": "Nnamdi Collins",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 4536572,
+      "name": "Angelo Stiller",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 34594,
+      "name": "Stefan Ortega",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 35364,
+      "name": "Robin Koch",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 34880,
+      "name": "Robert Andrich",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31284,
+      "name": "Marc-André ter Stegen",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 3861835,
+      "name": "Yann Bisseck",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25242,
+      "name": "Robin Gosens",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 41077,
+      "name": "Deniz Undav",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 23277923,
+      "name": "Maximilian Beier",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 32585,
+      "name": "Nadiem Amiri",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 34987,
+      "name": "Tim Kleindienst",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 33186829,
+      "name": "Jamal Musiala",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37709599,
+      "name": "Said El Mala",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 4783,
+      "name": "Leroy Sané",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 37645043,
+      "name": "Assan Ouédraogo",
+      "position": "MF",
+      "shirtNumber": 9
+    },
+    {
+      "id": 32777430,
+      "name": "Nick Woltemade",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37538035,
+      "name": "Nathaniel Brown",
+      "position": "DF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 2483333,
+      "name": "Ridle Baku",
+      "position": "DF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37582044,
+      "name": "Aleksandar Pavlovic",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 6306127,
+      "name": "Felix Nmecha",
+      "position": "MF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 31824,
+      "name": "Leon Goretzka",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 37429246,
+      "name": "Florian Wirtz",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 3862683,
+      "name": "Jonathan Burkardt",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 31504,
+      "name": "Pascal Groß",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31532,
+      "name": "Niclas Füllkrug",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 36119,
+      "name": "David Raum",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 12426453,
+      "name": "Jamie Leweling",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 21762216,
+      "name": "Malick Thiaw",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 27067062,
+      "name": "Kevin Schade",
+      "position": "FW",
+      "shirtNumber": 16
+    },
+    {
+      "id": 15040126,
+      "name": "Karim Adeyemi",
+      "position": "FW",
+      "shirtNumber": 14
+    },
+    {
+      "id": 2483331,
+      "name": "Finn Dahmen",
+      "position": "GK",
+      "shirtNumber": 21
+    },
+    {
+      "id": 3862352,
+      "name": "Nico Schlotterbeck",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 32728,
+      "name": "Waldemar Anton",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 32384,
+      "name": "Maximilian Mittelstädt",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 27066712,
+      "name": "Paul Nebel",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37582217,
+      "name": "Tom Bischof",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 942,
+      "name": "Serge Gnabry",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 31146,
+      "name": "Oliver Baumann",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 31836,
+      "name": "Jonathan Tah",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 32362,
+      "name": "Joshua Kimmich",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 32550,
+      "name": "Alexander Nübel",
+      "position": "GK",
+      "shirtNumber": 12
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

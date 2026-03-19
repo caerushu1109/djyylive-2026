@@ -1,0 +1,277 @@
+{
+  "isoCode": "UY",
+  "shortCode": "URU",
+  "players": [
+    {
+      "id": 37908296,
+      "name": "N. Azambuja Vargas",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 466050,
+      "name": "C. Fiermarin Forlán",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 466063,
+      "name": "J. Piquerez Moreira",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 2823329,
+      "name": "J. Sanabria Magole",
+      "position": "DF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37646062,
+      "name": "K. Amaro Viega",
+      "position": "DF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37571016,
+      "name": "S. Homenchenko Bianchi",
+      "position": "MF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 22126556,
+      "name": "R. Zalazar Martínez",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37537580,
+      "name": "A. Álvarez Martínez",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 4449,
+      "name": "G. Varela Olivera",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37690216,
+      "name": "E. González Ribeiro",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 34455781,
+      "name": "C. Olivera Ibarra",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 25333,
+      "name": "S. Rochet Álvarez",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 130022,
+      "name": "L. Torreira Di Pascua",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 260880,
+      "name": "D. De La Cruz Arcosa",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 6013424,
+      "name": "D. Núñez Ribeiro",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 10995349,
+      "name": "F. Israel Wibmer",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 21035934,
+      "name": "I. Laquintana Marsico",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 19960396,
+      "name": "N. Fonseca",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 459653,
+      "name": "S. Bueno Sciutto",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 260840,
+      "name": "M. Saracchi Pintos",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 260899,
+      "name": "J. Rodríguez Bebanz",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 15745936,
+      "name": "F. Viñas Barboza",
+      "position": "FW",
+      "shirtNumber": 13
+    },
+    {
+      "id": 129658,
+      "name": "R. Aguirre Soto",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37747049,
+      "name": "F. Martínez Borges",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37923428,
+      "name": "P. Alcoba Daguirre",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 13653174,
+      "name": "S. Cáceres Ramos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37679672,
+      "name": "K. Martínez Sanguinetti",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37567261,
+      "name": "?. Mouriño González",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 18226586,
+      "name": "F. Torres Pérez",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37554299,
+      "name": "L. Rodríguez Rosales",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 186514,
+      "name": "J. Giménez de Vargas",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 13649139,
+      "name": "M. Araújo Vilches",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 469717,
+      "name": "R. Araújo da Silva",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 333797,
+      "name": "R. Bentancur Colmán",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 893705,
+      "name": "M. Ugarte Ribeiro",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 260891,
+      "name": "S. Mele Castanero",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37396572,
+      "name": "N. Marichal",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 12393438,
+      "name": "E. Martínez Toranza",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 260904,
+      "name": "M. Olivera Miramontes",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 456276,
+      "name": "M. Viña Susperreguy",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 260860,
+      "name": "N. Nández Acosta",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 20673398,
+      "name": "F. Pellistri Rebollo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 12867773,
+      "name": "P. Rodríguez Bravo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 219418,
+      "name": "G. De Arrascaeta Benedetti",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 260862,
+      "name": "F. Valverde Dipetta",
+      "position": "MF",
+      "shirtNumber": 15
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

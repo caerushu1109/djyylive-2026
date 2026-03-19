@@ -1,0 +1,259 @@
+{
+  "isoCode": "JO",
+  "shortCode": "JOR",
+  "players": [
+    {
+      "id": 453075,
+      "name": "Saleem Obaid",
+      "position": "DF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 464925,
+      "name": "Adham Al-Quraishi",
+      "position": "DF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37778700,
+      "name": "Odeh Fakhouri",
+      "position": "FW",
+      "shirtNumber": 8
+    },
+    {
+      "id": 38203888,
+      "name": "Issam Smeeri",
+      "position": "DF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 4192141,
+      "name": "Yazan Alarab",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24444656,
+      "name": "Yousef Abu Al-Jazar",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32012833,
+      "name": "Mohammad Abualnadi",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37731697,
+      "name": "Ahmed Al Salman",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24444649,
+      "name": "Abdallah Al-Fakhouri",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 474356,
+      "name": "Ehsan Haddad",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 4192142,
+      "name": "Noor Al-Rawabdeh",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37259859,
+      "name": "Ahmad Assaf",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37710344,
+      "name": "Ibrahim Sabra",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37389558,
+      "name": "Mohannad Semreen",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 474354,
+      "name": "Mousa Tamari",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37718846,
+      "name": "Aref Al-Haj",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37684682,
+      "name": "Ali Al-Azaizeh",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37718847,
+      "name": "Reziq Bani Hani",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37577749,
+      "name": "Mohamad Al Naser",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 38208074,
+      "name": "Ja'far Samara",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37422888,
+      "name": "Amer Jamous",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 37718840,
+      "name": "Mohammed Abu Khalil",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 24444666,
+      "name": "Ali Olwan",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 453084,
+      "name": "Mahmoud Al-Mardi",
+      "position": "FW",
+      "shirtNumber": 13
+    },
+    {
+      "id": 24444653,
+      "name": "Hadi Al-Hourani",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 409980,
+      "name": "Malek Shalabiya",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 410849,
+      "name": "Yazeed Abulaila",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 24444659,
+      "name": "Ibrahim Saadeh",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 411457,
+      "name": "Noureddin Bani Attiah",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37389556,
+      "name": "Saed Al-Rosan",
+      "position": "DF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 37570511,
+      "name": "Husam Abu Dahab",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 36892865,
+      "name": "Ahmed Ersan",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37684689,
+      "name": "Ali Hajabi",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37566820,
+      "name": "Mohannad Abu Taha",
+      "position": "DF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 36864344,
+      "name": "Shararh",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 410458,
+      "name": "Mohammad Al Daoud",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37550461,
+      "name": "Tammer Bany ",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 24444658,
+      "name": "Nizar Al-Rashdan",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37567008,
+      "name": "Abdallah Nasib",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 331066,
+      "name": "Rajaei Ayed",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 24444664,
+      "name": "Yazan Al-Naimat",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37570474,
+      "name": "Mohammad Abu Hasheesh",
+      "position": "DF",
+      "shirtNumber": 2
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

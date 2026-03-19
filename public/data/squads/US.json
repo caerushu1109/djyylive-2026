@@ -1,0 +1,367 @@
+{
+  "isoCode": "US",
+  "shortCode": "USA",
+  "players": [
+    {
+      "id": 1494698,
+      "name": "Marlon Fossey",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262324,
+      "name": "Tyler Adams",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1712,
+      "name": "Cameron Carter-Vickers",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31626030,
+      "name": "DeJuan Jones",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 18218609,
+      "name": "Chris Richards",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262551,
+      "name": "Matt Turner",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 448320,
+      "name": "Shaq Moore",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37261342,
+      "name": "Johnny Cardoso",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1548470,
+      "name": "James Sands",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 537332,
+      "name": "Timothy Weah",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32013799,
+      "name": "Nathan Harriel",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 28575698,
+      "name": "Yunus Musah",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 255002,
+      "name": "Álex Zendejas",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 608189,
+      "name": "Weston McKennie",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 12371879,
+      "name": "Brian White",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 23277869,
+      "name": "Malik Tillman",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 474429,
+      "name": "Jonathan Klinsmann",
+      "position": "GK",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37525731,
+      "name": "Paxten Aaronson",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 22514444,
+      "name": "John Tolkin",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 4969702,
+      "name": "Folarin Balogun",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37451396,
+      "name": "Brian Gutiérrez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 47285,
+      "name": "Zack Steffen",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 32438,
+      "name": "Christian Pulisic",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 33187441,
+      "name": "Ricardo Pepi",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 281527,
+      "name": "Mark McKenzie",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 17158438,
+      "name": "Joe Scally",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37623379,
+      "name": "Alex Freeman",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37689167,
+      "name": "Emeka Eneli",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37448754,
+      "name": "Jack McGlynn ",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 8333,
+      "name": "Luca de la Torre",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37625843,
+      "name": "Max Arfsten",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 5640884,
+      "name": "Josh Sargent",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 785896,
+      "name": "Matt Freese",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 787350,
+      "name": "Tristan Blackmon",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 17177615,
+      "name": "George Campbell",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262179,
+      "name": "Cristian Roldán",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 37407279,
+      "name": "Sebastian Berhalter",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 37527137,
+      "name": "Chris Brady",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 262076,
+      "name": "Walker Zimmerman",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37650095,
+      "name": "Noahkai Banks",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 27081112,
+      "name": "Tanner Tessmann",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 5640883,
+      "name": "Indiana Vassilev",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37525729,
+      "name": "Quinn Sullivan ",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37436336,
+      "name": "Caden Clark",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25591385,
+      "name": "Matko Miljevic",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37625886,
+      "name": "Benja Cremaschi",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37592316,
+      "name": "Damion Downs",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 1109,
+      "name": "Patrick Agyemang",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 4552689,
+      "name": "Brenden Aaronson",
+      "position": "MF",
+      "shirtNumber": 11
+    },
+    {
+      "id": 20335123,
+      "name": "Patrick Schulte",
+      "position": "GK",
+      "shirtNumber": 25
+    },
+    {
+      "id": 34432365,
+      "name": "Giovanni Reyna",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37569242,
+      "name": "Diego Luna",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 5640878,
+      "name": "Sergiño Dest",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 262280,
+      "name": "Auston Trusty",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 608242,
+      "name": "Miles Robinson",
+      "position": "DF",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37614804,
+      "name": "Roman Celentano",
+      "position": "GK",
+      "shirtNumber": 24
+    },
+    {
+      "id": 25548700,
+      "name": "Aidan Morris",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 263186,
+      "name": "Haji Wright",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 2454,
+      "name": "Tim Ream",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 539711,
+      "name": "Timothy Tillman",
+      "position": "MF",
+      "shirtNumber": 14
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

@@ -1,0 +1,301 @@
+{
+  "isoCode": "PA",
+  "shortCode": "PAN",
+  "players": [
+    {
+      "id": 513108,
+      "name": "Gabriel Brown",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37682250,
+      "name": "Martín Krug",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 512991,
+      "name": "Eduardo Guerrero",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 512515,
+      "name": "Eddie Roberts",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37739887,
+      "name": "JD Gunn",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 74223,
+      "name": "Yoel Bárcenas",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 24837496,
+      "name": "José Córdoba",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37594164,
+      "name": "Kahiser Lenis",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 37569338,
+      "name": "Rafael Mosquera",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37561100,
+      "name": "Orman Davis",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37620392,
+      "name": "Aimar Modelo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 512751,
+      "name": "Jorge Gutiérrez",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37682247,
+      "name": "Érick Díaz",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37679783,
+      "name": "Giovany Herbert",
+      "position": "MF",
+      "shirtNumber": 11
+    },
+    {
+      "id": 512882,
+      "name": "César Yanis",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37634467,
+      "name": "Omar Valencia",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 257278,
+      "name": "Cecilio Waterman",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 512318,
+      "name": "César Samudio",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 23738861,
+      "name": "Carlos Harvey",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 512926,
+      "name": "José Luis Rodríguez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 113930,
+      "name": "Aníbal Godoy",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10626657,
+      "name": "Iván Anderson",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 162794,
+      "name": "Fidel Escobar",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37582479,
+      "name": "Edgardo Fariña",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 512975,
+      "name": "César Blackman",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 262495,
+      "name": "Cristian Martínez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37583903,
+      "name": "Reyniel Perdomo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 523889,
+      "name": "V. Griffith",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37594239,
+      "name": "Edward Cedeño",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 512291,
+      "name": "José Manuel Murillo Morán",
+      "position": "MF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37548268,
+      "name": "Azarias Londoño",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37561710,
+      "name": "Héctor Humberto Hurtado Biscanio",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 512190,
+      "name": "Omar Browne",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 35671504,
+      "name": "Irving Jahir Gudiño López",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 34872893,
+      "name": "Edilson Denilson Carrasquilla Alcazar",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 11676752,
+      "name": "Everardo Ernesto Rose Clarke",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37725972,
+      "name": "Gustavo Herrera",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 181412,
+      "name": "Éric Davis",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5332105,
+      "name": "Janpol Morales",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 187907,
+      "name": "Alberto Quintero",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 513103,
+      "name": "Andrés Andrade",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 513105,
+      "name": "Jiovany Ramos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1854954,
+      "name": "José Fajardo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 512560,
+      "name": "Amir Murillo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 513107,
+      "name": "Tomás Rodríguez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 162499,
+      "name": "Ismael Díaz",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 96066,
+      "name": "Luis Mejía",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 512165,
+      "name": "Orlando Mosquera",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 512743,
+      "name": "Adalberto Carrasquilla",
+      "position": "MF",
+      "shirtNumber": null
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

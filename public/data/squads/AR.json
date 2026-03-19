@@ -1,0 +1,277 @@
+{
+  "isoCode": "AR",
+  "shortCode": "ARG",
+  "players": [
+    {
+      "id": 13171199,
+      "name": "Leonardo Balerdi",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1343,
+      "name": "Emiliano Martínez",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37537770,
+      "name": "Alan Varela",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 335521,
+      "name": "Facundo Medina",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37748161,
+      "name": "Lautaro Rivero",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 212976,
+      "name": "Marcos Acuña",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37342991,
+      "name": "Kevin Lomónaco",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 335673,
+      "name": "Exequiel Palacios",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37729623,
+      "name": "Franco Mastantuono",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37577657,
+      "name": "Giuliano Simeone",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 456310,
+      "name": "Facundo Cambeses",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 333781,
+      "name": "Gonzalo Montiel",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 186675,
+      "name": "Ángel Correa",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 455900,
+      "name": "Nahuel Molina",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 29313859,
+      "name": "Aníbal Moreno",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37347355,
+      "name": "Enzo Barrenechea",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 21394947,
+      "name": "Julián Alvarez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37607194,
+      "name": "Benja Domínguez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37567337,
+      "name": "Santiago Castro",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 38207547,
+      "name": "Demian Talavera",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 215849,
+      "name": "Kevin Mac Allister",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 37545384,
+      "name": "Máximo Perrone",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 186660,
+      "name": "Emiliano Buendía",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 333989,
+      "name": "Marcos Senesi",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 335705,
+      "name": "Juan Foyth",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37625767,
+      "name": "Gianluca Prestianni",
+      "position": "FW",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37663291,
+      "name": "Joaquín Panichelli",
+      "position": "FW",
+      "shirtNumber": 24
+    },
+    {
+      "id": 37552296,
+      "name": "José Manuel López",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 129419,
+      "name": "Leandro Paredes",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1822,
+      "name": "Nicolás Otamendi",
+      "position": "DF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 188444,
+      "name": "Nicolás Tagliafico",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 216612,
+      "name": "Alexis Mac Allister",
+      "position": "MF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 19996814,
+      "name": "Thiago Almada",
+      "position": "FW",
+      "shirtNumber": 16
+    },
+    {
+      "id": 29709995,
+      "name": "Enzo Fernández",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 186733,
+      "name": "Germán Pezzella",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 184798,
+      "name": "Lionel Messi ",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 186418,
+      "name": "Gerónimo Rulli",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 215532,
+      "name": "Nico González",
+      "position": "FW",
+      "shirtNumber": 15
+    },
+    {
+      "id": 333731,
+      "name": "Cristian Romero ",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 97383,
+      "name": "Walter Benítez",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37577727,
+      "name": "Valentín Barco",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37596384,
+      "name": "Nico Paz",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 97664,
+      "name": "Giovani Lo Celso",
+      "position": "MF",
+      "shirtNumber": 11
+    },
+    {
+      "id": 333594,
+      "name": "Lautaro Martínez",
+      "position": "FW",
+      "shirtNumber": 22
+    },
+    {
+      "id": 129798,
+      "name": "Rodrigo De Paul",
+      "position": "MF",
+      "shirtNumber": 7
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

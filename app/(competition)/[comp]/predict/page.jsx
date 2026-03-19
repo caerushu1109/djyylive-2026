@@ -2,43 +2,36 @@
 import { useParams } from "next/navigation";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useWc2026Participants } from "@/lib/hooks/useWc2026Participants";
+import { useEloTrends } from "@/lib/hooks/useEloTrends";
+import EloSparkline from "@/components/shared/EloSparkline";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 export default function PredictPage() {
   const { comp } = useParams();
   const { data: predData, loading: predLoading } = usePredictions();
-  const { participants, loading: partLoading } = useWc2026Participants();
-
+  const { participants, loading: partLoading }   = useWc2026Participants();
+  const { trendMap }                              = useEloTrends();
   const loading = predLoading || partLoading;
 
   // Build a lookup: nameZh → participant config (for status badges)
   const partMap = Object.fromEntries(
     participants
-      .filter(p => p.nameZh && p.nameZh !== p.nameEn)
-      .map(p => [p.nameZh, p])
+      .filter((p) => p.nameZh && p.nameZh !== p.nameEn)
+      .map((p) => [p.nameZh, p])
   );
 
-  // Predictions already filtered to WC2026 teams — just sort by probability
   const allTeams = predData?.teams || [];
-  const wcTeams = allTeams
-    .sort((a, b) => (b.probabilityValue || 0) - (a.probabilityValue || 0));
+  const wcTeams  = allTeams.sort((a, b) => (b.probabilityValue || 0) - (a.probabilityValue || 0));
+  const maxProb  = wcTeams[0]?.probabilityValue || 1;
 
-  const maxProb = wcTeams[0]?.probabilityValue || 1;
-
-  // 底部统计用预测数据本身，避免参赛名单脏数据影响显示
   const confirmedCount = wcTeams.length;
-  const uncertainCount = wcTeams.filter(t => partMap[t.name]?.status === "uncertain").length;
-  const tbdCount = Math.max(0, 48 - confirmedCount);
+  const uncertainCount = wcTeams.filter((t) => partMap[t.name]?.status === "uncertain").length;
+  const tbdCount       = Math.max(0, 48 - confirmedCount);
 
   return (
     <div>
       {/* TopBar */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        padding: "10px 16px 8px",
-        justifyContent: "space-between",
-      }}>
+      <div style={{ display: "flex", alignItems: "center", padding: "10px 16px 8px", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
             DJ<span style={{ color: "var(--blue)" }}>YY</span>
@@ -55,13 +48,9 @@ export default function PredictPage() {
       {/* Info banner */}
       <div style={{
         margin: "0 12px 12px",
-        background: "var(--blue-dim)",
-        border: "1px solid rgba(92,158,255,0.2)",
-        borderRadius: "var(--radius-sm)",
-        padding: "8px 12px",
-        fontSize: 11,
-        color: "var(--text2)",
-        lineHeight: 1.5,
+        background: "var(--blue-dim)", border: "1px solid rgba(92,158,255,0.2)",
+        borderRadius: "var(--radius-sm)", padding: "8px 12px",
+        fontSize: 11, color: "var(--text2)", lineHeight: 1.5,
       }}>
         基于 ELO 排名的蒙特卡洛模拟（10,000次），仅含 2026 世界杯参赛队 · 名单每日自动同步
       </div>
@@ -70,38 +59,33 @@ export default function PredictPage() {
         <LoadingSpinner />
       ) : (
         <div style={{ padding: "0 12px 80px" }}>
-
-          {/* Ranked teams */}
           {wcTeams.map((team, i) => {
-            const cfg = partMap[team.name] || {};
+            const cfg        = partMap[team.name] || {};
             const isUncertain = cfg.status === "uncertain";
-            const pct = team.probabilityValue || 0;
-            const barWidth = maxProb > 0 ? (pct / maxProb) * 100 : 0;
+            const pct        = team.probabilityValue || 0;
+            const barWidth   = maxProb > 0 ? (pct / maxProb) * 100 : 0;
+            // Look up trend data by Chinese or English name
+            const trendPoints = trendMap?.[team.name] || trendMap?.[team.originalName] || null;
 
             return (
               <div
                 key={team.name}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "9px 0",
-                  gap: 8,
+                  display: "flex", alignItems: "center",
+                  padding: "9px 0", gap: 8,
                   borderBottom: "1px solid var(--border)",
                   opacity: isUncertain ? 0.72 : 1,
                 }}
               >
                 {/* Rank */}
-                <span style={{
-                  fontSize: 11, color: "var(--text3)",
-                  width: 18, fontWeight: 700, flexShrink: 0,
-                }}>
+                <span style={{ fontSize: 11, color: "var(--text3)", width: 18, fontWeight: 700, flexShrink: 0 }}>
                   {i + 1}
                 </span>
 
                 {/* Flag */}
                 <span style={{ fontSize: 18, flexShrink: 0 }}>{team.flag}</span>
 
-                {/* Name + uncertain badge */}
+                {/* Name + badge */}
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
                     <span style={{
@@ -114,35 +98,33 @@ export default function PredictPage() {
                     {isUncertain && (
                       <span style={{
                         fontSize: 9, fontWeight: 700,
-                        background: "var(--gold-dim)",
-                        border: "1px solid rgba(255,193,7,0.35)",
-                        color: "var(--gold)",
-                        borderRadius: 4,
-                        padding: "1px 5px",
-                        flexShrink: 0,
-                        whiteSpace: "nowrap",
+                        background: "var(--gold-dim)", border: "1px solid rgba(255,193,7,0.35)",
+                        color: "var(--gold)", borderRadius: 4, padding: "1px 5px",
+                        flexShrink: 0, whiteSpace: "nowrap",
                       }}>
                         资格存疑
                       </span>
                     )}
                   </div>
                   {isUncertain && cfg.note && (
-                    <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 1 }}>
-                      {cfg.note}
-                    </div>
+                    <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 1 }}>{cfg.note}</div>
                   )}
                 </div>
 
-                {/* Probability bar */}
+                {/* ELO sparkline — last 7 data points */}
+                <div style={{ flexShrink: 0, width: 52 }}>
+                  {trendPoints && trendPoints.length > 1 && (
+                    <EloSparkline data={trendPoints.slice(-7)} width={52} height={20} />
+                  )}
+                </div>
+
+                {/* Probability bar — narrowed from 72 to 56 to fit sparkline */}
                 <div style={{
-                  width: 72, height: 4,
-                  background: "var(--card2)",
+                  width: 56, height: 4, background: "var(--card2)",
                   borderRadius: 999, overflow: "hidden", flexShrink: 0,
                 }}>
                   <div style={{
-                    width: `${barWidth}%`,
-                    height: "100%",
-                    borderRadius: 999,
+                    width: `${barWidth}%`, height: "100%", borderRadius: 999,
                     background: isUncertain
                       ? "linear-gradient(90deg, var(--gold), #ff9800)"
                       : "linear-gradient(90deg, var(--blue), var(--purple))",
@@ -154,8 +136,7 @@ export default function PredictPage() {
                   fontSize: 12, fontWeight: 900,
                   color: isUncertain ? "var(--gold)" : "var(--text)",
                   width: 40, textAlign: "right",
-                  fontVariantNumeric: "tabular-nums",
-                  flexShrink: 0,
+                  fontVariantNumeric: "tabular-nums", flexShrink: 0,
                 }}>
                   {pct.toFixed(1)}%
                 </span>
@@ -163,34 +144,27 @@ export default function PredictPage() {
             );
           })}
 
-          {/* TBD slots — shown as blank rows for unresolved playoff spots */}
+          {/* TBD slots */}
           {tbdCount > 0 && (
             <>
               <div style={{
                 fontSize: 10, fontWeight: 700, color: "var(--text3)",
-                textTransform: "uppercase", letterSpacing: "0.08em",
-                padding: "14px 0 6px",
+                textTransform: "uppercase", letterSpacing: "0.08em", padding: "14px 0 6px",
               }}>
                 待定席位（附加赛）
               </div>
               {Array.from({ length: tbdCount }).map((_, i) => (
-                <div
-                  key={`tbd-${i}`}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "9px 0",
-                    gap: 8,
-                    borderBottom: "1px solid var(--border)",
-                    opacity: 0.35,
-                  }}
-                >
+                <div key={`tbd-${i}`} style={{
+                  display: "flex", alignItems: "center", padding: "9px 0", gap: 8,
+                  borderBottom: "1px solid var(--border)", opacity: 0.35,
+                }}>
                   <span style={{ fontSize: 11, color: "var(--text3)", width: 18, fontWeight: 700, flexShrink: 0 }}>—</span>
                   <span style={{ fontSize: 16, flexShrink: 0 }}>🏳️</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text3)" }}>待定</div>
                   </div>
-                  <div style={{ width: 72, height: 4, background: "var(--card2)", borderRadius: 999, flexShrink: 0 }} />
+                  <div style={{ width: 52, flexShrink: 0 }} />
+                  <div style={{ width: 56, height: 4, background: "var(--card2)", borderRadius: 999, flexShrink: 0 }} />
                   <span style={{ fontSize: 12, color: "var(--text3)", width: 40, textAlign: "right", flexShrink: 0 }}>—</span>
                 </div>
               ))}
@@ -199,13 +173,9 @@ export default function PredictPage() {
 
           {/* Summary footer */}
           <div style={{
-            marginTop: 16,
-            padding: "10px 12px",
-            background: "var(--card)",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius-sm)",
-            display: "flex",
-            justifyContent: "space-between",
+            marginTop: 16, padding: "10px 12px",
+            background: "var(--card)", border: "1px solid var(--border)",
+            borderRadius: "var(--radius-sm)", display: "flex", justifyContent: "space-between",
           }}>
             <span style={{ fontSize: 10, color: "var(--text3)" }}>已出线 {confirmedCount} 队</span>
             {uncertainCount > 0 && (
@@ -215,7 +185,6 @@ export default function PredictPage() {
               <span style={{ fontSize: 10, color: "var(--text3)" }}>附加赛待定 {tbdCount} 席</span>
             )}
           </div>
-
         </div>
       )}
     </div>

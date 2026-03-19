@@ -1,0 +1,199 @@
+{
+  "isoCode": "PT",
+  "shortCode": "POR",
+  "players": [
+    {
+      "id": 37262099,
+      "name": "Nuno Mendes",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37656803,
+      "name": "Rodrigo Mora",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 496775,
+      "name": "Pedro Neto",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 9308193,
+      "name": "Nuno Tavares",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 160956,
+      "name": "João Cancelo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3169778,
+      "name": "Pedro Gonçalves",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37656652,
+      "name": "Geovany Quenda",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37410636,
+      "name": "Carlos Forbs",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37617635,
+      "name": "João Carvalho",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 159699,
+      "name": "Rúben Neves",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 21781428,
+      "name": "Matheus Nunes",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 164061,
+      "name": "Diogo Dalot",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 160110,
+      "name": "Nélson Semedo",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 540251,
+      "name": "Rafael Leão",
+      "position": "FW",
+      "shirtNumber": 17
+    },
+    {
+      "id": 37522785,
+      "name": "Gonçalo Inácio",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 160072,
+      "name": "João Palhinha",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 580,
+      "name": "Cristiano Ronaldo",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 159483,
+      "name": "José Sá",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 159917,
+      "name": "Diogo Jota",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 162536,
+      "name": "Rúben Dias ",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 163190,
+      "name": "Francisco Trincão",
+      "position": "MF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37328006,
+      "name": "Francisco Conceição",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 163152,
+      "name": "João Félix",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37592729,
+      "name": "João Neves",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 23278610,
+      "name": "Gonçalo Ramos",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 163094,
+      "name": "Diogo Costa",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37354828,
+      "name": "António Silva",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 129602,
+      "name": "Bruno Fernandes",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 159382,
+      "name": "Rui Silva",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37593154,
+      "name": "Renato Veiga",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 4545430,
+      "name": "Vitinha",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 96353,
+      "name": "Bernardo Silva ",
+      "position": "MF",
+      "shirtNumber": 10
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

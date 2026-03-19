@@ -1,0 +1,319 @@
+{
+  "isoCode": "AU",
+  "shortCode": "AUS",
+  "players": [
+    {
+      "id": 37632554,
+      "name": "H. Matthews",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3320,
+      "name": "C. Elder",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 2483202,
+      "name": "J. Iredale",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 5922,
+      "name": "C. Burgess",
+      "position": "DF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 28543793,
+      "name": "J. Bos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 6006074,
+      "name": "J. Italiano",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37611899,
+      "name": "P. Junior Okon-Engstler",
+      "position": "MF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 21036519,
+      "name": "L. Miller",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 24427745,
+      "name": "R. Teague",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37316556,
+      "name": "N. Botic",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37264177,
+      "name": "K. Yengi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37407448,
+      "name": "A. Segečić",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 1228,
+      "name": "J. Davidson",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 11705286,
+      "name": "M. Tilio",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 26935,
+      "name": "A. Hrustic",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 173221,
+      "name": "A. Taggart",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 6605,
+      "name": "J. Irvine",
+      "position": "MF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 26030,
+      "name": "C. Goodwin",
+      "position": "FW",
+      "shirtNumber": 23
+    },
+    {
+      "id": 749527,
+      "name": "R. McGree",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 667318,
+      "name": "N. D'Agostino",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 201467,
+      "name": "A. Behich",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 35077,
+      "name": "M. Degenek",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37361402,
+      "name": "A. Circati",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 74127,
+      "name": "A. Kalik",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37771512,
+      "name": "J. Overy",
+      "position": "DF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 37359754,
+      "name": "M. Balard",
+      "position": "MF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 28543925,
+      "name": "S. Silvera",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 310200,
+      "name": "M. Duke",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 73932,
+      "name": "F. Karačić",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 330583,
+      "name": "B. Borrello",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 3526183,
+      "name": "C. Metcalfe",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 37594798,
+      "name": "N. Irankunda",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37359803,
+      "name": "M. Toure",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 24092472,
+      "name": "J. Gauci",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 752043,
+      "name": "T. Glover",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 329509,
+      "name": "P. Izzo",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37703571,
+      "name": "K. Bos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 330546,
+      "name": "J. Geria",
+      "position": "DF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 28543784,
+      "name": "A. Toure",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37364876,
+      "name": "N. Milanovic",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37359724,
+      "name": "N. Velupillay",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 749543,
+      "name": "D. Arzani",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37529350,
+      "name": "P. Yazbek",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37618320,
+      "name": "P. Beach",
+      "position": "GK",
+      "shirtNumber": 26
+    },
+    {
+      "id": 6181,
+      "name": "A. Grant",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10990572,
+      "name": "K. Trewin",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 4666,
+      "name": "A. O'Neill",
+      "position": "MF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 329804,
+      "name": "A. Caceres",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 750014,
+      "name": "K. Rowles",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 172795,
+      "name": "M. Boyle",
+      "position": "FW",
+      "shirtNumber": 6
+    },
+    {
+      "id": 20708316,
+      "name": "C. Devlin",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 62317,
+      "name": "M. Ryan",
+      "position": "GK",
+      "shirtNumber": 1
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

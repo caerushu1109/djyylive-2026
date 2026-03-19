@@ -1,0 +1,235 @@
+{
+  "isoCode": "AT",
+  "shortCode": "AUT",
+  "players": [
+    {
+      "id": 23260621,
+      "name": "Jonas Auer",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37536244,
+      "name": "Nikolas Veratschnig",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 52387,
+      "name": "Stefan Lainer",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37423017,
+      "name": "Samson Baidoo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1477500,
+      "name": "Tobias Lawal",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 52302,
+      "name": "Gernot Trauner ",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 6983860,
+      "name": "Muhammed Cham",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 54301,
+      "name": "Nicolas Schmid",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 52850,
+      "name": "Maximilian Wöber",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 339,
+      "name": "Andreas Weimann",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 52780,
+      "name": "Mathias Honsak",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 31864,
+      "name": "Kevin Stöger",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23697429,
+      "name": "Thierno Ballo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 52703,
+      "name": "Alexander Schlager",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 31626002,
+      "name": "Alexander Prass",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 52585,
+      "name": "Konrad Laimer",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23730930,
+      "name": "Nikolas Polster",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 35141,
+      "name": "Phillipp Mwene",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 459660,
+      "name": "Romano Schmid",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 33701,
+      "name": "Marco Friedl",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 33770,
+      "name": "Stefan Posch",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32361,
+      "name": "Michael Gregoritsch",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 349061,
+      "name": "Marco Grüll",
+      "position": "FW",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37536352,
+      "name": "Leopold Querfeld",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 52873,
+      "name": "Patrick Pentz",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 32582,
+      "name": "Marcel Sabitzer",
+      "position": "MF",
+      "shirtNumber": 9
+    },
+    {
+      "id": 1139,
+      "name": "Marko Arnautovic",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 186848,
+      "name": "Philipp Lienhart",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32378,
+      "name": "Florian Grillitsch",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3862700,
+      "name": "Christoph Baumgartner",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37259654,
+      "name": "Patrick Wimmer",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 33079,
+      "name": "Kevin Danso",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 52867,
+      "name": "Xaver Schlager",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31288,
+      "name": "David Alaba",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32549,
+      "name": "Alessandro Schöpf",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37649604,
+      "name": "Nikolaus Wurmbrand",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37529846,
+      "name": "Raul Florucz",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 31237395,
+      "name": "Nicolas Seiwald",
+      "position": "MF",
+      "shirtNumber": null
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}

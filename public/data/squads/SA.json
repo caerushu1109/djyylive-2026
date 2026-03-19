@@ -1,0 +1,301 @@
+{
+  "isoCode": "SA",
+  "shortCode": "KSA",
+  "players": [
+    {
+      "id": 34907399,
+      "name": "A. Alghamdi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 303950,
+      "name": "A. Al Salem",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 8055893,
+      "name": "T. Al-Ammar",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37631008,
+      "name": "H. Abdullah Yousef",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 302768,
+      "name": "A. Al Kassar",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37648771,
+      "name": "M. Al Sahafi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 303790,
+      "name": "A. Madu",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 303067,
+      "name": "Y. Al Shahrani",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37582488,
+      "name": "S. Al Mousa",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37627054,
+      "name": "O. Al Marwash",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37613429,
+      "name": "S. Al Najdi",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37552858,
+      "name": "S. Al Nasser",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37747728,
+      "name": "H. Al-Hammami",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 24445509,
+      "name": "S. Abdul Hamid",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37528964,
+      "name": "Z. Aljohani",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 304117,
+      "name": "S. Madash",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 26913,
+      "name": "M. Ali",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 12394113,
+      "name": "A. Al Hassan",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3187968,
+      "name": "M. Shanqeeti",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 2846821,
+      "name": "A. Al Asmari",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 303276,
+      "name": "H. Kadesh",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37386313,
+      "name": "F. Al-Ghamdi",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 306137,
+      "name": "A. Al Obod",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37631004,
+      "name": "M. Sulaiman",
+      "position": "DF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 4591900,
+      "name": "A. Al Amri",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 37673329,
+      "name": "M. Al Shamat",
+      "position": "DF",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37568430,
+      "name": "W. Saleh",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37561373,
+      "name": "J. Abdullatif Ahm",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 2158634,
+      "name": "W. Wahab Al-Ahmad",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 303699,
+      "name": "M. Kanno",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37577059,
+      "name": "A. Alsanbi",
+      "position": "GK",
+      "shirtNumber": 21
+    },
+    {
+      "id": 4599090,
+      "name": "R. Najjar",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 305729,
+      "name": "A. Alkhaibari",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 304104,
+      "name": "A. Lajami",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37447182,
+      "name": "Moteb Al-Harbi",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37395343,
+      "name": "N. Alaqidi",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 30105910,
+      "name": "A. Al Hamdan",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 522646,
+      "name": "F. Albirakan",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 37288420,
+      "name": "N. Boushal",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 37721019,
+      "name": "M. Al Hawsawi",
+      "position": "MF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37562153,
+      "name": "M. Aljuwayr",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10269843,
+      "name": "A. Majrashi",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 21772171,
+      "name": "M. Al Yami",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37718825,
+      "name": "M. Saeed Al Saad",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 159287,
+      "name": "S. Al Shehri",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37316487,
+      "name": "A. Yahya",
+      "position": "DF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 303410,
+      "name": "S. Al Dawsari",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 9274009,
+      "name": "H. Al Tambakti",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 1548527,
+      "name": "N. Al Dawsari",
+      "position": "MF",
+      "shirtNumber": 6
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

@@ -1,0 +1,229 @@
+{
+  "isoCode": "HT",
+  "shortCode": "HTI",
+  "players": [
+    {
+      "id": 37695626,
+      "name": "B. Joseph Jr.",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 447153,
+      "name": "M. Cantave",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37584629,
+      "name": "M. Prunier",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 35671501,
+      "name": "W. Paugain",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 530046,
+      "name": "G. Innocent",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 28572709,
+      "name": "D. Jean",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 99173,
+      "name": "J. Duverne",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37682340,
+      "name": "T. Algarin",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 64296,
+      "name": "H. Delcroix",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37626706,
+      "name": "J. Desdunes",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 13225178,
+      "name": "J. Casimir",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 18218770,
+      "name": "F. Dulysse",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 529879,
+      "name": "L. Pierre",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 13171232,
+      "name": "M. Expérience",
+      "position": "DF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 98934,
+      "name": "D. Nazon",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 34862145,
+      "name": "C. Sainte",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 15395119,
+      "name": "A. Pierre",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37259996,
+      "name": "L. Deedson",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 471310,
+      "name": "R. Ade",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 99076,
+      "name": "J. Bellegarde",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 28572704,
+      "name": "D. Jean Jacques",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 23269665,
+      "name": "R. Providence",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37593074,
+      "name": "T. Michel",
+      "position": "FW",
+      "shirtNumber": 25
+    },
+    {
+      "id": 411950,
+      "name": "L. Odelus",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 7714824,
+      "name": "J. Duverger",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37719025,
+      "name": "K. Thermoncy",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 540615,
+      "name": "Y. Fortune",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37579897,
+      "name": "W. Pacius",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 97621,
+      "name": "C. Arcus",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 96024,
+      "name": "J. Placide",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 262521,
+      "name": "D. Etienne Jr.",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 411948,
+      "name": "S. Lambese",
+      "position": "DF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 37316977,
+      "name": "C. Attys",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 262722,
+      "name": "M. Lacroix",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 461496,
+      "name": "F. Pierrot",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37574739,
+      "name": "G. Metusala",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 35264,
+      "name": "F. Picault",
+      "position": "FW",
+      "shirtNumber": 7
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.669Z"
+}

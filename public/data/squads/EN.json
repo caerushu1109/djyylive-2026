@@ -1,0 +1,247 @@
+{
+  "isoCode": "EN",
+  "shortCode": "ENG",
+  "players": [
+    {
+      "id": 1494245,
+      "name": "Conor Gallagher",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 911,
+      "name": "Kyle Walker",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1917,
+      "name": "Trent Alexander-Arnold ",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 4545513,
+      "name": "Curtis Jones",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 7926,
+      "name": "Morgan Gibbs-White",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1953,
+      "name": "Ruben Loftus-Cheek",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 4341,
+      "name": "Ivan Toney",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 4203,
+      "name": "Dominic Solanke",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 28912747,
+      "name": "Cole Palmer",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25217662,
+      "name": "Noni Madueke",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 9611543,
+      "name": "Anthony Gordon",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 4592198,
+      "name": "Morgan Rogers",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37550443,
+      "name": "Alex Scott",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37255840,
+      "name": "Jude Bellingham",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 537117,
+      "name": "Trevoh Chalobah",
+      "position": "DF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37562487,
+      "name": "Nico O'Reilly",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 16827155,
+      "name": "Bukayo Saka",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 28575686,
+      "name": "James Trafford",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 323,
+      "name": "Jordan Henderson",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 2815,
+      "name": "Dan Burn",
+      "position": "DF",
+      "shirtNumber": 12
+    },
+    {
+      "id": 7026573,
+      "name": "Djed Spence",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 581220,
+      "name": "Reece James",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37350704,
+      "name": "Adam Wharton",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 336133,
+      "name": "Phil Foden",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 7124,
+      "name": "Ezri Konsa",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 1592,
+      "name": "Jarrod Bowen ",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 997,
+      "name": "Harry Kane",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 982,
+      "name": "John Stones ",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5273,
+      "name": "Declan Rice",
+      "position": "MF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 332047,
+      "name": "Elliot Anderson",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 1878,
+      "name": "Marcus Rashford",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 7643,
+      "name": "Eberechi Eze",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37259180,
+      "name": "Levi Colwill",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37568815,
+      "name": "Myles Lewis-Skelly",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24799911,
+      "name": "Tino Livramento",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 12145,
+      "name": "Ollie Watkins",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 1826,
+      "name": "Jordan Pickford",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 4536500,
+      "name": "Marc Guéhi",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 37259163,
+      "name": "Jarell Quansah",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 12647,
+      "name": "Dean Henderson",
+      "position": "GK",
+      "shirtNumber": 13
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

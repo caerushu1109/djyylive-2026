@@ -1,0 +1,427 @@
+{
+  "isoCode": "JP",
+  "shortCode": "JPN",
+  "players": [
+    {
+      "id": 10966261,
+      "name": "Reo Hatate",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 21437534,
+      "name": "Kaoru Mitoma",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 5666477,
+      "name": "Zion Suzuki",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37422928,
+      "name": "Yuito Suzuki",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 471485,
+      "name": "Keisuke Osako",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 310003,
+      "name": "Yuta Nakayama",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3876668,
+      "name": "Kosei Tani",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 128854,
+      "name": "Yuto Nagatomo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 21413458,
+      "name": "Yuki Soma",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 21820095,
+      "name": "Yuki Ohashi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 310217,
+      "name": "Junya Ito",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 309647,
+      "name": "N. Ueda",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 309703,
+      "name": "Hayao Kawabe",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 310132,
+      "name": "Ko Itakura",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 5666491,
+      "name": "Keito Nakamura",
+      "position": "FW",
+      "shirtNumber": 13
+    },
+    {
+      "id": 52671,
+      "name": "Takumi Minamino",
+      "position": "FW",
+      "shirtNumber": 8
+    },
+    {
+      "id": 37634715,
+      "name": "Kota Tawaratsumida",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 28931654,
+      "name": "Hayato Araki",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 460810,
+      "name": "Kyogo Furuhashi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 10959317,
+      "name": "Shuto Machino",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 37679014,
+      "name": "Yuto Tsunashima",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 311112,
+      "name": "Koki Machida",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 21773355,
+      "name": "Ayase Ueda",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 525790,
+      "name": "Takefusa Kubo",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 319282,
+      "name": "Daizen Maeda",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 312118,
+      "name": "Koki Ogawa",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 31238688,
+      "name": "Kaishu Sano",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 5666480,
+      "name": "Yukinari Sugawara",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 25591410,
+      "name": "Taishi Brandon Nozawa",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37574620,
+      "name": "Tojiro Kubo",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37651796,
+      "name": "Yuto Ozeki",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37342706,
+      "name": "Shunsuke Mito",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 20673452,
+      "name": "Tsuyoshi Watanabe ",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37729507,
+      "name": "Alexandre Pisano",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37556463,
+      "name": "T. Ando",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37616318,
+      "name": "Junnosuke Suzuki",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 766687,
+      "name": "Ayumu Seko",
+      "position": "MF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 33980082,
+      "name": "Satoshi Tanaka",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37686329,
+      "name": "Ryunosuke Sato",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 15790186,
+      "name": "Leo Kokubo",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37554638,
+      "name": "T. Hayakawa",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37737205,
+      "name": "Henry Heroki Mochizuki",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37616671,
+      "name": "Zento Uno",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 33186847,
+      "name": "Mao Hosoya",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37597409,
+      "name": "Kota Takai",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 309645,
+      "name": "Sho Inagaki",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3876667,
+      "name": "Daiki Hashioka",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37698192,
+      "name": "Hiroki Sekine",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37544512,
+      "name": "Sota Kitano",
+      "position": "MF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 312709,
+      "name": "Taiyo Koga",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37737192,
+      "name": "Koki Kumasaka",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37422937,
+      "name": "Ryoya Morishita",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37619473,
+      "name": "Kodai Sano",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 15083970,
+      "name": "Koki Saito",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37644701,
+      "name": "Keisuke Goto",
+      "position": "FW",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37315722,
+      "name": "Joel Chima Fujita",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 11022894,
+      "name": "Hidemasa Morita",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37915762,
+      "name": "Sota Nakamura",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37608862,
+      "name": "Yu Hirakawa",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37634805,
+      "name": "Shin Yamada",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 5666490,
+      "name": "Taisei Miyashiro",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 11322974,
+      "name": "Taichi Hara",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 5666699,
+      "name": "Ryo Germain",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 310282,
+      "name": "Yuki Kakita",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 465580,
+      "name": "Hiroki Ito",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 309344,
+      "name": "Wataru Endo",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 310486,
+      "name": "Ritsu Doan",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 310131,
+      "name": "Daichi Kamada",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 309844,
+      "name": "Shogo Taniguchi",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 461027,
+      "name": "Ao Tanaka",
+      "position": "MF",
+      "shirtNumber": 17
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

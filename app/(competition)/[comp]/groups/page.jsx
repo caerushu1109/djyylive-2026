@@ -1,14 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import { useFixtures } from "@/lib/hooks/useFixtures";
-import GroupTable from "@/components/wc/GroupTable";
+import GroupSimulator from "@/components/wc/GroupSimulator";
 import KnockoutBracket from "@/components/wc/KnockoutBracket";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 const SUB_TABS = ["积分榜", "淘汰赛"];
 
-// ── 2026 WC 完整晋级规则 ──────────────────────────────────────────────────────
+// ── 2026 WC 完整晋级规则 ────────────────────────────────────────────────────────
 const RULES_SECTIONS = [
   {
     title: "赛制概览",
@@ -48,20 +48,14 @@ const RULES_SECTIONS = [
 function RulesPanel() {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ margin: "16px 12px 4px" }}>
+    <div style={{ margin: "16px 0 4px" }}>
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={() => setOpen((o) => !o)}
         style={{
-          width: "100%",
-          background: "var(--card)",
-          border: "1px solid var(--border2)",
+          width: "100%", background: "var(--card)", border: "1px solid var(--border2)",
           borderRadius: open ? "var(--radius-sm) var(--radius-sm) 0 0" : "var(--radius-sm)",
-          padding: "10px 14px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          cursor: "pointer",
-          color: "var(--text2)",
+          padding: "10px 14px", display: "flex", alignItems: "center",
+          justifyContent: "space-between", cursor: "pointer", color: "var(--text2)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -71,38 +65,24 @@ function RulesPanel() {
         <span style={{
           fontSize: 12, color: "var(--text3)",
           transform: open ? "rotate(180deg)" : "rotate(0deg)",
-          transition: "transform 0.2s",
-          display: "inline-block",
+          transition: "transform 0.2s", display: "inline-block",
         }}>▾</span>
       </button>
-
       {open && (
         <div style={{
-          background: "var(--card)",
-          border: "1px solid var(--border2)",
-          borderTop: "none",
-          borderRadius: "0 0 var(--radius-sm) var(--radius-sm)",
-          padding: "12px 14px 14px",
-          display: "flex",
-          flexDirection: "column",
-          gap: 14,
+          background: "var(--card)", border: "1px solid var(--border2)",
+          borderTop: "none", borderRadius: "0 0 var(--radius-sm) var(--radius-sm)",
+          padding: "12px 14px 14px", display: "flex", flexDirection: "column", gap: 14,
         }}>
-          {RULES_SECTIONS.map(s => (
+          {RULES_SECTIONS.map((s) => (
             <div key={s.title}>
               <div style={{
-                fontSize: 10, fontWeight: 800,
-                color: "var(--blue)",
-                textTransform: "uppercase",
-                letterSpacing: "0.07em",
-                marginBottom: 5,
+                fontSize: 10, fontWeight: 800, color: "var(--blue)",
+                textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 5,
               }}>
                 {s.title}
               </div>
-              <div style={{
-                fontSize: 11, color: "var(--text2)",
-                lineHeight: 1.7,
-                whiteSpace: "pre-line",
-              }}>
+              <div style={{ fontSize: 11, color: "var(--text2)", lineHeight: 1.7, whiteSpace: "pre-line" }}>
                 {s.body}
               </div>
             </div>
@@ -119,23 +99,20 @@ function RulesPanel() {
 export default function GroupsPage() {
   const { comp } = useParams();
   const [subTab, setSubTab] = useState("积分榜");
-  const [activeGroup, setActiveGroup] = useState(null); // null = use first group from data
+  const [activeGroup, setActiveGroup] = useState(null);
+
   const { data, loading } = useFixtures();
   const standings = data?.standings || [];
-  const groups = standings.map(g => g.group);
+  const groups    = standings.map((g) => g.group);
 
-  // Default to first group once data loads, instead of showing all
   const effectiveGroup = activeGroup ?? (groups[0] || null);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* TopBar */}
       <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "10px 16px 8px",
-        flexShrink: 0,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "10px 16px 8px", flexShrink: 0,
       }}>
         <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
           DJ<span style={{ color: "var(--blue)" }}>YY</span>
@@ -150,45 +127,44 @@ export default function GroupsPage() {
           <span style={{ fontSize: 8, color: "var(--text3)" }}>▾</span>
         </div>
         <div style={{
-          width: 32, height: 32, background: "var(--card)",
-          border: "1px solid var(--border)", borderRadius: 8,
-          display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16,
+          width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16,
         }}>🔍</div>
       </div>
 
-      {/* Sub tabs — only show group filter when on 积分榜 */}
+      {/* Sub tabs */}
       <div style={{
         display: "flex", padding: "0 12px", gap: 4, flexShrink: 0,
         background: "var(--bg)", borderBottom: "1px solid var(--border)",
       }}>
-        {SUB_TABS.map(t => (
-          <button key={t} onClick={() => setSubTab(t)} style={{
-            flex: 1, textAlign: "center", padding: "9px 0",
-            fontSize: 10, fontWeight: 700,
-            color: subTab === t ? "var(--blue)" : "var(--text3)",
-            borderBottom: subTab === t ? "2px solid var(--blue)" : "2px solid transparent",
-            textTransform: "uppercase", letterSpacing: "0.05em",
-            background: "none", border: "none", cursor: "pointer",
-          }}>
+        {SUB_TABS.map((t) => (
+          <button
+            key={t} onClick={() => setSubTab(t)}
+            style={{
+              flex: 1, textAlign: "center", padding: "9px 0",
+              fontSize: 10, fontWeight: 700,
+              color: subTab === t ? "var(--blue)" : "var(--text3)",
+              borderBottom: subTab === t ? "2px solid var(--blue)" : "2px solid transparent",
+              textTransform: "uppercase", letterSpacing: "0.05em",
+              background: "none", border: "none", cursor: "pointer",
+            }}
+          >
             {t}
           </button>
         ))}
       </div>
 
-      {/* Group letter tabs — only for 积分榜 */}
+      {/* Group letter filter tabs — only for 积分榜 */}
       {subTab === "积分榜" && (
         <div style={{
-          display: "flex", overflowX: "auto", padding: "6px 12px 0",
-          gap: 4, flexShrink: 0, background: "var(--bg)",
-          borderBottom: "1px solid var(--border)", scrollbarWidth: "none",
+          display: "flex", overflowX: "auto", padding: "6px 12px 0", gap: 4, flexShrink: 0,
+          background: "var(--bg)", borderBottom: "1px solid var(--border)", scrollbarWidth: "none",
         }}>
-          {groups.map(g => (
+          {groups.map((g) => (
             <button
-              key={g}
-              onClick={() => setActiveGroup(g)}
+              key={g} onClick={() => setActiveGroup(g)}
               style={{
-                padding: "5px 11px 7px",
-                fontSize: 11, fontWeight: 800,
+                padding: "5px 11px 7px", fontSize: 11, fontWeight: 800,
                 color: effectiveGroup === g ? "var(--blue)" : "var(--text3)",
                 borderBottom: effectiveGroup === g ? "2px solid var(--blue)" : "2px solid transparent",
                 whiteSpace: "nowrap", background: "none", border: "none", cursor: "pointer",
@@ -204,14 +180,16 @@ export default function GroupsPage() {
         {loading ? (
           <LoadingSpinner />
         ) : subTab === "积分榜" ? (
-          <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: "12px 12px 0" }}>
-            {standings
-              .filter(g => g.group === effectiveGroup)
-              .map(group => (
-                <GroupTable key={group.group} group={group} />
-              ))
-            }
-            <RulesPanel />
+          <div style={{ display: "flex", flexDirection: "column", padding: "12px 0 0" }}>
+            {/* GroupSimulator handles rendering + mode toggle */}
+            <GroupSimulator
+              standings={standings}
+              interactive={true}
+              activeGroup={effectiveGroup}
+            />
+            <div style={{ padding: "0 12px" }}>
+              <RulesPanel />
+            </div>
             <div style={{ height: 16 }} />
           </div>
         ) : (

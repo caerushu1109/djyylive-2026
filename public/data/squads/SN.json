@@ -1,0 +1,169 @@
+{
+  "isoCode": "SN",
+  "shortCode": "SEN",
+  "players": [
+    {
+      "id": 37532344,
+      "name": "Mamadou Sarr",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37726575,
+      "name": "Ibrahim Mbaye",
+      "position": "FW",
+      "shirtNumber": 27
+    },
+    {
+      "id": 99157,
+      "name": "Yehvann Diouf",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37569271,
+      "name": "Antoine Mendy",
+      "position": "DF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 96722,
+      "name": "Ismaïla Sarr",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37685630,
+      "name": "El Hadji Malick Diouf",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 433169,
+      "name": "Pape Gueye",
+      "position": "MF",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37342694,
+      "name": "Pape Matar Sarr",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 1389,
+      "name": "Sadio Mané",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37540621,
+      "name": "Nicolas Jackson",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 2206688,
+      "name": "Boulaye Dia",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 99137,
+      "name": "Edouard Mendy",
+      "position": "GK",
+      "shirtNumber": 16
+    },
+    {
+      "id": 153244,
+      "name": "Abdoulaye Seck",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 64188,
+      "name": "Cherif Ndiaye",
+      "position": "FW",
+      "shirtNumber": 12
+    },
+    {
+      "id": 1030,
+      "name": "Idrissa Gueye",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 96723,
+      "name": "Habib Diallo",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 3861304,
+      "name": "Ismail Jakobs",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 430403,
+      "name": "Krépin Diatta",
+      "position": "FW",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37603706,
+      "name": "Mamadou Lamine Camara",
+      "position": "MF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37642676,
+      "name": "Lamine Camara",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 98874,
+      "name": "Moussa Niakhaté",
+      "position": "DF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 61806,
+      "name": "Kalidou Koulibaly",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 2511096,
+      "name": "Pathé Ciss",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 23661272,
+      "name": "Iliman Ndiaye",
+      "position": "FW",
+      "shirtNumber": 13
+    },
+    {
+      "id": 37581992,
+      "name": "Habib Diarra",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 162164,
+      "name": "Mory Diaw",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 12384553,
+      "name": "Cheikh Sabaly",
+      "position": "FW",
+      "shirtNumber": 21
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

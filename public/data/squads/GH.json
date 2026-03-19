@@ -1,0 +1,289 @@
+{
+  "isoCode": "GH",
+  "shortCode": "GHA",
+  "players": [
+    {
+      "id": 15076349,
+      "name": "Joseph Anang",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 9543,
+      "name": "Brandon Thomas-Asante",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37585365,
+      "name": "Prince Adu",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37259993,
+      "name": "Abu Francis",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37687848,
+      "name": "Christopher Bonsu Baah",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37734713,
+      "name": "Benjamin Asare",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37678433,
+      "name": "Kojo Peprah Oppong",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1525233,
+      "name": "Derrick Köhn",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 186370,
+      "name": "Thomas Partey",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37616125,
+      "name": "Ibrahim Sulemana",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 186801,
+      "name": "Iñaki Williams",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37560897,
+      "name": "Issahaku Fatawu",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 38127,
+      "name": "Kingsley Schindler",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 95896,
+      "name": "Alexander Djiku",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 338959,
+      "name": "Joseph Wollacott",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37556252,
+      "name": "Razak Simpson",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5640849,
+      "name": "Mohammed Kudus ",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 2178650,
+      "name": "Stephan Ambrosius",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37712350,
+      "name": "K. Mamudu",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37296692,
+      "name": "Salis Abdul Samed",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 9308200,
+      "name": "Tariq Lamptey",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37633251,
+      "name": "Aaron Essel",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 295231,
+      "name": "Majeed Ashimeru",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37614052,
+      "name": "Ernest Nuamah",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37599471,
+      "name": "Felix Afena-Gyan",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37622817,
+      "name": "Mohammed Fuseini",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37549513,
+      "name": "Ibrahim Osman",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 433075,
+      "name": "Elisha Owusu",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37907119,
+      "name": "Jerry Afriyie",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 766612,
+      "name": "Joseph Paintsil",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37712015,
+      "name": "Abdul Aziz Issah",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 1038,
+      "name": "Jordan Ayew",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37616409,
+      "name": "Lawrence Agyekum",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37549536,
+      "name": "Kwame Opoku",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37438667,
+      "name": "Kamaldeen Sulemana",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37735,
+      "name": "Prince Owusu",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37762150,
+      "name": "Caleb Yirenkyi",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37561990,
+      "name": "Ebenezer Annan",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 4969726,
+      "name": "Kwasi Sibo",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37633249,
+      "name": "Jonas Adjetey",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1494704,
+      "name": "Jerome Opoku",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37712358,
+      "name": "Kelvin Nkrumah",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37407284,
+      "name": "Alidu Seidu",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 52721,
+      "name": "Lawrence Ati Zigi",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 11347016,
+      "name": "Mohammed Salisu",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 54303,
+      "name": "Gideon Mensah",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10990678,
+      "name": "Antoine Semenyo",
+      "position": "FW",
+      "shirtNumber": null
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

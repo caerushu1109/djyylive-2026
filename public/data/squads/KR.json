@@ -1,0 +1,337 @@
+{
+  "isoCode": "KR",
+  "shortCode": "KOR",
+  "players": [
+    {
+      "id": 13186102,
+      "name": "Yu-Min Cho",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 320714,
+      "name": "Chang-geun Lee",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37620389,
+      "name": "Jae-won Hwang",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37563553,
+      "name": "Bong-soo Kim",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 191273,
+      "name": "Seon-min Moon",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 12109880,
+      "name": "Se-hun Oh",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 307771,
+      "name": "Kyung-won Kwon",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 321093,
+      "name": "In-beom Hwang ",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37700504,
+      "name": "Minhyeok Yang",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 323785,
+      "name": "Min-kyu Joo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 24444971,
+      "name": "Jun Choi",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37563550,
+      "name": "Hyun-jun Yang",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 31626482,
+      "name": "Gue-sung Cho",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 29311996,
+      "name": "Kim Dong-Heon",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37528761,
+      "name": "Jens Castrop",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37420362,
+      "name": "Hyun-taek Cho",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37342718,
+      "name": "Han-beom Lee",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 11711899,
+      "name": "Bum-keun Song",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 322964,
+      "name": "Min-jae Kim",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 461590,
+      "name": "Jin-seob Park",
+      "position": "MF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 310020,
+      "name": "Myung-jae Lee",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 608280,
+      "name": "Moon-hwan Kim",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 310145,
+      "name": "Seung-gyu Kim",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 9967153,
+      "name": "Kang-in Lee",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37621326,
+      "name": "Jun-ho Bae",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 37627277,
+      "name": "Ji-soo Kim",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37342720,
+      "name": "Tae-seok Lee",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 37342723,
+      "name": "Ji-sung Eom",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 18219425,
+      "name": "Tae-hyeon Kim",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 2178924,
+      "name": "Won Du-Jae",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37295947,
+      "name": "Hyeok-kyu Kwon",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37342730,
+      "name": "Sang-bin Jeong",
+      "position": "FW",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37561719,
+      "name": "Ho-jae Lee",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37679585,
+      "name": "Myeong-kwan Seo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37677375,
+      "name": "Seung-won Lee",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 29763086,
+      "name": "Kim Tae-Hyeon",
+      "position": "DF",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37474580,
+      "name": "Min-woo Seo",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37627249,
+      "name": "Sang-yun Kang",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 13186239,
+      "name": "Dong-gyeong Lee",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 751169,
+      "name": "Sang-ho Na",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37527001,
+      "name": "Jun-soo Byeon",
+      "position": "DF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 781632,
+      "name": "Jae-hyeon Mo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 320953,
+      "name": "Jin-gyu Kim",
+      "position": "MF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 787556,
+      "name": "Seung-Won Jeong",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 11322970,
+      "name": "Jin-woo Jeon",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 320899,
+      "name": "Park Yong-Woo",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32404602,
+      "name": "Seung-wook Park",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 29735915,
+      "name": "Hyeon-gyu Oh",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 320838,
+      "name": "Jae-sung Lee",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37420363,
+      "name": "Young-woo Seol",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 4313,
+      "name": "Heung-min Son",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 52868,
+      "name": "Hee-chan Hwang",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 320844,
+      "name": "Hyeon-woo Jo",
+      "position": "GK",
+      "shirtNumber": 21
+    },
+    {
+      "id": 448422,
+      "name": "Seung-ho Paik",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 29723379,
+      "name": "Ju-sung Kim",
+      "position": "DF",
+      "shirtNumber": 14
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

@@ -1,0 +1,217 @@
+{
+  "isoCode": "BE",
+  "shortCode": "BEL",
+  "players": [
+    {
+      "id": 26955,
+      "name": "W. Faes",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1314,
+      "name": "T. Courtois",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37459060,
+      "name": "Z. Debast",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24817168,
+      "name": "A. Al Dakhil",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 22878573,
+      "name": "A. Mvom Onana",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 62617,
+      "name": "B. Heynen",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1371,
+      "name": "K. De Bruyne",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37722914,
+      "name": "J. Mokio",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1921,
+      "name": "M. Batshuayi Tunga",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37590635,
+      "name": "M. Fofana",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 995,
+      "name": "R. Lukaku Menama",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 23269670,
+      "name": "S. Lammens",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 60270,
+      "name": "A. Witsel",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 61517,
+      "name": "T. Meunier",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 13155985,
+      "name": "C. Vanhoutte",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37592734,
+      "name": "D. da Silva Moreira",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 538861,
+      "name": "A. Saelemaekers",
+      "position": "MF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 539993,
+      "name": "L. Openda",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 25922235,
+      "name": "A. Theate",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 62342,
+      "name": "Y. Tielemans",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 62318,
+      "name": "H. Vanaken",
+      "position": "MF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 61848,
+      "name": "B. Mechele",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 21089941,
+      "name": "M. Vandevoordt",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 23269659,
+      "name": "M. De Cuyper",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37423077,
+      "name": "R. Vermant",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 62871,
+      "name": "D. Lukebakio",
+      "position": "FW",
+      "shirtNumber": 14
+    },
+    {
+      "id": 37590621,
+      "name": "M. Penders",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 23697990,
+      "name": "J. Doku",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37316934,
+      "name": "K. De Winter",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 62337,
+      "name": "T. Castagne",
+      "position": "DF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37611902,
+      "name": "J. Seys",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 23269660,
+      "name": "C. De Ketelaere",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 2975,
+      "name": "M. Sels",
+      "position": "GK",
+      "shirtNumber": 13
+    },
+    {
+      "id": 2158212,
+      "name": "N. Raskin",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 61780,
+      "name": "L. Trossard",
+      "position": "FW",
+      "shirtNumber": 10
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

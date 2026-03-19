@@ -1,0 +1,313 @@
+{
+  "isoCode": "QA",
+  "shortCode": "QAT",
+  "players": [
+    {
+      "id": 28931601,
+      "name": "M. Abunad",
+      "position": "GK",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37646932,
+      "name": "A. Al Oui",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 37636090,
+      "name": "G. Laye",
+      "position": "MF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37540713,
+      "name": "M. Almanai",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 37551591,
+      "name": "A. Yousif",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 301403,
+      "name": "K. Boudiaf",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 301352,
+      "name": "B. Khoukhi",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 301073,
+      "name": "H. Al Heidos",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 301365,
+      "name": "I. Mohammad",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37288401,
+      "name": "M. Emad",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 301887,
+      "name": "A. Mukhtar",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37598258,
+      "name": "A. Moustafa",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 301393,
+      "name": "A. Al Haj Fadlalla",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1076941,
+      "name": "B. Al Rawi",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 380841,
+      "name": "A. Alahrak",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32777402,
+      "name": "Y. Youssef",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 301062,
+      "name": "A. Soria Quintana",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 303869,
+      "name": "A. Ali Surag",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 54304,
+      "name": "A. Abdulla",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37592142,
+      "name": "A. Al-Rawi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 4599015,
+      "name": "M. Barsham",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 95802,
+      "name": "L. Mendes",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 62770,
+      "name": "E. da Silva",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37354634,
+      "name": "K. Sabah",
+      "position": "FW",
+      "shirtNumber": 12
+    },
+    {
+      "id": 294018,
+      "name": "A. Fathi",
+      "position": "MF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 302695,
+      "name": "S. Al-Braik",
+      "position": "DF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 523999,
+      "name": "S. Ellethy",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 446377,
+      "name": "T. Salman",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37646561,
+      "name": "M. Gouda",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 302766,
+      "name": "Y. Ayman Hafez",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37598601,
+      "name": "E. El Hussain Mohi aldin",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37598617,
+      "name": "N. Irfan",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 8056703,
+      "name": "A. Al Hamawende",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24446328,
+      "name": "A. Alganehi",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 301507,
+      "name": "P. Correia",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 303865,
+      "name": "H. Shehata",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 301560,
+      "name": "M. Kamal Hussein",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 129610,
+      "name": "G. dos Santos Torres",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10966375,
+      "name": "K. Mohammed",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24446326,
+      "name": "S. Zakaria Hassan",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 24082492,
+      "name": "M. Mashaal",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37559224,
+      "name": "M. Surag",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37700629,
+      "name": "T. Jamshid",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 65411,
+      "name": "A. Afif",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 16488492,
+      "name": "H. Ahmed",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 301745,
+      "name": "M. Muntari",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 37389528,
+      "name": "J. Abdulsallam",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 301237,
+      "name": "A. Abdullah",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 302082,
+      "name": "A. Abdelmotaal",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 303634,
+      "name": "M. Abdulwahhab Al Bayati",
+      "position": "MF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 54065,
+      "name": "A. Al Haj Madibo",
+      "position": "MF",
+      "shirtNumber": 23
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.669Z"
+}

@@ -1,0 +1,175 @@
+{
+  "isoCode": "ZA",
+  "shortCode": "ZAF",
+  "players": [
+    {
+      "id": 37910690,
+      "name": "M. Mbokazi",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 37744597,
+      "name": "T. Smith",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37760511,
+      "name": "K. Ndamase",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37769580,
+      "name": "M. Nkota",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37551389,
+      "name": "T. Moremi",
+      "position": "FW",
+      "shirtNumber": 8
+    },
+    {
+      "id": 30082139,
+      "name": "T. Moloisane",
+      "position": "DF",
+      "shirtNumber": 28
+    },
+    {
+      "id": 37583966,
+      "name": "T. Matuludi",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37609474,
+      "name": "M. Shabalala",
+      "position": "MF",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37707578,
+      "name": "S. Campbell",
+      "position": "FW",
+      "shirtNumber": 24
+    },
+    {
+      "id": 1504475,
+      "name": "I. Rayners",
+      "position": "FW",
+      "shirtNumber": 27
+    },
+    {
+      "id": 37392896,
+      "name": "T. Mbatha",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 289380,
+      "name": "R. Goss",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37707615,
+      "name": "S. Kabini",
+      "position": "DF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 2846595,
+      "name": "S. Mbule",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 36084791,
+      "name": "O. Appollis",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 289686,
+      "name": "N. Sibisi",
+      "position": "DF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 37690743,
+      "name": "R. Ratomo",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 1504516,
+      "name": "K. Mudau",
+      "position": "DF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 289581,
+      "name": "S. Ngezana",
+      "position": "DF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 9939953,
+      "name": "B. Aubaas",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 289096,
+      "name": "M. Modiba",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 289600,
+      "name": "S. Chaine",
+      "position": "GK",
+      "shirtNumber": 16
+    },
+    {
+      "id": 287894,
+      "name": "R. Williams",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 5283883,
+      "name": "S. Sithole",
+      "position": "MF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 4243070,
+      "name": "L. Foster",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 289341,
+      "name": "T. Mokoena",
+      "position": "MF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 37583888,
+      "name": "E. Mokwana",
+      "position": "FW",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37438632,
+      "name": "E. Makgopa",
+      "position": "FW",
+      "shirtNumber": 23
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.669Z"
+}

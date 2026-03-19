@@ -1,0 +1,169 @@
+{
+  "isoCode": "DZ",
+  "shortCode": "DZA",
+  "players": [
+    {
+      "id": 37543437,
+      "name": "Mehdi Dorval",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37583299,
+      "name": "Adil Boulbina",
+      "position": "FW",
+      "shirtNumber": 27
+    },
+    {
+      "id": 37560881,
+      "name": "Rafik Belghali",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 37568688,
+      "name": "M. Mastil",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 971,
+      "name": "Riyad Mahrez",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37773357,
+      "name": "Kilian Belazzoug",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37361490,
+      "name": "Sohaib Naïr",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 23269649,
+      "name": "Adil Aouchiche",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37601151,
+      "name": "Achref Abada",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37581338,
+      "name": "Yassine Titraoui",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 96959,
+      "name": "Houssem Aouar",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37591823,
+      "name": "Farès Ghedjemis",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 433458,
+      "name": "Amine Gouiri",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37652796,
+      "name": "Amin Chiakha",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37548535,
+      "name": "Nadhir Benbouali",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37430769,
+      "name": "Mohamed Amoura",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 96456,
+      "name": "Anthony Mandréa",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 95635,
+      "name": "Aïssa Mandi",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 10310744,
+      "name": "Hicham Boudaoui",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 37645233,
+      "name": "Ibrahim Maza",
+      "position": "MF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 13590962,
+      "name": "Rayan Aït-Nouri",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37536482,
+      "name": "Farès Chaïbi",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 62502,
+      "name": "Ramy Bensebaini",
+      "position": "DF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37255818,
+      "name": "Ramiz Zerrouki",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 37579972,
+      "name": "Anis Hadj Moussa",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 447104,
+      "name": "Luca Zidane",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 20326040,
+      "name": "Zineddine Belaid",
+      "position": "DF",
+      "shirtNumber": 5
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

@@ -1,0 +1,247 @@
+{
+  "isoCode": "CO",
+  "shortCode": "COL",
+  "players": [
+    {
+      "id": 240244,
+      "name": "Luis Suárez",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 11705427,
+      "name": "Johan Carbonero",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37400484,
+      "name": "Yerson Mosquera",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5640859,
+      "name": "Kevin Mier",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 237316,
+      "name": "Deiver Machado",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 237184,
+      "name": "Rafael Carrascal",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 97255,
+      "name": "Juan Fernando Quintero",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 30071882,
+      "name": "Jhon Durán",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 240195,
+      "name": "Cucho Hernández",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 20355477,
+      "name": "Marino Hinestroza",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 163479,
+      "name": "Dayro Moreno",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 186437,
+      "name": "Johan Mojica",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 186899,
+      "name": "Rafael Borré",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37546144,
+      "name": "Kevin Castaño",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 1443,
+      "name": "David Ospina",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 223782,
+      "name": "Álvaro Montero",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 26294,
+      "name": "Davinson Sánchez",
+      "position": "DF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 220040,
+      "name": "Yerry Mina",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 785373,
+      "name": "Jhon Arias",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 238227,
+      "name": "Álvaro Angulo",
+      "position": "DF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 240386,
+      "name": "Juan Portilla",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37611555,
+      "name": "Andrés Gómez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37578441,
+      "name": "Gustavo Puerta",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 34127184,
+      "name": "Kevin Serna",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 237790,
+      "name": "Cristián Borja",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 786813,
+      "name": "Willer Ditta",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 465613,
+      "name": "Andrés Felipe Román",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 468327,
+      "name": "Jáminton Campaz",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 189635,
+      "name": "Jorge Carrascal",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 235984,
+      "name": "Camilo Vargas",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37549877,
+      "name": "Yáser Asprilla",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 25137,
+      "name": "Santiago Arias",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 241036,
+      "name": "Luis Díaz",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37402349,
+      "name": "Richard Ríos",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 96091,
+      "name": "James Rodríguez",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 237695,
+      "name": "Jhon Lucumí",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 186766,
+      "name": "Jefferson Lerma",
+      "position": "MF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 32652,
+      "name": "Jhon Córdoba",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 237948,
+      "name": "Carlos Cuesta",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 524045,
+      "name": "Daniel Muñoz",
+      "position": "DF",
+      "shirtNumber": 21
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

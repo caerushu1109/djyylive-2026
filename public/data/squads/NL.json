@@ -1,0 +1,235 @@
+{
+  "isoCode": "NL",
+  "shortCode": "NED",
+  "players": [
+    {
+      "id": 37344112,
+      "name": "Quilindschy Hartman",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 8403182,
+      "name": "Jeremie Frimpong",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23311159,
+      "name": "Ian Maatsen",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 26027,
+      "name": "Denzel Dumfries",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 29184,
+      "name": "Teun Koopmeiners",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 21394902,
+      "name": "Sem Steijn ",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24015,
+      "name": "Stefan de Vrij",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24082563,
+      "name": "Mats Wieffer",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 26803,
+      "name": "Justin Kluivert",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25482,
+      "name": "Nick Olij",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37363315,
+      "name": "Youri Baas",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37600243,
+      "name": "Jorrel Hato",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 7330507,
+      "name": "Brian Brobbey",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 24092545,
+      "name": "Kenneth Taylor",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25317,
+      "name": "Wout Weghorst",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 31439,
+      "name": "Noa Lang",
+      "position": "FW",
+      "shirtNumber": 17
+    },
+    {
+      "id": 26768,
+      "name": "Matthijs de Ligt",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 929,
+      "name": "Memphis Depay",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37257596,
+      "name": "Bart Verbruggen",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 4598752,
+      "name": "Lutsharel Geertruida",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 6306068,
+      "name": "Quinten Timber",
+      "position": "MF",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37570133,
+      "name": "Luciano Valente",
+      "position": "MF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37400423,
+      "name": "Emmanuel Emegha",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 37397144,
+      "name": "Robin Roefs",
+      "position": "GK",
+      "shirtNumber": 13
+    },
+    {
+      "id": 1869,
+      "name": "Nathan Aké",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 5270462,
+      "name": "Ryan Gravenberch",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 26536,
+      "name": "Frenkie de Jong",
+      "position": "MF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 537758,
+      "name": "Donyell Malen",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 29470,
+      "name": "Kjell Scherpen",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 5270466,
+      "name": "Jurriën Timber",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 1743,
+      "name": "Virgil van Dijk",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 26786,
+      "name": "Jerdy Schouten",
+      "position": "MF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 30062,
+      "name": "Cody Gakpo",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37296248,
+      "name": "Micky van de Ven",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 37317392,
+      "name": "Xavi Simons",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 24818803,
+      "name": "Jan Paul van Hecke",
+      "position": "DF",
+      "shirtNumber": 12
+    },
+    {
+      "id": 3156873,
+      "name": "Tijjani Reijnders",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 34737,
+      "name": "Mark Flekken",
+      "position": "GK",
+      "shirtNumber": 23
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

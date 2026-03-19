@@ -1,0 +1,289 @@
+{
+  "isoCode": "IR",
+  "shortCode": "IRN",
+  "players": [
+    {
+      "id": 296300,
+      "name": "Ramin Rezaeian",
+      "position": "DF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 37552450,
+      "name": "S. Fallah",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 297059,
+      "name": "Mohammad Daneshgar",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 20708347,
+      "name": "Seyed Mohammad Karimi",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 464664,
+      "name": "Hossein Pourhamidi",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 297117,
+      "name": "Roozbeh Cheshmi",
+      "position": "MF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 25147,
+      "name": "Alireza Jahanbakhsh",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 296679,
+      "name": "Omid Ebrahimi",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 37684739,
+      "name": "Mohammadjavad Hosseinnejad",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 297336,
+      "name": "Mehdi Torabi",
+      "position": "FW",
+      "shirtNumber": 16
+    },
+    {
+      "id": 109126,
+      "name": "Karim Ansarifard",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 2483388,
+      "name": "Mohammad Reza Azadi",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 8093469,
+      "name": "Javad Aghaeipour",
+      "position": "FW",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37601811,
+      "name": "Arya Yousefi",
+      "position": "DF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 37611727,
+      "name": "Mohammad Amin Hazbavi",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 297691,
+      "name": "Ali Gholizadeh",
+      "position": "FW",
+      "shirtNumber": 17
+    },
+    {
+      "id": 297524,
+      "name": "Sadegh Moharrami",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 295910,
+      "name": "Shahriar Moghanlou",
+      "position": "FW",
+      "shirtNumber": 26
+    },
+    {
+      "id": 298260,
+      "name": "Reza Asadi",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 5641074,
+      "name": "Amirhossein Hosseinzadeh",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 170516,
+      "name": "Milad Mohammadi",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 170468,
+      "name": "Saeed Ezatolahi",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 296612,
+      "name": "Shoja Khalilzadeh",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 297330,
+      "name": "Hossein Kanaani",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 1479663,
+      "name": "Payam Niazmand",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 3533201,
+      "name": "Ali Nemati",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 2816023,
+      "name": "Mehdi Ghayedi",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37261879,
+      "name": "Mohammad Mohebi",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 35322,
+      "name": "Ehsan Hajsafi",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 298723,
+      "name": "Saeid Mehri",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 37608750,
+      "name": "Mehdi Limouchi",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 37649625,
+      "name": "Saeed Saharkhizan",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37649103,
+      "name": "Hossein Goudarzi",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 20693598,
+      "name": "Abolfazl Jalali",
+      "position": "DF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 37700537,
+      "name": "Arsha Shakouri",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 298500,
+      "name": "Aaref Gholami",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 169790,
+      "name": "Sardar Azmoun",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 5641079,
+      "name": "Allahyar Sayyadmanesh",
+      "position": "FW",
+      "shirtNumber": 8
+    },
+    {
+      "id": 191286,
+      "name": "Saman Ghoddos",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 297780,
+      "name": "Majid Hosseini",
+      "position": "DF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 297354,
+      "name": "Mehdi Taremi",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 297517,
+      "name": "Mohammadreza Akhbari",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 297496,
+      "name": "Seyed Hossein Hosseini",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 37600244,
+      "name": "Mohammad Ghorbani",
+      "position": "MF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 297357,
+      "name": "Alireza Beiranvand",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37324825,
+      "name": "Saleh Hardani",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 297840,
+      "name": "Omid Noorafkan",
+      "position": "MF",
+      "shirtNumber": 21
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

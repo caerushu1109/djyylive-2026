@@ -1,0 +1,277 @@
+{
+  "isoCode": "CV",
+  "shortCode": "CPV",
+  "players": [
+    {
+      "id": 37547164,
+      "name": "Hélio Varela",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37400393,
+      "name": "Dailon Livramento",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 99039,
+      "name": "Nuno Da Costa",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37687573,
+      "name": "David Moreira",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 28637,
+      "name": "Laros Duarte",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37559583,
+      "name": "Sidny Cabral",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 162868,
+      "name": "Heri Tavares",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 25663,
+      "name": "Alessio Da Cruz",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37653547,
+      "name": "Fabrício Garcia",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 96146,
+      "name": "Steven Moreira",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 436633,
+      "name": "Yuran Fernandes",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37587237,
+      "name": "Rivaldo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 12394069,
+      "name": "Logan Costa",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37580237,
+      "name": "Jordan Semedo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1498038,
+      "name": "Yannick Semedo",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 537762,
+      "name": "Kristopher Da Graca",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 120887,
+      "name": "Roberto Lopes",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37289064,
+      "name": "Henrique Sanches",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37357400,
+      "name": "Stéphane Cueni",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 537377,
+      "name": "David Tavares",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37649277,
+      "name": "Rúben Pina",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37631794,
+      "name": "Ilano Silva Timas",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 163034,
+      "name": "Jovane Cabral",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 28323,
+      "name": "Alvin Fortes",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 7330512,
+      "name": "Duk",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37564774,
+      "name": "Benchimol",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 27584,
+      "name": "Garry Rodrigues",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 3188035,
+      "name": "Willy Semedo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 162887,
+      "name": "Vozinha",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37527313,
+      "name": "Kelvin Pires",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5956430,
+      "name": "Kevin Lenini",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 3872642,
+      "name": "Márcio Rosa",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 160046,
+      "name": "Diney Borges",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 8859,
+      "name": "Ricardo Santos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 21437348,
+      "name": "Aílson Tavares",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 159259,
+      "name": "Bruno Varela",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37586867,
+      "name": "Wagner Pina",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37717106,
+      "name": "Elson Mendes Da Silva",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37522757,
+      "name": "Telmo Arcanjo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37538739,
+      "name": "Jójó",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 6361,
+      "name": "Ryan Mendes",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 26433,
+      "name": "Jamiro Monteiro",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 113633,
+      "name": "Stopira",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 26619,
+      "name": "Deroy Duarte",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 22536228,
+      "name": "João Paulo",
+      "position": "MF",
+      "shirtNumber": null
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

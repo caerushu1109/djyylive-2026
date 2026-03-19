@@ -1,0 +1,175 @@
+{
+  "isoCode": "MA",
+  "shortCode": "MAR",
+  "players": [
+    {
+      "id": 23661347,
+      "name": "Anass Salah-Eddine",
+      "position": "DF",
+      "shirtNumber": 26
+    },
+    {
+      "id": 37537937,
+      "name": "Chadi Riad",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37582883,
+      "name": "Redouane Halhal",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37257612,
+      "name": "Souffian El Karouani",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 96799,
+      "name": "Issa Diop",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37668735,
+      "name": "Ismaël Baouf",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37308648,
+      "name": "El Mehdi Benabid",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37540780,
+      "name": "Zakaria El Ouahdi",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37633774,
+      "name": "Gessime Yassine",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 14004542,
+      "name": "Amine Adli",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37739178,
+      "name": "Yassir Zabiri",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37308650,
+      "name": "Mohamed Rabie Hrimat",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37692095,
+      "name": "Samir El Mourabet",
+      "position": "null",
+      "shirtNumber": null
+    },
+    {
+      "id": 37297124,
+      "name": "Abde Ezzalzouli",
+      "position": "FW",
+      "shirtNumber": 17
+    },
+    {
+      "id": 21803033,
+      "name": "Azzedine Ounahi",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 37694961,
+      "name": "Abdelhamid Ait Boudlal",
+      "position": "DF",
+      "shirtNumber": 27
+    },
+    {
+      "id": 28716,
+      "name": "Noussair Mazraoui",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37548285,
+      "name": "El Mehdi Al Harrar",
+      "position": "GK",
+      "shirtNumber": 22
+    },
+    {
+      "id": 21803060,
+      "name": "Neil El Aynaoui",
+      "position": "MF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 37590634,
+      "name": "Chemsdine Talbi",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 340342,
+      "name": "Brahim Díaz",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 10631219,
+      "name": "Ayoub El Kaabi",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 186591,
+      "name": "Yassine Bounou",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 187260,
+      "name": "Achraf Hakimi",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37317434,
+      "name": "Ismael Saibari",
+      "position": "MF",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37541437,
+      "name": "Oussama Targhalline",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 20316497,
+      "name": "Soufiane Rahimi",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 37559109,
+      "name": "Bilal El Khannouss",
+      "position": "MF",
+      "shirtNumber": 23
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

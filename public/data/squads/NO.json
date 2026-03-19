@@ -1,0 +1,235 @@
+{
+  "isoCode": "NO",
+  "shortCode": "NOR",
+  "players": [
+    {
+      "id": 17176170,
+      "name": "Aune Heggebø",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37569702,
+      "name": "Tobias Guddal",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37521190,
+      "name": "Sondre Langås",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 26823,
+      "name": "Martin Ødegaard",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 151715,
+      "name": "Jens Petter Hauge",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 457047,
+      "name": "Erik Botheim",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 150999,
+      "name": "Mathias Dyngeland",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 37577660,
+      "name": "Sverre Nypan",
+      "position": "MF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 24816996,
+      "name": "Sander Tangvik",
+      "position": "GK",
+      "shirtNumber": 13
+    },
+    {
+      "id": 524309,
+      "name": "Leo Østigård",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 12016844,
+      "name": "Kristian Thorstvedt",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 458682,
+      "name": "Jørgen Strand Larsen",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 151418,
+      "name": "Kristoffer Ajer",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37692397,
+      "name": "Eivind Helland",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 37337584,
+      "name": "Kristian Arnstad",
+      "position": "FW",
+      "shirtNumber": 23
+    },
+    {
+      "id": 33980252,
+      "name": "Sebastian Sebulonsen",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 151507,
+      "name": "Andreas Hanche-Olsen",
+      "position": "DF",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37555815,
+      "name": "Andreas Schjelderup",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 154421,
+      "name": "Erling Haaland",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 37391576,
+      "name": "Thelo Aasgaard",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 151568,
+      "name": "Fredrik Bjørkan",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 31238809,
+      "name": "Lasse Berg Johnsen",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25120,
+      "name": "Morten Thorsby",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 151356,
+      "name": "Stian Gregersen",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 151410,
+      "name": "Jostein Gundersen",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32471,
+      "name": "Ørjan Nyland",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 16546879,
+      "name": "Marcus Pedersen",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 25514,
+      "name": "Alexander Sørloth",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 37570379,
+      "name": "Antonio Nusa",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37286732,
+      "name": "Oscar Bobb ",
+      "position": "FW",
+      "shirtNumber": 22
+    },
+    {
+      "id": 33166012,
+      "name": "David Møller Wolfe",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 455796,
+      "name": "Aron Dønnum",
+      "position": "MF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 153446,
+      "name": "Egil Selvik",
+      "position": "GK",
+      "shirtNumber": 13
+    },
+    {
+      "id": 64193,
+      "name": "Sander Berge",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 151243,
+      "name": "Patrick Berg",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 151628,
+      "name": "Julian Ryerson",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 538449,
+      "name": "Torbjørn Heggem",
+      "position": "DF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 455797,
+      "name": "Felix Horn Myhre",
+      "position": "MF",
+      "shirtNumber": 16
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.672Z"
+}

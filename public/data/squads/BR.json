@@ -1,0 +1,331 @@
+{
+  "isoCode": "BR",
+  "shortCode": "BRA",
+  "players": [
+    {
+      "id": 96208,
+      "name": "M. Aoás Corrêa",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 129725,
+      "name": "A. Lobo Silva",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 37599292,
+      "name": "V. Roque Ferreira",
+      "position": "FW",
+      "shirtNumber": 26
+    },
+    {
+      "id": 96099,
+      "name": "F. Tavares",
+      "position": "MF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 219900,
+      "name": "J. Furtado",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 1846739,
+      "name": "M. Carneiro Da Cunha",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 129822,
+      "name": "G. Santos da Silva",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 218295,
+      "name": "W. Pereira da Silva",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37627036,
+      "name": "M. Santiago Costa dos Santos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 11298640,
+      "name": "H. de Souza Nogueira",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 33645,
+      "name": "J. Apolinário de Lira",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10959356,
+      "name": "G. Martinelli Silva",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 160258,
+      "name": "Raphinha",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 13591496,
+      "name": "C. Zopalato Neves",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 9302767,
+      "name": "V. da Silva",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37547795,
+      "name": "V. de Oliveira Campos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 32614,
+      "name": "D. dos Santos Justino de Melo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 219398,
+      "name": "G. Arana Lopes",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37526007,
+      "name": "A. Trindade da Costa Neto",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37402348,
+      "name": "Gomes",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37647009,
+      "name": "E. Moreira de Sousa",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 29328429,
+      "name": "I. da Cruz",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 1004,
+      "name": "A. Hoelgebaum Pereira",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 12393293,
+      "name": "A. dos Santos",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 463850,
+      "name": "S. Dias Lino",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 23301876,
+      "name": "K. Pinto Ramos",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 439266,
+      "name": "P. de Oliveira Alves",
+      "position": "DF",
+      "shirtNumber": 25
+    },
+    {
+      "id": 159700,
+      "name": "C. Casimiro",
+      "position": "MF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 37562129,
+      "name": "A. Nascimento dos Santos",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 159142,
+      "name": "E. Santana de Moraes",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 460160,
+      "name": "É. Gabriel Militão",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 97811,
+      "name": "G. dos Santos Magalhães",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 219502,
+      "name": "F. Soares de Faria",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 7346228,
+      "name": "R. Silva de Goes",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37526008,
+      "name": "L. Rosa da Silva",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 37527169,
+      "name": "S. Moreira de Oliveira",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 600687,
+      "name": "V. Júnior",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 32031865,
+      "name": "B. Krepski",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 159208,
+      "name": "D. da Silva",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 219633,
+      "name": "R. de Andrade",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 187557,
+      "name": "C. Oliveira Silva",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37410288,
+      "name": "Luciano",
+      "position": "DF",
+      "shirtNumber": 24
+    },
+    {
+      "id": 37608995,
+      "name": "W. França Lima",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 28931574,
+      "name": "J. Junqueira de Jesus",
+      "position": "FW",
+      "shirtNumber": 22
+    },
+    {
+      "id": 220052,
+      "name": "L. Tolentino Coelho de Lima",
+      "position": "MF",
+      "shirtNumber": 11
+    },
+    {
+      "id": 456593,
+      "name": "J. de Souza Oliveira",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37701999,
+      "name": "E. Almeida de Oliveira Gonçalves",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 458758,
+      "name": "L. Rech Ortiz",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37562940,
+      "name": "L. Lopes Beraldo",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 129820,
+      "name": "A. Becker",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 460159,
+      "name": "L. Estella Perri",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 29809271,
+      "name": "A. Souza Ribeiro",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 545244,
+      "name": "É. dos Santos Lourenço da Silva",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 459145,
+      "name": "B. Guimarães Rodriguez Moura",
+      "position": "MF",
+      "shirtNumber": 8
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.668Z"
+}

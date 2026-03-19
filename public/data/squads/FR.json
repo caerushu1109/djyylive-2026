@@ -1,0 +1,235 @@
+{
+  "isoCode": "FR",
+  "shortCode": "FRA",
+  "players": [
+    {
+      "id": 32659,
+      "name": "K. Coman",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 35574,
+      "name": "B. Pavard",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10279739,
+      "name": "L. Badé",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 102002,
+      "name": "J. Clauss",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 96741,
+      "name": "C. Lenglet",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 95694,
+      "name": "A. Rabiot",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 432872,
+      "name": "R. Kolo Muani",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 32403,
+      "name": "O. Dembélé",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 33685,
+      "name": "D. Upamecano",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 337394,
+      "name": "J. Koundé",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 17544737,
+      "name": "W. Saliba",
+      "position": "DF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 96884,
+      "name": "C. Nkunku",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 96950,
+      "name": "J. Mateta",
+      "position": "FW",
+      "shirtNumber": 13
+    },
+    {
+      "id": 4545404,
+      "name": "K. Thuram-Ulien",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23688922,
+      "name": "E. Camavinga",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37593237,
+      "name": "W. Zaire Emery",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 4237,
+      "name": "F. Thauvin",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37317369,
+      "name": "B. Barcola",
+      "position": "FW",
+      "shirtNumber": 20
+    },
+    {
+      "id": 37288979,
+      "name": "H. Ekitike",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 1193,
+      "name": "N. Kanté",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37317367,
+      "name": "M. Gusto",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37530901,
+      "name": "M. Akliouche",
+      "position": "FW",
+      "shirtNumber": 12
+    },
+    {
+      "id": 21072805,
+      "name": "M. Cherki",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 17187774,
+      "name": "L. Chevalier",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 96611,
+      "name": "K. Mbappé",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37590938,
+      "name": "D. Doue",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 14726357,
+      "name": "P. Kalulu Kyatengwa",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 97087,
+      "name": "M. Guendouzi Olié",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5270371,
+      "name": "A. Tchouaméni",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 99000,
+      "name": "M. Thuram",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 96227,
+      "name": "M. Maignan",
+      "position": "GK",
+      "shirtNumber": 16
+    },
+    {
+      "id": 96030,
+      "name": "B. Samba",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 95368,
+      "name": "L. Digne",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 186995,
+      "name": "T. Hernández",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 100556,
+      "name": "I. Konaté",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 23738800,
+      "name": "K. Kone",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 24799984,
+      "name": "M. Olise",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 186797,
+      "name": "L. Hernández Pi",
+      "position": "DF",
+      "shirtNumber": 21
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

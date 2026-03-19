@@ -1,0 +1,247 @@
+{
+  "isoCode": "SC",
+  "shortCode": "SCO",
+  "players": [
+    {
+      "id": 37696485,
+      "name": "James Wilson",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 172415,
+      "name": "Zander Clark",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 336067,
+      "name": "Angus Gunn ",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37260638,
+      "name": "Nathan Patterson",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 173059,
+      "name": "Kevin Nisbet",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 35683623,
+      "name": "Josh Mulligan",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37619858,
+      "name": "Callan McKenna",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 174383,
+      "name": "Robby McCrorie",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 176702,
+      "name": "Ryan Porteous",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37528877,
+      "name": "Max Johnston",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37391535,
+      "name": "Tommy Conway",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 25954296,
+      "name": "Kieron Bowie",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 172385,
+      "name": "Kenny McLean",
+      "position": "MF",
+      "shirtNumber": 23
+    },
+    {
+      "id": 172960,
+      "name": "Kieran Tierney",
+      "position": "DF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 173129,
+      "name": "Anthony Ralston",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37602125,
+      "name": "Ben Gannon-Doak",
+      "position": "FW",
+      "shirtNumber": 17
+    },
+    {
+      "id": 27440826,
+      "name": "Aaron Hickey",
+      "position": "DF",
+      "shirtNumber": 2
+    },
+    {
+      "id": 37602122,
+      "name": "Lennon Miller",
+      "position": "MF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 7577,
+      "name": "George Hirst",
+      "position": "FW",
+      "shirtNumber": 18
+    },
+    {
+      "id": 172923,
+      "name": "Scott Bain",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 174066,
+      "name": "Liam Kelly",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 807,
+      "name": "Grant Hanley",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 172581,
+      "name": "John Souttar",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 455376,
+      "name": "Scott McTominay",
+      "position": "MF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 378093,
+      "name": "Ross Doohan",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 24817485,
+      "name": "Connor Barron",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 378629,
+      "name": "Andrew Irving",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 28912734,
+      "name": "Cieran Slicker",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 6648042,
+      "name": "Lewis Ferguson",
+      "position": "MF",
+      "shirtNumber": 19
+    },
+    {
+      "id": 1078,
+      "name": "Andrew Robertson",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 173047,
+      "name": "Scott McKenna",
+      "position": "DF",
+      "shirtNumber": 16
+    },
+    {
+      "id": 6612,
+      "name": "Jack Hendry",
+      "position": "DF",
+      "shirtNumber": 13
+    },
+    {
+      "id": 172611,
+      "name": "John McGinn",
+      "position": "MF",
+      "shirtNumber": 7
+    },
+    {
+      "id": 6599973,
+      "name": "Billy Gilmour ",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 172938,
+      "name": "Lawrence Shankland",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 35,
+      "name": "Craig Gordon",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37260591,
+      "name": "Josh Doig",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 174296,
+      "name": "Lyndon Dykes",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 3596,
+      "name": "Ché Adams",
+      "position": "FW",
+      "shirtNumber": 10
+    },
+    {
+      "id": 172752,
+      "name": "Ryan Christie",
+      "position": "MF",
+      "shirtNumber": 11
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

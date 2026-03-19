@@ -1,0 +1,229 @@
+{
+  "isoCode": "NZ",
+  "shortCode": "NZL",
+  "players": [
+    {
+      "id": 37402058,
+      "name": "K. Sims",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 7346244,
+      "name": "G. Stanger",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 488059,
+      "name": "N. Tzanev",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 5967840,
+      "name": "O. Parker-Price",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 24469041,
+      "name": "A. Paulsen",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 324712,
+      "name": "L. Cacace",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 2069,
+      "name": "T. Smith",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5967839,
+      "name": "C. McCowatt",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 25161,
+      "name": "R. Thomas",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37746059,
+      "name": "L. Brooke-Smith",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 10275906,
+      "name": "B. Waine",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 23717807,
+      "name": "N. Pijnaker",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 324565,
+      "name": "L. Rogerson",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 914,
+      "name": "C. Wood",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 324539,
+      "name": "S. Singh",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 330521,
+      "name": "S. Roux",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37341835,
+      "name": "B. Old",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37341839,
+      "name": "J. Randall",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 324493,
+      "name": "J. Mcgarry",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 324282,
+      "name": "A. De Jong",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 107911,
+      "name": "K. Barbarouses",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 323990,
+      "name": "F. De Vries",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 324518,
+      "name": "J. Bell",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 96422,
+      "name": "B. Tuiloma",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37642338,
+      "name": "L. Kelly-Heald",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37613421,
+      "name": "H. Gray",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 273373,
+      "name": "T. Payne",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 1488819,
+      "name": "C. Elliot",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 324174,
+      "name": "O. Sail",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37350663,
+      "name": "F. Surman",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 261737,
+      "name": "M. Boxall",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37341836,
+      "name": "M. Stamenic",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 11695,
+      "name": "M. Crocombe",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 37708644,
+      "name": "T. Bindon",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 5640904,
+      "name": "E. Just",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 24469059,
+      "name": "M. Garbett",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 324327,
+      "name": "A. Rufer",
+      "position": "MF",
+      "shirtNumber": null
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.669Z"
+}

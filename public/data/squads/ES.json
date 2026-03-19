@@ -1,0 +1,241 @@
+{
+  "isoCode": "ES",
+  "shortCode": "ESP",
+  "players": [
+    {
+      "id": 100580,
+      "name": "R. Le Normand",
+      "position": "DF",
+      "shirtNumber": 3
+    },
+    {
+      "id": 37596373,
+      "name": "R. Asencio del Rosario",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 186910,
+      "name": "Rodri",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37288001,
+      "name": "P. López",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37459030,
+      "name": "Pablo Gaviria",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 185972,
+      "name": "F. Alarcón Suárez",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 129660,
+      "name": "Á. Morata Martín",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37297544,
+      "name": "N. Williams Arthuer",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 1396,
+      "name": "A. Pérez Gutiérrez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 186299,
+      "name": "A. Laporte",
+      "position": "DF",
+      "shirtNumber": 14
+    },
+    {
+      "id": 447094,
+      "name": "J. De Frutos Sebastián",
+      "position": "FW",
+      "shirtNumber": 2
+    },
+    {
+      "id": 537595,
+      "name": "Ó. Mingueza García",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 31647,
+      "name": "D. Carvajal Ramos",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 530762,
+      "name": "M. Zubimendi Ibáñez",
+      "position": "MF",
+      "shirtNumber": 18
+    },
+    {
+      "id": 186864,
+      "name": "B. Iglesias Quintas",
+      "position": "FW",
+      "shirtNumber": 9
+    },
+    {
+      "id": 186735,
+      "name": "F. Ruiz Peña",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 186815,
+      "name": "P. Fornals Malla",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 74060,
+      "name": "D. Olmo Carvajal",
+      "position": "MF",
+      "shirtNumber": 10
+    },
+    {
+      "id": 37596363,
+      "name": "F. López Marín",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 448389,
+      "name": "F. Torres García",
+      "position": "FW",
+      "shirtNumber": 7
+    },
+    {
+      "id": 187215,
+      "name": "U. Simón Mendibil",
+      "position": "GK",
+      "shirtNumber": 23
+    },
+    {
+      "id": 4574,
+      "name": "A. García Serrano",
+      "position": "MF",
+      "shirtNumber": 8
+    },
+    {
+      "id": 186795,
+      "name": "M. Llorente Moreno",
+      "position": "DF",
+      "shirtNumber": 5
+    },
+    {
+      "id": 7698436,
+      "name": "A. Rodríguez",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 24468970,
+      "name": "Y. Jesús Pino Santos",
+      "position": "FW",
+      "shirtNumber": 11
+    },
+    {
+      "id": 37423008,
+      "name": "Pablo Barrios Rivas",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 186932,
+      "name": "M. Oyarzabal Ugarte",
+      "position": "FW",
+      "shirtNumber": 21
+    },
+    {
+      "id": 37612542,
+      "name": "D. Huijsen",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37722327,
+      "name": "J. Rodríguez Caraballo",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37656179,
+      "name": "L. Yamal Nasraoui Ebana",
+      "position": "FW",
+      "shirtNumber": 19
+    },
+    {
+      "id": 3510288,
+      "name": "D. Vivian Moreno",
+      "position": "DF",
+      "shirtNumber": 4
+    },
+    {
+      "id": 37622274,
+      "name": "S. Omorodion Aghehowa",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37656790,
+      "name": "P. Cubarsí Paredes",
+      "position": "DF",
+      "shirtNumber": 15
+    },
+    {
+      "id": 32710,
+      "name": "M. Merino Zazón",
+      "position": "MF",
+      "shirtNumber": 6
+    },
+    {
+      "id": 8456257,
+      "name": "P. Porro Sauceda",
+      "position": "DF",
+      "shirtNumber": 12
+    },
+    {
+      "id": 160208,
+      "name": "A. Grimaldo García",
+      "position": "DF",
+      "shirtNumber": 17
+    },
+    {
+      "id": 3130,
+      "name": "D. Raya Martin",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 448448,
+      "name": "M. Cucurella",
+      "position": "DF",
+      "shirtNumber": 22
+    },
+    {
+      "id": 187110,
+      "name": "A. Remiro Gargallo",
+      "position": "GK",
+      "shirtNumber": 13
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.670Z"
+}

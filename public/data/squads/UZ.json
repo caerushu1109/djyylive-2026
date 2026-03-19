@@ -1,0 +1,265 @@
+{
+  "isoCode": "UZ",
+  "shortCode": "UZB",
+  "players": [
+    {
+      "id": 37420397,
+      "name": "Diyor Kholmatov",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37509454,
+      "name": "Abbosbek Fayzullaev",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 330701,
+      "name": "Bobur Abdikholikov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 330632,
+      "name": "Utkir Yusupov",
+      "position": "GK",
+      "shirtNumber": 16
+    },
+    {
+      "id": 37568426,
+      "name": "Abdurauf Buriev",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 330559,
+      "name": "Jaloliddin Masharipov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 330673,
+      "name": "Rustam Ashurmatov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37623459,
+      "name": "Abdukodir Khusanov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37567838,
+      "name": "Mukhammadkodir Khamraliev",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 329881,
+      "name": "Jamshid Iskanderov",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37626417,
+      "name": "Zafarmurod Abdirakhmatov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37568671,
+      "name": "Vladimir Nazarov",
+      "position": "GK",
+      "shirtNumber": 1
+    },
+    {
+      "id": 37515551,
+      "name": "Khusayin Norchaev",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 515685,
+      "name": "Umar Eshmurodov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 464119,
+      "name": "Golib Gaybullaev",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 328707,
+      "name": "Islom Tukhtakhodjaev",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 330702,
+      "name": "Aziz Ganiev",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 4598974,
+      "name": "Avazbek Ulmasaliev",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37403993,
+      "name": "Dilshod Komilov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37568053,
+      "name": "Alisher Odilov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37627314,
+      "name": "Rustam Turdimuradov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37571089,
+      "name": "Alibek Davronov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37622188,
+      "name": "Jakhongir Urozov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37331595,
+      "name": "Ibrokhimkhalil Yuldoshev",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 11322037,
+      "name": "Dilshod Saitov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 515987,
+      "name": "Abrorbek Ismoilov",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37568064,
+      "name": "Ruslanbek Jiyanov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 330573,
+      "name": "Dostonbek Khamdamov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 515969,
+      "name": "Azizbek Turgunboev",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 11322034,
+      "name": "Akmal Mozgovoy",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 23637680,
+      "name": "Khusniddin Alikulov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 788936,
+      "name": "Oston Urunov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 21437431,
+      "name": "Sherzod Nasrullaev",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 6013440,
+      "name": "Abduvokhid Nematov",
+      "position": "GK",
+      "shirtNumber": 12
+    },
+    {
+      "id": 330582,
+      "name": "Eldor Shomurodov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 788935,
+      "name": "Khozhiakbar Alizhonov",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 37740949,
+      "name": "Abdulla Abdullaev",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 330624,
+      "name": "Farrukh Sayfiev",
+      "position": "DF",
+      "shirtNumber": null
+    },
+    {
+      "id": 313828,
+      "name": "Igor Sergeev",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 37264147,
+      "name": "Khozhimat Erkinov",
+      "position": "FW",
+      "shirtNumber": null
+    },
+    {
+      "id": 515973,
+      "name": "Botirali Ergashev",
+      "position": "GK",
+      "shirtNumber": null
+    },
+    {
+      "id": 330674,
+      "name": "Otabek Shukurov",
+      "position": "MF",
+      "shirtNumber": null
+    },
+    {
+      "id": 330622,
+      "name": "Odildzhon Khamrobekov",
+      "position": "MF",
+      "shirtNumber": null
+    }
+  ],
+  "fetchedAt": "2026-03-19T16:42:17.671Z"
+}
