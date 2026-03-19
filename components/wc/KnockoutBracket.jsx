@@ -37,8 +37,8 @@ const FIN  = [{ id: "Final", home: `W${SF[0].id}`, away: `W${SF[1].id}` }];
 const ROUNDS = [
   { key: "r32",   label: "32强",  matches: R32  },
   { key: "r16",   label: "16强",  matches: R16  },
-  { key: "qf",    label: "四强赛", matches: QF   },
-  { key: "sf",    label: "半决赛", matches: SF   },
+  { key: "qf",    label: "八强赛", matches: QF   },
+  { key: "sf",    label: "四强赛", matches: SF   },
   { key: "final", label: "决赛",  matches: FIN  },
 ];
 

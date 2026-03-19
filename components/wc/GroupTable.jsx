@@ -4,9 +4,11 @@ export default function GroupTable({ group }) {
   if (!group) return null;
   const { group: name, rows = [] } = group;
 
+  // 2026 WC: 第1/2名直接晋级（绿），第3名参与最佳第三名竞争（蓝），第4名淘汰（灰）
   function barColor(pos) {
     if (pos <= 2) return "var(--green)";
-    return "var(--text3)";
+    if (pos === 3) return "var(--blue)";
+    return "var(--border2)";
   }
 
   return (
@@ -122,10 +124,18 @@ export default function GroupTable({ group }) {
       ))}
 
       {/* Legend */}
-      <div style={{ padding: "5px 12px", borderTop: "1px solid var(--border)", display: "flex", gap: 12 }}>
-        <span style={{ fontSize: 10, color: "var(--green)", display: "flex", alignItems: "center", gap: 4 }}>
+      <div style={{ padding: "5px 12px", borderTop: "1px solid var(--border)", display: "flex", gap: 14, flexWrap: "wrap" }}>
+        <span style={{ fontSize: 9, color: "var(--green)", display: "flex", alignItems: "center", gap: 4 }}>
           <span style={{ width: 3, height: 12, background: "var(--green)", borderRadius: 2, display: "inline-block" }} />
-          晋级淘汰赛
+          直接晋级（前2名）
+        </span>
+        <span style={{ fontSize: 9, color: "var(--blue)", display: "flex", alignItems: "center", gap: 4 }}>
+          <span style={{ width: 3, height: 12, background: "var(--blue)", borderRadius: 2, display: "inline-block" }} />
+          最佳第三名竞争（12组取8）
+        </span>
+        <span style={{ fontSize: 9, color: "var(--text3)", display: "flex", alignItems: "center", gap: 4 }}>
+          <span style={{ width: 3, height: 12, background: "var(--border2)", borderRadius: 2, display: "inline-block" }} />
+          淘汰
         </span>
       </div>
     </div>
