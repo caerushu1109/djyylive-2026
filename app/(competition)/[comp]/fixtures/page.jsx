@@ -150,17 +150,7 @@ export default function FixturesPage() {
         {visibleFixtures.length === 0 ? (
           <p style={{ padding: "24px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>该日期暂无比赛</p>
         ) : (
-          visibleFixtures.map(f => {
-          const standingsMap = data?.standingsMap;
-          const resolvedHome = resolveTeam(f.home, standingsMap);
-          const resolvedAway = resolveTeam(f.away, standingsMap);
-          const resolved = (resolvedHome || resolvedAway) ? {
-            ...f,
-            home: resolvedHome ? { ...f.home, ...resolvedHome } : f.home,
-            away: resolvedAway ? { ...f.away, ...resolvedAway } : f.away,
-          } : f;
-          return <MatchCard key={f.id} fixture={resolved} />;
-        })
+          visibleFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
         )}
       </div>
     </div>
