@@ -5,9 +5,7 @@ import { useElo } from "@/lib/hooks/useElo";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useTeamHistory } from "@/lib/hooks/useTeamHistory";
 import { useSquad } from "@/lib/hooks/useSquad";
-import { useEloTrends } from "@/lib/hooks/useEloTrends";
 import MatchCard from "@/components/shared/MatchCard";
-import EloSparkline from "@/components/shared/EloSparkline";
 import SectionTitle from "@/components/ui/SectionTitle";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { ChevronLeft } from "lucide-react";
@@ -210,6 +208,93 @@ function SquadSection({ squad }) {
   );
 }
 
+// ── ELO History Chart ───────────────────────────────────────────────────────────────
+function EloHistoryChart({ originalName, code }) {
+  const [points, setPoints] = useState(null);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    if (!originalName || !code) return;
+    fetch(`/api/elo-history?name=${encodeURIComponent(originalName)}&code=${encodeURIComponent(code)}`)
+      .then((r) => r.json())
+      .then((d) => setPoints(d.points || []))
+      .catch(() => setFailed(true));
+  }, [originalName, code]);
+
+  if (failed || (points && points.length < 2)) return null;
+  if (!points) return (
+    <div style={{ height: 80, display: "flex", alignItems: "center",
+      justifyContent: "center", color: "var(--text3)", fontSize: 11 }}>
+      加载中...
+    </div>
+  );
+
+  const W = 360, H = 110;
+  const PAD = { t: 12, r: 16, b: 22, l: 38 };
+  const cW = W - PAD.l - PAD.r;
+  const cH = H - PAD.t - PAD.b;
+  const elos = points.map((p) => p.elo);
+  const minE = Math.min(...elos) - 40;
+  const maxE = Math.max(...elos) + 40;
+  const WC_YEARS = [2006, 2010, 2014, 2018, 2022, 2026];
+
+  const xp = (yr) => PAD.l + ((yr - 2006) / 20) * cW;
+  const yp = (e) => PAD.t + cH - ((e - minE) / (maxE - minE)) * cH;
+
+  const linePoints = points.map((p) => `${xp(p.year)},${yp(p.elo)}`).join(" ");
+  const fp = points[0], lp = points[points.length - 1];
+  const fillD = `M${xp(fp.year)},${PAD.t + cH} L${xp(fp.year)},${yp(fp.elo)} ` +
+    points.slice(1).map((p) => `L${xp(p.year)},${yp(p.elo)}`).join(" ") +
+    ` L${xp(lp.year)},${PAD.t + cH}Z`;
+
+  const yStep = Math.round((maxE - minE) / 2 / 50) * 50 || 50;
+  const yStart = Math.ceil(minE / yStep) * yStep;
+  const yGridLines = [];
+  for (let e = yStart; e <= maxE; e += yStep) yGridLines.push(e);
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+      <defs>
+        <linearGradient id="eloHFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#4da6ff" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#4da6ff" stopOpacity="0.01" />
+        </linearGradient>
+      </defs>
+      {WC_YEARS.map((yr) => (
+        <line key={yr} x1={xp(yr)} y1={PAD.t} x2={xp(yr)} y2={PAD.t + cH}
+          stroke="rgba(255,193,7,0.2)" strokeWidth="1" strokeDasharray="2,3" />
+      ))}
+      {yGridLines.map((e) => (
+        <g key={e}>
+          <line x1={PAD.l} y1={yp(e)} x2={PAD.l + cW} y2={yp(e)}
+            stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+          <text x={PAD.l - 5} y={yp(e) + 3.5} textAnchor="end"
+            fill="rgba(255,255,255,0.32)" fontSize="8.5" fontFamily="monospace">
+            {e}
+          </text>
+        </g>
+      ))}
+      <path d={fillD} fill="url(#eloHFill)" />
+      <polyline points={linePoints} fill="none" stroke="#4da6ff"
+        strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
+      {points.filter((p) => WC_YEARS.includes(p.year)).map((p) => (
+        <circle key={p.year} cx={xp(p.year)} cy={yp(p.elo)} r="2.8"
+          fill="#4da6ff" stroke="var(--bg, #0d0d0d)" strokeWidth="1.2" />
+      ))}
+      <text x={xp(lp.year) - 6} y={yp(lp.elo) - 5} textAnchor="end"
+        fill="#4da6ff" fontSize="9" fontFamily="monospace" fontWeight="700">
+        {lp.elo}
+      </text>
+      {WC_YEARS.map((yr) => (
+        <text key={yr} x={xp(yr)} y={H - 5} textAnchor="middle"
+          fill="rgba(255,255,255,0.3)" fontSize="8.5" fontFamily="sans-serif">
+          {yr}
+        </text>
+      ))}
+    </svg>
+  );
+}
+
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function TeamPage() {
   const { id } = useParams();
@@ -220,7 +305,6 @@ export default function TeamPage() {
   const { data: fixturesData, loading: fixturesLoading } = useFixtures();
   const { data: historyData                             } = useTeamHistory(teamName);
   const { data: squadData                               } = useSquad(teamName);
-  const { trendMap                                      } = useEloTrends();
 
   const teamElo = useMemo(() =>
     (eloData?.rankings || []).find(
@@ -242,9 +326,6 @@ export default function TeamPage() {
     [fixturesData, teamName]
   );
 
-  const trendPoints = trendMap
-    ? (trendMap[teamName] || trendMap[teamElo?.originalName] || null)
-    : null;
 
   const flag        = teamElo?.flag || "🏴";
   const displayName = teamElo?.name || teamName;
@@ -303,12 +384,6 @@ export default function TeamPage() {
                 </div>
               )}
 
-              {/* ELO sparkline */}
-              {trendPoints && trendPoints.length > 1 && (
-                <div style={{ marginTop: 6 }}>
-                  <EloSparkline data={trendPoints.slice(-7)} width={80} height={28} />
-                </div>
-              )}
 
               {/* Recent form strip */}
               {!fixturesLoading && (
@@ -322,6 +397,16 @@ export default function TeamPage() {
             <section>
               <SectionTitle>世界杯历史</SectionTitle>
               <WcHistoryCard history={historyData} />
+            </section>
+          )}
+
+          {/* ELO 走势图 */}
+          {teamElo && (
+            <section>
+              <SectionTitle>近20年 ELO 走势</SectionTitle>
+              <div style={{ margin: "0 16px 12px", background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px 4px" }}>
+                <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
+              </div>
             </section>
           )}
 
