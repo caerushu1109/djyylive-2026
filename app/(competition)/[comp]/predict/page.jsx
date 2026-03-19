@@ -11,16 +11,16 @@ export default function PredictPage() {
 
   const loading = predLoading || partLoading;
 
-  // Build a lookup: nameZh → participant config
+  // Build a lookup: nameZh → participant config (for status badges)
   const partMap = Object.fromEntries(
-    participants.map(p => [p.nameZh, p])
+    participants
+      .filter(p => p.nameZh && p.nameZh !== p.nameEn)
+      .map(p => [p.nameZh, p])
   );
-  const partNames = new Set(participants.map(p => p.nameZh));
 
-  // Filter predictions to only WC2026 teams, sort by probability descending
+  // Predictions already filtered to WC2026 teams — just sort by probability
   const allTeams = predData?.teams || [];
   const wcTeams = allTeams
-    .filter(t => partNames.has(t.name))
     .sort((a, b) => (b.probabilityValue || 0) - (a.probabilityValue || 0));
 
   const maxProb = wcTeams[0]?.probabilityValue || 1;

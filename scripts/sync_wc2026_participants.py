@@ -133,9 +133,9 @@ def main():
             meta = team_meta.get(aliases.get(en_name, ""))
 
         if not meta:
+            # 无中文映射 → 跳过（占位符/未录入球队）
             unmatched.append(en_name)
-            zh_name = en_name  # 无中文映射时用英文名兜底
-            flag    = "🏳️"
+            continue
         else:
             zh_name = meta["shortName"]
             flag    = meta["flag"]
