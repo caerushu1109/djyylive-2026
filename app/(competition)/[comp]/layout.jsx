@@ -9,13 +9,20 @@ export default function CompetitionLayout({ children }) {
   return (
     <div style={{
       maxWidth: 480,
-      minHeight: "100dvh",
+      height: "100dvh",
       margin: "0 auto",
       background: "var(--bg)",
-      paddingBottom: "var(--bottom-nav-h)",
-      position: "relative",
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden",
     }}>
-      {children}
+      <div style={{
+        flex: 1,
+        overflowY: "auto",
+        WebkitOverflowScrolling: "touch",
+      }}>
+        {children}
+      </div>
       <BottomNav comp={comp} />
     </div>
   );

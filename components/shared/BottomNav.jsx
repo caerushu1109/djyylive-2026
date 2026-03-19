@@ -17,14 +17,12 @@ export default function BottomNav({ comp }) {
 
   return (
     <nav style={{
-      position: "fixed", bottom: 0, left: 0, right: 0,
       height: "var(--bottom-nav-h)",
       background: "var(--surface)",
       borderTop: "1px solid var(--border)",
       display: "flex",
-      zIndex: 100,
-      maxWidth: 480,
-      margin: "0 auto",
+      flexShrink: 0,
+      paddingBottom: "env(safe-area-inset-bottom)",
     }}>
       {tabs.map(({ id, Icon, label, path }) => {
         const href = base + path;
