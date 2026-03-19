@@ -4,24 +4,21 @@ import Link from "next/link";
 /**
  * KnockoutBracket — 2026 FIFA World Cup 淘汰赛对阵树
  *
- * 布局：横向行式（每轮一行），上下半区构成菱形。
+ * 方案B：经典5列竖向对阵树（FIFA / ESPN 移动端标准布局）
  *
- * 核心设计：slot-based 精确对齐
- *   每个 R32 场次占一个 SLOT_W 宽的插槽，所有后续轮次
- *   自动居中于对应 2^r 个插槽的中心，连接线精确对齐。
+ * 尺寸设计：
+ *   CARD_W=60, CON_W=5 → 5列宽度 = 5×60 + 4×5 = 320px
+ *   侧边半区标签列 = 14px
+ *   左右外边距 = 12px×2 = 24px
+ *   总计 = 358px < 375px → 手机无需横滑 ✓
  *
- *   总宽 = 8 * SLOT_W（仅一个半区的宽度，上下半区垂直堆叠）
- *   这比旧版（16 * COL_W）窄一半，手机友好。
- *
- *   圆心 X 公式：cx(r, i) = (2^r * i + 2^(r-1)) * SLOT_W
- *     r=0 R32: 每场中心在 (i + 0.5) * SLOT_W
- *     r=1 R16: 每场中心在 (2i + 1) * SLOT_W
- *     r=2 QF:  每场中心在 (4i + 2) * SLOT_W
- *     r=3 SF:  每场中心在  4       * SLOT_W  (正好是总宽一半)
+ * 连接线公式（已验证）：
+ *   centerY(r, i) = UNIT × 2^r × (i + 0.5)
+ *   每对卡片的中点 yM 精确等于下一轮对应卡的 centerY ✓
  */
 
-// ── 2026 WC 淘汰赛模板 ────────────────────────────────────────────────────────
-const R32_ALL = [
+// ── 2026 WC 淘汰赛对阵模板 ────────────────────────────────────────────────────
+const R32 = [
   { id: "M49", home: "1A",  away: "2B"  },
   { id: "M50", home: "1C",  away: "Q3a" },
   { id: "M51", home: "1B",  away: "Q3b" },
@@ -39,36 +36,43 @@ const R32_ALL = [
   { id: "M63", home: "2L",  away: "Q3h" },
   { id: "M64", home: "1K",  away: "2L"  },
 ];
-const R32_T = R32_ALL.slice(0, 8);
-const R32_B = R32_ALL.slice(8);
-const R16_T = Array.from({ length: 4 }, (_, i) => ({ id: `R16T${i}`, home: `W${R32_T[i*2].id}`, away: `W${R32_T[i*2+1].id}` }));
-const R16_B = Array.from({ length: 4 }, (_, i) => ({ id: `R16B${i}`, home: `W${R32_B[i*2].id}`, away: `W${R32_B[i*2+1].id}` }));
-const QF_T  = Array.from({ length: 2 }, (_, i) => ({ id: `QFT${i}`,  home: `W${R16_T[i*2].id}`, away: `W${R16_T[i*2+1].id}` }));
-const QF_B  = Array.from({ length: 2 }, (_, i) => ({ id: `QFB${i}`,  home: `W${R16_B[i*2].id}`, away: `W${R16_B[i*2+1].id}` }));
-const SF_T  = [{ id: "SFT", home: `W${QF_T[0].id}`, away: `W${QF_T[1].id}` }];
-const SF_B  = [{ id: "SFB", home: `W${QF_B[0].id}`, away: `W${QF_B[1].id}` }];
-const FIN   = [{ id: "Final", home: `W${SF_T[0].id}`, away: `W${SF_B[0].id}` }];
-const TPP   = [{ id: "3rd",   home: `L${SF_T[0].id}`, away: `L${SF_B[0].id}` }];
+const R16 = Array.from({ length: 8 }, (_, i) => ({ id: `R16-${i}`, home: `W${R32[i*2].id}`,  away: `W${R32[i*2+1].id}` }));
+const QF  = Array.from({ length: 4 }, (_, i) => ({ id: `QF-${i}`,  home: `W${R16[i*2].id}`,  away: `W${R16[i*2+1].id}` }));
+const SF  = Array.from({ length: 2 }, (_, i) => ({ id: `SF-${i}`,  home: `W${QF[i*2].id}`,   away: `W${QF[i*2+1].id}`  }));
+const FIN = [{ id: "Final", home: `W${SF[0].id}`, away: `W${SF[1].id}` }];
+const TPP = [{ id: "3rd",   home: `L${SF[0].id}`, away: `L${SF[1].id}` }];
 
-// ── 布局常量 ──────────────────────────────────────────────────────────────────
-const SLOT_W = 76;           // 每个 R32 场次的插槽宽度
-const HALF_W = 8 * SLOT_W;  // = 608px（上下半区共享此宽度）
-const CARD_W = 66;           // 卡片宽度（每侧留 5px 边距）
-const SLOT_H = 23;           // 每队行高
-const CARD_H = SLOT_H * 2 + 1; // = 47px（含分隔线）
-const CON_H  = 14;           // 连接线区域高度
-const LBL_H  = 15;           // 轮次标签高度
+const ROUNDS = [
+  { r: 0, label: "32强", matches: R32 },
+  { r: 1, label: "16强", matches: R16 },
+  { r: 2, label: "八强", matches: QF  },
+  { r: 3, label: "四强", matches: SF  },
+  { r: 4, label: "决赛", matches: FIN },
+];
 
-// 第 r 轮（0=R32…3=SF）第 i 场的中心 X
-function cx(r, i) {
-  return (Math.pow(2, r) * i + Math.pow(2, r - 1)) * SLOT_W;
-}
-// 卡片左边距
-function cl(r, i) {
-  return cx(r, i) - CARD_W / 2;
-}
+// ── 布局常量（经验证适配 375px 屏幕） ─────────────────────────────────────────
+const SLOT_H    = 20;                         // 每队行高
+const CARD_H    = SLOT_H * 2 + 1;            // 41px（含1px分隔线）
+const UNIT      = 60;                         // R32 场次插槽高度
+const CARD_W    = 60;                         // 卡片宽度
+const CON_W     = 5;                          // 连接线列宽
+const N         = 16;                         // R32 场次数
+const BRACKET_H = N * UNIT;                  // 960px
+const TOTAL_W   = 5 * CARD_W + 4 * CON_W;   // 320px
+const SIDE_W    = 14;                         // 半区标签侧栏宽
 
-// ── fixture 数据填充 ──────────────────────────────────────────────────────────
+// 第 r 轮第 i 场的垂直中心
+function cY(r, i) { return UNIT * Math.pow(2, r) * (i + 0.5); }
+// 卡片顶部 Y
+function cTop(r, i) { return cY(r, i) - CARD_H / 2; }
+// 列左边距
+function cX(r) { return r * (CARD_W + CON_W); }
+
+// 决赛卡片边界（用于半区色条起止）
+const FIN_TOP = cTop(4, 0);           // 459.5px
+const FIN_BOT = FIN_TOP + CARD_H;    // 500.5px
+
+// ── Fixture 数据映射 ──────────────────────────────────────────────────────────
 function buildStageMap(fixtures) {
   const map = {};
   if (!fixtures?.length) return map;
@@ -85,14 +89,16 @@ function buildStageMap(fixtures) {
   });
   return map;
 }
+
 function enrich(match, list, idx) {
   const f = list?.[idx];
   if (!f) return match;
   return {
-    ...match, fixtureId: f.id, status: f.status,
+    ...match,
+    fixtureId: f.id,     status:    f.status,
     homeScore: f.homeScore ?? null, awayScore: f.awayScore ?? null,
-    homeTeam: f.home ? { name: f.home.name, flag: f.home.flag } : undefined,
-    awayTeam: f.away ? { name: f.away.name, flag: f.away.flag } : undefined,
+    homeTeam:  f.home ? { name: f.home.name, flag: f.home.flag } : undefined,
+    awayTeam:  f.away ? { name: f.away.name, flag: f.away.flag } : undefined,
   };
 }
 
@@ -100,28 +106,28 @@ function enrich(match, list, idx) {
 function TeamRow({ label, flag, name, score, isWinner, isLive }) {
   return (
     <div style={{
-      height: SLOT_H, display: "flex", alignItems: "center", gap: 3,
-      padding: "0 5px",
+      height: SLOT_H, display: "flex", alignItems: "center", gap: 2,
+      padding: "0 4px",
       background: isWinner ? "rgba(92,158,255,0.10)" : "transparent",
     }}>
       {name ? (
         <>
-          <span style={{ fontSize: 11, flexShrink: 0 }}>{flag || "🏳️"}</span>
+          <span style={{ fontSize: 10, flexShrink: 0, lineHeight: 1 }}>{flag || "🏳️"}</span>
           <span style={{
-            fontSize: 8, fontWeight: 700, flex: 1,
+            fontSize: 7.5, fontWeight: 700, flex: 1,
             color: isWinner ? "var(--blue)" : "var(--text)",
             whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
           }}>{name}</span>
           {score != null && (
             <span style={{
-              fontSize: 10, fontWeight: 900, flexShrink: 0,
+              fontSize: 9, fontWeight: 900, flexShrink: 0,
               color: isWinner ? "var(--blue)" : isLive ? "var(--live)" : "var(--text2)",
               fontVariantNumeric: "tabular-nums",
             }}>{score}</span>
           )}
         </>
       ) : (
-        <span style={{ fontSize: 7, color: "var(--text3)" }}>{label || "待定"}</span>
+        <span style={{ fontSize: 6.5, color: "var(--text3)" }}>{label || "待定"}</span>
       )}
     </div>
   );
@@ -140,24 +146,28 @@ function MatchCard({ match, isFinal = false }) {
     <div style={{
       width: CARD_W,
       background: isFinal ? "linear-gradient(135deg,#1c1e26,#22201a)" : "var(--card)",
-      border: `1px solid ${isFinal ? "rgba(255,193,7,0.6)" : isLive ? "rgba(255,61,61,0.4)" : "var(--border)"}`,
-      borderRadius: 7, overflow: "hidden",
-      boxShadow: isFinal ? "0 0 20px rgba(255,193,7,0.2)" : "none",
+      border: `1px solid ${
+        isFinal  ? "rgba(255,193,7,0.65)" :
+        isLive   ? "rgba(255,61,61,0.4)"  : "var(--border)"
+      }`,
+      borderRadius: 6,
+      overflow: "hidden",
+      boxShadow: isFinal ? "0 0 14px rgba(255,193,7,0.18)" : "none",
     }}>
       {isFinal && <div style={{ height: 2, background: "linear-gradient(90deg,transparent,var(--gold),transparent)" }} />}
       {isLive  && <div style={{ height: 2, background: "var(--live)" }} />}
       <TeamRow label={match.home} flag={match.homeTeam?.flag} name={match.homeTeam?.name}
         score={match.homeScore} isWinner={winner === "home"} isLive={isLive} />
-      <div style={{ height: 1, background: "var(--border)", margin: "0 6px" }} />
+      <div style={{ height: 1, background: "var(--border)", margin: "0 5px" }} />
       <TeamRow label={match.away} flag={match.awayTeam?.flag} name={match.awayTeam?.name}
         score={match.awayScore} isWinner={winner === "away"} isLive={isLive} />
       {hasRes && !isLive && (
-        <div style={{ fontSize: 7, fontWeight: 700, color: "var(--text3)",
-          textAlign: "center", padding: "2px 0 2px", borderTop: "1px solid var(--border)" }}>终场</div>
+        <div style={{ fontSize: 6.5, fontWeight: 700, color: "var(--text3)",
+          textAlign: "center", padding: "2px 0", borderTop: "1px solid var(--border)" }}>终场</div>
       )}
       {isLive && (
-        <div style={{ fontSize: 7, fontWeight: 700, color: "var(--live)",
-          textAlign: "center", padding: "2px 0 2px", borderTop: "1px solid rgba(255,61,61,0.2)" }}>● 直播中</div>
+        <div style={{ fontSize: 6.5, fontWeight: 700, color: "var(--live)",
+          textAlign: "center", padding: "2px 0", borderTop: "1px solid rgba(255,61,61,0.2)" }}>● 直播中</div>
       )}
     </div>
   );
@@ -167,100 +177,27 @@ function MatchCard({ match, isFinal = false }) {
     : card;
 }
 
-// ── 轮次标签行 ────────────────────────────────────────────────────────────────
-function RoundLabel({ label, color }) {
-  return (
-    <div style={{
-      height: LBL_H, display: "flex", alignItems: "center", justifyContent: "center",
-      fontSize: 8, fontWeight: 800, letterSpacing: "0.07em",
-      color: color || "var(--blue)",
-    }}>{label}</div>
-  );
-}
-
-// ── 卡片行（absolute 定位，精确对齐） ─────────────────────────────────────────
-function MatchRow({ matches, roundIdx }) {
-  return (
-    <div style={{ position: "relative", width: HALF_W, height: CARD_H, flexShrink: 0 }}>
-      {matches.map((m, i) => (
-        <div key={m.id} style={{ position: "absolute", top: 0, left: cl(roundIdx, i) }}>
-          <MatchCard match={m} />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ── 收敛连接线（上半区：从 fromR 向下汇聚到 fromR+1） ─────────────────────────
-function ConvergeSVG({ fromR, count }) {
+// ── 连接线 SVG（每对相邻卡→下一列对应卡） ─────────────────────────────────────
+function ConnectorSVG({ roundIndex, matchCount }) {
   const lines = [];
-  const yMid = CON_H / 2;
-  const pairs = count / 2;
-  for (let k = 0; k < pairs; k++) {
-    const x1 = cx(fromR,   2*k);
-    const x2 = cx(fromR,   2*k + 1);
-    const xM = cx(fromR+1, k);          // 精确等于 (x1+x2)/2
+  for (let i = 0; i < matchCount; i += 2) {
+    const y1  = cY(roundIndex, i);
+    const y2  = cY(roundIndex, i + 1);
+    const yM  = (y1 + y2) / 2;    // 精确等于 cY(roundIndex+1, i/2)
     lines.push(
-      <line key={`a${k}`} x1={x1} y1={0}    x2={x1} y2={yMid} />,
-      <line key={`b${k}`} x1={x2} y1={0}    x2={x2} y2={yMid} />,
-      <line key={`c${k}`} x1={x1} y1={yMid} x2={x2} y2={yMid} />,
-      <line key={`d${k}`} x1={xM} y1={yMid} x2={xM} y2={CON_H} />,
+      <line key={`v1-${i}`} x1={0} y1={y1} x2={0} y2={yM} />,
+      <line key={`v2-${i}`} x1={0} y1={y2} x2={0} y2={yM} />,
+      <line key={`h-${i}`}  x1={0} y1={yM} x2={CON_W} y2={yM} />,
     );
   }
-  return <BracketSVG>{lines}</BracketSVG>;
-}
-
-// ── 展开连接线（下半区：从 fromR 向下展开到 fromR-1） ─────────────────────────
-function DivergeSVG({ fromR, count }) {
-  const lines = [];
-  const yMid = CON_H / 2;
-  for (let k = 0; k < count; k++) {
-    const xF  = cx(fromR,   k);
-    const xT0 = cx(fromR-1, 2*k);
-    const xT1 = cx(fromR-1, 2*k + 1);  // xF 精确等于 (xT0+xT1)/2
-    lines.push(
-      <line key={`a${k}`} x1={xF}  y1={0}    x2={xF}  y2={yMid} />,
-      <line key={`b${k}`} x1={xT0} y1={yMid} x2={xT1} y2={yMid} />,
-      <line key={`c${k}`} x1={xT0} y1={yMid} x2={xT0} y2={CON_H} />,
-      <line key={`d${k}`} x1={xT1} y1={yMid} x2={xT1} y2={CON_H} />,
-    );
-  }
-  return <BracketSVG>{lines}</BracketSVG>;
-}
-
-// ── SF → 决赛 → SF 垂直连接线（居中） ─────────────────────────────────────────
-function FinalLineSVG({ color }) {
-  const xC = HALF_W / 2;  // = 4 * SLOT_W = cx(3, 0) ✓ 三者完全对齐
   return (
-    <svg width={HALF_W} height={CON_H} fill="none" style={{ display: "block", flexShrink: 0 }}>
-      <line x1={xC} y1={0} x2={xC} y2={CON_H} stroke={color || "var(--border2)"} strokeWidth={1} />
+    <svg
+      width={CON_W} height={BRACKET_H}
+      fill="none" stroke="var(--border2)" strokeWidth={1}
+      style={{ position: "absolute", top: 0, left: 0, overflow: "visible" }}
+    >
+      {lines}
     </svg>
-  );
-}
-
-function BracketSVG({ children }) {
-  return (
-    <svg width={HALF_W} height={CON_H} fill="none"
-      stroke="var(--border2)" strokeWidth={1}
-      style={{ display: "block", flexShrink: 0 }}>
-      {children}
-    </svg>
-  );
-}
-
-// ── 半区标题 ──────────────────────────────────────────────────────────────────
-function HalfLabel({ text, color, bg, border }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0" }}>
-      <div style={{ flex: 1, height: 1, background: `linear-gradient(90deg,transparent,${border})` }} />
-      <span style={{
-        fontSize: 9, fontWeight: 800, color,
-        letterSpacing: "0.08em",
-        background: bg, border: `1px solid ${border}`,
-        borderRadius: 4, padding: "2px 8px",
-      }}>{text}</span>
-      <div style={{ flex: 1, height: 1, background: `linear-gradient(90deg,${border},transparent)` }} />
-    </div>
   );
 }
 
@@ -269,136 +206,171 @@ export default function KnockoutBracket({ fixtures = [] }) {
   const sm = buildStageMap(fixtures);
 
   // 数据填充
-  const r32t = R32_T.map((m, i) => enrich(m, sm.r32, i));
-  const r32b = R32_B.map((m, i) => enrich(m, sm.r32, i + 8));
-  const r16t = R16_T.map((m, i) => enrich(m, sm.r16, i));
-  const r16b = R16_B.map((m, i) => enrich(m, sm.r16, i + 4));
-  const qft  = QF_T.map((m, i)  => enrich(m, sm.qf,  i));
-  const qfb  = QF_B.map((m, i)  => enrich(m, sm.qf,  i + 2));
-  const sft  = SF_T.map((m, i)  => enrich(m, sm.sf,  i));
-  const sfb  = SF_B.map((m, i)  => enrich(m, sm.sf,  i + 1));
-  const fin  = FIN.map((m, i)   => enrich(m, sm.fin, i));
+  const enrichedRounds = ROUNDS.map((round) => {
+    const stageKey = ["r32","r16","qf","sf","fin"][round.r];
+    return {
+      ...round,
+      matches: round.matches.map((m, i) => enrich(m, sm[stageKey], i)),
+    };
+  });
 
+  // 三四名决赛
   const tppFix = fixtures.find(f => {
     const s = (f.stage || f.round || "").toLowerCase();
     return ["third", "3rd place", "third place"].some(k => s.includes(k));
   });
   const tpp = tppFix ? {
-    ...TPP[0], fixtureId: tppFix.id, status: tppFix.status,
+    ...TPP[0],
+    fixtureId: tppFix.id, status: tppFix.status,
     homeScore: tppFix.homeScore ?? null, awayScore: tppFix.awayScore ?? null,
     homeTeam: tppFix.home ? { name: tppFix.home.name, flag: tppFix.home.flag } : undefined,
     awayTeam: tppFix.away ? { name: tppFix.away.name, flag: tppFix.away.flag } : undefined,
   } : TPP[0];
 
   return (
-    <div style={{
-      overflowX: "auto",
-      WebkitOverflowScrolling: "touch",
-      scrollbarWidth: "none",
-      msOverflowStyle: "none",
-      padding: "12px 12px 16px",
-    }}>
-      {/* 内容容器：宽度固定为 HALF_W，垂直 flex 排列 */}
-      <div style={{
-        width: HALF_W,
-        display: "flex",
-        flexDirection: "column",
-        margin: "0 auto",
-      }}>
+    <div style={{ padding: "10px 12px 16px", overflowX: "hidden" }}>
 
-        {/* ── 上半区标签 ── */}
-        <HalfLabel
-          text="▲ 上半区"
-          color="#5c9eff"
-          bg="rgba(92,158,255,0.08)"
-          border="rgba(92,158,255,0.28)"
-        />
-
-        {/* ── 上半区：R32 → R16 → QF → SF ── */}
-        <RoundLabel label="32 强" />
-        <MatchRow matches={r32t} roundIdx={0} />
-        <ConvergeSVG fromR={0} count={8} />
-
-        <RoundLabel label="16 强" />
-        <MatchRow matches={r16t} roundIdx={1} />
-        <ConvergeSVG fromR={1} count={4} />
-
-        <RoundLabel label="八 强" />
-        <MatchRow matches={qft} roundIdx={2} />
-        <ConvergeSVG fromR={2} count={2} />
-
-        <RoundLabel label="四 强" />
-        <MatchRow matches={sft} roundIdx={3} />
-
-        {/* ── SF → 决赛连线 ── */}
-        <FinalLineSVG color="rgba(255,193,7,0.5)" />
-
-        {/* ── 决赛 ── */}
-        <div style={{
-          display: "flex", flexDirection: "column", alignItems: "center",
-          padding: "6px 0 5px",
-          background: "linear-gradient(180deg,rgba(255,193,7,0.04),rgba(255,193,7,0.08),rgba(255,193,7,0.04))",
-          borderTop: "1px solid rgba(255,193,7,0.2)",
-          borderBottom: "1px solid rgba(255,193,7,0.2)",
-        }}>
-          <span style={{
-            fontSize: 10, fontWeight: 800, color: "var(--gold)",
-            letterSpacing: "0.12em", marginBottom: 6,
-          }}>🏆 决 赛</span>
-          <MatchCard match={fin[0]} isFinal />
-        </div>
-
-        {/* ── 决赛 → SF 连线 ── */}
-        <FinalLineSVG color="rgba(255,193,7,0.5)" />
-
-        {/* ── 下半区：SF → QF → R16 → R32 ── */}
-        <RoundLabel label="四 强" />
-        <MatchRow matches={sfb} roundIdx={3} />
-        <DivergeSVG fromR={3} count={1} />
-
-        <RoundLabel label="八 强" />
-        <MatchRow matches={qfb} roundIdx={2} />
-        <DivergeSVG fromR={2} count={2} />
-
-        <RoundLabel label="16 强" />
-        <MatchRow matches={r16b} roundIdx={1} />
-        <DivergeSVG fromR={1} count={4} />
-
-        <RoundLabel label="32 强" />
-        <MatchRow matches={r32b} roundIdx={0} />
-
-        {/* ── 下半区标签 ── */}
-        <HalfLabel
-          text="▼ 下半区"
-          color="#ffc107"
-          bg="rgba(255,193,7,0.08)"
-          border="rgba(255,193,7,0.28)"
-        />
-
-        {/* ── 三四名决赛 ── */}
-        <div style={{
-          marginTop: 14, padding: "8px 10px",
-          background: "rgba(92,158,255,0.04)",
-          border: "1px solid rgba(92,158,255,0.15)",
-          borderRadius: 8,
-          display: "flex", alignItems: "center", gap: 10,
-        }}>
-          <div style={{ flexShrink: 0 }}>
-            <div style={{ fontSize: 8, fontWeight: 800, color: "var(--blue)",
-              letterSpacing: "0.04em", marginBottom: 3 }}>🥉 三四名决赛</div>
-            <div style={{ fontSize: 7, color: "var(--text3)" }}>两支半决赛负队</div>
+      {/* ── 轮次标签行 ── */}
+      <div style={{ display: "flex", marginLeft: SIDE_W, marginBottom: 4 }}>
+        {ROUNDS.map((round, ri) => (
+          <div key={round.r} style={{ display: "flex", flexShrink: 0 }}>
+            <div style={{
+              width: CARD_W, textAlign: "center",
+              fontSize: 8, fontWeight: 800, letterSpacing: "0.06em",
+              color: round.r === 4 ? "var(--gold)" : "var(--blue)",
+              height: 18, lineHeight: "18px",
+            }}>
+              {round.label}
+            </div>
+            {ri < ROUNDS.length - 1 && <div style={{ width: CON_W }} />}
           </div>
-          <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
-          <MatchCard match={tpp} />
+        ))}
+      </div>
+
+      {/* ── 主体：侧边标签 + 对阵树 ── */}
+      <div style={{ display: "flex" }}>
+
+        {/* ─ 半区侧边指示条 ─ */}
+        <div style={{
+          width: SIDE_W, flexShrink: 0,
+          position: "relative", height: BRACKET_H,
+        }}>
+          {/* 上半区蓝色条 */}
+          <div style={{
+            position: "absolute", left: 0, top: 0,
+            width: 3, height: FIN_TOP,
+            background: "linear-gradient(180deg, rgba(92,158,255,0.7), rgba(92,158,255,0.3))",
+            borderRadius: "2px 2px 0 0",
+          }} />
+          {/* 上半区文字 */}
+          <div style={{
+            position: "absolute", left: 4,
+            top: FIN_TOP / 2,
+            transform: "translateY(-50%)",
+            writingMode: "vertical-lr",
+            fontSize: 7, fontWeight: 800, color: "#5c9eff",
+            letterSpacing: "0.06em",
+          }}>上半区</div>
+
+          {/* 下半区金色条 */}
+          <div style={{
+            position: "absolute", left: 0, top: FIN_BOT,
+            width: 3, height: BRACKET_H - FIN_BOT,
+            background: "linear-gradient(180deg, rgba(255,193,7,0.3), rgba(255,193,7,0.7))",
+            borderRadius: "0 0 2px 2px",
+          }} />
+          {/* 下半区文字 */}
+          <div style={{
+            position: "absolute", left: 4,
+            top: FIN_BOT + (BRACKET_H - FIN_BOT) / 2,
+            transform: "translateY(-50%)",
+            writingMode: "vertical-lr",
+            fontSize: 7, fontWeight: 800, color: "#ffc107",
+            letterSpacing: "0.06em",
+          }}>下半区</div>
         </div>
 
-        {/* ── 注脚 ── */}
+        {/* ─ 5列对阵树 ─ */}
         <div style={{
-          fontSize: 8, color: "var(--text3)",
-          marginTop: 10, lineHeight: 1.6, textAlign: "center",
+          position: "relative",
+          width: TOTAL_W, height: BRACKET_H,
+          flexShrink: 0,
         }}>
-          Q3a–h = 各组最佳第3名席位 · 对阵将在小组赛后由FIFA公布
+
+          {/* 上下半区分隔线（在决赛卡片上方） */}
+          <div style={{
+            position: "absolute",
+            top: FIN_TOP - 1,
+            left: 0, right: 0,
+            height: 1,
+            background: "linear-gradient(90deg, rgba(92,158,255,0.4), rgba(255,193,7,0.4))",
+            pointerEvents: "none",
+          }} />
+          <div style={{
+            position: "absolute",
+            top: FIN_BOT + 1,
+            left: 0, right: 0,
+            height: 1,
+            background: "linear-gradient(90deg, rgba(92,158,255,0.4), rgba(255,193,7,0.4))",
+            pointerEvents: "none",
+          }} />
+
+          {/* 各列卡片 + 连接线 */}
+          {enrichedRounds.map((round) => {
+            const left = cX(round.r);
+            return (
+              <div key={round.r}>
+                {/* 卡片列 */}
+                {round.matches.map((match, i) => (
+                  <div key={match.id} style={{
+                    position: "absolute",
+                    left, top: cTop(round.r, i),
+                  }}>
+                    <MatchCard match={match} isFinal={round.r === 4} />
+                  </div>
+                ))}
+
+                {/* 连接线列（最后一列无连接线） */}
+                {round.r < 4 && (
+                  <div style={{
+                    position: "absolute",
+                    left: left + CARD_W, top: 0,
+                    width: CON_W, height: BRACKET_H,
+                  }}>
+                    <ConnectorSVG roundIndex={round.r} matchCount={round.matches.length} />
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
+      </div>
+
+      {/* ── 三四名决赛 ── */}
+      <div style={{
+        marginTop: 16, marginLeft: SIDE_W,
+        padding: "8px 10px",
+        background: "rgba(92,158,255,0.04)",
+        border: "1px solid rgba(92,158,255,0.18)",
+        borderRadius: 8,
+        display: "flex", alignItems: "center", gap: 10,
+      }}>
+        <div style={{ flexShrink: 0 }}>
+          <div style={{ fontSize: 8, fontWeight: 800, color: "var(--blue)",
+            letterSpacing: "0.04em", marginBottom: 3 }}>🥉 三四名决赛</div>
+          <div style={{ fontSize: 7, color: "var(--text3)" }}>两支半决赛负队</div>
+        </div>
+        <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
+        <MatchCard match={tpp} />
+      </div>
+
+      {/* ── 注脚 ── */}
+      <div style={{
+        fontSize: 7.5, color: "var(--text3)",
+        marginTop: 10, lineHeight: 1.6,
+        textAlign: "center",
+      }}>
+        Q3a–h = 各组最佳第3名席位 · 对阵将在小组赛后由FIFA公布 · 点击卡片查看比赛详情
       </div>
     </div>
   );
