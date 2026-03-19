@@ -174,8 +174,9 @@ export default function CompHomePage() {
   const todayList    = todayFixtures(fixturesData?.fixtures || []);
   const upcomingList = useMemo(() => {
     if (todayList.length > 0) return [];
+    const now = new Date();
     return (fixturesData?.fixtures || [])
-      .filter(f => f.status === "NS")
+      .filter(f => f.startingAt && new Date(f.startingAt) > now)
       .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
       .slice(0, 3);
   }, [todayList, fixturesData]);
