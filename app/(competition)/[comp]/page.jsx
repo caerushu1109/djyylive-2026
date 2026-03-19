@@ -65,7 +65,7 @@ function LiveBanner({ fixture }) {
       <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--live)", animation: "pulse 1.5s infinite", flexShrink: 0 }} />
       <div style={{ flex: 1, padding: "0 10px" }}>
         <div style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          {fixture.stage || fixture.group || "世界杯"} ÷ {fixture.minute || "—"}
+          ● LIVE · {fixture.stage || fixture.group || "世界杯"} · {fixture.minute || "—"}
         </div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", marginTop: 2 }}>
           {fixture.home?.flag} {fixture.home?.name} vs {fixture.away?.flag} {fixture.away?.name}
@@ -105,7 +105,7 @@ function QuickStats({ fixturesData }) {
     dayValue = Math.round((wcStartBJT - todayBJT) / MS_PER_DAY);
     dayLabel = "距开幕";
   } else if (todayBJT <= wcEndBJT) {
-    dayValue = Math.round((todayBJT - wcStartBJT) / MS_PER_DAY) + 1;
+    dayValue = Math.round((todayBJT - wcStartB�T) / MS_PER_DAY) + 1;
     dayLabel = "赛事进行中";
   } else {
     dayValue = "✓";
@@ -170,6 +170,14 @@ export default function CompHomePage() {
   const { data: eloData } = useElo();
   const { data: predData } = usePredictions();
 
+  // Helper: resolve English originalName for team detail navigation
+  const getTeamHref = (team) => {
+    const eloTeam = (eloData?.rankings || []).find(
+      r => r.code === team.code || r.name === team.name
+    );
+    return `/team/${encodeURIComponent(eloTeam?.originalName || team.originalName || team.name)}`;
+  };
+
   const liveFixtures = fixturesData?.fixtures?.filter(f => f.status === "LIVE") || [];
   const todayList    = todayFixtures(fixturesData?.fixtures || []);
   const upcomingList = useMemo(() => {
@@ -222,7 +230,7 @@ export default function CompHomePage() {
           </div>
           <div style={{ display: "flex", padding: "10px 8px 8px", gap: 6 }}>
             {top3.map((team, i) => (
-              <Link key={team.code} href={`/team/${encodeURIComponent(team.originalName || team.name)}`} style={{
+              <Link key={team.code} href={getTeamHref(team)} style={{
                 flex: 1, background: MEDAL_STYLES[i].bg, border: MEDAL_STYLES[i].border,
                 borderRadius: "var(--radius-sm)", padding: 8, textAlign: "center",
                 textDecoration: "none", display: "block",
@@ -239,7 +247,7 @@ export default function CompHomePage() {
           {next3.length > 0 && (
             <div style={{ borderTop: "1px solid var(--border)", padding: "4px 8px 10px" }}>
               {next3.map((team, i) => (
-                <Link key={team.code} href={`/team/${encodeURIComponent(team.originalName || team.name)}`} style={{
+                <Link key={team.code} href={getTeamHref(team)} style={{
                   display: "flex", alignItems: "center", padding: "6px 4px", gap: 8,
                   borderBottom: i < next3.length - 1 ? "1px solid var(--border)" : "none",
                   textDecoration: "none",
