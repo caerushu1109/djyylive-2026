@@ -1,180 +1,33 @@
 "use client";
-import { useState, useMemo } from "react";
-import { useParams, useRouter } from "next/navigation";
-import { useElo } from "@/lib/hooks/useElo";
+import { useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
+import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import MatchCard from "@/components/shared/MatchCard";
-import TeamSearchModal from "@/components/shared/TeamSearchModal";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import SectionTitle from "@/components/ui/SectionTitle";
+import TeamSearchModal from "@/components/shared/TeamSearchModal";
 
-// Beijing time date-string helper
-function toBeijingDateStr(isoString) {
-  return new Date(isoString).toLocaleDateString("zh-CN", {
-    timeZone: "Asia/Shanghai",
-    month: "short",
-    day:   "numeric",
-    weekday: "short",
-  });
-}
+const COMP_LABELS = { wc2026: "2026 WC" };
+const MEDALS = ["🥇", "🥈", "🥉"];
+const MEDAL_STYLES = [
+  { border: "1px solid var(--gold)", bg: "var(--gold-dim)", pctColor: "var(--gold)" },
+  { border: "1px solid rgba(192,192,192,0.4)", bg: "rgba(192,192,192,0.05)", pctColor: "#bdbdbd" },
+  { border: "1px solid rgba(205,127,50,0.4)", bg: "rgba(205,127,50,0.05)", pctColor: "#cd7f32" },
+];
+const RANK_LABELS = ["4th", "5th", "6th"];
 
-// ── Days-until countdown ──────────────────────────────────────────────────────
-const TOURNAMENT_START = new Date("2026-06-11T00:00:00-05:00"); // ~US Central opening ceremony
-
-function DaysUntilBanner() {
-  const now      = new Date();
-  const diffMs   = TOURNAMENT_START - now;
-  const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
-
-  if (diffMs <= 0) {
-    return (
-      <div style={{
-        margin: "10px 12px", padding: "10px 14px",
-        background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.25)",
-        borderRadius: "var(--radius-sm)", display: "flex", alignItems: "center", gap: 8,
-      }}>
-        <span style={{ fontSize: 14 }}>🔴</span>
-        <span style={{ fontSize: 12, fontWeight: 700, color: "var(--red, #ef4444)" }}>
-          世界杯正在进行中
-        </span>
-      </div>
-    );
-  }
-
+function TopBar({ comp, onSearchClick }) {
   return (
     <div style={{
-      margin: "10px 12px", padding: "10px 14px",
-      background: "var(--card)", border: "1px solid var(--border2)",
-      borderRadius: "var(--radius-sm)", display: "flex", alignItems: "center", justifyContent: "space-between",
+      padding: "10px 16px 8px",
+      display: "flex", alignItems: "center", justifyContent: "space-between",
     }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-          距开幕
-        </span>
-        <span style={{ fontSize: 10, color: "var(--text3)" }}>2026.6.11 开幕 · 墨西哥城</span>
-      </div>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-        <span style={{ fontSize: 28, fontWeight: 900, color: "var(--blue)", fontVariantNumeric: "tabular-nums" }}>
-          {diffDays}
-        </span>
-        <span style={{ fontSize: 12, color: "var(--text2)", fontWeight: 700 }}>天</span>
-      </div>
-    </div>
-  );
-}
-
-// ── Top predictions widget ────────────────────────────────────────────────────
-function TopPredictions({ teams, onTeamClick }) {
-  const top6 = (teams || []).slice(0, 6);
-  const maxProb = top6[0]?.probabilityValue || 1;
-
-  if (top6.length === 0) return null;
-
-  return (
-    <div style={{ margin: "0 12px", background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius)" }}>
-      <div style={{ padding: "10px 14px 6px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.04em", color: "var(--text2)" }}>
-          夺冠热门
-        </span>
-        <span style={{ fontSize: 10, color: "var(--text3)" }}>ELO 蒙特卡洛模型</span>
-      </div>
-
-      {top6.map((team, i) => {
-        const pct      = team.probabilityValue || 0;
-        const barWidth = maxProb > 0 ? (pct / maxProb) * 100 : 0;
-
-        return (
-          <button
-            key={team.name}
-            onClick={() => onTeamClick(team)}
-            style={{
-              width: "100%", display: "flex", alignItems: "center", gap: 10,
-              padding: "8px 14px",
-              borderTop: i === 0 ? "1px solid var(--border)" : "none",
-              borderBottom: i < top6.length - 1 ? "1px solid var(--border)" : "none",
-              background: "none", border: "none", borderTop: "1px solid var(--border)",
-              cursor: "pointer", textAlign: "left",
-            }}
-          >
-            <span style={{ fontSize: 10, color: "var(--text3)", width: 14, fontWeight: 700, flexShrink: 0 }}>
-              {i + 1}
-            </span>
-            <span style={{ fontSize: 18, flexShrink: 0 }}>{team.flag}</span>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", flex: 1, textAlign: "left" }}>
-              {team.name}
-            </span>
-            <div style={{
-              width: 60, height: 3, background: "var(--card2)",
-              borderRadius: 999, overflow: "hidden", flexShrink: 0,
-            }}>
-              <div style={{
-                width: `${barWidth}%`, height: "100%", borderRadius: 999,
-                background: "linear-gradient(90deg, var(--blue), var(--purple))",
-              }} />
-            </div>
-            <span style={{
-              fontSize: 12, fontWeight: 900, color: "var(--text)",
-              width: 42, textAlign: "right",
-              fontVariantNumeric: "tabular-nums", flexShrink: 0,
-            }}>
-              {pct.toFixed(1)}%
-            </span>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-// ── Main page ──────────────────────────────────────────────────────────────────
-export default function HomePage() {
-  const { comp } = useParams();
-  const router = useRouter();
-
-  const [showSearch, setShowSearch] = useState(false);
-
-  const { data: eloData,   loading: eloLoading  } = useElo();
-  const { data: predData,  loading: predLoading  } = usePredictions();
-  const { data: fixturesData, loading: fixLoading } = useFixtures();
-
-  const allTeams  = eloData?.rankings   || [];
-  const wcTeams   = (predData?.teams || []).sort((a, b) => (b.probabilityValue || 0) - (a.probabilityValue || 0));
-
-  // Upcoming / live matches — show next 5
-  const upcomingFixtures = useMemo(() => {
-    const all = fixturesData?.fixtures || [];
-    const now  = new Date();
-    return all
-      .filter((f) => f.status === "NS" || f.status === "LIVE" || f.status === "HT")
-      .sort((a, b) => new Date(a.date) - new Date(b.date))
-      .slice(0, 5);
-  }, [fixturesData]);
-
-  // Recent results — last 3 finished matches
-  const recentResults = useMemo(() => {
-    const all = fixturesData?.fixtures || [];
-    return all
-      .filter((f) => f.status === "FT" || f.status === "AET" || f.status === "PEN")
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .slice(0, 3);
-  }, [fixturesData]);
-
-  function handleTeamClick(team) {
-    router.push(`/team/${encodeURIComponent(team.originalName || team.name)}`);
-  }
-
-  return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      {/* TopBar */}
-      <div style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "10px 16px 8px", flexShrink: 0,
-      }}>
-        <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <div style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
           DJ<span style={{ color: "var(--blue)" }}>YY</span>
-        </span>
-
+        </div>
         <div style={{
           display: "flex", alignItems: "center", gap: 6,
           background: "var(--card)", border: "1px solid var(--border2)",
@@ -184,106 +37,279 @@ export default function HomePage() {
           <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>2026 WC</span>
           <span style={{ fontSize: 8, color: "var(--text3)" }}>▾</span>
         </div>
-
-        {/* Search button — wired to TeamSearchModal */}
-        <button
-          onClick={() => setShowSearch(true)}
+      </div>
+      <div style={{ display: "flex", gap: 8 }}>
+        <div style={{
+          width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16,
+        }}>🔔</div>
+        <div
+          onClick={onSearchClick}
           style={{
             width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
             borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: 16, cursor: "pointer",
           }}
-        >
-          🔍
-        </button>
+        >🔍</div>
       </div>
+    </div>
+  );
+}
 
-      {/* Scrollable content */}
-      <div style={{ overflowY: "auto", flex: 1, paddingBottom: 24 }}>
-        {/* Countdown banner */}
-        <DaysUntilBanner />
+function LiveBanner({ fixture }) {
+  if (!fixture) return null;
+  return (
+    <div style={{
+      margin: "0 12px 12px",
+      background: "linear-gradient(135deg, #1a1f2e, #151922)",
+      border: "1px solid rgba(255,61,61,0.25)",
+      borderRadius: "var(--radius)", padding: "10px 12px",
+      display: "flex", alignItems: "center", justifyContent: "space-between",
+    }}>
+      <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--live)", animation: "pulse 1.5s infinite", flexShrink: 0 }} />
+      <div style={{ flex: 1, padding: "0 10px" }}>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          ● LIVE · {fixture.stage || fixture.group || "世界杯"} · {fixture.minute || "—"}
+        </div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", marginTop: 2 }}>
+          {fixture.home?.flag} {fixture.home?.name} vs {fixture.away?.flag} {fixture.away?.name}
+        </div>
+      </div>
+      <div>
+        <div style={{
+          fontSize: 20, fontWeight: 900, color: "var(--text)",
+          letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums", textAlign: "right",
+        }}>
+          {fixture.homeScore ?? 0}–{fixture.awayScore ?? 0}
+        </div>
+        <div style={{ fontSize: 10, color: "var(--live)", fontWeight: 700, textAlign: "right", marginTop: 2 }}>
+          {fixture.minute || "—"}
+        </div>
+      </div>
+    </div>
+  );
+}
 
-        {/* Top predictions */}
-        {(eloLoading || predLoading) ? (
-          <LoadingSpinner />
-        ) : (
-          <section>
-            <SectionTitle style={{ padding: "14px 12px 8px" }}>夺冠热门</SectionTitle>
-            <TopPredictions teams={wcTeams} onTeamClick={handleTeamClick} />
-          </section>
-        )}
+function QuickStats({ fixturesData }) {
+  const allFixtures = fixturesData?.fixtures || [];
+  const liveCount = allFixtures.filter(f => f.status === "LIVE").length;
+  const todayBJTStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+  const todayCount = allFixtures.filter(f => {
+    if (!f.startingAt) return false;
+    const fDateStr = new Date(f.startingAt).toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+    return fDateStr === todayBJTStr;
+  }).length;
+  const bjtDateStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+  const todayBJT = new Date(bjtDateStr);
+  const wcStartBJT = new Date("2026-06-11");
+  const wcEndBJT   = new Date("2026-07-19");
+  const MS_PER_DAY = 1000 * 60 * 60 * 24;
+  let dayValue, dayLabel;
+  if (todayBJT < wcStartBJT) {
+    dayValue = Math.round((wcStartBJT - todayBJT) / MS_PER_DAY);
+    dayLabel = "距开幕";
+  } else if (todayBJT <= wcEndBJT) {
+    dayValue = Math.round((todayBJT - wcStartBJT) / MS_PER_DAY) + 1;
+    dayLabel = "赛事进行中";
+  } else {
+    dayValue = "✓";
+    dayLabel = "已结束";
+  }
+  const card = (value, label, color = "var(--text)") => (
+    <div key={label} style={{
+      flex: 1, background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius-sm)", padding: "8px 4px", textAlign: "center", minWidth: 0,
+    }}>
+      <div style={{ fontSize: 18, fontWeight: 900, color, fontVariantNumeric: "tabular-nums" }}>{value}</div>
+      <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>{label}</div>
+    </div>
+  );
+  return (
+    <div style={{ display: "flex", gap: 6, padding: "0 12px", marginBottom: 14 }}>
+      {card(liveCount, "进行中", "var(--green)")}
+      {card(todayCount, "今日赛程")}
+      {card(48, "球队")}
+      {card(12, "小组")}
+      {card(dayValue, dayLabel)}
+    </div>
+  );
+}
 
-        {/* Upcoming fixtures */}
-        {upcomingFixtures.length > 0 && (
-          <section style={{ marginTop: 20 }}>
-            <SectionTitle style={{ padding: "0 12px 8px" }}>即将开赛</SectionTitle>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, padding: "0 12px" }}>
-              {fixLoading ? <LoadingSpinner /> : (
-                upcomingFixtures.map((f) => <MatchCard key={f.id} fixture={f} />)
-              )}
-            </div>
-          </section>
-        )}
+function WinProbBar() {
+  const home = 42, draw = 18, away = 40;
+  return (
+    <div style={{ background: "var(--card)", borderRadius: 10, margin: "0 12px 4px", padding: "10px 12px 8px" }}>
+      <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 6 }}>
+        实时胜负概率（滚球预测）
+      </div>
+      <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 5 }}>
+        <div style={{ width: `${home}%`, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
+        <div style={{ width: `${draw}%`, background: "var(--text3)" }} />
+        <div style={{ width: `${away}%`, background: "var(--red)", borderRadius: "0 6px 6px 0" }} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--blue)" }}>{home}%</div>
+        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--text3)", flex: 1, textAlign: "center" }}>{draw}%</div>
+        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--red)" }}>{away}%</div>
+      </div>
+    </div>
+  );
+}
 
-        {/* Recent results */}
-        {recentResults.length > 0 && (
-          <section style={{ marginTop: 20 }}>
-            <SectionTitle style={{ padding: "0 12px 8px" }}>最近战绩</SectionTitle>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, padding: "0 12px" }}>
-              {recentResults.map((f) => <MatchCard key={f.id} fixture={f} />)}
-            </div>
-          </section>
-        )}
+function todayFixtures(fixtures) {
+  if (!fixtures?.length) return [];
+  const todayBJT = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+  return fixtures.filter(f => {
+    if (!f.startingAt) return false;
+    const fDateBJT = new Date(f.startingAt).toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+    return fDateBJT === todayBJT;
+  });
+}
 
-        {/* ELO standings teaser */}
-        {!eloLoading && allTeams.length > 0 && (
-          <section style={{ marginTop: 20 }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 12px 8px" }}>
-              <SectionTitle>ELO 排名</SectionTitle>
-              <button
-                onClick={() => setShowSearch(true)}
-                style={{
-                  fontSize: 11, color: "var(--blue)", fontWeight: 700,
-                  background: "none", border: "none", cursor: "pointer", padding: 0,
-                }}
-              >
-                搜索球队 →
-              </button>
-            </div>
-            <div style={{ margin: "0 12px", background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius)" }}>
-              {allTeams.slice(0, 8).map((team, i) => (
-                <button
-                  key={team.name}
-                  onClick={() => handleTeamClick(team)}
-                  style={{
-                    width: "100%", display: "flex", alignItems: "center", gap: 10,
-                    padding: "9px 14px",
-                    borderBottom: i < 7 ? "1px solid var(--border)" : "none",
-                    background: "none", border: "none",
-                    cursor: "pointer", textAlign: "left",
-                  }}
-                >
-                  <span style={{ fontSize: 11, color: "var(--text3)", width: 18, fontWeight: 700, flexShrink: 0, fontVariantNumeric: "tabular-nums" }}>
-                    {team.rank}
+export default function CompHomePage() {
+  const { comp } = useParams();
+  const [showSearch, setShowSearch] = useState(false);
+
+  const { data: fixturesData, loading: fixturesLoading } = useFixtures({ pollInterval: 30000 });
+  const { data: eloData } = useElo();
+  const { data: predData } = usePredictions();
+
+  const liveFixtures    = fixturesData?.fixtures?.filter(f => f.status === "LIVE") || [];
+  const displayFixtures = todayFixtures(fixturesData?.fixtures || []);
+  const top6       = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 6);
+  const top3       = top6.slice(0, 3);
+  const next3      = top6.slice(3, 6);
+  const marketRows = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 4);
+
+  return (
+    <div>
+      <TopBar comp={comp} onSearchClick={() => setShowSearch(true)} />
+
+      {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
+      {liveFixtures.length > 0 && <WinProbBar />}
+
+      <QuickStats fixturesData={fixturesData} />
+
+      <div style={{ padding: "0 12px", marginBottom: 6, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>今日赛程</span>
+        <Link href={`/${comp}/fixtures`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>全部 →</Link>
+      </div>
+      {fixturesLoading ? (
+        <LoadingSpinner />
+      ) : displayFixtures.length === 0 ? (
+        <p style={{ padding: "0 12px", color: "var(--text2)", fontSize: 13 }}>今日暂无比赛</p>
+      ) : (
+        displayFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
+      )}
+
+      {/* ELO Top 6 */}
+      {top3.length > 0 && (
+        <div style={{
+          margin: "0 12px 12px", background: "var(--card)",
+          border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
+          <div style={{ padding: "10px 12px 0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              夺冠热门 · ELO模型
+            </span>
+            <Link href={`/${comp}/predict`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整榜 →</Link>
+          </div>
+          <div style={{ display: "flex", padding: "10px 8px 8px", gap: 6 }}>
+            {top3.map((team, i) => (
+              <div key={team.code} style={{
+                flex: 1, background: MEDAL_STYLES[i].bg, border: MEDAL_STYLES[i].border,
+                borderRadius: "var(--radius-sm)", padding: 8, textAlign: "center",
+              }}>
+                <div style={{ fontSize: 14 }}>{MEDALS[i]}</div>
+                <span style={{ fontSize: 20, display: "block", margin: "4px 0" }}>{team.flag}</span>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text)" }}>{team.name}</div>
+                <div style={{ fontSize: 12, fontWeight: 900, color: MEDAL_STYLES[i].pctColor, marginTop: 2 }}>
+                  {team.probabilityValue !== undefined ? `${team.probabilityValue.toFixed(1)}%` : "—"}
+                </div>
+              </div>
+            ))}
+          </div>
+          {next3.length > 0 && (
+            <div style={{ borderTop: "1px solid var(--border)", padding: "4px 8px 10px" }}>
+              {next3.map((team, i) => (
+                <div key={team.code} style={{
+                  display: "flex", alignItems: "center", padding: "6px 4px", gap: 8,
+                  borderBottom: i < next3.length - 1 ? "1px solid var(--border)" : "none",
+                }}>
+                  <span style={{ fontSize: 10, color: "var(--text3)", fontWeight: 700, width: 16, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
+                  <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag}</span>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: 1 }}>{team.name}</span>
+                  <span style={{ fontSize: 12, fontWeight: 900, color: "var(--text2)", fontVariantNumeric: "tabular-nums" }}>
+                    {team.probabilityValue !== undefined ? `${team.probabilityValue.toFixed(1)}%` : "—"}
                   </span>
-                  <span style={{ fontSize: 18, flexShrink: 0 }}>{team.flag}</span>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", flex: 1, textAlign: "left" }}>
-                    {team.name}
-                  </span>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: "var(--blue)", flexShrink: 0, fontVariantNumeric: "tabular-nums" }}>
-                    {team.elo}
-                  </span>
-                </button>
+                </div>
               ))}
             </div>
-          </section>
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
-      {/* Search overlay */}
+      {/* Market signals */}
+      {marketRows.length > 0 && (
+        <div style={{
+          margin: "0 12px 12px", background: "var(--card)",
+          border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
+          <div style={{
+            padding: "10px 12px", display: "flex", alignItems: "center", justifyContent: "space-between",
+            borderBottom: "1px solid var(--border)",
+          }}>
+            <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              市场信号 · POLYMARKET
+            </span>
+            <Link href={`/${comp}/markets`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整市场 →</Link>
+          </div>
+          <div style={{
+            display: "flex", alignItems: "center", padding: "6px 12px",
+            borderBottom: "1px solid var(--border2)", background: "var(--card2)",
+          }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", flex: 1, textTransform: "uppercase", letterSpacing: "0.06em" }}>球队</div>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 40, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>模型</div>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 40, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>市场</div>
+            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 44, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>价值</div>
+          </div>
+          {marketRows.map((team, i) => {
+            const modelPct  = team.prob !== undefined ? (team.prob * 100) : null;
+            const offsets   = [-5.3, 3.8, 0.1, -1.2];
+            const marketPct = modelPct !== null ? Math.max(0.1, modelPct + offsets[i % offsets.length]) : null;
+            const value     = modelPct !== null && marketPct !== null ? modelPct - marketPct : null;
+            const valBg     = value === null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
+            const valColor  = value === null ? "var(--text3)" : value > 0.5 ? "var(--green)"    : value < -0.5 ? "var(--red)"     : "var(--text3)";
+            return (
+              <div key={team.code} style={{
+                display: "flex", alignItems: "center", padding: "8px 12px",
+                borderBottom: i < marketRows.length - 1 ? "1px solid var(--border)" : "none", gap: 8,
+              }}>
+                <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag}</span>
+                <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: 1 }}>{team.name}</span>
+                <span style={{ fontSize: 11, color: "var(--blue)", fontWeight: 700, width: 38, textAlign: "right" }}>
+                  {modelPct !== null ? `${modelPct.toFixed(1)}%` : "—"}
+                </span>
+                <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600, width: 38, textAlign: "right" }}>
+                  {marketPct !== null ? `${marketPct.toFixed(1)}%` : "—"}
+                </span>
+                <span style={{
+                  fontSize: 10, fontWeight: 800, padding: "2px 6px", borderRadius: 4,
+                  width: 42, textAlign: "center", background: valBg, color: valColor,
+                }}>
+                  {value !== null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      <div style={{ height: 20 }} />
+
       {showSearch && (
         <TeamSearchModal
-          teams={allTeams}
+          teams={eloData?.rankings || []}
           onClose={() => setShowSearch(false)}
         />
       )}
