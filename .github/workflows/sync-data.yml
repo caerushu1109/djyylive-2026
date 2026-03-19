@@ -1,0 +1,39 @@
+name: Weekly Squad Sync
+
+on:
+  schedule:
+    - cron: "0 2 * * 1"   # Every Monday at 02:00 UTC
+  workflow_dispatch:       # Allow manual trigger from GitHub UI
+
+jobs:
+  sync-squads:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # Needed to push updated JSON files
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch squad data from SportMonks
+        run: node scripts/sync-squads.mjs
+        env:
+          SPORTMONKS_API_TOKEN: ${{ secrets.SPORTMONKS_API_TOKEN }}
+
+      - name: Commit and push updated squads
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/squads/
+          # Only commit if anything changed
+          git diff --staged --quiet || git commit -m "chore: weekly squad sync [skip ci]"
+          git push
