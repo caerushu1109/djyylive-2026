@@ -14,6 +14,7 @@ const MEDAL_STYLES = [
   { border: "1px solid rgba(192,192,192,0.4)", bg: "rgba(192,192,192,0.05)", pctColor: "#bdbdbd" },
   { border: "1px solid rgba(205,127,50,0.4)", bg: "rgba(205,127,50,0.05)", pctColor: "#cd7f32" },
 ];
+const RANK_LABELS = ["4th", "5th", "6th"];
 
 function TopBar({ comp }) {
   return (
@@ -188,7 +189,9 @@ export default function CompHomePage() {
 
   const liveFixtures = fixturesData?.fixtures?.filter(f => f.status === "LIVE") || [];
   const displayFixtures = todayFixtures(fixturesData?.fixtures || []);
-  const top3 = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 3);
+  const top6 = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 6);
+  const top3 = top6.slice(0, 3);
+  const next3 = top6.slice(3, 6);
   const marketRows = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 4);
 
   return (
@@ -214,7 +217,7 @@ export default function CompHomePage() {
         displayFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
       )}
 
-      {/* ELO Top 3 */}
+      {/* ELO Top 6 */}
       {top3.length > 0 && (
         <div style={{
           margin: "0 12px 12px",
@@ -234,7 +237,7 @@ export default function CompHomePage() {
             </span>
             <Link href={`/${comp}/predict`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整榜 →</Link>
           </div>
-          <div style={{ display: "flex", padding: "10px 8px 12px", gap: 6 }}>
+          <div style={{ display: "flex", padding: "10px 8px 8px", gap: 6 }}>
             {top3.map((team, i) => (
               <div key={team.code} style={{
                 flex: 1,
@@ -248,11 +251,31 @@ export default function CompHomePage() {
                 <span style={{ fontSize: 20, display: "block", margin: "4px 0" }}>{team.flag}</span>
                 <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text)" }}>{team.name}</div>
                 <div style={{ fontSize: 12, fontWeight: 900, color: MEDAL_STYLES[i].pctColor, marginTop: 2 }}>
-                  {team.prob !== undefined ? `${(team.prob * 100).toFixed(1)}%` : "—"}
+                  {team.probabilityValue !== undefined ? `${team.probabilityValue.toFixed(1)}%` : "—"}
                 </div>
               </div>
             ))}
           </div>
+          {next3.length > 0 && (
+            <div style={{ borderTop: "1px solid var(--border)", padding: "4px 8px 10px" }}>
+              {next3.map((team, i) => (
+                <div key={team.code} style={{
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "6px 4px",
+                  gap: 8,
+                  borderBottom: i < next3.length - 1 ? "1px solid var(--border)" : "none",
+                }}>
+                  <span style={{ fontSize: 10, color: "var(--text3)", fontWeight: 700, width: 16, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
+                  <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag}</span>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: 1 }}>{team.name}</span>
+                  <span style={{ fontSize: 12, fontWeight: 900, color: "var(--text2)", fontVariantNumeric: "tabular-nums" }}>
+                    {team.probabilityValue !== undefined ? `${team.probabilityValue.toFixed(1)}%` : "—"}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
