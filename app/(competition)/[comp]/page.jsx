@@ -96,19 +96,26 @@ function LiveBanner({ fixture }) {
 function QuickStats({ fixturesData }) {
   const allFixtures = fixturesData?.fixtures || [];
   const liveCount = allFixtures.filter(f => f.status === "LIVE").length;
-  const today = new Date().toDateString();
-  const todayCount = allFixtures.filter(f => f.startingAt && new Date(f.startingAt).toDateString() === today && f.status !== "LIVE").length;
+  // Use Beijing time (Asia/Shanghai) for "today" comparisons
+  const todayBJTStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" }); // "YYYY-MM-DD"
+  const todayCount = allFixtures.filter(f => {
+    if (!f.startingAt || f.status === "LIVE") return false;
+    const fDateStr = new Date(f.startingAt).toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+    return fDateStr === todayBJTStr;
+  }).length;
 
-  // 2026 World Cup: June 11 – July 19, 2026
-  const wcStart = new Date("2026-06-11T00:00:00");
-  const wcEnd   = new Date("2026-07-19T23:59:59");
-  const now = new Date();
+  // 2026 World Cup: June 11 – July 19, 2026 — all dates in Beijing time (Asia/Shanghai)
+  const bjtDateStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" }); // "YYYY-MM-DD"
+  const todayBJT   = new Date(bjtDateStr);           // treat as day index (midnight UTC)
+  const wcStartBJT = new Date("2026-06-11");          // June 11 BJT
+  const wcEndBJT   = new Date("2026-07-19");          // July 19 BJT
+  const MS_PER_DAY = 1000 * 60 * 60 * 24;
   let dayValue, dayLabel;
-  if (now < wcStart) {
-    dayValue = Math.ceil((wcStart - now) / (1000 * 60 * 60 * 24));
+  if (todayBJT < wcStartBJT) {
+    dayValue = Math.round((wcStartBJT - todayBJT) / MS_PER_DAY);
     dayLabel = "距开幕";
-  } else if (now <= wcEnd) {
-    dayValue = Math.floor((now - wcStart) / (1000 * 60 * 60 * 24)) + 1;
+  } else if (todayBJT <= wcEndBJT) {
+    dayValue = Math.round((todayBJT - wcStartBJT) / MS_PER_DAY) + 1;
     dayLabel = "赛事第天";
   } else {
     dayValue = "✓";
