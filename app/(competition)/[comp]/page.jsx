@@ -39,10 +39,6 @@ function TopBar({ comp, onSearchClick }) {
         </div>
       </div>
       <div style={{ display: "flex", gap: 8 }}>
-        <div style={{
-          width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
-          borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16,
-        }}>🔔</div>
         <div
           onClick={onSearchClick}
           style={{
