@@ -25,9 +25,9 @@ function TopBar({ comp, onSearchClick }) {
       display: "flex", alignItems: "center", justifyContent: "space-between",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <div style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
+        <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
           DJ<span style={{ color: "var(--blue)" }}>YY</span>
-        </div>
+        </Link>
         <div style={{
           display: "flex", alignItems: "center", gap: 6,
           background: "var(--card)", border: "1px solid var(--border2)",

@@ -1,5 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useWc2026Participants } from "@/lib/hooks/useWc2026Participants";
 import { useEloTrends } from "@/lib/hooks/useEloTrends";
@@ -33,9 +34,9 @@ export default function PredictPage() {
       {/* TopBar */}
       <div style={{ display: "flex", alignItems: "center", padding: "10px 16px 8px", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
+          <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
             DJ<span style={{ color: "var(--blue)" }}>YY</span>
-          </span>
+          </Link>
           <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>夺冠预测</span>
         </div>
         {predData?.updatedAt && (

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import GroupSimulator from "@/components/wc/GroupSimulator";
 import KnockoutBracket from "@/components/wc/KnockoutBracket";
@@ -114,9 +115,9 @@ export default function GroupsPage() {
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "10px 16px 8px", flexShrink: 0,
       }}>
-        <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
+        <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
           DJ<span style={{ color: "var(--blue)" }}>YY</span>
-        </span>
+        </Link>
         <div style={{
           display: "flex", alignItems: "center", gap: 6,
           background: "var(--card)", border: "1px solid var(--border2)",

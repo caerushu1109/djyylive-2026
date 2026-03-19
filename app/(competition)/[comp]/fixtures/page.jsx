@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
@@ -61,9 +62,9 @@ export default function FixturesPage() {
         padding: "10px 16px 8px",
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
+          <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
             DJ<span style={{ color: "var(--blue)" }}>YY</span>
-          </span>
+          </Link>
           <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>赛程</span>
         </div>
       </div>
