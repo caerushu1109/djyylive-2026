@@ -297,21 +297,15 @@ export default function KnockoutBracket({ fixtures = [] }) {
           flexShrink: 0,
         }}>
 
-          {/* 上下半区分隔线（在决赛卡片上方） */}
+          {/* 决赛列背景光晕（仅覆盖最后一列区域，不影响连接线） */}
           <div style={{
             position: "absolute",
-            top: FIN_TOP - 1,
-            left: 0, right: 0,
-            height: 1,
-            background: "linear-gradient(90deg, rgba(92,158,255,0.4), rgba(255,193,7,0.4))",
-            pointerEvents: "none",
-          }} />
-          <div style={{
-            position: "absolute",
-            top: FIN_BOT + 1,
-            left: 0, right: 0,
-            height: 1,
-            background: "linear-gradient(90deg, rgba(92,158,255,0.4), rgba(255,193,7,0.4))",
+            top: FIN_TOP - 12,
+            left: cX(4) - 4,
+            width: CARD_W + 8,
+            height: CARD_H + 24,
+            background: "radial-gradient(ellipse at center, rgba(255,193,7,0.08) 0%, transparent 70%)",
+            borderRadius: 12,
             pointerEvents: "none",
           }} />
 
