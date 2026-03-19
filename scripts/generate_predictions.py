@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-WC 2026 夺冠概率 — 完整蒙特卡洛赛程模拟
+WC 2026 夺冠概率 — 完整蒙特卡洛赛程模拟（6 阶段概率版）
 
 校准结果（基于 964 场历史世界杯赛果）：
   - 最优 ELO 除数：D = 515（标准值 400，WC 强队优势更明显）
@@ -9,6 +9,14 @@ WC 2026 夺冠概率 — 完整蒙特卡洛赛程模拟
 
 模拟路径：
   小组赛 (6 场/组) → 32强出线 → R32 → R16 → QF → SF → 决赛
+
+6 阶段概率字段：
+  pQualify  小组出线（进入淘汰赛）
+  pR16      进16强（赢得 R32）
+  pQF       进8强（赢得 R16）
+  pSF       进4强（赢得 QF）
+  pFinal    进决赛（赢得 SF）
+  pChampion 夺冠（赢得决赛）
 """
 
 import json
@@ -193,11 +201,10 @@ def build_r32(group_results, best_thirds):
         matches.append((t1_1st, t2_2nd))   # 1A vs 2B
         matches.append((t2_1st, t1_2nd))   # 1B vs 2A
 
-    # 4 场：最佳第三名两两对阵（种子最低的先打）
+    # 4 场：最佳第三名两两对阵
     thirds = list(best_thirds)
-    for i in range(0, min(8, len(thirds)), 2):
-        if i + 1 < len(thirds):
-            matches.append((thirds[i], thirds[i + 1]))
+    for i in range(0, len(thirds) - 1, 2):
+        matches.append((thirds[i], thirds[i + 1]))
 
     # 确保恰好 16 场
     return matches[:16]
@@ -208,11 +215,19 @@ def run_ko(bracket):
     return [ko_winner(a, b) for a, b in bracket]
 
 
-# ── 完整赛程模拟 ──────────────────────────────────────────────────────────────
+# ── 完整赛程模拟（返回每队所达阶段）────────────────────────────────────────────
 
 def simulate_tournament(groups_data, elo_map):
     """
-    单次完整赛程模拟，返回冠军队伍 code
+    单次完整赛程模拟。
+    返回 {code: stage} 字典：
+      0 = 小组出局
+      1 = 小组出线（进入 R32）
+      2 = 进16强（赢 R32）
+      3 = 进8强（赢 R16）
+      4 = 进4强（赢 QF）
+      5 = 进决赛（赢 SF）
+      6 = 夺冠（赢决赛）
     groups_data: {letter: [team_meta_dict, ...]}
     elo_map:     {code: float_elo}
     """
@@ -224,22 +239,55 @@ def simulate_tournament(groups_data, elo_map):
     enriched = {g: [enrich(t) for t in teams]
                 for g, teams in groups_data.items()}
 
+    # 所有参赛队初始阶段为 0（小组出局）
+    stages = {}
+    for teams in enriched.values():
+        for t in teams:
+            stages[t["code"]] = 0
+
     group_results = {}
     thirds = []
     for g, teams in enriched.items():
         ranked = simulate_group(teams)
         group_results[g] = ranked
-        thirds.append((g, ranked[2]))   # 每组第三名
+        stages[ranked[0]["team"]["code"]] = 1   # 1st → 出线
+        stages[ranked[1]["team"]["code"]] = 1   # 2nd → 出线
+        thirds.append((g, ranked[2]))            # 3rd 候选
 
     best_thirds = select_best_thirds(thirds)
-    r32  = build_r32(group_results, best_thirds)
-    r16_teams = run_ko(r32)
-    r16  = list(zip(r16_teams[::2], r16_teams[1::2]))
-    qf_teams  = run_ko(r16)
-    qf   = list(zip(qf_teams[::2], qf_teams[1::2]))
-    sf_teams  = run_ko(qf)
-    final = [(sf_teams[0], sf_teams[1])]
-    return run_ko(final)[0]["code"]
+    for t in best_thirds:
+        stages[t["code"]] = 1  # 最佳第三名 → 出线
+
+    # R32 → stage 2（进16强）
+    r32 = build_r32(group_results, best_thirds)
+    r16_teams = [ko_winner(a, b) for a, b in r32]
+    for t in r16_teams:
+        stages[t["code"]] = 2
+
+    # R16 → stage 3（进8强）
+    r16 = list(zip(r16_teams[::2], r16_teams[1::2]))
+    qf_teams = [ko_winner(a, b) for a, b in r16]
+    for t in qf_teams:
+        stages[t["code"]] = 3
+
+    # QF → stage 4（进4强）
+    qf = list(zip(qf_teams[::2], qf_teams[1::2]))
+    sf_teams = [ko_winner(a, b) for a, b in qf]
+    for t in sf_teams:
+        stages[t["code"]] = 4
+
+    # SF → stage 5（进决赛）
+    sf = list(zip(sf_teams[::2], sf_teams[1::2]))
+    finalists = [ko_winner(a, b) for a, b in sf]
+    for t in finalists:
+        stages[t["code"]] = 5
+
+    # 决赛 → stage 6（夺冠）
+    if len(finalists) >= 2:
+        champion = ko_winner(finalists[0], finalists[1])
+        stages[champion["code"]] = 6
+
+    return stages
 
 
 # ── Sportmonks 分组数据获取 ───────────────────────────────────────────────────
@@ -305,23 +353,6 @@ def fetch_groups(elo_snapshot):
         return None
 
 
-def _load_wc_names():
-    """加载 WC2026 参赛队中文名和英文名集合，用于过滤 ELO 快照"""
-    if not PARTICIPANTS_PATH.exists():
-        return None
-    try:
-        data = read_json(PARTICIPANTS_PATH)
-        names = set()
-        for p in data.get("participants", []):
-            if p.get("nameZh"):
-                names.add(p["nameZh"])
-            if p.get("nameEn"):
-                names.add(p["nameEn"])
-        return names if names else None
-    except Exception:
-        return None
-
-
 def load_cached_groups():
     if GROUPS_PATH.exists():
         d = read_json(GROUPS_PATH)
@@ -343,8 +374,7 @@ def build_predictions(snapshot):
             "teams": [],
         }
 
-    # ELO 快照本身已由 build_elo_snapshot 过滤为 WC2026 参赛队，无需二次过滤
-    # 排除占位符（附加赛待定席位）——它们在模拟中无实际分组数据
+    # 排除占位符
     rankings = [t for t in rankings if not t.get("placeholder", False)]
 
     elo_map = {t["code"]: float(t["elo"])
@@ -371,20 +401,31 @@ def build_predictions(snapshot):
         print("[warn] Group data unavailable — using prior-only mode")
         return _prior_predictions(snapshot, rankings)
 
-    # 蒙特卡洛
+    # 蒙特卡洛 — 追踪 6 个阶段
     random.seed(RANDOM_SEED)
-    champion_counts = defaultdict(int)
+    # stage_counts[code][s] = 达到阶段 s 的次数（s=1..6）
+    stage_counts = defaultdict(lambda: [0] * 7)
+
     for _ in range(SIMULATION_COUNT):
-        champion_counts[simulate_tournament(groups_data, elo_map)] += 1
+        result = simulate_tournament(groups_data, elo_map)
+        for code, stage in result.items():
+            for s in range(1, stage + 1):
+                stage_counts[code][s] += 1
 
     meta = {t["code"]: t for t in rankings}
-    results = sorted(champion_counts.items(), key=lambda x: -x[1])
-    max_wins = results[0][1] if results else 1
+    # 按夺冠概率排序
+    sorted_codes = sorted(
+        stage_counts.keys(),
+        key=lambda c: -stage_counts[c][6]
+    )
+    max_wins = stage_counts[sorted_codes[0]][6] if sorted_codes else 1
 
+    N = SIMULATION_COUNT
     teams_out = []
-    for rank, (code, wins) in enumerate(results, 1):
+    for rank, code in enumerate(sorted_codes, 1):
         t   = meta.get(code, {})
-        pct = round(wins / SIMULATION_COUNT * 100, 2)
+        cnt = stage_counts[code]
+        pct = round(cnt[6] / N * 100, 2)
         teams_out.append({
             "rank": rank,
             "flag": t.get("flag", "🏳️"),
@@ -395,8 +436,15 @@ def build_predictions(snapshot):
             "isHost": code in HOST_CODES,
             "titleProbability": f"{pct:.1f}%",
             "probabilityValue": pct,
-            "width": max(6, round(wins / max_wins * 100)),
-            "wins": wins,
+            "width": max(6, round(cnt[6] / max_wins * 100)),
+            "wins": cnt[6],
+            # 6 阶段概率
+            "pQualify":  round(cnt[1] / N * 100, 1),
+            "pR16":      round(cnt[2] / N * 100, 1),
+            "pQF":       round(cnt[3] / N * 100, 1),
+            "pSF":       round(cnt[4] / N * 100, 1),
+            "pFinal":    round(cnt[5] / N * 100, 1),
+            "pChampion": round(cnt[6] / N * 100, 1),
         })
 
     return {
@@ -416,7 +464,7 @@ def build_predictions(snapshot):
 
 
 def _prior_predictions(snapshot, rankings):
-    """分组数据不可用时的回退：加权抽样先验概率"""
+    """分组数据不可用时的回退：加权抽样先验概率（仅夺冠，无阶段概率）"""
     random.seed(RANDOM_SEED)
     baseline = max(1600, min(float(t["elo"]) for t in rankings if t.get("elo")))
 
@@ -445,6 +493,9 @@ def _prior_predictions(snapshot, rankings):
             "isHost": t.get("code") in HOST_CODES,
             "titleProbability": f"{pct:.1f}%",
             "probabilityValue": pct, "wins": wins, "width": 0,
+            # 先验模式无阶段概率
+            "pQualify": None, "pR16": None, "pQF": None,
+            "pSF": None, "pFinal": None, "pChampion": pct,
         })
     teams_out.sort(key=lambda x: (-x["probabilityValue"], -x["elo"]))
     max_pct = teams_out[0]["probabilityValue"] if teams_out else 1
