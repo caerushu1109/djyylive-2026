@@ -37,6 +37,37 @@ function groupByDate(fixtures) {
   return [...map.entries()].sort(([a], [b]) => a.localeCompare(b));
 }
 
+
+// Helper to translate SportMonks placeholder text
+function translatePlaceholder(text) {
+  const map = {
+    'Winner Group A': 'A组第1名', 'Winner Group B': 'B组第1名',
+    'Winner Group C': 'C组第1名', 'Winner Group D': 'D组第1名',
+    'Winner Group E': 'E组第1名', 'Winner Group F': 'F组第1名',
+    'Winner Group G': 'G组第1名', 'Winner Group H': 'H组第1名',
+    'Runner-up Group A': 'A组第2名', 'Runner-up Group B': 'B组第2名',
+    'Runner-up Group C': 'C组第2名', 'Runner-up Group D': 'D组第2名',
+    'Runner-up Group E': 'E组第2名', 'Runner-up Group F': 'F组第2名',
+    'Runner-up Group G': 'G组第2名', 'Runner-up Group H': 'H组第2名',
+  };
+  return map[text] || text;
+}
+
+
+// Helper to get team display name, handling TBD cases
+function getTeamDisplayName(team, standingsMap) {
+  if (!team) return '待定';
+  
+  // If team is not TBD, return its name
+  if (!team.isTbd) {
+    return team.name;
+  }
+  
+  // If TBD, try to translate the original name from SportMonks
+  const translated = translatePlaceholder(team.originalName);
+  return translated;
+}
+
 export default function FixturesPage() {
   const { comp } = useParams();
   const { data, loading } = useFixtures();
@@ -51,6 +82,17 @@ export default function FixturesPage() {
   }, [dateGroups, selectedDate]);
 
   if (loading && !data) return <LoadingSpinner />;
+
+  
+/**
+ * TBD HANDLING NOTE:
+ * When rendering fixture teams (home/away), use getTeamDisplayName() to handle TBD cases:
+ * - getTeamDisplayName(fixture.home, data?.standingsMap)
+ * - getTeamDisplayName(fixture.away, data?.standingsMap)
+ * 
+ * This will display "待定" or translated group position (e.g., "A组第1名") for TBD teams.
+ * The standingsMap is now provided in data return from getFixturesData().
+ */
 
   return (
     <div>
