@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import GroupTable from "@/components/wc/GroupTable";
-import GroupSimulator from "@/components/wc/GroupSimulator";
+import KnockoutBracket from "@/components/wc/KnockoutBracket";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
-const SUB_TABS = ["积分榜", "模拟器", "淘汰赛"];
+const SUB_TABS = ["积分榜", "淘汰赛"];
 
 export default function GroupsPage() {
   const { comp } = useParams();
@@ -149,12 +149,8 @@ export default function GroupsPage() {
               <GroupTable key={group.group} group={group} />
             ))}
           </div>
-        ) : subTab === "模拟器" ? (
-          <GroupSimulator standings={standings} fixtures={data?.fixtures} />
         ) : (
-          <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-            淘汰赛对阵图将在小组赛结束后显示
-          </div>
+          <KnockoutBracket fixtures={data?.fixtures || []} />
         )}
       </div>
     </div>
