@@ -1,34 +1,3 @@
-
-function buildStandingsMap(standings) {
-  const map = {};
-  if (!standings || !Array.isArray(standings)) {
-    return map;
-  }
-  
-  standings.forEach(item => {
-    const groupKey = item.group?.name ? item.group.name.replace(/^Group\s+/i, '') : null;
-    if (!groupKey) return;
-    
-    if (!map[groupKey]) {
-      map[groupKey] = [];
-    }
-    
-    map[groupKey].push({
-      pos: item.position || 0,
-      name: item.participant?.name || 'Unknown',
-      flag: getTeamMeta(item.participant?.name || 'Unknown').flag,
-      points: item.points || 0,
-    });
-  });
-  
-  // Sort by position within each group
-  Object.keys(map).forEach(key => {
-    map[key].sort((a, b) => a.pos - b.pos);
-  });
-  
-  return map;
-}
-
 import { getCityLabel, getTeamMeta } from "@/src/lib/team-meta";
 import sampleProviderData from "@/data/provider-samples/sportmonks-worldcup-sample.json";
 
@@ -109,30 +78,31 @@ function venueLabel(match) {
 export function normalizeFixture(match) {
   const homeParticipant = findParticipant(match?.participants, "home");
   const awayParticipant = findParticipant(match?.participants, "away");
-  const homeMeta = getTeamMeta(homeParticipant?.name || "Home");
-  const awayMeta = getTeamMeta(awayParticipant?.name || "Away");
+  const homeName = homeParticipant?.name || null;
+  const awayName = awayParticipant?.name || null;
+  const homeMeta = getTeamMeta(homeName || "Home");
+  const awayMeta = getTeamMeta(awayName || "Away");
   const status = normalizeState(match?.state);
-
   return {
     id: String(match?.id || ""),
     stage: stageLabel(match),
-    group: match?.group?.name
-      ? String(match.group.name).replace(/^Group\s+/i, "") + " 组"
-      : match?.round?.name || "世界杯",
+    group: match?.group?.name ? String(match.group.name).replace(/^Group\s+/i, "") + " 组" : match?.round?.name || "世界杯",
     status,
     minute: formatMinute(match),
     kickoff: formatMinute(match),
     home: {
-      flag: homeMeta.flag,
-      name: homeMeta.shortName,
-      originalName: homeParticipant?.name || homeMeta.shortName,
+      flag: homeName ? homeMeta.flag : "🏴",
+      name: homeName ? homeMeta.shortName : "待定",
+      originalName: homeName || "",
       elo: null,
+      isTbd: !homeName,
     },
     away: {
-      flag: awayMeta.flag,
-      name: awayMeta.shortName,
-      originalName: awayParticipant?.name || awayMeta.shortName,
+      flag: awayName ? awayMeta.flag : "🏴",
+      name: awayName ? awayMeta.shortName : "待定",
+      originalName: awayName || "",
       elo: null,
+      isTbd: !awayName,
     },
     homeScore: scoreForParticipant(match?.scores, "home"),
     awayScore: scoreForParticipant(match?.scores, "away"),
@@ -434,10 +404,20 @@ async function fetchSportMonksFixtures() {
   const from = WORLD_CUP_START;
   const to = WORLD_CUP_END;
   const include = "participants;scores;state;venue;round;group";
-  const fixturesUrl = buildSportMonksUrl(`fixtures/between/${from}/${to}`, { include });
-  const fixtureResponse = await fetchSportMonksJson(fixturesUrl);
-  const matches = toArray(fixtureResponse?.data);
-
+  // Paginate: WC2026 has 104 fixtures, SportMonks default page is 25
+  let allMatches = [];
+  let page = 1;
+  while (page <= 5) {
+    const fixturesUrl = buildSportMonksUrl(`fixtures/between/${from}/${to}`, {
+      include, per_page: 100, page,
+    });
+    const fixtureResponse = await fetchSportMonksJson(fixturesUrl);
+    const pageMatches = toArray(fixtureResponse?.data);
+    allMatches = allMatches.concat(pageMatches);
+    if (!fixtureResponse?.pagination?.has_more || pageMatches.length === 0) break;
+    page++;
+  }
+  const matches = allMatches;
   if (!matches.length) {
     throw new Error(`No World Cup fixtures returned for ${from} - ${to}`);
   }
