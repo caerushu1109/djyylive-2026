@@ -65,7 +65,7 @@ function LiveBanner({ fixture }) {
       <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--live)", animation: "pulse 1.5s infinite", flexShrink: 0 }} />
       <div style={{ flex: 1, padding: "0 10px" }}>
         <div style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          ● LIVE · {fixture.stage || fixture.group || "世界杯"} · {fixture.minute || "—"}
+          {fixture.stage || fixture.group || "世界杯"} ÷ {fixture.minute || "—"}
         </div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", marginTop: 2 }}>
           {fixture.home?.flag} {fixture.home?.name} vs {fixture.away?.flag} {fixture.away?.name}
@@ -105,7 +105,7 @@ function QuickStats({ fixturesData }) {
     dayValue = Math.round((wcStartBJT - todayBJT) / MS_PER_DAY);
     dayLabel = "距开幕";
   } else if (todayBJT <= wcEndBJT) {
-    dayValue = Math.round((todayBJT - wcStartB�T) / MS_PER_DAY) + 1;
+    dayValue = Math.round((todayBJT - wcStartBJT) / MS_PER_DAY) + 1;
     dayLabel = "赛事进行中";
   } else {
     dayValue = "✓";
