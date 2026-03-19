@@ -171,9 +171,13 @@ function WinProbBar() {
 
 function todayFixtures(fixtures) {
   if (!fixtures?.length) return [];
-  const today = new Date().toDateString();
-  const result = fixtures.filter(f => f.startingAt && new Date(f.startingAt).toDateString() === today);
-  return result.length ? result.slice(0, 5) : fixtures.filter(f => f.status === "NS").slice(0, 5);
+  // 严格以北京时间（Asia/Shanghai）00:00–24:00 为"今日"，不做跨日 fallback
+  const todayBJT = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" }); // "YYYY-MM-DD"
+  return fixtures.filter(f => {
+    if (!f.startingAt) return false;
+    const fDateBJT = new Date(f.startingAt).toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+    return fDateBJT === todayBJT;
+  });
 }
 
 export default function CompHomePage() {
