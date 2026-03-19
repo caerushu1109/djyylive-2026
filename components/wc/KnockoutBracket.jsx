@@ -41,14 +41,15 @@ const ROUNDS = [
 ];
 
 // ── 布局常量 ─────────────────────────────────────────────────────────────────
-const SLOT_H     = 36;           // 每队行高
-const MATCH_H    = SLOT_H * 2 + 1; // 一场比赛高度 (73px)
-const COL_W      = 108;          // 列宽
-const CON_W      = 10;           // 连接线宽
-const LABEL_H    = 28;           // 轮次标签高
+// COL_W=64, CON_W=6 → totalW = 5×64 + 4×6 = 344px，适配 375px 无需横滑
+const SLOT_H     = 32;           // 每队行高
+const MATCH_H    = SLOT_H * 2 + 1; // 一场比赛高度 (65px)
+const COL_W      = 64;           // 列宽（缩小以适配手机屏幕）
+const CON_W      = 6;            // 连接线宽
+const LABEL_H    = 24;           // 轮次标签高
 const N          = 16;           // R32 场次数
-const UNIT       = 80;           // R32 每场占用的高度单元（含间距）
-const BRACKET_H  = N * UNIT;     // 总高度 1280px
+const UNIT       = 72;           // R32 每场占用的高度单元（含间距）
+const BRACKET_H  = N * UNIT;     // 总高度 1152px
 
 // 第 roundIndex 轮、第 matchIndex 场的 中心Y（相对内容区顶部）
 function centerY(roundIndex, matchIndex) {
@@ -66,29 +67,29 @@ function TeamRow({ label, flag, name, score, isWinner, isLive }) {
       height: SLOT_H,
       display: "flex",
       alignItems: "center",
-      gap: 5,
-      padding: "0 7px",
+      gap: 3,
+      padding: "0 5px",
       background: isWinner ? "rgba(92,158,255,0.10)" : "transparent",
     }}>
       {name ? (
         <>
-          <span style={{ fontSize: 14, flexShrink: 0 }}>{flag || "🏳️"}</span>
+          <span style={{ fontSize: 12, flexShrink: 0, lineHeight: 1 }}>{flag || "🏳️"}</span>
           <span style={{
-            fontSize: 10, fontWeight: 700,
+            fontSize: 9, fontWeight: 700,
             color: isWinner ? "var(--blue)" : "var(--text)",
             whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
             flex: 1,
           }}>{name}</span>
           {score != null && (
             <span style={{
-              fontSize: 11, fontWeight: 900, flexShrink: 0,
+              fontSize: 10, fontWeight: 900, flexShrink: 0,
               color: isWinner ? "var(--blue)" : isLive ? "var(--live)" : "var(--text2)",
               fontVariantNumeric: "tabular-nums",
             }}>{score}</span>
           )}
         </>
       ) : (
-        <span style={{ fontSize: 9, fontWeight: 600, color: "var(--text3)" }}>
+        <span style={{ fontSize: 8, fontWeight: 600, color: "var(--text3)" }}>
           {label || "待定"}
         </span>
       )}
@@ -243,9 +244,9 @@ export default function KnockoutBracket({ fixtures = [] }) {
             <div style={{
               width: COL_W,
               textAlign: "center",
-              fontSize: 9, fontWeight: 800,
+              fontSize: 8, fontWeight: 800,
               color: round.key === "final" ? "var(--gold)" : "var(--blue)",
-              textTransform: "uppercase", letterSpacing: "0.1em",
+              textTransform: "uppercase", letterSpacing: "0.04em",
               height: LABEL_H, lineHeight: `${LABEL_H}px`,
             }}>
               {round.label}
