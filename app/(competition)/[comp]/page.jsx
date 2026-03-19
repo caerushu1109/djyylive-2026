@@ -193,7 +193,7 @@ export default function CompHomePage() {
   const top6       = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 6);
   const top3       = top6.slice(0, 3);
   const next3      = top6.slice(3, 6);
-  const marketRows = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 4);
+  const marketRows = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 10);
 
   return (
     <div>
