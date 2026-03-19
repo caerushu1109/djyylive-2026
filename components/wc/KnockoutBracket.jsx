@@ -264,7 +264,7 @@ export default function KnockoutBracket({ fixtures = [] }) {
           }} />
           {/* 上半区文字 */}
           <div style={{
-            position: "absolute", left: 4,
+            position: "absolute", left: 0,
             top: FIN_TOP / 2,
             transform: "translateY(-50%)",
             writingMode: "vertical-lr",
@@ -281,7 +281,7 @@ export default function KnockoutBracket({ fixtures = [] }) {
           }} />
           {/* 下半区文字 */}
           <div style={{
-            position: "absolute", left: 4,
+            position: "absolute", left: 0,
             top: FIN_BOT + (BRACKET_H - FIN_BOT) / 2,
             transform: "translateY(-50%)",
             writingMode: "vertical-lr",
