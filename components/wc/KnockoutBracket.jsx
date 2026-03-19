@@ -114,12 +114,13 @@ function MatchCard({ match, roundIndex, top }) {
       top,
       left: 0,
       width: COL_W,
-      background: "var(--card)",
-      border: `1px solid ${isFinal ? "rgba(255,193,7,0.5)" : isLive ? "rgba(255,61,61,0.35)" : "var(--border)"}`,
+      background: isFinal ? "linear-gradient(135deg, #1c1e26, #22201a)" : "var(--card)",
+      border: `1px solid ${isFinal ? "rgba(255,193,7,0.6)" : isLive ? "rgba(255,61,61,0.35)" : "var(--border)"}`,
       borderRadius: 8,
       overflow: "hidden",
-      boxShadow: isFinal ? "0 0 16px rgba(255,193,7,0.12)" : "none",
+      boxShadow: isFinal ? "0 0 20px rgba(255,193,7,0.18), inset 0 1px 0 rgba(255,193,7,0.1)" : "none",
     }}>
+      {isFinal && <div style={{ height: 2, background: "linear-gradient(90deg, transparent, var(--gold), transparent)" }} />}
       {isLive && <div style={{ height: 2, background: "var(--live)" }} />}
       <TeamRow
         label={match.home}
@@ -321,6 +322,58 @@ export default function KnockoutBracket({ fixtures = [] }) {
 
       {/* 对阵树主体 */}
       <div style={{ position: "relative", width: totalW, height: BRACKET_H }}>
+
+        {/* ── 上下半区色带（最底层，所有卡片之下） ── */}
+        {/* 上半区蓝色带 */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0,
+          height: BRACKET_H / 2,
+          background: "linear-gradient(180deg, rgba(92,158,255,0.07) 0%, rgba(92,158,255,0.02) 100%)",
+          borderLeft: "3px solid rgba(92,158,255,0.35)",
+          borderTop: "1px solid rgba(92,158,255,0.2)",
+          borderRadius: "6px 0 0 0",
+          pointerEvents: "none",
+        }} />
+        {/* 下半区金色带 */}
+        <div style={{
+          position: "absolute", top: BRACKET_H / 2, left: 0, right: 0,
+          height: BRACKET_H / 2,
+          background: "linear-gradient(180deg, rgba(255,193,7,0.02) 0%, rgba(255,193,7,0.06) 100%)",
+          borderLeft: "3px solid rgba(255,193,7,0.3)",
+          borderBottom: "1px solid rgba(255,193,7,0.15)",
+          borderRadius: "0 0 0 6px",
+          pointerEvents: "none",
+        }} />
+        {/* 分界线（渐变） */}
+        <div style={{
+          position: "absolute", top: BRACKET_H / 2, left: 0, right: 0,
+          height: 1,
+          background: "linear-gradient(90deg, rgba(92,158,255,0.5), rgba(255,255,255,0.08), rgba(255,193,7,0.45))",
+          pointerEvents: "none",
+        }} />
+
+        {/* ── 半区标签 ── */}
+        <div style={{
+          position: "absolute", top: 6, right: 0,
+          background: "rgba(92,158,255,0.15)",
+          border: "1px solid rgba(92,158,255,0.35)",
+          borderRadius: 4,
+          padding: "2px 7px",
+          fontSize: 8, fontWeight: 800, color: "#5c9eff",
+          textTransform: "uppercase", letterSpacing: "0.07em",
+          pointerEvents: "none", zIndex: 2,
+        }}>▲ 上半区</div>
+        <div style={{
+          position: "absolute", top: BRACKET_H / 2 + 6, right: 0,
+          background: "rgba(255,193,7,0.12)",
+          border: "1px solid rgba(255,193,7,0.35)",
+          borderRadius: 4,
+          padding: "2px 7px",
+          fontSize: 8, fontWeight: 800, color: "#ffc107",
+          textTransform: "uppercase", letterSpacing: "0.07em",
+          pointerEvents: "none", zIndex: 2,
+        }}>▼ 下半区</div>
+
         {rounds.map((round, ri) => {
           const colLeft = ri * (COL_W + CON_W);
           return (
