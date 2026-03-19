@@ -99,9 +99,21 @@ function QuickStats({ fixturesData }) {
   const today = new Date().toDateString();
   const todayCount = allFixtures.filter(f => f.startingAt && new Date(f.startingAt).toDateString() === today && f.status !== "LIVE").length;
 
-  // 2026 World Cup opens June 11, 2026
+  // 2026 World Cup: June 11 – July 19, 2026
   const wcStart = new Date("2026-06-11T00:00:00");
-  const daysLeft = Math.max(0, Math.ceil((wcStart - new Date()) / (1000 * 60 * 60 * 24)));
+  const wcEnd   = new Date("2026-07-19T23:59:59");
+  const now = new Date();
+  let dayValue, dayLabel;
+  if (now < wcStart) {
+    dayValue = Math.ceil((wcStart - now) / (1000 * 60 * 60 * 24));
+    dayLabel = "距开幕";
+  } else if (now <= wcEnd) {
+    dayValue = Math.floor((now - wcStart) / (1000 * 60 * 60 * 24)) + 1;
+    dayLabel = "赛事第天";
+  } else {
+    dayValue = "✓";
+    dayLabel = "已结束";
+  }
 
   const card = (value, label, color = "var(--text)") => (
     <div key={label} style={{
@@ -124,7 +136,7 @@ function QuickStats({ fixturesData }) {
       {card(todayCount, "今日赛程")}
       {card(48, "球队")}
       {card(8, "小组")}
-      {card(daysLeft, "天")}
+      {card(dayValue, dayLabel)}
     </div>
   );
 }
