@@ -1,3 +1,34 @@
+
+function buildStandingsMap(standings) {
+  const map = {};
+  if (!standings || !Array.isArray(standings)) {
+    return map;
+  }
+  
+  standings.forEach(item => {
+    const groupKey = item.group?.name ? item.group.name.replace(/^Group\s+/i, '') : null;
+    if (!groupKey) return;
+    
+    if (!map[groupKey]) {
+      map[groupKey] = [];
+    }
+    
+    map[groupKey].push({
+      pos: item.position || 0,
+      name: item.participant?.name || 'Unknown',
+      flag: getTeamMeta(item.participant?.name || 'Unknown').flag,
+      points: item.points || 0,
+    });
+  });
+  
+  // Sort by position within each group
+  Object.keys(map).forEach(key => {
+    map[key].sort((a, b) => a.pos - b.pos);
+  });
+  
+  return map;
+}
+
 import { getCityLabel, getTeamMeta } from "@/src/lib/team-meta";
 import sampleProviderData from "@/data/provider-samples/sportmonks-worldcup-sample.json";
 
