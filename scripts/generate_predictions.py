@@ -343,11 +343,9 @@ def build_predictions(snapshot):
             "teams": [],
         }
 
-    # 仅保留 WC2026 参赛队（48支），过滤掉非参赛队
-    wc_names = _load_wc_names()
-    if wc_names:
-        rankings = [t for t in rankings if t.get("name") in wc_names
-                    or t.get("originalName") in wc_names]
+    # ELO 快照本身已由 build_elo_snapshot 过滤为 WC2026 参赛队，无需二次过滤
+    # 排除占位符（附加赛待定席位）——它们在模拟中无实际分组数据
+    rankings = [t for t in rankings if not t.get("placeholder", False)]
 
     elo_map = {t["code"]: float(t["elo"])
                for t in rankings if t.get("elo") and t.get("code")}

@@ -25,12 +25,10 @@ export default function PredictPage() {
 
   const maxProb = wcTeams[0]?.probabilityValue || 1;
 
-  // TBD slots: participants with no match in predictions (shouldn't happen, but safe)
-  const tbdSlots = participants.filter(p => p.status === "tbd");
-
-  const confirmedCount = participants.filter(p => p.status === "confirmed").length;
-  const uncertainCount = participants.filter(p => p.status === "uncertain").length;
-  const tbdCount = tbdSlots.length;
+  // 底部统计用预测数据本身，避免参赛名单脏数据影响显示
+  const confirmedCount = wcTeams.length;
+  const uncertainCount = wcTeams.filter(t => partMap[t.name]?.status === "uncertain").length;
+  const tbdCount = Math.max(0, 48 - confirmedCount);
 
   return (
     <div>
@@ -212,12 +210,12 @@ export default function PredictPage() {
             display: "flex",
             justifyContent: "space-between",
           }}>
-            <span style={{ fontSize: 10, color: "var(--text3)" }}>已确认 {confirmedCount} 队</span>
+            <span style={{ fontSize: 10, color: "var(--text3)" }}>已出线 {confirmedCount} 队</span>
             {uncertainCount > 0 && (
               <span style={{ fontSize: 10, color: "var(--gold)" }}>存疑 {uncertainCount} 队</span>
             )}
             {tbdCount > 0 && (
-              <span style={{ fontSize: 10, color: "var(--text3)" }}>待定 {tbdCount} 席</span>
+              <span style={{ fontSize: 10, color: "var(--text3)" }}>附加赛待定 {tbdCount} 席</span>
             )}
           </div>
 
