@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
@@ -170,8 +170,17 @@ export default function CompHomePage() {
   const { data: eloData } = useElo();
   const { data: predData } = usePredictions();
 
-  const liveFixtures    = fixturesData?.fixtures?.filter(f => f.status === "LIVE") || [];
-  const displayFixtures = todayFixtures(fixturesData?.fixtures || []);
+  const liveFixtures = fixturesData?.fixtures?.filter(f => f.status === "LIVE") || [];
+  const todayList    = todayFixtures(fixturesData?.fixtures || []);
+  const upcomingList = useMemo(() => {
+    if (todayList.length > 0) return [];
+    return (fixturesData?.fixtures || [])
+      .filter(f => f.status === "NS")
+      .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
+      .slice(0, 3);
+  }, [todayList, fixturesData]);
+  const displayFixtures  = todayList.length > 0 ? todayList : upcomingList;
+  const fixtureLabel     = todayList.length > 0 ? "今日赛程" : "最近赛程";
   const top6       = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 6);
   const top3       = top6.slice(0, 3);
   const next3      = top6.slice(3, 6);
@@ -187,13 +196,13 @@ export default function CompHomePage() {
       <QuickStats fixturesData={fixturesData} />
 
       <div style={{ padding: "0 12px", marginBottom: 6, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>今日赛程</span>
+        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>{fixtureLabel}</span>
         <Link href={`/${comp}/fixtures`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>全部 →</Link>
       </div>
       {fixturesLoading ? (
         <LoadingSpinner />
       ) : displayFixtures.length === 0 ? (
-        <p style={{ padding: "0 12px", color: "var(--text2)", fontSize: 13 }}>今日暂无比赛</p>
+        <p style={{ padding: "0 12px", color: "var(--text2)", fontSize: 13 }}>暂无赛程数据</p>
       ) : (
         displayFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
       )}
