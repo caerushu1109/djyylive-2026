@@ -250,13 +250,13 @@ export default function TeamPage() {
   const displayName = teamElo?.name || teamName;
 
   return (
-    <div style={{ maxWidth: 480, margin: "0 auto", minHeight: "100dvh", background: "var(--bg)" }}>
+    <div style={{ maxWidth: 480, margin: "0 auto", height: "100dvh", background: "var(--bg)", display: "flex", flexDirection: "column", overflow: "hidden" }}>
       {/* Topbar */}
       <div style={{
         height: "var(--topbar-h)", background: "var(--surface)",
         borderBottom: "1px solid var(--border)",
         display: "flex", alignItems: "center", padding: "0 16px",
-        position: "sticky", top: 0, zIndex: 50, gap: 8,
+        flexShrink: 0, gap: 8,
       }}>
         <button onClick={() => router.back()} style={{ padding: 4, marginLeft: -4 }}>
           <ChevronLeft size={20} />
@@ -264,6 +264,7 @@ export default function TeamPage() {
         <span style={{ fontSize: 16, fontWeight: 700 }}>球队</span>
       </div>
 
+      <div style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
       {eloLoading ? <LoadingSpinner /> : (
         <>
           {/* Hero */}
@@ -354,6 +355,7 @@ export default function TeamPage() {
           )}
         </>
       )}
+      </div>
     </div>
   );
 }
