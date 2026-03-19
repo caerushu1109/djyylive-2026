@@ -65,7 +65,7 @@ function LiveBanner({ fixture }) {
       <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--live)", animation: "pulse 1.5s infinite", flexShrink: 0 }} />
       <div style={{ flex: 1, padding: "0 10px" }}>
         <div style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          ● LIVE · {fixture.stage || fixture.group || "世界杯"} · {fixture.minute || "—"}
+          {fixture.stage || fixture.group || "世界杯"} ÷ {fixture.minute || "—"}
         </div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", marginTop: 2 }}>
           {fixture.home?.flag} {fixture.home?.name} vs {fixture.away?.flag} {fixture.away?.name}
@@ -222,9 +222,10 @@ export default function CompHomePage() {
           </div>
           <div style={{ display: "flex", padding: "10px 8px 8px", gap: 6 }}>
             {top3.map((team, i) => (
-              <div key={team.code} style={{
+              <Link key={team.code} href={`/team/${encodeURIComponent(team.originalName || team.name)}`} style={{
                 flex: 1, background: MEDAL_STYLES[i].bg, border: MEDAL_STYLES[i].border,
                 borderRadius: "var(--radius-sm)", padding: 8, textAlign: "center",
+                textDecoration: "none", display: "block",
               }}>
                 <div style={{ fontSize: 14 }}>{MEDALS[i]}</div>
                 <span style={{ fontSize: 20, display: "block", margin: "4px 0" }}>{team.flag}</span>
@@ -232,15 +233,16 @@ export default function CompHomePage() {
                 <div style={{ fontSize: 12, fontWeight: 900, color: MEDAL_STYLES[i].pctColor, marginTop: 2 }}>
                   {team.probabilityValue !== undefined ? `${team.probabilityValue.toFixed(1)}%` : "—"}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           {next3.length > 0 && (
             <div style={{ borderTop: "1px solid var(--border)", padding: "4px 8px 10px" }}>
               {next3.map((team, i) => (
-                <div key={team.code} style={{
+                <Link key={team.code} href={`/team/${encodeURIComponent(team.originalName || team.name)}`} style={{
                   display: "flex", alignItems: "center", padding: "6px 4px", gap: 8,
                   borderBottom: i < next3.length - 1 ? "1px solid var(--border)" : "none",
+                  textDecoration: "none",
                 }}>
                   <span style={{ fontSize: 10, color: "var(--text3)", fontWeight: 700, width: 16, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
                   <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag}</span>
@@ -248,7 +250,7 @@ export default function CompHomePage() {
                   <span style={{ fontSize: 12, fontWeight: 900, color: "var(--text2)", fontVariantNumeric: "tabular-nums" }}>
                     {team.probabilityValue !== undefined ? `${team.probabilityValue.toFixed(1)}%` : "—"}
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           )}
@@ -285,7 +287,7 @@ export default function CompHomePage() {
             const marketPct = modelPct !== null ? Math.max(0.1, modelPct + offsets[i % offsets.length]) : null;
             const value     = modelPct !== null && marketPct !== null ? modelPct - marketPct : null;
             const valBg     = value === null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
-            const valColor  = value === null ? "var(--text3)" : value > 0.5 ? "var(--green)"    : value < -0.5 ? "var(--red)"     : "var(--text3)";
+            const valColor  = value === null ? "var(--text3)" : value > 0.5 ? "var(--green)"     : value < -0.5 ? "var(--red)"     : "var(--text3)";
             return (
               <div key={team.code} style={{
                 display: "flex", alignItems: "center", padding: "8px 12px",
