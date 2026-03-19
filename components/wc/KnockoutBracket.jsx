@@ -255,14 +255,7 @@ export default function KnockoutBracket({ fixtures = [] }) {
           width: SIDE_W, flexShrink: 0,
           position: "relative", height: BRACKET_H,
         }}>
-          {/* 上半区蓝色条 */}
-          <div style={{
-            position: "absolute", left: 0, top: 0,
-            width: 3, height: FIN_TOP,
-            background: "linear-gradient(180deg, rgba(92,158,255,0.7), rgba(92,158,255,0.3))",
-            borderRadius: "2px 2px 0 0",
-          }} />
-          {/* 上半区文字 */}
+          {/* 上半区文字（竖条左边） */}
           <div style={{
             position: "absolute", left: 0,
             top: FIN_TOP / 2,
@@ -271,15 +264,15 @@ export default function KnockoutBracket({ fixtures = [] }) {
             fontSize: 7, fontWeight: 800, color: "#5c9eff",
             letterSpacing: "0.06em",
           }}>上半区</div>
-
-          {/* 下半区金色条 */}
+          {/* 上半区蓝色条（紧贴侧栏右侧） */}
           <div style={{
-            position: "absolute", left: 0, top: FIN_BOT,
-            width: 3, height: BRACKET_H - FIN_BOT,
-            background: "linear-gradient(180deg, rgba(255,193,7,0.3), rgba(255,193,7,0.7))",
-            borderRadius: "0 0 2px 2px",
+            position: "absolute", right: 0, top: 0,
+            width: 3, height: FIN_TOP,
+            background: "linear-gradient(180deg, rgba(92,158,255,0.7), rgba(92,158,255,0.3))",
+            borderRadius: "2px 2px 0 0",
           }} />
-          {/* 下半区文字 */}
+
+          {/* 下半区文字（竖条左边） */}
           <div style={{
             position: "absolute", left: 0,
             top: FIN_BOT + (BRACKET_H - FIN_BOT) / 2,
@@ -288,6 +281,13 @@ export default function KnockoutBracket({ fixtures = [] }) {
             fontSize: 7, fontWeight: 800, color: "#ffc107",
             letterSpacing: "0.06em",
           }}>下半区</div>
+          {/* 下半区金色条（紧贴侧栏右侧） */}
+          <div style={{
+            position: "absolute", right: 0, top: FIN_BOT,
+            width: 3, height: BRACKET_H - FIN_BOT,
+            background: "linear-gradient(180deg, rgba(255,193,7,0.3), rgba(255,193,7,0.7))",
+            borderRadius: "0 0 2px 2px",
+          }} />
         </div>
 
         {/* ─ 5列对阵树 ─ */}
