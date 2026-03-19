@@ -31,6 +31,7 @@ const R16  = Array.from({ length: 8 }, (_, i) => ({ id: `R16-${i+1}`, home: `W${
 const QF   = Array.from({ length: 4 }, (_, i) => ({ id: `QF-${i+1}`,  home: `W${R16[i*2].id}`, away: `W${R16[i*2+1].id}` }));
 const SF   = Array.from({ length: 2 }, (_, i) => ({ id: `SF-${i+1}`,  home: `W${QF[i*2].id}`,  away: `W${QF[i*2+1].id}`  }));
 const FIN  = [{ id: "Final", home: `W${SF[0].id}`, away: `W${SF[1].id}` }];
+const TPP  = [{ id: "3rd",   home: `L${SF[0].id}`, away: `L${SF[1].id}` }];
 
 const ROUNDS = [
   { key: "r32",   label: "32强",  matches: R32  },
@@ -197,6 +198,7 @@ function enrichRounds(fixtures) {
     qf:    ["quarter"],
     sf:    ["semi"],
     final: ["final"],
+    tpp:   ["third", "3rd place", "third place"],
   };
 
   const byStage = {};
@@ -228,9 +230,70 @@ function enrichRounds(fixtures) {
   }));
 }
 
+// ── 三四名决赛卡（独立渲染，不在树状图列内） ─────────────────────────────────
+function ThirdPlaceCard({ match }) {
+  const isLive  = match.status === "LIVE";
+  const hasRes  = match.homeScore != null && match.awayScore != null;
+  const winner  = hasRes
+    ? match.homeScore > match.awayScore ? "home"
+    : match.awayScore > match.homeScore ? "away" : null
+    : null;
+
+  return (
+    <div style={{
+      background: "var(--card)",
+      border: "1px solid rgba(92,158,255,0.25)",
+      borderRadius: 8,
+      overflow: "hidden",
+      width: COL_W * 2 + CON_W,
+    }}>
+      {isLive && <div style={{ height: 2, background: "var(--live)" }} />}
+      <TeamRow
+        label={match.home}
+        flag={match.homeTeam?.flag}
+        name={match.homeTeam?.name}
+        score={match.homeScore}
+        isWinner={winner === "home"}
+        isLive={isLive}
+      />
+      <div style={{ height: 1, background: "var(--border)", margin: "0 7px" }} />
+      <TeamRow
+        label={match.away}
+        flag={match.awayTeam?.flag}
+        name={match.awayTeam?.name}
+        score={match.awayScore}
+        isWinner={winner === "away"}
+        isLive={isLive}
+      />
+      {hasRes && !isLive && (
+        <div style={{ fontSize: 8, fontWeight: 700, color: "var(--text3)", textAlign: "center", padding: "2px 0 3px", borderTop: "1px solid var(--border)", letterSpacing: "0.05em" }}>终场</div>
+      )}
+      {isLive && (
+        <div style={{ fontSize: 8, fontWeight: 700, color: "var(--live)", textAlign: "center", padding: "2px 0 3px", borderTop: "1px solid rgba(255,61,61,0.2)", letterSpacing: "0.05em" }}>● 直播中</div>
+      )}
+    </div>
+  );
+}
+
 // ── 主组件 ────────────────────────────────────────────────────────────────────
 export default function KnockoutBracket({ fixtures = [] }) {
   const rounds = enrichRounds(fixtures);
+
+  // 三四名决赛
+  const tppBase = TPP[0];
+  const tppFix  = fixtures.find(f => {
+    const stage = (f.stage || f.round || "").toLowerCase();
+    return ["third", "3rd place", "third place"].some(k => stage.includes(k));
+  });
+  const tppMatch = tppFix ? {
+    ...tppBase,
+    fixtureId: tppFix.id,
+    status:    tppFix.status,
+    homeScore: tppFix.homeScore ?? null,
+    awayScore: tppFix.awayScore ?? null,
+    homeTeam:  tppFix.home ? { name: tppFix.home.name, flag: tppFix.home.flag } : undefined,
+    awayTeam:  tppFix.away ? { name: tppFix.away.name, flag: tppFix.away.flag } : undefined,
+  } : tppBase;
 
   // 每列总宽度 = COL_W + CON_W（最后一列无连接线）
   const totalW = ROUNDS.length * COL_W + (ROUNDS.length - 1) * CON_W;
@@ -283,6 +346,23 @@ export default function KnockoutBracket({ fixtures = [] }) {
             </div>
           );
         })}
+      </div>
+
+      {/* 三四名决赛 */}
+      <div style={{ marginTop: 16 }}>
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: 6,
+        }}>
+          <span style={{
+            fontSize: 8, fontWeight: 800, color: "var(--blue)",
+            textTransform: "uppercase", letterSpacing: "0.04em",
+          }}>🥉 三四名决赛</span>
+          <span style={{ fontSize: 8, color: "var(--text3)" }}>两支半决赛负者</span>
+        </div>
+        <ThirdPlaceCard match={tppMatch} />
       </div>
 
       {/* 注脚 */}
