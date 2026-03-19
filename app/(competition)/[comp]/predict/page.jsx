@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { usePredictions } from "@/lib/hooks/usePredictions";
@@ -7,18 +8,26 @@ import { useEloTrends } from "@/lib/hooks/useEloTrends";
 import EloSparkline from "@/components/shared/EloSparkline";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
+const FOLD_AT = 15;
+
 export default function PredictPage() {
   const { comp } = useParams();
   const { data: predData, loading: predLoading } = usePredictions();
-  const { participants, loading: partLoading }   = useWc2026Participants();
-  const { trendMap }                              = useEloTrends();
+  const { participants, loading: partLoading } = useWc2026Participants();
+  const { trendMap } = useEloTrends();
   const loading = predLoading || partLoading;
+  const [showAll, setShowAll] = useState(false);
 
-  // Build a lookup: nameZh → participant config (for status badges)
+  // Badge lookup: nameZh → participant config
   const partMap = Object.fromEntries(
     participants
       .filter((p) => p.nameZh && p.nameZh !== p.nameEn)
       .map((p) => [p.nameZh, p])
+  );
+
+  // English name lookup for team detail links
+  const enNameMap = Object.fromEntries(
+    participants.map((p) => [p.nameZh, p.nameEn])
   );
 
   const allTeams = predData?.teams || [];
@@ -28,6 +37,9 @@ export default function PredictPage() {
   const confirmedCount = wcTeams.length;
   const uncertainCount = wcTeams.filter((t) => partMap[t.name]?.status === "uncertain").length;
   const tbdCount       = Math.max(0, 48 - confirmedCount);
+
+  const visibleTeams = showAll ? wcTeams : wcTeams.slice(0, FOLD_AT);
+  const hiddenCount  = Math.max(0, wcTeams.length - FOLD_AT);
 
   return (
     <div>
@@ -60,22 +72,41 @@ export default function PredictPage() {
         <LoadingSpinner />
       ) : (
         <div style={{ padding: "0 12px 80px" }}>
-          {wcTeams.map((team, i) => {
-            const cfg        = partMap[team.name] || {};
+
+          {/* Column headers */}
+          <div style={{
+            display: "flex", alignItems: "center",
+            padding: "0 0 5px", gap: 8,
+            borderBottom: "1px solid var(--border2)",
+            marginBottom: 2,
+          }}>
+            <span style={{ fontSize: 9, color: "var(--text3)", width: 18, flexShrink: 0 }}>#</span>
+            <span style={{ fontSize: 9, color: "var(--text3)", width: 24, flexShrink: 0 }} />
+            <span style={{ flex: 1, fontSize: 9, color: "var(--text3)", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>球队</span>
+            <span style={{ fontSize: 9, color: "var(--text3)", width: 52, textAlign: "center", flexShrink: 0 }}>走势</span>
+            <span style={{ fontSize: 9, color: "var(--text3)", width: 40, textAlign: "right", flexShrink: 0 }}>ELO</span>
+            <span style={{ fontSize: 9, color: "var(--text3)", width: 36, textAlign: "right", flexShrink: 0 }}>夺冠%</span>
+          </div>
+
+          {visibleTeams.map((team, i) => {
+            const cfg         = partMap[team.name] || {};
             const isUncertain = cfg.status === "uncertain";
-            const pct        = team.probabilityValue || 0;
-            const barWidth   = maxProb > 0 ? (pct / maxProb) * 100 : 0;
-            // Look up trend data by Chinese or English name
+            const pct         = team.probabilityValue || 0;
+            const barWidth    = maxProb > 0 ? (pct / maxProb) * 100 : 0;
             const trendPoints = trendMap?.[team.name] || trendMap?.[team.originalName] || null;
+            const teamEn      = enNameMap[team.name] || team.name;
+            const teamHref    = `/team/${encodeURIComponent(teamEn)}`;
 
             return (
-              <div
+              <Link
                 key={team.name}
+                href={teamHref}
                 style={{
                   display: "flex", alignItems: "center",
-                  padding: "9px 0", gap: 8,
+                  padding: "8px 0", gap: 8,
                   borderBottom: "1px solid var(--border)",
                   opacity: isUncertain ? 0.72 : 1,
+                  textDecoration: "none", color: "inherit",
                 }}
               >
                 {/* Rank */}
@@ -84,7 +115,7 @@ export default function PredictPage() {
                 </span>
 
                 {/* Flag */}
-                <span style={{ fontSize: 18, flexShrink: 0 }}>{team.flag}</span>
+                <span style={{ fontSize: 18, flexShrink: 0, width: 24, textAlign: "center" }}>{team.flag}</span>
 
                 {/* Name + badge */}
                 <div style={{ flex: 1, minWidth: 0 }}>
@@ -112,41 +143,68 @@ export default function PredictPage() {
                   )}
                 </div>
 
-                {/* ELO sparkline — last 7 data points */}
+                {/* ELO sparkline */}
                 <div style={{ flexShrink: 0, width: 52 }}>
                   {trendPoints && trendPoints.length > 1 && (
                     <EloSparkline data={trendPoints.slice(-7)} width={52} height={20} />
                   )}
                 </div>
 
-                {/* Probability bar — narrowed from 72 to 56 to fit sparkline */}
-                <div style={{
-                  width: 56, height: 4, background: "var(--card2)",
-                  borderRadius: 999, overflow: "hidden", flexShrink: 0,
-                }}>
-                  <div style={{
-                    width: `${barWidth}%`, height: "100%", borderRadius: 999,
-                    background: isUncertain
-                      ? "linear-gradient(90deg, var(--gold), #ff9800)"
-                      : "linear-gradient(90deg, var(--blue), var(--purple))",
-                  }} />
-                </div>
-
-                {/* Percentage */}
+                {/* ELO score */}
                 <span style={{
-                  fontSize: 12, fontWeight: 900,
-                  color: isUncertain ? "var(--gold)" : "var(--text)",
-                  width: 40, textAlign: "right",
-                  fontVariantNumeric: "tabular-nums", flexShrink: 0,
+                  fontSize: 11, fontWeight: 700, width: 40,
+                  textAlign: "right", flexShrink: 0,
+                  color: "var(--text2)",
+                  fontVariantNumeric: "tabular-nums",
                 }}>
-                  {pct.toFixed(1)}%
+                  {team.elo ?? "—"}
                 </span>
-              </div>
+
+                {/* Probability bar + percentage */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 3, flexShrink: 0, width: 36 }}>
+                  <span style={{
+                    fontSize: 12, fontWeight: 900,
+                    color: isUncertain ? "var(--gold)" : "var(--text)",
+                    fontVariantNumeric: "tabular-nums",
+                  }}>
+                    {pct.toFixed(1)}%
+                  </span>
+                  <div style={{ width: 36, height: 3, background: "var(--card2)", borderRadius: 999, overflow: "hidden" }}>
+                    <div style={{
+                      width: `${barWidth}%`, height: "100%", borderRadius: 999,
+                      background: isUncertain
+                        ? "linear-gradient(90deg, var(--gold), #ff9800)"
+                        : "linear-gradient(90deg, var(--blue), var(--purple))",
+                    }} />
+                  </div>
+                </div>
+              </Link>
             );
           })}
 
-          {/* TBD slots */}
-          {tbdCount > 0 && (
+          {/* Expand / Collapse */}
+          {wcTeams.length > FOLD_AT && (
+            <button
+              onClick={() => setShowAll((v) => !v)}
+              style={{
+                width: "100%", padding: "11px 0",
+                background: "none", border: "none",
+                borderBottom: "1px solid var(--border)",
+                cursor: "pointer",
+                fontSize: 12, fontWeight: 700,
+                color: "var(--blue)",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+              }}
+            >
+              {showAll
+                ? <>↑ 收起</>
+                : <>↓ 显示更多（还有 {hiddenCount} 支球队）</>
+              }
+            </button>
+          )}
+
+          {/* TBD slots — only shown when expanded */}
+          {tbdCount > 0 && showAll && (
             <>
               <div style={{
                 fontSize: 10, fontWeight: 700, color: "var(--text3)",
@@ -154,19 +212,21 @@ export default function PredictPage() {
               }}>
                 待定席位（附加赛）
               </div>
-              {Array.from({ length: tbdCount }).map((_, i) => (
-                <div key={`tbd-${i}`} style={{
+              {Array.from({ length: tbdCount }).map((_, idx) => (
+                <div key={`tbd-${idx}`} style={{
                   display: "flex", alignItems: "center", padding: "9px 0", gap: 8,
                   borderBottom: "1px solid var(--border)", opacity: 0.35,
                 }}>
                   <span style={{ fontSize: 11, color: "var(--text3)", width: 18, fontWeight: 700, flexShrink: 0 }}>—</span>
-                  <span style={{ fontSize: 16, flexShrink: 0 }}>🏳️</span>
+                  <span style={{ fontSize: 16, flexShrink: 0, width: 24, textAlign: "center" }}>🏳️</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text3)" }}>待定</div>
                   </div>
                   <div style={{ width: 52, flexShrink: 0 }} />
-                  <div style={{ width: 56, height: 4, background: "var(--card2)", borderRadius: 999, flexShrink: 0 }} />
-                  <span style={{ fontSize: 12, color: "var(--text3)", width: 40, textAlign: "right", flexShrink: 0 }}>—</span>
+                  <span style={{ fontSize: 11, color: "var(--text3)", width: 40, textAlign: "right", flexShrink: 0 }}>—</span>
+                  <div style={{ width: 36, flexShrink: 0, textAlign: "right" }}>
+                    <span style={{ fontSize: 12, color: "var(--text3)" }}>—</span>
+                  </div>
                 </div>
               ))}
             </>
