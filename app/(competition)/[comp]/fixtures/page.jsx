@@ -5,12 +5,22 @@ import { useFixtures } from "@/lib/hooks/useFixtures";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
+// 以北京时间为准的今天/明天判断
+const BJ_LOCALE = "en-CA"; // 返回 YYYY-MM-DD 格式
+const BJ_TZ = { timeZone: "Asia/Shanghai" };
+
 function formatDateLabel(dateStr) {
-  const d = new Date(dateStr + "T00:00:00Z");
-  const today = new Date();
-  const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
-  if (d.toDateString() === today.toDateString()) return "今天";
-  if (d.toDateString() === tomorrow.toDateString()) return "明天";
+  // dateStr 是北京时间日期 "YYYY-MM-DD"
+  const todayBJT   = new Date().toLocaleDateString(BJ_LOCALE, BJ_TZ);
+  const tomorrowDate = new Date();
+  tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+  const tomorrowBJT = tomorrowDate.toLocaleDateString(BJ_LOCALE, BJ_TZ);
+
+  if (dateStr === todayBJT) return "今天";
+  if (dateStr === tomorrowBJT) return "明天";
+
+  // 格式化显示：月/日 + 星期
+  const d = new Date(dateStr + "T12:00:00+08:00"); // 用北京中午时间避免跨日
   return new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", weekday: "short" }).format(d);
 }
 
@@ -18,7 +28,8 @@ function groupByDate(fixtures) {
   const map = new Map();
   for (const f of fixtures) {
     if (!f.startingAt) continue;
-    const key = f.startingAt.slice(0, 10);
+    // 用北京时间日期作为分组 key
+    const key = new Date(f.startingAt).toLocaleDateString(BJ_LOCALE, BJ_TZ);
     if (!map.has(key)) map.set(key, []);
     map.get(key).push(f);
   }

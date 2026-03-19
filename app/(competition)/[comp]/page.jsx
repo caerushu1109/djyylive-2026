@@ -75,7 +75,7 @@ function LiveBanner({ fixture }) {
       <div style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--live)", animation: "pulse 1.5s infinite", flexShrink: 0 }} />
       <div style={{ flex: 1, padding: "0 10px" }}>
         <div style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          ● LIVE · 小组赛 A 组 · {fixture.minute || "—"}
+          ● LIVE · {fixture.stage || fixture.group || "世界杯"} · {fixture.minute || "—"}
         </div>
         <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)", marginTop: 2 }}>
           {fixture.home?.flag} {fixture.home?.name} vs {fixture.away?.flag} {fixture.away?.name}
@@ -99,7 +99,7 @@ function QuickStats({ fixturesData }) {
   // Use Beijing time (Asia/Shanghai) for "today" comparisons
   const todayBJTStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" }); // "YYYY-MM-DD"
   const todayCount = allFixtures.filter(f => {
-    if (!f.startingAt || f.status === "LIVE") return false;
+    if (!f.startingAt) return false;
     const fDateStr = new Date(f.startingAt).toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
     return fDateStr === todayBJTStr;
   }).length;
@@ -116,7 +116,7 @@ function QuickStats({ fixturesData }) {
     dayLabel = "距开幕";
   } else if (todayBJT <= wcEndBJT) {
     dayValue = Math.round((todayBJT - wcStartBJT) / MS_PER_DAY) + 1;
-    dayLabel = "赛事第天";
+    dayLabel = "赛事进行中";
   } else {
     dayValue = "✓";
     dayLabel = "已结束";
@@ -142,7 +142,7 @@ function QuickStats({ fixturesData }) {
       {card(liveCount, "进行中", "var(--green)")}
       {card(todayCount, "今日赛程")}
       {card(48, "球队")}
-      {card(8, "小组")}
+      {card(12, "小组")}
       {card(dayValue, dayLabel)}
     </div>
   );

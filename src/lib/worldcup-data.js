@@ -59,7 +59,7 @@ function formatMinute(match) {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
-    timeZone: "Asia/Tokyo",
+    timeZone: "Asia/Shanghai",
   }).format(new Date(kickoff));
 }
 

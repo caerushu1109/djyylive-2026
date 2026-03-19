@@ -38,7 +38,7 @@ export default function MatchCard({ fixture, onClick }) {
       {/* Score center */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0, width: 60 }}>
         <div style={{ fontSize: 18, fontWeight: 900, color: scoreColor, letterSpacing: "-0.02em", fontVariantNumeric: "tabular-nums" }}>
-          {homeScore ?? 0}–{awayScore ?? 0}
+          {status === "NS" ? "vs" : `${homeScore ?? 0}–${awayScore ?? 0}`}
         </div>
         {status === "FT" && (
           <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, background: "var(--card2)", padding: "2px 5px", borderRadius: 4 }}>
