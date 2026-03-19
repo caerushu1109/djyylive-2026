@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T17:56:59+00:00",
+  "updatedAt": "2026-03-18T13:14:24+00:00",
   "source": "sportmonks",
   "teams": [
     {
@@ -23,7 +23,7 @@
     {
       "name": "England",
       "displayName": "英格兰",
-      "flag": "🏴",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "placeholder": false
     },
     {
@@ -161,7 +161,7 @@
     {
       "name": "Scotland",
       "displayName": "苏格兰",
-      "flag": "🏴",
+      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
       "placeholder": false
     },
     {
@@ -251,12 +251,12 @@
     {
       "name": "Wales",
       "displayName": "威尔士",
-      "flag": "🏴",
+      "flag": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
       "placeholder": false
     },
     {
       "name": "Venezuela",
-      "displayName": "Venezuela",
+      "displayName": "委内瑞拉",
       "flag": "🇻🇪",
       "placeholder": false
     },
@@ -274,7 +274,7 @@
     },
     {
       "name": "Hungary",
-      "displayName": "Hungary",
+      "displayName": "匈牙利",
       "flag": "🇭🇺",
       "placeholder": false
     },
@@ -328,7 +328,7 @@
     },
     {
       "name": "Georgia",
-      "displayName": "Georgia",
+      "displayName": "格鲁吉亚",
       "flag": "🇬🇪",
       "placeholder": false
     },
@@ -394,7 +394,7 @@
     },
     {
       "name": "Mali",
-      "displayName": "Mali",
+      "displayName": "马里",
       "flag": "🇲🇱",
       "placeholder": false
     },
@@ -424,7 +424,7 @@
     },
     {
       "name": "Iceland",
-      "displayName": "Iceland",
+      "displayName": "冰岛",
       "flag": "🇮🇸",
       "placeholder": false
     },
@@ -436,7 +436,7 @@
     },
     {
       "name": "Angola",
-      "displayName": "Angola",
+      "displayName": "安哥拉",
       "flag": "🇦🇴",
       "placeholder": false
     },
@@ -454,13 +454,13 @@
     },
     {
       "name": "United Arab Emirates",
-      "displayName": "United Arab Emirates",
+      "displayName": "阿联酋",
       "flag": "🇦🇪",
       "placeholder": false
     },
     {
       "name": "Burkina Faso",
-      "displayName": "Burkina Faso",
+      "displayName": "布基纳法索",
       "flag": "🇧🇫",
       "placeholder": false
     },
@@ -472,7 +472,7 @@
     },
     {
       "name": "Guatemala",
-      "displayName": "Guatemala",
+      "displayName": "危地马拉",
       "flag": "🇬🇹",
       "placeholder": false
     },
@@ -484,37 +484,37 @@
     },
     {
       "name": "Finland",
-      "displayName": "Finland",
+      "displayName": "芬兰",
       "flag": "🇫🇮",
       "placeholder": false
     },
     {
       "name": "Belarus",
-      "displayName": "Belarus",
+      "displayName": "白俄罗斯",
       "flag": "🇧🇾",
       "placeholder": false
     },
     {
       "name": "Oman",
-      "displayName": "Oman",
+      "displayName": "阿曼",
       "flag": "🇴🇲",
       "placeholder": false
     },
     {
       "name": "Guinea",
-      "displayName": "Guinea",
+      "displayName": "几内亚",
       "flag": "🇬🇳",
       "placeholder": false
     },
     {
       "name": "Syria",
-      "displayName": "Syria",
+      "displayName": "叙利亚",
       "flag": "🇸🇾",
       "placeholder": false
     },
     {
       "name": "Palestine",
-      "displayName": "Palestine",
+      "displayName": "巴勒斯坦",
       "flag": "🇵🇸",
       "placeholder": false
     },
@@ -532,13 +532,13 @@
     },
     {
       "name": "Bulgaria",
-      "displayName": "Bulgaria",
+      "displayName": "保加利亚",
       "flag": "🇧🇬",
       "placeholder": false
     },
     {
       "name": "Montenegro",
-      "displayName": "Montenegro",
+      "displayName": "黑山",
       "flag": "🇲🇪",
       "placeholder": false
     },
@@ -550,7 +550,7 @@
     },
     {
       "name": "Libya",
-      "displayName": "Libya",
+      "displayName": "利比亚",
       "flag": "🇱🇾",
       "placeholder": false
     },
@@ -574,61 +574,61 @@
     },
     {
       "name": "Bahrain",
-      "displayName": "Bahrain",
+      "displayName": "巴林",
       "flag": "🇧🇭",
       "placeholder": false
     },
     {
       "name": "Kazakhstan",
-      "displayName": "Kazakhstan",
+      "displayName": "哈萨克斯坦",
       "flag": "🇰🇿",
       "placeholder": false
     },
     {
       "name": "China",
-      "displayName": "China",
+      "displayName": "中国",
       "flag": "🇨🇳",
       "placeholder": false
     },
     {
       "name": "Benin",
-      "displayName": "Benin",
+      "displayName": "贝宁",
       "flag": "🇧🇯",
       "placeholder": false
     },
     {
       "name": "Gabon",
-      "displayName": "Gabon",
+      "displayName": "加蓬",
       "flag": "🇬🇦",
       "placeholder": false
     },
     {
       "name": "Niger",
-      "displayName": "Niger",
+      "displayName": "尼日尔",
       "flag": "🇳🇪",
       "placeholder": false
     },
     {
       "name": "Trinidad and Tobago",
-      "displayName": "Trinidad and Tobago",
+      "displayName": "特多",
       "flag": "🇹🇹",
       "placeholder": false
     },
     {
       "name": "Luxembourg",
-      "displayName": "Luxembourg",
+      "displayName": "卢森堡",
       "flag": "🇱🇺",
       "placeholder": false
     },
     {
       "name": "Uganda",
-      "displayName": "Uganda",
+      "displayName": "乌干达",
       "flag": "🇺🇬",
       "placeholder": false
     },
     {
       "name": "Armenia",
-      "displayName": "Armenia",
+      "displayName": "亚美尼亚",
       "flag": "🇦🇲",
       "placeholder": false
     },
@@ -640,7 +640,7 @@
     },
     {
       "name": "Faroe Islands",
-      "displayName": "Faroe Islands",
+      "displayName": "法罗群岛",
       "flag": "🇫🇴",
       "placeholder": false
     },
@@ -652,43 +652,43 @@
     },
     {
       "name": "Comoros",
-      "displayName": "Comoros",
+      "displayName": "科摩罗",
       "flag": "🇰🇲",
       "placeholder": false
     },
     {
       "name": "Mozambique",
-      "displayName": "Mozambique",
+      "displayName": "莫桑比克",
       "flag": "🇲🇿",
       "placeholder": false
     },
     {
       "name": "Zambia",
-      "displayName": "Zambia",
+      "displayName": "赞比亚",
       "flag": "🇿🇲",
       "placeholder": false
     },
     {
       "name": "Madagascar",
-      "displayName": "Madagascar",
+      "displayName": "马达加斯加",
       "flag": "🇲🇬",
       "placeholder": false
     },
     {
       "name": "Thailand",
-      "displayName": "Thailand",
+      "displayName": "泰国",
       "flag": "🇹🇭",
       "placeholder": false
     },
     {
       "name": "Estonia",
-      "displayName": "Estonia",
+      "displayName": "爱沙尼亚",
       "flag": "🇪🇪",
       "placeholder": false
     },
     {
       "name": "Sudan",
-      "displayName": "Sudan",
+      "displayName": "苏丹",
       "flag": "🇸🇩",
       "placeholder": false
     },
@@ -706,13 +706,13 @@
     },
     {
       "name": "Kenya",
-      "displayName": "Kenya",
+      "displayName": "肯尼亚",
       "flag": "🇰🇪",
       "placeholder": false
     },
     {
       "name": "Zimbabwe",
-      "displayName": "Zimbabwe",
+      "displayName": "津巴布韦",
       "flag": "🇿🇼",
       "placeholder": false
     },
@@ -724,19 +724,19 @@
     },
     {
       "name": "Indonesia",
-      "displayName": "Indonesia",
+      "displayName": "印度尼西亚",
       "flag": "🇮🇩",
       "placeholder": false
     },
     {
       "name": "Tanzania",
-      "displayName": "Tanzania",
+      "displayName": "坦桑尼亚",
       "flag": "🇹🇿",
       "placeholder": false
     },
     {
       "name": "Azerbaijan",
-      "displayName": "Azerbaijan",
+      "displayName": "阿塞拜疆",
       "flag": "🇦🇿",
       "placeholder": false
     },
@@ -748,7 +748,7 @@
     },
     {
       "name": "Lebanon",
-      "displayName": "Lebanon",
+      "displayName": "黎巴嫩",
       "flag": "🇱🇧",
       "placeholder": false
     },
@@ -760,25 +760,25 @@
     },
     {
       "name": "Vietnam",
-      "displayName": "Vietnam",
+      "displayName": "越南",
       "flag": "🇻🇳",
       "placeholder": false
     },
     {
       "name": "Kuwait",
-      "displayName": "Kuwait",
+      "displayName": "科威特",
       "flag": "🇰🇼",
       "placeholder": false
     },
     {
       "name": "Nicaragua",
-      "displayName": "Nicaragua",
-      "flag": "🇬🇧",
+      "displayName": "尼加拉瓜",
+      "flag": "🇳🇮",
       "placeholder": false
     },
     {
       "name": "El Salvador",
-      "displayName": "El Salvador",
+      "displayName": "萨尔瓦多",
       "flag": "🇸🇻",
       "placeholder": false
     },
@@ -790,13 +790,13 @@
     },
     {
       "name": "Malaysia",
-      "displayName": "Malaysia",
+      "displayName": "马来西亚",
       "flag": "🇲🇾",
       "placeholder": false
     },
     {
       "name": "Kyrgyzstan",
-      "displayName": "Kyrgyzstan",
+      "displayName": "吉尔吉斯斯坦",
       "flag": "🇰🇬",
       "placeholder": false
     },
@@ -808,7 +808,7 @@
     },
     {
       "name": "Mauritania",
-      "displayName": "Mauritania",
+      "displayName": "毛里塔尼亚",
       "flag": "🇲🇷",
       "placeholder": false
     },
@@ -820,7 +820,7 @@
     },
     {
       "name": "Cyprus",
-      "displayName": "Cyprus",
+      "displayName": "塞浦路斯",
       "flag": "🇨🇾",
       "placeholder": false
     },
@@ -832,7 +832,7 @@
     },
     {
       "name": "Tajikistan",
-      "displayName": "Tajikistan",
+      "displayName": "塔吉克斯坦",
       "flag": "🇹🇯",
       "placeholder": false
     },
@@ -844,7 +844,7 @@
     },
     {
       "name": "Dominican Republic",
-      "displayName": "Dominican Republic",
+      "displayName": "多米尼加共和国",
       "flag": "🇩🇴",
       "placeholder": false
     },
@@ -856,7 +856,7 @@
     },
     {
       "name": "Latvia",
-      "displayName": "Latvia",
+      "displayName": "拉脱维亚",
       "flag": "🇱🇻",
       "placeholder": false
     },
@@ -868,25 +868,25 @@
     },
     {
       "name": "Malta",
-      "displayName": "Malta",
+      "displayName": "马耳他",
       "flag": "🇲🇹",
       "placeholder": false
     },
     {
       "name": "Lithuania",
-      "displayName": "Lithuania",
+      "displayName": "立陶宛",
       "flag": "🇱🇹",
       "placeholder": false
     },
     {
       "name": "Guyana",
-      "displayName": "Guyana",
+      "displayName": "圭亚那",
       "flag": "🇬🇾",
       "placeholder": false
     },
     {
       "name": "Ethiopia",
-      "displayName": "Ethiopia",
+      "displayName": "埃塞俄比亚",
       "flag": "🇪🇹",
       "placeholder": false
     },
@@ -910,13 +910,13 @@
     },
     {
       "name": "Central African Republic",
-      "displayName": "Central African Republic",
+      "displayName": "中非",
       "flag": "🇨🇫",
       "placeholder": false
     },
     {
       "name": "Cuba",
-      "displayName": "Cuba",
+      "displayName": "古巴",
       "flag": "🇨🇺",
       "placeholder": false
     },
@@ -928,7 +928,7 @@
     },
     {
       "name": "Turkmenistan",
-      "displayName": "Turkmenistan",
+      "displayName": "土库曼斯坦",
       "flag": "🇹🇲",
       "placeholder": false
     },
@@ -952,14 +952,14 @@
     },
     {
       "name": "Congo",
-      "displayName": "Congo",
+      "displayName": "刚果（布）",
       "flag": "🇨🇬",
       "placeholder": false
     },
     {
       "name": "Tahiti",
-      "displayName": "Tahiti",
-      "flag": "🇹🇮",
+      "displayName": "塔希提",
+      "flag": "🇵🇫",
       "placeholder": false
     },
     {
@@ -970,7 +970,7 @@
     },
     {
       "name": "Philippines",
-      "displayName": "Philippines",
+      "displayName": "菲律宾",
       "flag": "🇵🇭",
       "placeholder": false
     },
@@ -994,7 +994,7 @@
     },
     {
       "name": "Papua New Guinea",
-      "displayName": "Papua New Guinea",
+      "displayName": "巴布亚新几内亚",
       "flag": "🇵🇬",
       "placeholder": false
     },
@@ -1018,7 +1018,7 @@
     },
     {
       "name": "India",
-      "displayName": "India",
+      "displayName": "印度",
       "flag": "🇮🇳",
       "placeholder": false
     },
@@ -1042,19 +1042,19 @@
     },
     {
       "name": "Vanuatu",
-      "displayName": "Vanuatu",
+      "displayName": "瓦努阿图",
       "flag": "🇻🇺",
       "placeholder": false
     },
     {
       "name": "Fiji",
-      "displayName": "Fiji",
+      "displayName": "斐济",
       "flag": "🇫🇯",
       "placeholder": false
     },
     {
       "name": "Belize",
-      "displayName": "Belize",
+      "displayName": "伯利兹",
       "flag": "🇧🇿",
       "placeholder": false
     },
@@ -1066,7 +1066,7 @@
     },
     {
       "name": "Solomon Islands",
-      "displayName": "Solomon Islands",
+      "displayName": "所罗门群岛",
       "flag": "🇸🇧",
       "placeholder": false
     },
@@ -1084,7 +1084,7 @@
     },
     {
       "name": "Afghanistan",
-      "displayName": "Afghanistan",
+      "displayName": "阿富汗",
       "flag": "🇦🇫",
       "placeholder": false
     },
@@ -1156,13 +1156,13 @@
     },
     {
       "name": "Myanmar",
-      "displayName": "Myanmar",
+      "displayName": "缅甸",
       "flag": "🇲🇲",
       "placeholder": false
     },
     {
       "name": "Bangladesh",
-      "displayName": "Bangladesh",
+      "displayName": "孟加拉国",
       "flag": "🇧🇩",
       "placeholder": false
     },
@@ -1174,13 +1174,13 @@
     },
     {
       "name": "Barbados",
-      "displayName": "Barbados",
+      "displayName": "巴巴多斯",
       "flag": "🇧🇧",
       "placeholder": false
     },
     {
       "name": "Nepal",
-      "displayName": "Nepal",
+      "displayName": "尼泊尔",
       "flag": "🇳🇵",
       "placeholder": false
     },
@@ -1223,7 +1223,7 @@
     {
       "name": "Seychelles",
       "displayName": "Seychelles",
-      "flag": "🏴",
+      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
       "placeholder": false
     },
     {
@@ -1240,7 +1240,7 @@
     },
     {
       "name": "Pakistan",
-      "displayName": "Pakistan",
+      "displayName": "巴基斯坦",
       "flag": "🇵🇰",
       "placeholder": false
     },
@@ -1282,7 +1282,7 @@
     },
     {
       "name": "Mongolia",
-      "displayName": "Mongolia",
+      "displayName": "蒙古",
       "flag": "🇲🇳",
       "placeholder": false
     },
