@@ -3,13 +3,13 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
-import GroupSimulator from "@/components/wc/GroupSimulator";
+import GroupTable from "@/components/wc/GroupTable";
 import KnockoutBracket from "@/components/wc/KnockoutBracket";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 const SUB_TABS = ["积分榜", "淘汰赛"];
 
-// ── 2026 WC 完整晋级规则 ────────────────────────────────────────────────────────
+// ── 2026 WC 完整晋级规则 ────────────────────────────────────────────
 const RULES_SECTIONS = [
   {
     title: "赛制概览",
@@ -17,7 +17,7 @@ const RULES_SECTIONS = [
   },
   {
     title: "晋级名额",
-    body: "每组前2名直接晋级淘汰赛（共24队）。12组的第3名中，成绩最佳的8支球队也可晋级。共32支球队进入32强淘汰赛。",
+    body: "每组刁2名直接晋级淘汰赛（入24队）。12组的3名中，成绩最佳的81支球队也可晋级。32支球队进入32强淘汰赛。",
   },
   {
     title: "小组内排名规则（同积分时依序比较）",
@@ -33,8 +33,8 @@ const RULES_SECTIONS = [
     ].join("\n"),
   },
   {
-    title: "最佳第3名选取规则",
-    body: "12组的第3名均参与排名竞争，依以下顺序评定，最终取最佳8支晋级：① 积分 → ② 净胜球 → ③ 进球数 → ④ 纪律分 → ⑤ FIFA排名。",
+    title: "最佳3名选取规则",
+    body: "12组的3名均参与排名竞争，依以下顺序评定，最终取最佳8支晋级：① 积分 → ② 净胜球 → ③ 进球数 → ④ 纪律分 → ⑤ FIFA排名。",
   },
   {
     title: "淘汰赛阶段",
@@ -42,7 +42,7 @@ const RULES_SECTIONS = [
   },
   {
     title: "加时赛与点球大战",
-    body: "淘汰赛阶段若90分钟战平，加赛30分钟（上、下半场各15分钟）。加时后仍平则点球大战，每队各罚5轮，仍相同则突然死亡法继续。",
+    body: "淘汰赛阶段若90分钟战平，加赛30分钟（上、下半场吕15分钟）。加时后仍平则点球大战，每队各罚5轮，仍相同则突然死亡法继续。",
   },
 ];
 
@@ -67,7 +67,7 @@ function RulesPanel() {
           fontSize: 12, color: "var(--text3)",
           transform: open ? "rotate(180deg)" : "rotate(0deg)",
           transition: "transform 0.2s", display: "inline-block",
-        }}>▾</span>
+        }}>&#9662;</span>
       </button>
       {open && (
         <div style={{
@@ -97,16 +97,17 @@ function RulesPanel() {
   );
 }
 
+const PAGE_LABELS = ["AB", "CD", "EF", "GH", "IJ", "KL"];
+
 export default function GroupsPage() {
   const { comp } = useParams();
   const [subTab, setSubTab] = useState("积分榜");
-  const [activeGroup, setActiveGroup] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const { data, loading } = useFixtures();
   const standings = data?.standings || [];
-  const groups    = standings.map((g) => g.group);
 
-  const effectiveGroup = activeGroup ?? (groups[0] || null);
+  const pageGroups = standings.slice(currentPage * 2, currentPage * 2 + 2);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -125,7 +126,7 @@ export default function GroupsPage() {
         }}>
           <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)" }} />
           <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>2026 WC</span>
-          <span style={{ fontSize: 8, color: "var(--text3)" }}>▾</span>
+          <span style={{ fontSize: 8, color: "var(--text3)" }}>&#9662;</span>
         </div>
         <div style={{
           width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
@@ -155,23 +156,26 @@ export default function GroupsPage() {
         ))}
       </div>
 
-      {/* Group letter filter tabs — only for 积分榜 */}
+      {/* Page navigation — only for 积分榜 */}
       {subTab === "积分榜" && (
         <div style={{
-          display: "flex", overflowX: "auto", padding: "6px 12px 0", gap: 4, flexShrink: 0,
-          background: "var(--bg)", borderBottom: "1px solid var(--border)", scrollbarWidth: "none",
+          display: "flex", padding: "0 12px", gap: 4, flexShrink: 0,
+          background: "var(--bg)", borderBottom: "1px solid var(--border)",
         }}>
-          {groups.map((g) => (
+          {PAGE_LABELS.map((label, idx) => (
             <button
-              key={g} onClick={() => setActiveGroup(g)}
+              key={label}
+              onClick={() => setCurrentPage(idx)}
               style={{
-                padding: "5px 11px 7px", fontSize: 11, fontWeight: 800,
-                color: effectiveGroup === g ? "var(--blue)" : "var(--text3)",
-                borderBottom: effectiveGroup === g ? "2px solid var(--blue)" : "2px solid transparent",
-                whiteSpace: "nowrap", background: "none", border: "none", cursor: "pointer",
+                flex: 1, textAlign: "center", padding: "7px 0",
+                fontSize: 11, fontWeight: 800,
+                color: currentPage === idx ? "var(--blue)" : "var(--text3)",
+                borderBottom: currentPage === idx ? "2px solid var(--blue)" : "2px solid transparent",
+                background: "none", border: "none", cursor: "pointer",
+                letterSpacing: "0.02em",
               }}
             >
-              {g}
+              {label}
             </button>
           ))}
         </div>
@@ -181,16 +185,13 @@ export default function GroupsPage() {
         {loading ? (
           <LoadingSpinner />
         ) : subTab === "积分榜" ? (
-          <div style={{ display: "flex", flexDirection: "column", padding: "12px 0 0" }}>
-            {/* GroupSimulator handles rendering + mode toggle */}
-            <GroupSimulator
-              standings={standings}
-              interactive={true}
-              activeGroup={effectiveGroup}
-            />
-            <div style={{ padding: "0 12px" }}>
-              <RulesPanel />
+          <div style={{ display: "flex", flexDirection: "column", padding: "12px 12px 0" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {pageGroups.map((group) => (
+                <GroupTable key={group.group} group={group} />
+              ))}
             </div>
+            <RulesPanel />
             <div style={{ height: 16 }} />
           </div>
         ) : (
