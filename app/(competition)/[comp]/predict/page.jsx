@@ -163,17 +163,17 @@ export default function PredictPage() {
             );
           })}
 
-          {/* TBD slots from participants (inter-conf playoffs etc.) */}
-          {tbdSlots.length > 0 && (
+          {/* TBD slots — shown as blank rows for unresolved playoff spots */}
+          {tbdCount > 0 && (
             <>
               <div style={{
                 fontSize: 10, fontWeight: 700, color: "var(--text3)",
                 textTransform: "uppercase", letterSpacing: "0.08em",
                 padding: "14px 0 6px",
               }}>
-                待定席位
+                待定席位（附加赛）
               </div>
-              {tbdSlots.map((slot, i) => (
+              {Array.from({ length: tbdCount }).map((_, i) => (
                 <div
                   key={`tbd-${i}`}
                   style={{
@@ -182,16 +182,13 @@ export default function PredictPage() {
                     padding: "9px 0",
                     gap: 8,
                     borderBottom: "1px solid var(--border)",
-                    opacity: 0.4,
+                    opacity: 0.35,
                   }}
                 >
                   <span style={{ fontSize: 11, color: "var(--text3)", width: 18, fontWeight: 700, flexShrink: 0 }}>—</span>
                   <span style={{ fontSize: 16, flexShrink: 0 }}>🏳️</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text3)" }}>待定</div>
-                    {slot.note && (
-                      <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 1 }}>{slot.note}</div>
-                    )}
                   </div>
                   <div style={{ width: 72, height: 4, background: "var(--card2)", borderRadius: 999, flexShrink: 0 }} />
                   <span style={{ fontSize: 12, color: "var(--text3)", width: 40, textAlign: "right", flexShrink: 0 }}>—</span>
