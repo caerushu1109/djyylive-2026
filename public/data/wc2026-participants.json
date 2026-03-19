@@ -1,325 +1,34 @@
 {
-  "updatedAt": "2026-03-19T10:10:17.528974+00:00",
+  "updatedAt": "2026-03-19T12:55:54.962230+00:00",
   "seasonId": 26618,
-  "totalCount": 46,
-  "note": "初始种子文件，将由 GitHub Actions 每日自动覆盖更新",
+  "totalCount": 112,
   "participants": [
     {
-      "nameEn": "United States",
-      "nameZh": "美国",
-      "flag": "🇺🇸",
+      "sportmonksId": 260284,
+      "nameEn": "Winner Quarter-final 1",
+      "nameZh": "Winner Quarter-final 1",
+      "flag": "🏳️",
       "status": "confirmed",
       "note": ""
     },
     {
-      "nameEn": "Canada",
-      "nameZh": "加拿大",
-      "flag": "🇨🇦",
+      "sportmonksId": 278986,
+      "nameEn": "1st Group L",
+      "nameZh": "1st Group L",
+      "flag": "🏳️",
       "status": "confirmed",
       "note": ""
     },
     {
-      "nameEn": "Mexico",
-      "nameZh": "墨西哥",
-      "flag": "🇲🇽",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Spain",
-      "nameZh": "西班牙",
-      "flag": "🇪🇸",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "France",
-      "nameZh": "法国",
-      "flag": "🇫🇷",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "England",
-      "nameZh": "英格兰",
-      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Germany",
-      "nameZh": "德国",
-      "flag": "🇩🇪",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Portugal",
-      "nameZh": "葡萄牙",
-      "flag": "🇵🇹",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Netherlands",
-      "nameZh": "荷兰",
-      "flag": "🇳🇱",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Belgium",
-      "nameZh": "比利时",
-      "flag": "🇧🇪",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Italy",
-      "nameZh": "意大利",
-      "flag": "🇮🇹",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Switzerland",
-      "nameZh": "瑞士",
-      "flag": "🇨🇭",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Austria",
-      "nameZh": "奥地利",
-      "flag": "🇦🇹",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Denmark",
-      "nameZh": "丹麦",
-      "flag": "🇩🇰",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Turkey",
-      "nameZh": "土耳其",
-      "flag": "🇹🇷",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Croatia",
-      "nameZh": "克罗地亚",
-      "flag": "🇭🇷",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Scotland",
-      "nameZh": "苏格兰",
-      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Ukraine",
-      "nameZh": "乌克兰",
-      "flag": "🇺🇦",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Serbia",
-      "nameZh": "塞尔维亚",
-      "flag": "🇷🇸",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Argentina",
-      "nameZh": "阿根廷",
-      "flag": "🇦🇷",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
+      "sportmonksId": 18704,
       "nameEn": "Brazil",
-      "nameZh": "巴西",
-      "flag": "🇧🇷",
+      "nameZh": "Brazil",
+      "flag": "🏳️",
       "status": "confirmed",
       "note": ""
     },
     {
-      "nameEn": "Uruguay",
-      "nameZh": "乌拉圭",
-      "flag": "🇺🇾",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Colombia",
-      "nameZh": "哥伦比亚",
-      "flag": "🇨🇴",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Ecuador",
-      "nameZh": "厄瓜多尔",
-      "flag": "🇪🇨",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Venezuela",
-      "nameZh": "委内瑞拉",
-      "flag": "🇻🇪",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Morocco",
-      "nameZh": "摩洛哥",
-      "flag": "🇲🇦",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Senegal",
-      "nameZh": "塞内加尔",
-      "flag": "🇸🇳",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Nigeria",
-      "nameZh": "尼日利亚",
-      "flag": "🇳🇬",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Egypt",
-      "nameZh": "埃及",
-      "flag": "🇪🇬",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Ivory Coast",
-      "nameZh": "科特迪瓦",
-      "flag": "🇨🇮",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "DR Congo",
-      "nameZh": "刚果（金）",
-      "flag": "🇨🇩",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "South Africa",
-      "nameZh": "南非",
-      "flag": "🇿🇦",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Cameroon",
-      "nameZh": "喀麦隆",
-      "flag": "🇨🇲",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Algeria",
-      "nameZh": "阿尔及利亚",
-      "flag": "🇩🇿",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Japan",
-      "nameZh": "日本",
-      "flag": "🇯🇵",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Korea Republic",
-      "nameZh": "韩国",
-      "flag": "🇰🇷",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Australia",
-      "nameZh": "澳大利亚",
-      "flag": "🇦🇺",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Saudi Arabia",
-      "nameZh": "沙特阿拉伯",
-      "flag": "🇸🇦",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Jordan",
-      "nameZh": "约旦",
-      "flag": "🇯🇴",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Iraq",
-      "nameZh": "伊拉克",
-      "flag": "🇮🇶",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Uzbekistan",
-      "nameZh": "乌兹别克斯坦",
-      "flag": "🇺🇿",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Iran",
-      "nameZh": "伊朗",
-      "flag": "🇮🇷",
-      "status": "uncertain",
-      "note": "因地区冲突资格存疑，FIFA 尚未作出最终裁决"
-    },
-    {
-      "nameEn": "Panama",
-      "nameZh": "巴拿马",
-      "flag": "🇵🇦",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Honduras",
-      "nameZh": "洪都拉斯",
-      "flag": "🇭🇳",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
-      "nameEn": "Jamaica",
-      "nameZh": "牙买加",
-      "flag": "🇯🇲",
-      "status": "confirmed",
-      "note": ""
-    },
-    {
+      "sportmonksId": 18613,
       "nameEn": "New Zealand",
       "nameZh": "新西兰",
       "flag": "🇳🇿",
@@ -327,18 +36,868 @@
       "note": ""
     },
     {
-      "nameEn": "",
-      "nameZh": "",
-      "flag": "",
-      "status": "tbd",
-      "note": "跨洲附加赛席位1"
+      "sportmonksId": 260265,
+      "nameEn": "2nd Group F",
+      "nameZh": "2nd Group F",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
     },
     {
-      "nameEn": "",
-      "nameZh": "",
-      "flag": "",
-      "status": "tbd",
-      "note": "跨洲附加赛席位2"
+      "sportmonksId": 279056,
+      "nameEn": "Winner Match 96",
+      "nameZh": "Winner Match 96",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18560,
+      "nameEn": "Côte d'Ivoire",
+      "nameZh": "科特迪瓦",
+      "flag": "🇨🇮",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279101,
+      "nameEn": "Bol/Sur/Irq",
+      "nameZh": "玻/苏/伊",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278999,
+      "nameEn": "Winner Match 82",
+      "nameZh": "Winner Match 82",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18804,
+      "nameEn": "Haiti",
+      "nameZh": "Haiti",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278995,
+      "nameEn": "Winner Match 87",
+      "nameZh": "Winner Match 87",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18544,
+      "nameEn": "Qatar",
+      "nameZh": "Qatar",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278997,
+      "nameEn": "Winner Match 88",
+      "nameZh": "Winner Match 88",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18555,
+      "nameEn": "South Africa",
+      "nameZh": "南非",
+      "flag": "🇿🇦",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18910,
+      "nameEn": "Curacao",
+      "nameZh": "Curacao",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260285,
+      "nameEn": "Winner Quarter-final 2",
+      "nameZh": "Winner Quarter-final 2",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260276,
+      "nameEn": "2nd Group D",
+      "nameZh": "2nd Group D",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18562,
+      "nameEn": "Saudi Arabia",
+      "nameZh": "沙特阿拉伯",
+      "flag": "🇸🇦",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279055,
+      "nameEn": "Winner Match 95",
+      "nameZh": "Winner Match 95",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279008,
+      "nameEn": "Winner Match 73",
+      "nameZh": "Winner Match 73",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260197,
+      "nameEn": "2nd position Group B",
+      "nameZh": "2nd position Group B",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260275,
+      "nameEn": "2nd Group C",
+      "nameZh": "2nd Group C",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18730,
+      "nameEn": "Australia",
+      "nameZh": "Australia",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 15251,
+      "nameEn": "Uruguay",
+      "nameZh": "Uruguay",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279002,
+      "nameEn": "Winner Match 79",
+      "nameZh": "Winner Match 79",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260268,
+      "nameEn": "1st Group D",
+      "nameZh": "1st Group D",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18647,
+      "nameEn": "France",
+      "nameZh": "France",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278992,
+      "nameEn": "3rd Group C/D/F/G/H",
+      "nameZh": "3rd Group C/D/F/G/H",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260196,
+      "nameEn": "2nd position Group A",
+      "nameZh": "2nd position Group A",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18710,
+      "nameEn": "Spain",
+      "nameZh": "Spain",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260269,
+      "nameEn": "1st Group E",
+      "nameZh": "1st Group E",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260266,
+      "nameEn": "1st Group B",
+      "nameZh": "1st Group B",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279005,
+      "nameEn": "Winner Match 78",
+      "nameZh": "Winner Match 78",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18743,
+      "nameEn": "Belgium",
+      "nameZh": "Belgium",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18572,
+      "nameEn": "Canada",
+      "nameZh": "Canada",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278981,
+      "nameEn": "2nd Group J",
+      "nameZh": "2nd Group J",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18567,
+      "nameEn": "Korea Republic",
+      "nameZh": "韩国",
+      "flag": "🇰🇷",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18553,
+      "nameEn": "Ghana",
+      "nameZh": "Ghana",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278991,
+      "nameEn": "1st Group I",
+      "nameZh": "1st Group I",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260286,
+      "nameEn": "Winner Quarter-final 3",
+      "nameZh": "Winner Quarter-final 3",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278998,
+      "nameEn": "Winner Match 81",
+      "nameZh": "Winner Match 81",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18720,
+      "nameEn": "Colombia",
+      "nameZh": "Colombia",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18706,
+      "nameEn": "Scotland",
+      "nameZh": "Scotland",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278983,
+      "nameEn": "2nd Group L",
+      "nameZh": "2nd Group L",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260267,
+      "nameEn": "1st Group C",
+      "nameZh": "1st Group C",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260270,
+      "nameEn": "1st Group F",
+      "nameZh": "1st Group F",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279062,
+      "nameEn": "Winner Match 90",
+      "nameZh": "Winner Match 90",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279009,
+      "nameEn": "Winner Match 75",
+      "nameZh": "Winner Match 75",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18571,
+      "nameEn": "United States",
+      "nameZh": "美国",
+      "flag": "🇺🇸",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18588,
+      "nameEn": "Croatia",
+      "nameZh": "Croatia",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18559,
+      "nameEn": "Jordan",
+      "nameZh": "Jordan",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279102,
+      "nameEn": "Ncl/Jam/Cod",
+      "nameZh": "新喀/牙/刚果金",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279006,
+      "nameEn": "Winner Match 74",
+      "nameZh": "Winner Match 74",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18717,
+      "nameEn": "Panama",
+      "nameZh": "Panama",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18573,
+      "nameEn": "Ecuador",
+      "nameZh": "Ecuador",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18554,
+      "nameEn": "Tunisia",
+      "nameZh": "Tunisia",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278982,
+      "nameEn": "2nd Group K",
+      "nameZh": "2nd Group K",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260287,
+      "nameEn": "Winner Quarter-final 4",
+      "nameZh": "Winner Quarter-final 4",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18745,
+      "nameEn": "Uzbekistan",
+      "nameZh": "Uzbekistan",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18644,
+      "nameEn": "Argentina",
+      "nameZh": "Argentina",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278985,
+      "nameEn": "3rd Group B/E/F/I/J",
+      "nameZh": "3rd Group B/E/F/I/J",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260166,
+      "nameEn": "Winner Semi-final 2",
+      "nameZh": "Winner Semi-final 2",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278978,
+      "nameEn": "1st Group J",
+      "nameZh": "1st Group J",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279003,
+      "nameEn": "Winner Match 80",
+      "nameZh": "Winner Match 80",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260165,
+      "nameEn": "Winner Semi-final 1",
+      "nameZh": "Winner Semi-final 1",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279000,
+      "nameEn": "Winner Match 83",
+      "nameZh": "Winner Match 83",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278996,
+      "nameEn": "Winner Match 86",
+      "nameZh": "Winner Match 86",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18643,
+      "nameEn": "Austria",
+      "nameZh": "Austria",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279007,
+      "nameEn": "Winner Match 77",
+      "nameZh": "Winner Match 77",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18546,
+      "nameEn": "Egypt",
+      "nameZh": "Egypt",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279100,
+      "nameEn": "Tur/Rou/Svk/Kos",
+      "nameZh": "土/罗/斯/科",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18823,
+      "nameEn": "Cape Verde Islands",
+      "nameZh": "佛得角",
+      "flag": "🇨🇻",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278990,
+      "nameEn": "2nd Group I",
+      "nameZh": "2nd Group I",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260262,
+      "nameEn": "1st Group A",
+      "nameZh": "1st Group A",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18694,
+      "nameEn": "Netherlands",
+      "nameZh": "Netherlands",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279098,
+      "nameEn": "Den/Mkd/Cze/Irl",
+      "nameZh": "丹/北马/捷/爱",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278979,
+      "nameEn": "1st Group K",
+      "nameZh": "1st Group K",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278994,
+      "nameEn": "Winner Match 85",
+      "nameZh": "Winner Match 85",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279097,
+      "nameEn": "Ita/Nir/Wal/BiH",
+      "nameZh": "意/北爱/威/波黑",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279061,
+      "nameEn": "Winner Match 89",
+      "nameZh": "Winner Match 89",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18708,
+      "nameEn": "Switzerland",
+      "nameZh": "Switzerland",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278980,
+      "nameEn": "3rd Group D/E/I/J/L",
+      "nameZh": "3rd Group D/E/I/J/L",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18645,
+      "nameEn": "England",
+      "nameZh": "England",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18660,
+      "nameEn": "Germany",
+      "nameZh": "Germany",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278984,
+      "nameEn": "3rd Group E/F/G/I/J",
+      "nameZh": "3rd Group E/F/G/I/J",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279004,
+      "nameEn": "Winner Match 76",
+      "nameZh": "Winner Match 76",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18701,
+      "nameEn": "Portugal",
+      "nameZh": "Portugal",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18558,
+      "nameEn": "Senegal",
+      "nameZh": "Senegal",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260264,
+      "nameEn": "2nd Group G",
+      "nameZh": "2nd Group G",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260185,
+      "nameEn": "Loser Semi-final 1",
+      "nameZh": "Loser Semi-final 1",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260186,
+      "nameEn": "Loser Semi-final 2",
+      "nameZh": "Loser Semi-final 2",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278989,
+      "nameEn": "3rd Group C/E/F/H/I",
+      "nameZh": "3rd Group C/E/F/H/I",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18578,
+      "nameEn": "Norway",
+      "nameZh": "Norway",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260277,
+      "nameEn": "2nd Group E",
+      "nameZh": "2nd Group E",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278987,
+      "nameEn": "3rd Group E/H/I/J/K",
+      "nameZh": "3rd Group E/H/I/J/K",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279057,
+      "nameEn": "Winner Match 91",
+      "nameZh": "Winner Match 91",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278993,
+      "nameEn": "3rd Group A/B/C/D/F",
+      "nameZh": "3rd Group A/B/C/D/F",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18652,
+      "nameEn": "Iran",
+      "nameZh": "Iran",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18551,
+      "nameEn": "Morocco",
+      "nameZh": "Morocco",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18576,
+      "nameEn": "Mexico",
+      "nameZh": "Mexico",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279001,
+      "nameEn": "Winner Match 84",
+      "nameZh": "Winner Match 84",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 278988,
+      "nameEn": "3rd Group  A/E/H/I/J",
+      "nameZh": "3rd Group  A/E/H/I/J",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260271,
+      "nameEn": "1st Group G",
+      "nameZh": "1st Group G",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279060,
+      "nameEn": "Winner Match 94",
+      "nameZh": "Winner Match 94",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18597,
+      "nameEn": "Japan",
+      "nameZh": "Japan",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260272,
+      "nameEn": "1st Group H",
+      "nameZh": "1st Group H",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 260263,
+      "nameEn": "2nd Group H",
+      "nameZh": "2nd Group H",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279058,
+      "nameEn": "Winner Match 92",
+      "nameZh": "Winner Match 92",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18620,
+      "nameEn": "Algeria",
+      "nameZh": "Algeria",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279059,
+      "nameEn": "Winner Match 93",
+      "nameZh": "Winner Match 93",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 279099,
+      "nameEn": "Ukr/Swe/Pol/Alb",
+      "nameZh": "乌/瑞/波/阿",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
+    },
+    {
+      "sportmonksId": 18723,
+      "nameEn": "Paraguay",
+      "nameZh": "Paraguay",
+      "flag": "🏳️",
+      "status": "confirmed",
+      "note": ""
     }
   ]
 }
