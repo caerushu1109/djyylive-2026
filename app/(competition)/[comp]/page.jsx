@@ -99,28 +99,32 @@ function QuickStats({ fixturesData }) {
   const today = new Date().toDateString();
   const todayCount = allFixtures.filter(f => f.startingAt && new Date(f.startingAt).toDateString() === today && f.status !== "LIVE").length;
 
+  // 2026 World Cup opens June 11, 2026
+  const wcStart = new Date("2026-06-11T00:00:00");
+  const daysLeft = Math.max(0, Math.ceil((wcStart - new Date()) / (1000 * 60 * 60 * 24)));
+
+  const card = (value, label, color = "var(--text)") => (
+    <div key={label} style={{
+      flex: 1,
+      background: "var(--card)",
+      border: "1px solid var(--border)",
+      borderRadius: "var(--radius-sm)",
+      padding: "8px 4px",
+      textAlign: "center",
+      minWidth: 0,
+    }}>
+      <div style={{ fontSize: 18, fontWeight: 900, color, fontVariantNumeric: "tabular-nums" }}>{value}</div>
+      <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>{label}</div>
+    </div>
+  );
+
   return (
-    <div style={{ display: "flex", gap: 6, padding: "0 12px", marginBottom: 14, overflowX: "auto", scrollbarWidth: "none" }}>
-      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
-        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--green)", fontVariantNumeric: "tabular-nums" }}>{liveCount}</div>
-        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>进行中</div>
-      </div>
-      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
-        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>{todayCount}</div>
-        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>今日赛程</div>
-      </div>
-      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
-        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>48</div>
-        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>球队</div>
-      </div>
-      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
-        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>8</div>
-        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>小组</div>
-      </div>
-      <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius-sm)", padding: "8px 12px", textAlign: "center", flexShrink: 0 }}>
-        <div style={{ fontSize: 18, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>15</div>
-        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>天</div>
-      </div>
+    <div style={{ display: "flex", gap: 6, padding: "0 12px", marginBottom: 14 }}>
+      {card(liveCount, "进行中", "var(--green)")}
+      {card(todayCount, "今日赛程")}
+      {card(48, "球队")}
+      {card(8, "小组")}
+      {card(daysLeft, "天")}
     </div>
   );
 }
