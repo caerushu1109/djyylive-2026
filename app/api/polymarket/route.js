@@ -1,86 +1,85 @@
 import { NextResponse } from "next/server";
 
-const POLYMARKET_API =
-  "https://gamma-api.polymarket.com/markets?q=2026+FIFA+World+Cup+Winner&active=true";
+// 正确的事件 slug（对应 polymarket.com/event/2026-fifa-world-cup-winner-595）
+const EVENT_SLUG = "2026-fifa-world-cup-winner-595";
+const GAMMA_URL  = `https://gamma-api.polymarket.com/events?slug=${EVENT_SLUG}`;
+
+// allorigins.win 是公共 CORS/IP 代理，绕过 Cloudflare 被 Polymarket 封锁的问题
+const PROXY_URL  = `https://api.allorigins.win/get?url=${encodeURIComponent(GAMMA_URL)}`;
 
 /**
- * 解析 Polymarket 返回的市场数据，提取球队名与概率
- * outcomePrices 格式通常为 JSON 字符串数组，如 '["0.23","0.15",...]'
- * outcomes 格式为 JSON 字符串数组，如 '["Spain","France",...]'
+ * 解析 Polymarket events 响应
+ * 结构: [ { markets: [ { outcomes: '["Spain","France",...]', outcomePrices: '["0.23","0.15",...]' } ] } ]
  */
-function parseMarket(market) {
-  try {
-    const outcomes = JSON.parse(market.outcomes || "[]");
-    const prices = JSON.parse(market.outcomePrices || "[]");
-
-    if (!outcomes.length || outcomes.length !== prices.length) return [];
-
-    return outcomes.map((name, i) => ({
-      name: String(name),
-      probability: Math.round(parseFloat(prices[i] || 0) * 1000) / 10, // 转为百分比，保留1位小数
-    }));
-  } catch {
-    return [];
+function parseEvents(events) {
+  const map = {};
+  for (const event of Array.isArray(events) ? events : []) {
+    for (const market of Array.isArray(event.markets) ? event.markets : []) {
+      try {
+        const outcomes = JSON.parse(market.outcomes     || "[]");
+        const prices   = JSON.parse(market.outcomePrices || "[]");
+        if (!outcomes.length || outcomes.length !== prices.length) continue;
+        outcomes.forEach((name, i) => {
+          const prob = Math.round(parseFloat(prices[i] || 0) * 1000) / 10;
+          if (prob > 0 && (!map[name] || prob > map[name])) {
+            map[name] = prob;
+          }
+        });
+      } catch { /* 单个 market 解析失败不影响其他 */ }
+    }
   }
+  return Object.entries(map)
+    .map(([name, probability]) => ({ name, probability }))
+    .sort((a, b) => b.probability - a.probability);
+}
+
+async function fetchDirect() {
+  const res = await fetch(GAMMA_URL, {
+    headers: { Accept: "application/json", "User-Agent": "Mozilla/5.0" },
+    signal: AbortSignal.timeout(6000),
+  });
+  if (!res.ok) throw new Error(`direct ${res.status}`);
+  return res.json(); // 返回 events 数组
+}
+
+async function fetchViaProxy() {
+  const res = await fetch(PROXY_URL, {
+    headers: { Accept: "application/json" },
+    signal: AbortSignal.timeout(10000),
+  });
+  if (!res.ok) throw new Error(`proxy ${res.status}`);
+  const wrapper = await res.json();
+  // allorigins 把原始内容放在 wrapper.contents（字符串）
+  return JSON.parse(wrapper.contents);
 }
 
 export async function GET() {
+  let teams = [];
+  let usedMethod = "none";
+
   try {
-    const res = await fetch(POLYMARKET_API, {
-      next: { revalidate: 300 }, // Next.js 数据缓存 5 分钟
-      headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; djyylive-bot/1.0)",
-        Accept: "application/json",
-      },
-      signal: AbortSignal.timeout(8000), // 8 秒超时
-    });
-
-    if (!res.ok) {
-      throw new Error(`Polymarket API responded ${res.status}`);
+    const events = await fetchDirect();
+    teams = parseEvents(events);
+    usedMethod = "direct";
+  } catch (e1) {
+    console.warn("[polymarket] direct failed:", e1.message, "→ trying proxy");
+    try {
+      const events = await fetchViaProxy();
+      teams = parseEvents(events);
+      usedMethod = "proxy";
+    } catch (e2) {
+      console.error("[polymarket] proxy also failed:", e2.message);
     }
-
-    const markets = await res.json();
-
-    // 找到最相关的单场市场（包含最多球队的那个）
-    const allTeams = [];
-    for (const market of Array.isArray(markets) ? markets : []) {
-      const teams = parseMarket(market);
-      if (teams.length > allTeams.length) {
-        allTeams.splice(0, allTeams.length, ...teams);
-      }
-    }
-
-    // 按概率降序排列
-    allTeams.sort((a, b) => b.probability - a.probability);
-
-    return NextResponse.json(
-      {
-        teams: allTeams,
-        fetchedAt: new Date().toISOString(),
-        source: "polymarket",
-      },
-      {
-        headers: {
-          "cache-control": "public, s-maxage=300, stale-while-revalidate=600",
-        },
-      }
-    );
-  } catch (err) {
-    console.error("[polymarket] fetch failed:", err.message);
-    // 优雅降级：返回空数据，不白屏
-    return NextResponse.json(
-      {
-        teams: [],
-        fetchedAt: new Date().toISOString(),
-        source: "polymarket",
-        error: "unavailable",
-      },
-      {
-        status: 200, // 仍返回 200，让前端优雅展示
-        headers: {
-          "cache-control": "public, s-maxage=60, stale-while-revalidate=120",
-        },
-      }
-    );
   }
+
+  return NextResponse.json(
+    { teams, fetchedAt: new Date().toISOString(), source: "polymarket", method: usedMethod },
+    {
+      headers: {
+        "cache-control": teams.length > 0
+          ? "public, s-maxage=300, stale-while-revalidate=600"
+          : "public, s-maxage=30, stale-while-revalidate=60",
+      },
+    }
+  );
 }
