@@ -10,12 +10,12 @@ import { useSquad } from "@/lib/hooks/useSquad";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 import MatchCard from "@/components/shared/MatchCard";
 import GroupTable from "@/components/wc/GroupTable";
-import SectionTitle from "@/components/ui/SectionTitle";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { ChevronLeft } from "lucide-react";
 import { POSITION_LABEL } from "@/lib/utils/teamIso";
 
 const POSITION_ORDER = ["GK", "DF", "MF", "FW"];
+const TABS = ["概览", "赛程", "历史", "阵容"];
 
 const BEST_RESULT_ZH = {
   "winner":         "🏆 冠军",
@@ -45,7 +45,6 @@ function useTeamGroup(teamOriginalName) {
       .then((r) => r.json())
       .then((d) => {
         for (const [letter, teams] of Object.entries(d)) {
-          // match by English name (e.g. "Korea Republic") or display variant
           if (teams.some((t) =>
             t === teamOriginalName ||
             t.toLowerCase() === teamOriginalName.toLowerCase()
@@ -64,11 +63,9 @@ function useTeamGroup(teamOriginalName) {
 function formBadge(fixture, teamOriginalName) {
   const { home, away, score } = fixture;
   if (!score || score.home == null || score.away == null) return null;
-
   const isHome = home.originalName === teamOriginalName || home.name === teamOriginalName;
   const teamScore = isHome ? score.home : score.away;
   const oppScore  = isHome ? score.away : score.home;
-
   if (teamScore > oppScore) return "W";
   if (teamScore < oppScore) return "L";
   return "D";
@@ -86,9 +83,7 @@ function FormStrip({ fixtures, teamOriginalName }) {
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 5)
     .reverse();
-
   if (finished.length === 0) return null;
-
   return (
     <div style={{ display: "flex", gap: 4, marginTop: 8 }}>
       {finished.map((f, i) => {
@@ -114,114 +109,104 @@ function FormStrip({ fixtures, teamOriginalName }) {
   );
 }
 
-// ── WC History card ────────────────────────────────────────────────────────────
-function WcHistoryCard({ history }) {
-  if (!history) return null;
-  const { appearances, titles, titleYears, bestResult, history: years } = history;
-  const recent = [...(years || [])].reverse().slice(0, 8);
+// ── Tournament progression funnel ─────────────────────────────────────────────
+const STAGES = [
+  { key: "pQualify",  label: "出线" },
+  { key: "pR16",      label: "16强" },
+  { key: "pQF",       label: "8强" },
+  { key: "pSF",       label: "4强" },
+  { key: "pFinal",    label: "决赛" },
+  { key: "pChampion", label: "夺冠" },
+];
 
+function ProgressionFunnel({ teamPred }) {
+  if (!teamPred) return null;
   return (
-    <div style={{ margin: "0 16px 12px", background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius)" }}>
-      {/* Summary row */}
-      <div style={{ display: "flex", borderBottom: "1px solid var(--border)" }}>
-        {[
-          { value: appearances ?? 0, label: "届世界杯" },
-          { value: titles ?? 0,      label: "次冠军" },
-          { value: bestResultLabel(bestResult), label: "最佳成绩", small: true },
-        ].map((item, i) => (
-          <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
-            <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
-              {item.value}
-            </div>
-            <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
-          </div>
-        ))}
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      <div style={{
+        padding: "10px 12px", borderBottom: "1px solid var(--border)",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+        <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
+          模型排名 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>#{teamPred.rank}</span>
+        </span>
+        <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
+          夺冠概率 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>{teamPred.probabilityValue?.toFixed(1)}%</span>
+        </span>
       </div>
-
-      {/* Title years */}
-      {titleYears?.length > 0 && (
-        <div style={{ padding: "6px 12px", borderBottom: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
-          夺冠年份：
-          <span style={{ color: "var(--blue)", fontWeight: 700 }}>
-            {titleYears.join("、")}
-          </span>
-        </div>
-      )}
-
-      {/* Recent WC records */}
-      {recent.length > 0 && (
-        <div>
-          {recent.map((entry, i) => (
-            <div key={entry.year} style={{
-              display: "flex", alignItems: "center", padding: "7px 12px", gap: 10,
-              borderBottom: i < recent.length - 1 ? "1px solid var(--border)" : "none",
-            }}>
-              <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text-dim)", minWidth: 36 }}>{entry.year}</span>
-              <span style={{ fontSize: 11, flex: 1, color: "var(--text)" }}>{bestResultLabel(entry.stage || entry.result)}</span>
-              {entry.wins != null && (
-                <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums" }}>
-                  {entry.wins}胜 {entry.draws}平 {entry.losses}负
-                </span>
-              )}
-              {entry.gf != null && (
-                <span style={{ fontSize: 10, color: "var(--text-dim)", minWidth: 32, textAlign: "right" }}>
-                  {entry.gf}-{entry.ga}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ── Squad section ──────────────────────────────────────────────────────────────
-function SquadSection({ squad }) {
-  if (!squad) return null;
-  const { players } = squad;
-  if (!players?.length) return null;
-
-  const byPosition = {};
-  for (const pos of POSITION_ORDER) byPosition[pos] = [];
-  for (const p of players) {
-    if (byPosition[p.position]) byPosition[p.position].push(p);
-    else byPosition["FW"] = [...(byPosition["FW"] || []), p];
-  }
-
-  return (
-    <div style={{ margin: "0 16px 16px", background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden" }}>
-      {POSITION_ORDER.filter(pos => byPosition[pos]?.length > 0).map((pos, pi) => (
-        <div key={pos}>
-          <div style={{
-            padding: "5px 12px",
-            fontSize: 10, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em",
-            color: "var(--text-dim)", background: "var(--card2)",
-            borderTop: pi > 0 ? "1px solid var(--border)" : "none",
-          }}>
-            {POSITION_LABEL[pos]}（{byPosition[pos].length}人）
-          </div>
-          {byPosition[pos].map((p, i) => (
-            <div key={p.id} style={{
-              display: "flex", alignItems: "center", padding: "7px 12px", gap: 10,
-              borderBottom: i < byPosition[pos].length - 1 ? "1px solid var(--border)" : "none",
-            }}>
-              <span style={{
-                fontSize: 10, fontWeight: 700, color: "var(--text-dim)",
-                width: 20, textAlign: "center", fontVariantNumeric: "tabular-nums",
-              }}>
-                {p.shirtNumber ?? "—"}
+      <div style={{ padding: "10px 12px 12px", display: "flex", flexDirection: "column", gap: 6 }}>
+        {STAGES.map(({ key, label }) => {
+          const val = teamPred[key];
+          if (val == null) return null;
+          return (
+            <div key={key} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text-dim)", width: 28, textAlign: "right", flexShrink: 0 }}>
+                {label}
               </span>
-              <span style={{ fontSize: 12, flex: 1, color: "var(--text)" }}>{p.name}</span>
+              <div style={{ flex: 1, height: 16, background: "var(--card2)", borderRadius: 4, overflow: "hidden" }}>
+                <div style={{
+                  width: `${Math.max(val, 1)}%`, height: "100%",
+                  background: key === "pChampion"
+                    ? "linear-gradient(90deg, var(--blue), #4da6ff)"
+                    : "var(--blue)",
+                  borderRadius: 4,
+                  opacity: key === "pChampion" ? 1 : 0.6 + (val / 100) * 0.4,
+                }} />
+              </div>
+              <span style={{
+                fontSize: 11, fontWeight: 700, color: "var(--text)",
+                width: 40, textAlign: "right", fontVariantNumeric: "tabular-nums", flexShrink: 0,
+              }}>
+                {val.toFixed(1)}%
+              </span>
             </div>
-          ))}
-        </div>
-      ))}
+          );
+        })}
+      </div>
     </div>
   );
 }
 
-// ── ELO History Chart ───────────────────────────────────────────────────────────────
+// ── Model vs Market ──────────────────────────────────────────────────────────
+function ModelMarketCard({ modelPct, marketPct }) {
+  if (modelPct == null && marketPct == null) return null;
+  const value = modelPct != null && marketPct != null ? modelPct - marketPct : null;
+  const valColor = value == null ? "var(--text3)" : value > 0.5 ? "var(--green)" : value < -0.5 ? "var(--red)" : "var(--text3)";
+  const valBg = value == null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
+  return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden", display: "flex",
+    }}>
+      <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>ELO模型</div>
+        <div style={{ fontSize: 20, fontWeight: 900, color: "var(--blue)" }}>
+          {modelPct != null ? `${modelPct.toFixed(1)}%` : "—"}
+        </div>
+      </div>
+      <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>POLYMARKET</div>
+        <div style={{ fontSize: 20, fontWeight: 900, color: "var(--text2)" }}>
+          {marketPct != null ? `${marketPct.toFixed(1)}%` : "—"}
+        </div>
+      </div>
+      <div style={{ flex: 1, textAlign: "center", padding: "12px 8px" }}>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>价值差</div>
+        <div style={{
+          fontSize: 18, fontWeight: 900, color: valColor,
+          background: valBg, borderRadius: 6, padding: "2px 8px", display: "inline-block",
+        }}>
+          {value != null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── ELO History Chart ─────────────────────────────────────────────────────────
 function EloHistoryChart({ originalName, code }) {
   const [points, setPoints] = useState(null);
   const [failed, setFailed] = useState(false);
@@ -308,109 +293,232 @@ function EloHistoryChart({ originalName, code }) {
   );
 }
 
-// ── Tournament progression funnel ─────────────────────────────────────────────
-const STAGES = [
-  { key: "pQualify",  label: "出线" },
-  { key: "pR16",      label: "16强" },
-  { key: "pQF",       label: "8强" },
-  { key: "pSF",       label: "4强" },
-  { key: "pFinal",    label: "决赛" },
-  { key: "pChampion", label: "夺冠" },
-];
-
-function ProgressionFunnel({ teamPred }) {
-  if (!teamPred) return null;
+// ── Tab: 概览 ─────────────────────────────────────────────────────────────────
+function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData }) {
   return (
-    <div style={{
-      margin: "0 16px 12px", background: "var(--card)",
-      border: "1px solid var(--border)", borderRadius: "var(--radius)",
-      overflow: "hidden",
-    }}>
-      {/* Rank + title probability header */}
-      <div style={{
-        padding: "10px 12px", borderBottom: "1px solid var(--border)",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-      }}>
-        <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
-          模型排名 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>#{teamPred.rank}</span>
-        </span>
-        <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
-          夺冠概率 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>{teamPred.probabilityValue?.toFixed(1)}%</span>
-        </span>
-      </div>
-      {/* Funnel bars */}
-      <div style={{ padding: "10px 12px 12px", display: "flex", flexDirection: "column", gap: 6 }}>
-        {STAGES.map(({ key, label }) => {
-          const val = teamPred[key];
-          if (val == null) return null;
-          return (
-            <div key={key} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text-dim)", width: 28, textAlign: "right", flexShrink: 0 }}>
-                {label}
-              </span>
-              <div style={{ flex: 1, height: 16, background: "var(--card2)", borderRadius: 4, overflow: "hidden", position: "relative" }}>
-                <div style={{
-                  width: `${Math.max(val, 1)}%`, height: "100%",
-                  background: key === "pChampion"
-                    ? "linear-gradient(90deg, var(--blue), #4da6ff)"
-                    : "var(--blue)",
-                  borderRadius: 4,
-                  opacity: key === "pChampion" ? 1 : 0.6 + (val / 100) * 0.4,
-                  transition: "width 0.5s ease",
-                }} />
+    <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: "12px 16px 20px" }}>
+      {/* Progression funnel */}
+      {teamPred && <ProgressionFunnel teamPred={teamPred} />}
+
+      {/* Model vs Market */}
+      {(teamPred || marketPct != null) && (
+        <ModelMarketCard
+          modelPct={teamPred?.probabilityValue ?? null}
+          marketPct={marketPct}
+        />
+      )}
+
+      {/* Group standings */}
+      {teamGroup && <GroupTable group={teamGroup} />}
+
+      {/* ELO chart */}
+      {teamElo && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px 4px",
+        }}>
+          <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", padding: "0 4px 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            近20年 ELO 走势
+          </div>
+          <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
+        </div>
+      )}
+
+      {/* WC History summary (compact) */}
+      {historyData && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
+          <div style={{ display: "flex" }}>
+            {[
+              { value: historyData.appearances ?? 0, label: "届世界杯" },
+              { value: historyData.titles ?? 0,      label: "次冠军" },
+              { value: bestResultLabel(historyData.bestResult), label: "最佳成绩", small: true },
+            ].map((item, i) => (
+              <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
+                <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
+                  {item.value}
+                </div>
+                <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
               </div>
-              <span style={{
-                fontSize: 11, fontWeight: 700, color: "var(--text)",
-                width: 40, textAlign: "right", fontVariantNumeric: "tabular-nums", flexShrink: 0,
-              }}>
-                {val.toFixed(1)}%
-              </span>
+            ))}
+          </div>
+          {historyData.titleYears?.length > 0 && (
+            <div style={{ padding: "6px 12px", borderTop: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
+              夺冠年份：<span style={{ color: "var(--blue)", fontWeight: 700 }}>{historyData.titleYears.join("、")}</span>
             </div>
-          );
-        })}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
 
-// ── Model vs Market comparison ───────────────────────────────────────────────
-function ModelMarketCard({ modelPct, marketPct }) {
-  if (modelPct == null && marketPct == null) return null;
-  const value = modelPct != null && marketPct != null ? modelPct - marketPct : null;
-  const valColor = value == null ? "var(--text3)" : value > 0.5 ? "var(--green)" : value < -0.5 ? "var(--red)" : "var(--text3)";
-  const valBg = value == null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
+// ── Tab: 赛程 ─────────────────────────────────────────────────────────────────
+function TabFixtures({ teamFixtures, fixturesLoading }) {
+  return (
+    <div style={{ padding: "12px 16px 20px" }}>
+      {fixturesLoading ? <LoadingSpinner /> : teamFixtures.length === 0 ? (
+        <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无赛程数据</p>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {teamFixtures.map((f) => <MatchCard key={f.id} fixture={f} />)}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Tab: 历史 ─────────────────────────────────────────────────────────────────
+function TabHistory({ historyData, teamElo }) {
+  if (!historyData) return (
+    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无历史数据</p>
+  );
+  const { appearances, titles, titleYears, bestResult, history: years } = historyData;
+  const allYears = [...(years || [])].reverse();
 
   return (
-    <div style={{
-      margin: "0 16px 12px", background: "var(--card)",
-      border: "1px solid var(--border)", borderRadius: "var(--radius)",
-      overflow: "hidden",
-    }}>
-      <div style={{ display: "flex" }}>
-        {/* Model */}
-        <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>ELO模型</div>
-          <div style={{ fontSize: 20, fontWeight: 900, color: "var(--blue)" }}>
-            {modelPct != null ? `${modelPct.toFixed(1)}%` : "—"}
-          </div>
+    <div style={{ padding: "12px 16px 20px", display: "flex", flexDirection: "column", gap: 12 }}>
+      {/* Summary stats */}
+      <div style={{
+        background: "var(--card)", border: "1px solid var(--border)",
+        borderRadius: "var(--radius)", overflow: "hidden",
+      }}>
+        <div style={{ display: "flex" }}>
+          {[
+            { value: appearances ?? 0, label: "届世界杯" },
+            { value: titles ?? 0,      label: "次冠军" },
+            { value: bestResultLabel(bestResult), label: "最佳成绩", small: true },
+          ].map((item, i) => (
+            <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
+              <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
+                {item.value}
+              </div>
+              <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
+            </div>
+          ))}
         </div>
-        {/* Market */}
-        <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>POLYMARKET</div>
-          <div style={{ fontSize: 20, fontWeight: 900, color: "var(--text2)" }}>
-            {marketPct != null ? `${marketPct.toFixed(1)}%` : "—"}
+        {titleYears?.length > 0 && (
+          <div style={{ padding: "6px 12px", borderTop: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
+            夺冠年份：<span style={{ color: "var(--blue)", fontWeight: 700 }}>{titleYears.join("、")}</span>
           </div>
-        </div>
-        {/* Value */}
-        <div style={{ flex: 1, textAlign: "center", padding: "12px 8px" }}>
-          <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>价值差</div>
+        )}
+      </div>
+
+      {/* Complete WC record table */}
+      {allYears.length > 0 && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
           <div style={{
-            fontSize: 18, fontWeight: 900, color: valColor,
-            background: valBg, borderRadius: 6, padding: "2px 8px", display: "inline-block",
+            padding: "8px 12px", background: "var(--card2)",
+            borderBottom: "1px solid var(--border)",
+            fontSize: 10, fontWeight: 700, color: "var(--text3)",
+            textTransform: "uppercase", letterSpacing: "0.06em",
           }}>
-            {value != null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
+            历届世界杯成绩
           </div>
+          {allYears.map((entry, i) => {
+            const stageLabel = bestResultLabel(entry.stage || entry.result);
+            const isChampion = stageLabel.includes("冠军");
+            return (
+              <div key={entry.year} style={{
+                display: "flex", alignItems: "center", padding: "8px 12px", gap: 10,
+                borderBottom: i < allYears.length - 1 ? "1px solid var(--border)" : "none",
+                background: isChampion ? "rgba(92,158,255,0.06)" : "transparent",
+              }}>
+                <span style={{
+                  fontSize: 12, fontWeight: 700,
+                  color: isChampion ? "var(--blue)" : "var(--text-dim)",
+                  minWidth: 36,
+                }}>{entry.year}</span>
+                <span style={{
+                  fontSize: 12, flex: 1,
+                  color: isChampion ? "var(--blue)" : "var(--text)",
+                  fontWeight: isChampion ? 700 : 400,
+                }}>{stageLabel}</span>
+                {entry.wins != null && (
+                  <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums" }}>
+                    {entry.wins}胜 {entry.draws}平 {entry.losses}负
+                  </span>
+                )}
+                {entry.gf != null && (
+                  <span style={{ fontSize: 10, color: "var(--text-dim)", minWidth: 32, textAlign: "right" }}>
+                    {entry.gf}-{entry.ga}
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
+      )}
+
+      {/* ELO chart in history tab too */}
+      {teamElo && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px 4px",
+        }}>
+          <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", padding: "0 4px 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            近20年 ELO 走势
+          </div>
+          <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Tab: 阵容 ─────────────────────────────────────────────────────────────────
+function TabSquad({ squadData }) {
+  if (!squadData?.players?.length) return (
+    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无阵容数据</p>
+  );
+  const { players } = squadData;
+  const byPosition = {};
+  for (const pos of POSITION_ORDER) byPosition[pos] = [];
+  for (const p of players) {
+    if (byPosition[p.position]) byPosition[p.position].push(p);
+    else byPosition["FW"] = [...(byPosition["FW"] || []), p];
+  }
+
+  return (
+    <div style={{ padding: "12px 16px 20px" }}>
+      <div style={{
+        background: "var(--card)", border: "1px solid var(--border)",
+        borderRadius: "var(--radius)", overflow: "hidden",
+      }}>
+        {POSITION_ORDER.filter(pos => byPosition[pos]?.length > 0).map((pos, pi) => (
+          <div key={pos}>
+            <div style={{
+              padding: "6px 12px",
+              fontSize: 10, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em",
+              color: "var(--text-dim)", background: "var(--card2)",
+              borderTop: pi > 0 ? "1px solid var(--border)" : "none",
+            }}>
+              {POSITION_LABEL[pos]}（{byPosition[pos].length}人）
+            </div>
+            {byPosition[pos].map((p, i) => (
+              <div key={p.id} style={{
+                display: "flex", alignItems: "center", padding: "7px 12px", gap: 10,
+                borderBottom: i < byPosition[pos].length - 1 ? "1px solid var(--border)" : "none",
+              }}>
+                <span style={{
+                  fontSize: 10, fontWeight: 700, color: "var(--text-dim)",
+                  width: 20, textAlign: "center", fontVariantNumeric: "tabular-nums",
+                }}>
+                  {p.shirtNumber ?? "—"}
+                </span>
+                <span style={{ fontSize: 12, flex: 1, color: "var(--text)" }}>{p.name}</span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize: 10, color: "var(--text3)", textAlign: "center", marginTop: 8 }}>
+        共 {players.length} 人
       </div>
     </div>
   );
@@ -421,6 +529,7 @@ export default function TeamPage() {
   const { id } = useParams();
   const teamName = decodeURIComponent(Array.isArray(id) ? id[0] : id);
   const router = useRouter();
+  const [activeTab, setActiveTab] = useState("概览");
 
   const { data: eloData,      loading: eloLoading      } = useElo();
   const { data: fixturesData, loading: fixturesLoading } = useFixtures();
@@ -436,7 +545,6 @@ export default function TeamPage() {
     [eloData, teamName]
   );
 
-  // Look up group using the original English name from ELO data (more reliable)
   const lookupName = teamElo?.originalName || teamName;
   const group = useTeamGroup(lookupName);
 
@@ -450,27 +558,22 @@ export default function TeamPage() {
     );
   }, [fixturesData, teamName, teamElo]);
 
-  // Prediction data for this team
   const teamPred = useMemo(() => {
     if (!predData?.teams) return null;
-    const displayName = teamElo?.name || teamName;
-    return predData.teams.find(
-      (t) => t.name === displayName || t.code === teamElo?.code
-    );
+    const dn = teamElo?.name || teamName;
+    return predData.teams.find((t) => t.name === dn || t.code === teamElo?.code);
   }, [predData, teamElo, teamName]);
 
-  // Polymarket probability for this team
   const marketPct = useMemo(() => {
     if (!polyData?.teams) return null;
-    const displayName = teamElo?.name || teamName;
+    const dn = teamElo?.name || teamName;
     for (const t of polyData.teams) {
       const zh = EN_TO_ZH[t.name];
-      if (zh === displayName && t.probability > 0) return t.probability;
+      if (zh === dn && t.probability > 0) return t.probability;
     }
     return null;
   }, [polyData, teamElo, teamName]);
 
-  // Group standings for this team's group
   const teamGroup = useMemo(() => {
     if (!fixturesData?.standings || !group) return null;
     return fixturesData.standings.find(
@@ -496,18 +599,15 @@ export default function TeamPage() {
         <span style={{ fontSize: 16, fontWeight: 700 }}>球队</span>
       </div>
 
-      <div style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
       {eloLoading ? <LoadingSpinner /> : (
         <>
-          {/* Hero */}
+          {/* Hero — always visible */}
           <div style={{
-            padding: "20px 16px 16px", display: "flex", alignItems: "flex-start", gap: 16,
-            borderBottom: "1px solid var(--border)",
+            padding: "16px 16px 12px", display: "flex", alignItems: "center", gap: 14,
+            flexShrink: 0,
           }}>
-            <span style={{ fontSize: 52, lineHeight: 1 }}>{flag}</span>
-
+            <span style={{ fontSize: 44, lineHeight: 1 }}>{flag}</span>
             <div style={{ flex: 1, minWidth: 0 }}>
-              {/* Name + group badge */}
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                 <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, lineHeight: 1.2 }}>{displayName}</h1>
                 {group && (
@@ -521,106 +621,66 @@ export default function TeamPage() {
                   </span>
                 )}
               </div>
-
-              {/* ELO + rank */}
               {teamElo && (
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 5 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
                   <span style={{ fontSize: 12, color: "var(--text-dim)" }}>ELO</span>
-                  <span style={{ fontSize: 15, fontWeight: 700, color: "var(--blue)" }}>
-                    {teamElo.elo}
-                  </span>
-                  <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
-                    全球第 {teamElo.rank} 名
-                  </span>
+                  <span style={{ fontSize: 15, fontWeight: 700, color: "var(--blue)" }}>{teamElo.elo}</span>
+                  <span style={{ fontSize: 11, color: "var(--text-dim)" }}>全球第 {teamElo.rank} 名</span>
                 </div>
               )}
-
-
-              {/* Recent form strip */}
               {!fixturesLoading && (
                 <FormStrip fixtures={teamFixtures} teamOriginalName={teamName} />
               )}
             </div>
           </div>
 
-          {/* Tournament Progression */}
-          {teamPred && (
-            <section>
-              <SectionTitle>夺冠之路 · ELO模型</SectionTitle>
-              <ProgressionFunnel teamPred={teamPred} />
-            </section>
-          )}
+          {/* Tabs */}
+          <div style={{
+            display: "flex", flexShrink: 0,
+            borderBottom: "1px solid var(--border)", borderTop: "1px solid var(--border)",
+            background: "var(--bg)",
+          }}>
+            {TABS.map((t) => (
+              <button
+                key={t}
+                onClick={() => setActiveTab(t)}
+                style={{
+                  flex: 1, textAlign: "center", padding: "9px 0",
+                  fontSize: 11, fontWeight: 700,
+                  color: activeTab === t ? "var(--blue)" : "var(--text3)",
+                  borderBottom: activeTab === t ? "2px solid var(--blue)" : "2px solid transparent",
+                  background: "none", border: "none", cursor: "pointer",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
 
-          {/* Model vs Market */}
-          {(teamPred || marketPct != null) && (
-            <section>
-              <SectionTitle>模型 vs 市场</SectionTitle>
-              <ModelMarketCard
-                modelPct={teamPred?.probabilityValue ?? null}
+          {/* Tab content — scrollable */}
+          <div style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
+            {activeTab === "概览" && (
+              <TabOverview
+                teamPred={teamPred}
                 marketPct={marketPct}
+                teamGroup={teamGroup}
+                teamElo={teamElo}
+                historyData={historyData}
               />
-            </section>
-          )}
-
-          {/* Group Standings */}
-          {teamGroup && (
-            <section>
-              <SectionTitle>小组积分榜</SectionTitle>
-              <div style={{ padding: "0 16px 12px" }}>
-                <GroupTable group={teamGroup} />
-              </div>
-            </section>
-          )}
-
-          {/* WC History */}
-          {historyData && (
-            <section>
-              <SectionTitle>世界杯历史</SectionTitle>
-              <WcHistoryCard history={historyData} />
-            </section>
-          )}
-
-          {/* ELO 走势图 */}
-          {teamElo && (
-            <section>
-              <SectionTitle>近20年 ELO 走势</SectionTitle>
-              <div style={{ margin: "0 16px 12px", background: "var(--card)", border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px 4px" }}>
-                <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
-              </div>
-            </section>
-          )}
-
-          {/* Fixtures */}
-          <section>
-            <SectionTitle>赛程 &amp; 战绩</SectionTitle>
-            {fixturesLoading ? <LoadingSpinner /> : (
-              <div style={{ display: "flex", flexDirection: "column", gap: 8, padding: "0 16px" }}>
-                {teamFixtures.length === 0 ? (
-                  <p style={{ color: "var(--text-dim)", fontSize: 14 }}>暂无赛程数据</p>
-                ) : (
-                  teamFixtures.map((f) => <MatchCard key={f.id} fixture={f} />)
-                )}
-              </div>
             )}
-          </section>
-
-          {/* Squad */}
-          {squadData && (
-            <section style={{ marginTop: 8 }}>
-              <SectionTitle>
-                大名单
-                {squadData.players?.length > 0 && (
-                  <span style={{ fontSize: 12, fontWeight: 400, color: "var(--text-dim)", marginLeft: 6 }}>
-                    ({squadData.players.length}人)
-                  </span>
-                )}
-              </SectionTitle>
-              <SquadSection squad={squadData} />
-            </section>
-          )}
+            {activeTab === "赛程" && (
+              <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} />
+            )}
+            {activeTab === "历史" && (
+              <TabHistory historyData={historyData} teamElo={teamElo} />
+            )}
+            {activeTab === "阵容" && (
+              <TabSquad squadData={squadData} />
+            )}
+          </div>
         </>
       )}
-      </div>
     </div>
   );
 }
