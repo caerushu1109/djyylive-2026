@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
-import { usePolymarket } from "@/lib/hooks/usePolymarket";
-import { EN_TO_ZH } from "@/lib/polymarket-names";
 import dynamic from "next/dynamic";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
@@ -121,19 +119,6 @@ export default function CompHomePage() {
   const { data: fixturesData, loading: fixturesLoading } = useFixtures({ pollInterval: 30000 });
   const { data: eloData } = useElo();
   const { data: predData } = usePredictions();
-  const { data: polyData } = usePolymarket();
-
-  // Build Polymarket lookup: Chinese team name → probability %
-  const polyByZh = useMemo(() => {
-    if (!polyData?.teams) return {};
-    const map = {};
-    for (const t of polyData.teams) {
-      const zh = EN_TO_ZH[t.name];
-      if (zh && t.probability > 0) map[zh] = t.probability;
-    }
-    return map;
-  }, [polyData]);
-
   // Helper: resolve English originalName for team detail navigation
   const getTeamHref = (team) => {
     const eloTeam = (eloData?.rankings || []).find(
@@ -157,7 +142,6 @@ export default function CompHomePage() {
   const top6       = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 6);
   const top3       = top6.slice(0, 3);
   const next3      = top6.slice(3, 6);
-  const marketRows = (predData?.teams || []).filter(t => !t.placeholder).slice(0, 10);
 
   return (
     <div>
@@ -227,75 +211,6 @@ export default function CompHomePage() {
           )}
         </div>
       )}
-
-      {/* Market signals */}
-      {marketRows.length > 0 && (
-        <div style={{
-          margin: "0 12px 12px", background: "var(--card)",
-          border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden",
-        }}>
-          <div style={{
-            padding: "10px 12px", display: "flex", alignItems: "center", justifyContent: "space-between",
-            borderBottom: "1px solid var(--border)",
-          }}>
-            <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              市场信号 · POLYMARKET
-            </span>
-            <Link href={`/${comp}/markets`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整市场 →</Link>
-          </div>
-          <div style={{
-            display: "flex", alignItems: "center", padding: "6px 12px",
-            borderBottom: "1px solid var(--border2)", background: "var(--card2)",
-          }}>
-            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", flex: 1, textTransform: "uppercase", letterSpacing: "0.06em" }}>球队</div>
-            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 40, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>模型</div>
-            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 40, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>市场</div>
-            <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 44, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>价值</div>
-          </div>
-          {marketRows.map((team, i) => {
-            const modelPct  = team.probabilityValue ?? null;
-            const marketPct = polyByZh[team.name] ?? null;
-            const value     = modelPct !== null && marketPct !== null ? modelPct - marketPct : null;
-            const valBg     = value === null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
-            const valColor  = value === null ? "var(--text3)" : value > 0.5 ? "var(--green)"     : value < -0.5 ? "var(--red)"     : "var(--text3)";
-            return (
-              <div key={team.code} style={{
-                display: "flex", alignItems: "center", padding: "8px 12px",
-                borderBottom: i < marketRows.length - 1 ? "1px solid var(--border)" : "none", gap: 8,
-              }}>
-                <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag}</span>
-                <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: 1 }}>{team.name}</span>
-                <span style={{ fontSize: 11, color: "var(--blue)", fontWeight: 700, width: 38, textAlign: "right" }}>
-                  {modelPct !== null ? `${modelPct.toFixed(1)}%` : "—"}
-                </span>
-                <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600, width: 38, textAlign: "right" }}>
-                  {marketPct !== null ? `${marketPct.toFixed(1)}%` : "—"}
-                </span>
-                <span style={{
-                  fontSize: 10, fontWeight: 800, padding: "2px 6px", borderRadius: 4,
-                  width: 42, textAlign: "center", background: valBg, color: valColor,
-                }}>
-                  {value !== null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* Quick link to scorers */}
-      <Link href={`/${comp}/scorers`} style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        margin: "0 12px 12px", background: "var(--card)",
-        border: "1px solid var(--border)", borderRadius: "var(--radius)",
-        padding: "12px 14px", textDecoration: "none",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontSize: 16 }}>⚽</span>
-          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>射手榜</span>
-        </div>
-        <span style={{ fontSize: 11, color: "var(--blue)", fontWeight: 600 }}>查看 →</span>
-      </Link>
 
       <div style={{ height: 20 }} />
 

@@ -4,7 +4,7 @@ import { getTeamMeta } from "@/src/lib/team-meta";
 // 4 distinct colors for up to 4 teams in Polymarket bar
 const POLY_COLORS = ["#4a90d9", "#e05252", "#50b87a", "#d4a843"];
 
-export default function GroupTable({ group, polyGroupOdds }) {
+export default function GroupTable({ group, polyGroupOdds, hideLegend }) {
   if (!group) return null;
   const { group: name, rows = [] } = group;
 
@@ -33,7 +33,7 @@ export default function GroupTable({ group, polyGroupOdds }) {
       }}>
         <span style={{ fontSize: 14, fontWeight: 900, color: "var(--text)" }}>{name}</span>
         <div style={{ display: "flex", marginLeft: "auto" }}>
-          {["P", "W", "D", "L", "GD", "PTS"].map(col => (
+          {["场", "胜", "平", "负", "净胜", "分"].map(col => (
             <span
               key={col}
               style={{
@@ -127,21 +127,23 @@ export default function GroupTable({ group, polyGroupOdds }) {
         </div>
       ))}
 
-      {/* Legend */}
-      <div style={{ padding: "5px 12px", borderTop: "1px solid var(--border)", display: "flex", gap: 14, flexWrap: "wrap" }}>
-        <span style={{ fontSize: 9, color: "var(--green)", display: "flex", alignItems: "center", gap: 4 }}>
-          <span style={{ width: 3, height: 12, background: "var(--green)", borderRadius: 2, display: "inline-block" }} />
-          直接晋级（前2名）
-        </span>
-        <span style={{ fontSize: 9, color: "var(--blue)", display: "flex", alignItems: "center", gap: 4 }}>
-          <span style={{ width: 3, height: 12, background: "var(--blue)", borderRadius: 2, display: "inline-block" }} />
-          最佳第三名竞争（12组取8）
-        </span>
-        <span style={{ fontSize: 9, color: "var(--text3)", display: "flex", alignItems: "center", gap: 4 }}>
-          <span style={{ width: 3, height: 12, background: "var(--border2)", borderRadius: 2, display: "inline-block" }} />
-          淘汰
-        </span>
-      </div>
+      {/* Legend — only shown on first group per page */}
+      {!hideLegend && (
+        <div style={{ padding: "5px 12px", borderTop: "1px solid var(--border)", display: "flex", gap: 14, flexWrap: "wrap" }}>
+          <span style={{ fontSize: 9, color: "var(--green)", display: "flex", alignItems: "center", gap: 4 }}>
+            <span style={{ width: 3, height: 12, background: "var(--green)", borderRadius: 2, display: "inline-block" }} />
+            直接晋级（前2名）
+          </span>
+          <span style={{ fontSize: 9, color: "var(--blue)", display: "flex", alignItems: "center", gap: 4 }}>
+            <span style={{ width: 3, height: 12, background: "var(--blue)", borderRadius: 2, display: "inline-block" }} />
+            最佳第三名竞争（12组取8）
+          </span>
+          <span style={{ fontSize: 9, color: "var(--text3)", display: "flex", alignItems: "center", gap: 4 }}>
+            <span style={{ width: 3, height: 12, background: "var(--border2)", borderRadius: 2, display: "inline-block" }} />
+            淘汰
+          </span>
+        </div>
+      )}
 
       {/* Polymarket group winner odds */}
       {polyGroupOdds && Object.keys(polyGroupOdds).length > 0 && (() => {

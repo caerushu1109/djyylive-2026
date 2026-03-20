@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, CalendarDays, BarChart3, TrendingUp, Activity } from "lucide-react";
+import { LayoutDashboard, CalendarDays, BarChart3, TrendingUp, Trophy } from "lucide-react";
 
 const tabs = [
   { id: "home",     Icon: LayoutDashboard, label: "首页",   path: "" },
   { id: "fixtures", Icon: CalendarDays,    label: "赛程",   path: "/fixtures" },
   { id: "groups",   Icon: BarChart3,       label: "积分",   path: "/groups" },
   { id: "predict",  Icon: TrendingUp,      label: "预测",   path: "/predict" },
-  { id: "markets",  Icon: Activity,        label: "市场",   path: "/markets" },
+  { id: "scorers",  Icon: Trophy,          label: "射手榜", path: "/scorers" },
 ];
 
 export default function BottomNav({ comp }) {

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function MatchCard({ fixture, onClick }) {
   if (!fixture) return null;
-  const { id, home, away, homeScore, awayScore, status, minute, kickoff } = fixture;
+  const { id, home, away, homeScore, awayScore, status, minute, kickoff, group } = fixture;
   if (!home || !away) return null;
 
   const homeWins = status === "FT" && homeScore > awayScore;
@@ -23,6 +23,15 @@ export default function MatchCard({ fixture, onClick }) {
       alignItems: "center",
       gap: 8,
     }}>
+      {/* Group badge */}
+      {group && (
+        <span style={{
+          fontSize: 9, fontWeight: 700, color: "var(--text3)",
+          background: "var(--card2)", padding: "2px 5px", borderRadius: 4,
+          flexShrink: 0, letterSpacing: "0.02em",
+        }}>{group}</span>
+      )}
+
       {/* Home team block */}
       <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
         <div style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{home.flag || "🏴"}</div>

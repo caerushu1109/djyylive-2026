@@ -174,13 +174,14 @@ export default function GroupsClient() {
         {subTab === "积分榜" ? (
           <div style={{ display: "flex", flexDirection: "column", padding: "12px 12px 0" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {pageGroups.map((group) => {
+              {pageGroups.map((group, i) => {
                 const letter = group.group?.replace(/[^A-L]/gi, "").toUpperCase();
                 return (
                   <GroupTable
                     key={group.group}
                     group={group}
                     polyGroupOdds={polyGroups?.groups?.[letter]}
+                    hideLegend={i > 0}
                   />
                 );
               })}
