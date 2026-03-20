@@ -10,6 +10,7 @@ import { EN_TO_ZH } from "@/lib/polymarket-names";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import TeamSearchModal from "@/components/shared/TeamSearchModal";
+import TopBar from "@/components/shared/TopBar";
 
 const COMP_LABELS = { wc2026: "2026 WC" };
 const MEDALS = ["🥇", "🥈", "🥉"];
@@ -19,40 +20,6 @@ const MEDAL_STYLES = [
   { border: "1px solid rgba(205,127,50,0.4)", bg: "rgba(205,127,50,0.05)", pctColor: "#cd7f32" },
 ];
 const RANK_LABELS = ["4th", "5th", "6th"];
-
-function TopBar({ comp, onSearchClick }) {
-  return (
-    <div style={{
-      padding: "10px 16px 8px",
-      display: "flex", alignItems: "center", justifyContent: "space-between",
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
-          DJ<span style={{ color: "var(--blue)" }}>YY</span>
-        </Link>
-        <div style={{
-          display: "flex", alignItems: "center", gap: 6,
-          background: "var(--card)", border: "1px solid var(--border2)",
-          borderRadius: 999, padding: "3px 10px 3px 6px",
-        }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)" }} />
-          <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>2026 WC</span>
-          <span style={{ fontSize: 8, color: "var(--text3)" }}>▾</span>
-        </div>
-      </div>
-      <div style={{ display: "flex", gap: 8 }}>
-        <div
-          onClick={onSearchClick}
-          style={{
-            width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
-            borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 16, cursor: "pointer",
-          }}
-        >🔍</div>
-      </div>
-    </div>
-  );
-}
 
 function LiveBanner({ fixture }) {
   if (!fixture) return null;
@@ -193,7 +160,7 @@ export default function CompHomePage() {
 
   return (
     <div>
-      <TopBar comp={comp} onSearchClick={() => setShowSearch(true)} />
+      <TopBar comp={comp} badge onSearchClick={() => setShowSearch(true)} />
 
       {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
 

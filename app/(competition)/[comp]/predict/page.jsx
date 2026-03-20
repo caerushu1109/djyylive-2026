@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { usePredictions } from "@/lib/hooks/usePredictions";
+import TopBar from "@/components/shared/TopBar";
 import { useWc2026Participants } from "@/lib/hooks/useWc2026Participants";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
@@ -48,20 +49,7 @@ export default function PredictPage() {
 
   return (
     <div>
-      {/* TopBar */}
-      <div style={{ display: "flex", alignItems: "center", padding: "10px 16px 8px", justifyContent: "space-between" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
-            DJ<span style={{ color: "var(--blue)" }}>YY</span>
-          </Link>
-          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>夺冠预测</span>
-        </div>
-        {predData?.updatedAt && (
-          <span style={{ fontSize: 10, color: "var(--text3)" }}>
-            更新 {new Date(predData.updatedAt).toLocaleDateString("zh-CN")}
-          </span>
-        )}
-      </div>
+      <TopBar comp={comp} label="夺冠预测" right={predData?.updatedAt && <span style={{ fontSize: 10, color: "var(--text3)" }}>更新 {new Date(predData.updatedAt).toLocaleDateString("zh-CN")}</span>} />
 
       {/* Info banner */}
       <div style={{

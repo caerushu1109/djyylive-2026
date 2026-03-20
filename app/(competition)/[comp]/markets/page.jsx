@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { useParams } from "next/navigation";
-import Link from "next/link";
 import { usePredictions } from "@/lib/hooks/usePredictions";
+import TopBar from "@/components/shared/TopBar";
 import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { Activity, TrendingUp } from "lucide-react";
@@ -246,25 +246,7 @@ export default function MarketsPage() {
 
   return (
     <div>
-      {/* TopBar */}
-      <div style={{
-        display: "flex", alignItems: "center", padding: "10px 16px 8px",
-        justifyContent: "space-between",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
-            DJ<span style={{ color: "var(--blue)" }}>YY</span>
-          </Link>
-          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>市场赔率</span>
-        </div>
-        {polyData?.fetchedAt && (
-          <span style={{ fontSize: 10, color: "var(--text3)" }}>
-            更新 {new Date(polyData.fetchedAt).toLocaleTimeString("zh-CN", {
-              hour: "2-digit", minute: "2-digit",
-            })}
-          </span>
-        )}
-      </div>
+      <TopBar comp={comp} label="市场赔率" right={polyData?.fetchedAt && <span style={{ fontSize: 10, color: "var(--text3)" }}>更新 {new Date(polyData.fetchedAt).toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" })}</span>} />
 
       {/* Info banner */}
       <div style={{

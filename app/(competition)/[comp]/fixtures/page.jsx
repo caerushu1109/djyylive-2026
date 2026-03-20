@@ -1,8 +1,8 @@
 "use client";
 import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
-import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
+import TopBar from "@/components/shared/TopBar";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
@@ -96,20 +96,7 @@ export default function FixturesPage() {
 
   return (
     <div>
-      {/* TopBar */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "10px 16px 8px",
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
-            DJ<span style={{ color: "var(--blue)" }}>YY</span>
-          </Link>
-          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>赛程</span>
-        </div>
-      </div>
+      <TopBar comp={comp} label="赛程" />
 
       {/* Date tabs */}
       <div style={{
