@@ -1,47 +1,485 @@
-import { Activity, Clock } from "lucide-react";
+"use client";
+import { useState } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { usePredictions } from "@/lib/hooks/usePredictions";
+import { usePolymarket } from "@/lib/hooks/usePolymarket";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import { Activity, TrendingUp, ExternalLink } from "lucide-react";
 
-export default function MarketsPage() {
+// Polymarket 英文名 → 中文名 映射表（用于将 Polymarket 数据与 ELO 模型匹配）
+const EN_TO_ZH = {
+  "Spain": "西班牙",
+  "France": "法国",
+  "England": "英格兰",
+  "Brazil": "巴西",
+  "Argentina": "阿根廷",
+  "Germany": "德国",
+  "Portugal": "葡萄牙",
+  "Netherlands": "荷兰",
+  "Belgium": "比利时",
+  "Italy": "意大利",
+  "Morocco": "摩洛哥",
+  "Uruguay": "乌拉圭",
+  "United States": "美国",
+  "USA": "美国",
+  "Mexico": "墨西哥",
+  "Colombia": "哥伦比亚",
+  "Croatia": "克罗地亚",
+  "Denmark": "丹麦",
+  "Switzerland": "瑞士",
+  "Senegal": "塞内加尔",
+  "Japan": "日本",
+  "South Korea": "韩国",
+  "Korea Republic": "韩国",
+  "Australia": "澳大利亚",
+  "Canada": "加拿大",
+  "Chile": "智利",
+  "Ecuador": "厄瓜多尔",
+  "Peru": "秘鲁",
+  "Turkey": "土耳其",
+  "Türkiye": "土耳其",
+  "Poland": "波兰",
+  "Serbia": "塞尔维亚",
+  "Ukraine": "乌克兰",
+  "Austria": "奥地利",
+  "Hungary": "匈牙利",
+  "Czech Republic": "捷克",
+  "Romania": "罗马尼亚",
+  "Sweden": "瑞典",
+  "Norway": "挪威",
+  "Saudi Arabia": "沙特阿拉伯",
+  "Iran": "伊朗",
+  "Nigeria": "尼日利亚",
+  "Cameroon": "喀麦隆",
+  "Ivory Coast": "科特迪瓦",
+  "Côte d'Ivoire": "科特迪瓦",
+  "Ghana": "加纳",
+  "Egypt": "埃及",
+  "Algeria": "阿尔及利亚",
+  "Tunisia": "突尼斯",
+  "New Zealand": "新西兰",
+  "Costa Rica": "哥斯达黎加",
+  "Panama": "巴拿马",
+  "Jamaica": "牙买加",
+  "Honduras": "洪都拉斯",
+  "Venezuela": "委内瑞拉",
+  "Paraguay": "巴拉圭",
+  "Bolivia": "玻利维亚",
+  "Qatar": "卡塔尔",
+  "South Africa": "南非",
+  "Mali": "马里",
+  "Burkina Faso": "布基纳法索",
+  "Zambia": "赞比亚",
+  "China": "中国",
+  "China PR": "中国",
+  "Iraq": "伊拉克",
+  "Jordan": "约旦",
+  "UAE": "阿联酋",
+  "United Arab Emirates": "阿联酋",
+  "Scotland": "苏格兰",
+  "Wales": "威尔士",
+  "Albania": "阿尔巴尼亚",
+  "Slovakia": "斯洛伐克",
+  "Slovenia": "斯洛文尼亚",
+  "Greece": "希腊",
+  "Iceland": "冰岛",
+  "Ireland": "爱尔兰",
+  "Georgia": "格鲁吉亚",
+  "Uzbekistan": "乌兹别克斯坦",
+  "El Salvador": "萨尔瓦多",
+  "Guatemala": "危地马拉",
+  "Haiti": "海地",
+};
+
+// 差值 > 1.5% 绿色（低估），< -1.5% 红色（高估），其余灰色
+function getSignal(diff) {
+  if (diff > 1.5) return { color: "var(--green)", label: "低估" };
+  if (diff < -1.5) return { color: "var(--red)", label: "高估" };
+  return { color: "var(--text3)", label: "持平" };
+}
+
+// ---- Polymarket 面板 ----
+function PolymarketPanel({ teams }) {
+  if (!teams || teams.length === 0) {
+    return (
+      <div style={{
+        background: "var(--card)", border: "1px solid var(--border)",
+        borderRadius: "var(--radius)", padding: "28px 16px",
+        textAlign: "center",
+      }}>
+        <div style={{ fontSize: 13, color: "var(--text3)" }}>Polymarket 数据暂时不可用</div>
+        <div style={{ fontSize: 11, color: "var(--text3)", marginTop: 6 }}>
+          API 可能受网络限制，请稍后刷新重试
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div style={{
-        height: "var(--topbar-h)", background: "var(--surface)",
-        borderBottom: "1px solid var(--border)",
-        display: "flex", alignItems: "center", padding: "0 16px",
-        position: "sticky", top: 0, zIndex: 50,
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(88px, 1fr))",
+        gap: 8,
+        marginBottom: 4,
       }}>
-        <Activity size={18} style={{ color: "var(--purple)", marginRight: 8 }} />
-        <span style={{ fontSize: 16, fontWeight: 700 }}>市场赔率</span>
+        {teams.slice(0, 20).map((team) => (
+          <div key={team.name} style={{
+            background: "var(--card)",
+            border: "1px solid var(--border)",
+            borderRadius: "var(--radius-sm)",
+            padding: "10px 8px 8px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 4,
+          }}>
+            <span style={{ fontSize: 24, lineHeight: 1 }}>{team.flag || "🏴"}</span>
+            <span style={{
+              fontSize: 11, fontWeight: 700, color: "var(--text)",
+              textAlign: "center", lineHeight: 1.2,
+              maxWidth: "100%", overflow: "hidden", textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}>
+              {team.zhName || team.name}
+            </span>
+            <span style={{
+              fontSize: 14, fontWeight: 900, color: "var(--purple)",
+              fontVariantNumeric: "tabular-nums",
+            }}>
+              {team.probability.toFixed(1)}%
+            </span>
+          </div>
+        ))}
+      </div>
+      <a
+        href="https://polymarket.com/event/2026-fifa-world-cup-winner-595"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: "flex", alignItems: "center", justifyContent: "center", gap: 5,
+          padding: "10px 0 2px",
+          fontSize: 11, color: "var(--purple)", textDecoration: "none",
+        }}
+      >
+        <ExternalLink size={11} />
+        <span>在 Polymarket 查看完整市场并参与</span>
+      </a>
+    </div>
+  );
+}
+
+// ---- 模型 vs 市场信号表 ----
+function SignalTable({ mergedTeams }) {
+  const [showAll, setShowAll] = useState(false);
+  const FOLD = 15;
+
+  if (!mergedTeams || mergedTeams.length === 0) {
+    return (
+      <div style={{
+        background: "var(--card)", border: "1px solid var(--border)",
+        borderRadius: "var(--radius)", padding: "20px 16px",
+        textAlign: "center", fontSize: 13, color: "var(--text3)",
+      }}>
+        暂无可比较数据（需要 Polymarket 与 ELO 数据同时可用）
+      </div>
+    );
+  }
+
+  const visible = showAll ? mergedTeams : mergedTeams.slice(0, FOLD);
+  const hiddenCount = Math.max(0, mergedTeams.length - FOLD);
+
+  return (
+    <div>
+      {/* Header row */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 68px 68px 52px",
+        gap: 4,
+        padding: "0 0 6px",
+        borderBottom: "1px solid var(--border2)",
+        marginBottom: 2,
+      }}>
+        <span style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>球队</span>
+        <span style={{ fontSize: 9, color: "var(--text3)", textAlign: "right" }}>ELO模型</span>
+        <span style={{ fontSize: 9, color: "var(--text3)", textAlign: "right" }}>Polymarket</span>
+        <span style={{ fontSize: 9, color: "var(--text3)", textAlign: "right" }}>差值</span>
       </div>
 
+      {visible.map((team) => {
+        const sig = getSignal(team.diff);
+        return (
+          <div key={team.name} style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 68px 68px 52px",
+            gap: 4,
+            padding: "8px 0",
+            borderBottom: "1px solid var(--border)",
+            alignItems: "center",
+          }}>
+            {/* Team */}
+            <div style={{ display: "flex", alignItems: "center", gap: 7, minWidth: 0 }}>
+              <span style={{ fontSize: 16, flexShrink: 0 }}>{team.flag || "🏴"}</span>
+              <span style={{
+                fontSize: 12, fontWeight: 700, color: "var(--text)",
+                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              }}>
+                {team.name}
+              </span>
+            </div>
+            {/* ELO model */}
+            <span style={{
+              fontSize: 12, fontWeight: 700, color: "var(--text2)",
+              textAlign: "right", fontVariantNumeric: "tabular-nums",
+            }}>
+              {team.modelPct !== null ? `${team.modelPct.toFixed(1)}%` : "—"}
+            </span>
+            {/* Polymarket */}
+            <span style={{
+              fontSize: 12, fontWeight: 700, color: "var(--purple)",
+              textAlign: "right", fontVariantNumeric: "tabular-nums",
+            }}>
+              {team.marketPct !== null ? `${team.marketPct.toFixed(1)}%` : "—"}
+            </span>
+            {/* Diff + signal */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 1 }}>
+              {team.diff !== null ? (
+                <>
+                  <span style={{
+                    fontSize: 11, fontWeight: 900, color: sig.color,
+                    fontVariantNumeric: "tabular-nums",
+                  }}>
+                    {team.diff > 0 ? "+" : ""}{team.diff.toFixed(1)}%
+                  </span>
+                  <span style={{
+                    fontSize: 9, fontWeight: 700, color: sig.color,
+                    background: `${sig.color}18`,
+                    borderRadius: 4, padding: "1px 4px",
+                  }}>
+                    {sig.label}
+                  </span>
+                </>
+              ) : (
+                <span style={{ fontSize: 11, color: "var(--text3)" }}>—</span>
+              )}
+            </div>
+          </div>
+        );
+      })}
+
+      {mergedTeams.length > FOLD && (
+        <button
+          onClick={() => setShowAll((v) => !v)}
+          style={{
+            width: "100%", padding: "11px 0",
+            background: "none", border: "none",
+            borderBottom: "1px solid var(--border)",
+            cursor: "pointer",
+            fontSize: 12, fontWeight: 700,
+            color: "var(--blue)",
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+          }}
+        >
+          {showAll
+            ? <>↑ 收起</>
+            : <>↓ 显示更多（还有 {hiddenCount} 支球队）</>}
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---- 主页面 ----
+export default function MarketsPage() {
+  const { comp } = useParams();
+  const { data: predData, loading: predLoading } = usePredictions();
+  const { data: polyData, loading: polyLoading } = usePolymarket();
+
+  const loading = predLoading || polyLoading;
+
+  // 建立球队查找表：中文名 → 预测数据
+  const predMap = Object.fromEntries(
+    (predData?.teams || []).map((t) => [t.name, t])
+  );
+
+  // 将 Polymarket 英文名转换为中文名，并附加旗帜
+  const polyTeams = (polyData?.teams || []).map((t) => {
+    const zhName = EN_TO_ZH[t.name];
+    const pred = zhName ? predMap[zhName] : null;
+    return {
+      ...t,
+      zhName: zhName || t.name,
+      flag: pred?.flag || null,
+    };
+  }).filter((t) => t.probability > 0);
+
+  // 合并表格数据：以 ELO 模型球队为基础，关联 Polymarket 概率
+  const polyByZh = Object.fromEntries(
+    polyTeams.map((t) => [t.zhName, t.probability])
+  );
+
+  const mergedTeams = (predData?.teams || [])
+    .map((t) => {
+      const modelPct = t.pChampion ?? t.probabilityValue ?? null;
+      const marketPct = polyByZh[t.name] ?? null;
+      const diff = (modelPct !== null && marketPct !== null)
+        ? modelPct - marketPct
+        : null;
+      return { name: t.name, flag: t.flag, modelPct, marketPct, diff };
+    })
+    .sort((a, b) => {
+      // 两边都有数据的排前面，再按 ELO 概率降序
+      const hasA = a.marketPct !== null ? 1 : 0;
+      const hasB = b.marketPct !== null ? 1 : 0;
+      if (hasA !== hasB) return hasB - hasA;
+      return (b.modelPct || 0) - (a.modelPct || 0);
+    });
+
+  // 信号统计
+  const signalTeams = mergedTeams.filter((t) => t.diff !== null);
+  const undervalued = signalTeams.filter((t) => t.diff > 1.5).length;
+  const overvalued  = signalTeams.filter((t) => t.diff < -1.5).length;
+
+  return (
+    <div>
+      {/* TopBar */}
       <div style={{
-        display: "flex", flexDirection: "column", alignItems: "center",
-        justifyContent: "center", padding: "80px 24px", gap: 16, textAlign: "center",
+        display: "flex", alignItems: "center", padding: "10px 16px 8px",
+        justifyContent: "space-between",
       }}>
-        <div style={{
-          width: 56, height: 56, borderRadius: 16,
-          background: "rgba(179,136,255,0.1)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-        }}>
-          <Clock size={28} style={{ color: "var(--purple)" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <Link href={`/${comp}`} style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.04em" }}>
+            DJ<span style={{ color: "var(--blue)" }}>YY</span>
+          </Link>
+          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>市场赔率</span>
         </div>
-        <div>
-          <h2 style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>市场对比即将上线</h2>
-          <p style={{ margin: "8px 0 0", fontSize: 14, color: "var(--text-dim)", lineHeight: 1.6 }}>
-            Polymarket 夺冠市场、博彩公司赔率聚合、<br />
-            模型 vs 市场价值发现信号 — Phase 2 开发中。
-          </p>
-        </div>
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
-          {["Polymarket", "SportMonks Odds", "价值发现"].map((tag) => (
-            <span key={tag} style={{
-              padding: "4px 10px", borderRadius: 8,
-              background: "rgba(179,136,255,0.1)",
-              border: "1px solid rgba(179,136,255,0.2)",
-              fontSize: 12, color: "var(--purple)",
-            }}>{tag}</span>
-          ))}
-        </div>
+        {polyData?.fetchedAt && (
+          <span style={{ fontSize: 10, color: "var(--text3)" }}>
+            更新 {new Date(polyData.fetchedAt).toLocaleTimeString("zh-CN", {
+              hour: "2-digit", minute: "2-digit",
+            })}
+          </span>
+        )}
       </div>
+
+      {/* Info banner */}
+      <div style={{
+        margin: "0 12px 12px",
+        background: "rgba(179,136,255,0.05)", border: "1px solid rgba(179,136,255,0.2)",
+        borderRadius: "var(--radius-sm)", padding: "8px 12px",
+        fontSize: 11, color: "var(--text2)", lineHeight: 1.5,
+      }}>
+        聚合 Polymarket 去中心化预测市场的实时夺冠赔率，与 ELO 蒙特卡洛模型概率对比，识别市场低估或高估的球队。
+      </div>
+
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <div style={{ padding: "0 12px 80px" }}>
+
+          {/* ───── Section 1: Polymarket 面板 ───── */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+            <Activity size={14} style={{ color: "var(--purple)", flexShrink: 0 }} />
+            <span style={{ fontSize: 13, fontWeight: 700 }}>Polymarket 夺冠赔率</span>
+            <span style={{
+              fontSize: 10, color: "var(--text3)",
+              background: "var(--card2)", borderRadius: 4, padding: "2px 6px",
+            }}>
+              实时市场
+            </span>
+          </div>
+
+          <PolymarketPanel teams={polyTeams} />
+
+          {/* ───── Section 2: 模型 vs 市场信号 ───── */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 24, marginBottom: 10 }}>
+            <TrendingUp size={14} style={{ color: "var(--blue)", flexShrink: 0 }} />
+            <span style={{ fontSize: 13, fontWeight: 700 }}>模型 vs 市场信号</span>
+            <span style={{
+              fontSize: 10, color: "var(--text3)",
+              background: "var(--card2)", borderRadius: 4, padding: "2px 6px",
+            }}>
+              差值 &gt; 1.5% 为信号
+            </span>
+          </div>
+
+          {/* 图例 */}
+          <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
+            {[
+              { color: "var(--green)", label: "低估（模型 > 市场 +1.5%）" },
+              { color: "var(--red)",   label: "高估（市场 > 模型 +1.5%）" },
+              { color: "var(--text3)", label: "持平" },
+            ].map(({ color, label }) => (
+              <div key={label} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <div style={{ width: 8, height: 8, borderRadius: 2, background: color }} />
+                <span style={{ fontSize: 10, color: "var(--text3)" }}>{label}</span>
+              </div>
+            ))}
+          </div>
+
+          <SignalTable mergedTeams={mergedTeams} />
+
+          {/* 信号摘要 */}
+          {signalTeams.length > 0 && (
+            <div style={{
+              marginTop: 12, padding: "10px 12px",
+              background: "var(--card)", border: "1px solid var(--border)",
+              borderRadius: "var(--radius-sm)",
+              display: "flex", gap: 16, flexWrap: "wrap",
+            }}>
+              <span style={{ fontSize: 10, color: "var(--text3)" }}>
+                已比较 <span style={{ color: "var(--text)", fontWeight: 700 }}>{signalTeams.length}</span> 支球队
+              </span>
+              {undervalued > 0 && (
+                <span style={{ fontSize: 10, color: "var(--green)" }}>
+                  低估信号 {undervalued} 支
+                </span>
+              )}
+              {overvalued > 0 && (
+                <span style={{ fontSize: 10, color: "var(--red)" }}>
+                  高估信号 {overvalued} 支
+                </span>
+              )}
+            </div>
+          )}
+
+          {/* ───── 免责声明 ───── */}
+          <div style={{
+            marginTop: 24, padding: "12px",
+            background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)",
+            borderRadius: "var(--radius-sm)", fontSize: 11, color: "var(--text3)", lineHeight: 1.6,
+          }}>
+            ⚠️ <strong style={{ color: "var(--text2)" }}>免责声明：</strong>
+            本页面仅展示预测模型数据与第三方预测市场数据的对比分析，供参考学习，
+            <strong style={{ color: "var(--text2)" }}>不构成任何投注、投资或交易建议</strong>。
+            Polymarket 为去中心化预测市场平台，参与前请了解相关法律法规与风险。
+          </div>
+
+          {/* ───── 时间戳 ───── */}
+          <div style={{
+            marginTop: 14, display: "flex", gap: 16, flexWrap: "wrap",
+            fontSize: 10, color: "var(--text3)",
+          }}>
+            {predData?.updatedAt && (
+              <span>ELO 模型更新：{new Date(predData.updatedAt).toLocaleString("zh-CN", {
+                month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit",
+              })}</span>
+            )}
+            {polyData?.fetchedAt && (
+              <span>
+                Polymarket 抓取：{new Date(polyData.fetchedAt).toLocaleString("zh-CN", {
+                  month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit",
+                })}
+                {polyData.error && (
+                  <span style={{ color: "var(--red)", marginLeft: 4 }}>(暂不可用)</span>
+                )}
+              </span>
+            )}
+          </div>
+
+        </div>
+      )}
     </div>
   );
 }
