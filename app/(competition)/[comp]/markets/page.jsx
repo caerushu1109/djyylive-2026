@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import { Activity, TrendingUp, ExternalLink } from "lucide-react";
+import { Activity, TrendingUp } from "lucide-react";
 
 // Polymarket 英文名 → 中文名 映射表（用于将 Polymarket 数据与 ELO 模型匹配）
 const EN_TO_ZH = {
@@ -153,19 +153,6 @@ function PolymarketPanel({ teams }) {
           </div>
         ))}
       </div>
-      <a
-        href="https://polymarket.com/event/2026-fifa-world-cup-winner-595"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: "flex", alignItems: "center", justifyContent: "center", gap: 5,
-          padding: "10px 0 2px",
-          fontSize: 11, color: "var(--purple)", textDecoration: "none",
-        }}
-      >
-        <ExternalLink size={11} />
-        <span>在 Polymarket 查看完整市场并参与</span>
-      </a>
     </div>
   );
 }
