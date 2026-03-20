@@ -1,6 +1,6 @@
 {
   "name": "djyylive-2026",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,7 +12,9 @@
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "update:elo": "python3 scripts/update_elo_from_eloratings.py",
     "archive:elo-history": "python3 scripts/archive_elo_history_from_eloratings.py",
-    "generate:elo-trends": "python3 scripts/generate_elo_trends.py"
+    "generate:elo-trends": "python3 scripts/generate_elo_trends.py",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "lucide-react": "^0.577.0",
@@ -22,7 +24,10 @@
   },
   "devDependencies": {
     "@opennextjs/cloudflare": "1.17.1",
-    "postcss": "8.4.49",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "jsdom": "^29.0.1",
+    "vitest": "^4.1.0",
     "wrangler": "^4.55.0"
   }
 }

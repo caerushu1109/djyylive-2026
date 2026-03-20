@@ -7,9 +7,10 @@ import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
+import dynamic from "next/dynamic";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import TeamSearchModal from "@/components/shared/TeamSearchModal";
+const TeamSearchModal = dynamic(() => import("@/components/shared/TeamSearchModal"), { ssr: false });
 import TopBar from "@/components/shared/TopBar";
 
 const COMP_LABELS = { wc2026: "2026 WC" };
