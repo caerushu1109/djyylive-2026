@@ -1482,23 +1482,37 @@ function TeamPageInner() {
   const { data: teamDetail                              } = useTeamDetail(teamName);
   const { data: eloTrends                               } = useEloTrends();
 
-  const teamElo = useMemo(() =>
-    (eloData?.rankings || []).find(
+  const teamElo = useMemo(() => {
+    if (!eloData?.rankings) return null;
+    // Direct match first (originalName, Chinese name, or code)
+    const direct = eloData.rankings.find(
       (r) => r.originalName === teamName || r.name === teamName || r.code === teamName
-    ),
-    [eloData, teamName]
-  );
+    );
+    if (direct) return direct;
+    // Fallback: resolve teamName → ISO via nameToIso, then match by code
+    const iso = nameToIso(teamName);
+    if (iso) return eloData.rankings.find((r) => r.code === iso) || null;
+    // Fallback: resolve teamName → Chinese via getTeamMeta, then match by name
+    const meta = getTeamMeta(teamName);
+    if (meta.shortName !== teamName) {
+      return eloData.rankings.find((r) => r.name === meta.shortName) || null;
+    }
+    return null;
+  }, [eloData, teamName]);
 
   const lookupName = teamElo?.originalName || teamName;
   const group = useTeamGroup(lookupName);
 
   const teamFixtures = useMemo(() => {
     const zhName = teamElo?.name;
+    const origName = teamElo?.originalName;
+    const names = new Set([teamName]);
+    if (zhName) names.add(zhName);
+    if (origName) names.add(origName);
     return (fixturesData?.fixtures || []).filter(
       (f) =>
-        f.home.originalName === teamName || f.away.originalName === teamName ||
-        f.home.name === teamName         || f.away.name === teamName ||
-        (zhName && (f.home.name === zhName || f.away.name === zhName))
+        names.has(f.home.originalName) || names.has(f.away.originalName) ||
+        names.has(f.home.name)         || names.has(f.away.name)
     );
   }, [fixturesData, teamName, teamElo]);
 
@@ -1531,9 +1545,12 @@ function TeamPageInner() {
     fetch("/data/wc2026-groups.json")
       .then((r) => r.json())
       .then((d) => {
+        const myNames = new Set([teamName]);
+        if (teamElo?.originalName) myNames.add(teamElo.originalName);
+        if (teamElo?.name) myNames.add(teamElo.name);
         for (const teams of Object.values(d)) {
-          if (teams.some((t) => t === teamName || t === (teamElo?.originalName || ""))) {
-            setGroupTeams(teams.filter((t) => t !== teamName && t !== (teamElo?.originalName || "") && t !== "TBD"));
+          if (teams.some((t) => myNames.has(t))) {
+            setGroupTeams(teams.filter((t) => !myNames.has(t) && t !== "TBD"));
             return;
           }
         }
