@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
+import { useFixtures } from "@/lib/hooks/useFixtures";
 import TopBar from "@/components/shared/TopBar";
 import GroupTable from "@/components/wc/GroupTable";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 const KnockoutBracket = dynamic(() => import("@/components/wc/KnockoutBracket"), { ssr: false });
 
 const SUB_TABS = ["积分榜", "淘汰赛"];
@@ -98,10 +100,18 @@ function RulesPanel() {
 
 const PAGE_LABELS = ["AB", "CD", "EF", "GH", "IJ", "KL"];
 
-export default function GroupsClient({ fixturesData }) {
+export default function GroupsClient() {
   const { comp } = useParams();
   const [subTab, setSubTab] = useState("积分榜");
   const [currentPage, setCurrentPage] = useState(0);
+  const { data: fixturesData, loading } = useFixtures({ pollInterval: 30000 });
+
+  if (loading) return (
+    <div>
+      <TopBar comp={comp} badge />
+      <LoadingSpinner />
+    </div>
+  );
 
   const standings = fixturesData?.standings || [];
 

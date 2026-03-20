@@ -1,8 +1,10 @@
 "use client";
 import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
+import { useFixtures } from "@/lib/hooks/useFixtures";
 import TopBar from "@/components/shared/TopBar";
 import MatchCard from "@/components/shared/MatchCard";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 // 以北京时间为准的今天/明天判断
 const BJ_LOCALE = "en-CA"; // 返回 YYYY-MM-DD 格式
@@ -66,9 +68,10 @@ function getTeamDisplayName(team, standingsMap) {
   return translated;
 }
 
-export default function FixturesClient({ fixturesData }) {
+export default function FixturesClient() {
   const { comp } = useParams();
   const [activeDate, setActiveDate] = useState(null);
+  const { data: fixturesData, loading } = useFixtures({ pollInterval: 30000 });
 
   const dateGroups = useMemo(() => groupByDate(fixturesData?.fixtures || []), [fixturesData]);
   const tabs = useMemo(() => dateGroups.map(([date]) => ({ id: date, label: formatDateLabel(date) })), [dateGroups]);
@@ -77,6 +80,13 @@ export default function FixturesClient({ fixturesData }) {
     const group = dateGroups.find(([date]) => date === selectedDate);
     return group ? group[1] : [];
   }, [dateGroups, selectedDate]);
+
+  if (loading) return (
+    <div>
+      <TopBar comp={comp} label="赛程" />
+      <LoadingSpinner />
+    </div>
+  );
 
 
 /**
