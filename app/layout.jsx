@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "DJYY Sports · 2026 FIFA 世界杯数据平台",
-  description: "2026 FIFA 世界杯实时比分、积分榜、ELO 夺冠预测。48支球队，64场比赛，蒙特卡洛模拟。",
+  description: "2026 FIFA 世界杯实时比分、积分榜、ELO 夺冠预测。48支球队，104场比赛，蒙特卡洛模拟。",
   manifest: "/manifest.json",
   appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "DJYY" },
   openGraph: {

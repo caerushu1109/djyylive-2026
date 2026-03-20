@@ -329,26 +329,10 @@ function buildDetailFromSample(sample, fixtureId) {
     fixture: normalizedFixture,
     stats: detailStats,
     events,
-    probabilities: {
-      home: 46,
-      draw: 26,
-      away: 28,
-    },
-    odds: [
-      { label: "主胜", value: "2.10", implied: "47.6%" },
-      { label: "平局", value: "3.40", implied: "29.4%" },
-      { label: "客胜", value: "3.20", implied: "31.3%" },
-    ],
-    h2hSummary: [
-      { value: 2, label: `${normalizedFixture.home.flag} ${normalizedFixture.home.name}胜`, tone: "blue" },
-      { value: 1, label: "平局", tone: "gray" },
-      { value: 1, label: `${normalizedFixture.away.flag} ${normalizedFixture.away.name}胜`, tone: "red" },
-    ],
-    h2hMatches: [
-      { year: "2025", event: "热身赛", score: "2-1", tone: "blue" },
-      { year: "2024", event: "洲际赛事", score: "1-1", tone: "dim" },
-      { year: "2022", event: "国际比赛日", score: "0-1", tone: "red" },
-    ],
+    probabilities: null,
+    odds: [],
+    h2hSummary: [],
+    h2hMatches: [],
     statGrid: [
       { value: String(stats.shots?.home ?? 0), label: `${normalizedFixture.home.flag}射门` },
       { value: String(stats.possession?.home ?? 0), label: `${normalizedFixture.home.flag}控球` },
@@ -536,21 +520,9 @@ export async function getMatchDetail(fixtureId, options = {}) {
             title: event?.player_name || event?.player?.name || event?.type?.name || "事件",
             subtitle: `${getTeamMeta(event?.participant?.name || "").flag} ${getTeamMeta(event?.participant?.name || "").shortName}`.trim(),
           })),
-          probabilities: {
-            home: 46,
-            draw: 26,
-            away: 28,
-          },
-          odds: [
-            { label: "主胜", value: "-", implied: "-" },
-            { label: "平局", value: "-", implied: "-" },
-            { label: "客胜", value: "-", implied: "-" },
-          ],
-          h2hSummary: [
-            { value: 0, label: `${normalizedFixture.home.flag} ${normalizedFixture.home.name}胜`, tone: "blue" },
-            { value: 0, label: "平局", tone: "gray" },
-            { value: 0, label: `${normalizedFixture.away.flag} ${normalizedFixture.away.name}胜`, tone: "red" },
-          ],
+          probabilities: null,
+          odds: [],
+          h2hSummary: [],
           h2hMatches: [],
           statGrid: [
             { value: String(statsByTeam.SHOTS_TOTAL?.home ?? 0), label: `${normalizedFixture.home.flag}射门` },

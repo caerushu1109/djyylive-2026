@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
+import { usePolymarket } from "@/lib/hooks/usePolymarket";
+import { EN_TO_ZH } from "@/lib/polymarket-names";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import TeamSearchModal from "@/components/shared/TeamSearchModal";
@@ -131,26 +133,8 @@ function QuickStats({ fixturesData }) {
   );
 }
 
-function WinProbBar() {
-  const home = 42, draw = 18, away = 40;
-  return (
-    <div style={{ background: "var(--card)", borderRadius: 10, margin: "0 12px 4px", padding: "10px 12px 8px" }}>
-      <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 6 }}>
-        实时胜负概率（滚球预测）
-      </div>
-      <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 5 }}>
-        <div style={{ width: `${home}%`, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
-        <div style={{ width: `${draw}%`, background: "var(--text3)" }} />
-        <div style={{ width: `${away}%`, background: "var(--red)", borderRadius: "0 6px 6px 0" }} />
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--blue)" }}>{home}%</div>
-        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--text3)", flex: 1, textAlign: "center" }}>{draw}%</div>
-        <div style={{ fontSize: 11, fontWeight: 800, color: "var(--red)" }}>{away}%</div>
-      </div>
-    </div>
-  );
-}
+// WinProbBar removed — no real-time probability model available.
+// Will be re-added when a real data source is integrated.
 
 function todayFixtures(fixtures) {
   if (!fixtures?.length) return [];
@@ -169,6 +153,18 @@ export default function CompHomePage() {
   const { data: fixturesData, loading: fixturesLoading } = useFixtures({ pollInterval: 30000 });
   const { data: eloData } = useElo();
   const { data: predData } = usePredictions();
+  const { data: polyData } = usePolymarket();
+
+  // Build Polymarket lookup: Chinese team name → probability %
+  const polyByZh = useMemo(() => {
+    if (!polyData?.teams) return {};
+    const map = {};
+    for (const t of polyData.teams) {
+      const zh = EN_TO_ZH[t.name];
+      if (zh && t.probability > 0) map[zh] = t.probability;
+    }
+    return map;
+  }, [polyData]);
 
   // Helper: resolve English originalName for team detail navigation
   const getTeamHref = (team) => {
@@ -200,7 +196,6 @@ export default function CompHomePage() {
       <TopBar comp={comp} onSearchClick={() => setShowSearch(true)} />
 
       {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
-      {liveFixtures.length > 0 && <WinProbBar />}
 
       <QuickStats fixturesData={fixturesData} />
 
@@ -291,8 +286,7 @@ export default function CompHomePage() {
           </div>
           {marketRows.map((team, i) => {
             const modelPct  = team.prob !== undefined ? (team.prob * 100) : null;
-            const offsets   = [-5.3, 3.8, 0.1, -1.2];
-            const marketPct = modelPct !== null ? Math.max(0.1, modelPct + offsets[i % offsets.length]) : null;
+            const marketPct = polyByZh[team.name] ?? null;
             const value     = modelPct !== null && marketPct !== null ? modelPct - marketPct : null;
             const valBg     = value === null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
             const valColor  = value === null ? "var(--text3)" : value > 0.5 ? "var(--green)"     : value < -0.5 ? "var(--red)"     : "var(--text3)";
