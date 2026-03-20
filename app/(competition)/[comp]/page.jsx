@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
+import { useTopScorers } from "@/lib/hooks/useTopScorers";
 import dynamic from "next/dynamic";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
@@ -99,8 +100,83 @@ function QuickStats({ fixturesData }) {
   );
 }
 
-// WinProbBar removed — no real-time probability model available.
-// Will be re-added when a real data source is integrated.
+function TournamentProgress({ fixturesData }) {
+  const allFixtures = fixturesData?.fixtures || [];
+  const total = allFixtures.length || 104; // 2026 WC = 104 matches
+  const played = allFixtures.filter(f => f.status === "FT").length;
+  const live = allFixtures.filter(f => f.status === "LIVE").length;
+  const pct = total > 0 ? ((played + live) / total * 100) : 0;
+
+  if (played === 0 && live === 0) return null;
+
+  return (
+    <div style={{
+      margin: "0 12px 14px", background: "var(--card)",
+      border: "1px solid var(--border)", borderRadius: "var(--radius-sm)",
+      padding: "10px 12px",
+    }}>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+        <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+          赛事进度
+        </span>
+        <span style={{ fontSize: 10, color: "var(--text3)", fontVariantNumeric: "tabular-nums" }}>
+          {played}{live > 0 ? `+${live}` : ""}/{total} 场
+        </span>
+      </div>
+      <div style={{ height: 6, background: "var(--card2)", borderRadius: 4, overflow: "hidden" }}>
+        <div style={{
+          height: "100%", borderRadius: 4,
+          background: "linear-gradient(90deg, var(--green), var(--blue))",
+          width: `${pct}%`, transition: "width 0.5s",
+        }} />
+      </div>
+    </div>
+  );
+}
+
+function TopScorersCard({ comp }) {
+  const { data } = useTopScorers();
+  const scorers = (data?.scorers || []).slice(0, 3);
+  if (scorers.length === 0) return null;
+
+  const medals = ["🥇", "🥈", "🥉"];
+
+  return (
+    <div style={{
+      margin: "0 12px 12px", background: "var(--card)",
+      border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      <div style={{ padding: "10px 12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          射手榜
+        </span>
+        <Link href={`/${comp}/scorers`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整榜 →</Link>
+      </div>
+      {scorers.map((s, i) => (
+        <div key={s.player || i} style={{
+          display: "flex", alignItems: "center", padding: "7px 12px", gap: 8,
+          borderTop: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: 14, width: 20 }}>{medals[i]}</span>
+          <span style={{ fontSize: 16, flexShrink: 0 }}>{s.flag || "🏴"}</span>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{
+              fontSize: 12, fontWeight: 700, color: "var(--text)",
+              overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+            }}>{s.player}</div>
+            <div style={{ fontSize: 9, color: "var(--text3)" }}>{s.team}</div>
+          </div>
+          <div style={{ textAlign: "right", flexShrink: 0 }}>
+            <span style={{ fontSize: 14, fontWeight: 900, color: "var(--gold)", fontVariantNumeric: "tabular-nums" }}>
+              {s.goals}
+            </span>
+            <span style={{ fontSize: 9, color: "var(--text3)", marginLeft: 2 }}>球</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function todayFixtures(fixtures) {
   if (!fixtures?.length) return [];
@@ -150,6 +226,7 @@ export default function CompHomePage() {
       {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
 
       <QuickStats fixturesData={fixturesData} />
+      <TournamentProgress fixturesData={fixturesData} />
 
       <div style={{ padding: "0 12px", marginBottom: 6, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>{fixtureLabel}</span>
@@ -211,6 +288,8 @@ export default function CompHomePage() {
           )}
         </div>
       )}
+
+      <TopScorersCard comp={comp} />
 
       <div style={{ height: 20 }} />
 
