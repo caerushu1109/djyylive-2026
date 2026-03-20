@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function TopBar({ comp, badge, label, onSearchClick, right }) {
+export default function TopBar({ comp, badge, label, right }) {
   return (
     <div style={{
       padding: "10px 16px 8px",
@@ -23,16 +23,11 @@ export default function TopBar({ comp, badge, label, onSearchClick, right }) {
         )}
         {label && <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>{label}</span>}
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        {right}
-        {onSearchClick && (
-          <div onClick={onSearchClick} style={{
-            width: 32, height: 32, background: "var(--card)", border: "1px solid var(--border)",
-            borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 16, cursor: "pointer",
-          }}>&#128269;</div>
-        )}
-      </div>
+      {right && (
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          {right}
+        </div>
+      )}
     </div>
   );
 }

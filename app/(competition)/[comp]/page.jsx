@@ -1,15 +1,13 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTopScorers } from "@/lib/hooks/useTopScorers";
-import dynamic from "next/dynamic";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-const TeamSearchModal = dynamic(() => import("@/components/shared/TeamSearchModal"), { ssr: false });
 import TopBar from "@/components/shared/TopBar";
 import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
@@ -208,7 +206,6 @@ export default function CompHomePage() {
 
 function CompHomePageInner() {
   const { comp } = useParams();
-  const [showSearch, setShowSearch] = useState(false);
 
   const { data: fixturesData, loading: fixturesLoading } = useFixtures({ pollInterval: 30000 });
   const { data: eloData } = useElo();
@@ -239,7 +236,7 @@ function CompHomePageInner() {
 
   return (
     <div>
-      <TopBar comp={comp} badge onSearchClick={() => setShowSearch(true)} />
+      <TopBar comp={comp} badge />
 
       {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
 
@@ -310,13 +307,6 @@ function CompHomePageInner() {
       <TopScorersCard comp={comp} />
 
       <div style={{ height: 20 }} />
-
-      {showSearch && (
-        <TeamSearchModal
-          teams={eloData?.rankings || []}
-          onClose={() => setShowSearch(false)}
-        />
-      )}
     </div>
   );
 }
