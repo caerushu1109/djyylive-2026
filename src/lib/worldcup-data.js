@@ -693,3 +693,59 @@ export async function getTopScorers(options = {}) {
     mode: forceSample ? "drill" : "sample",
   };
 }
+
+export async function getTopAssists(options = {}) {
+  const forceSample = options.mode === "drill";
+
+  if (!forceSample && process.env.SPORTMONKS_API_TOKEN) {
+    try {
+      const fixturesUrl = buildSportMonksUrl(`fixtures/between/${WORLD_CUP_START}/${WORLD_CUP_END}`, {
+        per_page: 1,
+      });
+      const fixturesResponse = await fetchSportMonksJson(fixturesUrl);
+      const seasonId = toArray(fixturesResponse?.data)?.[0]?.season_id;
+      if (seasonId) {
+        const url = buildSportMonksUrl(`topscorers/seasons/${seasonId}`, {
+          include: "participant;player",
+          type: "assists",
+        });
+        const response = await fetchSportMonksJson(url);
+        const rows = toArray(response?.data);
+        if (rows.length > 0) {
+          return {
+            source: "sportmonks",
+            assists: rows.map((row) => {
+              const meta = getTeamMeta(row.participant?.name || "");
+              return {
+                player: row.player?.name || row.player_name || "",
+                team: meta.shortName,
+                flag: meta.flag,
+                teamMeta: meta,
+                assists: Number(row.total ?? row.assists ?? 0),
+                goals: Number(row.goals ?? 0),
+                matches: Number(row.appearances ?? 0),
+                minutes: Number(row.minutes_played ?? 0),
+              };
+            }),
+          };
+        }
+      }
+    } catch (error) {
+      console.warn("Falling back to sample top assists:", error);
+    }
+  }
+
+  // Fallback: derive from top scorers sample sorted by assists
+  const sample = await readSample();
+  const scorers = toArray(sample.topScorers)
+    .filter((row) => Number(row.assists ?? 0) > 0)
+    .sort((a, b) => Number(b.assists ?? 0) - Number(a.assists ?? 0));
+  return {
+    source: "sample",
+    assists: scorers.map((row) => {
+      const meta = getTeamMeta(row.team || "");
+      return { ...row, team: meta.shortName, flag: meta.flag, teamMeta: meta };
+    }),
+    mode: forceSample ? "drill" : "sample",
+  };
+}
