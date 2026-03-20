@@ -6,7 +6,7 @@ export async function GET(request) {
   const payload = await getFixturesData({ mode });
   return NextResponse.json(payload, {
     headers: {
-      "cache-control": "no-store",
+      "cache-control": "public, s-maxage=60, stale-while-revalidate=300",
     },
   });
 }
