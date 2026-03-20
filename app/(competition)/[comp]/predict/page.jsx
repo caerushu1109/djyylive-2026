@@ -70,7 +70,7 @@ export default function PredictPage() {
         borderRadius: "var(--radius-sm)", padding: "8px 12px",
         fontSize: 11, color: "var(--text2)", lineHeight: 1.5,
       }}>
-        基于 ELO 排名的蒙特卡洛模拟（10,000次），仅含 2026 世界杯参赛队 · 名单每日自动同步
+        用各队 ELO 分算出每场胜负概率，模拟 10,000 次完整赛事，统计各阶段晋级率。每天北京时间 08:00 自动更新。
       </div>
 
       {loading ? (
