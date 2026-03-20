@@ -1,10 +1,12 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { getTeamMeta } from "@/src/lib/team-meta";
 
 // 4 distinct colors for up to 4 teams in Polymarket bar
 const POLY_COLORS = ["#4a90d9", "#e05252", "#50b87a", "#d4a843"];
 
 export default function GroupTable({ group, polyGroupOdds, hideLegend }) {
+  const router = useRouter();
   if (!group) return null;
   const { group: name, rows = [] } = group;
 
@@ -75,6 +77,7 @@ export default function GroupTable({ group, polyGroupOdds, hideLegend }) {
           />
           <span style={{ fontSize: 16 }}>{row.flag}</span>
           <span
+            onClick={() => router.push(`/team/${encodeURIComponent(row.originalName || row.name)}`)}
             style={{
               fontSize: 12,
               fontWeight: 700,
@@ -83,6 +86,7 @@ export default function GroupTable({ group, polyGroupOdds, hideLegend }) {
               overflow: "hidden",
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             {row.name}

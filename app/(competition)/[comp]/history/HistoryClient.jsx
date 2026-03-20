@@ -1,9 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import TopBar from "@/components/shared/TopBar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { useHistoryData } from "@/lib/hooks/useHistoryData";
+import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
+import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
 const SUB_TABS = ["冠军", "射手", "球队", "纪录", "决赛"];
 
@@ -41,6 +44,7 @@ const headerStyle = {
 // ══════════════════════════════════════════════════════════════════
 function ChampionsTab() {
   const { data, loading } = useHistoryData("champions");
+  const router = useRouter();
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
 
@@ -58,7 +62,7 @@ function ChampionsTab() {
               background: "var(--card2)", borderRadius: 6, padding: "5px 10px",
             }}>
               <span style={{ fontSize: 13, fontWeight: 900, color: "var(--gold)" }}>{count}</span>
-              <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>{team}</span>
+              <span onClick={() => router.push(`/team/${encodeURIComponent(team)}`)} style={{ fontSize: 11, fontWeight: 700, color: "var(--text)", cursor: "pointer" }}>{team}</span>
             </div>
           ))}
         </div>
@@ -79,8 +83,8 @@ function ChampionsTab() {
             }}>{t.year}</span>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>
-                {t.winner}
-                <span style={{ color: "var(--text3)", fontWeight: 400 }}> vs {t.runnerUp}</span>
+                <span onClick={() => router.push(`/team/${encodeURIComponent(t.winner)}`)} style={{ cursor: "pointer" }}>{t.winner}</span>
+                <span style={{ color: "var(--text3)", fontWeight: 400 }}> vs <span onClick={() => router.push(`/team/${encodeURIComponent(t.runnerUp)}`)} style={{ cursor: "pointer" }}>{t.runnerUp}</span></span>
               </div>
               <div style={{ fontSize: 10, color: "var(--text3)", marginTop: 1 }}>
                 {t.host} · {t.teams}队
@@ -112,6 +116,9 @@ function ScorersTab() {
   const { data, loading } = useHistoryData("scorers");
   const pzh = usePlayerZh();
   const [showAll, setShowAll] = useState(false);
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+  const router = useRouter();
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
 
@@ -145,10 +152,10 @@ function ScorersTab() {
                 <div style={{
                   fontSize: 12, fontWeight: 700, color: "var(--text)",
                   overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                }}>{zhName(pzh, s.name)}</div>
+                  cursor: "pointer" }} onClick={() => { const id = lookup(s.name); if (id) openPlayer(id, zhName(pzh, s.name)); }}>{zhName(pzh, s.name)}</div>
                 <div style={{ fontSize: 9, color: "var(--text3)" }}>{s.span}</div>
               </div>
-              <span style={{ width: 28, fontSize: 10, color: "var(--text2)", textAlign: "center" }}>{s.team}</span>
+              <span onClick={() => router.push(`/team/${encodeURIComponent(s.team)}`)} style={{ width: 28, fontSize: 10, color: "var(--text2)", textAlign: "center", cursor: "pointer" }}>{s.team}</span>
               <span style={{ width: 28, fontSize: 10, color: "var(--text3)", textAlign: "center", fontVariantNumeric: "tabular-nums" }}>{s.tournaments}</span>
               <span style={{
                 width: 32, fontSize: 14, fontWeight: 900, textAlign: "right",
@@ -183,8 +190,8 @@ function ScorersTab() {
               <div style={{
                 fontSize: 11, fontWeight: 700, color: "var(--text)",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{zhName(pzh, gb.player)}</div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>{gb.team}</div>
+                cursor: "pointer" }} onClick={() => { const id = lookup(gb.player); if (id) openPlayer(id, zhName(pzh, gb.player)); }}>{zhName(pzh, gb.player)}</div>
+              <div onClick={() => router.push(`/team/${encodeURIComponent(gb.team)}`)} style={{ fontSize: 9, color: "var(--text3)", cursor: "pointer" }}>{gb.team}</div>
             </div>
           ))}
         </div>
@@ -199,6 +206,7 @@ function ScorersTab() {
 function TeamsTab() {
   const { data, loading } = useHistoryData("teams");
   const [showAll, setShowAll] = useState(false);
+  const router = useRouter();
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
 
@@ -234,7 +242,7 @@ function TeamsTab() {
               <span style={{
                 fontSize: 12, fontWeight: 700, color: "var(--text)",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{t.team}</span>
+                cursor: "pointer" }} onClick={() => router.push(`/team/${encodeURIComponent(t.team)}`)}>{t.team}</span>
               {t.titles > 0 && (
                 <span style={{ fontSize: 9, fontWeight: 800, color: "var(--gold)", flexShrink: 0 }}>
                   ×{t.titles}🏆
@@ -279,6 +287,9 @@ function TeamsTab() {
 function RecordsTab() {
   const { data, loading } = useHistoryData("records");
   const pzh = usePlayerZh();
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+  const router = useRouter();
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
 
@@ -302,8 +313,8 @@ function RecordsTab() {
               {m.score}
             </span>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>{m.winner}</span>
-              <span style={{ fontSize: 11, color: "var(--text3)" }}> vs {m.loser}</span>
+              <span onClick={() => router.push(`/team/${encodeURIComponent(m.winner)}`)} style={{ fontSize: 11, fontWeight: 700, color: "var(--text)", cursor: "pointer" }}>{m.winner}</span>
+              <span style={{ fontSize: 11, color: "var(--text3)" }}> vs <span onClick={() => router.push(`/team/${encodeURIComponent(m.loser)}`)} style={{ cursor: "pointer" }}>{m.loser}</span></span>
             </div>
             <span style={{ fontSize: 10, color: "var(--text3)", flexShrink: 0 }}>{m.year}</span>
           </div>
@@ -327,8 +338,8 @@ function RecordsTab() {
               <div style={{
                 fontSize: 11, fontWeight: 700, color: "var(--text)",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{zhName(pzh, h.player)}</div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>{h.team}</div>
+                cursor: "pointer" }} onClick={() => { const id = lookup(h.player); if (id) openPlayer(id, zhName(pzh, h.player)); }}>{zhName(pzh, h.player)}</div>
+              <div onClick={() => router.push(`/team/${encodeURIComponent(h.team)}`)} style={{ fontSize: 9, color: "var(--text3)", cursor: "pointer" }}>{h.team}</div>
             </div>
             <span style={{ fontSize: 10, color: "var(--text3)" }}>{h.year}</span>
           </div>
@@ -350,7 +361,7 @@ function RecordsTab() {
               <div style={{
                 fontSize: 11, fontWeight: 700, color: "var(--text)",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{zhName(pzh, g.player)}</div>
+                cursor: "pointer" }} onClick={() => { const id = lookup(g.player); if (id) openPlayer(id, zhName(pzh, g.player)); }}>{zhName(pzh, g.player)}</div>
               <div style={{ fontSize: 9, color: "var(--text3)" }}>{g.team}{g.vs ? ` vs ${g.vs}` : ""}</div>
             </div>
             <span style={{ fontSize: 10, color: "var(--text3)" }}>{g.year}</span>
@@ -390,6 +401,9 @@ function FinalsTab() {
   const { data, loading } = useHistoryData("finals");
   const pzh = usePlayerZh();
   const [expanded, setExpanded] = useState(null);
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+  const router = useRouter();
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
 
@@ -414,7 +428,7 @@ function FinalsTab() {
                 }}>{f.year}</span>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>
-                    {f.home} <span style={{ color: "var(--text3)" }}>vs</span> {f.away}
+                    <span onClick={(e) => { e.stopPropagation(); router.push(`/team/${encodeURIComponent(f.home)}`); }} style={{ cursor: "pointer" }}>{f.home}</span> <span style={{ color: "var(--text3)" }}>vs</span> <span onClick={(e) => { e.stopPropagation(); router.push(`/team/${encodeURIComponent(f.away)}`); }} style={{ cursor: "pointer" }}>{f.away}</span>
                   </div>
                 </div>
                 <div style={{ textAlign: "right", flexShrink: 0 }}>
@@ -454,7 +468,7 @@ function FinalsTab() {
                         {g.minute}
                       </span>
                       <span style={{ fontWeight: 600 }}>
-                        {zhName(pzh, g.player)}
+                        <span onClick={() => { const id = lookup(g.player); if (id) openPlayer(id, zhName(pzh, g.player)); }} style={{ cursor: "pointer" }}>{zhName(pzh, g.player)}</span>
                         {g.penalty && <span style={{ color: "var(--blue)", marginLeft: 3 }}>(PK)</span>}
                         {g.ownGoal && <span style={{ color: "var(--red)", marginLeft: 3 }}>(乌龙)</span>}
                       </span>
@@ -477,6 +491,14 @@ function FinalsTab() {
 // 主页面
 // ══════════════════════════════════════════════════════════════════
 export default function HistoryClient() {
+  return (
+    <PlayerProvider>
+      <HistoryClientInner />
+    </PlayerProvider>
+  );
+}
+
+function HistoryClientInner() {
   const { comp } = useParams();
   const [subTab, setSubTab] = useState("冠军");
 

@@ -826,6 +826,9 @@ function TabFixtures({ teamFixtures, fixturesLoading }) {
 function TournamentAccordion({ tournament }) {
   const [expanded, setExpanded] = useState(false);
   const [showSquad, setShowSquad] = useState(false);
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+  const router = useRouter();
 
   const { year, stage, manager, cards, group, matches, squad } = tournament;
   const yellowCards = cards?.yellow ?? 0;
@@ -903,7 +906,7 @@ function TournamentAccordion({ tournament }) {
                         background: row.pos <= 2 ? "rgba(92,158,255,0.04)" : "transparent",
                       }}>
                         <td style={{ padding: "5px 4px", color: "var(--text-dim)", fontWeight: 700 }}>{row.pos}</td>
-                        <td style={{ padding: "5px 4px", color: "var(--text)", fontWeight: 500 }}>{row.team}</td>
+                        <td onClick={() => router.push(`/team/${encodeURIComponent(row.team)}`)} style={{ padding: "5px 4px", color: "var(--text)", fontWeight: 500, cursor: "pointer" }}>{row.team}</td>
                         <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--text2)" }}>{row.p}</td>
                         <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--green)" }}>{row.w}</td>
                         <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--text3)" }}>{row.d}</td>
@@ -934,7 +937,7 @@ function TournamentAccordion({ tournament }) {
                     <div key={mi} style={{ padding: "6px 0" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12 }}>
                         <span style={{ color: "var(--text-dim)", fontSize: 10, minWidth: 50 }}>{m.stage}</span>
-                        <span style={{ fontWeight: 600, color: "var(--text)" }}>{m.home}</span>
+                        <span onClick={() => router.push(`/team/${encodeURIComponent(m.home)}`)} style={{ fontWeight: 600, color: "var(--text)", cursor: "pointer" }}>{m.home}</span>
                         <span style={{
                           fontWeight: 800, fontVariantNumeric: "tabular-nums", padding: "1px 6px",
                           borderRadius: 4, fontSize: 12,
@@ -943,13 +946,13 @@ function TournamentAccordion({ tournament }) {
                         }}>
                           {scoreStr}
                         </span>
-                        <span style={{ fontWeight: 600, color: "var(--text)" }}>{m.away}</span>
+                        <span onClick={() => router.push(`/team/${encodeURIComponent(m.away)}`)} style={{ fontWeight: 600, color: "var(--text)", cursor: "pointer" }}>{m.away}</span>
                       </div>
                       {m.goals && m.goals.length > 0 && (
                         <div style={{ marginTop: 3, paddingLeft: 56, display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {m.goals.map((g, gi) => (
                             <span key={gi} style={{ fontSize: 10, color: "var(--text-dim)" }}>
-                              {g.ownGoal ? "(OG) " : ""}{g.player} {g.minute}{g.penalty ? " (P)" : ""}
+                              {g.ownGoal ? "(OG) " : ""}<span onClick={() => { const hid = lookup(g.player); if (hid) openPlayer(hid, g.player); }} style={{ cursor: "pointer" }}>{g.player}</span> {g.minute}{g.penalty ? " (P)" : ""}
                             </span>
                           ))}
                         </div>
@@ -965,7 +968,7 @@ function TournamentAccordion({ tournament }) {
                         <div style={{ marginTop: 2, paddingLeft: 56, display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {m.subs.map((s, si) => (
                             <span key={si} style={{ fontSize: 9, color: "var(--text3)" }}>
-                              🔄 {s.playerOn} ← {s.playerOff} {s.minute}
+                              🔄 <span onClick={() => { const hid = lookup(s.playerOn); if (hid) openPlayer(hid, s.playerOn); }} style={{ cursor: "pointer" }}>{s.playerOn}</span> ← <span onClick={() => { const hid = lookup(s.playerOff); if (hid) openPlayer(hid, s.playerOff); }} style={{ cursor: "pointer" }}>{s.playerOff}</span> {s.minute}
                             </span>
                           ))}
                         </div>

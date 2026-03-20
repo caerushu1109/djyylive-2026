@@ -1,10 +1,18 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function MatchCard({ fixture, onClick }) {
+  const router = useRouter();
   if (!fixture) return null;
   const { id, home, away, homeScore, awayScore, status, minute, kickoff, group } = fixture;
   if (!home || !away) return null;
+
+  const goTeam = (e, team) => {
+    e.preventDefault();
+    e.stopPropagation();
+    router.push(`/team/${encodeURIComponent(team.originalName || team.name)}`);
+  };
 
   const homeWins = status === "FT" && homeScore > awayScore;
   const awayWins = status === "FT" && awayScore > homeScore;
@@ -35,10 +43,11 @@ export default function MatchCard({ fixture, onClick }) {
       {/* Home team block */}
       <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
         <div style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{home.flag || "🏴"}</div>
-        <div style={{
+        <div onClick={(e) => goTeam(e, home)} style={{
           fontSize: 12, fontWeight: 700,
           color: homeWins ? "var(--text)" : awayWins ? "var(--text2)" : "var(--text)",
           overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+          cursor: "pointer",
         }}>
           {home.name}
         </div>
@@ -69,10 +78,11 @@ export default function MatchCard({ fixture, onClick }) {
       {/* Away team block */}
       <div style={{ flex: 1, display: "flex", alignItems: "center", flexDirection: "row-reverse", gap: 6, minWidth: 0 }}>
         <div style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{away.flag || "🏴"}</div>
-        <div style={{
+        <div onClick={(e) => goTeam(e, away)} style={{
           fontSize: 12, fontWeight: 700,
           color: awayWins ? "var(--text)" : homeWins ? "var(--text2)" : "var(--text)",
           overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "right",
+          cursor: "pointer",
         }}>
           {away.name}
         </div>

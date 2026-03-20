@@ -34,7 +34,7 @@ function eventIcon(type) {
 }
 
 /* ── Score Header ───────────────────────────────────── */
-function ScoreHeader({ fixture, onBack }) {
+function ScoreHeader({ fixture, onBack, onTeamClick }) {
   return (
     <div style={{ background: "linear-gradient(180deg, #151825 0%, #0e1018 100%)" }}>
       {/* Top bar */}
@@ -70,7 +70,7 @@ function ScoreHeader({ fixture, onBack }) {
         {/* Home */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
           <span style={{ fontSize: 36, lineHeight: 1 }}>{fixture.home.flag}</span>
-          <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text)", textAlign: "center", lineHeight: 1.3 }}>
+          <span onClick={() => onTeamClick?.(fixture.home)} style={{ fontSize: 11, fontWeight: 800, color: "var(--text)", textAlign: "center", lineHeight: 1.3, cursor: "pointer" }}>
             {fixture.home.name}
           </span>
         </div>
@@ -110,7 +110,7 @@ function ScoreHeader({ fixture, onBack }) {
         {/* Away */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
           <span style={{ fontSize: 36, lineHeight: 1 }}>{fixture.away.flag}</span>
-          <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text)", textAlign: "center", lineHeight: 1.3 }}>
+          <span onClick={() => onTeamClick?.(fixture.away)} style={{ fontSize: 11, fontWeight: 800, color: "var(--text)", textAlign: "center", lineHeight: 1.3, cursor: "pointer" }}>
             {fixture.away.name}
           </span>
         </div>
@@ -189,7 +189,7 @@ function KeyStatPill({ label, homeVal, awayVal }) {
 }
 
 /* ── Goal Scorers Strip ──────────────────────────────── */
-function GoalScorers({ events, fixture }) {
+function GoalScorers({ events, fixture, onPlayerClick }) {
   const goals = (events || []).filter((e) => e.type?.includes("goal"));
   if (!goals.length) return null;
   const homeGoals = goals.filter((e) => e.team === fixture.home.originalName);
@@ -201,14 +201,14 @@ function GoalScorers({ events, fixture }) {
       <div style={{ flex: 1, textAlign: "left" }}>
         {homeGoals.map((g, i) => (
           <div key={i} style={{ fontSize: 10, color: "var(--text2)", lineHeight: 1.6 }}>
-            ⚽ {g.title} {g.minute}&apos;
+            ⚽ <span onClick={() => onPlayerClick?.(g.title)} style={{ cursor: "pointer" }}>{g.title}</span> {g.minute}&apos;
           </div>
         ))}
       </div>
       <div style={{ flex: 1, textAlign: "right" }}>
         {awayGoals.map((g, i) => (
           <div key={i} style={{ fontSize: 10, color: "var(--text2)", lineHeight: 1.6 }}>
-            {g.title} {g.minute}&apos; ⚽
+            <span onClick={() => onPlayerClick?.(g.title)} style={{ cursor: "pointer" }}>{g.title}</span> {g.minute}&apos; ⚽
           </div>
         ))}
       </div>
@@ -282,7 +282,7 @@ function WinProbBar({ predictions, fixture }) {
 }
 
 /* ── Tab: Overview ───────────────────────────────────── */
-function TabOverview({ data }) {
+function TabOverview({ data, onPlayerClick }) {
   const { stats, events, fixture, predictions } = data;
 
   if (fixture.status === "NS") {
@@ -348,7 +348,8 @@ function TabOverview({ data }) {
               }}>{ev.minuteLabel}</span>
               <span style={{ fontSize: 13, flexShrink: 0 }}>{ev.icon}</span>
               <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text)", flex: 1 }}>
-                {ev.teamMeta?.flag} {ev.title}
+                {ev.teamMeta?.flag}{" "}
+                <span onClick={() => onPlayerClick?.(ev.title)} style={{ cursor: "pointer" }}>{ev.title}</span>
               </span>
               {ev.subtitle && (
                 <span style={{ fontSize: 10, color: "var(--text3)", flexShrink: 0 }}>{ev.subtitle}</span>
@@ -712,7 +713,7 @@ function TabLineups({ data }) {
 }
 
 /* ── Tab: Events Timeline ─────────────────────────────── */
-function TabEvents({ data }) {
+function TabEvents({ data, onPlayerClick }) {
   const { events, fixture } = data;
   if (!events?.length) {
     return (
@@ -740,10 +741,10 @@ function TabEvents({ data }) {
               visibility: isHome ? "visible" : "hidden",
             }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>
-                {ev.title}
+                <span onClick={() => onPlayerClick?.(ev.title)} style={{ cursor: "pointer" }}>{ev.title}</span>
               </div>
               {ev.assist && (
-                <div style={{ fontSize: 10, color: "var(--text3)" }}>助攻: {ev.assist}</div>
+                <div style={{ fontSize: 10, color: "var(--text3)" }}>助攻: <span onClick={() => onPlayerClick?.(ev.assist)} style={{ cursor: "pointer" }}>{ev.assist}</span></div>
               )}
               {ev.subtitle && (
                 <div style={{ fontSize: 10, color: "var(--text3)" }}>{ev.subtitle}</div>
@@ -769,10 +770,10 @@ function TabEvents({ data }) {
               visibility: !isHome ? "visible" : "hidden",
             }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>
-                {ev.title}
+                <span onClick={() => onPlayerClick?.(ev.title)} style={{ cursor: "pointer" }}>{ev.title}</span>
               </div>
               {ev.assist && (
-                <div style={{ fontSize: 10, color: "var(--text3)" }}>助攻: {ev.assist}</div>
+                <div style={{ fontSize: 10, color: "var(--text3)" }}>助攻: <span onClick={() => onPlayerClick?.(ev.assist)} style={{ cursor: "pointer" }}>{ev.assist}</span></div>
               )}
               {ev.subtitle && (
                 <div style={{ fontSize: 10, color: "var(--text3)" }}>{ev.subtitle}</div>
@@ -906,6 +907,12 @@ function MatchDetailInner() {
 
   const { data, loading } = useMatchDetail(id);
   const [tab, setTab] = useState("overview");
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+  const handleEventPlayerClick = (name) => {
+    const histId = lookup(name);
+    if (histId) openPlayer(histId, name);
+  };
 
   const fixture = data?.fixture;
   const homeIso = useMemo(() => fixture ? nameToIso(fixture.home.originalName) : null, [fixture]);
@@ -917,10 +924,10 @@ function MatchDetailInner() {
 
       {fixture && (
         <>
-          <ScoreHeader fixture={fixture} onBack={() => router.back()} />
+          <ScoreHeader fixture={fixture} onBack={() => router.back()} onTeamClick={(team) => router.push(`/team/${encodeURIComponent(team.originalName || team.name)}`)} />
 
           {/* Goal scorers */}
-          <GoalScorers events={data.events} fixture={fixture} />
+          <GoalScorers events={data.events} fixture={fixture} onPlayerClick={handleEventPlayerClick} />
 
           {/* Tabs */}
           <div style={{
@@ -945,11 +952,11 @@ function MatchDetailInner() {
 
           {/* Tab content */}
           <div style={{ paddingBottom: 80 }}>
-            {tab === "overview" && <TabOverview data={data} />}
+            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} />}
             {tab === "stats" && <TabStats data={data} />}
             {tab === "odds" && <TabOdds data={data} />}
             {tab === "lineups" && <TabLineups data={data} />}
-            {tab === "events" && <TabEvents data={data} />}
+            {tab === "events" && <TabEvents data={data} onPlayerClick={handleEventPlayerClick} />}
             {tab === "h2h" && <TabH2H fixture={fixture} homeIso={homeIso} awayIso={awayIso} />}
           </div>
         </>

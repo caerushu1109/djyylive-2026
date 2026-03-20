@@ -1,6 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useElo } from "@/lib/hooks/useElo";
@@ -11,6 +11,8 @@ import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 const TeamSearchModal = dynamic(() => import("@/components/shared/TeamSearchModal"), { ssr: false });
 import TopBar from "@/components/shared/TopBar";
+import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
+import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
 const COMP_LABELS = { wc2026: "2026 WC" };
 const MEDALS = ["🥇", "🥈", "🥉"];
@@ -136,6 +138,9 @@ function TournamentProgress({ fixturesData }) {
 
 function TopScorersCard({ comp }) {
   const { data } = useTopScorers();
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+  const router = useRouter();
   const scorers = (data?.scorers || []).slice(0, 3);
   if (scorers.length === 0) return null;
 
@@ -160,11 +165,16 @@ function TopScorersCard({ comp }) {
           <span style={{ fontSize: 14, width: 20 }}>{medals[i]}</span>
           <span style={{ fontSize: 16, flexShrink: 0 }}>{s.flag || "🏴"}</span>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{
+            <div onClick={() => {
+              const histId = lookup(s.playerNameEn || s.player);
+              const id = histId || s.playerId;
+              if (id) openPlayer(id, s.player, histId);
+            }} style={{
               fontSize: 12, fontWeight: 700, color: "var(--text)",
               overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              cursor: "pointer",
             }}>{s.player}</div>
-            <div style={{ fontSize: 9, color: "var(--text3)" }}>{s.team}</div>
+            <div onClick={() => router.push(`/team/${encodeURIComponent(s.teamOriginalName || s.team)}`)} style={{ fontSize: 9, color: "var(--text3)", cursor: "pointer" }}>{s.team}</div>
           </div>
           <div style={{ textAlign: "right", flexShrink: 0 }}>
             <span style={{ fontSize: 14, fontWeight: 900, color: "var(--gold)", fontVariantNumeric: "tabular-nums" }}>
@@ -189,6 +199,14 @@ function todayFixtures(fixtures) {
 }
 
 export default function CompHomePage() {
+  return (
+    <PlayerProvider>
+      <CompHomePageInner />
+    </PlayerProvider>
+  );
+}
+
+function CompHomePageInner() {
   const { comp } = useParams();
   const [showSearch, setShowSearch] = useState(false);
 
