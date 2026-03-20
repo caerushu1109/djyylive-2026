@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useEffect, useRef } from "react";
+import { useMemo, useEffect, useRef, useState } from "react";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { getTeamMeta } from "@/src/lib/team-meta";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
@@ -7,7 +7,7 @@ import { EN_TO_ZH } from "@/lib/polymarket-names";
 const STORAGE_KEY = "djyy_odds_snapshot";
 const SNAPSHOT_TTL = 6 * 60 * 60 * 1000; // 6 hours
 
-function loadSnapshot() {
+function loadLocalSnapshot() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
@@ -17,7 +17,7 @@ function loadSnapshot() {
   } catch { return null; }
 }
 
-function saveSnapshot(teams) {
+function saveLocalSnapshot(teams) {
   try {
     const data = {};
     for (const t of teams) data[t.name] = t.probability;
@@ -27,10 +27,22 @@ function saveSnapshot(teams) {
 
 export default function OddsTicker({ polyData }) {
   const savedRef = useRef(false);
+  const [baseline, setBaseline] = useState(null);
+
+  // Load build-time baseline on mount
+  useEffect(() => {
+    fetch("/data/odds-baseline.json")
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data?.odds) setBaseline(data.odds);
+      })
+      .catch(() => {});
+  }, []);
 
   const items = useMemo(() => {
     if (!polyData?.teams?.length) return [];
-    const prev = loadSnapshot();
+    // Use build-time baseline first, then localStorage, then null
+    const prev = baseline || loadLocalSnapshot();
     const sorted = [...polyData.teams]
       .filter((t) => t.probability > 0)
       .sort((a, b) => b.probability - a.probability)
@@ -39,17 +51,17 @@ export default function OddsTicker({ polyData }) {
     return sorted.map((t) => {
       const zh = EN_TO_ZH[t.name] || t.name;
       const meta = getTeamMeta(t.name);
-      const flag = meta.flag !== "🏳️" ? meta.flag : "";
+      const flag = meta.flag !== "\u{1F3F3}\uFE0F" ? meta.flag : "";
       const delta = prev ? +(t.probability - (prev[t.name] ?? t.probability)).toFixed(1) : 0;
       return { key: t.name, flag, zh, pct: t.probability, delta };
     });
-  }, [polyData]);
+  }, [polyData, baseline]);
 
   // Save snapshot once (on first load if no valid snapshot exists)
   useEffect(() => {
     if (savedRef.current || !polyData?.teams?.length) return;
-    const existing = loadSnapshot();
-    if (!existing) saveSnapshot(polyData.teams);
+    const existing = loadLocalSnapshot();
+    if (!existing) saveLocalSnapshot(polyData.teams);
     savedRef.current = true;
   }, [polyData]);
 
