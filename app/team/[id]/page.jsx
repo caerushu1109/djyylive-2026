@@ -16,6 +16,8 @@ import GroupTable from "@/components/wc/GroupTable";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { ChevronLeft } from "lucide-react";
 import { POSITION_LABEL, nameToIso } from "@/lib/utils/teamIso";
+import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
+import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
 const POSITION_ORDER = ["GK", "DF", "MF", "FW"];
 const TABS = ["概览", "赛程", "历史", "阵容", "数据"];
@@ -1156,6 +1158,9 @@ function TabHistory({ historyData, teamElo, teamDetail }) {
 
 // ── Tab: 阵容 (Enhanced with photos, Chinese names, age, club, WC stats) ─────
 function TabSquad({ squadData, teamDetail }) {
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+
   if (!squadData?.players?.length) return (
     <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无阵容数据</p>
   );
@@ -1205,9 +1210,13 @@ function TabSquad({ squadData, teamDetail }) {
               const wcStats = topPlayersMap[playerKey];
               const hasEnrichedData = p.image || p.nameZh || p.club;
               return (
-                <div key={p.id} style={{
+                <div key={p.id} onClick={() => {
+                  const histId = lookup(p.name);
+                  openPlayer(histId || String(p.id), p.nameZh || p.name, histId);
+                }} style={{
                   display: "flex", alignItems: "center", padding: hasEnrichedData ? "8px 12px" : "7px 12px", gap: 10,
                   borderBottom: i < byPosition[pos].length - 1 ? "1px solid var(--border)" : "none",
+                  cursor: "pointer",
                 }}>
                   {/* Player photo or number */}
                   {p.image ? (
@@ -1448,6 +1457,14 @@ function TabStats({ teamDetail }) {
 
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function TeamPage() {
+  return (
+    <PlayerProvider>
+      <TeamPageInner />
+    </PlayerProvider>
+  );
+}
+
+function TeamPageInner() {
   const { id } = useParams();
   const teamName = decodeURIComponent(Array.isArray(id) ? id[0] : id);
   const router = useRouter();

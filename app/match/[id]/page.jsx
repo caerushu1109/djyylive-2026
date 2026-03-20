@@ -6,6 +6,8 @@ import { useH2H } from "@/lib/hooks/useH2H";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
+import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
+import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
 /* ── Tabs ───────────────────────────────────────────── */
 const TABS = [
@@ -565,12 +567,13 @@ function OddCell({ value, highlight, color }) {
 }
 
 /* ── Tab: Lineups ────────────────────────────────────── */
-function PlayerRow({ player, isHome }) {
+function PlayerRow({ player, isHome, onPlayerClick }) {
   return (
     <div style={{
       display: "flex", alignItems: "center", gap: 8, padding: "6px 0",
       flexDirection: isHome ? "row" : "row-reverse",
-    }}>
+      cursor: onPlayerClick ? "pointer" : "default",
+    }} onClick={() => onPlayerClick?.(player.name)}>
       <span style={{
         fontSize: 11, fontWeight: 800, color: "var(--text3)",
         width: 22, textAlign: "center", fontVariantNumeric: "tabular-nums",
@@ -590,6 +593,12 @@ function PlayerRow({ player, isHome }) {
 
 function TabLineups({ data }) {
   const { lineups, fixture } = data;
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+  const handlePlayerClick = (name) => {
+    const id = lookup(name);
+    if (id) openPlayer(id, name);
+  };
   if (!lineups) {
     return (
       <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
@@ -658,13 +667,13 @@ function TabLineups({ data }) {
           {/* Home XI */}
           <div style={{ flex: 1, padding: "6px 12px", borderRight: "1px solid var(--border)" }}>
             {(home?.starting || []).map((p, i) => (
-              <PlayerRow key={i} player={p} isHome={true} />
+              <PlayerRow key={i} player={p} isHome={true} onPlayerClick={handlePlayerClick} />
             ))}
           </div>
           {/* Away XI */}
           <div style={{ flex: 1, padding: "6px 12px" }}>
             {(away?.starting || []).map((p, i) => (
-              <PlayerRow key={i} player={p} isHome={false} />
+              <PlayerRow key={i} player={p} isHome={false} onPlayerClick={handlePlayerClick} />
             ))}
           </div>
         </div>
@@ -686,12 +695,12 @@ function TabLineups({ data }) {
           <div style={{ display: "flex" }}>
             <div style={{ flex: 1, padding: "6px 12px", borderRight: "1px solid var(--border)" }}>
               {(home?.bench || []).map((p, i) => (
-                <PlayerRow key={i} player={p} isHome={true} />
+                <PlayerRow key={i} player={p} isHome={true} onPlayerClick={handlePlayerClick} />
               ))}
             </div>
             <div style={{ flex: 1, padding: "6px 12px" }}>
               {(away?.bench || []).map((p, i) => (
-                <PlayerRow key={i} player={p} isHome={false} />
+                <PlayerRow key={i} player={p} isHome={false} onPlayerClick={handlePlayerClick} />
               ))}
             </div>
           </div>
@@ -883,6 +892,14 @@ function TabH2H({ fixture, homeIso, awayIso }) {
 
 /* ── Main Page ───────────────────────────────────────── */
 export default function MatchDetailPage() {
+  return (
+    <PlayerProvider>
+      <MatchDetailInner />
+    </PlayerProvider>
+  );
+}
+
+function MatchDetailInner() {
   const params = useParams();
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
   const router = useRouter();

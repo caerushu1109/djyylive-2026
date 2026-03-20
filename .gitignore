@@ -15,3 +15,4 @@ data/provider-live-config.json
 data/provider-live/
 data/elo-history/
 .superpowers/
+public/data/players/

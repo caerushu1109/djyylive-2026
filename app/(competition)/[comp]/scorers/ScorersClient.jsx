@@ -6,19 +6,19 @@ import { useTopAssists } from "@/lib/hooks/useTopAssists";
 import TopBar from "@/components/shared/TopBar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { getTeamMeta } from "@/src/lib/team-meta";
+import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
+import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
 const TABS = [
   { id: "goals", label: "⚽ 射手榜" },
   { id: "assists", label: "👟 助攻榜" },
 ];
 
-function PlayerRow({ player, index, total, mode }) {
+function PlayerRow({ player, index, total, mode, onPlayerClick }) {
   const meta = player.teamMeta || getTeamMeta(player.team || "");
   const isTop3 = index < 3;
   const mainStat = mode === "goals" ? player.goals : player.assists;
   const subStat = mode === "goals" ? player.assists : player.goals;
-  const mainLabel = mode === "goals" ? "进球" : "助攻";
-  const subLabel = mode === "goals" ? "助攻" : "进球";
 
   return (
     <div style={{
@@ -32,7 +32,10 @@ function PlayerRow({ player, index, total, mode }) {
       }}>
         {isTop3 ? ["🥇", "🥈", "🥉"][index] : index + 1}
       </span>
-      <div style={{ flex: 1, minWidth: 0 }}>
+      <div
+        style={{ flex: 1, minWidth: 0, cursor: onPlayerClick ? "pointer" : "default" }}
+        onClick={() => onPlayerClick?.(player.player)}
+      >
         <div style={{
           fontSize: 12, fontWeight: 700, color: "var(--text)",
           overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
@@ -85,15 +88,30 @@ function TableHeader({ mode }) {
 }
 
 export default function ScorersClient() {
+  return (
+    <PlayerProvider>
+      <ScorersInner />
+    </PlayerProvider>
+  );
+}
+
+function ScorersInner() {
   const { comp } = useParams();
   const [activeTab, setActiveTab] = useState("goals");
   const { data: scorersData, loading: scorersLoading } = useTopScorers();
   const { data: assistsData, loading: assistsLoading } = useTopAssists();
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
 
   const loading = activeTab === "goals" ? scorersLoading : assistsLoading;
   const players = activeTab === "goals"
     ? (scorersData?.scorers || [])
     : (assistsData?.assists || []);
+
+  const handlePlayerClick = (name) => {
+    const id = lookup(name);
+    if (id) openPlayer(id, name);
+  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -146,7 +164,7 @@ export default function ScorersClient() {
           }}>
             <TableHeader mode={activeTab} />
             {players.map((s, i) => (
-              <PlayerRow key={i} player={s} index={i} total={players.length} mode={activeTab} />
+              <PlayerRow key={i} player={s} index={i} total={players.length} mode={activeTab} onPlayerClick={handlePlayerClick} />
             ))}
           </div>
         )}
