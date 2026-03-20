@@ -252,7 +252,7 @@ export default function CompHomePage() {
             <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", width: 44, textAlign: "center", textTransform: "uppercase", letterSpacing: "0.06em" }}>价值</div>
           </div>
           {marketRows.map((team, i) => {
-            const modelPct  = team.prob !== undefined ? (team.prob * 100) : null;
+            const modelPct  = team.probabilityValue ?? null;
             const marketPct = polyByZh[team.name] ?? null;
             const value     = modelPct !== null && marketPct !== null ? modelPct - marketPct : null;
             const valBg     = value === null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
