@@ -198,6 +198,14 @@ const TEAM_META = {
   "CZE/DEN/MKD/IRL": { shortName: "捷/丹/北马/爱", flag: "🏳️" },
   "BIH/ITA/NIR/WAL": { shortName: "波黑/意/北爱/威", flag: "🏳️" },
   "KOS/ROU/SVK/TUR": { shortName: "科索沃/罗/斯洛伐克/土", flag: "🏳️" },
+  // SportMonks locale=zh variants that differ from our shortNames
+  "韩国队": { shortName: "韩国", flag: "🇰🇷" },
+  "丹麦/北马其顿/捷克/爱尔兰": { shortName: "丹/北马/捷/爱", flag: "🏳️" },
+  "意大利/北爱尔兰/威尔士/波斯尼亚与黑塞哥维那": { shortName: "意/北爱/威/波黑", flag: "🏳️" },
+  "土耳其/罗马尼亚/斯洛伐克/科索沃": { shortName: "土/罗/斯/科", flag: "🏳️" },
+  "乌克兰/瑞典/波兰/阿尔巴尼亚": { shortName: "乌/瑞/波/阿", flag: "🏳️" },
+  "玻利维亚/苏里南/伊拉克": { shortName: "玻/苏/伊", flag: "🏳️" },
+  "新喀里多尼亚/牙买加/刚果民主共和国": { shortName: "新喀/牙/刚果金", flag: "🏳️" },
 };
 
 // Reverse map: Chinese shortName → meta (for locale=zh API responses)

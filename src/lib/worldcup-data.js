@@ -394,6 +394,9 @@ function buildSportMonksUrl(pathname, params = {}) {
     }
   });
   url.searchParams.set("api_token", process.env.SPORTMONKS_API_TOKEN || "");
+  if (!url.searchParams.has("locale")) {
+    url.searchParams.set("locale", "zh");
+  }
   return url.toString();
 }
 
@@ -648,7 +651,6 @@ export async function getTopScorers(options = {}) {
       if (seasonId) {
         const url = buildSportMonksUrl(`topscorers/seasons/${seasonId}`, {
           include: "participant;player",
-          locale: "zh",
         });
         const response = await fetchSportMonksJson(url);
         const rows = toArray(response?.data);

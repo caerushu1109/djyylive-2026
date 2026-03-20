@@ -1,11 +1,28 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import TopBar from "@/components/shared/TopBar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { useHistoryData } from "@/lib/hooks/useHistoryData";
 
 const SUB_TABS = ["冠军", "射手", "球队", "纪录", "决赛"];
+
+// Player name EN→ZH mapping (loaded once)
+let _playerZh = null;
+function usePlayerZh() {
+  const [map, setMap] = useState(_playerZh);
+  useEffect(() => {
+    if (_playerZh) return;
+    fetch("/data/history/player-names-zh.json")
+      .then(r => r.json())
+      .then(d => { _playerZh = d; setMap(d); })
+      .catch(() => {});
+  }, []);
+  return map || {};
+}
+function zhName(map, name) {
+  return map[name] || name;
+}
 
 // ── 共用样式 ──
 const cardStyle = {
@@ -93,6 +110,7 @@ function ChampionsTab() {
 // ══════════════════════════════════════════════════════════════════
 function ScorersTab() {
   const { data, loading } = useHistoryData("scorers");
+  const pzh = usePlayerZh();
   const [showAll, setShowAll] = useState(false);
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
@@ -127,7 +145,7 @@ function ScorersTab() {
                 <div style={{
                   fontSize: 12, fontWeight: 700, color: "var(--text)",
                   overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                }}>{s.name}</div>
+                }}>{zhName(pzh, s.name)}</div>
                 <div style={{ fontSize: 9, color: "var(--text3)" }}>{s.span}</div>
               </div>
               <span style={{ width: 28, fontSize: 10, color: "var(--text2)", textAlign: "center" }}>{s.team}</span>
@@ -165,7 +183,7 @@ function ScorersTab() {
               <div style={{
                 fontSize: 11, fontWeight: 700, color: "var(--text)",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{gb.player}</div>
+              }}>{zhName(pzh, gb.player)}</div>
               <div style={{ fontSize: 9, color: "var(--text3)" }}>{gb.team}</div>
             </div>
           ))}
@@ -260,6 +278,7 @@ function TeamsTab() {
 // ══════════════════════════════════════════════════════════════════
 function RecordsTab() {
   const { data, loading } = useHistoryData("records");
+  const pzh = usePlayerZh();
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
 
@@ -308,7 +327,7 @@ function RecordsTab() {
               <div style={{
                 fontSize: 11, fontWeight: 700, color: "var(--text)",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{h.player}</div>
+              }}>{zhName(pzh, h.player)}</div>
               <div style={{ fontSize: 9, color: "var(--text3)" }}>{h.team}</div>
             </div>
             <span style={{ fontSize: 10, color: "var(--text3)" }}>{h.year}</span>
@@ -331,7 +350,7 @@ function RecordsTab() {
               <div style={{
                 fontSize: 11, fontWeight: 700, color: "var(--text)",
                 overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{g.player}</div>
+              }}>{zhName(pzh, g.player)}</div>
               <div style={{ fontSize: 9, color: "var(--text3)" }}>{g.team}{g.vs ? ` vs ${g.vs}` : ""}</div>
             </div>
             <span style={{ fontSize: 10, color: "var(--text3)" }}>{g.year}</span>
@@ -369,6 +388,7 @@ function RecordsTab() {
 // ══════════════════════════════════════════════════════════════════
 function FinalsTab() {
   const { data, loading } = useHistoryData("finals");
+  const pzh = usePlayerZh();
   const [expanded, setExpanded] = useState(null);
   if (loading) return <LoadingSpinner />;
   if (!data) return null;
@@ -434,7 +454,7 @@ function FinalsTab() {
                         {g.minute}
                       </span>
                       <span style={{ fontWeight: 600 }}>
-                        {g.player}
+                        {zhName(pzh, g.player)}
                         {g.penalty && <span style={{ color: "var(--blue)", marginLeft: 3 }}>(PK)</span>}
                         {g.ownGoal && <span style={{ color: "var(--red)", marginLeft: 3 }}>(乌龙)</span>}
                       </span>
