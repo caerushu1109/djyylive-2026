@@ -11,8 +11,6 @@
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "update:elo": "python3 scripts/update_elo_from_eloratings.py",
-    "archive:elo-history": "python3 scripts/archive_elo_history_from_eloratings.py",
-    "generate:elo-trends": "python3 scripts/generate_elo_trends.py",
     "test": "vitest run",
     "test:watch": "vitest"
   },
