@@ -6,6 +6,8 @@ import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTopScorers } from "@/lib/hooks/useTopScorers";
+import { usePolymarket } from "@/lib/hooks/usePolymarket";
+import OddsTicker from "@/components/shared/OddsTicker";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import TopBar from "@/components/shared/TopBar";
@@ -55,50 +57,6 @@ function LiveBanner({ fixture }) {
   );
 }
 
-function QuickStats({ fixturesData }) {
-  const allFixtures = fixturesData?.fixtures || [];
-  const liveCount = allFixtures.filter(f => f.status === "LIVE").length;
-  const todayBJTStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
-  const todayCount = allFixtures.filter(f => {
-    if (!f.startingAt) return false;
-    const fDateStr = new Date(f.startingAt).toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
-    return fDateStr === todayBJTStr;
-  }).length;
-  const bjtDateStr = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
-  const todayBJT = new Date(bjtDateStr);
-  const wcStartBJT = new Date("2026-06-11");
-  const wcEndBJT   = new Date("2026-07-19");
-  const MS_PER_DAY = 1000 * 60 * 60 * 24;
-  let dayValue, dayLabel;
-  if (todayBJT < wcStartBJT) {
-    dayValue = Math.round((wcStartBJT - todayBJT) / MS_PER_DAY);
-    dayLabel = "距开幕";
-  } else if (todayBJT <= wcEndBJT) {
-    dayValue = Math.round((todayBJT - wcStartBJT) / MS_PER_DAY) + 1;
-    dayLabel = "赛事进行中";
-  } else {
-    dayValue = "✓";
-    dayLabel = "已结束";
-  }
-  const card = (value, label, color = "var(--text)") => (
-    <div key={label} style={{
-      flex: 1, background: "var(--card)", border: "1px solid var(--border)",
-      borderRadius: "var(--radius-sm)", padding: "8px 4px", textAlign: "center", minWidth: 0,
-    }}>
-      <div style={{ fontSize: 18, fontWeight: 900, color, fontVariantNumeric: "tabular-nums" }}>{value}</div>
-      <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>{label}</div>
-    </div>
-  );
-  return (
-    <div style={{ display: "flex", gap: 6, padding: "0 12px", marginBottom: 14 }}>
-      {card(liveCount, "进行中", "var(--green)")}
-      {card(todayCount, "今日赛程")}
-      {card(48, "球队")}
-      {card(12, "小组")}
-      {card(dayValue, dayLabel)}
-    </div>
-  );
-}
 
 function TournamentProgress({ fixturesData }) {
   const allFixtures = fixturesData?.fixtures || [];
@@ -210,6 +168,7 @@ function CompHomePageInner() {
   const { data: fixturesData, loading: fixturesLoading } = useFixtures({ pollInterval: 30000 });
   const { data: eloData } = useElo();
   const { data: predData } = usePredictions();
+  const { data: polyData } = usePolymarket();
   // Helper: resolve English originalName for team detail navigation
   const getTeamHref = (team) => {
     const eloTeam = (eloData?.rankings || []).find(
@@ -240,7 +199,7 @@ function CompHomePageInner() {
 
       {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
 
-      <QuickStats fixturesData={fixturesData} />
+      <OddsTicker polyData={polyData} />
       <TournamentProgress fixturesData={fixturesData} />
 
       <div style={{ padding: "0 12px", marginBottom: 6, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
