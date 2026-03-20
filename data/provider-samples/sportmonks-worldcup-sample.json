@@ -5,310 +5,214 @@
       "starting_at": "2026-06-19T20:00:00Z",
       "state": "scheduled",
       "name": "England vs Croatia",
-      "round": {
-        "name": "L组",
-        "sort_order": 21
-      },
-      "group": {
-        "name": "L"
-      },
+      "round": { "name": "L组", "sort_order": 21 },
+      "group": { "name": "L" },
       "participants": [
-        {
-          "name": "England",
-          "meta": {
-            "location": "home"
-          }
-        },
-        {
-          "name": "Croatia",
-          "meta": {
-            "location": "away"
-          }
-        }
+        { "name": "England", "meta": { "location": "home" } },
+        { "name": "Croatia", "meta": { "location": "away" } }
       ],
-      "venue": {
-        "name": "Official FIFA venue",
-        "city_name": "New York",
-        "country_name": "United States"
-      },
-      "time": {
-        "minute": null
-      }
+      "venue": { "name": "MetLife Stadium", "city_name": "New York", "country_name": "United States" },
+      "time": { "minute": null }
     },
     {
       "id": 2026002,
       "starting_at": "2026-06-11T20:00:00Z",
       "state": "live",
       "name": "Mexico vs South Africa",
-      "round": {
-        "name": "A组",
-        "sort_order": 10
-      },
-      "group": {
-        "name": "A"
-      },
+      "round": { "name": "A组", "sort_order": 10 },
+      "group": { "name": "A" },
       "participants": [
-        {
-          "name": "Mexico",
-          "meta": {
-            "location": "home"
-          }
-        },
-        {
-          "name": "South Africa",
-          "meta": {
-            "location": "away"
-          }
-        }
+        { "name": "Mexico", "meta": { "location": "home" } },
+        { "name": "South Africa", "meta": { "location": "away" } }
       ],
       "scores": [
-        {
-          "description": "CURRENT",
-          "score": {
-            "participant": "home",
-            "goals": 1
-          }
-        },
-        {
-          "description": "CURRENT",
-          "score": {
-            "participant": "away",
-            "goals": 0
-          }
-        }
+        { "description": "CURRENT", "score": { "participant": "home", "goals": 1 } },
+        { "description": "CURRENT", "score": { "participant": "away", "goals": 0 } }
       ],
-      "venue": {
-        "name": "Estadio Azteca",
-        "city_name": "Mexico City",
-        "country_name": "Mexico"
-      },
-      "time": {
-        "minute": 67
-      }
+      "venue": { "name": "Estadio Azteca", "city_name": "Mexico City", "country_name": "Mexico" },
+      "time": { "minute": 67 }
     },
     {
       "id": 2026003,
       "starting_at": "2026-06-17T19:00:00Z",
       "state": "ft",
       "name": "France vs Senegal",
-      "round": {
-        "name": "I组",
-        "sort_order": 18
-      },
-      "group": {
-        "name": "I"
-      },
+      "round": { "name": "I组", "sort_order": 18 },
+      "group": { "name": "I" },
       "participants": [
-        {
-          "name": "France",
-          "meta": {
-            "location": "home"
-          }
-        },
-        {
-          "name": "Senegal",
-          "meta": {
-            "location": "away"
-          }
-        }
+        { "name": "France", "meta": { "location": "home" } },
+        { "name": "Senegal", "meta": { "location": "away" } }
       ],
       "scores": [
-        {
-          "description": "CURRENT",
-          "score": {
-            "participant": "home",
-            "goals": 2
-          }
-        },
-        {
-          "description": "CURRENT",
-          "score": {
-            "participant": "away",
-            "goals": 1
-          }
-        }
+        { "description": "CURRENT", "score": { "participant": "home", "goals": 2 } },
+        { "description": "CURRENT", "score": { "participant": "away", "goals": 1 } }
       ],
-      "venue": {
-        "name": "Official FIFA venue",
-        "city_name": "Los Angeles",
-        "country_name": "United States"
-      },
-      "time": {
-        "minute": 90
-      }
+      "venue": { "name": "SoFi Stadium", "city_name": "Los Angeles", "country_name": "United States" },
+      "time": { "minute": 90 }
     }
   ],
   "standings": [
-    {
-      "group": {
-        "name": "A"
-      },
-      "participant": {
-        "name": "Mexico"
-      },
-      "details": {
-        "played": 1,
-        "won": 1,
-        "draw": 0,
-        "lost": 0,
-        "goals_for": 1,
-        "goals_against": 0
-      },
-      "points": 3
-    },
-    {
-      "group": {
-        "name": "A"
-      },
-      "participant": {
-        "name": "South Africa"
-      },
-      "details": {
-        "played": 1,
-        "won": 0,
-        "draw": 0,
-        "lost": 1,
-        "goals_for": 0,
-        "goals_against": 1
-      },
-      "points": 0
-    },
-    {
-      "group": {
-        "name": "I"
-      },
-      "participant": {
-        "name": "France"
-      },
-      "details": {
-        "played": 1,
-        "won": 1,
-        "draw": 0,
-        "lost": 0,
-        "goals_for": 2,
-        "goals_against": 1
-      },
-      "points": 3
-    },
-    {
-      "group": {
-        "name": "I"
-      },
-      "participant": {
-        "name": "Senegal"
-      },
-      "details": {
-        "played": 1,
-        "won": 0,
-        "draw": 0,
-        "lost": 1,
-        "goals_for": 1,
-        "goals_against": 2
-      },
-      "points": 0
-    }
+    { "group": { "name": "A" }, "participant": { "name": "Mexico" }, "details": { "played": 1, "won": 1, "draw": 0, "lost": 0, "goals_for": 1, "goals_against": 0 }, "points": 3 },
+    { "group": { "name": "A" }, "participant": { "name": "South Africa" }, "details": { "played": 1, "won": 0, "draw": 0, "lost": 1, "goals_for": 0, "goals_against": 1 }, "points": 0 },
+    { "group": { "name": "I" }, "participant": { "name": "France" }, "details": { "played": 1, "won": 1, "draw": 0, "lost": 0, "goals_for": 2, "goals_against": 1 }, "points": 3 },
+    { "group": { "name": "I" }, "participant": { "name": "Senegal" }, "details": { "played": 1, "won": 0, "draw": 0, "lost": 1, "goals_for": 1, "goals_against": 2 }, "points": 0 }
   ],
   "eventsByMatch": {
     "2026002": [
-      {
-        "id": 9001,
-        "minute": 18,
-        "type": {
-          "developer_name": "goal",
-          "name": "Goal"
-        },
-        "participant": {
-          "name": "Mexico"
-        },
-        "player": {
-          "name": "Santiago Gimenez"
-        },
-        "detail": "Right-footed finish from inside the box"
-      },
-      {
-        "id": 9002,
-        "minute": 53,
-        "type": {
-          "developer_name": "yellow_card",
-          "name": "Yellow card"
-        },
-        "participant": {
-          "name": "South Africa"
-        },
-        "player": {
-          "name": "Teboho Mokoena"
-        },
-        "detail": "Late challenge in midfield"
-      }
+      { "id": 9001, "minute": 3, "type": { "developer_name": "yellow_card", "name": "Yellow card" }, "participant": { "name": "Mexico" }, "player": { "name": "Edson Alvarez" }, "detail": "Tactical foul" },
+      { "id": 9002, "minute": 18, "type": { "developer_name": "goal", "name": "Goal" }, "participant": { "name": "Mexico" }, "player": { "name": "Santiago Gimenez" }, "detail": "Right-footed finish from inside the box", "assist": "Hirving Lozano" },
+      { "id": 9003, "minute": 34, "type": { "developer_name": "yellow_card", "name": "Yellow card" }, "participant": { "name": "South Africa" }, "player": { "name": "Teboho Mokoena" }, "detail": "Late challenge in midfield" },
+      { "id": 9004, "minute": 53, "type": { "developer_name": "substitution", "name": "Substitution" }, "participant": { "name": "South Africa" }, "player": { "name": "Percy Tau" }, "detail": "Out: Themba Zwane" },
+      { "id": 9005, "minute": 61, "type": { "developer_name": "substitution", "name": "Substitution" }, "participant": { "name": "Mexico" }, "player": { "name": "Uriel Antuna" }, "detail": "Out: Hirving Lozano" }
     ],
     "2026003": [
-      {
-        "id": 9101,
-        "minute": 12,
-        "type": {
-          "developer_name": "goal",
-          "name": "Goal"
-        },
-        "participant": {
-          "name": "France"
-        },
-        "player": {
-          "name": "Kylian Mbappe"
-        },
-        "detail": "First-time finish from close range"
-      },
-      {
-        "id": 9102,
-        "minute": 75,
-        "type": {
-          "developer_name": "substitution",
-          "name": "Substitution"
-        },
-        "participant": {
-          "name": "Senegal"
-        },
-        "player": {
-          "name": "Nicolas Jackson"
-        },
-        "detail": "Attacking change chasing the equaliser"
-      }
+      { "id": 9101, "minute": 12, "type": { "developer_name": "goal", "name": "Goal" }, "participant": { "name": "France" }, "player": { "name": "Kylian Mbappe" }, "detail": "First-time finish from close range", "assist": "Antoine Griezmann" },
+      { "id": 9102, "minute": 38, "type": { "developer_name": "yellow_card", "name": "Yellow card" }, "participant": { "name": "Senegal" }, "player": { "name": "Kalidou Koulibaly" }, "detail": "Blocking counter-attack" },
+      { "id": 9103, "minute": 55, "type": { "developer_name": "goal", "name": "Goal" }, "participant": { "name": "France" }, "player": { "name": "Antoine Griezmann" }, "detail": "Curling free kick into top corner" },
+      { "id": 9104, "minute": 68, "type": { "developer_name": "goal", "name": "Goal" }, "participant": { "name": "Senegal" }, "player": { "name": "Sadio Mane" }, "detail": "Header from corner kick" },
+      { "id": 9105, "minute": 72, "type": { "developer_name": "yellow_card", "name": "Yellow card" }, "participant": { "name": "France" }, "player": { "name": "Aurelien Tchouameni" }, "detail": "Pulling back attacker" },
+      { "id": 9106, "minute": 75, "type": { "developer_name": "substitution", "name": "Substitution" }, "participant": { "name": "Senegal" }, "player": { "name": "Nicolas Jackson" }, "detail": "Out: Boulaye Dia" },
+      { "id": 9107, "minute": 82, "type": { "developer_name": "substitution", "name": "Substitution" }, "participant": { "name": "France" }, "player": { "name": "Ousmane Dembele" }, "detail": "Out: Kylian Mbappe" },
+      { "id": 9108, "minute": 88, "type": { "developer_name": "yellow_card", "name": "Yellow card" }, "participant": { "name": "Senegal" }, "player": { "name": "Ismaila Sarr" }, "detail": "Time wasting" }
     ]
   },
   "statsByMatch": {
     "2026002": {
-      "possession": {
-        "home": 57,
-        "away": 43
+      "possession": { "home": 57, "away": 43 },
+      "shots": { "home": 15, "away": 9 },
+      "shots_on_target": { "home": 5, "away": 3 },
+      "shots_off_target": { "home": 8, "away": 5 },
+      "blocked_shots": { "home": 2, "away": 1 },
+      "corner_kicks": { "home": 7, "away": 3 },
+      "fouls": { "home": 10, "away": 14 },
+      "offsides": { "home": 2, "away": 1 },
+      "yellow_cards": { "home": 1, "away": 1 },
+      "red_cards": { "home": 0, "away": 0 },
+      "saves": { "home": 3, "away": 4 },
+      "passes": { "home": 412, "away": 308 },
+      "pass_accuracy": { "home": 86, "away": 78 },
+      "tackles": { "home": 16, "away": 22 },
+      "interceptions": { "home": 8, "away": 12 },
+      "xg": { "home": 1.6, "away": 0.9 }
+    },
+    "2026003": {
+      "possession": { "home": 61, "away": 39 },
+      "shots": { "home": 16, "away": 8 },
+      "shots_on_target": { "home": 7, "away": 2 },
+      "shots_off_target": { "home": 7, "away": 4 },
+      "blocked_shots": { "home": 2, "away": 2 },
+      "corner_kicks": { "home": 8, "away": 4 },
+      "fouls": { "home": 12, "away": 16 },
+      "offsides": { "home": 3, "away": 2 },
+      "yellow_cards": { "home": 1, "away": 2 },
+      "red_cards": { "home": 0, "away": 0 },
+      "saves": { "home": 1, "away": 5 },
+      "passes": { "home": 536, "away": 342 },
+      "pass_accuracy": { "home": 89, "away": 75 },
+      "tackles": { "home": 14, "away": 24 },
+      "interceptions": { "home": 6, "away": 14 },
+      "xg": { "home": 1.8, "away": 0.7 }
+    }
+  },
+  "lineupsByMatch": {
+    "2026002": {
+      "home": {
+        "formation": "4-3-3",
+        "coach": "Javier Aguirre",
+        "starting": [
+          { "number": 1, "name": "Guillermo Ochoa", "position": "GK" },
+          { "number": 2, "name": "Jorge Sanchez", "position": "DF" },
+          { "number": 3, "name": "Cesar Montes", "position": "DF" },
+          { "number": 15, "name": "Hector Moreno", "position": "DF" },
+          { "number": 23, "name": "Jesus Gallardo", "position": "DF" },
+          { "number": 4, "name": "Edson Alvarez", "position": "MF" },
+          { "number": 18, "name": "Andres Guardado", "position": "MF" },
+          { "number": 8, "name": "Carlos Rodriguez", "position": "MF" },
+          { "number": 22, "name": "Hirving Lozano", "position": "FW" },
+          { "number": 9, "name": "Santiago Gimenez", "position": "FW" },
+          { "number": 11, "name": "Jesus Corona", "position": "FW" }
+        ],
+        "bench": [
+          { "number": 13, "name": "Alfredo Talavera", "position": "GK" },
+          { "number": 5, "name": "Johan Vasquez", "position": "DF" },
+          { "number": 7, "name": "Uriel Antuna", "position": "FW" },
+          { "number": 10, "name": "Orbelin Pineda", "position": "MF" },
+          { "number": 14, "name": "Erick Gutierrez", "position": "MF" }
+        ]
       },
-      "shots": {
-        "home": 15,
-        "away": 9
-      },
-      "shots_on_target": {
-        "home": 5,
-        "away": 3
-      },
-      "xg": {
-        "home": 1.6,
-        "away": 0.9
+      "away": {
+        "formation": "4-2-3-1",
+        "coach": "Hugo Broos",
+        "starting": [
+          { "number": 1, "name": "Ronwen Williams", "position": "GK" },
+          { "number": 2, "name": "Khuliso Mudau", "position": "DF" },
+          { "number": 4, "name": "Mothobi Mvala", "position": "DF" },
+          { "number": 5, "name": "Siyanda Xulu", "position": "DF" },
+          { "number": 12, "name": "Aubrey Modiba", "position": "DF" },
+          { "number": 8, "name": "Teboho Mokoena", "position": "MF" },
+          { "number": 6, "name": "Rivaldo Coetzee", "position": "MF" },
+          { "number": 10, "name": "Themba Zwane", "position": "MF" },
+          { "number": 7, "name": "Bongokuhle Hlongwane", "position": "FW" },
+          { "number": 9, "name": "Lebo Mothiba", "position": "FW" },
+          { "number": 11, "name": "Evidence Makgopa", "position": "FW" }
+        ],
+        "bench": [
+          { "number": 16, "name": "Bruce Bvuma", "position": "GK" },
+          { "number": 3, "name": "Innocent Maela", "position": "DF" },
+          { "number": 14, "name": "Percy Tau", "position": "FW" },
+          { "number": 15, "name": "Keagan Dolly", "position": "MF" },
+          { "number": 17, "name": "Lyle Foster", "position": "FW" }
+        ]
       }
     },
     "2026003": {
-      "possession": {
-        "home": 61,
-        "away": 39
+      "home": {
+        "formation": "4-2-3-1",
+        "coach": "Didier Deschamps",
+        "starting": [
+          { "number": 1, "name": "Mike Maignan", "position": "GK" },
+          { "number": 5, "name": "Jules Kounde", "position": "DF" },
+          { "number": 4, "name": "Dayot Upamecano", "position": "DF" },
+          { "number": 21, "name": "Wesley Fofana", "position": "DF" },
+          { "number": 22, "name": "Theo Hernandez", "position": "DF" },
+          { "number": 8, "name": "Aurelien Tchouameni", "position": "MF" },
+          { "number": 6, "name": "Eduardo Camavinga", "position": "MF" },
+          { "number": 11, "name": "Ousmane Dembele", "position": "FW" },
+          { "number": 7, "name": "Antoine Griezmann", "position": "MF" },
+          { "number": 12, "name": "Randal Kolo Muani", "position": "FW" },
+          { "number": 10, "name": "Kylian Mbappe", "position": "FW" }
+        ],
+        "bench": [
+          { "number": 16, "name": "Alphonse Areola", "position": "GK" },
+          { "number": 3, "name": "Ferland Mendy", "position": "DF" },
+          { "number": 13, "name": "Ibrahima Konate", "position": "DF" },
+          { "number": 14, "name": "Adrien Rabiot", "position": "MF" },
+          { "number": 9, "name": "Olivier Giroud", "position": "FW" }
+        ]
       },
-      "shots": {
-        "home": 16,
-        "away": 8
-      },
-      "shots_on_target": {
-        "home": 7,
-        "away": 2
-      },
-      "xg": {
-        "home": 1.8,
-        "away": 0.7
+      "away": {
+        "formation": "4-3-3",
+        "coach": "Aliou Cisse",
+        "starting": [
+          { "number": 1, "name": "Edouard Mendy", "position": "GK" },
+          { "number": 2, "name": "Formose Mendy", "position": "DF" },
+          { "number": 3, "name": "Kalidou Koulibaly", "position": "DF" },
+          { "number": 4, "name": "Abdou Diallo", "position": "DF" },
+          { "number": 12, "name": "Ismail Jakobs", "position": "DF" },
+          { "number": 6, "name": "Nampalys Mendy", "position": "MF" },
+          { "number": 8, "name": "Cheikhou Kouyate", "position": "MF" },
+          { "number": 5, "name": "Idrissa Gueye", "position": "MF" },
+          { "number": 18, "name": "Ismaila Sarr", "position": "FW" },
+          { "number": 9, "name": "Boulaye Dia", "position": "FW" },
+          { "number": 10, "name": "Sadio Mane", "position": "FW" }
+        ],
+        "bench": [
+          { "number": 16, "name": "Seny Dieng", "position": "GK" },
+          { "number": 22, "name": "Abdoulaye Seck", "position": "DF" },
+          { "number": 7, "name": "Nicolas Jackson", "position": "FW" },
+          { "number": 14, "name": "Pape Gueye", "position": "MF" },
+          { "number": 20, "name": "Habib Diallo", "position": "FW" }
+        ]
       }
     }
   }

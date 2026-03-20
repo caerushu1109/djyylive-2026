@@ -67,6 +67,10 @@ function stageLabel(match) {
   const groupName = String(match?.group?.name || "").replace(/^Group\s+/i, "");
   const group = groupName ? `${groupName}组` : "";
   const roundRaw = String(match?.round?.name || "").trim();
+  // If round name already contains the group (e.g. "A组"), skip the group prefix
+  if (roundRaw.includes("组") || roundRaw.includes("Group")) {
+    return roundRaw;
+  }
   const round = /^\d+$/.test(roundRaw) ? `第${roundRaw}轮` : roundRaw;
   return [group, round].filter(Boolean).join(" ");
 }
@@ -257,6 +261,67 @@ function iconForEvent(typeName) {
   return "•";
 }
 
+function makePair(label, homeVal, awayVal, suffix = "") {
+  const left = Number(homeVal ?? 0);
+  const right = Number(awayVal ?? 0);
+  const total = left + right;
+  const leftWidth = total ? Math.round((left / total) * 100) : 50;
+  return {
+    label,
+    left: `${left}${suffix}`,
+    right: `${right}${suffix}`,
+    leftWidth,
+    rightWidth: 100 - leftWidth,
+  };
+}
+
+function buildAllStats(stats) {
+  return [
+    makePair("控球率", stats.possession?.home, stats.possession?.away, "%"),
+    makePair("射门", stats.shots?.home, stats.shots?.away),
+    makePair("射正", stats.shots_on_target?.home, stats.shots_on_target?.away),
+    makePair("射偏", stats.shots_off_target?.home, stats.shots_off_target?.away),
+    makePair("被封堵", stats.blocked_shots?.home, stats.blocked_shots?.away),
+    makePair("xG", stats.xg?.home, stats.xg?.away),
+    makePair("角球", stats.corner_kicks?.home, stats.corner_kicks?.away),
+    makePair("犯规", stats.fouls?.home, stats.fouls?.away),
+    makePair("越位", stats.offsides?.home, stats.offsides?.away),
+    makePair("黄牌", stats.yellow_cards?.home, stats.yellow_cards?.away),
+    makePair("红牌", stats.red_cards?.home, stats.red_cards?.away),
+    makePair("扑救", stats.saves?.home, stats.saves?.away),
+    makePair("传球", stats.passes?.home, stats.passes?.away),
+    makePair("传球准确率", stats.pass_accuracy?.home, stats.pass_accuracy?.away, "%"),
+    makePair("铲球", stats.tackles?.home, stats.tackles?.away),
+    makePair("拦截", stats.interceptions?.home, stats.interceptions?.away),
+  ].filter((s) => {
+    const l = parseFloat(s.left);
+    const r = parseFloat(s.right);
+    return l > 0 || r > 0;
+  });
+}
+
+function buildLineups(lineupsRaw) {
+  if (!lineupsRaw) return null;
+  const buildSide = (side) => {
+    if (!side) return null;
+    return {
+      formation: side.formation || null,
+      coach: side.coach || null,
+      starting: toArray(side.starting).map((p) => ({
+        number: p.number ?? null,
+        name: p.name || "",
+        position: p.position || "",
+      })),
+      bench: toArray(side.bench).map((p) => ({
+        number: p.number ?? null,
+        name: p.name || "",
+        position: p.position || "",
+      })),
+    };
+  };
+  return { home: buildSide(lineupsRaw.home), away: buildSide(lineupsRaw.away) };
+}
+
 function buildDetailFromSample(sample, fixtureId) {
   const fixture = toArray(sample.matches).find((item) => String(item.id) === String(fixtureId));
   if (!fixture) {
@@ -265,85 +330,30 @@ function buildDetailFromSample(sample, fixtureId) {
 
   const normalizedFixture = normalizeFixture(fixture);
   const stats = sample.statsByMatch?.[String(fixtureId)] || {};
-  const homeOriginalName = normalizedFixture.home.originalName;
-  const awayOriginalName = normalizedFixture.away.originalName;
-
-  const detailStats = [
-    {
-      label: "控球率",
-      left: `${stats.possession?.home ?? 50}%`,
-      right: `${stats.possession?.away ?? 50}%`,
-      leftWidth: stats.possession?.home ?? 50,
-      rightWidth: stats.possession?.away ?? 50,
-    },
-    {
-      label: "射门",
-      left: String(stats.shots?.home ?? 0),
-      right: String(stats.shots?.away ?? 0),
-      leftWidth: stats.shots?.home || stats.shots?.away ? Math.round(((stats.shots?.home ?? 0) / ((stats.shots?.home ?? 0) + (stats.shots?.away ?? 0))) * 100) : 50,
-      rightWidth: stats.shots?.home || stats.shots?.away ? 100 - Math.round(((stats.shots?.home ?? 0) / ((stats.shots?.home ?? 0) + (stats.shots?.away ?? 0))) * 100) : 50,
-    },
-    {
-      label: "射正",
-      left: String(stats.shots_on_target?.home ?? 0),
-      right: String(stats.shots_on_target?.away ?? 0),
-      leftWidth:
-        stats.shots_on_target?.home || stats.shots_on_target?.away
-          ? Math.round(
-              (((stats.shots_on_target?.home ?? 0) / ((stats.shots_on_target?.home ?? 0) + (stats.shots_on_target?.away ?? 0))) || 0.5) *
-                100
-            )
-          : 50,
-      rightWidth:
-        stats.shots_on_target?.home || stats.shots_on_target?.away
-          ? 100 -
-            Math.round(
-              (((stats.shots_on_target?.home ?? 0) / ((stats.shots_on_target?.home ?? 0) + (stats.shots_on_target?.away ?? 0))) || 0.5) *
-                100
-            )
-          : 50,
-    },
-    {
-      label: "xG",
-      left: String(stats.xg?.home ?? 0),
-      right: String(stats.xg?.away ?? 0),
-      leftWidth:
-        stats.xg?.home || stats.xg?.away
-          ? Math.round((((stats.xg?.home ?? 0) / ((stats.xg?.home ?? 0) + (stats.xg?.away ?? 0))) || 0.5) * 100)
-          : 50,
-      rightWidth:
-        stats.xg?.home || stats.xg?.away
-          ? 100 - Math.round((((stats.xg?.home ?? 0) / ((stats.xg?.home ?? 0) + (stats.xg?.away ?? 0))) || 0.5) * 100)
-          : 50,
-    },
-  ];
 
   const events = toArray(sample.eventsByMatch?.[String(fixtureId)]).map((event) => ({
-    minute: `${event.minute}'`,
+    minute: event.minute,
+    minuteLabel: `${event.minute}'`,
     icon: iconForEvent(event?.type?.developer_name),
+    type: event?.type?.developer_name || "",
     title: event?.player?.name || event?.type?.name || "事件",
-    subtitle: `${getTeamMeta(event?.participant?.name || "").flag} ${getTeamMeta(event?.participant?.name || "").shortName} ${event?.detail || ""}`.trim(),
+    subtitle: event?.detail || "",
+    team: event?.participant?.name || "",
+    teamMeta: getTeamMeta(event?.participant?.name || ""),
+    assist: event?.assist || null,
   }));
+
+  const lineups = buildLineups(sample.lineupsByMatch?.[String(fixtureId)]);
 
   return {
     fixture: normalizedFixture,
-    stats: detailStats,
+    stats: buildAllStats(stats),
     events,
+    lineups,
     probabilities: null,
-    odds: [],
-    h2hSummary: [],
-    h2hMatches: [],
-    statGrid: [
-      { value: String(stats.shots?.home ?? 0), label: `${normalizedFixture.home.flag}射门` },
-      { value: String(stats.possession?.home ?? 0), label: `${normalizedFixture.home.flag}控球` },
-      { value: String(stats.xg?.home ?? 0), label: `${normalizedFixture.home.flag} xG` },
-      { value: String(stats.shots?.away ?? 0), label: `${normalizedFixture.away.flag}射门` },
-      { value: String(stats.possession?.away ?? 0), label: `${normalizedFixture.away.flag}控球` },
-      { value: String(stats.xg?.away ?? 0), label: `${normalizedFixture.away.flag} xG` },
-    ],
     teams: {
-      home: homeOriginalName,
-      away: awayOriginalName,
+      home: normalizedFixture.home.originalName,
+      away: normalizedFixture.away.originalName,
     },
   };
 }
@@ -472,66 +482,94 @@ export async function getMatchDetail(fixtureId, options = {}) {
 
   if (!forceSample && process.env.SPORTMONKS_API_TOKEN) {
     try {
-      const include = "participants;scores;state;venue;round;group;events.type;statistics.type";
+      const include = "participants;scores;state;venue;round;group;events.type;statistics.type;lineups.details.type;formations";
       const fixtureUrl = buildSportMonksUrl(`fixtures/${fixtureId}`, { include });
       const response = await fetchSportMonksJson(fixtureUrl);
       const fixture = response?.data;
       if (fixture) {
         const normalizedFixture = normalizeFixture(fixture);
+        const homeId = findParticipant(fixture?.participants, "home")?.id;
         const statsByTeam = {};
 
         toArray(fixture.statistics).forEach((item) => {
-          const side = item?.participant_id === findParticipant(fixture?.participants, "home")?.id ? "home" : "away";
+          const side = item?.participant_id === homeId ? "home" : "away";
           const key = item?.type?.developer_name;
-          if (!key) {
-            return;
-          }
-          if (!statsByTeam[key]) {
-            statsByTeam[key] = { home: 0, away: 0 };
-          }
+          if (!key) return;
+          if (!statsByTeam[key]) statsByTeam[key] = { home: 0, away: 0 };
           statsByTeam[key][side] = Number(item?.data?.value ?? item?.value ?? 0);
         });
 
-        const pair = (label, key, suffix = "") => {
-          const left = Number(statsByTeam[key]?.home ?? 0);
-          const right = Number(statsByTeam[key]?.away ?? 0);
-          const total = left + right;
-          const leftWidth = total ? Math.round((left / total) * 100) : 50;
-          return {
-            label,
-            left: `${left}${suffix}`,
-            right: `${right}${suffix}`,
-            leftWidth,
-            rightWidth: 100 - leftWidth,
-          };
+        // Map SportMonks stat keys to our internal sample-like keys
+        const statMap = {
+          possession: statsByTeam.BALL_POSSESSION,
+          shots: statsByTeam.SHOTS_TOTAL,
+          shots_on_target: statsByTeam.SHOTS_ON_TARGET,
+          shots_off_target: statsByTeam.SHOTS_OFF_TARGET,
+          blocked_shots: statsByTeam.BLOCKED_SHOTS,
+          corner_kicks: statsByTeam.CORNER_KICKS,
+          fouls: statsByTeam.FOULS,
+          offsides: statsByTeam.OFFSIDES,
+          yellow_cards: statsByTeam.YELLOWCARDS,
+          red_cards: statsByTeam.REDCARDS,
+          saves: statsByTeam.SAVES,
+          passes: statsByTeam.PASSES,
+          pass_accuracy: statsByTeam.PASSES_PERCENTAGE,
+          tackles: statsByTeam.TACKLES,
+          interceptions: statsByTeam.INTERCEPTIONS,
+          xg: statsByTeam.EXPECTED_GOALS,
         };
+
+        // Build lineups from SportMonks response
+        let lineups = null;
+        const lineupData = toArray(fixture.lineups);
+        if (lineupData.length > 0) {
+          const buildSide = (side) => {
+            const players = lineupData.filter((p) =>
+              side === "home" ? p.team_id === homeId : p.team_id !== homeId
+            );
+            const starting = players.filter((p) => p.type === "lineup");
+            const bench = players.filter((p) => p.type === "bench");
+            const formation = toArray(fixture.formations).find((f) =>
+              side === "home" ? f.participant_id === homeId : f.participant_id !== homeId
+            );
+            return {
+              formation: formation?.formation || null,
+              coach: null,
+              starting: starting.map((p) => ({
+                number: p.jersey_number ?? null,
+                name: p.player_name || p.player?.name || "",
+                position: p.position?.developer_name || p.position || "",
+              })),
+              bench: bench.map((p) => ({
+                number: p.jersey_number ?? null,
+                name: p.player_name || p.player?.name || "",
+                position: p.position?.developer_name || p.position || "",
+              })),
+            };
+          };
+          lineups = { home: buildSide("home"), away: buildSide("away") };
+        }
 
         return freezeFinishedMatchDetail({
           fixture: normalizedFixture,
-          stats: [
-            pair("控球率", "BALL_POSSESSION", "%"),
-            pair("射门", "SHOTS_TOTAL"),
-            pair("射正", "SHOTS_ON_TARGET"),
-            pair("角球", "CORNER_KICKS"),
-          ],
+          stats: buildAllStats(statMap),
           events: toArray(fixture.events).map((event) => ({
-            minute: `${event.minute || 0}'`,
+            minute: event.minute || 0,
+            minuteLabel: `${event.minute || 0}'`,
             icon: iconForEvent(event?.type?.developer_name),
+            type: event?.type?.developer_name || "",
             title: event?.player_name || event?.player?.name || event?.type?.name || "事件",
-            subtitle: `${getTeamMeta(event?.participant?.name || "").flag} ${getTeamMeta(event?.participant?.name || "").shortName}`.trim(),
+            subtitle: event?.result || "",
+            team: event?.participant?.name || "",
+            teamMeta: getTeamMeta(event?.participant?.name || ""),
+            assist: null,
           })),
+          lineups,
           probabilities: null,
-          odds: [],
-          h2hSummary: [],
-          h2hMatches: [],
-          statGrid: [
-            { value: String(statsByTeam.SHOTS_TOTAL?.home ?? 0), label: `${normalizedFixture.home.flag}射门` },
-            { value: String(statsByTeam.BALL_POSSESSION?.home ?? 0), label: `${normalizedFixture.home.flag}控球` },
-            { value: String(statsByTeam.CORNER_KICKS?.home ?? 0), label: `${normalizedFixture.home.flag}角球` },
-            { value: String(statsByTeam.SHOTS_TOTAL?.away ?? 0), label: `${normalizedFixture.away.flag}射门` },
-            { value: String(statsByTeam.BALL_POSSESSION?.away ?? 0), label: `${normalizedFixture.away.flag}控球` },
-            { value: String(statsByTeam.CORNER_KICKS?.away ?? 0), label: `${normalizedFixture.away.flag}角球` },
-          ],
+          teams: {
+            home: normalizedFixture.home.originalName,
+            away: normalizedFixture.away.originalName,
+          },
         });
       }
     } catch (error) {
