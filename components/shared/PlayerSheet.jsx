@@ -73,7 +73,8 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
   }, [onClose]);
 
   // ── Derived data (match build_player_profiles.py output shape) ──
-  const name = historical?.name || live?.name || playerName || "球员";
+  const englishName = historical?.name || live?.name || "";
+  const name = playerName || englishName || "球员";
   const photo = live?.photo || null;
   const positions = historical?.positions || [];
   const birthDate = historical?.birthDate || "";
@@ -324,6 +325,11 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
                   )}
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <h2 style={s.nameText}>{name}</h2>
+                    {englishName && englishName !== name && (
+                      <div style={{ fontSize: 11, color: "var(--text2)", marginTop: 1 }}>
+                        {englishName}
+                      </div>
+                    )}
                     {positions.length > 0 && (
                       <div style={s.metaText}>
                         {positions.join(" / ")}
