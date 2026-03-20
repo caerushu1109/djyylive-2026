@@ -7,6 +7,7 @@ import { usePredictions } from "@/lib/hooks/usePredictions";
 import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import { useTeamHistory } from "@/lib/hooks/useTeamHistory";
 import { useSquad } from "@/lib/hooks/useSquad";
+import { useTeamDetail } from "@/lib/hooks/useTeamDetail";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 import MatchCard from "@/components/shared/MatchCard";
 import GroupTable from "@/components/wc/GroupTable";
@@ -15,7 +16,14 @@ import { ChevronLeft } from "lucide-react";
 import { POSITION_LABEL } from "@/lib/utils/teamIso";
 
 const POSITION_ORDER = ["GK", "DF", "MF", "FW"];
-const TABS = ["概览", "赛程", "历史", "阵容"];
+const TABS = ["概览", "赛程", "历史", "阵容", "数据"];
+
+const POSITION_COLOR = {
+  GK: "var(--amber, #f59e0b)",
+  DF: "var(--blue, #5c9eff)",
+  MF: "var(--green, #22c55e)",
+  FW: "var(--red, #ef4444)",
+};
 
 const BEST_RESULT_ZH = {
   "winner":         "🏆 冠军",
@@ -293,10 +301,93 @@ function EloHistoryChart({ originalName, code }) {
   );
 }
 
+// ── W/D/L Stacked Bar ─────────────────────────────────────────────────────────
+function WDLBar({ w, d, l }) {
+  const total = w + d + l;
+  if (total === 0) return null;
+  const wPct = (w / total) * 100;
+  const dPct = (d / total) * 100;
+  const lPct = (l / total) * 100;
+  return (
+    <div style={{ display: "flex", height: 6, borderRadius: 3, overflow: "hidden", width: "100%" }}>
+      <div style={{ width: `${wPct}%`, background: "var(--green)", transition: "width 0.3s" }} />
+      <div style={{ width: `${dPct}%`, background: "var(--text3)", transition: "width 0.3s" }} />
+      <div style={{ width: `${lPct}%`, background: "var(--red)", transition: "width 0.3s" }} />
+    </div>
+  );
+}
+
+// ── Team Profile Card (for Overview) ──────────────────────────────────────────
+function TeamProfileCard({ teamDetail }) {
+  if (!teamDetail) return null;
+  const stats = teamDetail.totalStats;
+  const manager = teamDetail.tournaments?.[0]?.manager;
+  const confed = teamDetail.confederationZh || teamDetail.confederation;
+  const confedEn = teamDetail.confederation;
+
+  return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      {/* Confederation + Manager row */}
+      <div style={{
+        padding: "10px 12px", display: "flex", alignItems: "center", gap: 8,
+        borderBottom: "1px solid var(--border)",
+      }}>
+        <span style={{
+          fontSize: 10, fontWeight: 700, color: "var(--blue)",
+          background: "rgba(92,158,255,0.1)", borderRadius: 4, padding: "2px 8px",
+        }}>
+          {confed} {confedEn && confedEn !== confed ? confedEn : ""}
+        </span>
+        {manager && (
+          <span style={{ fontSize: 11, color: "var(--text2)", marginLeft: "auto" }}>
+            主教练 <span style={{ fontWeight: 700, color: "var(--text)" }}>{manager}</span>
+          </span>
+        )}
+      </div>
+
+      {/* Total WC stats summary */}
+      {stats && (
+        <div style={{ padding: "10px 12px" }}>
+          <div style={{
+            fontSize: 12, color: "var(--text)", fontVariantNumeric: "tabular-nums",
+            display: "flex", alignItems: "center", gap: 4, flexWrap: "wrap",
+          }}>
+            <span style={{ fontWeight: 700, color: "var(--blue)" }}>{stats.p}</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>场</span>
+            <span style={{ fontWeight: 700, color: "var(--green)" }}>{stats.w}</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>胜</span>
+            <span style={{ fontWeight: 700, color: "var(--text3)" }}>{stats.d}</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>平</span>
+            <span style={{ fontWeight: 700, color: "var(--red)" }}>{stats.l}</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>负</span>
+            <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--text-dim)" }}>
+              胜率 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 13 }}>{stats.winRate}%</span>
+            </span>
+          </div>
+          <div style={{ marginTop: 8 }}>
+            <WDLBar w={stats.w} d={stats.d} l={stats.l} />
+          </div>
+          <div style={{ display: "flex", gap: 12, marginTop: 6, fontSize: 10, color: "var(--text-dim)" }}>
+            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--green)", marginRight: 3, verticalAlign: "middle" }} />胜</span>
+            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--text3)", marginRight: 3, verticalAlign: "middle" }} />平</span>
+            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--red)", marginRight: 3, verticalAlign: "middle" }} />负</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Tab: 概览 ─────────────────────────────────────────────────────────────────
-function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData }) {
+function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, teamDetail }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: "12px 16px 20px" }}>
+      {/* Team Profile Card (new) */}
+      <TeamProfileCard teamDetail={teamDetail} />
+
       {/* Progression funnel */}
       {teamPred && <ProgressionFunnel teamPred={teamPred} />}
 
@@ -370,44 +461,258 @@ function TabFixtures({ teamFixtures, fixturesLoading }) {
   );
 }
 
-// ── Tab: 历史 ─────────────────────────────────────────────────────────────────
-function TabHistory({ historyData, teamElo }) {
-  if (!historyData) return (
+// ── Tournament Accordion Item ─────────────────────────────────────────────────
+function TournamentAccordion({ tournament }) {
+  const [expanded, setExpanded] = useState(false);
+  const [showSquad, setShowSquad] = useState(false);
+
+  const { year, stage, manager, cards, group, matches, squad } = tournament;
+  const yellowCards = cards?.yellow ?? 0;
+  const redCards = cards?.red ?? 0;
+
+  return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      {/* Collapsed header */}
+      <button
+        onClick={() => setExpanded((p) => !p)}
+        style={{
+          width: "100%", display: "flex", alignItems: "center", padding: "10px 12px",
+          gap: 8, background: "none", border: "none", cursor: "pointer", color: "var(--text)",
+        }}
+      >
+        <span style={{ fontSize: 14, fontWeight: 800, color: "var(--blue)", minWidth: 40, fontVariantNumeric: "tabular-nums" }}>
+          {year}
+        </span>
+        <span style={{ fontSize: 12, fontWeight: 600, flex: 1, textAlign: "left" }}>
+          {stage}
+        </span>
+        <span style={{ fontSize: 11, color: "var(--text2)", marginRight: 4 }}>
+          {manager}
+        </span>
+        <span style={{ fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
+          <span style={{ color: "var(--amber)" }}>&#x1F7E1;{yellowCards}</span>
+          {" "}
+          <span style={{ color: "var(--red)" }}>&#x1F534;{redCards}</span>
+        </span>
+        <span style={{
+          fontSize: 12, color: "var(--text-dim)",
+          transform: expanded ? "rotate(90deg)" : "rotate(0deg)",
+          transition: "transform 0.2s ease",
+          marginLeft: 4,
+        }}>
+          &#x25B6;
+        </span>
+      </button>
+
+      {/* Expanded content */}
+      <div style={{
+        maxHeight: expanded ? 2000 : 0,
+        overflow: "hidden",
+        transition: "max-height 0.35s ease",
+      }}>
+        <div style={{ borderTop: "1px solid var(--border)" }}>
+          {/* Group standings */}
+          {group && group.standings && (
+            <div style={{ padding: "10px 12px" }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6 }}>
+                小组赛积分 — {group.name}
+              </div>
+              <div style={{ overflowX: "auto" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
+                  <thead>
+                    <tr style={{ color: "var(--text-dim)", fontSize: 10 }}>
+                      <th style={{ textAlign: "left", padding: "3px 4px", fontWeight: 600 }}>#</th>
+                      <th style={{ textAlign: "left", padding: "3px 4px", fontWeight: 600 }}>球队</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>场</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>胜</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>平</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>负</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>进</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>失</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600, color: "var(--blue)" }}>分</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.standings.map((row, idx) => (
+                      <tr key={idx} style={{
+                        borderTop: "1px solid var(--border)",
+                        background: row.pos <= 2 ? "rgba(92,158,255,0.04)" : "transparent",
+                      }}>
+                        <td style={{ padding: "5px 4px", color: "var(--text-dim)", fontWeight: 700 }}>{row.pos}</td>
+                        <td style={{ padding: "5px 4px", color: "var(--text)", fontWeight: 500 }}>{row.team}</td>
+                        <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--text2)" }}>{row.p}</td>
+                        <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--green)" }}>{row.w}</td>
+                        <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--text3)" }}>{row.d}</td>
+                        <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--red)" }}>{row.l}</td>
+                        <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--text2)" }}>{row.gf}</td>
+                        <td style={{ padding: "5px 4px", textAlign: "center", color: "var(--text2)" }}>{row.ga}</td>
+                        <td style={{ padding: "5px 4px", textAlign: "center", fontWeight: 800, color: "var(--blue)" }}>{row.pts}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* Matches */}
+          {matches && matches.length > 0 && (
+            <div style={{ padding: "10px 12px", borderTop: group ? "1px solid var(--border)" : "none" }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6 }}>
+                比赛
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                {matches.map((m, mi) => {
+                  const isWin = m.homeScore > m.awayScore;
+                  const isLoss = m.homeScore < m.awayScore;
+                  const scoreStr = `${m.homeScore}-${m.awayScore}${m.pens ? ` (${m.penScore})` : ""}${m.extra ? " (aet)" : ""}`;
+                  return (
+                    <div key={mi} style={{ padding: "6px 0" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12 }}>
+                        <span style={{ color: "var(--text-dim)", fontSize: 10, minWidth: 50 }}>{m.stage}</span>
+                        <span style={{ fontWeight: 600, color: "var(--text)" }}>{m.home}</span>
+                        <span style={{
+                          fontWeight: 800, fontVariantNumeric: "tabular-nums", padding: "1px 6px",
+                          borderRadius: 4, fontSize: 12,
+                          background: isWin ? "var(--green-dim)" : isLoss ? "var(--red-dim)" : "var(--card2)",
+                          color: isWin ? "var(--green)" : isLoss ? "var(--red)" : "var(--text2)",
+                        }}>
+                          {scoreStr}
+                        </span>
+                        <span style={{ fontWeight: 600, color: "var(--text)" }}>{m.away}</span>
+                      </div>
+                      {m.goals && m.goals.length > 0 && (
+                        <div style={{ marginTop: 3, paddingLeft: 56, display: "flex", flexWrap: "wrap", gap: 4 }}>
+                          {m.goals.map((g, gi) => (
+                            <span key={gi} style={{ fontSize: 10, color: "var(--text-dim)" }}>
+                              {g.ownGoal ? "(OG) " : ""}{g.player} {g.minute}{g.penalty ? " (P)" : ""}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Squad toggle */}
+          {squad && squad.length > 0 && (
+            <div style={{ borderTop: "1px solid var(--border)" }}>
+              <button
+                onClick={(e) => { e.stopPropagation(); setShowSquad((p) => !p); }}
+                style={{
+                  width: "100%", padding: "8px 12px", background: "none", border: "none",
+                  cursor: "pointer", color: "var(--blue)", fontSize: 11, fontWeight: 700,
+                  textAlign: "left", display: "flex", alignItems: "center", gap: 6,
+                }}
+              >
+                <span style={{
+                  transform: showSquad ? "rotate(90deg)" : "rotate(0deg)",
+                  transition: "transform 0.2s ease", fontSize: 10,
+                }}>
+                  &#x25B6;
+                </span>
+                大名单（{squad.length}人）
+              </button>
+              <div style={{
+                maxHeight: showSquad ? 1200 : 0,
+                overflow: "hidden",
+                transition: "max-height 0.3s ease",
+              }}>
+                <div style={{ padding: "0 12px 10px" }}>
+                  {POSITION_ORDER.map((pos) => {
+                    const posPlayers = squad.filter((p) => p.pos === pos);
+                    if (posPlayers.length === 0) return null;
+                    return (
+                      <div key={pos} style={{ marginBottom: 6 }}>
+                        <div style={{
+                          fontSize: 10, fontWeight: 700, color: POSITION_COLOR[pos],
+                          marginBottom: 3, textTransform: "uppercase",
+                        }}>
+                          {POSITION_LABEL[pos]}
+                        </div>
+                        <div style={{
+                          display: "grid", gridTemplateColumns: "1fr 1fr",
+                          gap: "2px 8px", fontSize: 11, color: "var(--text2)",
+                        }}>
+                          {posPlayers.map((p, pi) => (
+                            <span key={pi} style={{ fontVariantNumeric: "tabular-nums" }}>
+                              <span style={{ color: "var(--text-dim)", fontSize: 10, marginRight: 3 }}>#{p.num}</span>
+                              {p.name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Tab: 历史 (Rewritten with accordion) ──────────────────────────────────────
+function TabHistory({ historyData, teamElo, teamDetail }) {
+  if (!historyData && !teamDetail) return (
     <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无历史数据</p>
   );
-  const { appearances, titles, titleYears, bestResult, history: years } = historyData;
-  const allYears = [...(years || [])].reverse();
+
+  const { appearances, titles, titleYears, bestResult } = historyData || {};
+  const tournaments = teamDetail?.tournaments || [];
 
   return (
     <div style={{ padding: "12px 16px 20px", display: "flex", flexDirection: "column", gap: 12 }}>
       {/* Summary stats */}
-      <div style={{
-        background: "var(--card)", border: "1px solid var(--border)",
-        borderRadius: "var(--radius)", overflow: "hidden",
-      }}>
-        <div style={{ display: "flex" }}>
-          {[
-            { value: appearances ?? 0, label: "届世界杯" },
-            { value: titles ?? 0,      label: "次冠军" },
-            { value: bestResultLabel(bestResult), label: "最佳成绩", small: true },
-          ].map((item, i) => (
-            <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
-              <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
-                {item.value}
+      {historyData && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
+          <div style={{ display: "flex" }}>
+            {[
+              { value: appearances ?? 0, label: "届世界杯" },
+              { value: titles ?? 0,      label: "次冠军" },
+              { value: bestResultLabel(bestResult), label: "最佳成绩", small: true },
+            ].map((item, i) => (
+              <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
+                <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
+                  {item.value}
+                </div>
+                <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
               </div>
-              <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
-            </div>
-          ))}
-        </div>
-        {titleYears?.length > 0 && (
-          <div style={{ padding: "6px 12px", borderTop: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
-            夺冠年份：<span style={{ color: "var(--blue)", fontWeight: 700 }}>{titleYears.join("、")}</span>
+            ))}
           </div>
-        )}
-      </div>
+          {titleYears?.length > 0 && (
+            <div style={{ padding: "6px 12px", borderTop: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
+              夺冠年份：<span style={{ color: "var(--blue)", fontWeight: 700 }}>{titleYears.join("、")}</span>
+            </div>
+          )}
+        </div>
+      )}
 
-      {/* Complete WC record table */}
-      {allYears.length > 0 && (
+      {/* Tournament accordions */}
+      {tournaments.length > 0 && (
+        <>
+          <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            历届世界杯详情
+          </div>
+          {tournaments.map((t, i) => (
+            <TournamentAccordion key={t.year || i} tournament={t} />
+          ))}
+        </>
+      )}
+
+      {/* Fallback: if no teamDetail tournaments but historyData exists, show old-style list */}
+      {tournaments.length === 0 && historyData?.history && (
         <div style={{
           background: "var(--card)", border: "1px solid var(--border)",
           borderRadius: "var(--radius)", overflow: "hidden",
@@ -420,13 +725,13 @@ function TabHistory({ historyData, teamElo }) {
           }}>
             历届世界杯成绩
           </div>
-          {allYears.map((entry, i) => {
+          {[...(historyData.history || [])].reverse().map((entry, i, arr) => {
             const stageLabel = bestResultLabel(entry.stage || entry.result);
             const isChampion = stageLabel.includes("冠军");
             return (
               <div key={entry.year} style={{
                 display: "flex", alignItems: "center", padding: "8px 12px", gap: 10,
-                borderBottom: i < allYears.length - 1 ? "1px solid var(--border)" : "none",
+                borderBottom: i < arr.length - 1 ? "1px solid var(--border)" : "none",
                 background: isChampion ? "rgba(92,158,255,0.06)" : "transparent",
               }}>
                 <span style={{
@@ -455,7 +760,7 @@ function TabHistory({ historyData, teamElo }) {
         </div>
       )}
 
-      {/* ELO chart in history tab too */}
+      {/* ELO chart */}
       {teamElo && (
         <div style={{
           background: "var(--card)", border: "1px solid var(--border)",
@@ -471,11 +776,12 @@ function TabHistory({ historyData, teamElo }) {
   );
 }
 
-// ── Tab: 阵容 ─────────────────────────────────────────────────────────────────
-function TabSquad({ squadData }) {
+// ── Tab: 阵容 (Enhanced with position colors + WC stats) ──────────────────────
+function TabSquad({ squadData, teamDetail }) {
   if (!squadData?.players?.length) return (
     <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无阵容数据</p>
   );
+
   const { players } = squadData;
   const byPosition = {};
   for (const pos of POSITION_ORDER) byPosition[pos] = [];
@@ -483,6 +789,17 @@ function TabSquad({ squadData }) {
     if (byPosition[p.position]) byPosition[p.position].push(p);
     else byPosition["FW"] = [...(byPosition["FW"] || []), p];
   }
+
+  // Build top players lookup from teamDetail
+  const topPlayersMap = useMemo(() => {
+    const map = {};
+    if (teamDetail?.topPlayers) {
+      for (const tp of teamDetail.topPlayers) {
+        map[tp.name.toLowerCase()] = tp;
+      }
+    }
+    return map;
+  }, [teamDetail]);
 
   return (
     <div style={{ padding: "12px 16px 20px" }}>
@@ -497,29 +814,212 @@ function TabSquad({ squadData }) {
               fontSize: 10, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em",
               color: "var(--text-dim)", background: "var(--card2)",
               borderTop: pi > 0 ? "1px solid var(--border)" : "none",
+              display: "flex", alignItems: "center", gap: 6,
             }}>
+              <span style={{
+                display: "inline-block", width: 8, height: 8, borderRadius: "50%",
+                background: POSITION_COLOR[pos],
+              }} />
               {POSITION_LABEL[pos]}（{byPosition[pos].length}人）
             </div>
-            {byPosition[pos].map((p, i) => (
-              <div key={p.id} style={{
-                display: "flex", alignItems: "center", padding: "7px 12px", gap: 10,
-                borderBottom: i < byPosition[pos].length - 1 ? "1px solid var(--border)" : "none",
-              }}>
-                <span style={{
-                  fontSize: 10, fontWeight: 700, color: "var(--text-dim)",
-                  width: 20, textAlign: "center", fontVariantNumeric: "tabular-nums",
+            {byPosition[pos].map((p, i) => {
+              const playerKey = p.name?.toLowerCase();
+              const wcStats = topPlayersMap[playerKey];
+              return (
+                <div key={p.id} style={{
+                  display: "flex", alignItems: "center", padding: "7px 12px", gap: 10,
+                  borderBottom: i < byPosition[pos].length - 1 ? "1px solid var(--border)" : "none",
                 }}>
-                  {p.shirtNumber ?? "—"}
-                </span>
-                <span style={{ fontSize: 12, flex: 1, color: "var(--text)" }}>{p.name}</span>
-              </div>
-            ))}
+                  <span style={{
+                    fontSize: 10, fontWeight: 700, color: "var(--text-dim)",
+                    width: 20, textAlign: "center", fontVariantNumeric: "tabular-nums",
+                  }}>
+                    {p.shirtNumber ?? "—"}
+                  </span>
+                  <span style={{ fontSize: 12, flex: 1, color: "var(--text)" }}>{p.name}</span>
+                  {wcStats && (
+                    <span style={{
+                      fontSize: 10, color: "var(--text-dim)",
+                      background: "var(--card2)", borderRadius: 4, padding: "2px 6px",
+                      fontVariantNumeric: "tabular-nums",
+                    }}>
+                      WC: {wcStats.apps}场 {wcStats.goals}球
+                    </span>
+                  )}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
       <div style={{ fontSize: 10, color: "var(--text3)", textAlign: "center", marginTop: 8 }}>
         共 {players.length} 人
       </div>
+    </div>
+  );
+}
+
+// ── Tab: 数据 (New Stats tab) ─────────────────────────────────────────────────
+function TabStats({ teamDetail }) {
+  if (!teamDetail) return (
+    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无数据</p>
+  );
+
+  const stats = teamDetail.totalStats;
+  const topPlayers = teamDetail.topPlayers || [];
+  const topScorers = [...topPlayers].sort((a, b) => b.goals - a.goals).slice(0, 10);
+
+  const total = (stats?.w || 0) + (stats?.d || 0) + (stats?.l || 0);
+  const wPct = total > 0 ? ((stats.w / total) * 100).toFixed(1) : 0;
+  const dPct = total > 0 ? ((stats.d / total) * 100).toFixed(1) : 0;
+  const lPct = total > 0 ? ((stats.l / total) * 100).toFixed(1) : 0;
+
+  return (
+    <div style={{ padding: "12px 16px 20px", display: "flex", flexDirection: "column", gap: 12 }}>
+      {/* Total record card */}
+      {stats && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
+          <div style={{
+            padding: "8px 12px", background: "var(--card2)",
+            borderBottom: "1px solid var(--border)",
+            fontSize: 10, fontWeight: 700, color: "var(--text3)",
+            textTransform: "uppercase", letterSpacing: "0.06em",
+          }}>
+            总战绩
+          </div>
+          <div style={{ padding: "12px" }}>
+            {/* Large stat numbers */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, textAlign: "center", marginBottom: 12 }}>
+              {[
+                { value: stats.p, label: "场次", color: "var(--text)" },
+                { value: stats.gf, label: "进球", color: "var(--green)" },
+                { value: stats.ga, label: "失球", color: "var(--red)" },
+              ].map((item, i) => (
+                <div key={i}>
+                  <div style={{ fontSize: 22, fontWeight: 900, color: item.color, fontVariantNumeric: "tabular-nums" }}>
+                    {item.value}
+                  </div>
+                  <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* W/D/L horizontal bar */}
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+              <div style={{ flex: 1 }}>
+                <WDLBar w={stats.w} d={stats.d} l={stats.l} />
+              </div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
+              <span>
+                <span style={{ color: "var(--green)", fontWeight: 700 }}>{stats.w}</span>
+                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> 胜 ({wPct}%)</span>
+              </span>
+              <span>
+                <span style={{ color: "var(--text3)", fontWeight: 700 }}>{stats.d}</span>
+                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> 平 ({dPct}%)</span>
+              </span>
+              <span>
+                <span style={{ color: "var(--red)", fontWeight: 700 }}>{stats.l}</span>
+                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> 负 ({lPct}%)</span>
+              </span>
+            </div>
+
+            {/* Goal difference */}
+            {stats.gd != null && (
+              <div style={{
+                marginTop: 10, textAlign: "center", fontSize: 12, color: "var(--text-dim)",
+                padding: "6px 0", borderTop: "1px solid var(--border)",
+              }}>
+                净胜球 <span style={{ fontWeight: 800, color: stats.gd >= 0 ? "var(--green)" : "var(--red)", fontSize: 16 }}>
+                  {stats.gd > 0 ? "+" : ""}{stats.gd}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Discipline card */}
+      {stats && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
+          <div style={{
+            padding: "8px 12px", background: "var(--card2)",
+            borderBottom: "1px solid var(--border)",
+            fontSize: 10, fontWeight: 700, color: "var(--text3)",
+            textTransform: "uppercase", letterSpacing: "0.06em",
+          }}>
+            纪律记录
+          </div>
+          <div style={{ display: "flex" }}>
+            <div style={{ flex: 1, textAlign: "center", padding: "14px 8px", borderRight: "1px solid var(--border)" }}>
+              <div style={{ fontSize: 22, fontWeight: 900, color: "var(--amber)", fontVariantNumeric: "tabular-nums" }}>
+                {stats.yellow ?? 0}
+              </div>
+              <div style={{ fontSize: 11, color: "var(--text-dim)", marginTop: 2 }}>
+                &#x1F7E1; 黄牌
+              </div>
+            </div>
+            <div style={{ flex: 1, textAlign: "center", padding: "14px 8px" }}>
+              <div style={{ fontSize: 22, fontWeight: 900, color: "var(--red)", fontVariantNumeric: "tabular-nums" }}>
+                {stats.red ?? 0}
+              </div>
+              <div style={{ fontSize: 11, color: "var(--text-dim)", marginTop: 2 }}>
+                &#x1F534; 红牌
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Top scorers card */}
+      {topScorers.length > 0 && (
+        <div style={{
+          background: "var(--card)", border: "1px solid var(--border)",
+          borderRadius: "var(--radius)", overflow: "hidden",
+        }}>
+          <div style={{
+            padding: "8px 12px", background: "var(--card2)",
+            borderBottom: "1px solid var(--border)",
+            fontSize: 10, fontWeight: 700, color: "var(--text3)",
+            textTransform: "uppercase", letterSpacing: "0.06em",
+          }}>
+            队史射手榜
+          </div>
+          {topScorers.map((player, idx) => (
+            <div key={idx} style={{
+              display: "flex", alignItems: "center", padding: "8px 12px", gap: 8,
+              borderBottom: idx < topScorers.length - 1 ? "1px solid var(--border)" : "none",
+              background: idx < 3 ? "rgba(92,158,255,0.04)" : "transparent",
+            }}>
+              <span style={{
+                fontSize: 12, fontWeight: 800, fontVariantNumeric: "tabular-nums",
+                color: idx === 0 ? "var(--amber)" : idx === 1 ? "var(--text2)" : idx === 2 ? "#cd7f32" : "var(--text-dim)",
+                minWidth: 20, textAlign: "right",
+              }}>
+                {idx + 1}.
+              </span>
+              <span style={{ fontSize: 12, flex: 1, color: "var(--text)", fontWeight: idx < 3 ? 600 : 400 }}>
+                {player.name}
+              </span>
+              <span style={{
+                fontSize: 11, fontWeight: 700, color: "var(--blue)", fontVariantNumeric: "tabular-nums",
+              }}>
+                {player.goals}&#x26BD;
+              </span>
+              <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums", minWidth: 30, textAlign: "right" }}>
+                {player.apps}场
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -537,6 +1037,7 @@ export default function TeamPage() {
   const { data: polyData                                } = usePolymarket();
   const { data: historyData                             } = useTeamHistory(teamName);
   const { data: squadData                               } = useSquad(teamName);
+  const { data: teamDetail                              } = useTeamDetail(teamName);
 
   const teamElo = useMemo(() =>
     (eloData?.rankings || []).find(
@@ -581,7 +1082,7 @@ export default function TeamPage() {
     );
   }, [fixturesData, group]);
 
-  const flag        = teamElo?.flag || "🏴";
+  const flag        = teamElo?.flag || "\uD83C\uDFF4";
   const displayName = teamElo?.name || teamName;
 
   return (
@@ -601,7 +1102,7 @@ export default function TeamPage() {
 
       {eloLoading ? <LoadingSpinner /> : (
         <>
-          {/* Hero — always visible */}
+          {/* Hero -- always visible */}
           <div style={{
             padding: "16px 16px 12px", display: "flex", alignItems: "center", gap: 14,
             flexShrink: 0,
@@ -658,7 +1159,7 @@ export default function TeamPage() {
             ))}
           </div>
 
-          {/* Tab content — scrollable */}
+          {/* Tab content -- scrollable */}
           <div style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
             {activeTab === "概览" && (
               <TabOverview
@@ -667,16 +1168,20 @@ export default function TeamPage() {
                 teamGroup={teamGroup}
                 teamElo={teamElo}
                 historyData={historyData}
+                teamDetail={teamDetail}
               />
             )}
             {activeTab === "赛程" && (
               <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} />
             )}
             {activeTab === "历史" && (
-              <TabHistory historyData={historyData} teamElo={teamElo} />
+              <TabHistory historyData={historyData} teamElo={teamElo} teamDetail={teamDetail} />
             )}
             {activeTab === "阵容" && (
-              <TabSquad squadData={squadData} />
+              <TabSquad squadData={squadData} teamDetail={teamDetail} />
+            )}
+            {activeTab === "数据" && (
+              <TabStats teamDetail={teamDetail} />
             )}
           </div>
         </>
