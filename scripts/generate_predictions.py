@@ -20,7 +20,11 @@ Outputs: /sessions/upbeat-optimistic-ritchie/predictions_new.json
 import json
 import random
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+PREDICTIONS_PATH = ROOT / "public" / "data" / "predictions.json"
 
 ELO_DIVISOR      = 515
 HOST_BONUS       = 60
@@ -349,6 +353,90 @@ def simulate_tournament():
     stages[champion["code"]] = 6
 
     return stages
+
+
+# ── Public API (called by update_elo_from_eloratings.py) ──────────────────────
+
+def build_predictions(snapshot):
+    """Build predictions dict from an elo snapshot (output of build_elo_snapshot).
+
+    Updates the module-level ELO_MAP with fresh values from the snapshot so
+    that the simulation uses the latest ratings.
+    """
+    # Update ELO_MAP in-place with values from the fresh snapshot
+    for item in snapshot.get("rankings", []):
+        code = item.get("code")
+        elo  = item.get("elo")
+        if code and elo:
+            ELO_MAP[code] = elo
+
+    random.seed(RANDOM_SEED)
+    stage_counts = defaultdict(lambda: [0] * 7)
+
+    for i in range(SIMULATION_COUNT):
+        result = simulate_tournament()
+        for code, stage in result.items():
+            for s in range(1, stage + 1):
+                stage_counts[code][s] += 1
+
+    real_codes = sorted(
+        [c for c in stage_counts if not c.startswith("TBD")],
+        key=lambda c: -stage_counts[c][6]
+    )
+
+    N = SIMULATION_COUNT
+    max_wins = stage_counts[real_codes[0]][6] if real_codes else 1
+
+    teams_out = []
+    for rank, code in enumerate(real_codes, 1):
+        meta = TEAM_META.get(code, {"flag": "\U0001f3f3\ufe0f", "name": code})
+        cnt  = stage_counts[code]
+        base_elo  = ELO_MAP.get(code, 1600)
+        bonus_elo = base_elo + (HOST_BONUS if code in HOST_CODES else 0)
+        pct6 = round(cnt[6] / N * 100, 2)
+        teams_out.append({
+            "rank":  rank,
+            "flag":  meta["flag"],
+            "name":  meta["name"],
+            "code":  code,
+            "elo":   base_elo,
+            "eloWithBonus": bonus_elo,
+            "isHost": code in HOST_CODES,
+            "titleProbability": f"{pct6:.1f}%",
+            "probabilityValue": pct6,
+            "wins":  cnt[6],
+            "width": max(6, round(cnt[6] / max_wins * 100)),
+            "pQualify": round(cnt[1] / N * 100, 1),
+            "pR16":     round(cnt[2] / N * 100, 1),
+            "pQF":      round(cnt[3] / N * 100, 1),
+            "pSF":      round(cnt[4] / N * 100, 1),
+            "pFinal":   round(cnt[5] / N * 100, 1),
+            "pChampion":round(cnt[6] / N * 100, 1),
+        })
+
+    updated_at = snapshot.get("updatedAt") or datetime.now(timezone.utc).isoformat()
+    return {
+        "updatedAt": updated_at,
+        "simulationCount": N,
+        "eloDivisor": ELO_DIVISOR,
+        "hostBonus": HOST_BONUS,
+        "groupSource": "local-cache",
+        "method": (
+            f"完整赛程蒙特卡洛模拟 {N:,} 次，使用2026年世界杯真实淘汰赛赛制。"
+            f"ELO 胜率除数 D={ELO_DIVISOR}。"
+            f"东道主美国/加拿大/墨西哥各 +{HOST_BONUS} ELO。"
+        ),
+        "teams": teams_out,
+    }
+
+
+def write_predictions(predictions):
+    """Write predictions dict to public/data/predictions.json."""
+    PREDICTIONS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with PREDICTIONS_PATH.open("w", encoding="utf-8") as f:
+        json.dump(predictions, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"Predictions written to {PREDICTIONS_PATH} ({len(predictions['teams'])} teams)")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────

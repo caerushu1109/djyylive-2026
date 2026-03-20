@@ -70,7 +70,7 @@ export default function PredictPage() {
         borderRadius: "var(--radius-sm)", padding: "8px 12px",
         fontSize: 11, color: "var(--text2)", lineHeight: 1.5,
       }}>
-        用各队 ELO 分算出每场胜负概率，模拟 10,000 次完整赛事，统计各阶段晋级率。每天北京时间 08:00 自动更新。
+        通过历史所有世界杯比赛的 ELO 进行模型训练，根据最新各队 ELO 分算出每场胜负概率，模拟 10,000 次完整赛事，统计各阶段晋级率。每天北京时间 18:00 自动更新最新 ELO 并重新模拟。
       </div>
 
       {loading ? (
