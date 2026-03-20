@@ -34,7 +34,7 @@ function PlayerRow({ player, index, total, mode, onPlayerClick }) {
       </span>
       <div
         style={{ flex: 1, minWidth: 0, cursor: onPlayerClick ? "pointer" : "default" }}
-        onClick={() => onPlayerClick?.(player.player)}
+        onClick={() => onPlayerClick?.(player)}
       >
         <div style={{
           fontSize: 12, fontWeight: 700, color: "var(--text)",
@@ -108,9 +108,10 @@ function ScorersInner() {
     ? (scorersData?.scorers || [])
     : (assistsData?.assists || []);
 
-  const handlePlayerClick = (name) => {
-    const id = lookup(name);
-    if (id) openPlayer(id, name);
+  const handlePlayerClick = (player) => {
+    const histId = lookup(player.playerNameEn || player.player);
+    const id = histId || player.playerId;
+    if (id) openPlayer(id, player.player, histId);
   };
 
   return (

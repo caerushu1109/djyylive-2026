@@ -661,6 +661,8 @@ export async function getTopScorers(options = {}) {
               const meta = getTeamMeta(row.participant?.name || "");
               return {
                 player: row.player?.name || row.player_name || "",
+                playerId: row.player?.id ? String(row.player.id) : null,
+                playerNameEn: row.player?.common_name || row.player?.display_name || "",
                 team: meta.shortName,
                 flag: meta.flag,
                 teamMeta: meta,
@@ -718,6 +720,8 @@ export async function getTopAssists(options = {}) {
               const meta = getTeamMeta(row.participant?.name || "");
               return {
                 player: row.player?.name || row.player_name || "",
+                playerId: row.player?.id ? String(row.player.id) : null,
+                playerNameEn: row.player?.common_name || row.player?.display_name || "",
                 team: meta.shortName,
                 flag: meta.flag,
                 teamMeta: meta,
