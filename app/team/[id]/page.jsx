@@ -8,12 +8,14 @@ import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import { useTeamHistory } from "@/lib/hooks/useTeamHistory";
 import { useSquad } from "@/lib/hooks/useSquad";
 import { useTeamDetail } from "@/lib/hooks/useTeamDetail";
+import { useH2H } from "@/lib/hooks/useH2H";
+import { useEloTrends, getTeamTrend } from "@/lib/hooks/useEloTrends";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 import MatchCard from "@/components/shared/MatchCard";
 import GroupTable from "@/components/wc/GroupTable";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { ChevronLeft } from "lucide-react";
-import { POSITION_LABEL } from "@/lib/utils/teamIso";
+import { POSITION_LABEL, nameToIso } from "@/lib/utils/teamIso";
 
 const POSITION_ORDER = ["GK", "DF", "MF", "FW"];
 const TABS = ["概览", "赛程", "历史", "阵容", "数据"];
@@ -301,6 +303,348 @@ function EloHistoryChart({ originalName, code }) {
   );
 }
 
+// ── Group ELO Trend Comparison Chart ──────────────────────────────────────────
+function GroupEloChart({ teamCode, groupOpponentIsos, eloTrends, eloData }) {
+  if (!eloTrends || !teamCode || !groupOpponentIsos || groupOpponentIsos.length === 0) return null;
+
+  const allCodes = [teamCode, ...groupOpponentIsos];
+  const teamTrends = allCodes.map((code) => getTeamTrend(eloTrends, code)).filter(Boolean);
+  if (teamTrends.length < 2) return null;
+
+  const COLORS = ["var(--blue)", "var(--green)", "var(--amber)", "var(--red)"];
+  const W = 360, H = 140;
+  const PAD = { t: 14, r: 16, b: 22, l: 40 };
+  const cW = W - PAD.l - PAD.r;
+  const cH = H - PAD.t - PAD.b;
+
+  const allElos = teamTrends.flatMap((t) => t.points.map((p) => p.elo));
+  const minE = Math.min(...allElos) - 50;
+  const maxE = Math.max(...allElos) + 50;
+  const allLabels = teamTrends[0].points.map((p) => p.label);
+  const xp = (i) => PAD.l + (i / (allLabels.length - 1)) * cW;
+  const yp = (e) => PAD.t + cH - ((e - minE) / (maxE - minE)) * cH;
+
+  // Y grid
+  const yStep = Math.round((maxE - minE) / 3 / 50) * 50 || 50;
+  const yStart = Math.ceil(minE / yStep) * yStep;
+  const yLines = [];
+  for (let e = yStart; e <= maxE; e += yStep) yLines.push(e);
+
+  return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      <div style={{
+        padding: "8px 12px", borderBottom: "1px solid var(--border)",
+        fontSize: 10, fontWeight: 700, color: "var(--text3)",
+        textTransform: "uppercase", letterSpacing: "0.06em",
+      }}>
+        同组 ELO 走势对比
+      </div>
+      <div style={{ padding: "8px 8px 4px" }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+          {yLines.map((e) => (
+            <g key={e}>
+              <line x1={PAD.l} y1={yp(e)} x2={PAD.l + cW} y2={yp(e)}
+                stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
+              <text x={PAD.l - 5} y={yp(e) + 3.5} textAnchor="end"
+                fill="rgba(255,255,255,0.32)" fontSize="8.5" fontFamily="monospace">{e}</text>
+            </g>
+          ))}
+          {allLabels.filter((_, i) => i % 2 === 0).map((label, idx) => {
+            const i = allLabels.indexOf(label);
+            return (
+              <text key={label} x={xp(i)} y={H - 5} textAnchor="middle"
+                fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="sans-serif">{label}</text>
+            );
+          })}
+          {teamTrends.map((team, ti) => {
+            const pts = team.points.map((p, i) => `${xp(i)},${yp(p.elo)}`).join(" ");
+            return (
+              <polyline key={team.code} points={pts} fill="none"
+                stroke={COLORS[ti % COLORS.length]} strokeWidth={ti === 0 ? "2" : "1.4"}
+                strokeLinejoin="round" strokeLinecap="round"
+                opacity={ti === 0 ? 1 : 0.65} />
+            );
+          })}
+          {teamTrends.map((team, ti) => {
+            const lp = team.points[team.points.length - 1];
+            const lastIdx = team.points.length - 1;
+            return (
+              <g key={`dot-${team.code}`}>
+                <circle cx={xp(lastIdx)} cy={yp(lp.elo)} r="3"
+                  fill={COLORS[ti % COLORS.length]} stroke="var(--bg)" strokeWidth="1" />
+                <text x={xp(lastIdx) + 6} y={yp(lp.elo) + 3.5}
+                  fill={COLORS[ti % COLORS.length]} fontSize="8" fontFamily="monospace" fontWeight="700">
+                  {lp.elo}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+      <div style={{
+        padding: "4px 12px 8px", display: "flex", flexWrap: "wrap", gap: 8,
+      }}>
+        {teamTrends.map((team, ti) => (
+          <span key={team.code} style={{ fontSize: 10, display: "flex", alignItems: "center", gap: 3 }}>
+            <span style={{
+              display: "inline-block", width: 10, height: 3, borderRadius: 1,
+              background: COLORS[ti % COLORS.length], opacity: ti === 0 ? 1 : 0.65,
+            }} />
+            <span style={{ color: COLORS[ti % COLORS.length], fontWeight: ti === 0 ? 700 : 500 }}>
+              {team.name}
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Group Opponents Comparison Cards ─────────────────────────────────────────
+function GroupComparisonCards({ teamElo, teamPred, groupOpponentIsos, eloData, predData }) {
+  if (!teamElo || !groupOpponentIsos || groupOpponentIsos.length === 0 || !eloData) return null;
+
+  const opponents = groupOpponentIsos.map((iso) => {
+    const elo = (eloData.rankings || []).find((r) => r.code === iso);
+    const pred = predData?.teams?.find((t) => t.code === iso);
+    return elo ? { ...elo, pred } : null;
+  }).filter(Boolean);
+
+  if (opponents.length === 0) return null;
+
+  return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      <div style={{
+        padding: "8px 12px", borderBottom: "1px solid var(--border)",
+        fontSize: 10, fontWeight: 700, color: "var(--text3)",
+        textTransform: "uppercase", letterSpacing: "0.06em",
+      }}>
+        同组对手
+      </div>
+      {opponents.map((opp, i) => {
+        const eloDiff = teamElo.elo - opp.elo;
+        const probDiff = teamPred && opp.pred
+          ? (teamPred.probabilityValue - opp.pred.probabilityValue) : null;
+        return (
+          <div key={opp.code} style={{
+            padding: "10px 12px", display: "flex", alignItems: "center", gap: 8,
+            borderBottom: i < opponents.length - 1 ? "1px solid var(--border)" : "none",
+          }}>
+            <span style={{ fontSize: 20 }}>{opp.flag}</span>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "var(--text)" }}>{opp.name}</div>
+              <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 1 }}>
+                ELO {opp.elo} · 第{opp.rank}名
+              </div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div style={{
+                fontSize: 11, fontWeight: 700, fontVariantNumeric: "tabular-nums",
+                color: eloDiff > 0 ? "var(--green)" : eloDiff < 0 ? "var(--red)" : "var(--text3)",
+              }}>
+                {eloDiff > 0 ? "+" : ""}{eloDiff} ELO
+              </div>
+              {probDiff != null && (
+                <div style={{
+                  fontSize: 10, fontVariantNumeric: "tabular-nums",
+                  color: probDiff > 0 ? "var(--green)" : probDiff < 0 ? "var(--red)" : "var(--text3)",
+                }}>
+                  夺冠 {probDiff > 0 ? "+" : ""}{probDiff.toFixed(1)}%
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── H2H Section (for group opponents) ────────────────────────────────────────
+function H2HCard({ teamIso, opponentIso, teamName }) {
+  const { data } = useH2H(teamIso, opponentIso);
+  if (!data || data.matches.length === 0) return null;
+
+  const myWins = data.summary[teamIso] || 0;
+  const oppWins = data.summary[opponentIso] || 0;
+  const draws = data.summary.draws || 0;
+  const total = myWins + oppWins + draws;
+  const recentMatches = [...data.matches].reverse().slice(0, 3);
+
+  const STAGE_ZH = {
+    "group stage": "小组赛", "round of 16": "十六强", "quarter-finals": "八强",
+    "semi-finals": "四强", "final": "决赛", "second group stage": "第二轮小组赛",
+    "third-place match": "季军赛", "first round": "第一轮", "second round": "第二轮",
+  };
+
+  return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      <div style={{
+        padding: "8px 12px", display: "flex", alignItems: "center", gap: 6,
+        borderBottom: "1px solid var(--border)",
+      }}>
+        <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+          世界杯交锋 vs {opponentIso}
+        </span>
+        <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--text-dim)" }}>
+          共 {total} 场
+        </span>
+      </div>
+      {/* W/D/L summary bar */}
+      <div style={{ padding: "8px 12px" }}>
+        <div style={{ display: "flex", gap: 12, marginBottom: 6, fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
+          <span><span style={{ color: "var(--green)", fontWeight: 700 }}>{myWins}</span> 胜</span>
+          <span><span style={{ color: "var(--text3)", fontWeight: 700 }}>{draws}</span> 平</span>
+          <span><span style={{ color: "var(--red)", fontWeight: 700 }}>{oppWins}</span> 负</span>
+        </div>
+        {total > 0 && (
+          <div style={{ display: "flex", height: 6, borderRadius: 3, overflow: "hidden" }}>
+            <div style={{ width: `${(myWins / total) * 100}%`, background: "var(--green)" }} />
+            <div style={{ width: `${(draws / total) * 100}%`, background: "var(--text3)" }} />
+            <div style={{ width: `${(oppWins / total) * 100}%`, background: "var(--red)" }} />
+          </div>
+        )}
+      </div>
+      {/* Recent matches */}
+      {recentMatches.length > 0 && (
+        <div style={{ padding: "0 12px 8px" }}>
+          <div style={{ fontSize: 10, color: "var(--text-dim)", marginBottom: 4 }}>近期交锋</div>
+          {recentMatches.map((m, i) => {
+            const year = m.date.split("-")[0];
+            const stageLabel = STAGE_ZH[m.stage?.toLowerCase()] || m.stage;
+            const isWin = m.winner === teamIso;
+            const isLoss = m.winner === opponentIso;
+            return (
+              <div key={i} style={{
+                display: "flex", alignItems: "center", gap: 6, fontSize: 11, padding: "3px 0",
+              }}>
+                <span style={{ color: "var(--text-dim)", fontSize: 10, minWidth: 32 }}>{year}</span>
+                <span style={{ color: "var(--text-dim)", fontSize: 10, minWidth: 40 }}>{stageLabel}</span>
+                <span style={{
+                  fontWeight: 700, fontVariantNumeric: "tabular-nums",
+                  padding: "1px 5px", borderRadius: 3,
+                  background: isWin ? "var(--green-dim)" : isLoss ? "var(--red-dim)" : "var(--card2)",
+                  color: isWin ? "var(--green)" : isLoss ? "var(--red)" : "var(--text2)",
+                }}>
+                  {m.homeScore}-{m.awayScore}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function H2HSection({ teamIso, groupOpponentIsos }) {
+  if (!teamIso || !groupOpponentIsos || groupOpponentIsos.length === 0) return null;
+  return (
+    <>
+      {groupOpponentIsos.map((oppIso) => (
+        <H2HCard key={oppIso} teamIso={teamIso} opponentIso={oppIso} />
+      ))}
+    </>
+  );
+}
+
+// ── History Timeline (SVG sparkline of WC results) ──────────────────────────
+function HistoryTimeline({ teamDetail }) {
+  if (!teamDetail?.tournaments || teamDetail.tournaments.length < 3) return null;
+
+  const tourneys = [...teamDetail.tournaments].reverse(); // chronological
+  const STAGE_SCORE = {
+    "冠军": 7, "亚军": 6, "季军赛": 5, "第四名": 4,
+    "四强": 5, "八强": 4, "十六强": 3, "第二轮小组赛": 2.5,
+    "小组赛": 2, "第一轮": 1, "第二轮": 2,
+  };
+
+  const points = tourneys.map((t) => ({
+    year: t.year,
+    stage: t.stage,
+    score: STAGE_SCORE[t.stage] || 1,
+  }));
+
+  const W = 360, H = 90;
+  const PAD = { t: 18, r: 16, b: 20, l: 16 };
+  const cW = W - PAD.l - PAD.r;
+  const cH = H - PAD.t - PAD.b;
+  const maxScore = 7;
+
+  const xp = (i) => PAD.l + (i / Math.max(points.length - 1, 1)) * cW;
+  const yp = (s) => PAD.t + cH - (s / maxScore) * cH;
+
+  const linePoints = points.map((p, i) => `${xp(i)},${yp(p.score)}`).join(" ");
+
+  const STAGE_COLOR = {
+    "冠军": "var(--amber)", "亚军": "var(--blue)", "季军赛": "#cd7f32",
+  };
+
+  return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      <div style={{
+        padding: "8px 12px", borderBottom: "1px solid var(--border)",
+        fontSize: 10, fontWeight: 700, color: "var(--text3)",
+        textTransform: "uppercase", letterSpacing: "0.06em",
+      }}>
+        世界杯成绩走势
+      </div>
+      <div style={{ padding: "8px 8px 4px" }}>
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+          {/* Grid lines */}
+          {[2, 4, 6].map((s) => (
+            <line key={s} x1={PAD.l} y1={yp(s)} x2={PAD.l + cW} y2={yp(s)}
+              stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+          ))}
+          {/* Stage labels */}
+          <text x={PAD.l - 2} y={yp(7) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">冠军</text>
+          <text x={PAD.l - 2} y={yp(4) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">八强</text>
+          <text x={PAD.l - 2} y={yp(2) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">小组</text>
+          {/* Line */}
+          <polyline points={linePoints} fill="none" stroke="var(--blue)"
+            strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round" opacity="0.7" />
+          {/* Dots */}
+          {points.map((p, i) => {
+            const dotColor = STAGE_COLOR[p.stage] || "var(--blue)";
+            const isSpecial = p.stage === "冠军" || p.stage === "亚军" || p.stage === "季军赛";
+            return (
+              <g key={p.year}>
+                <circle cx={xp(i)} cy={yp(p.score)} r={isSpecial ? 3.5 : 2.2}
+                  fill={dotColor} stroke="var(--bg)" strokeWidth="1" />
+                {/* Show year labels sparsely or for special results */}
+                {(isSpecial || i === 0 || i === points.length - 1 || i % Math.ceil(points.length / 6) === 0) && (
+                  <text x={xp(i)} y={H - 4} textAnchor="middle"
+                    fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="sans-serif">
+                    {String(p.year).slice(2)}
+                  </text>
+                )}
+                {isSpecial && (
+                  <text x={xp(i)} y={yp(p.score) - 6} textAnchor="middle"
+                    fill={dotColor} fontSize="7" fontWeight="700">
+                    {p.stage === "冠军" ? "🏆" : p.stage === "亚军" ? "🥈" : "🥉"}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 // ── W/D/L Stacked Bar ─────────────────────────────────────────────────────────
 function WDLBar({ w, d, l }) {
   const total = w + d + l;
@@ -382,7 +726,7 @@ function TeamProfileCard({ teamDetail }) {
 }
 
 // ── Tab: 概览 ─────────────────────────────────────────────────────────────────
-function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, teamDetail }) {
+function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, teamDetail, groupOpponentIsos, eloData, predData, eloTrends, teamIso }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: "12px 16px 20px" }}>
       {/* Team Profile Card (new) */}
@@ -442,6 +786,21 @@ function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, tea
           )}
         </div>
       )}
+
+      {/* Group opponents comparison */}
+      <GroupComparisonCards
+        teamElo={teamElo} teamPred={teamPred}
+        groupOpponentIsos={groupOpponentIsos} eloData={eloData} predData={predData}
+      />
+
+      {/* Group ELO trend comparison */}
+      <GroupEloChart
+        teamCode={teamElo?.code} groupOpponentIsos={groupOpponentIsos}
+        eloTrends={eloTrends} eloData={eloData}
+      />
+
+      {/* H2H vs group opponents */}
+      <H2HSection teamIso={teamIso} groupOpponentIsos={groupOpponentIsos} />
     </div>
   );
 }
@@ -593,6 +952,22 @@ function TournamentAccordion({ tournament }) {
                           ))}
                         </div>
                       )}
+                      {/* Venue info */}
+                      {m.venue && (
+                        <div style={{ marginTop: 2, paddingLeft: 56, fontSize: 9, color: "var(--text3)" }}>
+                          📍 {m.venue.stadium}{m.venue.city ? `, ${m.venue.city}` : ""}
+                        </div>
+                      )}
+                      {/* Substitutions */}
+                      {m.subs && m.subs.length > 0 && (
+                        <div style={{ marginTop: 2, paddingLeft: 56, display: "flex", flexWrap: "wrap", gap: 4 }}>
+                          {m.subs.map((s, si) => (
+                            <span key={si} style={{ fontSize: 9, color: "var(--text3)" }}>
+                              🔄 {s.playerOn} ← {s.playerOff} {s.minute}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -699,6 +1074,9 @@ function TabHistory({ historyData, teamElo, teamDetail }) {
         </div>
       )}
 
+      {/* History timeline visualization */}
+      <HistoryTimeline teamDetail={teamDetail} />
+
       {/* Tournament accordions */}
       {tournaments.length > 0 && (
         <>
@@ -776,7 +1154,7 @@ function TabHistory({ historyData, teamElo, teamDetail }) {
   );
 }
 
-// ── Tab: 阵容 (Enhanced with position colors + WC stats) ──────────────────────
+// ── Tab: 阵容 (Enhanced with photos, Chinese names, age, club, WC stats) ─────
 function TabSquad({ squadData, teamDetail }) {
   if (!squadData?.players?.length) return (
     <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无阵容数据</p>
@@ -825,23 +1203,67 @@ function TabSquad({ squadData, teamDetail }) {
             {byPosition[pos].map((p, i) => {
               const playerKey = p.name?.toLowerCase();
               const wcStats = topPlayersMap[playerKey];
+              const hasEnrichedData = p.image || p.nameZh || p.club;
               return (
                 <div key={p.id} style={{
-                  display: "flex", alignItems: "center", padding: "7px 12px", gap: 10,
+                  display: "flex", alignItems: "center", padding: hasEnrichedData ? "8px 12px" : "7px 12px", gap: 10,
                   borderBottom: i < byPosition[pos].length - 1 ? "1px solid var(--border)" : "none",
                 }}>
-                  <span style={{
-                    fontSize: 10, fontWeight: 700, color: "var(--text-dim)",
-                    width: 20, textAlign: "center", fontVariantNumeric: "tabular-nums",
-                  }}>
-                    {p.shirtNumber ?? "—"}
-                  </span>
-                  <span style={{ fontSize: 12, flex: 1, color: "var(--text)" }}>{p.name}</span>
+                  {/* Player photo or number */}
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      style={{
+                        width: 32, height: 32, borderRadius: "50%",
+                        objectFit: "cover", background: "var(--card2)",
+                        border: `2px solid ${POSITION_COLOR[pos] || "var(--border)"}`,
+                        flexShrink: 0,
+                      }}
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                  ) : (
+                    <span style={{
+                      fontSize: 10, fontWeight: 700, color: "var(--text-dim)",
+                      width: 32, height: 32, borderRadius: "50%",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      background: "var(--card2)", border: `2px solid ${POSITION_COLOR[pos] || "var(--border)"}`,
+                      fontVariantNumeric: "tabular-nums", flexShrink: 0,
+                    }}>
+                      {p.shirtNumber ?? "—"}
+                    </span>
+                  )}
+                  {/* Name + details */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                      {p.shirtNumber != null && p.image && (
+                        <span style={{ fontSize: 10, color: "var(--text-dim)", fontWeight: 700 }}>#{p.shirtNumber}</span>
+                      )}
+                      <span style={{ fontSize: 12, fontWeight: 500, color: "var(--text)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {p.nameZh || p.name}
+                      </span>
+                    </div>
+                    <div style={{ display: "flex", gap: 6, marginTop: 1, flexWrap: "wrap" }}>
+                      {p.nameZh && p.name && (
+                        <span style={{ fontSize: 10, color: "var(--text3)" }}>{p.name}</span>
+                      )}
+                      {p.age && (
+                        <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.age}岁</span>
+                      )}
+                      {p.height && (
+                        <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.height}cm</span>
+                      )}
+                      {p.club && (
+                        <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.club}</span>
+                      )}
+                    </div>
+                  </div>
+                  {/* WC stats badge */}
                   {wcStats && (
                     <span style={{
                       fontSize: 10, color: "var(--text-dim)",
                       background: "var(--card2)", borderRadius: 4, padding: "2px 6px",
-                      fontVariantNumeric: "tabular-nums",
+                      fontVariantNumeric: "tabular-nums", flexShrink: 0,
                     }}>
                       WC: {wcStats.apps}场 {wcStats.goals}球
                     </span>
@@ -1038,6 +1460,7 @@ export default function TeamPage() {
   const { data: historyData                             } = useTeamHistory(teamName);
   const { data: squadData                               } = useSquad(teamName);
   const { data: teamDetail                              } = useTeamDetail(teamName);
+  const { data: eloTrends                               } = useEloTrends();
 
   const teamElo = useMemo(() =>
     (eloData?.rankings || []).find(
@@ -1081,6 +1504,28 @@ export default function TeamPage() {
       (g) => g.group === `${group} 组` || g.group === `${group}组`
     );
   }, [fixturesData, group]);
+
+  // Group opponents (for H2H + comparison)
+  const [groupTeams, setGroupTeams] = useState([]);
+  useEffect(() => {
+    fetch("/data/wc2026-groups.json")
+      .then((r) => r.json())
+      .then((d) => {
+        for (const teams of Object.values(d)) {
+          if (teams.some((t) => t === teamName || t === (teamElo?.originalName || ""))) {
+            setGroupTeams(teams.filter((t) => t !== teamName && t !== (teamElo?.originalName || "") && t !== "TBD"));
+            return;
+          }
+        }
+      })
+      .catch(() => {});
+  }, [teamName, teamElo]);
+
+  const teamIso = teamElo?.code || nameToIso(teamName);
+  const groupOpponentIsos = useMemo(
+    () => groupTeams.map((t) => nameToIso(t)).filter(Boolean),
+    [groupTeams]
+  );
 
   const flag        = teamElo?.flag || "\uD83C\uDFF4";
   const displayName = teamElo?.name || teamName;
@@ -1169,6 +1614,11 @@ export default function TeamPage() {
                 teamElo={teamElo}
                 historyData={historyData}
                 teamDetail={teamDetail}
+                groupOpponentIsos={groupOpponentIsos}
+                eloData={eloData}
+                predData={predData}
+                eloTrends={eloTrends}
+                teamIso={teamIso}
               />
             )}
             {activeTab === "赛程" && (

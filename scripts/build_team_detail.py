@@ -6,6 +6,7 @@ Output: public/data/team-detail/{ISO}.json
 """
 import csv, json, io, os, urllib.request
 from collections import defaultdict
+from datetime import date
 
 BASE = "https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv"
 OUT  = os.path.join(os.path.dirname(__file__), "..", "public", "data", "team-detail")
@@ -157,6 +158,9 @@ bookings       = fetch_csv("bookings")
 group_stands   = fetch_csv("group_standings")
 teams_info     = fetch_csv("teams")
 player_apps    = fetch_csv("player_appearances")
+players_csv    = fetch_csv("players")
+subs_csv       = fetch_csv("substitutions")
+stadiums_csv   = fetch_csv("stadiums")
 
 print()
 
@@ -178,6 +182,70 @@ men_mgr_appts  = [m for m in mgr_appts if m["tournament_id"] in men_ids]
 men_bookings   = [b for b in bookings if b["tournament_id"] in men_ids]
 men_group_stands = [g for g in group_stands if g["tournament_id"] in men_ids]
 men_player_apps = [p for p in player_apps if p["tournament_id"] in men_ids]
+men_subs        = [s for s in subs_csv if s.get("tournament_id","") in men_ids]
+
+# ── Age calculation helper ─────────────────────────────────────────
+WC_START = date(2026, 6, 11)
+
+def calc_age(birth_date_str):
+    """Calculate age as of 2026-06-11. Returns int or None."""
+    if not birth_date_str or birth_date_str.strip() == "":
+        return None
+    try:
+        parts = birth_date_str.strip().split("-")
+        bd = date(int(parts[0]), int(parts[1]), int(parts[2]))
+        age = WC_START.year - bd.year - ((WC_START.month, WC_START.day) < (bd.month, bd.day))
+        return age if 15 <= age <= 90 else None
+    except (ValueError, IndexError):
+        return None
+
+# ── Players index: player_id → {birth_date, age} ──────────────────
+player_info = {}
+for p in players_csv:
+    pid = p.get("player_id", "")
+    if pid:
+        bd = p.get("birth_date", "")
+        player_info[pid] = {
+            "birth_date": bd if bd else None,
+            "age": calc_age(bd),
+        }
+
+# ── Stadiums index: stadium_id → {name, city, capacity} ───────────
+stadium_lookup = {}
+for s in stadiums_csv:
+    sid = s.get("stadium_id", "")
+    if sid:
+        cap = 0
+        try:
+            cap = int(s.get("stadium_capacity", 0) or 0)
+        except ValueError:
+            pass
+        stadium_lookup[sid] = {
+            "stadium": s.get("stadium_name", ""),
+            "city": s.get("city_name", ""),
+            "capacity": cap,
+        }
+
+# ── Substitutions by match_id + team_name ──────────────────────────
+subs_by_match_team = defaultdict(list)
+for s in men_subs:
+    mid = s.get("match_id", "")
+    team = s.get("team_name", "")
+    off_name = player_name({"given_name": s.get("given_name",""), "family_name": s.get("family_name","")})
+    # Determine minute display
+    minute_label = s.get("minute_label", "")
+    if not minute_label:
+        reg = s.get("minute_regulation", "")
+        stop = s.get("minute_stoppage", "")
+        if reg:
+            minute_label = f"{reg}+{stop}'" if stop and stop != "0" else f"{reg}'"
+    subs_by_match_team[(mid, team)].append({
+        "player_id": s.get("player_id", ""),
+        "name": off_name,
+        "minute": minute_label,
+        "going_off": s.get("going_off", "") == "1",
+        "coming_on": s.get("coming_on", "") == "1",
+    })
 
 # ── Build indexes ──────────────────────────────────────────────────
 
@@ -325,16 +393,23 @@ for team_name in sorted(all_teams):
 
     # ── Top players ──
     ps = player_stats_by_team.get(team_name, {})
-    top_players = sorted(ps.values(), key=lambda x: (-x["goals"], -x["apps"]))[:15]
     top_players_out = []
-    for p in top_players:
-        if p["apps"] > 0 or p["goals"] > 0:
-            top_players_out.append({
-                "name": p["name"],
-                "apps": p["apps"],
-                "goals": p["goals"],
-                "starts": p["starts"],
-            })
+    for pid_key, pdata in sorted(ps.items(), key=lambda x: (-x[1]["goals"], -x[1]["apps"])):
+        if len(top_players_out) >= 15:
+            break
+        if pdata["apps"] > 0 or pdata["goals"] > 0:
+            entry = {
+                "name": pdata["name"],
+                "apps": pdata["apps"],
+                "goals": pdata["goals"],
+                "starts": pdata["starts"],
+            }
+            info = player_info.get(pid_key, {})
+            if info.get("birth_date"):
+                entry["birthDate"] = info["birth_date"]
+            if info.get("age") is not None:
+                entry["age"] = info["age"]
+            top_players_out.append(entry)
 
     # ── Per-tournament detail ──
     tourn_details = []
@@ -394,7 +469,51 @@ for team_name in sorted(all_teams):
                     "ownGoal": g.get("own_goal") == "1",
                 })
 
-            matches_out.append({
+            # Venue info from stadiums.csv
+            venue = None
+            stadium_id = m.get("stadium_id", "")
+            if stadium_id and stadium_id in stadium_lookup:
+                venue = stadium_lookup[stadium_id]
+
+            # Substitutions: pair going_off and coming_on entries
+            match_subs_home = subs_by_match_team.get((mid, home), [])
+            match_subs_away = subs_by_match_team.get((mid, away), [])
+            all_match_subs = match_subs_home + match_subs_away
+            # Group subs by minute to pair off/on
+            subs_off = [s for s in all_match_subs if s["going_off"]]
+            subs_on = [s for s in all_match_subs if s["coming_on"]]
+            # Build paired substitution list
+            subs_out = []
+            # Match off/on by minute and team context (they share same minute)
+            paired_on = set()
+            for off_sub in subs_off:
+                # Find matching on sub with same minute
+                for i, on_sub in enumerate(subs_on):
+                    if i not in paired_on and on_sub["minute"] == off_sub["minute"]:
+                        subs_out.append({
+                            "playerOff": off_sub["name"],
+                            "playerOn": on_sub["name"],
+                            "minute": off_sub["minute"],
+                        })
+                        paired_on.add(i)
+                        break
+                else:
+                    # No matching on sub found, just record the off
+                    subs_out.append({
+                        "playerOff": off_sub["name"],
+                        "playerOn": "",
+                        "minute": off_sub["minute"],
+                    })
+            # Any unpaired coming_on subs
+            for i, on_sub in enumerate(subs_on):
+                if i not in paired_on:
+                    subs_out.append({
+                        "playerOff": "",
+                        "playerOn": on_sub["name"],
+                        "minute": on_sub["minute"],
+                    })
+
+            match_entry = {
                 "stage": m.get("stage_name",""),
                 "home": zh(home),
                 "away": zh(away),
@@ -404,7 +523,12 @@ for team_name in sorted(all_teams):
                 "pens": m.get("penalty_shootout") == "1",
                 "penScore": f"{m.get('home_team_score_penalties','')}-{m.get('away_team_score_penalties','')}" if m.get("penalty_shootout") == "1" else "",
                 "goals": match_goals,
-            })
+            }
+            if venue:
+                match_entry["venue"] = venue
+            if subs_out:
+                match_entry["subs"] = subs_out
+            matches_out.append(match_entry)
 
         # Squad for this tournament
         squad_rows = squads_by_tourn_team.get((tid, team_name), [])
@@ -423,11 +547,20 @@ for team_name in sorted(all_teams):
             except ValueError:
                 num = 0
 
-            squad_out.append({
+            squad_entry = {
                 "name": player_name(s),
                 "pos": pos_short,
                 "num": num,
-            })
+            }
+            # Add birth_date and age from players.csv
+            spid = s.get("player_id", "")
+            if spid and spid in player_info:
+                pinfo = player_info[spid]
+                if pinfo.get("birth_date"):
+                    squad_entry["birthDate"] = pinfo["birth_date"]
+                if pinfo.get("age") is not None:
+                    squad_entry["age"] = pinfo["age"]
+            squad_out.append(squad_entry)
 
         # Cards for this tournament
         cards = bookings_by_tourn_team.get((tid, team_name), {"yellow":0,"red":0})
