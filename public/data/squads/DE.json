@@ -6,266 +6,575 @@
       "id": 31837,
       "name": "Antonio Rüdiger ",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安东尼奥·吕迪格",
+      "dateOfBirth": "1993-03-03",
+      "age": 33,
+      "height": 190,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/31837.png",
+      "club": "Real Madrid"
     },
     {
       "id": 32738,
       "name": "Thilo Kehrer",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "蒂洛·科雷尔",
+      "dateOfBirth": "1996-09-21",
+      "age": 29,
+      "height": 186,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/32738.png",
+      "club": "Monaco"
     },
     {
       "id": 37316456,
       "name": "Nnamdi Collins",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "恩南迪·科林斯",
+      "dateOfBirth": "2004-01-10",
+      "age": 22,
+      "height": 188,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37316456.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 4536572,
       "name": "Angelo Stiller",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 斯蒂勒",
+      "dateOfBirth": "2001-04-04",
+      "age": 25,
+      "height": 183,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/4536572.png",
+      "club": "VfB Stuttgart"
     },
     {
       "id": 34594,
       "name": "Stefan Ortega",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "斯特凡·奥尔特加",
+      "dateOfBirth": "1992-11-06",
+      "age": 33,
+      "height": 185,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/34594.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 35364,
       "name": "Robin Koch",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗宾·科赫",
+      "dateOfBirth": "1996-07-17",
+      "age": 29,
+      "height": 192,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/35364.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 34880,
       "name": "Robert Andrich",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗伯特·安德里希",
+      "dateOfBirth": "1994-09-22",
+      "age": 31,
+      "height": 187,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/34880.png",
+      "club": "Bayer 04 Leverkusen"
     },
     {
       "id": 31284,
       "name": "Marc-André ter Stegen",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马克-安德烈·特尔施特根",
+      "dateOfBirth": "1992-04-30",
+      "age": 34,
+      "height": 187,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/31284.png",
+      "club": "Girona"
     },
     {
       "id": 3861835,
       "name": "Yann Bisseck",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "扬·比塞克",
+      "dateOfBirth": "2000-11-29",
+      "age": 25,
+      "height": 196,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/3861835.png",
+      "club": "Inter"
     },
     {
       "id": 25242,
       "name": "Robin Gosens",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "戈森斯",
+      "dateOfBirth": "1994-07-05",
+      "age": 31,
+      "height": 183,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/25242.png",
+      "club": "Fiorentina"
     },
     {
       "id": 41077,
       "name": "Deniz Undav",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D. 温达夫",
+      "dateOfBirth": "1996-07-19",
+      "age": 29,
+      "height": 179,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/41077.png",
+      "club": "VfB Stuttgart"
     },
     {
       "id": 23277923,
       "name": "Maximilian Beier",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马克西米连·贝尔",
+      "dateOfBirth": "2002-10-17",
+      "age": 23,
+      "height": 183,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/23277923.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 32585,
       "name": "Nadiem Amiri",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "纳迪姆·阿米里",
+      "dateOfBirth": "1996-10-27",
+      "age": 29,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/32585.png",
+      "club": "FSV Mainz 05"
     },
     {
       "id": 34987,
       "name": "Tim Kleindienst",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克莱因迪恩斯特",
+      "dateOfBirth": "1995-08-31",
+      "age": 30,
+      "height": 194,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/34987.png",
+      "club": "Borussia Mönchengladbach"
     },
     {
       "id": 33186829,
       "name": "Jamal Musiala",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "贾马尔·穆西亚拉",
+      "dateOfBirth": "2003-02-26",
+      "age": 23,
+      "height": 184,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/33186829.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 37709599,
       "name": "Said El Mala",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "赛义德·埃尔·马拉",
+      "dateOfBirth": "2006-08-26",
+      "age": 19,
+      "height": 183,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37709599.png",
+      "club": "FC Köln"
     },
     {
       "id": 4783,
       "name": "Leroy Sané",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "雷罗伊·萨内",
+      "dateOfBirth": "1996-01-11",
+      "age": 30,
+      "height": 183,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/4783.png",
+      "club": "Galatasaray"
     },
     {
       "id": 37645043,
       "name": "Assan Ouédraogo",
       "position": "MF",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "阿桑·韦德拉戈",
+      "dateOfBirth": "2006-05-09",
+      "age": 20,
+      "height": 191,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37645043.png",
+      "club": "RB Leipzig"
     },
     {
       "id": 32777430,
       "name": "Nick Woltemade",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "尼克·沃尔特马德",
+      "dateOfBirth": "2002-02-14",
+      "age": 24,
+      "height": 198,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/32777430.png",
+      "club": "Newcastle United"
     },
     {
       "id": 37538035,
       "name": "Nathaniel Brown",
       "position": "DF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "纳撒尼尔·布朗",
+      "dateOfBirth": "2003-06-16",
+      "age": 22,
+      "height": 176,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37538035.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 2483333,
       "name": "Ridle Baku",
       "position": "DF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "里德尔·巴库",
+      "dateOfBirth": "1998-04-08",
+      "age": 28,
+      "height": 176,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/2483333.png",
+      "club": "RB Leipzig"
     },
     {
       "id": 37582044,
       "name": "Aleksandar Pavlovic",
       "position": "MF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "A. 帕夫洛维奇",
+      "dateOfBirth": "2004-05-03",
+      "age": 22,
+      "height": 188,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37582044.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 6306127,
       "name": "Felix Nmecha",
       "position": "MF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "菲利克斯·菲尼斯",
+      "dateOfBirth": "2000-10-10",
+      "age": 25,
+      "height": 190,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/6306127.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 31824,
       "name": "Leon Goretzka",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "莱昂·格雷茨卡",
+      "dateOfBirth": "1995-02-06",
+      "age": 31,
+      "height": 189,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/31824.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 37429246,
       "name": "Florian Wirtz",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "弗洛里安·维尔茨",
+      "dateOfBirth": "2003-05-03",
+      "age": 23,
+      "height": 177,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37429246.png",
+      "club": "Liverpool"
     },
     {
       "id": 3862683,
       "name": "Jonathan Burkardt",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "乔纳森·布尔卡特",
+      "dateOfBirth": "2000-07-11",
+      "age": 25,
+      "height": 181,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/3862683.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 31504,
       "name": "Pascal Groß",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "P. 格罗斯",
+      "dateOfBirth": "1991-06-15",
+      "age": 34,
+      "height": 181,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/31504.png",
+      "club": "Brighton & Hove Albion"
     },
     {
       "id": 31532,
       "name": "Niclas Füllkrug",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "尼克拉斯·福尔克鲁格",
+      "dateOfBirth": "1993-02-09",
+      "age": 33,
+      "height": 189,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/31532.png",
+      "club": "AC Milan"
     },
     {
       "id": 36119,
       "name": "David Raum",
       "position": "DF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "大卫·劳姆",
+      "dateOfBirth": "1998-04-22",
+      "age": 28,
+      "height": 181,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/36119.png",
+      "club": "RB Leipzig"
     },
     {
       "id": 12426453,
       "name": "Jamie Leweling",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "J. 勒韦林",
+      "dateOfBirth": "2001-02-26",
+      "age": 25,
+      "height": 185,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/12426453.png",
+      "club": "VfB Stuttgart"
     },
     {
       "id": 21762216,
       "name": "Malick Thiaw",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "蒂奥",
+      "dateOfBirth": "2001-08-08",
+      "age": 24,
+      "height": 194,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/21762216.png",
+      "club": "Newcastle United"
     },
     {
       "id": 27067062,
       "name": "Kevin Schade",
       "position": "FW",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "K. 沙德",
+      "dateOfBirth": "2001-11-27",
+      "age": 24,
+      "height": 185,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/27067062.png",
+      "club": "Brentford"
     },
     {
       "id": 15040126,
       "name": "Karim Adeyemi",
       "position": "FW",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "卡里姆·阿德耶米",
+      "dateOfBirth": "2002-01-18",
+      "age": 24,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/15040126.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 2483331,
       "name": "Finn Dahmen",
       "position": "GK",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "芬恩·达门",
+      "dateOfBirth": "1998-03-27",
+      "age": 28,
+      "height": 186,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/2483331.png",
+      "club": "FC Augsburg"
     },
     {
       "id": 3862352,
       "name": "Nico Schlotterbeck",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "尼科·施洛特贝克",
+      "dateOfBirth": "1999-12-01",
+      "age": 26,
+      "height": 191,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/3862352.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 32728,
       "name": "Waldemar Anton",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "瓦尔德马尔·安东",
+      "dateOfBirth": "1996-07-20",
+      "age": 29,
+      "height": 189,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/32728.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 32384,
       "name": "Maximilian Mittelstädt",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 米特尔施泰特",
+      "dateOfBirth": "1997-03-18",
+      "age": 29,
+      "height": 180,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/32384.png",
+      "club": "VfB Stuttgart"
     },
     {
       "id": 27066712,
       "name": "Paul Nebel",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "保罗·内贝尔",
+      "dateOfBirth": "2002-10-10",
+      "age": 23,
+      "height": 169,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/27066712.png",
+      "club": "FSV Mainz 05"
     },
     {
       "id": 37582217,
       "name": "Tom Bischof",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "汤姆·毕肖夫",
+      "dateOfBirth": "2005-06-28",
+      "age": 20,
+      "height": 176,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/37582217.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 942,
       "name": "Serge Gnabry",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "格纳布里",
+      "dateOfBirth": "1995-07-14",
+      "age": 30,
+      "height": 176,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/942.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 31146,
       "name": "Oliver Baumann",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "O. 鲍曼",
+      "dateOfBirth": "1990-06-02",
+      "age": 36,
+      "height": 187,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/31146.png",
+      "club": "TSG Hoffenheim"
     },
     {
       "id": 31836,
       "name": "Jonathan Tah",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "乔纳森·塔赫",
+      "dateOfBirth": "1996-02-11",
+      "age": 30,
+      "height": 195,
+      "weight": 94,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/31836.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 32362,
       "name": "Joshua Kimmich",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "基米希",
+      "dateOfBirth": "1995-02-08",
+      "age": 31,
+      "height": 177,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/32362.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 32550,
       "name": "Alexander Nübel",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "A. 努贝尔",
+      "dateOfBirth": "1996-09-30",
+      "age": 29,
+      "height": 193,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/32550.png",
+      "club": "VfB Stuttgart"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:36:45.558Z"
 }

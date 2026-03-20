@@ -6,332 +6,718 @@
       "id": 13186102,
       "name": "Yu-Min Cho",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "조유민",
+      "dateOfBirth": "1996-11-17",
+      "age": 29,
+      "height": 182,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/13186102.png",
+      "club": "Al Sharjah"
     },
     {
       "id": 320714,
       "name": "Chang-geun Lee",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "李昌根",
+      "dateOfBirth": "1993-08-30",
+      "age": 32,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/320714.png",
+      "club": "Daejeon Citizen"
     },
     {
       "id": 37620389,
       "name": "Jae-won Hwang",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "黄宰元",
+      "dateOfBirth": "2002-08-16",
+      "age": 23,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/37620389.png",
+      "club": "Daegu"
     },
     {
       "id": 37563553,
       "name": "Bong-soo Kim",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "金奉洙",
+      "dateOfBirth": "1999-12-26",
+      "age": 26,
+      "height": 182,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37563553.png",
+      "club": "Daejeon Citizen"
     },
     {
       "id": 191273,
       "name": "Seon-min Moon",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "文宣民",
+      "dateOfBirth": "1992-06-09",
+      "age": 34,
+      "height": 172,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/191273.png",
+      "club": "Seoul"
     },
     {
       "id": 12109880,
       "name": "Se-hun Oh",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吴世勋",
+      "dateOfBirth": "1999-01-15",
+      "age": 27,
+      "height": 193,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/12109880.png",
+      "club": "Shimizu S-Pulse"
     },
     {
       "id": 307771,
       "name": "Kyung-won Kwon",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "权敬元",
+      "dateOfBirth": "1992-01-31",
+      "age": 34,
+      "height": 188,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/307771.png",
+      "club": "Anyang"
     },
     {
       "id": 321093,
       "name": "In-beom Hwang ",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "仁范",
+      "dateOfBirth": "1996-09-20",
+      "age": 29,
+      "height": 177,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/321093.png",
+      "club": "Feyenoord"
     },
     {
       "id": 37700504,
       "name": "Minhyeok Yang",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杨敏赫",
+      "dateOfBirth": "2006-04-16",
+      "age": 20,
+      "height": 172,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37700504.png",
+      "club": "Coventry City"
     },
     {
       "id": 323785,
       "name": "Min-kyu Joo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "朱敏奎",
+      "dateOfBirth": "1990-04-13",
+      "age": 36,
+      "height": 183,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/323785.png",
+      "club": "Daejeon Citizen"
     },
     {
       "id": 24444971,
       "name": "Jun Choi",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "崔俊",
+      "dateOfBirth": "1999-04-17",
+      "age": 27,
+      "height": 177,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/24444971.png",
+      "club": "Seoul"
     },
     {
       "id": 37563550,
       "name": "Hyun-jun Yang",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杨贤俊",
+      "dateOfBirth": "2002-05-25",
+      "age": 24,
+      "height": 179,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37563550.png",
+      "club": "Celtic"
     },
     {
       "id": 31626482,
       "name": "Gue-sung Cho",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "曹圭成",
+      "dateOfBirth": "1998-01-25",
+      "age": 28,
+      "height": 189,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/31626482.png",
+      "club": "FC Midtjylland"
     },
     {
       "id": 29311996,
       "name": "Kim Dong-Heon",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "金东炫",
+      "dateOfBirth": "1997-03-03",
+      "age": 29,
+      "height": 186,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/29311996.png",
+      "club": "Incheon United"
     },
     {
       "id": 37528761,
       "name": "Jens Castrop",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "J. 卡斯特罗普",
+      "dateOfBirth": "2003-07-29",
+      "age": 22,
+      "height": 178,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37528761.png",
+      "club": "Borussia Mönchengladbach"
     },
     {
       "id": 37420362,
       "name": "Hyun-taek Cho",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "曹贤泽",
+      "dateOfBirth": "2001-08-02",
+      "age": 24,
+      "height": 182,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37420362.png",
+      "club": "Ulsan HD"
     },
     {
       "id": 37342718,
       "name": "Han-beom Lee",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "李翰範",
+      "dateOfBirth": "2002-06-17",
+      "age": 23,
+      "height": 190,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37342718.png",
+      "club": "FC Midtjylland"
     },
     {
       "id": 11711899,
       "name": "Bum-keun Song",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "宋凡根",
+      "dateOfBirth": "1997-10-15",
+      "age": 28,
+      "height": 196,
+      "weight": 93,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/11711899.png",
+      "club": "Jeonbuk Motors"
     },
     {
       "id": 322964,
       "name": "Min-jae Kim",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "金珉载",
+      "dateOfBirth": "1996-11-15",
+      "age": 29,
+      "height": 190,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/322964.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 461590,
       "name": "Jin-seob Park",
       "position": "MF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "朴镇燮",
+      "dateOfBirth": "1995-10-23",
+      "age": 30,
+      "height": 182,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/461590.png",
+      "club": "Zhejiang"
     },
     {
       "id": 310020,
       "name": "Myung-jae Lee",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "李明宰",
+      "dateOfBirth": "1993-11-04",
+      "age": 32,
+      "height": 181,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/310020.png",
+      "club": "Daejeon Citizen"
     },
     {
       "id": 608280,
       "name": "Moon-hwan Kim",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "金文煥",
+      "dateOfBirth": "1995-08-01",
+      "age": 30,
+      "height": 173,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/608280.png",
+      "club": "Daejeon Citizen"
     },
     {
       "id": 310145,
       "name": "Seung-gyu Kim",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "金升圭",
+      "dateOfBirth": "1990-09-30",
+      "age": 35,
+      "height": 187,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/310145.png",
+      "club": "FC Tokyo"
     },
     {
       "id": 9967153,
       "name": "Kang-in Lee",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "李刚仁",
+      "dateOfBirth": "2001-02-19",
+      "age": 25,
+      "height": 173,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/9967153.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 37621326,
       "name": "Jun-ho Bae",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "白俊浩",
+      "dateOfBirth": "2003-08-21",
+      "age": 22,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/37621326.png",
+      "club": "Stoke City"
     },
     {
       "id": 37627277,
       "name": "Ji-soo Kim",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "金志秀",
+      "dateOfBirth": "2004-12-24",
+      "age": 21,
+      "height": 192,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37627277.png",
+      "club": "Kaiserslautern"
     },
     {
       "id": 37342720,
       "name": "Tae-seok Lee",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "李泰硕",
+      "dateOfBirth": "2002-07-28",
+      "age": 23,
+      "height": 177,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/37342720.png",
+      "club": "Austria Wien"
     },
     {
       "id": 37342723,
       "name": "Ji-sung Eom",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "崔智成",
+      "dateOfBirth": "2002-05-09",
+      "age": 24,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37342723.png",
+      "club": "Swansea City"
     },
     {
       "id": 18219425,
       "name": "Tae-hyeon Kim",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "金泰炫",
+      "dateOfBirth": "1996-12-19",
+      "age": 29,
+      "height": 173,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/18219425.png",
+      "club": "Jeonbuk Motors"
     },
     {
       "id": 2178924,
       "name": "Won Du-Jae",
       "position": "MF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "元度载",
+      "dateOfBirth": "1997-11-18",
+      "age": 28,
+      "height": 187,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Khorfakkan Club"
     },
     {
       "id": 37295947,
       "name": "Hyeok-kyu Kwon",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "权赫奎",
+      "dateOfBirth": "2001-03-13",
+      "age": 25,
+      "height": 190,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37295947.png",
+      "club": "Karlsruher SC"
     },
     {
       "id": 37342730,
       "name": "Sang-bin Jeong",
       "position": "FW",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "郑相彬",
+      "dateOfBirth": "2002-04-01",
+      "age": 24,
+      "height": 175,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "St. Louis City"
     },
     {
       "id": 37561719,
       "name": "Ho-jae Lee",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "李浩宰",
+      "dateOfBirth": "2000-10-14",
+      "age": 25,
+      "height": 192,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37561719.png",
+      "club": "Pohang Steelers"
     },
     {
       "id": 37679585,
       "name": "Myeong-kwan Seo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "徐明宽",
+      "dateOfBirth": "2002-11-23",
+      "age": 23,
+      "height": 186,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37679585.png",
+      "club": "Ulsan HD"
     },
     {
       "id": 37677375,
       "name": "Seung-won Lee",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "李承園",
+      "dateOfBirth": "2003-03-06",
+      "age": 23,
+      "height": 174,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37677375.png",
+      "club": "Gangwon"
     },
     {
       "id": 29763086,
       "name": "Kim Tae-Hyeon",
       "position": "DF",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "金泰贤",
+      "dateOfBirth": "2000-09-17",
+      "age": 25,
+      "height": 186,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/29763086.png",
+      "club": "Kashima Antlers"
     },
     {
       "id": 37474580,
       "name": "Min-woo Seo",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "徐敏宇",
+      "dateOfBirth": "1998-03-12",
+      "age": 28,
+      "height": 184,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37474580.png",
+      "club": "Gangwon"
     },
     {
       "id": 37627249,
       "name": "Sang-yun Kang",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "康尚勇",
+      "dateOfBirth": "2004-05-31",
+      "age": 22,
+      "height": 171,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37627249.png",
+      "club": "Jeonbuk Motors"
     },
     {
       "id": 13186239,
       "name": "Dong-gyeong Lee",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "李东京",
+      "dateOfBirth": "1997-09-20",
+      "age": 28,
+      "height": 175,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/13186239.png",
+      "club": "Ulsan HD"
     },
     {
       "id": 751169,
       "name": "Sang-ho Na",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗相镐",
+      "dateOfBirth": "1996-08-12",
+      "age": 29,
+      "height": 173,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/751169.png",
+      "club": "Machida Zelvia"
     },
     {
       "id": 37527001,
       "name": "Jun-soo Byeon",
       "position": "DF",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "卞俊秀",
+      "dateOfBirth": "2001-11-30",
+      "age": 24,
+      "height": 190,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37527001.png",
+      "club": "Gimcheon Sangmu"
     },
     {
       "id": 781632,
       "name": "Jae-hyeon Mo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "莫在賢",
+      "dateOfBirth": "1996-09-24",
+      "age": 29,
+      "height": 184,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/781632.png",
+      "club": "Gangwon"
     },
     {
       "id": 320953,
       "name": "Jin-gyu Kim",
       "position": "MF",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "金圭秉",
+      "dateOfBirth": "1997-02-24",
+      "age": 29,
+      "height": 177,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/320953.png",
+      "club": "Jeonbuk Motors"
     },
     {
       "id": 787556,
       "name": "Seung-Won Jeong",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "郑昇元",
+      "dateOfBirth": "1997-02-27",
+      "age": 29,
+      "height": 173,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Seoul"
     },
     {
       "id": 11322970,
       "name": "Jin-woo Jeon",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "全振宇",
+      "dateOfBirth": "1999-09-09",
+      "age": 26,
+      "height": 181,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/11322970.png",
+      "club": "Oxford United"
     },
     {
       "id": 320899,
       "name": "Park Yong-Woo",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "朴勇宇",
+      "dateOfBirth": "1993-09-10",
+      "age": 32,
+      "height": 188,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/320899.png",
+      "club": "Al Ain"
     },
     {
       "id": 32404602,
       "name": "Seung-wook Park",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "朴承旭",
+      "dateOfBirth": "1997-05-07",
+      "age": 29,
+      "height": 184,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/32404602.png",
+      "club": "Shimizu S-Pulse"
     },
     {
       "id": 29735915,
       "name": "Hyeon-gyu Oh",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "吴贤奎",
+      "dateOfBirth": "2001-04-12",
+      "age": 25,
+      "height": 187,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/29735915.png",
+      "club": "Beşiktaş"
     },
     {
       "id": 320838,
       "name": "Jae-sung Lee",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "李在成",
+      "dateOfBirth": "1992-08-10",
+      "age": 33,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/320838.png",
+      "club": "FSV Mainz 05"
     },
     {
       "id": 37420363,
       "name": "Young-woo Seol",
       "position": "DF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "薛英佑",
+      "dateOfBirth": "1998-12-05",
+      "age": 27,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37420363.png",
+      "club": "Crvena Zvezda"
     },
     {
       "id": 4313,
       "name": "Heung-min Son",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "孙兴慜",
+      "dateOfBirth": "1992-07-08",
+      "age": 33,
+      "height": 184,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/4313.png",
+      "club": "Los Angeles FC"
     },
     {
       "id": 52868,
       "name": "Hee-chan Hwang",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "黄喜灿",
+      "dateOfBirth": "1996-01-26",
+      "age": 30,
+      "height": 177,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/52868.png",
+      "club": "Wolverhampton Wanderers"
     },
     {
       "id": 320844,
       "name": "Hyeon-woo Jo",
       "position": "GK",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "赵贤祐",
+      "dateOfBirth": "1991-09-25",
+      "age": 34,
+      "height": 189,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/320844.png",
+      "club": "Ulsan HD"
     },
     {
       "id": 448422,
       "name": "Seung-ho Paik",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "白昇浩",
+      "dateOfBirth": "1997-03-17",
+      "age": 29,
+      "height": 177,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/448422.png",
+      "club": "Birmingham City"
     },
     {
       "id": 29723379,
       "name": "Ju-sung Kim",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "金裕城",
+      "dateOfBirth": "2000-12-12",
+      "age": 25,
+      "height": 186,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/29723379.png",
+      "club": "Sanfrecce Hiroshima"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.670Z"
+  "fetchedAt": "2026-03-19T16:42:17.670Z",
+  "enrichedAt": "2026-03-20T14:49:28.567Z"
 }

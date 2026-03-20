@@ -6,362 +6,783 @@
       "id": 1494698,
       "name": "Marlon Fossey",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马龙·福西",
+      "dateOfBirth": "1998-09-09",
+      "age": 27,
+      "height": 179,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/1494698.png",
+      "club": "Standard Liège"
     },
     {
       "id": 262324,
       "name": "Tyler Adams",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "泰勒·亚当斯",
+      "dateOfBirth": "1999-02-14",
+      "age": 27,
+      "height": 175,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/262324.png",
+      "club": "AFC Bournemouth"
     },
     {
       "id": 1712,
       "name": "Cameron Carter-Vickers",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡梅伦·卡特-维克斯",
+      "dateOfBirth": "1997-12-31",
+      "age": 28,
+      "height": 183,
+      "weight": 92,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/1712.png",
+      "club": "Celtic"
     },
     {
       "id": 31626030,
       "name": "DeJuan Jones",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "德琼·琼斯",
+      "dateOfBirth": "1997-06-24",
+      "age": 28,
+      "height": 175,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/31626030.png",
+      "club": "SJ Earthquakes"
     },
     {
       "id": 18218609,
       "name": "Chris Richards",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯·理查兹",
+      "dateOfBirth": "2000-03-28",
+      "age": 26,
+      "height": 188,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/18218609.png",
+      "club": "Crystal Palace"
     },
     {
       "id": 262551,
       "name": "Matt Turner",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马特·特纳",
+      "dateOfBirth": "1994-06-24",
+      "age": 31,
+      "height": 191,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/262551.png",
+      "club": "New England"
     },
     {
       "id": 448320,
       "name": "Shaq Moore",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "沙克·摩尔",
+      "dateOfBirth": "1996-11-02",
+      "age": 29,
+      "height": 180,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/448320.png",
+      "club": "Dallas"
     },
     {
       "id": 37261342,
       "name": "Johnny Cardoso",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "J. 卡多索",
+      "dateOfBirth": "2001-09-20",
+      "age": 24,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37261342.png",
+      "club": "Atlético Madrid"
     },
     {
       "id": 1548470,
       "name": "James Sands",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "詹姆斯·桑兹",
+      "dateOfBirth": "2000-07-06",
+      "age": 25,
+      "height": 186,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/1548470.png",
+      "club": "St. Pauli"
     },
     {
       "id": 537332,
       "name": "Timothy Weah",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "蒂莫西·韦阿",
+      "dateOfBirth": "2000-02-22",
+      "age": 26,
+      "height": 183,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/537332.png",
+      "club": "Olympique Marseille"
     },
     {
       "id": 32013799,
       "name": "Nathan Harriel",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "内森·哈里尔",
+      "dateOfBirth": "2001-04-23",
+      "age": 25,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/32013799.png",
+      "club": "Philadelphia Union"
     },
     {
       "id": 28575698,
       "name": "Yunus Musah",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆萨",
+      "dateOfBirth": "2002-11-29",
+      "age": 23,
+      "height": 178,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/28575698.png",
+      "club": "Atalanta"
     },
     {
       "id": 255002,
       "name": "Álex Zendejas",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚历克斯·赞德哈斯",
+      "dateOfBirth": "1998-02-07",
+      "age": 28,
+      "height": 167,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/255002.png",
+      "club": "América"
     },
     {
       "id": 608189,
       "name": "Weston McKennie",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "韦斯顿·麦肯尼",
+      "dateOfBirth": "1998-08-28",
+      "age": 27,
+      "height": 183,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/608189.png",
+      "club": "Juventus"
     },
     {
       "id": 12371879,
       "name": "Brian White",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布赖恩·怀特",
+      "dateOfBirth": "1996-02-03",
+      "age": 30,
+      "height": 180,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/12371879.png",
+      "club": "Vancouver Whitecaps"
     },
     {
       "id": 23277869,
       "name": "Malik Tillman",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马利克·蒂尔曼",
+      "dateOfBirth": "2002-05-28",
+      "age": 24,
+      "height": 187,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/23277869.png",
+      "club": "Bayer 04 Leverkusen"
     },
     {
       "id": 474429,
       "name": "Jonathan Klinsmann",
       "position": "GK",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "克林斯曼",
+      "dateOfBirth": "1997-04-08",
+      "age": 29,
+      "height": 195,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/474429.png",
+      "club": "Cesena"
     },
     {
       "id": 37525731,
       "name": "Paxten Aaronson",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "帕克斯顿·阿龙森",
+      "dateOfBirth": "2003-08-26",
+      "age": 22,
+      "height": 175,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37525731.png",
+      "club": "Colorado Rapids"
     },
     {
       "id": 22514444,
       "name": "John Tolkin",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "约翰·托尔金",
+      "dateOfBirth": "2002-07-31",
+      "age": 23,
+      "height": 170,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/22514444.png",
+      "club": "Holstein Kiel"
     },
     {
       "id": 4969702,
       "name": "Folarin Balogun",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "福拉林·巴洛贡",
+      "dateOfBirth": "2001-07-03",
+      "age": 24,
+      "height": 178,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/4969702.png",
+      "club": "Monaco"
     },
     {
       "id": 37451396,
       "name": "Brian Gutiérrez",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布赖恩·古铁雷斯",
+      "dateOfBirth": "2003-06-17",
+      "age": 22,
+      "height": 178,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/37451396.png",
+      "club": "Guadalajara"
     },
     {
       "id": 47285,
       "name": "Zack Steffen",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "扎克·斯特芬",
+      "dateOfBirth": "1995-04-02",
+      "age": 31,
+      "height": 191,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/47285.png",
+      "club": "Colorado Rapids"
     },
     {
       "id": 32438,
       "name": "Christian Pulisic",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "普利西奇",
+      "dateOfBirth": "1998-09-18",
+      "age": 27,
+      "height": 177,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/32438.png",
+      "club": "AC Milan"
     },
     {
       "id": 33187441,
       "name": "Ricardo Pepi",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "里卡多·佩皮",
+      "dateOfBirth": "2003-01-09",
+      "age": 23,
+      "height": 185,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/33187441.png",
+      "club": "PSV"
     },
     {
       "id": 281527,
       "name": "Mark McKenzie",
       "position": "DF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "马克·麦肯齐",
+      "dateOfBirth": "1999-02-25",
+      "age": 27,
+      "height": 184,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/281527.png",
+      "club": "Toulouse"
     },
     {
       "id": 17158438,
       "name": "Joe Scally",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "乔·斯卡利",
+      "dateOfBirth": "2002-12-31",
+      "age": 23,
+      "height": 184,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/17158438.png",
+      "club": "Borussia Mönchengladbach"
     },
     {
       "id": 37623379,
       "name": "Alex Freeman",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "亚历克斯·弗里曼",
+      "dateOfBirth": "2004-08-09",
+      "age": 21,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37623379.png",
+      "club": "Villarreal"
     },
     {
       "id": 37689167,
       "name": "Emeka Eneli",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃梅卡·埃内利",
+      "dateOfBirth": "1999-10-18",
+      "age": 26,
+      "height": 175,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37689167.png",
+      "club": "Real Salt Lake"
     },
     {
       "id": 37448754,
       "name": "Jack McGlynn ",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杰克",
+      "dateOfBirth": "2003-07-07",
+      "age": 22,
+      "height": 183,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37448754.png",
+      "club": "Houston Dynamo"
     },
     {
       "id": 8333,
       "name": "Luca de la Torre",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "德拉托雷",
+      "dateOfBirth": "1998-05-23",
+      "age": 28,
+      "height": 178,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/8333.png",
+      "club": "Charlotte"
     },
     {
       "id": 37625843,
       "name": "Max Arfsten",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "马克斯·阿夫斯滕",
+      "dateOfBirth": "2001-04-19",
+      "age": 25,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37625843.png",
+      "club": "Columbus Crew"
     },
     {
       "id": 5640884,
       "name": "Josh Sargent",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔什·萨金特",
+      "dateOfBirth": "2000-02-20",
+      "age": 26,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/5640884.png",
+      "club": "Toronto"
     },
     {
       "id": 785896,
       "name": "Matt Freese",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "马特·弗里斯",
+      "dateOfBirth": "1998-09-02",
+      "age": 27,
+      "height": 193,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/785896.png",
+      "club": "New York City"
     },
     {
       "id": 787350,
       "name": "Tristan Blackmon",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "特里斯坦·布莱克蒙",
+      "dateOfBirth": "1996-08-12",
+      "age": 29,
+      "height": 189,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/787350.png",
+      "club": "Vancouver Whitecaps"
     },
     {
       "id": 17177615,
       "name": "George Campbell",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔治·坎贝尔",
+      "dateOfBirth": "2001-06-22",
+      "age": 24,
+      "height": 188,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/17177615.png",
+      "club": "West Bromwich Albion"
     },
     {
       "id": 262179,
       "name": "Cristian Roldán",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "克里斯蒂安·罗丹",
+      "dateOfBirth": "1995-06-03",
+      "age": 31,
+      "height": 173,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/262179.png",
+      "club": "Seattle Sounders"
     },
     {
       "id": 37407279,
       "name": "Sebastian Berhalter",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "塞巴斯蒂安·伯哈尔特",
+      "dateOfBirth": "2001-05-10",
+      "age": 25,
+      "height": 175,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37407279.png",
+      "club": "Vancouver Whitecaps"
     },
     {
       "id": 37527137,
       "name": "Chris Brady",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯·布雷迪",
+      "dateOfBirth": "2004-03-03",
+      "age": 22,
+      "height": 190,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37527137.png",
+      "club": "Chicago Fire"
     },
     {
       "id": 262076,
       "name": "Walker Zimmerman",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "沃克·齐默尔曼",
+      "dateOfBirth": "1993-05-19",
+      "age": 33,
+      "height": 190,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/262076.png",
+      "club": "Toronto"
     },
     {
       "id": 37650095,
       "name": "Noahkai Banks",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "诺亚凯·班克斯",
+      "dateOfBirth": "2006-12-01",
+      "age": 19,
+      "height": 193,
+      "weight": 93,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37650095.png",
+      "club": "FC Augsburg"
     },
     {
       "id": 27081112,
       "name": "Tanner Tessmann",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "坦纳·泰斯曼",
+      "dateOfBirth": "2001-09-24",
+      "age": 24,
+      "height": 188,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/27081112.png",
+      "club": "Olympique Lyonnais"
     },
     {
       "id": 5640883,
       "name": "Indiana Vassilev",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "印第安纳·瓦西莱夫",
+      "dateOfBirth": "2001-02-16",
+      "age": 25,
+      "height": 175,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/5640883.png",
+      "club": "Philadelphia Union"
     },
     {
       "id": 37525729,
       "name": "Quinn Sullivan ",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "昆恩",
+      "dateOfBirth": "2004-03-27",
+      "age": 22,
+      "height": 180,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37525729.png",
+      "club": "Philadelphia Union"
     },
     {
       "id": 37436336,
       "name": "Caden Clark",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡登·克拉克",
+      "dateOfBirth": "2003-05-27",
+      "age": 23,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/37436336.png",
+      "club": "DC United"
     },
     {
       "id": 25591385,
       "name": "Matko Miljevic",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 米利耶维奇",
+      "dateOfBirth": "2001-05-09",
+      "age": 25,
+      "height": 176,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/25591385.png",
+      "club": "Racing Club"
     },
     {
       "id": 37625886,
       "name": "Benja Cremaschi",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "本贾·克雷马斯基",
+      "dateOfBirth": "2005-03-02",
+      "age": 21,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37625886.png",
+      "club": "Parma"
     },
     {
       "id": 37592316,
       "name": "Damion Downs",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "达米恩·唐斯",
+      "dateOfBirth": "2004-07-06",
+      "age": 21,
+      "height": 192,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37592316.png",
+      "club": "Hamburger SV"
     },
     {
       "id": 1109,
       "name": "Patrick Agyemang",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "帕特里克·阿杰曼",
+      "dateOfBirth": "2000-11-07",
+      "age": 25,
+      "height": 193,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/1109.png",
+      "club": "Derby County"
     },
     {
       "id": 4552689,
       "name": "Brenden Aaronson",
       "position": "MF",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "B. 阿隆森",
+      "dateOfBirth": "2000-10-22",
+      "age": 25,
+      "height": 177,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/4552689.png",
+      "club": "Leeds United"
     },
     {
       "id": 20335123,
       "name": "Patrick Schulte",
       "position": "GK",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "帕特里克·舒尔特",
+      "dateOfBirth": "2001-03-13",
+      "age": 25,
+      "height": 193,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/20335123.png",
+      "club": "Columbus Crew"
     },
     {
       "id": 34432365,
       "name": "Giovanni Reyna",
       "position": "MF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "乔瓦尼·雷纳",
+      "dateOfBirth": "2002-11-13",
+      "age": 23,
+      "height": 187,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/34432365.png",
+      "club": "Borussia Mönchengladbach"
     },
     {
       "id": 37569242,
       "name": "Diego Luna",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "迭戈·卢纳",
+      "dateOfBirth": "2003-09-07",
+      "age": 22,
+      "height": 173,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/37569242.png",
+      "club": "Real Salt Lake"
     },
     {
       "id": 5640878,
       "name": "Sergiño Dest",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "塞尔吉诺·德斯特",
+      "dateOfBirth": "2000-11-03",
+      "age": 25,
+      "height": 173,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/5640878.png",
+      "club": "PSV"
     },
     {
       "id": 262280,
       "name": "Auston Trusty",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "A. 特鲁斯蒂",
+      "dateOfBirth": "1998-08-12",
+      "age": 27,
+      "height": 190,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/262280.png",
+      "club": "Celtic"
     },
     {
       "id": 608242,
       "name": "Miles Robinson",
       "position": "DF",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "迈尔斯·罗宾逊",
+      "dateOfBirth": "1997-03-14",
+      "age": 29,
+      "height": 188,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/608242.png",
+      "club": "Cincinnati"
     },
     {
       "id": 37614804,
       "name": "Roman Celentano",
       "position": "GK",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "罗曼·塞伦塔诺",
+      "dateOfBirth": "2000-09-14",
+      "age": 25,
+      "height": 191,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37614804.png",
+      "club": "Cincinnati"
     },
     {
       "id": 25548700,
       "name": "Aidan Morris",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "艾丹·莫里斯",
+      "dateOfBirth": "2001-11-16",
+      "age": 24,
+      "height": 175,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/25548700.png",
+      "club": "Middlesbrough"
     },
     {
       "id": 263186,
       "name": "Haji Wright",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "哈吉·赖特",
+      "dateOfBirth": "1998-03-27",
+      "age": 28,
+      "height": 193,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/263186.png",
+      "club": "Coventry City"
     },
     {
       "id": 2454,
       "name": "Tim Ream",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "蒂姆·里姆",
+      "dateOfBirth": "1987-10-05",
+      "age": 38,
+      "height": 186,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/2454.png",
+      "club": "Charlotte"
     },
     {
       "id": 539711,
       "name": "Timothy Tillman",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "蒂莫西·蒂尔曼",
+      "dateOfBirth": "1999-01-04",
+      "age": 27,
+      "height": 183,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/539711.png",
+      "club": "Los Angeles FC"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.671Z"
+  "fetchedAt": "2026-03-19T16:42:17.671Z",
+  "enrichedAt": "2026-03-20T15:03:07.996Z"
 }

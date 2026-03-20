@@ -6,164 +6,354 @@
       "id": 37532344,
       "name": "Mamadou Sarr",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "萨尔",
+      "dateOfBirth": "2005-08-29",
+      "age": 20,
+      "height": 194,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37532344.png",
+      "club": "Chelsea"
     },
     {
       "id": 37726575,
       "name": "Ibrahim Mbaye",
       "position": "FW",
-      "shirtNumber": 27
+      "shirtNumber": 27,
+      "nameZh": "易卜拉欣姆巴耶",
+      "dateOfBirth": "2008-01-24",
+      "age": 18,
+      "height": 175,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37726575.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 99157,
       "name": "Yehvann Diouf",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "Y. 迪乌夫",
+      "dateOfBirth": "1999-11-16",
+      "age": 26,
+      "height": 188,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/99157.png",
+      "club": "Nice"
     },
     {
       "id": 37569271,
       "name": "Antoine Mendy",
       "position": "DF",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "A. 门迪",
+      "dateOfBirth": "2004-05-27",
+      "age": 22,
+      "height": 187,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37569271.png",
+      "club": "Nice"
     },
     {
       "id": 96722,
       "name": "Ismaïla Sarr",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "伊斯梅拉·萨尔",
+      "dateOfBirth": "1998-02-25",
+      "age": 28,
+      "height": 185,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/96722.png",
+      "club": "Crystal Palace"
     },
     {
       "id": 37685630,
       "name": "El Hadji Malick Diouf",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "埃尔哈吉·马利克·迪乌夫",
+      "dateOfBirth": "2004-12-28",
+      "age": 21,
+      "height": 183,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37685630.png",
+      "club": "West Ham United"
     },
     {
       "id": 433169,
       "name": "Pape Gueye",
       "position": "MF",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "帕佩·圭耶",
+      "dateOfBirth": "1999-01-24",
+      "age": 27,
+      "height": 189,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/433169.png",
+      "club": "Villarreal"
     },
     {
       "id": 37342694,
       "name": "Pape Matar Sarr",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "帕普·马塔尔·萨尔",
+      "dateOfBirth": "2002-09-14",
+      "age": 23,
+      "height": 184,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37342694.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 1389,
       "name": "Sadio Mané",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "萨迪奥·马内",
+      "dateOfBirth": "1992-04-10",
+      "age": 34,
+      "height": 174,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/1389.png",
+      "club": "Al Nassr"
     },
     {
       "id": 37540621,
       "name": "Nicolas Jackson",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "尼古拉斯·杰克逊",
+      "dateOfBirth": "2001-06-20",
+      "age": 24,
+      "height": 187,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37540621.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 2206688,
       "name": "Boulaye Dia",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "B. 迪亚",
+      "dateOfBirth": "1996-11-16",
+      "age": 29,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/2206688.png",
+      "club": "Lazio"
     },
     {
       "id": 99137,
       "name": "Edouard Mendy",
       "position": "GK",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "爱德华·门迪",
+      "dateOfBirth": "1992-03-01",
+      "age": 34,
+      "height": 194,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/99137.png",
+      "club": "Al Ahli"
     },
     {
       "id": 153244,
       "name": "Abdoulaye Seck",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "阿卜杜拉耶·塞克",
+      "dateOfBirth": "1992-06-04",
+      "age": 34,
+      "height": 191,
+      "weight": 95,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/153244.png",
+      "club": "Maccabi Haifa"
     },
     {
       "id": 64188,
       "name": "Cherif Ndiaye",
       "position": "FW",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "谢里夫·恩迪亚耶",
+      "dateOfBirth": "1996-01-23",
+      "age": 30,
+      "height": 190,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/64188.png",
+      "club": "Samsunspor"
     },
     {
       "id": 1030,
       "name": "Idrissa Gueye",
       "position": "MF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "伊德里萨·盖耶",
+      "dateOfBirth": "1989-09-26",
+      "age": 36,
+      "height": 174,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/1030.png",
+      "club": "Everton"
     },
     {
       "id": 96723,
       "name": "Habib Diallo",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "哈比布·迪亚洛",
+      "dateOfBirth": "1995-06-18",
+      "age": 30,
+      "height": 186,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/96723.png",
+      "club": "Metz"
     },
     {
       "id": 3861304,
       "name": "Ismail Jakobs",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "伊斯梅尔·雅各布斯",
+      "dateOfBirth": "1999-08-17",
+      "age": 26,
+      "height": 184,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/3861304.png",
+      "club": "Galatasaray"
     },
     {
       "id": 430403,
       "name": "Krépin Diatta",
       "position": "FW",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "克雷平·迪亚塔",
+      "dateOfBirth": "1999-02-25",
+      "age": 27,
+      "height": 175,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/430403.png",
+      "club": "Monaco"
     },
     {
       "id": 37603706,
       "name": "Mamadou Lamine Camara",
       "position": "MF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "M. 卡马拉",
+      "dateOfBirth": "2003-01-05",
+      "age": 23,
+      "height": 193,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/37603706.png",
+      "club": "Al Ahli Tripoli"
     },
     {
       "id": 37642676,
       "name": "Lamine Camara",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "拉明·卡马拉",
+      "dateOfBirth": "2004-01-01",
+      "age": 22,
+      "height": 173,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37642676.png",
+      "club": "Monaco"
     },
     {
       "id": 98874,
       "name": "Moussa Niakhaté",
       "position": "DF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "尼亚卡特",
+      "dateOfBirth": "1996-03-08",
+      "age": 30,
+      "height": 190,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/98874.png",
+      "club": "Olympique Lyonnais"
     },
     {
       "id": 61806,
       "name": "Kalidou Koulibaly",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "卡利杜·库利巴利",
+      "dateOfBirth": "1991-06-20",
+      "age": 34,
+      "height": 186,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/61806.png",
+      "club": "Al Hilal"
     },
     {
       "id": 2511096,
       "name": "Pathé Ciss",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "P. 西斯",
+      "dateOfBirth": "1994-03-16",
+      "age": 32,
+      "height": 186,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/2511096.png",
+      "club": "Rayo Vallecano"
     },
     {
       "id": 23661272,
       "name": "Iliman Ndiaye",
       "position": "FW",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "伊利曼·恩迪亚耶",
+      "dateOfBirth": "2000-03-06",
+      "age": 26,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/23661272.png",
+      "club": "Everton"
     },
     {
       "id": 37581992,
       "name": "Habib Diarra",
       "position": "MF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "哈比布·迪亚拉",
+      "dateOfBirth": "2004-01-03",
+      "age": 22,
+      "height": 178,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37581992.png",
+      "club": "Sunderland"
     },
     {
       "id": 162164,
       "name": "Mory Diaw",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "莫里·迪奥",
+      "dateOfBirth": "1993-06-22",
+      "age": 32,
+      "height": 197,
+      "weight": 95,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/162164.png",
+      "club": "Le Havre"
     },
     {
       "id": 12384553,
       "name": "Cheikh Sabaly",
       "position": "FW",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "切赫·萨巴利",
+      "dateOfBirth": "1999-03-04",
+      "age": 27,
+      "height": 168,
+      "weight": 56,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/12384553.png",
+      "club": "Vancouver Whitecaps"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T15:00:59.423Z"
 }

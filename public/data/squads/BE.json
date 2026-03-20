@@ -6,212 +6,458 @@
       "id": 26955,
       "name": "W. Faes",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "W. 法斯",
+      "dateOfBirth": "1998-04-03",
+      "age": 28,
+      "height": 187,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/26955.png",
+      "club": "Monaco"
     },
     {
       "id": 1314,
       "name": "T. Courtois",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "库尔图瓦",
+      "dateOfBirth": "1992-05-11",
+      "age": 34,
+      "height": 200,
+      "weight": 96,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/1314.png",
+      "club": "Real Madrid"
     },
     {
       "id": 37459060,
       "name": "Z. Debast",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Z. 德巴斯特",
+      "dateOfBirth": "2003-10-24",
+      "age": 22,
+      "height": 191,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37459060.png",
+      "club": "Sporting CP"
     },
     {
       "id": 24817168,
       "name": "A. Al Dakhil",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿明·达希尔",
+      "dateOfBirth": "2002-03-06",
+      "age": 24,
+      "height": 188,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/24817168.png",
+      "club": "VfB Stuttgart"
     },
     {
       "id": 22878573,
       "name": "A. Mvom Onana",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿马杜·奥纳纳",
+      "dateOfBirth": "2001-08-16",
+      "age": 24,
+      "height": 195,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/22878573.png",
+      "club": "Aston Villa"
     },
     {
       "id": 62617,
       "name": "B. Heynen",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布莱恩·海耶南",
+      "dateOfBirth": "1997-02-06",
+      "age": 29,
+      "height": 184,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/62617.png",
+      "club": "Genk"
     },
     {
       "id": 1371,
       "name": "K. De Bruyne",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "凯文·德布劳内",
+      "dateOfBirth": "1991-06-28",
+      "age": 34,
+      "height": 181,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/1371.png",
+      "club": "Napoli"
     },
     {
       "id": 37722914,
       "name": "J. Mokio",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔西·莫基奥",
+      "dateOfBirth": "2008-02-29",
+      "age": 18,
+      "height": 184,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37722914.png",
+      "club": "Ajax"
     },
     {
       "id": 1921,
       "name": "M. Batshuayi Tunga",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "米奇·巴舒亚伊",
+      "dateOfBirth": "1993-10-02",
+      "age": 32,
+      "height": 185,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/1921.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 37590635,
       "name": "M. Fofana",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 福法纳",
+      "dateOfBirth": "2005-03-31",
+      "age": 21,
+      "height": 169,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37590635.png",
+      "club": "Olympique Lyonnais"
     },
     {
       "id": 995,
       "name": "R. Lukaku Menama",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗梅卢·卢卡库",
+      "dateOfBirth": "1993-05-13",
+      "age": 33,
+      "height": 191,
+      "weight": 93,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/995.png",
+      "club": "Napoli"
     },
     {
       "id": 23269670,
       "name": "S. Lammens",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "塞内·拉门斯",
+      "dateOfBirth": "2002-07-07",
+      "age": 23,
+      "height": 193,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/23269670.png",
+      "club": "Manchester United"
     },
     {
       "id": 60270,
       "name": "A. Witsel",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "维特塞尔",
+      "dateOfBirth": "1989-01-12",
+      "age": 37,
+      "height": 186,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/60270.png",
+      "club": "Girona"
     },
     {
       "id": 61517,
       "name": "T. Meunier",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "托马斯·默尼耶",
+      "dateOfBirth": "1991-09-12",
+      "age": 34,
+      "height": 191,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/61517.png",
+      "club": "LOSC Lille"
     },
     {
       "id": 13155985,
       "name": "C. Vanhoutte",
       "position": "MF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "查尔斯·万胡特",
+      "dateOfBirth": "1998-09-16",
+      "age": 27,
+      "height": 182,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/13155985.png",
+      "club": "Nice"
     },
     {
       "id": 37592734,
       "name": "D. da Silva Moreira",
       "position": "MF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "迭戈·莫雷拉",
+      "dateOfBirth": "2004-08-06",
+      "age": 21,
+      "height": 179,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37592734.png",
+      "club": "Strasbourg"
     },
     {
       "id": 538861,
       "name": "A. Saelemaekers",
       "position": "MF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "萨勒马克尔斯",
+      "dateOfBirth": "1999-06-27",
+      "age": 26,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/538861.png",
+      "club": "AC Milan"
     },
     {
       "id": 539993,
       "name": "L. Openda",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "奥蓬达",
+      "dateOfBirth": "2000-02-16",
+      "age": 26,
+      "height": 177,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/539993.png",
+      "club": "Juventus"
     },
     {
       "id": 25922235,
       "name": "A. Theate",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "A. 特亚特",
+      "dateOfBirth": "2000-05-25",
+      "age": 26,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/25922235.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 62342,
       "name": "Y. Tielemans",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "尤里·蒂勒曼斯",
+      "dateOfBirth": "1997-05-07",
+      "age": 29,
+      "height": 177,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/62342.png",
+      "club": "Aston Villa"
     },
     {
       "id": 62318,
       "name": "H. Vanaken",
       "position": "MF",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "汉斯·范纳肯",
+      "dateOfBirth": "1992-08-24",
+      "age": 33,
+      "height": 195,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/62318.png",
+      "club": "Club Brugge"
     },
     {
       "id": 61848,
       "name": "B. Mechele",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "布兰登·梅切勒",
+      "dateOfBirth": "1993-01-28",
+      "age": 33,
+      "height": 190,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/61848.png",
+      "club": "Club Brugge"
     },
     {
       "id": 21089941,
       "name": "M. Vandevoordt",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "范德沃尔特",
+      "dateOfBirth": "2002-02-26",
+      "age": 24,
+      "height": 192,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/21089941.png",
+      "club": "RB Leipzig"
     },
     {
       "id": 23269659,
       "name": "M. De Cuyper",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "德库伊佩尔",
+      "dateOfBirth": "2000-12-22",
+      "age": 25,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/23269659.png",
+      "club": "Brighton & Hove Albion"
     },
     {
       "id": 37423077,
       "name": "R. Vermant",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "R. 弗曼特",
+      "dateOfBirth": "2004-01-24",
+      "age": 22,
+      "height": 184,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/37423077.png",
+      "club": "Club Brugge"
     },
     {
       "id": 62871,
       "name": "D. Lukebakio",
       "position": "FW",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "多迪·卢克巴基奥",
+      "dateOfBirth": "1997-09-24",
+      "age": 28,
+      "height": 187,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/62871.png",
+      "club": "Benfica"
     },
     {
       "id": 37590621,
       "name": "M. Penders",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "迈克·彭德斯",
+      "dateOfBirth": "2005-07-31",
+      "age": 20,
+      "height": 200,
+      "weight": 95,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/37590621.png",
+      "club": "Strasbourg"
     },
     {
       "id": 23697990,
       "name": "J. Doku",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "J. 多库",
+      "dateOfBirth": "2002-05-27",
+      "age": 24,
+      "height": 173,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/23697990.png",
+      "club": "Manchester City"
     },
     {
       "id": 37316934,
       "name": "K. De Winter",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "德温特",
+      "dateOfBirth": "2002-06-12",
+      "age": 23,
+      "height": 191,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37316934.png",
+      "club": "AC Milan"
     },
     {
       "id": 62337,
       "name": "T. Castagne",
       "position": "DF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "卡斯塔涅",
+      "dateOfBirth": "1995-12-05",
+      "age": 30,
+      "height": 185,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/62337.png",
+      "club": "Fulham"
     },
     {
       "id": 37611902,
       "name": "J. Seys",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "华金·塞斯",
+      "dateOfBirth": "2005-03-28",
+      "age": 21,
+      "height": 178,
+      "weight": 52,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37611902.png",
+      "club": "Club Brugge"
     },
     {
       "id": 23269660,
       "name": "C. De Ketelaere",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "德凯特莱尔",
+      "dateOfBirth": "2001-03-10",
+      "age": 25,
+      "height": 192,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/23269660.png",
+      "club": "Atalanta"
     },
     {
       "id": 2975,
       "name": "M. Sels",
       "position": "GK",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "M. 塞尔斯",
+      "dateOfBirth": "1992-02-26",
+      "age": 34,
+      "height": 188,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/2975.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 2158212,
       "name": "N. Raskin",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "尼古拉斯·拉斯金",
+      "dateOfBirth": "2001-02-23",
+      "age": 25,
+      "height": 178,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/2158212.png",
+      "club": "Rangers"
     },
     {
       "id": 61780,
       "name": "L. Trossard",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "特罗萨德",
+      "dateOfBirth": "1994-12-04",
+      "age": 31,
+      "height": 172,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/61780.png",
+      "club": "Arsenal"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.670Z"
+  "fetchedAt": "2026-03-19T16:42:17.670Z",
+  "enrichedAt": "2026-03-20T14:28:57.889Z"
 }

@@ -6,326 +6,705 @@
       "id": 96208,
       "name": "M. Aoás Corrêa",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "马尔基尼奥斯",
+      "dateOfBirth": "1994-05-14",
+      "age": 32,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/96208.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 129725,
       "name": "A. Lobo Silva",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "亚历克斯·桑德罗",
+      "dateOfBirth": "1991-01-26",
+      "age": 35,
+      "height": 181,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/129725.png",
+      "club": "Flamengo"
     },
     {
       "id": 37599292,
       "name": "V. Roque Ferreira",
       "position": "FW",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "维托·罗克",
+      "dateOfBirth": "2005-02-28",
+      "age": 21,
+      "height": 174,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37599292.png",
+      "club": "Palmeiras"
     },
     {
       "id": 96099,
       "name": "F. Tavares",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "法比尼奥",
+      "dateOfBirth": "1993-10-23",
+      "age": 32,
+      "height": 188,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/96099.png",
+      "club": "Al Ittihad"
     },
     {
       "id": 219900,
       "name": "J. Furtado",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "约翰·维克托",
+      "dateOfBirth": "1996-02-13",
+      "age": 30,
+      "height": 197,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/219900.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 1846739,
       "name": "M. Carneiro Da Cunha",
       "position": "FW",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "马修斯·库尼亚",
+      "dateOfBirth": "1999-05-27",
+      "age": 27,
+      "height": 183,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/1846739.png",
+      "club": "Manchester United"
     },
     {
       "id": 129822,
       "name": "G. Santos da Silva",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "热尔松",
+      "dateOfBirth": "1997-05-20",
+      "age": 29,
+      "height": 184,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/129822.png",
+      "club": "Cruzeiro"
     },
     {
       "id": 218295,
       "name": "W. Pereira da Silva",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "韦弗顿",
+      "dateOfBirth": "1987-12-13",
+      "age": 38,
+      "height": 189,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/218295.png",
+      "club": "Grêmio"
     },
     {
       "id": 37627036,
       "name": "M. Santiago Costa dos Santos",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆里略",
+      "dateOfBirth": "2002-07-04",
+      "age": 23,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37627036.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 11298640,
       "name": "H. de Souza Nogueira",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乌戈·苏萨",
+      "dateOfBirth": "1999-01-31",
+      "age": 27,
+      "height": 199,
+      "weight": 95,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/11298640.png",
+      "club": "Corinthians"
     },
     {
       "id": 33645,
       "name": "J. Apolinário de Lira",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔林顿",
+      "dateOfBirth": "1996-08-14",
+      "age": 29,
+      "height": 186,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/33645.png",
+      "club": "Newcastle United"
     },
     {
       "id": 10959356,
       "name": "G. Martinelli Silva",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "加布里埃尔·马丁内利",
+      "dateOfBirth": "2001-06-18",
+      "age": 24,
+      "height": 178,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/10959356.png",
+      "club": "Arsenal"
     },
     {
       "id": 160258,
       "name": "Raphinha",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "拉菲尼亚",
+      "dateOfBirth": "1996-12-14",
+      "age": 29,
+      "height": 176,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/160258.png",
+      "club": "FC Barcelona"
     },
     {
       "id": 13591496,
       "name": "C. Zopalato Neves",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "查尔斯·奥古斯都",
+      "dateOfBirth": "1999-01-07",
+      "age": 27,
+      "height": 184,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/13591496.png",
+      "club": "Inter"
     },
     {
       "id": 9302767,
       "name": "V. da Silva",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "维蒂尼奥",
+      "dateOfBirth": "1999-07-23",
+      "age": 26,
+      "height": 175,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/9302767.png",
+      "club": "Botafogo"
     },
     {
       "id": 37547795,
       "name": "V. de Oliveira Campos",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "范德森",
+      "dateOfBirth": "2001-06-21",
+      "age": 24,
+      "height": 173,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37547795.png",
+      "club": "Monaco"
     },
     {
       "id": 32614,
       "name": "D. dos Santos Justino de Melo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "道格拉斯·桑托斯",
+      "dateOfBirth": "1994-03-22",
+      "age": 32,
+      "height": 175,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/32614.png",
+      "club": "Zenit"
     },
     {
       "id": 219398,
       "name": "G. Arana Lopes",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吉列尔梅·阿拉纳",
+      "dateOfBirth": "1997-04-14",
+      "age": 29,
+      "height": 176,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/219398.png",
+      "club": "Fluminense"
     },
     {
       "id": 37526007,
       "name": "A. Trindade da Costa Neto",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安德烈",
+      "dateOfBirth": "2001-07-16",
+      "age": 24,
+      "height": 176,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37526007.png",
+      "club": "Wolverhampton Wanderers"
     },
     {
       "id": 37402348,
       "name": "Gomes",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "若昂·戈麦斯",
+      "dateOfBirth": "2001-02-12",
+      "age": 25,
+      "height": 176,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37402348.png",
+      "club": "Wolverhampton Wanderers"
     },
     {
       "id": 37647009,
       "name": "E. Moreira de Sousa",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "恩德里克",
+      "dateOfBirth": "2006-07-21",
+      "age": 19,
+      "height": 173,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37647009.png",
+      "club": "Olympique Lyonnais"
     },
     {
       "id": 29328429,
       "name": "I. da Cruz",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊戈尔·热苏斯",
+      "dateOfBirth": "2001-02-25",
+      "age": 25,
+      "height": 179,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/29328429.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 1004,
       "name": "A. Hoelgebaum Pereira",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安德烈亚斯·佩雷拉",
+      "dateOfBirth": "1996-01-01",
+      "age": 30,
+      "height": 178,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/1004.png",
+      "club": "Palmeiras"
     },
     {
       "id": 12393293,
       "name": "A. dos Santos",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安东尼",
+      "dateOfBirth": "2000-02-24",
+      "age": 26,
+      "height": 174,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/12393293.png",
+      "club": "Real Betis"
     },
     {
       "id": 463850,
       "name": "S. Dias Lino",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞缪尔·弗莱克斯",
+      "dateOfBirth": "1999-12-23",
+      "age": 26,
+      "height": 177,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/463850.png",
+      "club": "Flamengo"
     },
     {
       "id": 23301876,
       "name": "K. Pinto Ramos",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡奥豪尔赫",
+      "dateOfBirth": "2002-01-24",
+      "age": 24,
+      "height": 176,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/23301876.png",
+      "club": "Cruzeiro"
     },
     {
       "id": 439266,
       "name": "P. de Oliveira Alves",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "保罗·恩里克",
+      "dateOfBirth": "1996-07-25",
+      "age": 29,
+      "height": 175,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/439266.png",
+      "club": "Vasco da Gama"
     },
     {
       "id": 159700,
       "name": "C. Casimiro",
       "position": "MF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "卡塞米罗",
+      "dateOfBirth": "1992-02-23",
+      "age": 34,
+      "height": 185,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/159700.png",
+      "club": "Manchester United"
     },
     {
       "id": 37562129,
       "name": "A. Nascimento dos Santos",
       "position": "MF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "安德烈·桑托斯",
+      "dateOfBirth": "2004-05-03",
+      "age": 22,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37562129.png",
+      "club": "Chelsea"
     },
     {
       "id": 159142,
       "name": "E. Santana de Moraes",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "埃德森",
+      "dateOfBirth": "1993-08-17",
+      "age": 32,
+      "height": 188,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/159142.png",
+      "club": "Fenerbahçe"
     },
     {
       "id": 460160,
       "name": "É. Gabriel Militão",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "埃德尔·米利唐",
+      "dateOfBirth": "1998-01-18",
+      "age": 28,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/460160.png",
+      "club": "Real Madrid"
     },
     {
       "id": 97811,
       "name": "G. dos Santos Magalhães",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "加布里埃尔·马加良斯",
+      "dateOfBirth": "1997-12-19",
+      "age": 28,
+      "height": 190,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/97811.png",
+      "club": "Arsenal"
     },
     {
       "id": 219502,
       "name": "F. Soares de Faria",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "法布里西奥·布鲁诺",
+      "dateOfBirth": "1996-02-12",
+      "age": 30,
+      "height": 190,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/219502.png",
+      "club": "Cruzeiro"
     },
     {
       "id": 7346228,
       "name": "R. Silva de Goes",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "罗德里戈",
+      "dateOfBirth": "2001-01-09",
+      "age": 25,
+      "height": 174,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/7346228.png",
+      "club": "Real Madrid"
     },
     {
       "id": 37526008,
       "name": "L. Rosa da Silva",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "路易斯·恩里克",
+      "dateOfBirth": "2001-01-02",
+      "age": 25,
+      "height": 182,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37526008.png",
+      "club": "Zenit"
     },
     {
       "id": 37527169,
       "name": "S. Moreira de Oliveira",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "萨维尼奥",
+      "dateOfBirth": "2004-04-10",
+      "age": 22,
+      "height": 176,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37527169.png",
+      "club": "Manchester City"
     },
     {
       "id": 600687,
       "name": "V. Júnior",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "维尼修斯·儒尼奥尔",
+      "dateOfBirth": "2000-07-12",
+      "age": 25,
+      "height": 176,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/600687.png",
+      "club": "Real Madrid"
     },
     {
       "id": 32031865,
       "name": "B. Krepski",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "本托",
+      "dateOfBirth": "1999-06-10",
+      "age": 27,
+      "height": 190,
+      "weight": 92,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/32031865.png",
+      "club": "Al Nassr"
     },
     {
       "id": 159208,
       "name": "D. da Silva",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "达尼洛",
+      "dateOfBirth": "1991-07-15",
+      "age": 34,
+      "height": 184,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/159208.png",
+      "club": "Flamengo"
     },
     {
       "id": 219633,
       "name": "R. de Andrade",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "理查利森",
+      "dateOfBirth": "1997-05-10",
+      "age": 29,
+      "height": 184,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/219633.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 187557,
       "name": "C. Oliveira Silva",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "凯奥·恩里克",
+      "dateOfBirth": "1997-07-31",
+      "age": 28,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/187557.png",
+      "club": "Monaco"
     },
     {
       "id": 37410288,
       "name": "Luciano",
       "position": "DF",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "卢西亚诺·朱巴",
+      "dateOfBirth": "1999-08-29",
+      "age": 26,
+      "height": 176,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/37410288.png",
+      "club": "Bahia"
     },
     {
       "id": 37608995,
       "name": "W. França Lima",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "韦斯利",
+      "dateOfBirth": "2003-09-06",
+      "age": 22,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37608995.png",
+      "club": "Roma"
     },
     {
       "id": 28931574,
       "name": "J. Junqueira de Jesus",
       "position": "FW",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "若昂·佩德罗",
+      "dateOfBirth": "2001-09-26",
+      "age": 24,
+      "height": 182,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/28931574.png",
+      "club": "Chelsea"
     },
     {
       "id": 220052,
       "name": "L. Tolentino Coelho de Lima",
       "position": "MF",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "卢卡斯·帕奎塔",
+      "dateOfBirth": "1997-08-27",
+      "age": 28,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/220052.png",
+      "club": "Flamengo"
     },
     {
       "id": 456593,
       "name": "J. de Souza Oliveira",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "让·卢卡斯",
+      "dateOfBirth": "1998-06-22",
+      "age": 27,
+      "height": 181,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/456593.png",
+      "club": "Bahia"
     },
     {
       "id": 37701999,
       "name": "E. Almeida de Oliveira Gonçalves",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "埃斯特万",
+      "dateOfBirth": "2007-04-24",
+      "age": 19,
+      "height": 176,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37701999.png",
+      "club": "Chelsea"
     },
     {
       "id": 458758,
       "name": "L. Rech Ortiz",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "莱奥·奥尔蒂斯",
+      "dateOfBirth": "1996-01-03",
+      "age": 30,
+      "height": 185,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/458758.png",
+      "club": "Flamengo"
     },
     {
       "id": 37562940,
       "name": "L. Lopes Beraldo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡斯·贝拉尔多",
+      "dateOfBirth": "2003-11-24",
+      "age": 22,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37562940.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 129820,
       "name": "A. Becker",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿利森",
+      "dateOfBirth": "1992-10-02",
+      "age": 33,
+      "height": 193,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/129820.png",
+      "club": "Liverpool"
     },
     {
       "id": 460159,
       "name": "L. Estella Perri",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡斯·佩里",
+      "dateOfBirth": "1997-12-10",
+      "age": 28,
+      "height": 197,
+      "weight": 98,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/460159.png",
+      "club": "Leeds United"
     },
     {
       "id": 29809271,
       "name": "A. Souza Ribeiro",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚历桑德罗",
+      "dateOfBirth": "1999-08-09",
+      "age": 26,
+      "height": 191,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/29809271.png",
+      "club": "LOSC Lille"
     },
     {
       "id": 545244,
       "name": "É. dos Santos Lourenço da Silva",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃德森",
+      "dateOfBirth": "1999-07-07",
+      "age": 26,
+      "height": 183,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/545244.png",
+      "club": "Atalanta"
     },
     {
       "id": 459145,
       "name": "B. Guimarães Rodriguez Moura",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "布鲁诺·吉马良斯",
+      "dateOfBirth": "1997-11-16",
+      "age": 28,
+      "height": 182,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/459145.png",
+      "club": "Newcastle United"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.668Z"
+  "fetchedAt": "2026-03-19T16:42:17.668Z",
+  "enrichedAt": "2026-03-20T14:30:19.341Z"
 }

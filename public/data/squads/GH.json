@@ -6,284 +6,614 @@
       "id": 15076349,
       "name": "Joseph Anang",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "约瑟夫·阿南",
+      "dateOfBirth": "2000-06-08",
+      "age": 26,
+      "height": 190,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/15076349.png",
+      "club": "St Patrick's"
     },
     {
       "id": 9543,
       "name": "Brandon Thomas-Asante",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布兰登·托马斯-阿桑特",
+      "dateOfBirth": "1998-12-29",
+      "age": 27,
+      "height": 182,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/9543.png",
+      "club": "Coventry City"
     },
     {
       "id": 37585365,
       "name": "Prince Adu",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "普林斯·阿杜",
+      "dateOfBirth": "2003-09-23",
+      "age": 22,
+      "height": 179,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37585365.png",
+      "club": "Viktoria Plzeň"
     },
     {
       "id": 37259993,
       "name": "Abu Francis",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿布·弗朗西斯",
+      "dateOfBirth": "2001-04-27",
+      "age": 25,
+      "height": 182,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37259993.png",
+      "club": "Toulouse"
     },
     {
       "id": 37687848,
       "name": "Christopher Bonsu Baah",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯托弗·邦苏·巴阿",
+      "dateOfBirth": "2004-12-14",
+      "age": 21,
+      "height": 172,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37687848.png",
+      "club": "Al-Qadsiah"
     },
     {
       "id": 37734713,
       "name": "Benjamin Asare",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "本杰明·阿萨雷",
+      "dateOfBirth": "1992-07-13",
+      "age": 33,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37734713.png",
+      "club": "Accra Hearts of Oak"
     },
     {
       "id": 37678433,
       "name": "Kojo Peprah Oppong",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "K. Peprah Oppong: K.佩普拉·奥邦",
+      "dateOfBirth": "2004-06-04",
+      "age": 22,
+      "height": 185,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37678433.png",
+      "club": "Nice"
     },
     {
       "id": 1525233,
       "name": "Derrick Köhn",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "德里克·科恩",
+      "dateOfBirth": "1999-02-04",
+      "age": 27,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/1525233.png",
+      "club": "FC Union Berlin"
     },
     {
       "id": 186370,
       "name": "Thomas Partey",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "托马斯·帕尔特伊",
+      "dateOfBirth": "1993-06-13",
+      "age": 32,
+      "height": 185,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/186370.png",
+      "club": "Villarreal"
     },
     {
       "id": 37616125,
       "name": "Ibrahim Sulemana",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "易卜拉欣·苏莱马纳",
+      "dateOfBirth": "2003-05-22",
+      "age": 23,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/37616125.png",
+      "club": "Cagliari"
     },
     {
       "id": 186801,
       "name": "Iñaki Williams",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊尼亚基·威廉姆斯",
+      "dateOfBirth": "1994-06-15",
+      "age": 31,
+      "height": 186,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/186801.png",
+      "club": "Athletic Club"
     },
     {
       "id": 37560897,
       "name": "Issahaku Fatawu",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊萨哈库·法塔乌",
+      "dateOfBirth": "2004-03-08",
+      "age": 22,
+      "height": 177,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37560897.png",
+      "club": "Leicester City"
     },
     {
       "id": 38127,
       "name": "Kingsley Schindler",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "金斯利·申德勒",
+      "dateOfBirth": "1993-07-12",
+      "age": 32,
+      "height": 183,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/38127.png",
+      "club": "Buriram United"
     },
     {
       "id": 95896,
       "name": "Alexander Djiku",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚历山大·迪基库",
+      "dateOfBirth": "1994-08-09",
+      "age": 31,
+      "height": 182,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/95896.png",
+      "club": "Spartak Moskva"
     },
     {
       "id": 338959,
       "name": "Joseph Wollacott",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔·沃拉科特",
+      "dateOfBirth": "1996-09-08",
+      "age": 29,
+      "height": 190,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/338959.png",
+      "club": "Crawley Town"
     },
     {
       "id": 37556252,
       "name": "Razak Simpson",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "拉扎克·辛普森",
+      "dateOfBirth": "1998-07-15",
+      "age": 27,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37556252.png",
+      "club": "Ashanti Gold"
     },
     {
       "id": 5640849,
       "name": "Mohammed Kudus ",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆罕默德",
+      "dateOfBirth": "2000-08-02",
+      "age": 25,
+      "height": 177,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/5640849.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 2178650,
       "name": "Stephan Ambrosius",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "斯蒂芬·安布罗修斯",
+      "dateOfBirth": "1998-12-18",
+      "age": 27,
+      "height": 183,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/2178650.png",
+      "club": "Karlsruher SC"
     },
     {
       "id": 37712350,
       "name": "K. Mamudu",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡马拉迪尼·马穆杜",
+      "dateOfBirth": "2002-11-04",
+      "age": 23,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37712350.png",
+      "club": "Al Hilal Omdurman"
     },
     {
       "id": 37296692,
       "name": "Salis Abdul Samed",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "萨利斯·阿卜杜勒·萨梅德",
+      "dateOfBirth": "2000-03-26",
+      "age": 26,
+      "height": 179,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37296692.png",
+      "club": "Nice"
     },
     {
       "id": 9308200,
       "name": "Tariq Lamptey",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塔里克·兰普提",
+      "dateOfBirth": "2000-09-30",
+      "age": 25,
+      "height": 163,
+      "weight": 55,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/9308200.png",
+      "club": "Fiorentina"
     },
     {
       "id": 37633251,
       "name": "Aaron Essel",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚伦·埃塞尔",
+      "dateOfBirth": "2005-07-30",
+      "age": 20,
+      "height": 173,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37633251.png",
+      "club": "Sacramento Republic"
     },
     {
       "id": 295231,
       "name": "Majeed Ashimeru",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马吉德·阿什梅鲁",
+      "dateOfBirth": "1997-10-10",
+      "age": 28,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/295231.png",
+      "club": "La Louvière"
     },
     {
       "id": 37614052,
       "name": "Ernest Nuamah",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "E. 努阿马",
+      "dateOfBirth": "2003-11-01",
+      "age": 22,
+      "height": 178,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/37614052.png",
+      "club": "Olympique Lyonnais"
     },
     {
       "id": 37599471,
       "name": "Felix Afena-Gyan",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "费利克斯·阿费纳-吉安",
+      "dateOfBirth": "2003-01-19",
+      "age": 23,
+      "height": 175,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37599471.png",
+      "club": "Amed SK"
     },
     {
       "id": 37622817,
       "name": "Mohammed Fuseini",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆罕默德·富赛尼",
+      "dateOfBirth": "2002-05-16",
+      "age": 24,
+      "height": 170,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37622817.png",
+      "club": "Union Saint-Gilloise"
     },
     {
       "id": 37549513,
       "name": "Ibrahim Osman",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "易卜拉欣·奥斯曼",
+      "dateOfBirth": "2004-11-29",
+      "age": 21,
+      "height": 177,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/37549513.png",
+      "club": "Birmingham City"
     },
     {
       "id": 433075,
       "name": "Elisha Owusu",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊丽莎·奥乌苏",
+      "dateOfBirth": "1997-11-07",
+      "age": 28,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/433075.png",
+      "club": "Auxerre"
     },
     {
       "id": 37907119,
       "name": "Jerry Afriyie",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杰里·阿弗里耶",
+      "dateOfBirth": "2006-12-10",
+      "age": 19,
+      "height": 180,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37907119.png",
+      "club": "La Louvière"
     },
     {
       "id": 766612,
       "name": "Joseph Paintsil",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "约瑟夫·潘西尔",
+      "dateOfBirth": "1998-02-01",
+      "age": 28,
+      "height": 169,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/766612.png",
+      "club": "LA Galaxy"
     },
     {
       "id": 37712015,
       "name": "Abdul Aziz Issah",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 伊萨赫",
+      "dateOfBirth": "2005-11-20",
+      "age": 20,
+      "height": 163,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37712015.png",
+      "club": "Barcelona II"
     },
     {
       "id": 1038,
       "name": "Jordan Ayew",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔丹·阿尤",
+      "dateOfBirth": "1991-09-11",
+      "age": 34,
+      "height": 182,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/1038.png",
+      "club": "Leicester City"
     },
     {
       "id": 37616409,
       "name": "Lawrence Agyekum",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "L. 阿杰库姆",
+      "dateOfBirth": "2003-11-23",
+      "age": 22,
+      "height": 174,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37616409.png",
+      "club": "Cercle Brugge"
     },
     {
       "id": 37549536,
       "name": "Kwame Opoku",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "K.奥波库",
+      "dateOfBirth": "1999-05-08",
+      "age": 27,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/37549536.png",
+      "club": "Asante Kotoko"
     },
     {
       "id": 37438667,
       "name": "Kamaldeen Sulemana",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡马尔丁·苏莱马纳",
+      "dateOfBirth": "2002-02-15",
+      "age": 24,
+      "height": 175,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37438667.png",
+      "club": "Atalanta"
     },
     {
       "id": 37735,
       "name": "Prince Owusu",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "普林斯·奥塞·奥乌苏",
+      "dateOfBirth": "1997-01-07",
+      "age": 29,
+      "height": 190,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/37735.png",
+      "club": "CF Montréal"
     },
     {
       "id": 37762150,
       "name": "Caleb Yirenkyi",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡莱布·马尔福·伊伦基",
+      "dateOfBirth": "2006-01-15",
+      "age": 20,
+      "height": 182,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37762150.png",
+      "club": "Nordsjælland"
     },
     {
       "id": 37561990,
       "name": "Ebenezer Annan",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃比尼泽·安南",
+      "dateOfBirth": "2002-08-21",
+      "age": 23,
+      "height": 178,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37561990.png",
+      "club": "Saint-Étienne"
     },
     {
       "id": 4969726,
       "name": "Kwasi Sibo",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "夸西·斯博",
+      "dateOfBirth": "1998-06-24",
+      "age": 27,
+      "height": 183,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/4969726.png",
+      "club": "Real Oviedo"
     },
     {
       "id": 37633249,
       "name": "Jonas Adjetey",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "J. 阿杰特伊",
+      "dateOfBirth": "2003-12-13",
+      "age": 22,
+      "height": 188,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37633249.png",
+      "club": "VfL Wolfsburg"
     },
     {
       "id": 1494704,
       "name": "Jerome Opoku",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杰罗姆·奥波库",
+      "dateOfBirth": "1998-10-14",
+      "age": 27,
+      "height": 197,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/1494704.png",
+      "club": "İstanbul Başakşehir"
     },
     {
       "id": 37712358,
       "name": "Kelvin Nkrumah",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "凯尔文·恩克鲁马",
+      "dateOfBirth": "2007-09-11",
+      "age": 18,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37712358.png",
+      "club": "Medeama"
     },
     {
       "id": 37407284,
       "name": "Alidu Seidu",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿利杜·塞杜",
+      "dateOfBirth": "2000-06-04",
+      "age": 26,
+      "height": 173,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37407284.png",
+      "club": "Rennes"
     },
     {
       "id": 52721,
       "name": "Lawrence Ati Zigi",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "劳伦斯·阿蒂·齐吉",
+      "dateOfBirth": "1996-11-29",
+      "age": 29,
+      "height": 188,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/52721.png",
+      "club": "St. Gallen"
     },
     {
       "id": 11347016,
       "name": "Mohammed Salisu",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆罕默德·萨利苏",
+      "dateOfBirth": "1999-04-17",
+      "age": 27,
+      "height": 188,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/11347016.png",
+      "club": "Monaco"
     },
     {
       "id": 54303,
       "name": "Gideon Mensah",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吉迪恩·门萨",
+      "dateOfBirth": "1998-07-18",
+      "age": 27,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/54303.png",
+      "club": "Auxerre"
     },
     {
       "id": 10990678,
       "name": "Antoine Semenyo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安托万·塞梅尼奥",
+      "dateOfBirth": "2000-01-07",
+      "age": 26,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/10990678.png",
+      "club": "Manchester City"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.670Z"
+  "fetchedAt": "2026-03-19T16:42:17.670Z",
+  "enrichedAt": "2026-03-20T14:42:48.962Z"
 }

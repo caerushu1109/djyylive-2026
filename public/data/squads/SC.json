@@ -6,242 +6,523 @@
       "id": 37696485,
       "name": "James Wilson",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "詹姆斯·威尔逊",
+      "dateOfBirth": "2007-03-06",
+      "age": 19,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/37696485.png",
+      "club": "Tottenham U21"
     },
     {
       "id": 172415,
       "name": "Zander Clark",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Z. 克拉克",
+      "dateOfBirth": "1992-06-26",
+      "age": 33,
+      "height": 191,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/172415.png",
+      "club": "Doncaster Rovers"
     },
     {
       "id": 336067,
       "name": "Angus Gunn ",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安格斯·冈恩",
+      "dateOfBirth": "1996-01-22",
+      "age": 30,
+      "height": 196,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/336067.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 37260638,
       "name": "Nathan Patterson",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "内森·帕特森",
+      "dateOfBirth": "2001-10-16",
+      "age": 24,
+      "height": 189,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37260638.png",
+      "club": "Everton"
     },
     {
       "id": 173059,
       "name": "Kevin Nisbet",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "凯文·尼斯贝特",
+      "dateOfBirth": "1997-03-08",
+      "age": 29,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/173059.png",
+      "club": "Aberdeen"
     },
     {
       "id": 35683623,
       "name": "Josh Mulligan",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔什·穆里根",
+      "dateOfBirth": "2002-11-12",
+      "age": 23,
+      "height": 175,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/35683623.png",
+      "club": "Hibernian"
     },
     {
       "id": 37619858,
       "name": "Callan McKenna",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡兰·麦肯纳",
+      "dateOfBirth": "2006-12-22",
+      "age": 19,
+      "height": 188,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37619858.png",
+      "club": "AFC Bournemouth U21"
     },
     {
       "id": 174383,
       "name": "Robby McCrorie",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗比·麦克罗里",
+      "dateOfBirth": "1998-03-18",
+      "age": 28,
+      "height": 190,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/174383.png",
+      "club": "Esbjerg"
     },
     {
       "id": 176702,
       "name": "Ryan Porteous",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "瑞安·波尔图斯",
+      "dateOfBirth": "1999-03-25",
+      "age": 27,
+      "height": 188,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/176702.png",
+      "club": "Hibernian U20"
     },
     {
       "id": 37528877,
       "name": "Max Johnston",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 约翰斯顿",
+      "dateOfBirth": "2003-12-26",
+      "age": 22,
+      "height": 185,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37528877.png",
+      "club": "Derby County"
     },
     {
       "id": 37391535,
       "name": "Tommy Conway",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "T·康威",
+      "dateOfBirth": "2002-08-06",
+      "age": 23,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37391535.png",
+      "club": "Middlesbrough"
     },
     {
       "id": 25954296,
       "name": "Kieron Bowie",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "基隆·鲍伊",
+      "dateOfBirth": "2002-09-21",
+      "age": 23,
+      "height": 190,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/25954296.png",
+      "club": "Hellas Verona"
     },
     {
       "id": 172385,
       "name": "Kenny McLean",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "肯尼·麦克林",
+      "dateOfBirth": "1992-01-08",
+      "age": 34,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/172385.png",
+      "club": "Norwich City"
     },
     {
       "id": 172960,
       "name": "Kieran Tierney",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "蒂尔尼",
+      "dateOfBirth": "1997-06-05",
+      "age": 29,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/172960.png",
+      "club": "Celtic"
     },
     {
       "id": 173129,
       "name": "Anthony Ralston",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "A. 拉尔斯顿",
+      "dateOfBirth": "1998-11-16",
+      "age": 27,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/173129.png",
+      "club": "Celtic"
     },
     {
       "id": 37602125,
       "name": "Ben Gannon-Doak",
       "position": "FW",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "本·甘农-多克",
+      "dateOfBirth": "2005-11-11",
+      "age": 20,
+      "height": 173,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37602125.png",
+      "club": "AFC Bournemouth"
     },
     {
       "id": 27440826,
       "name": "Aaron Hickey",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "阿隆·希基",
+      "dateOfBirth": "2002-06-10",
+      "age": 24,
+      "height": 185,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/27440826.png",
+      "club": "Brentford"
     },
     {
       "id": 37602122,
       "name": "Lennon Miller",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "列侬·米勒",
+      "dateOfBirth": "2006-08-25",
+      "age": 19,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37602122.png",
+      "club": "Udinese"
     },
     {
       "id": 7577,
       "name": "George Hirst",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "乔治·赫斯特",
+      "dateOfBirth": "1999-02-15",
+      "age": 27,
+      "height": 191,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/7577.png",
+      "club": "Ipswich Town"
     },
     {
       "id": 172923,
       "name": "Scott Bain",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "斯科特·贝恩",
+      "dateOfBirth": "1991-11-22",
+      "age": 34,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/172923.png",
+      "club": "Falkirk"
     },
     {
       "id": 174066,
       "name": "Liam Kelly",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "L. 凯利",
+      "dateOfBirth": "1996-01-23",
+      "age": 30,
+      "height": 184,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/174066.png",
+      "club": "Rangers"
     },
     {
       "id": 807,
       "name": "Grant Hanley",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "格兰特·汉利",
+      "dateOfBirth": "1991-11-20",
+      "age": 34,
+      "height": 188,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/807.png",
+      "club": "Hibernian"
     },
     {
       "id": 172581,
       "name": "John Souttar",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "约翰·苏塔",
+      "dateOfBirth": "1996-09-25",
+      "age": 29,
+      "height": 186,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/172581.png",
+      "club": "Rangers"
     },
     {
       "id": 455376,
       "name": "Scott McTominay",
       "position": "MF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "麦克托米奈",
+      "dateOfBirth": "1996-12-08",
+      "age": 29,
+      "height": 191,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/455376.png",
+      "club": "Napoli"
     },
     {
       "id": 378093,
       "name": "Ross Doohan",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗斯·杜汉",
+      "dateOfBirth": "1998-03-29",
+      "age": 28,
+      "height": 186,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/378093.png",
+      "club": "Celtic"
     },
     {
       "id": 24817485,
       "name": "Connor Barron",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "康纳·巴伦",
+      "dateOfBirth": "2002-08-29",
+      "age": 23,
+      "height": 175,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/24817485.png",
+      "club": "Rangers"
     },
     {
       "id": 378629,
       "name": "Andrew Irving",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "A. 欧文",
+      "dateOfBirth": "2000-05-13",
+      "age": 26,
+      "height": 190,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/378629.png",
+      "club": "Sparta Praha"
     },
     {
       "id": 28912734,
       "name": "Cieran Slicker",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "西兰·斯利克",
+      "dateOfBirth": "2002-09-15",
+      "age": 23,
+      "height": 191,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/28912734.png",
+      "club": "Barnet"
     },
     {
       "id": 6648042,
       "name": "Lewis Ferguson",
       "position": "MF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "刘易斯·弗格森",
+      "dateOfBirth": "1999-08-24",
+      "age": 26,
+      "height": 181,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/6648042.png",
+      "club": "Bologna"
     },
     {
       "id": 1078,
       "name": "Andrew Robertson",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "安德鲁·罗伯逊",
+      "dateOfBirth": "1994-03-11",
+      "age": 32,
+      "height": 178,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/1078.png",
+      "club": "Liverpool"
     },
     {
       "id": 173047,
       "name": "Scott McKenna",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "S. 麦肯纳",
+      "dateOfBirth": "1996-11-12",
+      "age": 29,
+      "height": 189,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/173047.png",
+      "club": "Dinamo Zagreb"
     },
     {
       "id": 6612,
       "name": "Jack Hendry",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "J. 亨德里",
+      "dateOfBirth": "1995-05-07",
+      "age": 31,
+      "height": 192,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/6612.png",
+      "club": "Al Ettifaq"
     },
     {
       "id": 172611,
       "name": "John McGinn",
       "position": "MF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "约翰·麦金",
+      "dateOfBirth": "1994-10-18",
+      "age": 31,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/172611.png",
+      "club": "Aston Villa"
     },
     {
       "id": 6599973,
       "name": "Billy Gilmour ",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "比利·吉尔莫尔",
+      "dateOfBirth": "2001-06-11",
+      "age": 25,
+      "height": 170,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/6599973.png",
+      "club": "Napoli"
     },
     {
       "id": 172938,
       "name": "Lawrence Shankland",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "L. 尚克兰德",
+      "dateOfBirth": "1995-08-10",
+      "age": 30,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/172938.png",
+      "club": "Hearts"
     },
     {
       "id": 35,
       "name": "Craig Gordon",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克雷格·戈登",
+      "dateOfBirth": "1982-12-31",
+      "age": 43,
+      "height": 193,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/35.png",
+      "club": "Hearts"
     },
     {
       "id": 37260591,
       "name": "Josh Doig",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔希·杜伊格",
+      "dateOfBirth": "2002-05-18",
+      "age": 24,
+      "height": 189,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37260591.png",
+      "club": "Sassuolo"
     },
     {
       "id": 174296,
       "name": "Lyndon Dykes",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "林登·戴克斯",
+      "dateOfBirth": "1995-10-07",
+      "age": 30,
+      "height": 188,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/174296.png",
+      "club": "Charlton Athletic"
     },
     {
       "id": 3596,
       "name": "Ché Adams",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "C. 亚当斯",
+      "dateOfBirth": "1996-07-13",
+      "age": 29,
+      "height": 179,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/3596.png",
+      "club": "Torino"
     },
     {
       "id": 172752,
       "name": "Ryan Christie",
       "position": "MF",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "R. 克里斯蒂",
+      "dateOfBirth": "1995-02-22",
+      "age": 31,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/172752.png",
+      "club": "AFC Bournemouth"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.670Z"
+  "fetchedAt": "2026-03-19T16:42:17.670Z",
+  "enrichedAt": "2026-03-20T15:00:02.561Z"
 }

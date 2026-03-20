@@ -6,230 +6,497 @@
       "id": 17176170,
       "name": "Aune Heggebø",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥内·塞兰·赫格布",
+      "dateOfBirth": "2001-07-29",
+      "age": 24,
+      "height": 185,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/17176170.png",
+      "club": "West Bromwich Albion"
     },
     {
       "id": 37569702,
       "name": "Tobias Guddal",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "托比亚斯·古达尔",
+      "dateOfBirth": "2002-07-25",
+      "age": 23,
+      "height": 201,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37569702.png",
+      "club": "Tromsø"
     },
     {
       "id": 37521190,
       "name": "Sondre Langås",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "S. 朗厄斯",
+      "dateOfBirth": "2001-02-02",
+      "age": 25,
+      "height": 190,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37521190.png",
+      "club": "Derby County"
     },
     {
       "id": 26823,
       "name": "Martin Ødegaard",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马丁·厄德高",
+      "dateOfBirth": "1998-12-17",
+      "age": 27,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/26823.png",
+      "club": "Arsenal"
     },
     {
       "id": 151715,
       "name": "Jens Petter Hauge",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "J. 豪格",
+      "dateOfBirth": "1999-10-12",
+      "age": 26,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/151715.png",
+      "club": "Bodø / Glimt"
     },
     {
       "id": 457047,
       "name": "Erik Botheim",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃里克·博斯海姆",
+      "dateOfBirth": "2000-01-10",
+      "age": 26,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/457047.png",
+      "club": "Malmö FF"
     },
     {
       "id": 150999,
       "name": "Mathias Dyngeland",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "M. 迪恩格兰德",
+      "dateOfBirth": "1995-10-07",
+      "age": 30,
+      "height": 187,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/150999.png",
+      "club": "Brann"
     },
     {
       "id": 37577660,
       "name": "Sverre Nypan",
       "position": "MF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "发誓尼潘",
+      "dateOfBirth": "2006-12-19",
+      "age": 19,
+      "height": 182,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37577660.png",
+      "club": "Manchester City"
     },
     {
       "id": 24816996,
       "name": "Sander Tangvik",
       "position": "GK",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "S. 唐维克",
+      "dateOfBirth": "2002-11-29",
+      "age": 23,
+      "height": 193,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/24816996.png",
+      "club": "Hamburger SV"
     },
     {
       "id": 524309,
       "name": "Leo Østigård",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "利奥·Østigård",
+      "dateOfBirth": "1999-11-28",
+      "age": 26,
+      "height": 183,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/524309.png",
+      "club": "Genoa"
     },
     {
       "id": 12016844,
       "name": "Kristian Thorstvedt",
       "position": "MF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "K. 托斯特维特",
+      "dateOfBirth": "1999-03-13",
+      "age": 27,
+      "height": 189,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/12016844.png",
+      "club": "Sassuolo"
     },
     {
       "id": 458682,
       "name": "Jørgen Strand Larsen",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "J. 斯特兰德·拉尔森",
+      "dateOfBirth": "2000-02-06",
+      "age": 26,
+      "height": 193,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/458682.png",
+      "club": "Crystal Palace"
     },
     {
       "id": 151418,
       "name": "Kristoffer Ajer",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "K. 阿耶尔",
+      "dateOfBirth": "1998-04-17",
+      "age": 28,
+      "height": 198,
+      "weight": 92,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/151418.png",
+      "club": "Brentford"
     },
     {
       "id": 37692397,
       "name": "Eivind Helland",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "埃文德·赫兰德",
+      "dateOfBirth": "2005-04-25",
+      "age": 21,
+      "height": 196,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37692397.png",
+      "club": "Bologna"
     },
     {
       "id": 37337584,
       "name": "Kristian Arnstad",
       "position": "FW",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "克里斯蒂安·阿恩斯塔德",
+      "dateOfBirth": "2003-09-07",
+      "age": 22,
+      "height": 175,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/37337584.png",
+      "club": "AGF"
     },
     {
       "id": 33980252,
       "name": "Sebastian Sebulonsen",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞巴斯蒂安·塞布隆森",
+      "dateOfBirth": "2000-01-27",
+      "age": 26,
+      "height": 187,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/33980252.png",
+      "club": "FC Köln"
     },
     {
       "id": 151507,
       "name": "Andreas Hanche-Olsen",
       "position": "DF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "A. 汉切-奥尔森",
+      "dateOfBirth": "1997-01-17",
+      "age": 29,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/151507.png",
+      "club": "FSV Mainz 05"
     },
     {
       "id": 37555815,
       "name": "Andreas Schjelderup",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "A. 斯切尔德鲁普",
+      "dateOfBirth": "2004-06-01",
+      "age": 22,
+      "height": 176,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/37555815.png",
+      "club": "Benfica"
     },
     {
       "id": 154421,
       "name": "Erling Haaland",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "哈兰德",
+      "dateOfBirth": "2000-07-21",
+      "age": 25,
+      "height": 195,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/154421.png",
+      "club": "Manchester City"
     },
     {
       "id": 37391576,
       "name": "Thelo Aasgaard",
       "position": "MF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "塞洛·阿斯加德",
+      "dateOfBirth": "2002-05-02",
+      "age": 24,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37391576.png",
+      "club": "Rangers"
     },
     {
       "id": 151568,
       "name": "Fredrik Bjørkan",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "弗雷德里克·比约尔坎",
+      "dateOfBirth": "1998-08-21",
+      "age": 27,
+      "height": 180,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/151568.png",
+      "club": "Bodø / Glimt"
     },
     {
       "id": 31238809,
       "name": "Lasse Berg Johnsen",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "拉瑟·伯格·约翰森",
+      "dateOfBirth": "1999-08-18",
+      "age": 26,
+      "height": 179,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/31238809.png",
+      "club": "Sporting KC"
     },
     {
       "id": 25120,
       "name": "Morten Thorsby",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "托斯比",
+      "dateOfBirth": "1996-05-05",
+      "age": 30,
+      "height": 188,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/25120.png",
+      "club": "Cremonese"
     },
     {
       "id": 151356,
       "name": "Stian Gregersen",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "斯蒂安·格雷格森",
+      "dateOfBirth": "1995-05-17",
+      "age": 31,
+      "height": 191,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/151356.png",
+      "club": "Atlanta United"
     },
     {
       "id": 151410,
       "name": "Jostein Gundersen",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "约斯坦·冈德森",
+      "dateOfBirth": "1996-04-02",
+      "age": 30,
+      "height": 186,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/151410.png",
+      "club": "Bodø / Glimt"
     },
     {
       "id": 32471,
       "name": "Ørjan Nyland",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "厄尔扬·尼兰",
+      "dateOfBirth": "1990-09-10",
+      "age": 35,
+      "height": 192,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/32471.png",
+      "club": "Sevilla"
     },
     {
       "id": 16546879,
       "name": "Marcus Pedersen",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "M. 佩德森",
+      "dateOfBirth": "2000-07-16",
+      "age": 25,
+      "height": 184,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/16546879.png",
+      "club": "Torino"
     },
     {
       "id": 25514,
       "name": "Alexander Sørloth",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "A. 索尔洛特",
+      "dateOfBirth": "1995-12-05",
+      "age": 30,
+      "height": 195,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/25514.png",
+      "club": "Atlético Madrid"
     },
     {
       "id": 37570379,
       "name": "Antonio Nusa",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "安东尼奥·努萨",
+      "dateOfBirth": "2005-04-17",
+      "age": 21,
+      "height": 183,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37570379.png",
+      "club": "RB Leipzig"
     },
     {
       "id": 37286732,
       "name": "Oscar Bobb ",
       "position": "FW",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "奥斯卡·博布",
+      "dateOfBirth": "2003-07-12",
+      "age": 22,
+      "height": 175,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37286732.png",
+      "club": "Fulham"
     },
     {
       "id": 33166012,
       "name": "David Møller Wolfe",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "D. 默勒·沃尔夫",
+      "dateOfBirth": "2002-04-23",
+      "age": 24,
+      "height": 187,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/33166012.png",
+      "club": "Wolverhampton Wanderers"
     },
     {
       "id": 455796,
       "name": "Aron Dønnum",
       "position": "MF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "A. 登努姆",
+      "dateOfBirth": "1998-04-20",
+      "age": 28,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/455796.png",
+      "club": "Toulouse"
     },
     {
       "id": 153446,
       "name": "Egil Selvik",
       "position": "GK",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "E. 塞尔维克",
+      "dateOfBirth": "1997-07-30",
+      "age": 28,
+      "height": 193,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/153446.png",
+      "club": "Watford"
     },
     {
       "id": 64193,
       "name": "Sander Berge",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "S. 伯格",
+      "dateOfBirth": "1998-02-14",
+      "age": 28,
+      "height": 195,
+      "weight": 96,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/64193.png",
+      "club": "Fulham"
     },
     {
       "id": 151243,
       "name": "Patrick Berg",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "P. 贝格",
+      "dateOfBirth": "1997-11-24",
+      "age": 28,
+      "height": 177,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/151243.png",
+      "club": "Bodø / Glimt"
     },
     {
       "id": 151628,
       "name": "Julian Ryerson",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "J. 雷尔森",
+      "dateOfBirth": "1997-11-17",
+      "age": 28,
+      "height": 183,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/151628.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 538449,
       "name": "Torbjørn Heggem",
       "position": "DF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "托尔比约恩·赫格姆",
+      "dateOfBirth": "1999-01-12",
+      "age": 27,
+      "height": 192,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/538449.png",
+      "club": "Bologna"
     },
     {
       "id": 455797,
       "name": "Felix Horn Myhre",
       "position": "MF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "F. 迈赫雷",
+      "dateOfBirth": "1999-03-04",
+      "age": 27,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/455797.png",
+      "club": "Brann"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:53:02.065Z"
 }

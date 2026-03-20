@@ -6,272 +6,588 @@
       "id": 37547164,
       "name": "Hélio Varela",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "赫利奥·瓦雷拉",
+      "dateOfBirth": "2002-05-03",
+      "age": 24,
+      "height": 176,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37547164.png",
+      "club": "Maccabi Tel Aviv"
     },
     {
       "id": 37400393,
       "name": "Dailon Livramento",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "戴伦·利夫拉门托",
+      "dateOfBirth": "2001-05-04",
+      "age": 25,
+      "height": 185,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/37400393.png",
+      "club": "Casa Pia"
     },
     {
       "id": 99039,
       "name": "Nuno Da Costa",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "努诺·达科斯塔",
+      "dateOfBirth": "1991-02-10",
+      "age": 35,
+      "height": 184,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/99039.png",
+      "club": "İstanbul Başakşehir"
     },
     {
       "id": 37687573,
       "name": "David Moreira",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "大卫·米格尔·马德拉·莫雷拉",
+      "dateOfBirth": "2004-04-18",
+      "age": 22,
+      "height": 171,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37687573.png",
+      "club": "Sporting CP II"
     },
     {
       "id": 28637,
       "name": "Laros Duarte",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "拉罗斯·杜阿尔特",
+      "dateOfBirth": "1997-02-28",
+      "age": 29,
+      "height": 180,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/28637.png",
+      "club": "Puskás"
     },
     {
       "id": 37559583,
       "name": "Sidny Cabral",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "西德尼·洛佩斯·卡布拉尔",
+      "dateOfBirth": "2002-09-18",
+      "age": 23,
+      "height": 176,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37559583.png",
+      "club": "Benfica"
     },
     {
       "id": 162868,
       "name": "Heri Tavares",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "赫里·塔瓦雷斯",
+      "dateOfBirth": "1997-02-19",
+      "age": 29,
+      "height": 181,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/162868.png",
+      "club": "Maccabi Netanya"
     },
     {
       "id": 25663,
       "name": "Alessio Da Cruz",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿莱西奥·达克鲁兹",
+      "dateOfBirth": "1997-01-18",
+      "age": 29,
+      "height": 186,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/25663.png",
+      "club": "Anorthosis"
     },
     {
       "id": 37653547,
       "name": "Fabrício Garcia",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "法布里西奥·加西亚",
+      "dateOfBirth": "2001-05-04",
+      "age": 25,
+      "height": 172,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37653547.png",
+      "club": "Alverca"
     },
     {
       "id": 96146,
       "name": "Steven Moreira",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "史蒂文·莫雷拉",
+      "dateOfBirth": "1994-08-13",
+      "age": 31,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/96146.png",
+      "club": "Columbus Crew"
     },
     {
       "id": 436633,
       "name": "Yuran Fernandes",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "尤兰·费尔南德斯",
+      "dateOfBirth": "1994-10-19",
+      "age": 31,
+      "height": 198,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/436633.png",
+      "club": "PSM"
     },
     {
       "id": 37587237,
       "name": "Rivaldo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "里瓦尔多·博阿文图拉·莫赖斯",
+      "dateOfBirth": "2000-09-18",
+      "age": 25,
+      "height": 184,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/37587237.png",
+      "club": "Farense"
     },
     {
       "id": 12394069,
       "name": "Logan Costa",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "洛根·科斯塔",
+      "dateOfBirth": "2001-04-01",
+      "age": 25,
+      "height": 190,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/12394069.png",
+      "club": "Villarreal"
     },
     {
       "id": 37580237,
       "name": "Jordan Semedo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "J·塞梅多·瓦雷拉",
+      "dateOfBirth": "2003-01-15",
+      "age": 23,
+      "height": 175,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37580237.png",
+      "club": "Slavia Sofia"
     },
     {
       "id": 1498038,
       "name": "Yannick Semedo",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Yannick Semedo",
+      "dateOfBirth": "1995-12-29",
+      "age": 30,
+      "height": 173,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/1498038.png",
+      "club": "Farense"
     },
     {
       "id": 537762,
       "name": "Kristopher Da Graca",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯托弗·达·格拉萨",
+      "dateOfBirth": "1998-01-16",
+      "age": 28,
+      "height": 190,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/537762.png",
+      "club": "Krasava ENY Ypsonas FC"
     },
     {
       "id": 120887,
       "name": "Roberto Lopes",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗伯托·洛佩斯",
+      "dateOfBirth": "1992-06-17",
+      "age": 33,
+      "height": 182,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/120887.png",
+      "club": "Shamrock Rovers"
     },
     {
       "id": 37289064,
       "name": "Henrique Sanches",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亨利克·塔瓦雷斯",
+      "dateOfBirth": null,
+      "age": null,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37289064.png",
+      "club": "Rousset-Ste Victoire"
     },
     {
       "id": 37357400,
       "name": "Stéphane Cueni",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "史蒂芬·奎尼",
+      "dateOfBirth": "2001-03-14",
+      "age": 25,
+      "height": 182,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37357400.png",
+      "club": "Winterthur"
     },
     {
       "id": 537377,
       "name": "David Tavares",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "大卫·塔瓦雷斯",
+      "dateOfBirth": "1999-03-18",
+      "age": 27,
+      "height": 190,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/537377.png",
+      "club": "SCM Gloria Buzau"
     },
     {
       "id": 37649277,
       "name": "Rúben Pina",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "鲁本·皮纳",
+      "dateOfBirth": "2000-01-20",
+      "age": 26,
+      "height": 184,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/37649277.png",
+      "club": "Leixões"
     },
     {
       "id": 37631794,
       "name": "Ilano Silva Timas",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊拉诺·席尔瓦很害怕",
+      "dateOfBirth": "2002-09-29",
+      "age": 23,
+      "height": 183,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37631794.png",
+      "club": "MVV Maastricht"
     },
     {
       "id": 163034,
       "name": "Jovane Cabral",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "若瓦尼·卡布拉尔",
+      "dateOfBirth": "1998-06-14",
+      "age": 27,
+      "height": 174,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/163034.png",
+      "club": "Estrela Amadora"
     },
     {
       "id": 28323,
       "name": "Alvin Fortes",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿尔文·福特斯",
+      "dateOfBirth": "1994-05-25",
+      "age": 32,
+      "height": 177,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/28323.png",
+      "club": "Selangor"
     },
     {
       "id": 7330512,
       "name": "Duk",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "全部",
+      "dateOfBirth": "2000-02-16",
+      "age": 26,
+      "height": 182,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/7330512.png",
+      "club": "Leganés"
     },
     {
       "id": 37564774,
       "name": "Benchimol",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "本奇莫尔",
+      "dateOfBirth": "2001-12-29",
+      "age": 24,
+      "height": 187,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37564774.png",
+      "club": "Akron"
     },
     {
       "id": 27584,
       "name": "Garry Rodrigues",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "加里·罗德里格斯",
+      "dateOfBirth": "1990-11-27",
+      "age": 35,
+      "height": 173,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/27584.png",
+      "club": "Apollon"
     },
     {
       "id": 3188035,
       "name": "Willy Semedo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "威利·塞梅多",
+      "dateOfBirth": "1994-04-27",
+      "age": 32,
+      "height": 185,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/3188035.png",
+      "club": "Omonia Nicosia"
     },
     {
       "id": 162887,
       "name": "Vozinha",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "沃津哈",
+      "dateOfBirth": "1986-06-03",
+      "age": 40,
+      "height": 189,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/162887.png",
+      "club": "Chaves"
     },
     {
       "id": 37527313,
       "name": "Kelvin Pires",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "凯尔文·皮雷斯",
+      "dateOfBirth": "2000-06-05",
+      "age": 26,
+      "height": 193,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37527313.png",
+      "club": "SJK"
     },
     {
       "id": 5956430,
       "name": "Kevin Lenini",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "凯文·列宁",
+      "dateOfBirth": "1997-01-27",
+      "age": 29,
+      "height": 181,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/5956430.png",
+      "club": "Krasnodar"
     },
     {
       "id": 3872642,
       "name": "Márcio Rosa",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马尔西奥·罗萨",
+      "dateOfBirth": "1997-02-23",
+      "age": 29,
+      "height": 187,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/3872642.png",
+      "club": "Montana"
     },
     {
       "id": 160046,
       "name": "Diney Borges",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "迪内·博尔赫斯",
+      "dateOfBirth": "1995-01-17",
+      "age": 31,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/160046.png",
+      "club": "Al Bataeh"
     },
     {
       "id": 8859,
       "name": "Ricardo Santos",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "里卡多",
+      "dateOfBirth": "1995-06-18",
+      "age": 30,
+      "height": 198,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/8859.png",
+      "club": "Swansea City"
     },
     {
       "id": 21437348,
       "name": "Aílson Tavares",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "艾尔森·塔瓦雷斯",
+      "dateOfBirth": "1998-07-20",
+      "age": 27,
+      "height": 188,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/21437348.png",
+      "club": "Beitar Jerusalem"
     },
     {
       "id": 159259,
       "name": "Bruno Varela",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布鲁诺·瓦雷拉",
+      "dateOfBirth": "1994-11-04",
+      "age": 31,
+      "height": 191,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/159259.png",
+      "club": "Al Hazm"
     },
     {
       "id": 37586867,
       "name": "Wagner Pina",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "瓦格纳·皮纳",
+      "dateOfBirth": "2002-11-03",
+      "age": 23,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37586867.png",
+      "club": "Trabzonspor"
     },
     {
       "id": 37717106,
       "name": "Elson Mendes Da Silva",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "E. 门德斯·达席尔瓦",
+      "dateOfBirth": "2005-09-18",
+      "age": 20,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37717106.png",
+      "club": "Sochaux"
     },
     {
       "id": 37522757,
       "name": "Telmo Arcanjo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "特尔莫·阿尔坎乔",
+      "dateOfBirth": "2001-06-21",
+      "age": 24,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/37522757.png",
+      "club": "Vitória Guimarães"
     },
     {
       "id": 37538739,
       "name": "Jójó",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔伊",
+      "dateOfBirth": "2001-05-19",
+      "age": 25,
+      "height": 188,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37538739.png",
+      "club": "Vizela"
     },
     {
       "id": 6361,
       "name": "Ryan Mendes",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "瑞安·门德斯",
+      "dateOfBirth": "1990-01-08",
+      "age": 36,
+      "height": 178,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/6361.png",
+      "club": "Iğdır FK"
     },
     {
       "id": 26433,
       "name": "Jamiro Monteiro",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "贾米罗·蒙泰罗",
+      "dateOfBirth": "1993-11-23",
+      "age": 32,
+      "height": 175,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/26433.png",
+      "club": "PEC Zwolle"
     },
     {
       "id": 113633,
       "name": "Stopira",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "斯托皮拉",
+      "dateOfBirth": "1988-05-20",
+      "age": 38,
+      "height": 180,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/113633.png",
+      "club": "Torreense"
     },
     {
       "id": 26619,
       "name": "Deroy Duarte",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "德罗伊·杜阿尔特",
+      "dateOfBirth": "1999-07-04",
+      "age": 26,
+      "height": 177,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/26619.png",
+      "club": "Ludogorets"
     },
     {
       "id": 22536228,
       "name": "João Paulo",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "若昂·保罗",
+      "dateOfBirth": "1998-05-26",
+      "age": 28,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/22536228.png",
+      "club": "FCSB"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:34:51.542Z"
 }

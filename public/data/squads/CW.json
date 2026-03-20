@@ -6,212 +6,458 @@
       "id": 1370,
       "name": "R. Martina",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "C. 马蒂纳",
+      "dateOfBirth": "1989-09-25",
+      "age": 36,
+      "height": 185,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/1370.png",
+      "club": "Curacao"
     },
     {
       "id": 23278580,
       "name": "S. Hansen",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "桑杰·汉森",
+      "dateOfBirth": "2002-05-18",
+      "age": 24,
+      "height": 176,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/23278580.png",
+      "club": "Middlesbrough"
     },
     {
       "id": 29444,
       "name": "A. Obispo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿曼多·奥比斯波",
+      "dateOfBirth": "1999-03-05",
+      "age": 27,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/29444.png",
+      "club": "PSV"
     },
     {
       "id": 38203941,
       "name": "L. Merencia",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Leandro Merencia",
+      "dateOfBirth": "2005-07-01",
+      "age": 20,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Twente / Heracles U21"
     },
     {
       "id": 28854,
       "name": "J. Gaari",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "J. 加里",
+      "dateOfBirth": "1993-12-23",
+      "age": 32,
+      "height": 183,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/28854.png",
+      "club": "Abha"
     },
     {
       "id": 37565351,
       "name": "L. Comenencia",
       "position": "DF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "利瓦诺·科门恩西亚",
+      "dateOfBirth": "2004-02-03",
+      "age": 22,
+      "height": 187,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/37565351.png",
+      "club": "Zürich"
     },
     {
       "id": 25217663,
       "name": "J. Antonisse",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "杰里米·安东尼斯",
+      "dateOfBirth": "2002-03-29",
+      "age": 24,
+      "height": 184,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/25217663.png",
+      "club": "Kifisia"
     },
     {
       "id": 24803,
       "name": "J. Locadia",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "于尔根·洛卡迪亚",
+      "dateOfBirth": "1993-11-07",
+      "age": 32,
+      "height": 193,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/24803.png",
+      "club": "Miami FC II"
     },
     {
       "id": 25680,
       "name": "B. Kuwas",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "B. 库瓦斯",
+      "dateOfBirth": "1992-09-19",
+      "age": 33,
+      "height": 181,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/25680.png",
+      "club": "FC Volendam"
     },
     {
       "id": 28447,
       "name": "J. Carolina",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "尤里奇·卡罗莱纳",
+      "dateOfBirth": "1998-07-15",
+      "age": 27,
+      "height": 182,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/28447.png",
+      "club": "Borac Banja Luka"
     },
     {
       "id": 37727819,
       "name": "T. Mercera",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "蒂里克·梅塞拉",
+      "dateOfBirth": "2003-12-19",
+      "age": 22,
+      "height": 187,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37727819.png",
+      "club": "FC Groningen"
     },
     {
       "id": 37622964,
       "name": "R. Rosario",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "R. 罗萨里奥",
+      "dateOfBirth": "2004-04-11",
+      "age": 22,
+      "height": 181,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37622964.png",
+      "club": "Curacao"
     },
     {
       "id": 25588,
       "name": "R. Bazoer",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "里切德利·巴佐尔",
+      "dateOfBirth": "1996-10-12",
+      "age": 29,
+      "height": 184,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/25588.png",
+      "club": "Konyaspor"
     },
     {
       "id": 25081,
       "name": "J. Brenet",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "约书亚·布雷内特",
+      "dateOfBirth": "1994-03-20",
+      "age": 32,
+      "height": 181,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/25081.png",
+      "club": "Kayserispor"
     },
     {
       "id": 9939197,
       "name": "S. Sambo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "舒兰迪·萨姆博",
+      "dateOfBirth": "2001-08-19",
+      "age": 24,
+      "height": 174,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/9939197.png",
+      "club": "Sparta Rotterdam"
     },
     {
       "id": 37654460,
       "name": "J. Paulina",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "J. 保利纳",
+      "dateOfBirth": "2004-09-23",
+      "age": 21,
+      "height": 191,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37654460.png",
+      "club": "Fortuna Düsseldorf"
     },
     {
       "id": 26073,
       "name": "S. Floranus",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "谢雷尔·弗洛拉努斯",
+      "dateOfBirth": "1998-08-23",
+      "age": 27,
+      "height": 181,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/26073.png",
+      "club": "PEC Zwolle"
     },
     {
       "id": 4640,
       "name": "K. Gorré",
       "position": "FW",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "肯吉·戈雷",
+      "dateOfBirth": "1994-09-29",
+      "age": 31,
+      "height": 174,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/4640.png",
+      "club": "Maccabi Haifa"
     },
     {
       "id": 3219352,
       "name": "T. Doornbusch",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "特雷弗·多恩布施",
+      "dateOfBirth": "1999-07-06",
+      "age": 26,
+      "height": 188,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/3219352.png",
+      "club": "VVV-Venlo"
     },
     {
       "id": 23995,
       "name": "E. Room",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "埃洛伊·鲁姆",
+      "dateOfBirth": "1989-02-06",
+      "age": 37,
+      "height": 190,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/23995.png",
+      "club": "Miami FC II"
     },
     {
       "id": 12790692,
       "name": "R. van Eijma",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "R.范艾马",
+      "dateOfBirth": "1998-06-09",
+      "age": 28,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/12790692.png",
+      "club": "RKC Waalwijk"
     },
     {
       "id": 30782,
       "name": "G. Roemeratoe",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "G. 罗默拉托",
+      "dateOfBirth": "1999-08-19",
+      "age": 26,
+      "height": 178,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/30782.png",
+      "club": "RKC Waalwijk"
     },
     {
       "id": 25515,
       "name": "J. Bacuna",
       "position": "MF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "儒尼尼奥·巴库纳",
+      "dateOfBirth": "1997-08-07",
+      "age": 28,
+      "height": 178,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/25515.png",
+      "club": "FC Volendam"
     },
     {
       "id": 37400489,
       "name": "J. Margaritha",
       "position": "FW",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "J·玛格丽特",
+      "dateOfBirth": "2000-04-10",
+      "age": 26,
+      "height": 181,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/37400489.png",
+      "club": "SK Beveren"
     },
     {
       "id": 37336994,
       "name": "A. Martha",
       "position": "FW",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "阿尔贾尼·马尔塔",
+      "dateOfBirth": "2003-09-04",
+      "age": 22,
+      "height": 180,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37336994.png",
+      "club": "Rotherham United"
     },
     {
       "id": 25604,
       "name": "G. Kastaneer",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "卡斯塔尼尔",
+      "dateOfBirth": "1996-06-09",
+      "age": 30,
+      "height": 189,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/25604.png",
+      "club": "Terengganu"
     },
     {
       "id": 24529,
       "name": "R. Janga",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "R. 扬加",
+      "dateOfBirth": "1992-04-16",
+      "age": 34,
+      "height": 194,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/24529.png",
+      "club": "FC Eindhoven"
     },
     {
       "id": 37618295,
       "name": "D. Fonville",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D. 方维尔",
+      "dateOfBirth": "2003-05-16",
+      "age": 23,
+      "height": 178,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "NEC Nijmegen"
     },
     {
       "id": 37452955,
       "name": "T. Noslin",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "泰瑞斯·诺斯林",
+      "dateOfBirth": "2002-09-11",
+      "age": 23,
+      "height": 182,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/37452955.png",
+      "club": "Telstar"
     },
     {
       "id": 37576588,
       "name": "J. Candelaria",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杰登·坎德拉里亚",
+      "dateOfBirth": "2004-03-02",
+      "age": 22,
+      "height": 184,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37576588.png",
+      "club": "NAC Breda"
     },
     {
       "id": 1494236,
       "name": "T. Chong",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "塔希特·钟",
+      "dateOfBirth": "1999-12-04",
+      "age": 26,
+      "height": 185,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/1494236.png",
+      "club": "Sheffield United"
     },
     {
       "id": 3568504,
       "name": "K. Felida",
       "position": "MF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "K. 费利达",
+      "dateOfBirth": "1999-11-11",
+      "age": 26,
+      "height": 174,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/3568504.png",
+      "club": "FC Den Bosch"
     },
     {
       "id": 32810192,
       "name": "J. Zimmerman",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "J. 齐默尔曼",
+      "dateOfBirth": "2001-05-23",
+      "age": 25,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/32810192.png",
+      "club": "Livingston"
     },
     {
       "id": 34862786,
       "name": "T. Bodak",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "T·博达克",
+      "dateOfBirth": "2002-05-15",
+      "age": 24,
+      "height": 190,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/34862786.png",
+      "club": "Telstar"
     },
     {
       "id": 871,
       "name": "L. Bacuna",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "莱安德罗·巴库纳",
+      "dateOfBirth": "1991-08-21",
+      "age": 34,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/871.png",
+      "club": "Iğdır FK"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.669Z"
+  "fetchedAt": "2026-03-19T16:42:17.669Z",
+  "enrichedAt": "2026-03-20T14:35:42.709Z"
 }

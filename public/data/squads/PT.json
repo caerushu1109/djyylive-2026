@@ -6,194 +6,419 @@
       "id": 37262099,
       "name": "Nuno Mendes",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "努诺·门德斯",
+      "dateOfBirth": "2002-06-19",
+      "age": 23,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37262099.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 37656803,
       "name": "Rodrigo Mora",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗德里戈·莫拉",
+      "dateOfBirth": "2007-05-05",
+      "age": 19,
+      "height": 168,
+      "weight": 56,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37656803.png",
+      "club": "Porto"
     },
     {
       "id": 496775,
       "name": "Pedro Neto",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "佩德罗·内托",
+      "dateOfBirth": "2000-03-09",
+      "age": 26,
+      "height": 174,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/496775.png",
+      "club": "Chelsea"
     },
     {
       "id": 9308193,
       "name": "Nuno Tavares",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "努诺·塔瓦雷斯",
+      "dateOfBirth": "2000-01-26",
+      "age": 26,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/9308193.png",
+      "club": "Lazio"
     },
     {
       "id": 160956,
       "name": "João Cancelo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "若昂·坎塞洛",
+      "dateOfBirth": "1994-05-27",
+      "age": 32,
+      "height": 182,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/160956.png",
+      "club": "FC Barcelona"
     },
     {
       "id": 3169778,
       "name": "Pedro Gonçalves",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "波特",
+      "dateOfBirth": "1998-06-28",
+      "age": 27,
+      "height": 173,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/3169778.png",
+      "club": "Sporting CP"
     },
     {
       "id": 37656652,
       "name": "Geovany Quenda",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔万尼·昆达",
+      "dateOfBirth": "2007-04-30",
+      "age": 19,
+      "height": 172,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37656652.png",
+      "club": "Sporting CP"
     },
     {
       "id": 37410636,
       "name": "Carlos Forbs",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡洛斯·福布斯",
+      "dateOfBirth": "2004-03-19",
+      "age": 22,
+      "height": 169,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37410636.png",
+      "club": "Club Brugge"
     },
     {
       "id": 37617635,
       "name": "João Carvalho",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "若昂·卡瓦略",
+      "dateOfBirth": "2004-04-09",
+      "age": 22,
+      "height": 189,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37617635.png",
+      "club": "Sporting Braga II"
     },
     {
       "id": 159699,
       "name": "Rúben Neves",
       "position": "MF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "鲁本·内维斯",
+      "dateOfBirth": "1997-03-13",
+      "age": 29,
+      "height": 180,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/159699.png",
+      "club": "Al Hilal"
     },
     {
       "id": 21781428,
       "name": "Matheus Nunes",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "马修斯·努内斯",
+      "dateOfBirth": "1998-08-27",
+      "age": 27,
+      "height": 183,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/21781428.png",
+      "club": "Manchester City"
     },
     {
       "id": 164061,
       "name": "Diogo Dalot",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "迪奥戈·达洛特",
+      "dateOfBirth": "1999-03-18",
+      "age": 27,
+      "height": 183,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/164061.png",
+      "club": "Manchester United"
     },
     {
       "id": 160110,
       "name": "Nélson Semedo",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "内尔松·塞梅多",
+      "dateOfBirth": "1993-11-16",
+      "age": 32,
+      "height": 177,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/160110.png",
+      "club": "Fenerbahçe"
     },
     {
       "id": 540251,
       "name": "Rafael Leão",
       "position": "FW",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "拉斐尔·莱奥",
+      "dateOfBirth": "1999-06-10",
+      "age": 27,
+      "height": 188,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/540251.png",
+      "club": "AC Milan"
     },
     {
       "id": 37522785,
       "name": "Gonçalo Inácio",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "贡萨洛·伊纳西奥",
+      "dateOfBirth": "2001-08-25",
+      "age": 24,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37522785.png",
+      "club": "Sporting CP"
     },
     {
       "id": 160072,
       "name": "João Palhinha",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "若昂·帕利尼亚",
+      "dateOfBirth": "1995-07-09",
+      "age": 30,
+      "height": 190,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/160072.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 580,
       "name": "Cristiano Ronaldo",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "克里斯蒂亚诺·罗纳尔多",
+      "dateOfBirth": "1985-02-05",
+      "age": 41,
+      "height": 188,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/580.png",
+      "club": "Al Nassr"
     },
     {
       "id": 159483,
       "name": "José Sá",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "若泽·萨",
+      "dateOfBirth": "1993-01-17",
+      "age": 33,
+      "height": 192,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/159483.png",
+      "club": "Wolverhampton Wanderers"
     },
     {
       "id": 159917,
       "name": "Diogo Jota",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "迪奥戈·若塔",
+      "dateOfBirth": "1996-12-04",
+      "age": 29,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/159917.png",
+      "club": "Portugal"
     },
     {
       "id": 162536,
       "name": "Rúben Dias ",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "鲁本·迪亚斯",
+      "dateOfBirth": "1997-05-14",
+      "age": 29,
+      "height": 187,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/162536.png",
+      "club": "Manchester City"
     },
     {
       "id": 163190,
       "name": "Francisco Trincão",
       "position": "MF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "特林康",
+      "dateOfBirth": "1999-12-29",
+      "age": 26,
+      "height": 184,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/163190.png",
+      "club": "Sporting CP"
     },
     {
       "id": 37328006,
       "name": "Francisco Conceição",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "弗朗西斯科·孔塞萨奥",
+      "dateOfBirth": "2002-12-14",
+      "age": 23,
+      "height": 170,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37328006.png",
+      "club": "Juventus"
     },
     {
       "id": 163152,
       "name": "João Félix",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "若昂·费利克斯",
+      "dateOfBirth": "1999-11-10",
+      "age": 26,
+      "height": 181,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/163152.png",
+      "club": "Al Nassr"
     },
     {
       "id": 37592729,
       "name": "João Neves",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "若昂·内维斯",
+      "dateOfBirth": "2004-09-27",
+      "age": 21,
+      "height": 174,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37592729.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 23278610,
       "name": "Gonçalo Ramos",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "贡萨洛·拉莫斯",
+      "dateOfBirth": "2001-06-20",
+      "age": 24,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/23278610.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 163094,
       "name": "Diogo Costa",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "迪奥戈·科斯塔",
+      "dateOfBirth": "1999-09-19",
+      "age": 26,
+      "height": 186,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/163094.png",
+      "club": "Porto"
     },
     {
       "id": 37354828,
       "name": "António Silva",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "安东尼奥·席尔瓦",
+      "dateOfBirth": "2003-10-30",
+      "age": 22,
+      "height": 187,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37354828.png",
+      "club": "Benfica"
     },
     {
       "id": 129602,
       "name": "Bruno Fernandes",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "布鲁诺·费尔南德斯",
+      "dateOfBirth": "1994-09-08",
+      "age": 31,
+      "height": 179,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/129602.png",
+      "club": "Manchester United"
     },
     {
       "id": 159382,
       "name": "Rui Silva",
       "position": "GK",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "鲁伊·席尔瓦",
+      "dateOfBirth": "1994-02-07",
+      "age": 32,
+      "height": 191,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/159382.png",
+      "club": "Sporting CP"
     },
     {
       "id": 37593154,
       "name": "Renato Veiga",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "雷纳托·韦加",
+      "dateOfBirth": "2003-07-29",
+      "age": 22,
+      "height": 190,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37593154.png",
+      "club": "Villarreal"
     },
     {
       "id": 4545430,
       "name": "Vitinha",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "维蒂尼亚",
+      "dateOfBirth": "2000-02-13",
+      "age": 26,
+      "height": 172,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/4545430.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 96353,
       "name": "Bernardo Silva ",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "贝尔纳多·席尔瓦",
+      "dateOfBirth": "1994-08-10",
+      "age": 31,
+      "height": 173,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/96353.png",
+      "club": "Manchester City"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:55:48.300Z"
 }

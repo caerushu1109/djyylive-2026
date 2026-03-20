@@ -6,422 +6,913 @@
       "id": 10966261,
       "name": "Reo Hatate",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "英语",
+      "dateOfBirth": "1997-11-21",
+      "age": 28,
+      "height": 171,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/10966261.png",
+      "club": "Celtic"
     },
     {
       "id": 21437534,
       "name": "Kaoru Mitoma",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "三笘薫",
+      "dateOfBirth": "1997-05-20",
+      "age": 29,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/21437534.png",
+      "club": "Brighton & Hove Albion"
     },
     {
       "id": 5666477,
       "name": "Zion Suzuki",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "铃木锡安",
+      "dateOfBirth": "2002-08-21",
+      "age": 23,
+      "height": 190,
+      "weight": 98,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/5666477.png",
+      "club": "Parma"
     },
     {
       "id": 37422928,
       "name": "Yuito Suzuki",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "铃木佑人",
+      "dateOfBirth": "2001-10-25",
+      "age": 24,
+      "height": 175,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/37422928.png",
+      "club": "SC Freiburg"
     },
     {
       "id": 471485,
       "name": "Keisuke Osako",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "大迫启介",
+      "dateOfBirth": "1999-07-28",
+      "age": 26,
+      "height": 186,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/471485.png",
+      "club": "Sanfrecce Hiroshima"
     },
     {
       "id": 310003,
       "name": "Yuta Nakayama",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "中山祐太",
+      "dateOfBirth": "1997-02-16",
+      "age": 29,
+      "height": 181,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/310003.png",
+      "club": "Machida Zelvia"
     },
     {
       "id": 3876668,
       "name": "Kosei Tani",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "谷光生",
+      "dateOfBirth": "2000-11-22",
+      "age": 25,
+      "height": 190,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/3876668.png",
+      "club": "Machida Zelvia"
     },
     {
       "id": 128854,
       "name": "Yuto Nagatomo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "长友佑都",
+      "dateOfBirth": "1986-09-12",
+      "age": 39,
+      "height": 170,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/128854.png",
+      "club": "FC Tokyo"
     },
     {
       "id": 21413458,
       "name": "Yuki Soma",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "相马由纪",
+      "dateOfBirth": "1997-02-25",
+      "age": 29,
+      "height": 166,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/21413458.png",
+      "club": "Machida Zelvia"
     },
     {
       "id": 21820095,
       "name": "Yuki Ohashi",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "大桥由纪",
+      "dateOfBirth": "1996-07-27",
+      "age": 29,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/21820095.png",
+      "club": "Blackburn Rovers"
     },
     {
       "id": 310217,
       "name": "Junya Ito",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊东纯也",
+      "dateOfBirth": "1993-03-09",
+      "age": 33,
+      "height": 176,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/310217.png",
+      "club": "Genk"
     },
     {
       "id": 309647,
       "name": "N. Ueda",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "上田直道",
+      "dateOfBirth": "1994-10-24",
+      "age": 31,
+      "height": 186,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Kashima Antlers"
     },
     {
       "id": 309703,
       "name": "Hayao Kawabe",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "川部骏",
+      "dateOfBirth": "1995-09-08",
+      "age": 30,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/309703.png",
+      "club": "Sanfrecce Hiroshima"
     },
     {
       "id": 310132,
       "name": "Ko Itakura",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "它不旧",
+      "dateOfBirth": "1997-01-27",
+      "age": 29,
+      "height": 188,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/310132.png",
+      "club": "Ajax"
     },
     {
       "id": 5666491,
       "name": "Keito Nakamura",
       "position": "FW",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "中村航辅",
+      "dateOfBirth": "2000-07-28",
+      "age": 25,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/5666491.png",
+      "club": "Reims"
     },
     {
       "id": 52671,
       "name": "Takumi Minamino",
       "position": "FW",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "南野拓实",
+      "dateOfBirth": "1995-01-16",
+      "age": 31,
+      "height": 172,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/52671.png",
+      "club": "Monaco"
     },
     {
       "id": 37634715,
       "name": "Kota Tawaratsumida",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "田原津田市",
+      "dateOfBirth": "2004-05-14",
+      "age": 22,
+      "height": 175,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "FC Tokyo"
     },
     {
       "id": 28931654,
       "name": "Hayato Araki",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "荒木隼人",
+      "dateOfBirth": "1996-08-07",
+      "age": 29,
+      "height": 186,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/28931654.png",
+      "club": "Sanfrecce Hiroshima"
     },
     {
       "id": 460810,
       "name": "Kyogo Furuhashi",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "古桥京吾",
+      "dateOfBirth": "1995-01-20",
+      "age": 31,
+      "height": 170,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/460810.png",
+      "club": "Birmingham City"
     },
     {
       "id": 10959317,
       "name": "Shuto Machino",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "机械野秀人",
+      "dateOfBirth": "1999-09-30",
+      "age": 26,
+      "height": 185,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/10959317.png",
+      "club": "Borussia Mönchengladbach"
     },
     {
       "id": 37679014,
       "name": "Yuto Tsunashima",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Y. 砂岛",
+      "dateOfBirth": "2000-08-15",
+      "age": 25,
+      "height": 188,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Antwerp"
     },
     {
       "id": 311112,
       "name": "Koki Machida",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "町田浩樹",
+      "dateOfBirth": "1997-08-25",
+      "age": 28,
+      "height": 190,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/311112.png",
+      "club": "TSG Hoffenheim"
     },
     {
       "id": 21773355,
       "name": "Ayase Ueda",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "上田綾瀬",
+      "dateOfBirth": "1998-08-28",
+      "age": 27,
+      "height": 182,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/21773355.png",
+      "club": "Feyenoord"
     },
     {
       "id": 525790,
       "name": "Takefusa Kubo",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "久保建房",
+      "dateOfBirth": "2001-06-04",
+      "age": 25,
+      "height": 173,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/525790.png",
+      "club": "Real Sociedad"
     },
     {
       "id": 319282,
       "name": "Daizen Maeda",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "前田大然",
+      "dateOfBirth": "1997-10-20",
+      "age": 28,
+      "height": 173,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/319282.png",
+      "club": "Celtic"
     },
     {
       "id": 312118,
       "name": "Koki Ogawa",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "小川幸贵",
+      "dateOfBirth": "1997-08-08",
+      "age": 28,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/312118.png",
+      "club": "NEC Nijmegen"
     },
     {
       "id": 31238688,
       "name": "Kaishu Sano",
       "position": "MF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "佐野海舟",
+      "dateOfBirth": "2000-12-30",
+      "age": 25,
+      "height": 176,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/31238688.png",
+      "club": "FSV Mainz 05"
     },
     {
       "id": 5666480,
       "name": "Yukinari Sugawara",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "菅原幸成",
+      "dateOfBirth": "2000-06-28",
+      "age": 25,
+      "height": 179,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/5666480.png",
+      "club": "Werder Bremen"
     },
     {
       "id": 25591410,
       "name": "Taishi Brandon Nozawa",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "布兰登·野泽",
+      "dateOfBirth": "2002-12-25",
+      "age": 23,
+      "height": 193,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/25591410.png",
+      "club": "Antwerp"
     },
     {
       "id": 37574620,
       "name": "Tojiro Kubo",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "久保藤次郎",
+      "dateOfBirth": "1999-04-05",
+      "age": 27,
+      "height": 167,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37574620.png",
+      "club": "Kashiwa Reysol"
     },
     {
       "id": 37651796,
       "name": "Yuto Ozeki",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "大关裕人",
+      "dateOfBirth": "2005-02-06",
+      "age": 21,
+      "height": 178,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Kawasaki Frontale"
     },
     {
       "id": 37342706,
       "name": "Shunsuke Mito",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "水户俊介",
+      "dateOfBirth": "2002-09-28",
+      "age": 23,
+      "height": 164,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37342706.png",
+      "club": "Sparta Rotterdam"
     },
     {
       "id": 20673452,
       "name": "Tsuyoshi Watanabe ",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "刚士",
+      "dateOfBirth": "1997-02-05",
+      "age": 29,
+      "height": 186,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/20673452.png",
+      "club": "Feyenoord"
     },
     {
       "id": 37729507,
       "name": "Alexandre Pisano",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚历山大·皮萨诺",
+      "dateOfBirth": "2006-01-10",
+      "age": 20,
+      "height": 196,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Nagoya Grampus"
     },
     {
       "id": 37556463,
       "name": "T. Ando",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "安藤智也",
+      "dateOfBirth": "1999-01-10",
+      "age": 27,
+      "height": 190,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "St. Pauli"
     },
     {
       "id": 37616318,
       "name": "Junnosuke Suzuki",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "铃木淳之介",
+      "dateOfBirth": "2003-07-12",
+      "age": 22,
+      "height": 180,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37616318.png",
+      "club": "FC København"
     },
     {
       "id": 766687,
       "name": "Ayumu Seko",
       "position": "MF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "濑古步",
+      "dateOfBirth": "2000-06-07",
+      "age": 26,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/766687.png",
+      "club": "Le Havre"
     },
     {
       "id": 33980082,
       "name": "Satoshi Tanaka",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "田中聪",
+      "dateOfBirth": "2002-08-13",
+      "age": 23,
+      "height": 175,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/33980082.png",
+      "club": "Fortuna Düsseldorf"
     },
     {
       "id": 37686329,
       "name": "Ryunosuke Sato",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "佐藤龙之介",
+      "dateOfBirth": "2006-10-16",
+      "age": 19,
+      "height": 171,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37686329.png",
+      "club": "FC Tokyo"
     },
     {
       "id": 15790186,
       "name": "Leo Kokubo",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "小久保利奥",
+      "dateOfBirth": "2001-01-23",
+      "age": 25,
+      "height": 193,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/15790186.png",
+      "club": "Sint-Truiden"
     },
     {
       "id": 37554638,
       "name": "T. Hayakawa",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "早川智树",
+      "dateOfBirth": "1999-03-03",
+      "age": 27,
+      "height": 187,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Kashima Antlers"
     },
     {
       "id": 37737205,
       "name": "Henry Heroki Mochizuki",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "H. 望月",
+      "dateOfBirth": "2001-09-20",
+      "age": 24,
+      "height": 192,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37737205.png",
+      "club": "Machida Zelvia"
     },
     {
       "id": 37616671,
       "name": "Zento Uno",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Z.乌诺",
+      "dateOfBirth": "2003-11-20",
+      "age": 22,
+      "height": 176,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Shimizu S-Pulse"
     },
     {
       "id": 33186847,
       "name": "Mao Hosoya",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "细谷真央",
+      "dateOfBirth": "2001-09-07",
+      "age": 24,
+      "height": 177,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/33186847.png",
+      "club": "Kashiwa Reysol"
     },
     {
       "id": 37597409,
       "name": "Kota Takai",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "哥太高井",
+      "dateOfBirth": "2004-09-04",
+      "age": 21,
+      "height": 192,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37597409.png",
+      "club": "Borussia Mönchengladbach"
     },
     {
       "id": 309645,
       "name": "Sho Inagaki",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "稻垣翔",
+      "dateOfBirth": "1991-12-25",
+      "age": 34,
+      "height": 176,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Nagoya Grampus"
     },
     {
       "id": 3876667,
       "name": "Daiki Hashioka",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "桥冈大树",
+      "dateOfBirth": "1999-05-17",
+      "age": 27,
+      "height": 184,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/3876667.png",
+      "club": "Gent"
     },
     {
       "id": 37698192,
       "name": "Hiroki Sekine",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "关根弘树",
+      "dateOfBirth": "2002-08-11",
+      "age": 23,
+      "height": 187,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/37698192.png",
+      "club": "Reims"
     },
     {
       "id": 37544512,
       "name": "Sota Kitano",
       "position": "MF",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "S. 北野",
+      "dateOfBirth": "2004-08-13",
+      "age": 21,
+      "height": 172,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/37544512.png",
+      "club": "Salzburg"
     },
     {
       "id": 312709,
       "name": "Taiyo Koga",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "太阳古贺",
+      "dateOfBirth": "1998-10-28",
+      "age": 27,
+      "height": 182,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Kashiwa Reysol"
     },
     {
       "id": 37737192,
       "name": "Koki Kumasaka",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "熊坂光希",
+      "dateOfBirth": "2001-04-15",
+      "age": 25,
+      "height": 185,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Kashiwa Reysol"
     },
     {
       "id": 37422937,
       "name": "Ryoya Morishita",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "森下凉也",
+      "dateOfBirth": "1997-04-11",
+      "age": 29,
+      "height": 170,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37422937.png",
+      "club": "Blackburn Rovers"
     },
     {
       "id": 37619473,
       "name": "Kodai Sano",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "佐野浩大",
+      "dateOfBirth": "2003-09-25",
+      "age": 22,
+      "height": 176,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37619473.png",
+      "club": "NEC Nijmegen"
     },
     {
       "id": 15083970,
       "name": "Koki Saito",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "斋藤幸贵",
+      "dateOfBirth": "2001-08-10",
+      "age": 24,
+      "height": 170,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/15083970.png",
+      "club": "Queens Park Rangers"
     },
     {
       "id": 37644701,
       "name": "Keisuke Goto",
       "position": "FW",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "后藤圭介",
+      "dateOfBirth": "2005-06-03",
+      "age": 21,
+      "height": 191,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/37644701.png",
+      "club": "Sint-Truiden"
     },
     {
       "id": 37315722,
       "name": "Joel Chima Fujita",
       "position": "MF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "乔尔·藤田千马",
+      "dateOfBirth": "2002-02-16",
+      "age": 24,
+      "height": 175,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37315722.png",
+      "club": "St. Pauli"
     },
     {
       "id": 11022894,
       "name": "Hidemasa Morita",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "森田英正",
+      "dateOfBirth": "1995-05-10",
+      "age": 31,
+      "height": 177,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/11022894.png",
+      "club": "Sporting CP"
     },
     {
       "id": 37915762,
       "name": "Sota Nakamura",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Sota Nakamura",
+      "dateOfBirth": "2002-10-15",
+      "age": 23,
+      "height": 168,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Sanfrecce Hiroshima"
     },
     {
       "id": 37608862,
       "name": "Yu Hirakawa",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Y. 平川",
+      "dateOfBirth": "2001-01-03",
+      "age": 25,
+      "height": 171,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37608862.png",
+      "club": "Hull City"
     },
     {
       "id": 37634805,
       "name": "Shin Yamada",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "山田新",
+      "dateOfBirth": "2000-05-30",
+      "age": 26,
+      "height": 175,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37634805.png",
+      "club": "Preußen Münster"
     },
     {
       "id": 5666490,
       "name": "Taisei Miyashiro",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "宫城大成",
+      "dateOfBirth": "2000-05-26",
+      "age": 26,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/5666490.png",
+      "club": "Las Palmas"
     },
     {
       "id": 11322974,
       "name": "Taichi Hara",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "原太一",
+      "dateOfBirth": "1999-05-05",
+      "age": 27,
+      "height": 191,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/11322974.png",
+      "club": "St. Pauli"
     },
     {
       "id": 5666699,
       "name": "Ryo Germain",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亮杰曼",
+      "dateOfBirth": "1995-04-19",
+      "age": 31,
+      "height": 182,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Sanfrecce Hiroshima"
     },
     {
       "id": 310282,
       "name": "Yuki Kakita",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "柿田由纪",
+      "dateOfBirth": "1997-07-14",
+      "age": 28,
+      "height": 187,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Kashiwa Reysol"
     },
     {
       "id": 465580,
       "name": "Hiroki Ito",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊藤弘树",
+      "dateOfBirth": "1999-05-12",
+      "age": 27,
+      "height": 188,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/465580.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 309344,
       "name": "Wataru Endo",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "远藤航",
+      "dateOfBirth": "1993-02-09",
+      "age": 33,
+      "height": 178,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/309344.png",
+      "club": "Liverpool"
     },
     {
       "id": 310486,
       "name": "Ritsu Doan",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "土安律",
+      "dateOfBirth": "1998-06-16",
+      "age": 27,
+      "height": 172,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/310486.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 310131,
       "name": "Daichi Kamada",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "镰田大地",
+      "dateOfBirth": "1996-08-05",
+      "age": 29,
+      "height": 184,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/310131.png",
+      "club": "Crystal Palace"
     },
     {
       "id": 309844,
       "name": "Shogo Taniguchi",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "谷口正吾",
+      "dateOfBirth": "1991-07-15",
+      "age": 34,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/309844.png",
+      "club": "Sint-Truiden"
     },
     {
       "id": 461027,
       "name": "Ao Tanaka",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "前往田中",
+      "dateOfBirth": "1998-09-10",
+      "age": 27,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/461027.png",
+      "club": "Leeds United"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:48:12.545Z"
 }

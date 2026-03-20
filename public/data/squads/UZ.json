@@ -6,260 +6,562 @@
       "id": 37420397,
       "name": "Diyor Kholmatov",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "迪奥尔·霍尔马托夫",
+      "dateOfBirth": "2002-07-22",
+      "age": 23,
+      "height": 174,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37420397.png",
+      "club": "Navbakhor"
     },
     {
       "id": 37509454,
       "name": "Abbosbek Fayzullaev",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿博斯贝克·法伊祖拉耶夫",
+      "dateOfBirth": "2003-10-03",
+      "age": 22,
+      "height": 170,
+      "weight": 57,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/37509454.png",
+      "club": "İstanbul Başakşehir"
     },
     {
       "id": 330701,
       "name": "Bobur Abdikholikov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "B. 阿卜迪霍利科夫",
+      "dateOfBirth": "1997-04-23",
+      "age": 29,
+      "height": 175,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/330701.png",
+      "club": "Nasaf"
     },
     {
       "id": 330632,
       "name": "Utkir Yusupov",
       "position": "GK",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "乌特基尔·尤苏波夫",
+      "dateOfBirth": "1991-01-04",
+      "age": 35,
+      "height": 185,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/330632.png",
+      "club": "Navbakhor"
     },
     {
       "id": 37568426,
       "name": "Abdurauf Buriev",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿卜杜拉乌夫·布里耶夫",
+      "dateOfBirth": "2002-07-20",
+      "age": 23,
+      "height": 179,
+      "weight": 59,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37568426.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 330559,
       "name": "Jaloliddin Masharipov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "贾洛利丁·马沙里波夫",
+      "dateOfBirth": "1993-09-01",
+      "age": 32,
+      "height": 172,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/330559.png",
+      "club": "Esteghlal"
     },
     {
       "id": 330673,
       "name": "Rustam Ashurmatov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "鲁斯坦·阿苏尔马托夫",
+      "dateOfBirth": "1996-07-07",
+      "age": 29,
+      "height": 186,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/330673.png",
+      "club": "Esteghlal"
     },
     {
       "id": 37623459,
       "name": "Abdukodir Khusanov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿卜杜科迪尔·胡萨诺夫",
+      "dateOfBirth": "2004-02-29",
+      "age": 22,
+      "height": 186,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37623459.png",
+      "club": "Manchester City"
     },
     {
       "id": 37567838,
       "name": "Mukhammadkodir Khamraliev",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆罕默德科迪尔·哈姆拉利耶夫",
+      "dateOfBirth": "2001-07-06",
+      "age": 24,
+      "height": 185,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37567838.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 329881,
       "name": "Jamshid Iskanderov",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "贾姆希德·伊斯坎德罗夫",
+      "dateOfBirth": "1993-10-16",
+      "age": 32,
+      "height": 171,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/329881.png",
+      "club": "Uzbekistan"
     },
     {
       "id": 37626417,
       "name": "Zafarmurod Abdirakhmatov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "扎法尔穆罗德·阿卜迪拉赫马托夫",
+      "dateOfBirth": "2003-04-28",
+      "age": 23,
+      "height": 170,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37626417.png",
+      "club": "Nasaf"
     },
     {
       "id": 37568671,
       "name": "Vladimir Nazarov",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "V. 纳扎罗夫",
+      "dateOfBirth": "2002-06-08",
+      "age": 24,
+      "height": 183,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 37515551,
       "name": "Khusayin Norchaev",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "库赛因·诺尔恰耶夫",
+      "dateOfBirth": "2002-02-06",
+      "age": 24,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37515551.png",
+      "club": "Navbakhor"
     },
     {
       "id": 515685,
       "name": "Umar Eshmurodov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乌马尔·埃什穆罗多夫",
+      "dateOfBirth": "1992-11-30",
+      "age": 33,
+      "height": 185,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/515685.png",
+      "club": "Nasaf"
     },
     {
       "id": 464119,
       "name": "Golib Gaybullaev",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "G. G'aybullaev的中文名字是：G·G'aybullaev。",
+      "dateOfBirth": "1996-01-22",
+      "age": 30,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/464119.png",
+      "club": "Nasaf"
     },
     {
       "id": 328707,
       "name": "Islom Tukhtakhodjaev",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "I. 图赫塔库贾耶夫",
+      "dateOfBirth": "1989-10-30",
+      "age": 36,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Andijan"
     },
     {
       "id": 330702,
       "name": "Aziz Ganiev",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿齐兹·甘尼耶夫",
+      "dateOfBirth": "1998-02-22",
+      "age": 28,
+      "height": 180,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Al Bataeh"
     },
     {
       "id": 4598974,
       "name": "Avazbek Ulmasaliev",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A·乌尔马萨利耶夫",
+      "dateOfBirth": "2000-03-27",
+      "age": 26,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/4598974.png",
+      "club": "OKMK"
     },
     {
       "id": 37403993,
       "name": "Dilshod Komilov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D. 科米洛夫",
+      "dateOfBirth": "1999-05-16",
+      "age": 27,
+      "height": 168,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37403993.png",
+      "club": "Navbakhor"
     },
     {
       "id": 37568053,
       "name": "Alisher Odilov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿利舍尔·奥迪洛夫",
+      "dateOfBirth": "2001-07-15",
+      "age": 24,
+      "height": 178,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37568053.png",
+      "club": "Khimki"
     },
     {
       "id": 37627314,
       "name": "Rustam Turdimuradov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "R. 图尔迪穆罗多夫",
+      "dateOfBirth": "2004-04-04",
+      "age": 22,
+      "height": 182,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37627314.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 37571089,
       "name": "Alibek Davronov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A.达夫罗诺夫",
+      "dateOfBirth": "2002-12-28",
+      "age": 23,
+      "height": 184,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37571089.png",
+      "club": "Nasaf"
     },
     {
       "id": 37622188,
       "name": "Jakhongir Urozov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "J·乌罗佐夫",
+      "dateOfBirth": "2004-01-18",
+      "age": 22,
+      "height": 190,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Dinamo Samarqand"
     },
     {
       "id": 37331595,
       "name": "Ibrokhimkhalil Yuldoshev",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊·尤尔多舍夫",
+      "dateOfBirth": "2001-02-14",
+      "age": 25,
+      "height": 170,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Uzbekistan"
     },
     {
       "id": 11322037,
       "name": "Dilshod Saitov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D. 赛托夫",
+      "dateOfBirth": "1999-02-02",
+      "age": 27,
+      "height": 171,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/11322037.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 515987,
       "name": "Abrorbek Ismoilov",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿布罗贝克·伊斯梅洛夫",
+      "dateOfBirth": "1998-01-08",
+      "age": 28,
+      "height": 176,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/515987.png",
+      "club": "Uzbekistan"
     },
     {
       "id": 37568064,
       "name": "Ruslanbek Jiyanov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "鲁斯兰贝克·齐亚诺夫",
+      "dateOfBirth": "2001-06-05",
+      "age": 25,
+      "height": 180,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/37568064.png",
+      "club": "Navbakhor"
     },
     {
       "id": 330573,
       "name": "Dostonbek Khamdamov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D. Khamdamov：D. 坎达莫夫",
+      "dateOfBirth": "1996-07-24",
+      "age": 29,
+      "height": 180,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 515969,
       "name": "Azizbek Turgunboev",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿齐兹别克·图尔贡博耶夫",
+      "dateOfBirth": "1994-10-01",
+      "age": 31,
+      "height": 173,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/515969.png",
+      "club": "Andijan"
     },
     {
       "id": 11322034,
       "name": "Akmal Mozgovoy",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 莫兹戈沃伊",
+      "dateOfBirth": "1999-04-02",
+      "age": 27,
+      "height": 180,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/11322034.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 23637680,
       "name": "Khusniddin Alikulov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "胡斯尼丁·阿利库洛夫",
+      "dateOfBirth": "1999-04-04",
+      "age": 27,
+      "height": 186,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/23637680.png",
+      "club": "Rizespor"
     },
     {
       "id": 788936,
       "name": "Oston Urunov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "O. Urunov: O. 乌鲁诺夫",
+      "dateOfBirth": "2000-12-19",
+      "age": 25,
+      "height": 181,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/788936.png",
+      "club": "Persepolis"
     },
     {
       "id": 21437431,
       "name": "Sherzod Nasrullaev",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "S. 纳斯鲁拉耶夫",
+      "dateOfBirth": "1998-07-23",
+      "age": 27,
+      "height": 183,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/21437431.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 6013440,
       "name": "Abduvokhid Nematov",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "阿卜杜沃希德·内马托夫",
+      "dateOfBirth": "2001-03-20",
+      "age": 25,
+      "height": 182,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/6013440.png",
+      "club": "Nasaf"
     },
     {
       "id": 330582,
       "name": "Eldor Shomurodov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃尔多尔·肖穆罗多夫",
+      "dateOfBirth": "1995-06-29",
+      "age": 30,
+      "height": 190,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/330582.png",
+      "club": "İstanbul Başakşehir"
     },
     {
       "id": 788935,
       "name": "Khozhiakbar Alizhonov",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "K.阿利乔诺夫",
+      "dateOfBirth": "1997-04-19",
+      "age": 29,
+      "height": 180,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/788935.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 37740949,
       "name": "Abdulla Abdullaev",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿卜杜拉·阿卜杜拉耶夫",
+      "dateOfBirth": "1997-09-01",
+      "age": 28,
+      "height": 181,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37740949.png",
+      "club": "Dibba Al Fujairah"
     },
     {
       "id": 330624,
       "name": "Farrukh Sayfiev",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "法鲁克·赛菲耶夫",
+      "dateOfBirth": "1991-01-17",
+      "age": 35,
+      "height": 183,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/330624.png",
+      "club": "Uzbekistan"
     },
     {
       "id": 313828,
       "name": "Igor Sergeev",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊戈尔·谢尔盖耶夫",
+      "dateOfBirth": "1993-04-30",
+      "age": 33,
+      "height": 186,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/313828.png",
+      "club": "Persepolis"
     },
     {
       "id": 37264147,
       "name": "Khozhimat Erkinov",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "霍日马特·埃尔金诺夫",
+      "dateOfBirth": "2001-05-29",
+      "age": 25,
+      "height": 173,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37264147.png",
+      "club": "Pakhtakor"
     },
     {
       "id": 515973,
       "name": "Botirali Ergashev",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "B. 埃尔加舍夫",
+      "dateOfBirth": "1995-06-23",
+      "age": 30,
+      "height": 192,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/515973.png",
+      "club": "Uzbekistan"
     },
     {
       "id": 330674,
       "name": "Otabek Shukurov",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥塔别克·舒库罗夫",
+      "dateOfBirth": "1996-06-22",
+      "age": 29,
+      "height": 183,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/330674.png",
+      "club": "Bani Yas"
     },
     {
       "id": 330622,
       "name": "Odildzhon Khamrobekov",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥迪忠·坎罗布科夫",
+      "dateOfBirth": "1996-02-13",
+      "age": 30,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/330622.png",
+      "club": "Tractor Sazi"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.671Z"
+  "fetchedAt": "2026-03-19T16:42:17.671Z",
+  "enrichedAt": "2026-03-20T15:05:11.079Z"
 }

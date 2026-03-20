@@ -6,224 +6,484 @@
       "id": 37683455,
       "name": "Cristhian Loor",
       "position": "GK",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "克里斯蒂安·洛尔",
+      "dateOfBirth": "2006-03-09",
+      "age": 20,
+      "height": 187,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37683455.png",
+      "club": "Botafogo"
     },
     {
       "id": 13633475,
       "name": "Jordy Alcívar",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "乔迪·阿尔西瓦尔",
+      "dateOfBirth": "1999-08-05",
+      "age": 26,
+      "height": 168,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/13633475.png",
+      "club": "Independiente del Valle"
     },
     {
       "id": 37585108,
       "name": "Patrik Mercado",
       "position": "MF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "帕特里克·梅尔卡多",
+      "dateOfBirth": "2003-07-31",
+      "age": 22,
+      "height": 177,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37585108.png",
+      "club": "Independiente del Valle"
     },
     {
       "id": 37614088,
       "name": "Jeremy Arévalo",
       "position": "MF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "杰里米·阿雷瓦洛",
+      "dateOfBirth": "2005-03-19",
+      "age": 21,
+      "height": 184,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37614088.png",
+      "club": "VfB Stuttgart"
     },
     {
       "id": 245162,
       "name": "Xavier Arreaga",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "哈维尔·阿雷亚加",
+      "dateOfBirth": "1994-09-28",
+      "age": 31,
+      "height": 184,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/245162.png",
+      "club": "Club Bolívar"
     },
     {
       "id": 37761768,
       "name": "Darwin Guagua",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "达尔文·约翰·瓜瓜·席尔瓦",
+      "dateOfBirth": "2007-11-06",
+      "age": 18,
+      "height": 174,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37761768.png",
+      "club": "Independiente del Valle"
     },
     {
       "id": 245193,
       "name": "Gonzalo Valle ",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "冈萨洛",
+      "dateOfBirth": "1996-02-28",
+      "age": 30,
+      "height": 185,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/245193.png",
+      "club": "LDU Quito"
     },
     {
       "id": 458518,
       "name": "David Cabezas",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D.卡贝萨斯",
+      "dateOfBirth": "1995-06-12",
+      "age": 30,
+      "height": 186,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/458518.png",
+      "club": "Libertad"
     },
     {
       "id": 244489,
       "name": "Janner Corozo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "哈内尔·科罗佐",
+      "dateOfBirth": "1995-09-08",
+      "age": 30,
+      "height": 175,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/244489.png",
+      "club": "LDU Quito"
     },
     {
       "id": 244648,
       "name": "Jhegson Méndez",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杰格森·门德斯",
+      "dateOfBirth": "1997-04-26",
+      "age": 29,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/244648.png",
+      "club": "Independiente del Valle"
     },
     {
       "id": 37690304,
       "name": "Keny Arroyo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "肯尼·阿罗约",
+      "dateOfBirth": "2006-02-14",
+      "age": 20,
+      "height": 174,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/37690304.png",
+      "club": "Cruzeiro"
     },
     {
       "id": 37341910,
       "name": "Pedro Vite",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "佩德罗·维特",
+      "dateOfBirth": "2002-03-09",
+      "age": 24,
+      "height": 173,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/37341910.png",
+      "club": "Pumas UNAM"
     },
     {
       "id": 37567350,
       "name": "Nilson Angulo",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "尼尔森·安古洛",
+      "dateOfBirth": "2003-06-19",
+      "age": 22,
+      "height": 183,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/37567350.png",
+      "club": "Sunderland"
     },
     {
       "id": 187969,
       "name": "Pervis Estupiñán",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "佩尔维斯·埃斯图皮尼安",
+      "dateOfBirth": "1998-01-21",
+      "age": 28,
+      "height": 175,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/187969.png",
+      "club": "AC Milan"
     },
     {
       "id": 37620568,
       "name": "Bryan Ramírez",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布莱恩·拉米雷斯",
+      "dateOfBirth": "2000-08-11",
+      "age": 25,
+      "height": 177,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37620568.png",
+      "club": "Cincinnati"
     },
     {
       "id": 32778,
       "name": "Cristian Ramírez",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "克里斯蒂安·拉米雷斯",
+      "dateOfBirth": "1994-08-12",
+      "age": 31,
+      "height": 172,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/32778.png",
+      "club": "Lokomotiv Moskva"
     },
     {
       "id": 37595363,
       "name": "Denil Castillo",
       "position": "MF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "德尼尔·卡斯蒂略",
+      "dateOfBirth": "2004-03-24",
+      "age": 22,
+      "height": 189,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37595363.png",
+      "club": "FC Midtjylland"
     },
     {
       "id": 37563897,
       "name": "Yaimar Medina",
       "position": "DF",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "亚马尔·梅迪纳",
+      "dateOfBirth": "2004-11-05",
+      "age": 21,
+      "height": 178,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37563897.png",
+      "club": "Genk"
     },
     {
       "id": 12393393,
       "name": "Angelo Preciado",
       "position": "DF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "安赫洛·普雷西亚多",
+      "dateOfBirth": "1998-02-18",
+      "age": 28,
+      "height": 173,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/12393393.png",
+      "club": "Atlético Mineiro"
     },
     {
       "id": 1244,
       "name": "Enner Valencia",
       "position": "FW",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "恩纳·瓦伦西亚",
+      "dateOfBirth": "1989-11-04",
+      "age": 36,
+      "height": 177,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/1244.png",
+      "club": "Pachuca"
     },
     {
       "id": 214255,
       "name": "Hernán Galíndez ",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "埃尔南·加林德斯",
+      "dateOfBirth": "1987-03-30",
+      "age": 39,
+      "height": 189,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/214255.png",
+      "club": "Huracán"
     },
     {
       "id": 12393419,
       "name": "Willian Pacho",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "威廉·帕乔",
+      "dateOfBirth": "2001-10-16",
+      "age": 24,
+      "height": 188,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/12393419.png",
+      "club": "Paris Saint Germain"
     },
     {
       "id": 37618415,
       "name": "Joel Ordóñez",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "乔尔·奥尔多涅斯",
+      "dateOfBirth": "2004-04-21",
+      "age": 22,
+      "height": 188,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37618415.png",
+      "club": "Club Brugge"
     },
     {
       "id": 3861724,
       "name": "John Yeboah",
       "position": "MF",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "约翰·耶博亚",
+      "dateOfBirth": "2000-06-23",
+      "age": 25,
+      "height": 170,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/3861724.png",
+      "club": "Venezia"
     },
     {
       "id": 455748,
       "name": "Félix Torres",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "费利克斯·托雷斯",
+      "dateOfBirth": "1997-01-11",
+      "age": 29,
+      "height": 187,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/455748.png",
+      "club": "Internacional"
     },
     {
       "id": 471304,
       "name": "Alan Franco",
       "position": "MF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "阿兰·弗朗哥",
+      "dateOfBirth": "1998-08-21",
+      "age": 27,
+      "height": 176,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/471304.png",
+      "club": "Atlético Mineiro"
     },
     {
       "id": 11658217,
       "name": "Moisés Ramírez",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "莫伊塞斯·拉米雷斯",
+      "dateOfBirth": "2000-09-09",
+      "age": 25,
+      "height": 185,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/11658217.png",
+      "club": "Kifisia"
     },
     {
       "id": 29336847,
       "name": "Leonardo Campana",
       "position": "FW",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "莱昂纳多·贝尔",
+      "dateOfBirth": "2000-07-24",
+      "age": 25,
+      "height": 188,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/29336847.png",
+      "club": "New England"
     },
     {
       "id": 37261496,
       "name": "Piero Hincapié",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "皮耶罗·欣卡皮埃",
+      "dateOfBirth": "2002-01-09",
+      "age": 24,
+      "height": 184,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37261496.png",
+      "club": "Arsenal"
     },
     {
       "id": 37341905,
       "name": "John Mercado",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "约翰·梅尔卡多",
+      "dateOfBirth": "2002-06-03",
+      "age": 24,
+      "height": 186,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37341905.png",
+      "club": "Sparta Praha"
     },
     {
       "id": 12393396,
       "name": "Gonzalo Plata",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "G.普拉塔",
+      "dateOfBirth": "2000-11-01",
+      "age": 25,
+      "height": 178,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/12393396.png",
+      "club": "Flamengo"
     },
     {
       "id": 31255673,
       "name": "Léo Realpe",
       "position": "DF",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "L. 雷阿尔佩",
+      "dateOfBirth": "2001-02-26",
+      "age": 25,
+      "height": 186,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/31255673.png",
+      "club": "Famalicão"
     },
     {
       "id": 37341896,
       "name": "Jhoanner Chávez",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔安纳尔·查韦斯",
+      "dateOfBirth": "2002-04-25",
+      "age": 24,
+      "height": 182,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37341896.png",
+      "club": "Sparta Praha"
     },
     {
       "id": 37538779,
       "name": "Alan Minda",
       "position": "FW",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "阿兰·明达",
+      "dateOfBirth": "2003-05-14",
+      "age": 23,
+      "height": 171,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/37538779.png",
+      "club": "Atlético Mineiro"
     },
     {
       "id": 37261500,
       "name": "Moisés Caicedo",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "莫伊塞斯·凯塞多",
+      "dateOfBirth": "2001-11-02",
+      "age": 24,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37261500.png",
+      "club": "Chelsea"
     },
     {
       "id": 37682244,
       "name": "Kendry Páez",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "肯德里·帕埃斯",
+      "dateOfBirth": "2007-05-04",
+      "age": 19,
+      "height": 178,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/37682244.png",
+      "club": "River Plate"
     },
     {
       "id": 37627691,
       "name": "Kevin Rodríguez",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "凯文·罗德里格斯",
+      "dateOfBirth": "2000-03-04",
+      "age": 26,
+      "height": 190,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37627691.png",
+      "club": "Union Saint-Gilloise"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.671Z"
+  "fetchedAt": "2026-03-19T16:42:17.671Z",
+  "enrichedAt": "2026-03-20T14:38:15.720Z"
 }

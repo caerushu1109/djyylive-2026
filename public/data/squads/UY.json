@@ -6,272 +6,588 @@
       "id": 37908296,
       "name": "N. Azambuja Vargas",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "尼古拉斯",
+      "dateOfBirth": "2008-03-28",
+      "age": 18,
+      "height": 170,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Danubio"
     },
     {
       "id": 466050,
       "name": "C. Fiermarin Forlán",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "克里斯托弗·菲尔马林",
+      "dateOfBirth": "1998-01-01",
+      "age": 28,
+      "height": 189,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/466050.png",
+      "club": "Defensa y Justicia"
     },
     {
       "id": 466063,
       "name": "J. Piquerez Moreira",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "华金·皮克雷斯",
+      "dateOfBirth": "1998-08-24",
+      "age": 27,
+      "height": 184,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/466063.png",
+      "club": "Palmeiras"
     },
     {
       "id": 2823329,
       "name": "J. Sanabria Magole",
       "position": "DF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "胡安·曼努埃尔·萨纳布里亚",
+      "dateOfBirth": "2000-03-29",
+      "age": 26,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/2823329.png",
+      "club": "Real Salt Lake"
     },
     {
       "id": 37646062,
       "name": "K. Amaro Viega",
       "position": "DF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "凯文·阿马罗",
+      "dateOfBirth": "2004-03-03",
+      "age": 22,
+      "height": 177,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/37646062.png",
+      "club": "Liverpool"
     },
     {
       "id": 37571016,
       "name": "S. Homenchenko Bianchi",
       "position": "MF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "圣地亚哥·霍门琴科",
+      "dateOfBirth": "2003-08-30",
+      "age": 22,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37571016.png",
+      "club": "Querétaro"
     },
     {
       "id": 22126556,
       "name": "R. Zalazar Martínez",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "罗德里戈·萨拉萨尔",
+      "dateOfBirth": "1999-08-12",
+      "age": 26,
+      "height": 178,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/22126556.png",
+      "club": "Sporting Braga"
     },
     {
       "id": 37537580,
       "name": "A. Álvarez Martínez",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "奥古斯丁·阿尔瓦雷斯",
+      "dateOfBirth": "2001-05-19",
+      "age": 25,
+      "height": 177,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37537580.png",
+      "club": "Monza"
     },
     {
       "id": 4449,
       "name": "G. Varela Olivera",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吉列尔莫·巴雷拉",
+      "dateOfBirth": "1993-03-24",
+      "age": 33,
+      "height": 173,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/4449.png",
+      "club": "Flamengo"
     },
     {
       "id": 37690216,
       "name": "E. González Ribeiro",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "L.冈萨雷斯",
+      "dateOfBirth": "2006-01-01",
+      "age": 20,
+      "height": 179,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37690216.png",
+      "club": "Defensa y Justicia"
     },
     {
       "id": 34455781,
       "name": "C. Olivera Ibarra",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯蒂安·奥利维拉",
+      "dateOfBirth": "2002-04-17",
+      "age": 24,
+      "height": 175,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/34455781.png",
+      "club": "Bahia"
     },
     {
       "id": 25333,
       "name": "S. Rochet Álvarez",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞尔希奥·罗切特",
+      "dateOfBirth": "1993-03-23",
+      "age": 33,
+      "height": 190,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/25333.png",
+      "club": "Internacional"
     },
     {
       "id": 130022,
       "name": "L. Torreira Di Pascua",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡斯·托雷拉",
+      "dateOfBirth": "1996-02-11",
+      "age": 30,
+      "height": 166,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/130022.png",
+      "club": "Galatasaray"
     },
     {
       "id": 260880,
       "name": "D. De La Cruz Arcosa",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "尼古拉斯·德拉克鲁斯",
+      "dateOfBirth": "1997-06-01",
+      "age": 29,
+      "height": 167,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/260880.png",
+      "club": "Flamengo"
     },
     {
       "id": 6013424,
       "name": "D. Núñez Ribeiro",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "达尔文·努涅斯",
+      "dateOfBirth": "1999-06-24",
+      "age": 26,
+      "height": 187,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/6013424.png",
+      "club": "Al Hilal"
     },
     {
       "id": 10995349,
       "name": "F. Israel Wibmer",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "F. 以色列",
+      "dateOfBirth": "2000-04-22",
+      "age": 26,
+      "height": 190,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/10995349.png",
+      "club": "Torino"
     },
     {
       "id": 21035934,
       "name": "I. Laquintana Marsico",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "I. 拉昆塔纳",
+      "dateOfBirth": "1999-02-01",
+      "age": 27,
+      "height": 173,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/21035934.png",
+      "club": "Huesca"
     },
     {
       "id": 19960396,
       "name": "N. Fonseca",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "尼古拉斯·丰塞卡",
+      "dateOfBirth": "1998-10-19",
+      "age": 27,
+      "height": 181,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/19960396.png",
+      "club": "Real Oviedo"
     },
     {
       "id": 459653,
       "name": "S. Bueno Sciutto",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "S. 布埃诺",
+      "dateOfBirth": "1998-11-09",
+      "age": 27,
+      "height": 190,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/459653.png",
+      "club": "Wolverhampton Wanderers"
     },
     {
       "id": 260840,
       "name": "M. Saracchi Pintos",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "马塞洛·萨拉基",
+      "dateOfBirth": "1998-04-23",
+      "age": 28,
+      "height": 172,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/260840.png",
+      "club": "Celtic"
     },
     {
       "id": 260899,
       "name": "J. Rodríguez Bebanz",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "何塞·路易斯·罗德里格斯",
+      "dateOfBirth": "1997-03-14",
+      "age": 29,
+      "height": 183,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/260899.png",
+      "club": "Vasco da Gama"
     },
     {
       "id": 15745936,
       "name": "F. Viñas Barboza",
       "position": "FW",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "费德里科·维尼亚斯",
+      "dateOfBirth": "1998-06-30",
+      "age": 27,
+      "height": 182,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/15745936.png",
+      "club": "Real Oviedo"
     },
     {
       "id": 129658,
       "name": "R. Aguirre Soto",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗德里戈·阿吉雷",
+      "dateOfBirth": "1994-10-01",
+      "age": 31,
+      "height": 186,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/129658.png",
+      "club": "Tigres UANL"
     },
     {
       "id": 37747049,
       "name": "F. Martínez Borges",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "法昆多",
+      "dateOfBirth": "2008-02-04",
+      "age": 18,
+      "height": 164,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Montevideo City Torque"
     },
     {
       "id": 37923428,
       "name": "P. Alcoba Daguirre",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "巴勃罗",
+      "dateOfBirth": "2008-11-10",
+      "age": 17,
+      "height": 183,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Albion"
     },
     {
       "id": 13653174,
       "name": "S. Cáceres Ramos",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞巴斯蒂安·卡塞雷斯",
+      "dateOfBirth": "1999-08-18",
+      "age": 26,
+      "height": 182,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/13653174.png",
+      "club": "América"
     },
     {
       "id": 37679672,
       "name": "K. Martínez Sanguinetti",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "凯文·马丁内斯",
+      "dateOfBirth": "2005-11-26",
+      "age": 20,
+      "height": 192,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37679672.png",
+      "club": "Danubio"
     },
     {
       "id": 37567261,
       "name": "?. Mouriño González",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "圣地亚哥·穆里尼奥",
+      "dateOfBirth": "2002-02-13",
+      "age": 24,
+      "height": 186,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/37567261.png",
+      "club": "Villarreal"
     },
     {
       "id": 18226586,
       "name": "F. Torres Pérez",
       "position": "FW",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "法昆多·托雷斯",
+      "dateOfBirth": "2000-04-13",
+      "age": 26,
+      "height": 177,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/18226586.png",
+      "club": "Austin"
     },
     {
       "id": 37554299,
       "name": "L. Rodríguez Rosales",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "卢西亚诺·罗德里格斯",
+      "dateOfBirth": "2003-07-16",
+      "age": 22,
+      "height": 179,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/37554299.png",
+      "club": "NEOM SC"
     },
     {
       "id": 186514,
       "name": "J. Giménez de Vargas",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "何塞·玛丽亚·希门尼斯",
+      "dateOfBirth": "1995-01-20",
+      "age": 31,
+      "height": 185,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/186514.png",
+      "club": "Atlético Madrid"
     },
     {
       "id": 13649139,
       "name": "M. Araújo Vilches",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 阿劳霍",
+      "dateOfBirth": "2000-02-15",
+      "age": 26,
+      "height": 179,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/13649139.png",
+      "club": "Sporting CP"
     },
     {
       "id": 469717,
       "name": "R. Araújo da Silva",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗纳德·阿劳霍",
+      "dateOfBirth": "1999-03-07",
+      "age": 27,
+      "height": 192,
+      "weight": 96,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/469717.png",
+      "club": "FC Barcelona"
     },
     {
       "id": 333797,
       "name": "R. Bentancur Colmán",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "罗德里戈·本坦库尔",
+      "dateOfBirth": "1997-06-25",
+      "age": 28,
+      "height": 187,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/333797.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 893705,
       "name": "M. Ugarte Ribeiro",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 乌加特",
+      "dateOfBirth": "2001-04-11",
+      "age": 25,
+      "height": 182,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/893705.png",
+      "club": "Manchester United"
     },
     {
       "id": 260891,
       "name": "S. Mele Castanero",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "圣地亚哥·梅莱",
+      "dateOfBirth": "1997-09-06",
+      "age": 28,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/260891.png",
+      "club": "Monterrey"
     },
     {
       "id": 37396572,
       "name": "N. Marichal",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "尼古拉斯·马里查尔",
+      "dateOfBirth": "2001-03-17",
+      "age": 25,
+      "height": 185,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37396572.png",
+      "club": "Dinamo Moskva"
     },
     {
       "id": 12393438,
       "name": "E. Martínez Toranza",
       "position": "MF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "埃米利亚诺·马丁内斯",
+      "dateOfBirth": "1999-08-17",
+      "age": 26,
+      "height": 185,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/12393438.png",
+      "club": "Palmeiras"
     },
     {
       "id": 260904,
       "name": "M. Olivera Miramontes",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "马蒂亚斯·奥利维拉",
+      "dateOfBirth": "1997-10-31",
+      "age": 28,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/260904.png",
+      "club": "Napoli"
     },
     {
       "id": 456276,
       "name": "M. Viña Susperreguy",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马蒂亚斯·维尼亚",
+      "dateOfBirth": "1997-11-09",
+      "age": 28,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/456276.png",
+      "club": "River Plate"
     },
     {
       "id": 260860,
       "name": "N. Nández Acosta",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "纳希坦·南德斯",
+      "dateOfBirth": "1995-12-28",
+      "age": 30,
+      "height": 172,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/260860.png",
+      "club": "Al-Qadsiah"
     },
     {
       "id": 20673398,
       "name": "F. Pellistri Rebollo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "法昆多·佩利斯特里",
+      "dateOfBirth": "2001-12-20",
+      "age": 24,
+      "height": 175,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/20673398.png",
+      "club": "Panathinaikos"
     },
     {
       "id": 12867773,
       "name": "P. Rodríguez Bravo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布赖恩·罗德里格斯",
+      "dateOfBirth": "2000-05-20",
+      "age": 26,
+      "height": 175,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/12867773.png",
+      "club": "América"
     },
     {
       "id": 219418,
       "name": "G. De Arrascaeta Benedetti",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吉奥尔吉安·德·阿拉斯凯塔",
+      "dateOfBirth": "1994-06-01",
+      "age": 32,
+      "height": 174,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/219418.png",
+      "club": "Flamengo"
     },
     {
       "id": 260862,
       "name": "F. Valverde Dipetta",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "费德里科·巴尔韦德",
+      "dateOfBirth": "1998-07-22",
+      "age": 27,
+      "height": 182,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/260862.png",
+      "club": "Real Madrid"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.670Z"
+  "fetchedAt": "2026-03-19T16:42:17.670Z",
+  "enrichedAt": "2026-03-20T15:04:10.637Z"
 }

@@ -6,242 +6,523 @@
       "id": 197704,
       "name": "Yvon Landry Mvogo",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "姆沃戈",
+      "dateOfBirth": "1994-06-06",
+      "age": 32,
+      "height": 190,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/197704.png",
+      "club": "Lorient"
     },
     {
       "id": 37261099,
       "name": "Marvin Keller",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马文·凯勒",
+      "dateOfBirth": "2002-07-03",
+      "age": 23,
+      "height": 189,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37261099.png",
+      "club": "Young Boys"
     },
     {
       "id": 37575653,
       "name": "Pascal David Loretz",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "帕斯卡尔·洛雷茨",
+      "dateOfBirth": "2003-06-01",
+      "age": 23,
+      "height": 188,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/37575653.png",
+      "club": "Luzern"
     },
     {
       "id": 34084,
       "name": "Gregor Kobel",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "科贝尔",
+      "dateOfBirth": "1997-12-06",
+      "age": 28,
+      "height": 196,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/34084.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 20335120,
       "name": "Becir Omeragic",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "贝奇尔·奥梅拉吉ć",
+      "dateOfBirth": "2002-01-20",
+      "age": 24,
+      "height": 187,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/20335120.png",
+      "club": "Basel"
     },
     {
       "id": 37522387,
       "name": "Isaac Osa's Schmidt",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "艾萨克·施密特",
+      "dateOfBirth": "1999-12-07",
+      "age": 26,
+      "height": 172,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37522387.png",
+      "club": "Werder Bremen"
     },
     {
       "id": 32525,
       "name": "Nico Elvedi",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "N. 埃尔维迪",
+      "dateOfBirth": "1996-09-30",
+      "age": 29,
+      "height": 189,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/32525.png",
+      "club": "Borussia Mönchengladbach"
     },
     {
       "id": 37609471,
       "name": "Luca Antony Jaquez",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡·哈克斯",
+      "dateOfBirth": "2003-06-02",
+      "age": 23,
+      "height": 187,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37609471.png",
+      "club": "VfB Stuttgart"
     },
     {
       "id": 37367993,
       "name": "Adrian Bajrami",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 巴伊拉米",
+      "dateOfBirth": "2002-04-05",
+      "age": 24,
+      "height": 188,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37367993.png",
+      "club": "Luzern"
     },
     {
       "id": 200872,
       "name": "Miro Muheim",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "米罗·穆海姆",
+      "dateOfBirth": "1998-03-24",
+      "age": 28,
+      "height": 182,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/200872.png",
+      "club": "Hamburger SV"
     },
     {
       "id": 198230,
       "name": "Cédric Zesiger",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "C. 泽西格尔",
+      "dateOfBirth": "1998-06-24",
+      "age": 27,
+      "height": 194,
+      "weight": 92,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/198230.png",
+      "club": "FC Augsburg"
     },
     {
       "id": 198562,
       "name": "Eray Ervin Cömert",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃拉伊·乔梅特",
+      "dateOfBirth": "1998-02-04",
+      "age": 28,
+      "height": 183,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/198562.png",
+      "club": "Valencia"
     },
     {
       "id": 32390,
       "name": "Ulisses Alexandre Garcia Lopes",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乌·加西亚",
+      "dateOfBirth": "1996-01-11",
+      "age": 30,
+      "height": 182,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/32390.png",
+      "club": "Sassuolo"
     },
     {
       "id": 27618,
       "name": "Stefan Gartenmann",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "斯特凡·加滕曼",
+      "dateOfBirth": "1997-02-02",
+      "age": 29,
+      "height": 185,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/27618.png",
+      "club": "Ferencvárosi"
     },
     {
       "id": 37669463,
       "name": "Zachary Athekame",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "扎卡里·阿泰卡梅",
+      "dateOfBirth": "2004-12-13",
+      "age": 21,
+      "height": 181,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37669463.png",
+      "club": "AC Milan"
     },
     {
       "id": 335745,
       "name": "Lucas Blondel",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡斯·布隆德尔",
+      "dateOfBirth": "1996-09-14",
+      "age": 29,
+      "height": 178,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/335745.png",
+      "club": "Huracán"
     },
     {
       "id": 37344301,
       "name": "Albian Hajdari",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿尔比安·哈伊达里",
+      "dateOfBirth": "2003-05-18",
+      "age": 23,
+      "height": 189,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37344301.png",
+      "club": "TSG Hoffenheim"
     },
     {
       "id": 198062,
       "name": "Manuel Obafemi Akanji",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿坎吉",
+      "dateOfBirth": "1995-07-19",
+      "age": 30,
+      "height": 188,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/198062.png",
+      "club": "Inter"
     },
     {
       "id": 129609,
       "name": "Silvan Widmer",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "西尔万·维德梅尔",
+      "dateOfBirth": "1993-03-05",
+      "age": 33,
+      "height": 183,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/129609.png",
+      "club": "FSV Mainz 05"
     },
     {
       "id": 37328095,
       "name": "Aurele Amenda",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥雷尔·阿曼达",
+      "dateOfBirth": "2003-07-31",
+      "age": 22,
+      "height": 194,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37328095.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 31653,
       "name": "Ricardo Iván Rodríguez Araya",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "R. 罗德里格斯",
+      "dateOfBirth": "1992-08-25",
+      "age": 33,
+      "height": 182,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/31653.png",
+      "club": "Real Betis"
     },
     {
       "id": 23233054,
       "name": "Simon Sohm",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "西蒙·索姆",
+      "dateOfBirth": "2001-04-11",
+      "age": 25,
+      "height": 188,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/23233054.png",
+      "club": "Bologna"
     },
     {
       "id": 198220,
       "name": "Michel Aebischer",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃比舍尔",
+      "dateOfBirth": "1997-01-06",
+      "age": 29,
+      "height": 183,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/198220.png",
+      "club": "Pisa"
     },
     {
       "id": 198139,
       "name": "Christian Fassnacht",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯蒂安·法斯纳赫特",
+      "dateOfBirth": "1993-11-11",
+      "age": 32,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/198139.png",
+      "club": "Young Boys"
     },
     {
       "id": 37681576,
       "name": "Johan Manzambi",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "约翰·曼赞比",
+      "dateOfBirth": "2005-10-14",
+      "age": 20,
+      "height": 182,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37681576.png",
+      "club": "SC Freiburg"
     },
     {
       "id": 1887,
       "name": "Granit Xhaka",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "格拉尼特·扎卡",
+      "dateOfBirth": "1992-09-27",
+      "age": 33,
+      "height": 186,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/1887.png",
+      "club": "Sunderland"
     },
     {
       "id": 32769,
       "name": "Djibril Sow",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吉布里尔·索乌",
+      "dateOfBirth": "1997-02-06",
+      "age": 29,
+      "height": 184,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/32769.png",
+      "club": "Sevilla"
     },
     {
       "id": 37546837,
       "name": "Alvyn Antonio Sanches",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿尔文·桑奇斯",
+      "dateOfBirth": "2003-02-12",
+      "age": 23,
+      "height": 181,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37546837.png",
+      "club": "Young Boys"
     },
     {
       "id": 37537730,
       "name": "Joel Almada Monteiro",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "J. 蒙特罗",
+      "dateOfBirth": "1999-08-05",
+      "age": 26,
+      "height": 191,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37537730.png",
+      "club": "Young Boys"
     },
     {
       "id": 198051,
       "name": "Denis Lemi Zakaria Lako Lado",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "丹尼斯·扎卡里亚",
+      "dateOfBirth": "1996-11-20",
+      "age": 29,
+      "height": 191,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/198051.png",
+      "club": "Monaco"
     },
     {
       "id": 37521581,
       "name": "Ardon Jasari",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿尔顿·贾沙里",
+      "dateOfBirth": "2002-07-30",
+      "age": 23,
+      "height": 181,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37521581.png",
+      "club": "AC Milan"
     },
     {
       "id": 130145,
       "name": "Remo Freuler",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "R. 弗罗伊勒",
+      "dateOfBirth": "1992-04-15",
+      "age": 34,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/130145.png",
+      "club": "Bologna"
     },
     {
       "id": 198045,
       "name": "Vincent Sierro",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "维克托·西耶罗",
+      "dateOfBirth": "1995-10-08",
+      "age": 30,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/198045.png",
+      "club": "Al Shabab"
     },
     {
       "id": 24817439,
       "name": "Fabian Rieder",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "F. 里德尔",
+      "dateOfBirth": "2002-02-16",
+      "age": 24,
+      "height": 179,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/24817439.png",
+      "club": "FC Augsburg"
     },
     {
       "id": 19978623,
       "name": "Dan Ndoye",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "恩多耶",
+      "dateOfBirth": "2000-10-25",
+      "age": 25,
+      "height": 184,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/19978623.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 198066,
       "name": "Cédric Itten",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞德里克·伊滕",
+      "dateOfBirth": "1996-12-27",
+      "age": 29,
+      "height": 190,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/198066.png",
+      "club": "Fortuna Düsseldorf"
     },
     {
       "id": 199544,
       "name": "Andi Zeqiri",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 泽基里",
+      "dateOfBirth": "1999-06-22",
+      "age": 26,
+      "height": 185,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/199544.png",
+      "club": "Widzew Lodz"
     },
     {
       "id": 1478864,
       "name": "Ruben Vargas",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "鲁本·巴尔加斯",
+      "dateOfBirth": "1998-08-05",
+      "age": 27,
+      "height": 179,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/1478864.png",
+      "club": "Sevilla"
     },
     {
       "id": 37261110,
       "name": "Mohamed Zeki Amdouni",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿姆杜尼 阿姆杜尼",
+      "dateOfBirth": "2000-12-04",
+      "age": 25,
+      "height": 185,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/37261110.png",
+      "club": "Burnley"
     },
     {
       "id": 32538,
       "name": "Breel-Donald Embolo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "B. 恩博洛",
+      "dateOfBirth": "1997-02-14",
+      "age": 29,
+      "height": 187,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/32538.png",
+      "club": "Rennes"
     }
   ],
-  "fetchedAt": "2026-03-20T00:00:00.000Z"
+  "fetchedAt": "2026-03-20T00:00:00.000Z",
+  "enrichedAt": "2026-03-20T14:32:12.418Z"
 }

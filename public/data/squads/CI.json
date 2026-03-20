@@ -6,152 +6,328 @@
       "id": 433194,
       "name": "Y. Fofana",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "叶海亚·福法纳",
+      "dateOfBirth": "2000-08-21",
+      "age": 25,
+      "height": 194,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/433194.png",
+      "club": "Rizespor"
     },
     {
       "id": 96798,
       "name": "A. Lafont",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "A. 拉丰",
+      "dateOfBirth": "1999-01-23",
+      "age": 27,
+      "height": 196,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/96798.png",
+      "club": "Panathinaikos"
     },
     {
       "id": 37618570,
       "name": "O. Diomande",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "奥·迪奥曼德",
+      "dateOfBirth": "2003-12-04",
+      "age": 22,
+      "height": 190,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37618570.png",
+      "club": "Sporting CP"
     },
     {
       "id": 37316600,
       "name": "G. Doué",
       "position": "DF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "吉拉·杜埃",
+      "dateOfBirth": "2002-10-17",
+      "age": 23,
+      "height": 187,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37316600.png",
+      "club": "Strasbourg"
     },
     {
       "id": 37922937,
       "name": "Y. Diomande",
       "position": "FW",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "Yan Diomande",
+      "dateOfBirth": "2006-11-14",
+      "age": 19,
+      "height": 180,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37922937.png",
+      "club": "RB Leipzig"
     },
     {
       "id": 37658280,
       "name": "B. Touré",
       "position": "FW",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "B. 图雷",
+      "dateOfBirth": "2006-03-02",
+      "age": 20,
+      "height": 175,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37658280.png",
+      "club": "TSG Hoffenheim"
     },
     {
       "id": 6301,
       "name": "S. Fofana",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "塞科·福法纳",
+      "dateOfBirth": "1995-05-07",
+      "age": 31,
+      "height": 185,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/6301.png",
+      "club": "Porto"
     },
     {
       "id": 37261923,
       "name": "E. Agbadou",
       "position": "DF",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "埃马纽埃尔·阿格巴杜",
+      "dateOfBirth": "1997-06-17",
+      "age": 28,
+      "height": 192,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37261923.png",
+      "club": "Beşiktaş"
     },
     {
       "id": 96518,
       "name": "J. Seri",
       "position": "MF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "让·米歇尔·塞里",
+      "dateOfBirth": "1991-07-19",
+      "age": 34,
+      "height": 168,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/96518.png",
+      "club": "Maribor"
     },
     {
       "id": 28931733,
       "name": "K. Odilon",
       "position": "DF",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "奥迪隆·科索努",
+      "dateOfBirth": "2001-01-04",
+      "age": 25,
+      "height": 191,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/28931733.png",
+      "club": "Atalanta"
     },
     {
       "id": 37289235,
       "name": "C. Akpa",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "C. 阿克帕",
+      "dateOfBirth": "2001-11-24",
+      "age": 24,
+      "height": 181,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37289235.png",
+      "club": "Auxerre"
     },
     {
       "id": 37553666,
       "name": "B. Traore",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Bénie Traoré",
+      "dateOfBirth": "2002-11-30",
+      "age": 23,
+      "height": 172,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37553666.png",
+      "club": "Basel"
     },
     {
       "id": 31640130,
       "name": "W. Singo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "威尔弗里德·辛戈",
+      "dateOfBirth": "2000-12-25",
+      "age": 25,
+      "height": 190,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/31640130.png",
+      "club": "Galatasaray"
     },
     {
       "id": 37555816,
       "name": "S. Adingra",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "西蒙·阿丁格拉",
+      "dateOfBirth": "2002-01-01",
+      "age": 24,
+      "height": 175,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37555816.png",
+      "club": "Monaco"
     },
     {
       "id": 32387131,
       "name": "S. Wahi",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "E. 瓦希",
+      "dateOfBirth": "2003-01-02",
+      "age": 23,
+      "height": 184,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/32387131.png",
+      "club": "Nice"
     },
     {
       "id": 37622796,
       "name": "M. Godo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "武道",
+      "dateOfBirth": "2003-03-14",
+      "age": 23,
+      "height": 169,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37622796.png",
+      "club": "Strasbourg"
     },
     {
       "id": 99534,
       "name": "O. N'Dicka",
       "position": "DF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "埃文·恩迪卡",
+      "dateOfBirth": "1999-08-20",
+      "age": 26,
+      "height": 192,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/99534.png",
+      "club": "Roma"
     },
     {
       "id": 37508678,
       "name": "P. Guiagon",
       "position": "FW",
-      "shirtNumber": 27
+      "shirtNumber": 27,
+      "nameZh": "完美的吉冈",
+      "dateOfBirth": "2001-02-22",
+      "age": 25,
+      "height": 165,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/37508678.png",
+      "club": "Sporting Charleroi"
     },
     {
       "id": 37537131,
       "name": "M. Kone",
       "position": "GK",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "穆罕默德·科内",
+      "dateOfBirth": "2002-03-07",
+      "age": 24,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37537131.png",
+      "club": "Sporting Charleroi"
     },
     {
       "id": 96943,
       "name": "I. Sangaré",
       "position": "MF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "易卜拉欣·桑加雷",
+      "dateOfBirth": "1997-12-02",
+      "age": 28,
+      "height": 191,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/96943.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 37317015,
       "name": "A. Traoré",
       "position": "FW",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "阿马德·迪亚洛",
+      "dateOfBirth": "2002-07-11",
+      "age": 23,
+      "height": 173,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37317015.png",
+      "club": "Manchester United"
     },
     {
       "id": 37761103,
       "name": "C. Inao Oulaï",
       "position": "MF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "克里斯特·伊纳奥·乌莱",
+      "dateOfBirth": "2006-04-06",
+      "age": 20,
+      "height": 173,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37761103.png",
+      "club": "Trabzonspor"
     },
     {
       "id": 21782219,
       "name": "E. Guessand",
       "position": "FW",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "E. 格桑德",
+      "dateOfBirth": "2001-07-01",
+      "age": 24,
+      "height": 188,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/21782219.png",
+      "club": "Crystal Palace"
     },
     {
       "id": 161197,
       "name": "G. Konan",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "吉斯兰·科南",
+      "dateOfBirth": "1995-12-27",
+      "age": 30,
+      "height": 176,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/161197.png",
+      "club": "Gil Vicente"
     },
     {
       "id": 129906,
       "name": "F. Kessié",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "弗兰克·凯西",
+      "dateOfBirth": "1996-12-19",
+      "age": 29,
+      "height": 183,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/129906.png",
+      "club": "Al Ahli"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.669Z"
+  "fetchedAt": "2026-03-19T16:42:17.669Z",
+  "enrichedAt": "2026-03-20T14:32:46.642Z"
 }

@@ -6,296 +6,640 @@
       "id": 513108,
       "name": "Gabriel Brown",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "加布里埃尔·布朗",
+      "dateOfBirth": "1998-07-14",
+      "age": 27,
+      "height": 175,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/513108.png",
+      "club": "Panama"
     },
     {
       "id": 37682250,
       "name": "Martín Krug",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马丁·克鲁格",
+      "dateOfBirth": "2006-07-09",
+      "age": 19,
+      "height": 192,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37682250.png",
+      "club": "Levante II"
     },
     {
       "id": 512991,
       "name": "Eduardo Guerrero",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "爱德华多·格雷罗",
+      "dateOfBirth": "2000-02-21",
+      "age": 26,
+      "height": 180,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/512991.png",
+      "club": "Dynamo Kyiv"
     },
     {
       "id": 512515,
       "name": "Eddie Roberts",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "埃迪·罗伯茨",
+      "dateOfBirth": "1994-05-01",
+      "age": 32,
+      "height": 190,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/512515.png",
+      "club": "Estudiantes Mérida"
     },
     {
       "id": 37739887,
       "name": "JD Gunn",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "JD·冈",
+      "dateOfBirth": "2000-01-21",
+      "age": 26,
+      "height": 198,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37739887.png",
+      "club": "New England"
     },
     {
       "id": 74223,
       "name": "Yoel Bárcenas",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "约埃尔·巴尔塞纳斯",
+      "dateOfBirth": "1993-10-23",
+      "age": 32,
+      "height": 175,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/74223.png",
+      "club": "Mazatlán"
     },
     {
       "id": 24837496,
       "name": "José Córdoba",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "何塞·科尔多瓦",
+      "dateOfBirth": "2001-06-03",
+      "age": 25,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/24837496.png",
+      "club": "Norwich City"
     },
     {
       "id": 37594164,
       "name": "Kahiser Lenis",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "凯瑟尔·莱尼斯",
+      "dateOfBirth": "2001-07-23",
+      "age": 24,
+      "height": 178,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37594164.png",
+      "club": "Jaguares de Córdoba"
     },
     {
       "id": 37569338,
       "name": "Rafael Mosquera",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "拉斐尔·莫斯克拉",
+      "dateOfBirth": "2005-05-24",
+      "age": 21,
+      "height": 180,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "New York RB"
     },
     {
       "id": 37561100,
       "name": "Orman Davis",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "森林戴维斯",
+      "dateOfBirth": "2002-12-25",
+      "age": 23,
+      "height": 176,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Independiente"
     },
     {
       "id": 37620392,
       "name": "Aimar Modelo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "艾马尔模型",
+      "dateOfBirth": null,
+      "age": null,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "New York RB II"
     },
     {
       "id": 512751,
       "name": "Jorge Gutiérrez",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "J. 古铁雷斯",
+      "dateOfBirth": "1998-09-01",
+      "age": 27,
+      "height": 171,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Deportivo La Guaira"
     },
     {
       "id": 37682247,
       "name": "Érick Díaz",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃里克·迪亚斯",
+      "dateOfBirth": "2006-03-04",
+      "age": 20,
+      "height": 183,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Los Angeles FC 2"
     },
     {
       "id": 37679783,
       "name": "Giovany Herbert",
       "position": "MF",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "G. 赫伯特",
+      "dateOfBirth": "2005-03-12",
+      "age": 21,
+      "height": 183,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Kryvbas Kryvyi Rih"
     },
     {
       "id": 512882,
       "name": "César Yanis",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞萨尔·亚尼斯",
+      "dateOfBirth": "1996-01-28",
+      "age": 30,
+      "height": 170,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/512882.png",
+      "club": "Cobresal"
     },
     {
       "id": 37634467,
       "name": "Omar Valencia",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥马尔·巴伦西亚",
+      "dateOfBirth": "2004-06-08",
+      "age": 22,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37634467.png",
+      "club": "New York RB"
     },
     {
       "id": 257278,
       "name": "Cecilio Waterman",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞西里奥·沃特曼",
+      "dateOfBirth": "1991-04-13",
+      "age": 35,
+      "height": 180,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/257278.png",
+      "club": "Univ. Concepción"
     },
     {
       "id": 512318,
       "name": "César Samudio",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞萨尔·萨穆迪奥",
+      "dateOfBirth": "1994-02-23",
+      "age": 32,
+      "height": 188,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/512318.png",
+      "club": "Marathón"
     },
     {
       "id": 23738861,
       "name": "Carlos Harvey",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡洛斯·哈维",
+      "dateOfBirth": "2000-02-03",
+      "age": 26,
+      "height": 184,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/23738861.png",
+      "club": "Minnesota United"
     },
     {
       "id": 512926,
       "name": "José Luis Rodríguez",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "彪马",
+      "dateOfBirth": "1998-06-19",
+      "age": 27,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/512926.png",
+      "club": "Juárez"
     },
     {
       "id": 113930,
       "name": "Aníbal Godoy",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿尼巴尔·戈多伊",
+      "dateOfBirth": "1990-02-10",
+      "age": 36,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/113930.png",
+      "club": "San Diego"
     },
     {
       "id": 10626657,
       "name": "Iván Anderson",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊万·安德森",
+      "dateOfBirth": "1997-11-24",
+      "age": 28,
+      "height": 179,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/10626657.png",
+      "club": "Deportivo Universitario"
     },
     {
       "id": 162794,
       "name": "Fidel Escobar",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "F. 埃斯科巴",
+      "dateOfBirth": "1995-01-09",
+      "age": 31,
+      "height": 184,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/162794.png",
+      "club": "Deportivo Saprissa"
     },
     {
       "id": 37582479,
       "name": "Edgardo Fariña",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃德加多·法里尼亚",
+      "dateOfBirth": "2001-10-19",
+      "age": 24,
+      "height": 195,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37582479.png",
+      "club": "Khimki"
     },
     {
       "id": 512975,
       "name": "César Blackman",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞萨尔·布莱克曼",
+      "dateOfBirth": "1998-04-02",
+      "age": 28,
+      "height": 174,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/512975.png",
+      "club": "Slovan Bratislava"
     },
     {
       "id": 262495,
       "name": "Cristian Martínez",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯蒂安·马丁内斯",
+      "dateOfBirth": "1997-02-06",
+      "age": 29,
+      "height": 170,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/262495.png",
+      "club": "Ironi Kiryat Shmona"
     },
     {
       "id": 37583903,
       "name": "Reyniel Perdomo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "雷尼尔·佩尔多莫",
+      "dateOfBirth": "2001-04-28",
+      "age": 25,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Alianza"
     },
     {
       "id": 523889,
       "name": "V. Griffith",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "V. 格里菲斯",
+      "dateOfBirth": "2000-12-12",
+      "age": 25,
+      "height": 174,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/523889.png",
+      "club": "Emelec"
     },
     {
       "id": 37594239,
       "name": "Edward Cedeño",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "爱德华·塞德诺",
+      "dateOfBirth": "2003-07-05",
+      "age": 22,
+      "height": 188,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37594239.png",
+      "club": "Albacete"
     },
     {
       "id": 512291,
       "name": "José Manuel Murillo Morán",
       "position": "MF",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "何塞·穆里略",
+      "dateOfBirth": "1995-02-24",
+      "age": 31,
+      "height": 167,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Plaza Amador"
     },
     {
       "id": 37548268,
       "name": "Azarias Londoño",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿扎里亚斯·隆多尼奥",
+      "dateOfBirth": "2001-06-21",
+      "age": 24,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37548268.png",
+      "club": "Universidad Católica"
     },
     {
       "id": 37561710,
       "name": "Héctor Humberto Hurtado Biscanio",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "赫克托·温贝托·乌尔塔多·比斯卡尼奥",
+      "dateOfBirth": "1998-12-23",
+      "age": 27,
+      "height": 173,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Sporting San Miguelito"
     },
     {
       "id": 512190,
       "name": "Omar Browne",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥马尔·布朗",
+      "dateOfBirth": "1994-05-03",
+      "age": 32,
+      "height": 170,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/512190.png",
+      "club": "Plaza Amador"
     },
     {
       "id": 35671504,
       "name": "Irving Jahir Gudiño López",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "欧文·古迪尼奥·洛佩兹",
+      "dateOfBirth": "2000-11-15",
+      "age": 25,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Deportivo Táchira"
     },
     {
       "id": 34872893,
       "name": "Edilson Denilson Carrasquilla Alcazar",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃德尔森·卡拉斯奎拉",
+      "dateOfBirth": null,
+      "age": null,
+      "height": 175,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "San Francisco"
     },
     {
       "id": 11676752,
       "name": "Everardo Ernesto Rose Clarke",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃弗拉德·埃内斯托·罗斯·克拉克",
+      "dateOfBirth": "1999-07-23",
+      "age": 26,
+      "height": 178,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Universidad Católica"
     },
     {
       "id": 37725972,
       "name": "Gustavo Herrera",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "古斯塔沃·埃雷拉",
+      "dateOfBirth": "2005-11-18",
+      "age": 20,
+      "height": 181,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Sporting San Miguelito"
     },
     {
       "id": 181412,
       "name": "Éric Davis",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "埃里克·戴维斯",
+      "dateOfBirth": "1991-03-31",
+      "age": 35,
+      "height": 180,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/181412.png",
+      "club": "Plaza Amador"
     },
     {
       "id": 5332105,
       "name": "Janpol Morales",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "扬波尔·莫拉莱斯",
+      "dateOfBirth": "1998-06-22",
+      "age": 27,
+      "height": 174,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/5332105.png",
+      "club": "Comunicaciones"
     },
     {
       "id": 187907,
       "name": "Alberto Quintero",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 金特罗",
+      "dateOfBirth": "1987-12-18",
+      "age": 38,
+      "height": 168,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/187907.png",
+      "club": "Plaza Amador"
     },
     {
       "id": 513103,
       "name": "Andrés Andrade",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 安德拉德",
+      "dateOfBirth": "1998-10-16",
+      "age": 27,
+      "height": 187,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/513103.png",
+      "club": "LASK Linz"
     },
     {
       "id": 513105,
       "name": "Jiovany Ramos",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吉奥瓦尼·拉莫斯",
+      "dateOfBirth": "1997-01-26",
+      "age": 29,
+      "height": 189,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/513105.png",
+      "club": "Academia Puerto Cabello"
     },
     {
       "id": 1854954,
       "name": "José Fajardo",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "何塞·法哈多",
+      "dateOfBirth": "1993-08-18",
+      "age": 32,
+      "height": 181,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/1854954.png",
+      "club": "Universidad Católica"
     },
     {
       "id": 512560,
       "name": "Amir Murillo",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿米尔·穆里略",
+      "dateOfBirth": "1996-02-11",
+      "age": 30,
+      "height": 184,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/512560.png",
+      "club": "Beşiktaş"
     },
     {
       "id": 513107,
       "name": "Tomás Rodríguez",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "托马斯·阿卜迪尔·罗德里格斯·梅纳",
+      "dateOfBirth": "1999-03-09",
+      "age": 27,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/513107.png",
+      "club": "Deportivo Saprissa"
     },
     {
       "id": 162499,
       "name": "Ismael Díaz",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊斯梅尔·迪亚斯",
+      "dateOfBirth": "1997-05-12",
+      "age": 29,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/162499.png",
+      "club": "León"
     },
     {
       "id": 96066,
       "name": "Luis Mejía",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "路易斯·梅希亚",
+      "dateOfBirth": "1991-03-16",
+      "age": 35,
+      "height": 191,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/96066.png",
+      "club": "Nacional"
     },
     {
       "id": 512165,
       "name": "Orlando Mosquera",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥兰多·莫斯克拉",
+      "dateOfBirth": "1994-12-25",
+      "age": 31,
+      "height": 191,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/512165.png",
+      "club": "Al-Fayha"
     },
     {
       "id": 512743,
       "name": "Adalberto Carrasquilla",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿达尔贝托·卡拉斯基拉",
+      "dateOfBirth": "1998-11-28",
+      "age": 27,
+      "height": 170,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/512743.png",
+      "club": "Pumas UNAM"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.671Z"
+  "fetchedAt": "2026-03-19T16:42:17.671Z",
+  "enrichedAt": "2026-03-20T14:55:03.083Z"
 }

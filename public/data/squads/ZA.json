@@ -6,170 +6,367 @@
       "id": 37910690,
       "name": "M. Mbokazi",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "姆贝克泽利·姆博卡齐",
+      "dateOfBirth": "2005-09-19",
+      "age": 20,
+      "height": 180,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37910690.png",
+      "club": "Chicago Fire"
     },
     {
       "id": 37744597,
       "name": "T. Smith",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": null,
+      "dateOfBirth": null,
+      "age": null,
+      "height": null,
+      "weight": null,
+      "image": null,
+      "club": null
     },
     {
       "id": 37760511,
       "name": "K. Ndamase",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "库鲁马尼·恩达曼",
+      "dateOfBirth": "2004-02-05",
+      "age": 22,
+      "height": 183,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37760511.png",
+      "club": "Mamelodi Sundowns"
     },
     {
       "id": 37769580,
       "name": "M. Nkota",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "莫豪·恩科塔",
+      "dateOfBirth": "2004-11-09",
+      "age": 21,
+      "height": 167,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37769580.png",
+      "club": "Al Ettifaq"
     },
     {
       "id": 37551389,
       "name": "T. Moremi",
       "position": "FW",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "相信农民",
+      "dateOfBirth": "2000-10-02",
+      "age": 25,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/37551389.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 30082139,
       "name": "T. Moloisane",
       "position": "DF",
-      "shirtNumber": 28
+      "shirtNumber": 28,
+      "nameZh": "塔博·莫洛瓦内",
+      "dateOfBirth": "1999-02-24",
+      "age": 27,
+      "height": 178,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/30082139.png",
+      "club": "Stellenbosch"
     },
     {
       "id": 37583966,
       "name": "T. Matuludi",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "塔班·马图卢迪",
+      "dateOfBirth": "1999-01-14",
+      "age": 27,
+      "height": 189,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/37583966.png",
+      "club": "Polokwane City"
     },
     {
       "id": 37609474,
       "name": "M. Shabalala",
       "position": "MF",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "姆杜杜兹·沙巴拉拉",
+      "dateOfBirth": "2004-01-20",
+      "age": 22,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37609474.png",
+      "club": "Kaizer Chiefs"
     },
     {
       "id": 37707578,
       "name": "S. Campbell",
       "position": "FW",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": null,
+      "dateOfBirth": null,
+      "age": null,
+      "height": null,
+      "weight": null,
+      "image": null,
+      "club": null
     },
     {
       "id": 1504475,
       "name": "I. Rayners",
       "position": "FW",
-      "shirtNumber": 27
+      "shirtNumber": 27,
+      "nameZh": "I. 雷纳斯",
+      "dateOfBirth": "1995-12-19",
+      "age": 30,
+      "height": 176,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/1504475.png",
+      "club": "Mamelodi Sundowns"
     },
     {
       "id": 37392896,
       "name": "T. Mbatha",
       "position": "MF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "人才姆巴塔",
+      "dateOfBirth": "2000-03-06",
+      "age": 26,
+      "height": 180,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/37392896.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 289380,
       "name": "R. Goss",
       "position": "GK",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "里卡多·戈斯",
+      "dateOfBirth": "1994-04-02",
+      "age": 32,
+      "height": 181,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/289380.png",
+      "club": "SuperSport United"
     },
     {
       "id": 37707615,
       "name": "S. Kabini",
       "position": "DF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "双重欢迎",
+      "dateOfBirth": "2004-03-15",
+      "age": 22,
+      "height": 181,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37707615.png",
+      "club": "Molde"
     },
     {
       "id": 2846595,
       "name": "S. Mbule",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "西弗·姆布勒",
+      "dateOfBirth": "1998-03-22",
+      "age": 28,
+      "height": 177,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/2846595.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 36084791,
       "name": "O. Appollis",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "奥斯温·阿波利斯",
+      "dateOfBirth": "2001-08-25",
+      "age": 24,
+      "height": 171,
+      "weight": 56,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/36084791.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 289686,
       "name": "N. Sibisi",
       "position": "DF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "西比西勋爵",
+      "dateOfBirth": "1995-09-22",
+      "age": 30,
+      "height": 177,
+      "weight": 64,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/289686.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 37690743,
       "name": "R. Ratomo",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "雷勒博希尔·拉托莫",
+      "dateOfBirth": "2004-10-23",
+      "age": 21,
+      "height": 166,
+      "weight": 55,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37690743.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 1504516,
       "name": "K. Mudau",
       "position": "DF",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "库利索·穆道",
+      "dateOfBirth": "1995-04-26",
+      "age": 31,
+      "height": 181,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/1504516.png",
+      "club": "Mamelodi Sundowns"
     },
     {
       "id": 289581,
       "name": "S. Ngezana",
       "position": "DF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "谢谢恩泽扎纳",
+      "dateOfBirth": "1997-07-15",
+      "age": 28,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/289581.png",
+      "club": "FCSB"
     },
     {
       "id": 9939953,
       "name": "B. Aubaas",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "巴图西·奥巴斯",
+      "dateOfBirth": "1995-05-14",
+      "age": 31,
+      "height": 180,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/9939953.png",
+      "club": "Mamelodi Sundowns"
     },
     {
       "id": 289096,
       "name": "M. Modiba",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "奥布里·莫迪巴",
+      "dateOfBirth": "1995-07-22",
+      "age": 30,
+      "height": 167,
+      "weight": 53,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/289096.png",
+      "club": "Mamelodi Sundowns"
     },
     {
       "id": 289600,
       "name": "S. Chaine",
       "position": "GK",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "西普·查伊内",
+      "dateOfBirth": "1996-12-14",
+      "age": 29,
+      "height": 181,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/289600.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 287894,
       "name": "R. Williams",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "R. 威廉姆斯",
+      "dateOfBirth": "1992-01-21",
+      "age": 34,
+      "height": 184,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/287894.png",
+      "club": "Mamelodi Sundowns"
     },
     {
       "id": 5283883,
       "name": "S. Sithole",
       "position": "MF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "亚亚·西索尔",
+      "dateOfBirth": "1999-03-03",
+      "age": 27,
+      "height": 186,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/5283883.png",
+      "club": "Tondela"
     },
     {
       "id": 4243070,
       "name": "L. Foster",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "莱尔·福斯特",
+      "dateOfBirth": "2000-09-03",
+      "age": 25,
+      "height": 185,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/4243070.png",
+      "club": "Burnley"
     },
     {
       "id": 289341,
       "name": "T. Mokoena",
       "position": "MF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "T. 莫科纳",
+      "dateOfBirth": "1997-01-24",
+      "age": 29,
+      "height": 176,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/289341.png",
+      "club": "Mamelodi Sundowns"
     },
     {
       "id": 37583888,
       "name": "E. Mokwana",
       "position": "FW",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "埃利亚斯·莫克瓦纳",
+      "dateOfBirth": "1999-09-08",
+      "age": 26,
+      "height": 175,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/37583888.png",
+      "club": "Al Hazm"
     },
     {
       "id": 37438632,
       "name": "E. Makgopa",
       "position": "FW",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "证据炮弹",
+      "dateOfBirth": "2000-06-05",
+      "age": 26,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/37438632.png",
+      "club": "Orlando Pirates"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.669Z"
+  "fetchedAt": "2026-03-19T16:42:17.669Z",
+  "enrichedAt": "2026-03-20T15:05:50.397Z"
 }

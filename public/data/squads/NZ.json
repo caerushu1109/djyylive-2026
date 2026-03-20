@@ -6,224 +6,484 @@
       "id": 37402058,
       "name": "K. Sims",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "基斯·西姆斯",
+      "dateOfBirth": "2003-03-27",
+      "age": 23,
+      "height": 194,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37402058.png",
+      "club": "GAIS"
     },
     {
       "id": 7346244,
       "name": "G. Stanger",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "G. 斯坦格",
+      "dateOfBirth": "2000-08-15",
+      "age": 25,
+      "height": 191,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/7346244.png",
+      "club": "Kilmarnock"
     },
     {
       "id": 488059,
       "name": "N. Tzanev",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "尼科拉·扎内夫",
+      "dateOfBirth": "1996-12-23",
+      "age": 29,
+      "height": 195,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/488059.png",
+      "club": "Huddersfield Town"
     },
     {
       "id": 5967840,
       "name": "O. Parker-Price",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "O. 帕克-普赖斯",
+      "dateOfBirth": "1998-12-10",
+      "age": 27,
+      "height": 164,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/5967840.png",
+      "club": "Örgryte"
     },
     {
       "id": 24469041,
       "name": "A. Paulsen",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚历克斯·保尔森",
+      "dateOfBirth": "2002-07-04",
+      "age": 23,
+      "height": 193,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/24469041.png",
+      "club": "Lechia Gdańsk"
     },
     {
       "id": 324712,
       "name": "L. Cacace",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡卡斯获释",
+      "dateOfBirth": "2000-09-27",
+      "age": 25,
+      "height": 183,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/324712.png",
+      "club": "Wrexham"
     },
     {
       "id": 2069,
       "name": "T. Smith",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "汤米·史密斯",
+      "dateOfBirth": "1990-03-31",
+      "age": 36,
+      "height": 188,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/2069.png",
+      "club": "Braintree Town"
     },
     {
       "id": 5967839,
       "name": "C. McCowatt",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡勒姆·麦考瓦特",
+      "dateOfBirth": "1999-04-30",
+      "age": 27,
+      "height": 179,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/5967839.png",
+      "club": "Silkeborg IF"
     },
     {
       "id": 25161,
       "name": "R. Thomas",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "瑞恩·托马斯",
+      "dateOfBirth": "1994-12-20",
+      "age": 31,
+      "height": 174,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/25161.png",
+      "club": "PEC Zwolle"
     },
     {
       "id": 37746059,
       "name": "L. Brooke-Smith",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "L. 布鲁克-史密斯",
+      "dateOfBirth": "2008-06-06",
+      "age": 18,
+      "height": 175,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37746059.png",
+      "club": "Wellington Phoenix"
     },
     {
       "id": 10275906,
       "name": "B. Waine",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "本·韦恩",
+      "dateOfBirth": "2001-06-11",
+      "age": 25,
+      "height": 179,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/10275906.png",
+      "club": "Port Vale"
     },
     {
       "id": 23717807,
       "name": "N. Pijnaker",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "南多·派纳克",
+      "dateOfBirth": "1999-02-25",
+      "age": 27,
+      "height": 191,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/23717807.png",
+      "club": "Auckland"
     },
     {
       "id": 324565,
       "name": "L. Rogerson",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "洛根·罗杰森",
+      "dateOfBirth": "1998-05-28",
+      "age": 28,
+      "height": 182,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/324565.png",
+      "club": "Auckland"
     },
     {
       "id": 914,
       "name": "C. Wood",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "克里斯·伍德",
+      "dateOfBirth": "1991-12-07",
+      "age": 34,
+      "height": 191,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/914.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 324539,
       "name": "S. Singh",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "萨普里特·辛格",
+      "dateOfBirth": "1999-02-20",
+      "age": 27,
+      "height": 177,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/324539.png",
+      "club": "Wellington Phoenix"
     },
     {
       "id": 330521,
       "name": "S. Roux",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "风暴·鲁克",
+      "dateOfBirth": "1993-01-13",
+      "age": 33,
+      "height": 181,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/330521.png",
+      "club": "Central Coast Mariners"
     },
     {
       "id": 37341835,
       "name": "B. Old",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "老B",
+      "dateOfBirth": "2002-08-13",
+      "age": 23,
+      "height": 173,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37341835.png",
+      "club": "Saint-Étienne"
     },
     {
       "id": 37341839,
       "name": "J. Randall",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杰西·兰德尔",
+      "dateOfBirth": "2002-08-19",
+      "age": 23,
+      "height": 176,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37341839.png",
+      "club": "Auckland"
     },
     {
       "id": 324493,
       "name": "J. Mcgarry",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "詹姆斯·麦克加里",
+      "dateOfBirth": "1998-04-09",
+      "age": 28,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/324493.png",
+      "club": "Brisbane Roar"
     },
     {
       "id": 324282,
       "name": "A. De Jong",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安德烈·德容",
+      "dateOfBirth": "1996-11-02",
+      "age": 29,
+      "height": 181,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/324282.png",
+      "club": "Orlando Pirates"
     },
     {
       "id": 107911,
       "name": "K. Barbarouses",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "科斯塔·巴巴鲁塞斯",
+      "dateOfBirth": "1990-02-19",
+      "age": 36,
+      "height": 171,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/107911.png",
+      "club": "Western Sydney Wanderers"
     },
     {
       "id": 323990,
       "name": "F. De Vries",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "弗朗西斯·德·弗里斯",
+      "dateOfBirth": "1994-11-28",
+      "age": 31,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/323990.png",
+      "club": "Auckland"
     },
     {
       "id": 324518,
       "name": "J. Bell",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔·贝尔",
+      "dateOfBirth": "1999-04-27",
+      "age": 27,
+      "height": 182,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/324518.png",
+      "club": "Viking"
     },
     {
       "id": 96422,
       "name": "B. Tuiloma",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "比尔·图伊洛马",
+      "dateOfBirth": "1995-03-27",
+      "age": 31,
+      "height": 182,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/96422.png",
+      "club": "Wellington Phoenix"
     },
     {
       "id": 37642338,
       "name": "L. Kelly-Heald",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡斯·凯利-希尔德",
+      "dateOfBirth": "2005-03-18",
+      "age": 21,
+      "height": 198,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37642338.png",
+      "club": "Wellington Phoenix"
     },
     {
       "id": 37613421,
       "name": "H. Gray",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "H. 格雷",
+      "dateOfBirth": "2005-03-29",
+      "age": 21,
+      "height": 193,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37613421.png",
+      "club": "Harrogate Town"
     },
     {
       "id": 273373,
       "name": "T. Payne",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "蒂姆·佩恩",
+      "dateOfBirth": "1994-01-10",
+      "age": 32,
+      "height": 179,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/273373.png",
+      "club": "Wellington Phoenix"
     },
     {
       "id": 1488819,
       "name": "C. Elliot",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡兰·埃利奥特",
+      "dateOfBirth": "1999-07-07",
+      "age": 26,
+      "height": 177,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/1488819.png",
+      "club": "Auckland"
     },
     {
       "id": 324174,
       "name": "O. Sail",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "奥利弗·塞尔",
+      "dateOfBirth": "1996-01-13",
+      "age": 30,
+      "height": 197,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/324174.png",
+      "club": "Auckland"
     },
     {
       "id": 37350663,
       "name": "F. Surman",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "芬·苏尔曼",
+      "dateOfBirth": "2003-09-23",
+      "age": 22,
+      "height": 190,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/37350663.png",
+      "club": "Portland Timbers"
     },
     {
       "id": 261737,
       "name": "M. Boxall",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "迈克尔",
+      "dateOfBirth": "1988-08-18",
+      "age": 37,
+      "height": 188,
+      "weight": 95,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/261737.png",
+      "club": "Minnesota United"
     },
     {
       "id": 37341836,
       "name": "M. Stamenic",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马尔科·斯塔梅尼奇",
+      "dateOfBirth": "2002-02-19",
+      "age": 24,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37341836.png",
+      "club": "Swansea City"
     },
     {
       "id": 11695,
       "name": "M. Crocombe",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马克斯·克罗科姆",
+      "dateOfBirth": "1993-08-12",
+      "age": 32,
+      "height": 194,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/11695.png",
+      "club": "Millwall"
     },
     {
       "id": 37708644,
       "name": "T. Bindon",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "泰勒·宾顿",
+      "dateOfBirth": "2005-01-27",
+      "age": 21,
+      "height": 188,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/37708644.png",
+      "club": "Sheffield United"
     },
     {
       "id": 5640904,
       "name": "E. Just",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊利亚·贾斯特",
+      "dateOfBirth": "2000-05-01",
+      "age": 26,
+      "height": 175,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/5640904.png",
+      "club": "Motherwell"
     },
     {
       "id": 24469059,
       "name": "M. Garbett",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 加贝特",
+      "dateOfBirth": "2002-04-13",
+      "age": 24,
+      "height": 188,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/24469059.png",
+      "club": "Peterborough United"
     },
     {
       "id": 324327,
       "name": "A. Rufer",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚历克斯·鲁弗",
+      "dateOfBirth": "1996-06-12",
+      "age": 29,
+      "height": 184,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/324327.png",
+      "club": "Wellington Phoenix"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.669Z"
+  "fetchedAt": "2026-03-19T16:42:17.669Z",
+  "enrichedAt": "2026-03-20T14:53:54.904Z"
 }

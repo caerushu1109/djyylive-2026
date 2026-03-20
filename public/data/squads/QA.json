@@ -6,308 +6,666 @@
       "id": 28931601,
       "name": "M. Abunad",
       "position": "GK",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "马哈茂德·阿布纳达",
+      "dateOfBirth": "2000-02-05",
+      "age": 26,
+      "height": 191,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/28931601.png",
+      "club": "Al Rayyan"
     },
     {
       "id": 37646932,
       "name": "A. Al Oui",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "阿尤布·阿尔-欧伊",
+      "dateOfBirth": "2005-03-11",
+      "age": 21,
+      "height": 187,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37646932.png",
+      "club": "Al Gharafa"
     },
     {
       "id": 37636090,
       "name": "G. Laye",
       "position": "MF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "盖伊·拉耶",
+      "dateOfBirth": "1997-12-22",
+      "age": 28,
+      "height": 188,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/37636090.png",
+      "club": "Al-Arabi SC"
     },
     {
       "id": 37540713,
       "name": "M. Almanai",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "穆罕默德·阿尔-曼奈",
+      "dateOfBirth": "2003-10-30",
+      "age": 22,
+      "height": 189,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/37540713.png",
+      "club": "Al Shamal SC"
     },
     {
       "id": 37551591,
       "name": "A. Yousif",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿卜杜拉·优素福",
+      "dateOfBirth": "2002-04-10",
+      "age": 24,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/37551591.png",
+      "club": "Al Rayyan"
     },
     {
       "id": 301403,
       "name": "K. Boudiaf",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卡里姆·布迪亚夫",
+      "dateOfBirth": "1990-09-16",
+      "age": 35,
+      "height": 190,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/301403.png",
+      "club": "Al Duhail"
     },
     {
       "id": 301352,
       "name": "B. Khoukhi",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布阿莱姆·库希",
+      "dateOfBirth": "1990-07-09",
+      "age": 35,
+      "height": 184,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/301352.png",
+      "club": "Al Sadd"
     },
     {
       "id": 301073,
       "name": "H. Al Heidos",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "哈桑·阿尔·海多斯",
+      "dateOfBirth": "1990-12-11",
+      "age": 35,
+      "height": 170,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/301073.png",
+      "club": "Al Sadd"
     },
     {
       "id": 301365,
       "name": "I. Mohammad",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊斯梅尔·穆罕默德",
+      "dateOfBirth": "1990-04-05",
+      "age": 36,
+      "height": 174,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/301365.png",
+      "club": "Al Duhail"
     },
     {
       "id": 37288401,
       "name": "M. Emad",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆罕默德·艾马德·艾亚什",
+      "dateOfBirth": "2001-02-27",
+      "age": 25,
+      "height": 185,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37288401.png",
+      "club": "Qatar SC"
     },
     {
       "id": 301887,
       "name": "A. Mukhtar",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿尔马赫迪·阿里",
+      "dateOfBirth": "1992-03-02",
+      "age": 34,
+      "height": 188,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/301887.png",
+      "club": "Al Wakrah"
     },
     {
       "id": 37598258,
       "name": "A. Moustafa",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿卜杜勒拉赫曼·穆斯塔法",
+      "dateOfBirth": "1997-04-05",
+      "age": 29,
+      "height": 168,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37598258.png",
+      "club": "Al-Ahli Doha"
     },
     {
       "id": 301393,
       "name": "A. Al Haj Fadlalla",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿卜杜勒卡里姆·哈桑",
+      "dateOfBirth": "1993-08-28",
+      "age": 32,
+      "height": 185,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/301393.png",
+      "club": "Al Wakrah"
     },
     {
       "id": 1076941,
       "name": "B. Al Rawi",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "巴萨姆·拉维",
+      "dateOfBirth": "1997-12-16",
+      "age": 28,
+      "height": 175,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/1076941.png",
+      "club": "Al Duhail"
     },
     {
       "id": 380841,
       "name": "A. Alahrak",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿卜杜拉·阿赫拉克",
+      "dateOfBirth": "1997-05-10",
+      "age": 29,
+      "height": 177,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/380841.png",
+      "club": "Qatar SC"
     },
     {
       "id": 32777402,
       "name": "Y. Youssef",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "优素福·阿卜杜里萨格",
+      "dateOfBirth": "1999-08-06",
+      "age": 26,
+      "height": 177,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/32777402.png",
+      "club": "Al Wakrah"
     },
     {
       "id": 301062,
       "name": "A. Soria Quintana",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塞巴斯蒂安·索里亚",
+      "dateOfBirth": "1983-11-08",
+      "age": 42,
+      "height": 185,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/301062.png",
+      "club": "Qatar SC"
     },
     {
       "id": 303869,
       "name": "A. Ali Surag",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿姆罗·阿卜杜勒法塔赫·阿里·苏拉格",
+      "dateOfBirth": "1998-04-08",
+      "age": 28,
+      "height": 168,
+      "weight": 60,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/303869.png",
+      "club": "Al Gharafa"
     },
     {
       "id": 54304,
       "name": "A. Abdulla",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿尔莫伊兹·阿里",
+      "dateOfBirth": "1996-08-19",
+      "age": 29,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/54304.png",
+      "club": "Al Duhail"
     },
     {
       "id": 37592142,
       "name": "A. Al-Rawi",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "艾哈迈德·拉维",
+      "dateOfBirth": "2004-05-30",
+      "age": 22,
+      "height": 177,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/37592142.png",
+      "club": "Qatar SC"
     },
     {
       "id": 4599015,
       "name": "M. Barsham",
       "position": "GK",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "梅沙尔·巴沙姆",
+      "dateOfBirth": "1998-02-14",
+      "age": 28,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/4599015.png",
+      "club": "Al Sadd"
     },
     {
       "id": 95802,
       "name": "L. Mendes",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "卢卡斯·门德斯",
+      "dateOfBirth": "1990-07-03",
+      "age": 35,
+      "height": 184,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/95802.png",
+      "club": "Al Wakrah"
     },
     {
       "id": 62770,
       "name": "E. da Silva",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "埃德米尔森·儒尼奥尔",
+      "dateOfBirth": "1994-08-19",
+      "age": 31,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/62770.png",
+      "club": "Al Duhail"
     },
     {
       "id": 37354634,
       "name": "K. Sabah",
       "position": "FW",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "哈立德·阿里",
+      "dateOfBirth": "2001-10-05",
+      "age": 24,
+      "height": 162,
+      "weight": 52,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37354634.png",
+      "club": "Al Sailiya"
     },
     {
       "id": 294018,
       "name": "A. Fathi",
       "position": "MF",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "艾哈迈德·法赫提",
+      "dateOfBirth": "1993-01-25",
+      "age": 33,
+      "height": 171,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/294018.png",
+      "club": "Al-Arabi SC"
     },
     {
       "id": 302695,
       "name": "S. Al-Braik",
       "position": "DF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "苏丹·阿尔-布雷克",
+      "dateOfBirth": "1996-04-07",
+      "age": 30,
+      "height": 175,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/302695.png",
+      "club": "Al Duhail"
     },
     {
       "id": 523999,
       "name": "S. Ellethy",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "谢哈卜·埃勒西",
+      "dateOfBirth": "2000-04-18",
+      "age": 26,
+      "height": 183,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/523999.png",
+      "club": "Al Shahaniya"
     },
     {
       "id": 446377,
       "name": "T. Salman",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "塔里克·萨尔曼",
+      "dateOfBirth": "1997-12-05",
+      "age": 28,
+      "height": 179,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/446377.png",
+      "club": "Al Sadd"
     },
     {
       "id": 37646561,
       "name": "M. Gouda",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "穆罕默德·古达",
+      "dateOfBirth": "2005-01-26",
+      "age": 21,
+      "height": 178,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37646561.png",
+      "club": "Al-Arabi SC"
     },
     {
       "id": 302766,
       "name": "Y. Ayman Hafez",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "优素福·艾门",
+      "dateOfBirth": "1999-03-21",
+      "age": 27,
+      "height": 190,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/302766.png",
+      "club": "Al Duhail"
     },
     {
       "id": 37598601,
       "name": "E. El Hussain Mohi aldin",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "阿尔-哈什米 阿尔-侯赛因",
+      "dateOfBirth": "2003-08-15",
+      "age": 22,
+      "height": 184,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/37598601.png",
+      "club": "Al-Arabi SC"
     },
     {
       "id": 37598617,
       "name": "N. Irfan",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "纳比尔·伊尔凡",
+      "dateOfBirth": "2004-02-07",
+      "age": 22,
+      "height": 175,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37598617.png",
+      "club": "Al Wakrah"
     },
     {
       "id": 8056703,
       "name": "A. Al Hamawende",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "艾哈迈德·苏海勒",
+      "dateOfBirth": "1999-02-08",
+      "age": 27,
+      "height": 184,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/8056703.png",
+      "club": "Al Sadd"
     },
     {
       "id": 24446328,
       "name": "A. Alganehi",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "艾哈迈德·阿尔-加内希",
+      "dateOfBirth": "2000-09-22",
+      "age": 25,
+      "height": 174,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/24446328.png",
+      "club": "Al Gharafa"
     },
     {
       "id": 301507,
       "name": "P. Correia",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "佩德罗·米格尔",
+      "dateOfBirth": "1990-08-06",
+      "age": 35,
+      "height": 181,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/301507.png",
+      "club": "Al Sadd"
     },
     {
       "id": 303865,
       "name": "H. Shehata",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "哈齐姆·艾哈迈德",
+      "dateOfBirth": "1998-02-02",
+      "age": 28,
+      "height": 169,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/303865.png",
+      "club": "Al Rayyan"
     },
     {
       "id": 301560,
       "name": "M. Kamal Hussein",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆拉德·纳吉",
+      "dateOfBirth": "1991-06-12",
+      "age": 34,
+      "height": 175,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/301560.png",
+      "club": "Al Wakrah"
     },
     {
       "id": 129610,
       "name": "G. dos Santos Torres",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "吉列尔梅",
+      "dateOfBirth": "1991-04-05",
+      "age": 35,
+      "height": 179,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/129610.png",
+      "club": "Al Sadd"
     },
     {
       "id": 10966375,
       "name": "K. Mohammed",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "哈立德·穆罕默德",
+      "dateOfBirth": "2000-06-07",
+      "age": 26,
+      "height": 172,
+      "weight": 62,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/10966375.png",
+      "club": "Al-Ahli Doha"
     },
     {
       "id": 24446326,
       "name": "S. Zakaria Hassan",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "扎卡里亚错了",
+      "dateOfBirth": "1999-04-24",
+      "age": 27,
+      "height": 188,
+      "weight": 91,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/24446326.png",
+      "club": "Al Duhail"
     },
     {
       "id": 24082492,
       "name": "M. Mashaal",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆斯塔法·马沙尔",
+      "dateOfBirth": "2001-03-28",
+      "age": 25,
+      "height": 178,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/24082492.png",
+      "club": "KAS Eupen"
     },
     {
       "id": 37559224,
       "name": "M. Surag",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "穆罕默德·苏拉格",
+      "dateOfBirth": "2003-04-21",
+      "age": 23,
+      "height": 175,
+      "weight": 59,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37559224.png",
+      "club": "Al Rayyan"
     },
     {
       "id": 37700629,
       "name": "T. Jamshid",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "塔赫辛·穆罕默德·贾姆希德",
+      "dateOfBirth": "2006-06-16",
+      "age": 19,
+      "height": 177,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37700629.png",
+      "club": "Al Duhail"
     },
     {
       "id": 65411,
       "name": "A. Afif",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "阿克拉姆·阿菲夫",
+      "dateOfBirth": "1996-11-18",
+      "age": 29,
+      "height": 177,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/65411.png",
+      "club": "Al Sadd"
     },
     {
       "id": 16488492,
       "name": "H. Ahmed",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "霍曼·艾哈迈德",
+      "dateOfBirth": "1999-08-25",
+      "age": 26,
+      "height": 188,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/16488492.png",
+      "club": "Cultural Leonesa"
     },
     {
       "id": 301745,
       "name": "M. Muntari",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "穆罕默德·蒙塔里",
+      "dateOfBirth": "1993-12-20",
+      "age": 32,
+      "height": 194,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/301745.png",
+      "club": "Al Gharafa"
     },
     {
       "id": 37389528,
       "name": "J. Abdulsallam",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "贾森·加贝尔",
+      "dateOfBirth": "2002-02-20",
+      "age": 24,
+      "height": 188,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37389528.png",
+      "club": "Al Rayyan"
     },
     {
       "id": 301237,
       "name": "A. Abdullah",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "阿卜杜拉齐兹·哈提姆",
+      "dateOfBirth": "1990-10-28",
+      "age": 35,
+      "height": 183,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/301237.png",
+      "club": "Al Rayyan"
     },
     {
       "id": 302082,
       "name": "A. Abdelmotaal",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "艾哈迈德·阿拉埃尔丁",
+      "dateOfBirth": "1993-01-31",
+      "age": 33,
+      "height": 177,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/302082.png",
+      "club": "Al Rayyan"
     },
     {
       "id": 303634,
       "name": "M. Abdulwahhab Al Bayati",
       "position": "MF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "穆罕默德·瓦德",
+      "dateOfBirth": "1999-09-18",
+      "age": 26,
+      "height": 183,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/303634.png",
+      "club": "Al Shamal SC"
     },
     {
       "id": 54065,
       "name": "A. Al Haj Madibo",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "阿西姆·马迪博",
+      "dateOfBirth": "1996-10-22",
+      "age": 29,
+      "height": 168,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/54065.png",
+      "club": "Al Wakrah"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.669Z"
+  "fetchedAt": "2026-03-19T16:42:17.669Z",
+  "enrichedAt": "2026-03-20T14:57:53.457Z"
 }

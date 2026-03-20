@@ -6,242 +6,523 @@
       "id": 1494245,
       "name": "Conor Gallagher",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "C. 加拉格尔",
+      "dateOfBirth": "2000-02-06",
+      "age": 26,
+      "height": 182,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/1494245.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 911,
       "name": "Kyle Walker",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "凯尔·沃克",
+      "dateOfBirth": "1990-05-28",
+      "age": 36,
+      "height": 183,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/911.png",
+      "club": "Burnley"
     },
     {
       "id": 1917,
       "name": "Trent Alexander-Arnold ",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "特伦特·亚历山大-阿诺德",
+      "dateOfBirth": "1998-10-07",
+      "age": 27,
+      "height": 180,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/1917.png",
+      "club": "Real Madrid"
     },
     {
       "id": 4545513,
       "name": "Curtis Jones",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "柯蒂斯·琼斯",
+      "dateOfBirth": "2001-01-30",
+      "age": 25,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/4545513.png",
+      "club": "Liverpool"
     },
     {
       "id": 7926,
       "name": "Morgan Gibbs-White",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "摩根·吉布斯-怀特",
+      "dateOfBirth": "2000-01-27",
+      "age": 26,
+      "height": 171,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/7926.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 1953,
       "name": "Ruben Loftus-Cheek",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "洛夫图斯-奇克",
+      "dateOfBirth": "1996-01-23",
+      "age": 30,
+      "height": 191,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/1953.png",
+      "club": "AC Milan"
     },
     {
       "id": 4341,
       "name": "Ivan Toney",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊万·托尼",
+      "dateOfBirth": "1996-03-16",
+      "age": 30,
+      "height": 185,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/4341.png",
+      "club": "Al Ahli"
     },
     {
       "id": 4203,
       "name": "Dominic Solanke",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "多米尼克·索兰克",
+      "dateOfBirth": "1997-09-14",
+      "age": 28,
+      "height": 186,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/4203.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 28912747,
       "name": "Cole Palmer",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "科尔·帕尔默",
+      "dateOfBirth": "2002-05-06",
+      "age": 24,
+      "height": 185,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/28912747.png",
+      "club": "Chelsea"
     },
     {
       "id": 25217662,
       "name": "Noni Madueke",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "诺尼·马杜埃克",
+      "dateOfBirth": "2002-03-10",
+      "age": 24,
+      "height": 182,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/25217662.png",
+      "club": "Arsenal"
     },
     {
       "id": 9611543,
       "name": "Anthony Gordon",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "安东尼·戈登",
+      "dateOfBirth": "2001-02-24",
+      "age": 25,
+      "height": 183,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/9611543.png",
+      "club": "Newcastle United"
     },
     {
       "id": 4592198,
       "name": "Morgan Rogers",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "摩根·罗杰斯",
+      "dateOfBirth": "2002-07-26",
+      "age": 23,
+      "height": 187,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/4592198.png",
+      "club": "Aston Villa"
     },
     {
       "id": 37550443,
       "name": "Alex Scott",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚历克斯·斯科特",
+      "dateOfBirth": "2003-08-21",
+      "age": 22,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/37550443.png",
+      "club": "AFC Bournemouth"
     },
     {
       "id": 37255840,
       "name": "Jude Bellingham",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "裘德·贝林厄姆",
+      "dateOfBirth": "2003-06-29",
+      "age": 22,
+      "height": 186,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/37255840.png",
+      "club": "Real Madrid"
     },
     {
       "id": 537117,
       "name": "Trevoh Chalobah",
       "position": "DF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "特雷沃·查洛巴",
+      "dateOfBirth": "1999-07-05",
+      "age": 26,
+      "height": 192,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/537117.png",
+      "club": "Chelsea"
     },
     {
       "id": 37562487,
       "name": "Nico O'Reilly",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "N. 奥赖利",
+      "dateOfBirth": "2005-03-21",
+      "age": 21,
+      "height": 193,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37562487.png",
+      "club": "Manchester City"
     },
     {
       "id": 16827155,
       "name": "Bukayo Saka",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "布卡约·萨卡",
+      "dateOfBirth": "2001-09-05",
+      "age": 24,
+      "height": 178,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/16827155.png",
+      "club": "Arsenal"
     },
     {
       "id": 28575686,
       "name": "James Trafford",
       "position": "GK",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "詹姆斯·特拉福德",
+      "dateOfBirth": "2002-10-10",
+      "age": 23,
+      "height": 192,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/28575686.png",
+      "club": "Manchester City"
     },
     {
       "id": 323,
       "name": "Jordan Henderson",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "乔丹·亨德森",
+      "dateOfBirth": "1990-06-17",
+      "age": 35,
+      "height": 182,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/323.png",
+      "club": "Brentford"
     },
     {
       "id": 2815,
       "name": "Dan Burn",
       "position": "DF",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "丹·伯恩",
+      "dateOfBirth": "1992-05-09",
+      "age": 34,
+      "height": 201,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/2815.png",
+      "club": "Newcastle United"
     },
     {
       "id": 7026573,
       "name": "Djed Spence",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "斯彭斯爷爷",
+      "dateOfBirth": "2000-08-09",
+      "age": 25,
+      "height": 184,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/7026573.png",
+      "club": "Tottenham Hotspur"
     },
     {
       "id": 581220,
       "name": "Reece James",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "里斯·詹姆斯",
+      "dateOfBirth": "1999-12-08",
+      "age": 26,
+      "height": 180,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/581220.png",
+      "club": "Chelsea"
     },
     {
       "id": 37350704,
       "name": "Adam Wharton",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚当·沃顿",
+      "dateOfBirth": "2004-02-06",
+      "age": 22,
+      "height": 182,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/37350704.png",
+      "club": "Crystal Palace"
     },
     {
       "id": 336133,
       "name": "Phil Foden",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "福登",
+      "dateOfBirth": "2000-05-28",
+      "age": 26,
+      "height": 171,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/336133.png",
+      "club": "Manchester City"
     },
     {
       "id": 7124,
       "name": "Ezri Konsa",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "埃兹里·孔萨",
+      "dateOfBirth": "1997-10-23",
+      "age": 28,
+      "height": 183,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/7124.png",
+      "club": "Aston Villa"
     },
     {
       "id": 1592,
       "name": "Jarrod Bowen ",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "贾罗德",
+      "dateOfBirth": "1996-12-20",
+      "age": 29,
+      "height": 176,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/1592.png",
+      "club": "West Ham United"
     },
     {
       "id": 997,
       "name": "Harry Kane",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "哈里·凯恩",
+      "dateOfBirth": "1993-07-28",
+      "age": 32,
+      "height": 188,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/997.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 982,
       "name": "John Stones ",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "约翰·斯通斯",
+      "dateOfBirth": "1994-05-28",
+      "age": 32,
+      "height": 188,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/982.png",
+      "club": "Manchester City"
     },
     {
       "id": 5273,
       "name": "Declan Rice",
       "position": "MF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "赖斯",
+      "dateOfBirth": "1999-01-14",
+      "age": 27,
+      "height": 188,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/5273.png",
+      "club": "Arsenal"
     },
     {
       "id": 332047,
       "name": "Elliot Anderson",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "艾略特·安德森",
+      "dateOfBirth": "2002-11-06",
+      "age": 23,
+      "height": 179,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/332047.png",
+      "club": "Nottingham Forest"
     },
     {
       "id": 1878,
       "name": "Marcus Rashford",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "拉什福德",
+      "dateOfBirth": "1997-10-31",
+      "age": 28,
+      "height": 185,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/1878.png",
+      "club": "FC Barcelona"
     },
     {
       "id": 7643,
       "name": "Eberechi Eze",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "埃贝雷奇·埃泽",
+      "dateOfBirth": "1998-06-29",
+      "age": 27,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/7643.png",
+      "club": "Arsenal"
     },
     {
       "id": 37259180,
       "name": "Levi Colwill",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "科尔威尔",
+      "dateOfBirth": "2003-02-26",
+      "age": 23,
+      "height": 187,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/37259180.png",
+      "club": "Chelsea"
     },
     {
       "id": 37568815,
       "name": "Myles Lewis-Skelly",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "迈尔斯·刘易斯-斯凯利",
+      "dateOfBirth": "2006-09-26",
+      "age": 19,
+      "height": 178,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37568815.png",
+      "club": "Arsenal"
     },
     {
       "id": 24799911,
       "name": "Tino Livramento",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "蒂诺·利夫拉门托",
+      "dateOfBirth": "2002-11-12",
+      "age": 23,
+      "height": 182,
+      "weight": 65,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/24799911.png",
+      "club": "Newcastle United"
     },
     {
       "id": 12145,
       "name": "Ollie Watkins",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "O. 沃特金斯",
+      "dateOfBirth": "1995-12-30",
+      "age": 30,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/12145.png",
+      "club": "Aston Villa"
     },
     {
       "id": 1826,
       "name": "Jordan Pickford",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "皮克福德",
+      "dateOfBirth": "1994-03-07",
+      "age": 32,
+      "height": 185,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/1826.png",
+      "club": "Everton"
     },
     {
       "id": 4536500,
       "name": "Marc Guéhi",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "马尔克·盖希",
+      "dateOfBirth": "2000-07-13",
+      "age": 25,
+      "height": 182,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/4536500.png",
+      "club": "Manchester City"
     },
     {
       "id": 37259163,
       "name": "Jarell Quansah",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "贾雷尔·夸恩萨",
+      "dateOfBirth": "2003-01-29",
+      "age": 23,
+      "height": 190,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/37259163.png",
+      "club": "Bayer 04 Leverkusen"
     },
     {
       "id": 12647,
       "name": "Dean Henderson",
       "position": "GK",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "D. 亨德森",
+      "dateOfBirth": "1997-03-12",
+      "age": 29,
+      "height": 188,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/12647.png",
+      "club": "Crystal Palace"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:39:49.633Z"
 }

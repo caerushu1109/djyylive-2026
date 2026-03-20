@@ -6,224 +6,484 @@
       "id": 37695626,
       "name": "B. Joseph Jr.",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "Belmar Joseph",
+      "dateOfBirth": "2005-10-13",
+      "age": 20,
+      "height": 188,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37695626.png",
+      "club": "Monterey Bay"
     },
     {
       "id": 447153,
       "name": "M. Cantave",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "米凯尔·坎塔夫",
+      "dateOfBirth": "1996-10-25",
+      "age": 29,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/447153.png",
+      "club": "Haiti"
     },
     {
       "id": 37584629,
       "name": "M. Prunier",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "蒙迪·普鲁尼尔",
+      "dateOfBirth": "1999-12-22",
+      "age": 26,
+      "height": 188,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/37584629.png",
+      "club": "Royal Francs Borains"
     },
     {
       "id": 35671501,
       "name": "W. Paugain",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "威尔根斯·波甘",
+      "dateOfBirth": "2001-08-24",
+      "age": 24,
+      "height": 182,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/35671501.png",
+      "club": "Zulte-Waregem"
     },
     {
       "id": 530046,
       "name": "G. Innocent",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "加里松·英诺森",
+      "dateOfBirth": "2000-04-16",
+      "age": 26,
+      "height": 192,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/530046.png",
+      "club": "Atlético Ottawa"
     },
     {
       "id": 28572709,
       "name": "D. Jean",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D. 让",
+      "dateOfBirth": "2002-11-28",
+      "age": 23,
+      "height": 175,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/28572709.png",
+      "club": "Torreense"
     },
     {
       "id": 99173,
       "name": "J. Duverne",
       "position": "DF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "J. 杜韦尔内",
+      "dateOfBirth": "1997-07-12",
+      "age": 28,
+      "height": 186,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/99173.png",
+      "club": "Gent"
     },
     {
       "id": 37682340,
       "name": "T. Algarin",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "托尼·阿尔加林",
+      "dateOfBirth": "2007-01-20",
+      "age": 19,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Reims U19"
     },
     {
       "id": 64296,
       "name": "H. Delcroix",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "汉尼斯·德尔克鲁瓦",
+      "dateOfBirth": "1999-02-28",
+      "age": 27,
+      "height": 183,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/64296.png",
+      "club": "Lugano"
     },
     {
       "id": 37626706,
       "name": "J. Desdunes",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "杰瑞·德斯杜恩斯",
+      "dateOfBirth": "2001-04-13",
+      "age": 25,
+      "height": 173,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37626706.png",
+      "club": "Alta"
     },
     {
       "id": 13225178,
       "name": "J. Casimir",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "乔苏埃·卡西米尔",
+      "dateOfBirth": "2001-09-24",
+      "age": 24,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/13225178.png",
+      "club": "Auxerre"
     },
     {
       "id": 18218770,
       "name": "F. Dulysse",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "弗朗索瓦·杜利斯",
+      "dateOfBirth": "1999-04-13",
+      "age": 27,
+      "height": 183,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/18218770.png",
+      "club": "Hapoel Hadera"
     },
     {
       "id": 529879,
       "name": "L. Pierre",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "L. 皮埃尔",
+      "dateOfBirth": "1998-03-09",
+      "age": 28,
+      "height": 178,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/529879.png",
+      "club": "Vizela"
     },
     {
       "id": 13171232,
       "name": "M. Expérience",
       "position": "DF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "马丁·埃克斯佩里安斯",
+      "dateOfBirth": "1999-03-09",
+      "age": 27,
+      "height": 178,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/13171232.png",
+      "club": "Nancy"
     },
     {
       "id": 98934,
       "name": "D. Nazon",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "达肯斯·纳宗",
+      "dateOfBirth": "1994-04-07",
+      "age": 32,
+      "height": 181,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/98934.png",
+      "club": "Esteghlal"
     },
     {
       "id": 34862145,
       "name": "C. Sainte",
       "position": "MF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "卡尔·圣特",
+      "dateOfBirth": "2002-08-09",
+      "age": 23,
+      "height": 182,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/34862145.png",
+      "club": "El Paso Locomotive"
     },
     {
       "id": 15395119,
       "name": "A. Pierre",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "亚历山大·皮埃尔",
+      "dateOfBirth": "2001-02-25",
+      "age": 25,
+      "height": 190,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/15395119.png",
+      "club": "Sochaux"
     },
     {
       "id": 37259996,
       "name": "L. Deedson",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "路易斯·唐·迪德森",
+      "dateOfBirth": "2001-02-11",
+      "age": 25,
+      "height": 178,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37259996.png",
+      "club": "Dallas"
     },
     {
       "id": 471310,
       "name": "R. Ade",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "里卡多·阿德",
+      "dateOfBirth": "1990-05-21",
+      "age": 36,
+      "height": 190,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/471310.png",
+      "club": "LDU Quito"
     },
     {
       "id": 99076,
       "name": "J. Bellegarde",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "贝尔加德",
+      "dateOfBirth": "1998-06-27",
+      "age": 27,
+      "height": 172,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/99076.png",
+      "club": "Wolverhampton Wanderers"
     },
     {
       "id": 28572704,
       "name": "D. Jean Jacques",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "丹利·让·雅克",
+      "dateOfBirth": "2000-05-20",
+      "age": 26,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/28572704.png",
+      "club": "Philadelphia Union"
     },
     {
       "id": 23269665,
       "name": "R. Providence",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "鲁本·普罗维登斯",
+      "dateOfBirth": "2001-07-07",
+      "age": 24,
+      "height": 178,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/23269665.png",
+      "club": "Almere City"
     },
     {
       "id": 37593074,
       "name": "T. Michel",
       "position": "FW",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "特奥·詹姆斯·米歇尔",
+      "dateOfBirth": "2004-05-03",
+      "age": 22,
+      "height": 173,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Ibiza Islas Pitiusas"
     },
     {
       "id": 411950,
       "name": "L. Odelus",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "路易斯·奥德鲁斯",
+      "dateOfBirth": "1994-12-01",
+      "age": 31,
+      "height": 184,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/411950.png",
+      "club": "Real du Cap"
     },
     {
       "id": 7714824,
       "name": "J. Duverger",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "约书亚·杜维尔格",
+      "dateOfBirth": "2000-04-27",
+      "age": 26,
+      "height": 187,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/7714824.png",
+      "club": "Cosmos Koblenz"
     },
     {
       "id": 37719025,
       "name": "K. Thermoncy",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "基托热玛西",
+      "dateOfBirth": "2006-03-29",
+      "age": 20,
+      "height": 185,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Young Boys II"
     },
     {
       "id": 540615,
       "name": "Y. Fortune",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚辛·福图纳",
+      "dateOfBirth": "1999-01-30",
+      "age": 27,
+      "height": 186,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/540615.png",
+      "club": "Vizela"
     },
     {
       "id": 37579897,
       "name": "W. Pacius",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伍本斯·帕修斯",
+      "dateOfBirth": "2001-05-11",
+      "age": 25,
+      "height": 185,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Nashville SC"
     },
     {
       "id": 97621,
       "name": "C. Arcus",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "卡伦斯·阿库斯",
+      "dateOfBirth": "1996-06-28",
+      "age": 29,
+      "height": 176,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/21/97621.png",
+      "club": "Angers SCO"
     },
     {
       "id": 96024,
       "name": "J. Placide",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "约翰尼·普拉西德",
+      "dateOfBirth": "1988-01-29",
+      "age": 38,
+      "height": 181,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/96024.png",
+      "club": "Bastia"
     },
     {
       "id": 262521,
       "name": "D. Etienne Jr.",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "小德里克·艾蒂安",
+      "dateOfBirth": "1996-11-25",
+      "age": 29,
+      "height": 178,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/262521.png",
+      "club": "Toronto"
     },
     {
       "id": 411948,
       "name": "S. Lambese",
       "position": "DF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "斯特凡·兰贝斯",
+      "dateOfBirth": "1995-11-10",
+      "age": 30,
+      "height": 171,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/411948.png",
+      "club": "Fleury 91"
     },
     {
       "id": 37316977,
       "name": "C. Attys",
       "position": "MF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "克里斯托弗·阿蒂斯",
+      "dateOfBirth": "2001-03-13",
+      "age": 25,
+      "height": 186,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37316977.png",
+      "club": "Triestina"
     },
     {
       "id": 262722,
       "name": "M. Lacroix",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "D. 拉克罗阿",
+      "dateOfBirth": "1993-10-14",
+      "age": 32,
+      "height": 175,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/262722.png",
+      "club": "Colorado Springs"
     },
     {
       "id": 461496,
       "name": "F. Pierrot",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "弗朗茨迪·皮耶罗",
+      "dateOfBirth": "1995-03-29",
+      "age": 31,
+      "height": 194,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/461496.png",
+      "club": "Rizespor"
     },
     {
       "id": 37574739,
       "name": "G. Metusala",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "加尔文·梅图萨拉",
+      "dateOfBirth": "1999-12-31",
+      "age": 26,
+      "height": 186,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37574739.png",
+      "club": "Colorado Springs"
     },
     {
       "id": 35264,
       "name": "F. Picault",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "法法·皮考特",
+      "dateOfBirth": "1991-02-23",
+      "age": 35,
+      "height": 173,
+      "weight": 63,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/35264.png",
+      "club": "Atlanta United"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.669Z"
+  "fetchedAt": "2026-03-19T16:42:17.669Z",
+  "enrichedAt": "2026-03-20T14:44:29.045Z"
 }

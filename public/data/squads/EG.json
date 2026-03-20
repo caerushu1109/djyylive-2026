@@ -6,170 +6,367 @@
       "id": 37326498,
       "name": "Mohamed Ismail",
       "position": "DF",
-      "shirtNumber": 28
+      "shirtNumber": 28,
+      "nameZh": "穆罕默德·伊斯梅尔",
+      "dateOfBirth": "1999-08-01",
+      "age": 26,
+      "height": 180,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37326498.png",
+      "club": "Zamalek"
     },
     {
       "id": 293985,
       "name": "Salah Mohsen",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "萨拉赫·莫森",
+      "dateOfBirth": "1998-09-01",
+      "age": 27,
+      "height": 184,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/293985.png",
+      "club": "Al Masry"
     },
     {
       "id": 34455263,
       "name": "Oufa Shobeir",
       "position": "GK",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "莫斯塔法·肖贝尔",
+      "dateOfBirth": "2000-03-17",
+      "age": 26,
+      "height": 185,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/34455263.png",
+      "club": "Al Ahly"
     },
     {
       "id": 37380667,
       "name": "Mohamed Shehata",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "穆罕默德·谢哈塔",
+      "dateOfBirth": "2001-02-08",
+      "age": 25,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/37380667.png",
+      "club": "Zamalek"
     },
     {
       "id": 37388628,
       "name": "Marwan Ateya",
       "position": "MF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "马尔万·阿特亚",
+      "dateOfBirth": "1998-08-12",
+      "age": 27,
+      "height": 170,
+      "weight": 58,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37388628.png",
+      "club": "Al Ahly"
     },
     {
       "id": 37528667,
       "name": "Osama Faisal",
       "position": "FW",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "奥萨马·费萨尔",
+      "dateOfBirth": "2001-01-01",
+      "age": 25,
+      "height": 185,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/37528667.png",
+      "club": "National Bank of Egypt"
     },
     {
       "id": 36105897,
       "name": "Mahmoud Saber",
       "position": "MF",
-      "shirtNumber": 27
+      "shirtNumber": 27,
+      "nameZh": "马哈茂德·萨贝尔",
+      "dateOfBirth": "2001-07-30",
+      "age": 24,
+      "height": 170,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/36105897.png",
+      "club": "ZED FC"
     },
     {
       "id": 37528713,
       "name": "Hossam Abdelmaguid",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "霍萨姆·阿卜杜勒马吉德",
+      "dateOfBirth": "2001-04-30",
+      "age": 25,
+      "height": 193,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/37528713.png",
+      "club": "Zamalek"
     },
     {
       "id": 293394,
       "name": "Mostafa Fathi",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "莫斯塔法·法蒂",
+      "dateOfBirth": "1994-05-12",
+      "age": 32,
+      "height": 169,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/293394.png",
+      "club": "Pyramids FC"
     },
     {
       "id": 20335333,
       "name": "Khaled Sobhi",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "哈立德·索比",
+      "dateOfBirth": "1995-05-04",
+      "age": 31,
+      "height": null,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/20335333.png",
+      "club": "Al Masry"
     },
     {
       "id": 4125,
       "name": "Mohamed Salah",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "穆罕默德·萨拉赫",
+      "dateOfBirth": "1992-06-15",
+      "age": 33,
+      "height": 175,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/4125.png",
+      "club": "Liverpool"
     },
     {
       "id": 293709,
       "name": "Mohamed Hany",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "穆罕默德·哈尼",
+      "dateOfBirth": "1996-01-25",
+      "age": 30,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/293709.png",
+      "club": "Al Ahly"
     },
     {
       "id": 37389505,
       "name": "Ahmed Eid",
       "position": "DF",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "艾哈迈德·开斋节",
+      "dateOfBirth": "2001-01-02",
+      "age": 25,
+      "height": 178,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/1/37389505.png",
+      "club": "Al Ahly"
     },
     {
       "id": 293951,
       "name": "Mostafa Mohamed",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "穆斯塔法·穆罕默德",
+      "dateOfBirth": "1997-11-28",
+      "age": 28,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/293951.png",
+      "club": "Nantes"
     },
     {
       "id": 461063,
       "name": "Mohamed Hamdi",
       "position": "DF",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "穆罕默德·哈姆迪",
+      "dateOfBirth": "1995-03-15",
+      "age": 31,
+      "height": 174,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/461063.png",
+      "club": "Pyramids FC"
     },
     {
       "id": 21072839,
       "name": "Emam Ashour",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "艾曼·阿舒尔",
+      "dateOfBirth": "1998-02-20",
+      "age": 28,
+      "height": 182,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/21072839.png",
+      "club": "Al Ahly"
     },
     {
       "id": 3876968,
       "name": "Mohanad Lasheen",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "莫哈纳德·拉辛",
+      "dateOfBirth": "1996-05-29",
+      "age": 30,
+      "height": 179,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/3876968.png",
+      "club": "Pyramids FC"
     },
     {
       "id": 20335313,
       "name": "Mohamed Sobhi",
       "position": "GK",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "穆罕默德·索比",
+      "dateOfBirth": "1999-07-15",
+      "age": 26,
+      "height": 185,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/20335313.png",
+      "club": "Zamalek"
     },
     {
       "id": 293028,
       "name": "Mohamed El Shenawy",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "穆罕默德·埃尔·申纳维",
+      "dateOfBirth": "1988-12-18",
+      "age": 37,
+      "height": 191,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/293028.png",
+      "club": "Al Ahly"
     },
     {
       "id": 294000,
       "name": "Omar Marmoush",
       "position": "FW",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "奥马尔·马尔穆什",
+      "dateOfBirth": "1999-02-07",
+      "age": 27,
+      "height": 183,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/294000.png",
+      "club": "Manchester City"
     },
     {
       "id": 293978,
       "name": "Hamdy Fathy",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "哈姆迪·法提",
+      "dateOfBirth": "1994-09-29",
+      "age": 31,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/293978.png",
+      "club": "Al Wakrah"
     },
     {
       "id": 162525,
       "name": "Ramy Rabia",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "拉米·拉比亚",
+      "dateOfBirth": "1993-05-20",
+      "age": 33,
+      "height": 183,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/162525.png",
+      "club": "Al Ain"
     },
     {
       "id": 62178,
       "name": "Zizo",
       "position": "FW",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "齐佐",
+      "dateOfBirth": "1996-01-10",
+      "age": 30,
+      "height": 180,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/62178.png",
+      "club": "Al Ahly"
     },
     {
       "id": 292775,
       "name": "Ahmed El Shenawy",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "艾哈迈德·艾尔·谢纳维",
+      "dateOfBirth": "1991-05-14",
+      "age": 35,
+      "height": 188,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/292775.png",
+      "club": "Pyramids FC"
     },
     {
       "id": 36470086,
       "name": "Ibrahim Adel",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "易卜拉欣·阿德尔",
+      "dateOfBirth": "2001-04-23",
+      "age": 25,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/36470086.png",
+      "club": "Nordsjælland"
     },
     {
       "id": 461522,
       "name": "Ahmed Fatouh",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "艾哈迈德·法图赫",
+      "dateOfBirth": "1998-03-22",
+      "age": 28,
+      "height": 178,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/461522.png",
+      "club": "Zamalek"
     },
     {
       "id": 62879,
       "name": "Mahmoud Trezeguet",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "特雷泽盖",
+      "dateOfBirth": "1994-10-01",
+      "age": 31,
+      "height": 180,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/62879.png",
+      "club": "Al Ahly"
     },
     {
       "id": 293894,
       "name": "Yasser Ibrahim",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "亚西尔·易卜拉欣",
+      "dateOfBirth": "1993-02-10",
+      "age": 33,
+      "height": 185,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/293894.png",
+      "club": "Al Ahly"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:38:54.291Z"
 }

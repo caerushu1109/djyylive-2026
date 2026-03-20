@@ -6,284 +6,614 @@
       "id": 296300,
       "name": "Ramin Rezaeian",
       "position": "DF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "拉敏·雷扎伊安",
+      "dateOfBirth": "1990-03-21",
+      "age": 36,
+      "height": 183,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/296300.png",
+      "club": "Foolad"
     },
     {
       "id": 37552450,
       "name": "S. Fallah",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "萨曼·法拉赫",
+      "dateOfBirth": "2001-05-12",
+      "age": 25,
+      "height": 191,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37552450.png",
+      "club": "Esteghlal"
     },
     {
       "id": 297059,
       "name": "Mohammad Daneshgar",
       "position": "DF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "M.丹尼什加尔",
+      "dateOfBirth": "1994-01-20",
+      "age": 32,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/297059.png",
+      "club": "Sepahan"
     },
     {
       "id": 20708347,
       "name": "Seyed Mohammad Karimi",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "赛义德·穆罕默德·卡里米",
+      "dateOfBirth": "1996-06-20",
+      "age": 29,
+      "height": 177,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/20708347.png",
+      "club": "Sepahan"
     },
     {
       "id": 464664,
       "name": "Hossein Pourhamidi",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "侯赛因·普尔哈米迪",
+      "dateOfBirth": "1998-03-26",
+      "age": 28,
+      "height": 186,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/464664.png",
+      "club": "Kheybar Khorramabad"
     },
     {
       "id": 297117,
       "name": "Roozbeh Cheshmi",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "鲁兹贝赫·切什米",
+      "dateOfBirth": "1993-07-24",
+      "age": 32,
+      "height": 194,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/297117.png",
+      "club": "Esteghlal"
     },
     {
       "id": 25147,
       "name": "Alireza Jahanbakhsh",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "阿里雷扎·贾汉巴赫什",
+      "dateOfBirth": "1993-08-11",
+      "age": 32,
+      "height": 181,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/25147.png",
+      "club": "Dender"
     },
     {
       "id": 296679,
       "name": "Omid Ebrahimi",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "奥米德·埃布拉希米",
+      "dateOfBirth": "1987-09-16",
+      "age": 38,
+      "height": 178,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/296679.png",
+      "club": "Al Shamal SC"
     },
     {
       "id": 37684739,
       "name": "Mohammadjavad Hosseinnejad",
       "position": "MF",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "穆罕默德贾瓦德·侯赛因内贾德",
+      "dateOfBirth": "2003-06-26",
+      "age": 22,
+      "height": 178,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37684739.png",
+      "club": "Dynamo Makhachkala"
     },
     {
       "id": 297336,
       "name": "Mehdi Torabi",
       "position": "FW",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "梅赫迪·托拉比",
+      "dateOfBirth": "1994-09-10",
+      "age": 31,
+      "height": 180,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/297336.png",
+      "club": "Tractor Sazi"
     },
     {
       "id": 109126,
       "name": "Karim Ansarifard",
       "position": "FW",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "卡里姆·安萨里法德",
+      "dateOfBirth": "1990-04-03",
+      "age": 36,
+      "height": 186,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/109126.png",
+      "club": "Iran"
     },
     {
       "id": 2483388,
       "name": "Mohammad Reza Azadi",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "穆罕默德雷萨·阿扎迪",
+      "dateOfBirth": "1999-12-07",
+      "age": 26,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/2483388.png",
+      "club": "Esteghlal"
     },
     {
       "id": 8093469,
       "name": "Javad Aghaeipour",
       "position": "FW",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "J. 阿加伊普尔",
+      "dateOfBirth": "1999-12-06",
+      "age": 26,
+      "height": 181,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/8093469.png",
+      "club": "Aluminium Arak"
     },
     {
       "id": 37601811,
       "name": "Arya Yousefi",
       "position": "DF",
-      "shirtNumber": 24
+      "shirtNumber": 24,
+      "nameZh": "阿里亚·尤塞菲",
+      "dateOfBirth": "2002-04-22",
+      "age": 24,
+      "height": 181,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37601811.png",
+      "club": "Sepahan"
     },
     {
       "id": 37611727,
       "name": "Mohammad Amin Hazbavi",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "A. 哈兹巴维",
+      "dateOfBirth": "2003-05-06",
+      "age": 23,
+      "height": 188,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37611727.png",
+      "club": "Sepahan"
     },
     {
       "id": 297691,
       "name": "Ali Gholizadeh",
       "position": "FW",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "阿里·戈利扎德",
+      "dateOfBirth": "1996-03-10",
+      "age": 30,
+      "height": 175,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/297691.png",
+      "club": "Lech Poznań"
     },
     {
       "id": 297524,
       "name": "Sadegh Moharrami",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "萨德格·莫哈拉米",
+      "dateOfBirth": "1996-03-01",
+      "age": 30,
+      "height": 174,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/297524.png",
+      "club": "Tractor Sazi"
     },
     {
       "id": 295910,
       "name": "Shahriar Moghanlou",
       "position": "FW",
-      "shirtNumber": 26
+      "shirtNumber": 26,
+      "nameZh": "沙赫里亚尔·莫汉卢",
+      "dateOfBirth": "1994-12-21",
+      "age": 31,
+      "height": 193,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/295910.png",
+      "club": "Kalba"
     },
     {
       "id": 298260,
       "name": "Reza Asadi",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "雷扎·阿萨迪",
+      "dateOfBirth": "1996-01-17",
+      "age": 30,
+      "height": 190,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/298260.png",
+      "club": "Gol Gohar"
     },
     {
       "id": 5641074,
       "name": "Amirhossein Hosseinzadeh",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "阿米尔侯赛因·侯赛因扎德",
+      "dateOfBirth": "2000-10-30",
+      "age": 25,
+      "height": 178,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/5641074.png",
+      "club": "Tractor Sazi"
     },
     {
       "id": 170516,
       "name": "Milad Mohammadi",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "米拉德·穆罕默迪",
+      "dateOfBirth": "1993-09-29",
+      "age": 32,
+      "height": 178,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/170516.png",
+      "club": "Persepolis"
     },
     {
       "id": 170468,
       "name": "Saeed Ezatolahi",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "赛义德·埃扎托拉希",
+      "dateOfBirth": "1996-10-01",
+      "age": 29,
+      "height": 190,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/170468.png",
+      "club": "Shabab Al Ahli Dubai"
     },
     {
       "id": 296612,
       "name": "Shoja Khalilzadeh",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "肖贾·哈利勒扎德",
+      "dateOfBirth": "1989-05-14",
+      "age": 37,
+      "height": 180,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/296612.png",
+      "club": "Tractor Sazi"
     },
     {
       "id": 297330,
       "name": "Hossein Kanaani",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "侯赛因·卡纳尼",
+      "dateOfBirth": "1994-03-23",
+      "age": 32,
+      "height": 188,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/297330.png",
+      "club": "Persepolis"
     },
     {
       "id": 1479663,
       "name": "Payam Niazmand",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "帕亚姆·尼亚兹曼德",
+      "dateOfBirth": "1995-04-06",
+      "age": 31,
+      "height": 194,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/1479663.png",
+      "club": "Persepolis"
     },
     {
       "id": 3533201,
       "name": "Ali Nemati",
       "position": "DF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "A. 内马蒂",
+      "dateOfBirth": "1996-02-07",
+      "age": 30,
+      "height": 182,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/3533201.png",
+      "club": "Foolad"
     },
     {
       "id": 2816023,
       "name": "Mehdi Ghayedi",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "梅赫迪·盖耶迪",
+      "dateOfBirth": "1998-12-05",
+      "age": 27,
+      "height": 166,
+      "weight": 58,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/2816023.png",
+      "club": "Al Nasr"
     },
     {
       "id": 37261879,
       "name": "Mohammad Mohebi",
       "position": "FW",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "穆罕默德·莫赫比",
+      "dateOfBirth": "1998-12-20",
+      "age": 27,
+      "height": 186,
+      "weight": 83,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37261879.png",
+      "club": "Rostov"
     },
     {
       "id": 35322,
       "name": "Ehsan Hajsafi",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "埃赫桑",
+      "dateOfBirth": "1990-02-25",
+      "age": 36,
+      "height": 178,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/35322.png",
+      "club": "Sepahan"
     },
     {
       "id": 298723,
       "name": "Saeid Mehri",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "萨伊德·梅赫里",
+      "dateOfBirth": "1998-02-09",
+      "age": 28,
+      "height": 182,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/298723.png",
+      "club": "Mes Rafsanjan"
     },
     {
       "id": 37608750,
       "name": "Mehdi Limouchi",
       "position": "FW",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "迈赫迪·利穆奇",
+      "dateOfBirth": "1999-11-23",
+      "age": 26,
+      "height": 179,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/14/37608750.png",
+      "club": "Sepahan"
     },
     {
       "id": 37649625,
       "name": "Saeed Saharkhizan",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "赛义德·萨哈尔基赞",
+      "dateOfBirth": "2003-06-26",
+      "age": 22,
+      "height": 180,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37649625.png",
+      "club": "Esteghlal"
     },
     {
       "id": 37649103,
       "name": "Hossein Goudarzi",
       "position": "DF",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "侯赛因·古达尔齐",
+      "dateOfBirth": "2001-05-04",
+      "age": 25,
+      "height": 181,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37649103.png",
+      "club": "Esteghlal"
     },
     {
       "id": 20693598,
       "name": "Abolfazl Jalali",
       "position": "DF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "阿博尔法兹尔·贾拉利",
+      "dateOfBirth": "1998-06-26",
+      "age": 27,
+      "height": 177,
+      "weight": 71,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/20693598.png",
+      "club": "Esteghlal"
     },
     {
       "id": 37700537,
       "name": "Arsha Shakouri",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "阿尔莎·沙库里",
+      "dateOfBirth": "2006-10-01",
+      "age": 19,
+      "height": 191,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37700537.png",
+      "club": "Lusail City"
     },
     {
       "id": 298500,
       "name": "Aaref Gholami",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "A. 戈拉米",
+      "dateOfBirth": "1997-04-19",
+      "age": 29,
+      "height": 183,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/298500.png",
+      "club": "Esteghlal"
     },
     {
       "id": 169790,
       "name": "Sardar Azmoun",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "萨达尔·阿兹蒙",
+      "dateOfBirth": "1995-01-01",
+      "age": 31,
+      "height": 187,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/169790.png",
+      "club": "Shabab Al Ahli Dubai"
     },
     {
       "id": 5641079,
       "name": "Allahyar Sayyadmanesh",
       "position": "FW",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "阿拉赫亚尔·萨亚德马内什",
+      "dateOfBirth": "2001-06-29",
+      "age": 24,
+      "height": 182,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/5641079.png",
+      "club": "Westerlo"
     },
     {
       "id": 191286,
       "name": "Saman Ghoddos",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "萨曼·古多斯",
+      "dateOfBirth": "1993-09-06",
+      "age": 32,
+      "height": 175,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/22/191286.png",
+      "club": "Kalba"
     },
     {
       "id": 297780,
       "name": "Majid Hosseini",
       "position": "DF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "马吉德·霍塞尼",
+      "dateOfBirth": "1996-06-20",
+      "age": 29,
+      "height": 187,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/297780.png",
+      "club": "Kayserispor"
     },
     {
       "id": 297354,
       "name": "Mehdi Taremi",
       "position": "FW",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "梅赫迪·塔雷米",
+      "dateOfBirth": "1992-07-18",
+      "age": 33,
+      "height": 185,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/297354.png",
+      "club": "Olympiacos F.C."
     },
     {
       "id": 297517,
       "name": "Mohammadreza Akhbari",
       "position": "GK",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "穆罕默德雷扎·阿赫巴里",
+      "dateOfBirth": "1993-02-15",
+      "age": 33,
+      "height": 191,
+      "weight": 87,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/297517.png",
+      "club": "Sepahan"
     },
     {
       "id": 297496,
       "name": "Seyed Hossein Hosseini",
       "position": "GK",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "侯赛因·侯赛尼",
+      "dateOfBirth": "1992-06-30",
+      "age": 33,
+      "height": 187,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/297496.png",
+      "club": "Sepahan"
     },
     {
       "id": 37600244,
       "name": "Mohammad Ghorbani",
       "position": "MF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "穆罕默德·戈尔巴尼",
+      "dateOfBirth": "2001-05-21",
+      "age": 25,
+      "height": 190,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/20/37600244.png",
+      "club": "Al Wahda"
     },
     {
       "id": 297357,
       "name": "Alireza Beiranvand",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "阿利雷扎·贝伊兰万德",
+      "dateOfBirth": "1992-09-21",
+      "age": 33,
+      "height": 194,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/297357.png",
+      "club": "Tractor Sazi"
     },
     {
       "id": 37324825,
       "name": "Saleh Hardani",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "萨利赫·哈尔达尼",
+      "dateOfBirth": "1998-12-26",
+      "age": 27,
+      "height": 176,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/37324825.png",
+      "club": "Esteghlal"
     },
     {
       "id": 297840,
       "name": "Omid Noorafkan",
       "position": "MF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "奥米德·诺拉夫坎",
+      "dateOfBirth": "1997-04-09",
+      "age": 29,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/297840.png",
+      "club": "Sepahan"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:45:35.838Z"
 }

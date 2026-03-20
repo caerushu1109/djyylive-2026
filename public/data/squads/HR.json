@@ -6,206 +6,445 @@
       "id": 74116,
       "name": "Lovro Majer",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "L·马耶尔",
+      "dateOfBirth": "1998-01-17",
+      "age": 28,
+      "height": 178,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/74116.png",
+      "club": "VfL Wolfsburg"
     },
     {
       "id": 22528446,
       "name": "Luka Sucic",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡·苏契奇",
+      "dateOfBirth": "2002-09-08",
+      "age": 23,
+      "height": 185,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/30/22528446.png",
+      "club": "Real Sociedad"
     },
     {
       "id": 74000,
       "name": "Josip Juranovic",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "尤拉诺维奇",
+      "dateOfBirth": "1995-08-16",
+      "age": 30,
+      "height": 173,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/74000.png",
+      "club": "FC Union Berlin"
     },
     {
       "id": 3568416,
       "name": "Domagoj Bradarić",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "多马戈伊·布拉达里奇",
+      "dateOfBirth": "1999-12-10",
+      "age": 26,
+      "height": 178,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/3568416.png",
+      "club": "Hellas Verona"
     },
     {
       "id": 74160,
       "name": "Borna Sosa",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "B. 索萨",
+      "dateOfBirth": "1998-01-21",
+      "age": 28,
+      "height": 187,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/74160.png",
+      "club": "Crystal Palace"
     },
     {
       "id": 32405608,
       "name": "Ivan Smolcic",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "伊万·斯莫尔契奇",
+      "dateOfBirth": "2000-08-17",
+      "age": 25,
+      "height": 181,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/32405608.png",
+      "club": "Como"
     },
     {
       "id": 73147,
       "name": "Mateo Kovacic ",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "马泰奥·科瓦契奇",
+      "dateOfBirth": "1994-05-06",
+      "age": 32,
+      "height": 177,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/27/73147.png",
+      "club": "Manchester City"
     },
     {
       "id": 37550680,
       "name": "Martin Baturina",
       "position": "MF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 巴图里纳",
+      "dateOfBirth": "2003-02-16",
+      "age": 23,
+      "height": 172,
+      "weight": 68,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/37550680.png",
+      "club": "Como"
     },
     {
       "id": 3862681,
       "name": "Marco Pašalić",
       "position": "FW",
-      "shirtNumber": 7
+      "shirtNumber": 7,
+      "nameZh": "帕萨利奇",
+      "dateOfBirth": "2000-09-14",
+      "age": 25,
+      "height": 177,
+      "weight": 74,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/3862681.png",
+      "club": "Orlando City"
     },
     {
       "id": 20355429,
       "name": "Ivor Pandur",
       "position": "GK",
-      "shirtNumber": 12
+      "shirtNumber": 12,
+      "nameZh": "艾弗·潘杜尔",
+      "dateOfBirth": "2000-03-25",
+      "age": 26,
+      "height": 187,
+      "weight": 81,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/5/20355429.png",
+      "club": "Hull City"
     },
     {
       "id": 72977,
       "name": "Mislav Orsic",
       "position": "FW",
-      "shirtNumber": 16
+      "shirtNumber": 16,
+      "nameZh": "奥尔西奇",
+      "dateOfBirth": "1992-12-29",
+      "age": 33,
+      "height": 179,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/72977.png",
+      "club": "Pafos FC"
     },
     {
       "id": 37543226,
       "name": "Toni Fruk",
       "position": "MF",
-      "shirtNumber": 19
+      "shirtNumber": 19,
+      "nameZh": "T. 弗鲁克",
+      "dateOfBirth": "2001-03-09",
+      "age": 25,
+      "height": 178,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/37543226.png",
+      "club": "Rijeka"
     },
     {
       "id": 73906,
       "name": "Nikola Vlašić",
       "position": "MF",
-      "shirtNumber": 13
+      "shirtNumber": 13,
+      "nameZh": "尼古拉·弗拉西奇",
+      "dateOfBirth": "1997-10-04",
+      "age": 28,
+      "height": 179,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/73906.png",
+      "club": "Torino"
     },
     {
       "id": 74250,
       "name": "Petar Musa",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "佩塔尔·穆萨",
+      "dateOfBirth": "1998-03-04",
+      "age": 28,
+      "height": 188,
+      "weight": 84,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/74250.png",
+      "club": "Dallas"
     },
     {
       "id": 1232,
       "name": "Andrej Kramaric",
       "position": "MF",
-      "shirtNumber": 9
+      "shirtNumber": 9,
+      "nameZh": "克拉马里奇",
+      "dateOfBirth": "1991-06-19",
+      "age": 34,
+      "height": 177,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/1232.png",
+      "club": "TSG Hoffenheim"
     },
     {
       "id": 133712,
       "name": "Martin Erlić",
       "position": "DF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "埃尔利奇",
+      "dateOfBirth": "1998-01-24",
+      "age": 28,
+      "height": 193,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/16/133712.png",
+      "club": "FC Midtjylland"
     },
     {
       "id": 37683059,
       "name": "Petar Sučić",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "P. 苏契奇",
+      "dateOfBirth": "2003-10-25",
+      "age": 22,
+      "height": 183,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37683059.png",
+      "club": "Inter"
     },
     {
       "id": 74957,
       "name": "Nikola Moro",
       "position": "MF",
-      "shirtNumber": 8
+      "shirtNumber": 8,
+      "nameZh": "N. 莫罗",
+      "dateOfBirth": "1998-03-12",
+      "age": 28,
+      "height": 184,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/74957.png",
+      "club": "Bologna"
     },
     {
       "id": 73721,
       "name": "Dominik Livakovic",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "利瓦科维奇",
+      "dateOfBirth": "1995-01-09",
+      "age": 31,
+      "height": 188,
+      "weight": 79,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/25/73721.png",
+      "club": "Dinamo Zagreb"
     },
     {
       "id": 268,
       "name": "Luka Modrić",
       "position": "MF",
-      "shirtNumber": 10
+      "shirtNumber": 10,
+      "nameZh": "卢卡·莫德里奇",
+      "dateOfBirth": "1985-09-09",
+      "age": 40,
+      "height": 172,
+      "weight": 66,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/268.png",
+      "club": "AC Milan"
     },
     {
       "id": 73603,
       "name": "Mario Pašalić",
       "position": "MF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "马里奥·帕萨利奇",
+      "dateOfBirth": "1995-02-09",
+      "age": 31,
+      "height": 188,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/73603.png",
+      "club": "Atalanta"
     },
     {
       "id": 36681,
       "name": "Marin Pongracic",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "庞格拉契奇",
+      "dateOfBirth": "1997-09-11",
+      "age": 28,
+      "height": 193,
+      "weight": 95,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/36681.png",
+      "club": "Fiorentina"
     },
     {
       "id": 37371082,
       "name": "Franjo Ivanović",
       "position": "FW",
-      "shirtNumber": 20
+      "shirtNumber": 20,
+      "nameZh": "弗兰尼奥·伊万诺维奇",
+      "dateOfBirth": "2003-10-01",
+      "age": 22,
+      "height": 185,
+      "weight": 88,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37371082.png",
+      "club": "Benfica"
     },
     {
       "id": 37417027,
       "name": "Igor Matanovic",
       "position": "FW",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "伊万·马塔诺维奇",
+      "dateOfBirth": "2003-03-31",
+      "age": 23,
+      "height": 194,
+      "weight": 90,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37417027.png",
+      "club": "SC Freiburg"
     },
     {
       "id": 3862426,
       "name": "Josip Stanisic",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "J. 斯坦尼西奇",
+      "dateOfBirth": "2000-04-02",
+      "age": 26,
+      "height": 187,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/3862426.png",
+      "club": "FC Bayern München"
     },
     {
       "id": 24838191,
       "name": "Josko Gvardiol ",
       "position": "DF",
-      "shirtNumber": 4
+      "shirtNumber": 4,
+      "nameZh": "约斯科·瓜尔迪奥尔",
+      "dateOfBirth": "2002-01-23",
+      "age": 24,
+      "height": 185,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/24838191.png",
+      "club": "Manchester City"
     },
     {
       "id": 37657587,
       "name": "Luka Vuskovic",
       "position": "DF",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "卢卡·武斯科维奇",
+      "dateOfBirth": "2007-02-24",
+      "age": 19,
+      "height": 193,
+      "weight": 86,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/37657587.png",
+      "club": "Hamburger SV"
     },
     {
       "id": 540162,
       "name": "Dominik Kotarski",
       "position": "GK",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "D. 科塔尔斯基",
+      "dateOfBirth": "2000-02-10",
+      "age": 26,
+      "height": 189,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/540162.png",
+      "club": "FC København"
     },
     {
       "id": 34700,
       "name": "Ante Budimir",
       "position": "FW",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 布迪米尔",
+      "dateOfBirth": "1991-07-22",
+      "age": 34,
+      "height": 190,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/12/34700.png",
+      "club": "Osasuna"
     },
     {
       "id": 540711,
       "name": "Josip Sutalo",
       "position": "DF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "约西普·苏塔洛",
+      "dateOfBirth": "2000-02-28",
+      "age": 26,
+      "height": 190,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/7/540711.png",
+      "club": "Ajax"
     },
     {
       "id": 31002,
       "name": "Ivan Perišić",
       "position": "FW",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "伊万·佩里希奇",
+      "dateOfBirth": "1989-02-02",
+      "age": 37,
+      "height": 186,
+      "weight": 80,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/31002.png",
+      "club": "PSV"
     },
     {
       "id": 74121,
       "name": "Kristijan Jakic",
       "position": "MF",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "K. 雅基奇",
+      "dateOfBirth": "1997-05-14",
+      "age": 29,
+      "height": 184,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/9/74121.png",
+      "club": "FC Augsburg"
     },
     {
       "id": 52573,
       "name": "Duje Caleta-Car",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "D. 卡莱塔-卡尔",
+      "dateOfBirth": "1996-09-17",
+      "age": 29,
+      "height": 193,
+      "weight": 89,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/29/52573.png",
+      "club": "Real Sociedad"
     },
     {
       "id": 73976,
       "name": "Ivica Ivusic",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "伊维察·伊武西奇",
+      "dateOfBirth": "1995-02-01",
+      "age": 31,
+      "height": 195,
+      "weight": 77,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/73976.png",
+      "club": "Hajduk Split"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.671Z"
+  "fetchedAt": "2026-03-19T16:42:17.671Z",
+  "enrichedAt": "2026-03-20T14:43:36.769Z"
 }

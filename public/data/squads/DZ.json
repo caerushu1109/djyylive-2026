@@ -6,164 +6,354 @@
       "id": 37543437,
       "name": "Mehdi Dorval",
       "position": "DF",
-      "shirtNumber": 3
+      "shirtNumber": 3,
+      "nameZh": "梅赫迪·多瓦尔",
+      "dateOfBirth": "2001-02-09",
+      "age": 25,
+      "height": 176,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/13/37543437.png",
+      "club": "Bari 1908"
     },
     {
       "id": 37583299,
       "name": "Adil Boulbina",
       "position": "FW",
-      "shirtNumber": 27
+      "shirtNumber": 27,
+      "nameZh": "阿德尔·布莱比纳",
+      "dateOfBirth": "2003-05-02",
+      "age": 23,
+      "height": 179,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/3/37583299.png",
+      "club": "Al Duhail"
     },
     {
       "id": 37560881,
       "name": "Rafik Belghali",
       "position": "DF",
-      "shirtNumber": 25
+      "shirtNumber": 25,
+      "nameZh": "拉菲克·贝尔加利",
+      "dateOfBirth": "2002-06-07",
+      "age": 24,
+      "height": 180,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37560881.png",
+      "club": "Hellas Verona"
     },
     {
       "id": 37568688,
       "name": "M. Mastil",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "M. 马斯蒂尔",
+      "dateOfBirth": "2000-02-19",
+      "age": 26,
+      "height": 194,
+      "weight": 94,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Stade Nyonnais"
     },
     {
       "id": 971,
       "name": "Riyad Mahrez",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "里亚德·马赫雷斯",
+      "dateOfBirth": "1991-02-21",
+      "age": 35,
+      "height": 179,
+      "weight": 67,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/11/971.png",
+      "club": "Al Ahli"
     },
     {
       "id": 37773357,
       "name": "Kilian Belazzoug",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "基利安·贝拉佐格",
+      "dateOfBirth": "2006-07-18",
+      "age": 19,
+      "height": 198,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
+      "club": "Rennes II"
     },
     {
       "id": 37361490,
       "name": "Sohaib Naïr",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "索海布·奈尔",
+      "dateOfBirth": "2002-04-23",
+      "age": 24,
+      "height": 183,
+      "weight": 75,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/37361490.png",
+      "club": "Guingamp"
     },
     {
       "id": 23269649,
       "name": "Adil Aouchiche",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A.奥希奇",
+      "dateOfBirth": "2002-07-15",
+      "age": 23,
+      "height": 181,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/23269649.png",
+      "club": "Schalke 04"
     },
     {
       "id": 37601151,
       "name": "Achref Abada",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "A. 阿巴达",
+      "dateOfBirth": "1999-06-15",
+      "age": 26,
+      "height": 187,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/37601151.png",
+      "club": "USM Alger"
     },
     {
       "id": 37581338,
       "name": "Yassine Titraoui",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "亚辛·蒂特拉维",
+      "dateOfBirth": "2003-07-26",
+      "age": 22,
+      "height": 172,
+      "weight": 73,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/26/37581338.png",
+      "club": "Sporting Charleroi"
     },
     {
       "id": 96959,
       "name": "Houssem Aouar",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "侯瑟姆·奥亚尔",
+      "dateOfBirth": "1998-06-30",
+      "age": 27,
+      "height": 175,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/31/96959.png",
+      "club": "Al Ittihad"
     },
     {
       "id": 37591823,
       "name": "Farès Ghedjemis",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "法雷斯·盖杰米斯",
+      "dateOfBirth": "2002-09-06",
+      "age": 23,
+      "height": 183,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/15/37591823.png",
+      "club": "Frosinone"
     },
     {
       "id": 433458,
       "name": "Amine Gouiri",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿明·古伊里",
+      "dateOfBirth": "2000-02-16",
+      "age": 26,
+      "height": 180,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/433458.png",
+      "club": "Olympique Marseille"
     },
     {
       "id": 37652796,
       "name": "Amin Chiakha",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "阿明·恰卡",
+      "dateOfBirth": "2006-03-12",
+      "age": 20,
+      "height": 191,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/28/37652796.png",
+      "club": "Rosenborg"
     },
     {
       "id": 37548535,
       "name": "Nadhir Benbouali",
       "position": "null",
-      "shirtNumber": null
+      "shirtNumber": null,
+      "nameZh": "纳迪尔·本布阿里",
+      "dateOfBirth": "2000-04-17",
+      "age": 26,
+      "height": 190,
+      "weight": 85,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/23/37548535.png",
+      "club": "Győri ETO"
     },
     {
       "id": 37430769,
       "name": "Mohamed Amoura",
       "position": "FW",
-      "shirtNumber": 18
+      "shirtNumber": 18,
+      "nameZh": "穆罕默德·阿穆拉",
+      "dateOfBirth": "2000-05-09",
+      "age": 26,
+      "height": 170,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37430769.png",
+      "club": "VfL Wolfsburg"
     },
     {
       "id": 96456,
       "name": "Anthony Mandréa",
       "position": "GK",
-      "shirtNumber": 1
+      "shirtNumber": 1,
+      "nameZh": "安东尼·曼德雷亚",
+      "dateOfBirth": "1996-12-25",
+      "age": 29,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/8/96456.png",
+      "club": "Caen"
     },
     {
       "id": 95635,
       "name": "Aïssa Mandi",
       "position": "DF",
-      "shirtNumber": 2
+      "shirtNumber": 2,
+      "nameZh": "艾萨·曼迪",
+      "dateOfBirth": "1991-10-22",
+      "age": 34,
+      "height": 186,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/19/95635.png",
+      "club": "LOSC Lille"
     },
     {
       "id": 10310744,
       "name": "Hicham Boudaoui",
       "position": "MF",
-      "shirtNumber": 14
+      "shirtNumber": 14,
+      "nameZh": "布达乌伊",
+      "dateOfBirth": "1999-09-23",
+      "age": 26,
+      "height": 175,
+      "weight": 61,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/10310744.png",
+      "club": "Nice"
     },
     {
       "id": 37645233,
       "name": "Ibrahim Maza",
       "position": "MF",
-      "shirtNumber": 22
+      "shirtNumber": 22,
+      "nameZh": "I. 马萨",
+      "dateOfBirth": "2005-11-24",
+      "age": 20,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/17/37645233.png",
+      "club": "Bayer 04 Leverkusen"
     },
     {
       "id": 13590962,
       "name": "Rayan Aït-Nouri",
       "position": "DF",
-      "shirtNumber": 15
+      "shirtNumber": 15,
+      "nameZh": "阿伊特-努里",
+      "dateOfBirth": "2001-06-06",
+      "age": 25,
+      "height": 180,
+      "weight": 70,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/18/13590962.png",
+      "club": "Manchester City"
     },
     {
       "id": 37536482,
       "name": "Farès Chaïbi",
       "position": "MF",
-      "shirtNumber": 17
+      "shirtNumber": 17,
+      "nameZh": "票价 Chaïbi",
+      "dateOfBirth": "2002-11-28",
+      "age": 23,
+      "height": 183,
+      "weight": 69,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/2/37536482.png",
+      "club": "Eintracht Frankfurt"
     },
     {
       "id": 62502,
       "name": "Ramy Bensebaini",
       "position": "DF",
-      "shirtNumber": 21
+      "shirtNumber": 21,
+      "nameZh": "拉米·本塞拜尼",
+      "dateOfBirth": "1995-04-16",
+      "age": 31,
+      "height": 187,
+      "weight": 82,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/6/62502.png",
+      "club": "Borussia Dortmund"
     },
     {
       "id": 37255818,
       "name": "Ramiz Zerrouki",
       "position": "MF",
-      "shirtNumber": 6
+      "shirtNumber": 6,
+      "nameZh": "拉米兹·泽鲁基",
+      "dateOfBirth": "1998-05-26",
+      "age": 28,
+      "height": 183,
+      "weight": 76,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/10/37255818.png",
+      "club": "FC Twente"
     },
     {
       "id": 37579972,
       "name": "Anis Hadj Moussa",
       "position": "FW",
-      "shirtNumber": 11
+      "shirtNumber": 11,
+      "nameZh": "阿尼斯·哈吉·穆萨",
+      "dateOfBirth": "2002-02-11",
+      "age": 24,
+      "height": 176,
+      "weight": 72,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/4/37579972.png",
+      "club": "Feyenoord"
     },
     {
       "id": 447104,
       "name": "Luca Zidane",
       "position": "GK",
-      "shirtNumber": 23
+      "shirtNumber": 23,
+      "nameZh": "卢卡·齐达内",
+      "dateOfBirth": "1998-05-13",
+      "age": 28,
+      "height": 183,
+      "weight": 78,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/0/447104.png",
+      "club": "Granada"
     },
     {
       "id": 20326040,
       "name": "Zineddine Belaid",
       "position": "DF",
-      "shirtNumber": 5
+      "shirtNumber": 5,
+      "nameZh": "齐内丁·贝莱德",
+      "dateOfBirth": "1999-03-20",
+      "age": 27,
+      "height": 187,
+      "weight": null,
+      "image": "https://cdn.sportmonks.com/images/soccer/players/24/20326040.png",
+      "club": "JS Kabylie"
     }
   ],
-  "fetchedAt": "2026-03-19T16:42:17.672Z"
+  "fetchedAt": "2026-03-19T16:42:17.672Z",
+  "enrichedAt": "2026-03-20T14:37:24.607Z"
 }
