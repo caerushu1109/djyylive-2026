@@ -283,6 +283,20 @@ export default function CompHomePage() {
         </div>
       )}
 
+      {/* Quick link to scorers */}
+      <Link href={`/${comp}/scorers`} style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        margin: "0 12px 12px", background: "var(--card)",
+        border: "1px solid var(--border)", borderRadius: "var(--radius)",
+        padding: "12px 14px", textDecoration: "none",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <span style={{ fontSize: 16 }}>⚽</span>
+          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>射手榜</span>
+        </div>
+        <span style={{ fontSize: 11, color: "var(--blue)", fontWeight: 600 }}>查看 →</span>
+      </Link>
+
       <div style={{ height: 20 }} />
 
       {showSearch && (

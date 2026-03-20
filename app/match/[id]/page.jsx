@@ -11,6 +11,7 @@ import { getTeamMeta } from "@/src/lib/team-meta";
 const TABS = [
   { id: "overview", label: "概况" },
   { id: "stats",    label: "统计" },
+  { id: "odds",     label: "赔率" },
   { id: "lineups",  label: "阵容" },
   { id: "events",   label: "事件" },
   { id: "h2h",      label: "H2H" },
@@ -213,13 +214,85 @@ function GoalScorers({ events, fixture }) {
   );
 }
 
+/* ── Win Probability Bar ──────────────────────────────── */
+function WinProbBar({ predictions, fixture }) {
+  if (!predictions || predictions.home_win == null) return null;
+  const h = predictions.home_win;
+  const d = predictions.draw;
+  const a = predictions.away_win;
+  return (
+    <div style={{
+      background: "var(--card)", borderRadius: 10, padding: "10px 14px",
+      border: "1px solid var(--border)",
+    }}>
+      <div style={{
+        fontSize: 9, fontWeight: 700, color: "var(--text3)",
+        textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8,
+      }}>
+        AI 胜率预测
+      </div>
+      <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
+        <div style={{ flex: h, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
+        <div style={{ flex: d, background: "var(--text3)" }} />
+        <div style={{ flex: a, background: "var(--red)", borderRadius: "0 6px 6px 0" }} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ textAlign: "left" }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--blue)" }}>{h}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}胜</div>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text3)" }}>{d}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>平局</div>
+        </div>
+        <div style={{ textAlign: "right" }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--red)" }}>{a}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}胜</div>
+        </div>
+      </div>
+      {(predictions.btts_yes || predictions.over_2_5 || predictions.correct_score) && (
+        <div style={{
+          display: "flex", gap: 8, marginTop: 10, paddingTop: 8,
+          borderTop: "1px solid var(--border)",
+        }}>
+          {predictions.correct_score && (
+            <div style={{ flex: 1, textAlign: "center" }}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: "var(--text)" }}>{predictions.correct_score}</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>预测比分</div>
+            </div>
+          )}
+          {predictions.over_2_5 != null && (
+            <div style={{ flex: 1, textAlign: "center" }}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: "var(--text)" }}>{predictions.over_2_5}%</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>大2.5球</div>
+            </div>
+          )}
+          {predictions.btts_yes != null && (
+            <div style={{ flex: 1, textAlign: "center" }}>
+              <div style={{ fontSize: 13, fontWeight: 800, color: "var(--text)" }}>{predictions.btts_yes}%</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>双方进球</div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ── Tab: Overview ───────────────────────────────────── */
 function TabOverview({ data }) {
-  const { stats, events, fixture } = data;
+  const { stats, events, fixture, predictions } = data;
+
   if (fixture.status === "NS") {
     return (
-      <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-        比赛尚未开始，开赛后将实时更新数据
+      <div style={{ padding: "12px 12px 0" }}>
+        {predictions && <WinProbBar predictions={predictions} fixture={fixture} />}
+        {!predictions && (
+          <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
+            比赛尚未开始，开赛后将实时更新数据
+          </div>
+        )}
+        <div style={{ height: 12 }} />
       </div>
     );
   }
@@ -233,6 +306,13 @@ function TabOverview({ data }) {
 
   return (
     <div style={{ padding: "12px 12px 0" }}>
+      {/* Predictions */}
+      {predictions && (
+        <div style={{ marginBottom: 12 }}>
+          <WinProbBar predictions={predictions} fixture={fixture} />
+        </div>
+      )}
+
       {/* Key stats grid */}
       <div style={{
         display: "grid", gridTemplateColumns: "1fr 1fr 1fr",
@@ -333,6 +413,154 @@ function TabStats({ data }) {
         </div>
       ))}
     </div>
+  );
+}
+
+/* ── Tab: Odds ───────────────────────────────────────── */
+function TabOdds({ data }) {
+  const { odds, fixture } = data;
+  if (!odds) {
+    return (
+      <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
+        暂无赔率数据（通常赛前1-2周开放）
+      </div>
+    );
+  }
+
+  const ftOdds = odds["1X2"] || [];
+  const ah = odds.asian_handicap;
+  const ou = odds.over_under;
+
+  return (
+    <div style={{ padding: "12px" }}>
+      {/* 1X2 */}
+      {ftOdds.length > 0 && (
+        <div style={{
+          background: "var(--card)", borderRadius: 10,
+          border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+        }}>
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            padding: "10px 12px 8px",
+            borderBottom: "1px solid var(--border)",
+          }}>
+            <span style={{
+              fontSize: 10, fontWeight: 700, color: "var(--text3)",
+              textTransform: "uppercase", letterSpacing: "0.06em",
+            }}>胜平负 (1X2)</span>
+          </div>
+          {/* Header */}
+          <div style={{
+            display: "flex", padding: "6px 12px",
+            borderBottom: "1px solid var(--border)",
+          }}>
+            <span style={{ flex: 1, fontSize: 9, color: "var(--text3)", fontWeight: 700 }}>博彩公司</span>
+            <span style={{ width: 56, fontSize: 9, color: "var(--blue)", fontWeight: 700, textAlign: "center" }}>
+              {fixture.home.name}
+            </span>
+            <span style={{ width: 56, fontSize: 9, color: "var(--text3)", fontWeight: 700, textAlign: "center" }}>
+              平局
+            </span>
+            <span style={{ width: 56, fontSize: 9, color: "var(--red)", fontWeight: 700, textAlign: "center" }}>
+              {fixture.away.name}
+            </span>
+          </div>
+          {/* Rows */}
+          {ftOdds.map((o, i) => (
+            <div key={i} style={{
+              display: "flex", alignItems: "center", padding: "8px 12px",
+              borderBottom: i < ftOdds.length - 1 ? "1px solid var(--border)" : "none",
+            }}>
+              <span style={{ flex: 1, fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
+                {o.bookmaker}
+              </span>
+              <OddCell value={o.home} highlight={o.home <= o.draw && o.home <= o.away} color="blue" />
+              <OddCell value={o.draw} highlight={false} color="dim" />
+              <OddCell value={o.away} highlight={o.away <= o.draw && o.away <= o.home} color="red" />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Asian Handicap & Over/Under side by side */}
+      <div style={{ display: "flex", gap: 8 }}>
+        {ah && (
+          <div style={{
+            flex: 1, background: "var(--card)", borderRadius: 10,
+            border: "1px solid var(--border)", padding: "12px",
+          }}>
+            <div style={{
+              fontSize: 9, fontWeight: 700, color: "var(--text3)",
+              textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8,
+            }}>亚洲盘口</div>
+            <div style={{ textAlign: "center", marginBottom: 6 }}>
+              <span style={{
+                fontSize: 12, fontWeight: 800, color: "var(--text)",
+                background: "var(--card2)", padding: "2px 8px", borderRadius: 4,
+              }}>{ah.line > 0 ? `+${ah.line}` : ah.line}</span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--blue)" }}>{ah.home}</div>
+                <div style={{ fontSize: 9, color: "var(--text3)" }}>主队</div>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--red)" }}>{ah.away}</div>
+                <div style={{ fontSize: 9, color: "var(--text3)" }}>客队</div>
+              </div>
+            </div>
+            <div style={{ fontSize: 9, color: "var(--text3)", textAlign: "center", marginTop: 6 }}>
+              {ah.bookmaker}
+            </div>
+          </div>
+        )}
+        {ou && (
+          <div style={{
+            flex: 1, background: "var(--card)", borderRadius: 10,
+            border: "1px solid var(--border)", padding: "12px",
+          }}>
+            <div style={{
+              fontSize: 9, fontWeight: 700, color: "var(--text3)",
+              textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8,
+            }}>大小球</div>
+            <div style={{ textAlign: "center", marginBottom: 6 }}>
+              <span style={{
+                fontSize: 12, fontWeight: 800, color: "var(--text)",
+                background: "var(--card2)", padding: "2px 8px", borderRadius: 4,
+              }}>{ou.line}</span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--green, #4caf50)" }}>{ou.over}</div>
+                <div style={{ fontSize: 9, color: "var(--text3)" }}>大球</div>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--orange, #ff9800)" }}>{ou.under}</div>
+                <div style={{ fontSize: 9, color: "var(--text3)" }}>小球</div>
+              </div>
+            </div>
+            <div style={{ fontSize: 9, color: "var(--text3)", textAlign: "center", marginTop: 6 }}>
+              {ou.bookmaker}
+            </div>
+          </div>
+        )}
+      </div>
+      <div style={{ height: 12 }} />
+    </div>
+  );
+}
+
+function OddCell({ value, highlight, color }) {
+  const colorMap = { blue: "var(--blue)", red: "var(--red)", dim: "var(--text2)" };
+  return (
+    <span style={{
+      width: 56, textAlign: "center", fontSize: 13,
+      fontWeight: highlight ? 800 : 600,
+      fontVariantNumeric: "tabular-nums",
+      color: highlight ? colorMap[color] : "var(--text2)",
+    }}>
+      {typeof value === "number" ? value.toFixed(2) : value}
+    </span>
   );
 }
 
@@ -702,6 +930,7 @@ export default function MatchDetailPage() {
           <div style={{ paddingBottom: 80 }}>
             {tab === "overview" && <TabOverview data={data} />}
             {tab === "stats" && <TabStats data={data} />}
+            {tab === "odds" && <TabOdds data={data} />}
             {tab === "lineups" && <TabLineups data={data} />}
             {tab === "events" && <TabEvents data={data} />}
             {tab === "h2h" && <TabH2H fixture={fixture} homeIso={homeIso} awayIso={awayIso} />}

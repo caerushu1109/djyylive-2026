@@ -344,13 +344,16 @@ function buildDetailFromSample(sample, fixtureId) {
   }));
 
   const lineups = buildLineups(sample.lineupsByMatch?.[String(fixtureId)]);
+  const odds = sample.oddsByMatch?.[String(fixtureId)] || null;
+  const predictions = sample.predictionsByMatch?.[String(fixtureId)] || null;
 
   return {
     fixture: normalizedFixture,
     stats: buildAllStats(stats),
     events,
     lineups,
-    probabilities: null,
+    odds,
+    predictions,
     teams: {
       home: normalizedFixture.home.originalName,
       away: normalizedFixture.away.originalName,
@@ -550,6 +553,52 @@ export async function getMatchDetail(fixtureId, options = {}) {
           lineups = { home: buildSide("home"), away: buildSide("away") };
         }
 
+        // Fetch odds separately (different endpoint)
+        let odds = null;
+        try {
+          const oddsUrl = buildSportMonksUrl(`odds/pre-match/fixtures/${fixtureId}`, {
+            include: "bookmaker",
+          });
+          const oddsResponse = await fetchSportMonksJson(oddsUrl);
+          const oddsData = toArray(oddsResponse?.data);
+          if (oddsData.length > 0) {
+            // Group by market: find 1X2 (fulltime result), Asian Handicap, Over/Under
+            const ftResult = oddsData.filter((o) => o.market_id === 1); // 1X2
+            const ah = oddsData.find((o) => o.market_id === 28); // Asian Handicap
+            const ou = oddsData.find((o) => o.market_id === 18); // Over/Under 2.5
+            odds = {
+              "1X2": ftResult.slice(0, 5).map((o) => ({
+                bookmaker: o.bookmaker?.name || "Unknown",
+                home: Number(o.value) || 0,
+                draw: 0,
+                away: 0,
+              })),
+              asian_handicap: ah ? { bookmaker: ah.bookmaker?.name || "", line: Number(ah.handicap ?? 0), home: 0, away: 0 } : null,
+              over_under: ou ? { bookmaker: ou.bookmaker?.name || "", line: 2.5, over: 0, under: 0 } : null,
+            };
+          }
+        } catch (_) { /* odds not available yet */ }
+
+        // Fetch predictions separately
+        let predictions = null;
+        try {
+          const predUrl = buildSportMonksUrl(`predictions/probabilities/fixtures/${fixtureId}`);
+          const predResponse = await fetchSportMonksJson(predUrl);
+          const predData = toArray(predResponse?.data);
+          if (predData.length > 0) {
+            const find = (type) => predData.find((p) => p.type_id === type)?.predictions;
+            const ftProb = find(1); // fulltime result
+            predictions = {
+              home_win: ftProb?.home ?? null,
+              draw: ftProb?.draw ?? null,
+              away_win: ftProb?.away ?? null,
+              btts_yes: null,
+              over_2_5: null,
+              correct_score: null,
+            };
+          }
+        } catch (_) { /* predictions not available yet */ }
+
         return freezeFinishedMatchDetail({
           fixture: normalizedFixture,
           stats: buildAllStats(statMap),
@@ -565,7 +614,8 @@ export async function getMatchDetail(fixtureId, options = {}) {
             assist: null,
           })),
           lineups,
-          probabilities: null,
+          odds,
+          predictions,
           teams: {
             home: normalizedFixture.home.originalName,
             away: normalizedFixture.away.originalName,
@@ -580,6 +630,54 @@ export async function getMatchDetail(fixtureId, options = {}) {
   const sample = await readSample();
   return {
     ...freezeFinishedMatchDetail(buildDetailFromSample(sample, fixtureId)),
+    mode: forceSample ? "drill" : "sample",
+  };
+}
+
+export async function getTopScorers(options = {}) {
+  const forceSample = options.mode === "drill";
+
+  if (!forceSample && process.env.SPORTMONKS_API_TOKEN) {
+    try {
+      // First get seasonId from any fixture
+      const fixturesUrl = buildSportMonksUrl(`fixtures/between/${WORLD_CUP_START}/${WORLD_CUP_END}`, {
+        per_page: 1,
+      });
+      const fixturesResponse = await fetchSportMonksJson(fixturesUrl);
+      const seasonId = toArray(fixturesResponse?.data)?.[0]?.season_id;
+      if (seasonId) {
+        const url = buildSportMonksUrl(`topscorers/seasons/${seasonId}`, {
+          include: "participant;player",
+        });
+        const response = await fetchSportMonksJson(url);
+        const rows = toArray(response?.data);
+        if (rows.length > 0) {
+          return {
+            source: "sportmonks",
+            scorers: rows.map((row) => ({
+              player: row.player?.name || row.player_name || "",
+              team: row.participant?.name || "",
+              teamMeta: getTeamMeta(row.participant?.name || ""),
+              goals: Number(row.total ?? row.goals ?? 0),
+              assists: Number(row.assists ?? 0),
+              matches: Number(row.appearances ?? 0),
+              minutes: Number(row.minutes_played ?? 0),
+            })),
+          };
+        }
+      }
+    } catch (error) {
+      console.warn("Falling back to sample top scorers:", error);
+    }
+  }
+
+  const sample = await readSample();
+  return {
+    source: "sample",
+    scorers: toArray(sample.topScorers).map((row) => ({
+      ...row,
+      teamMeta: getTeamMeta(row.team || ""),
+    })),
     mode: forceSample ? "drill" : "sample",
   };
 }
