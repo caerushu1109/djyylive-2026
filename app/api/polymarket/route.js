@@ -5,8 +5,11 @@ import { extractTeamName, parseEvents } from "@/lib/polymarket-parser";
 const EVENT_SLUG = "2026-fifa-world-cup-winner-595";
 const GAMMA_URL  = `https://gamma-api.polymarket.com/events?slug=${EVENT_SLUG}`;
 
-// allorigins.win 是公共 CORS/IP 代理，绕过 Cloudflare 被 Polymarket 封锁的问题
-const PROXY_URL  = `https://api.allorigins.win/get?url=${encodeURIComponent(GAMMA_URL)}`;
+// Multiple CORS proxies for redundancy
+const PROXY_URLS = [
+  `https://api.allorigins.win/get?url=${encodeURIComponent(GAMMA_URL)}`,
+  `https://corsproxy.io/?${encodeURIComponent(GAMMA_URL)}`,
+];
 
 async function fetchDirect() {
   const res = await fetch(GAMMA_URL, {
@@ -14,18 +17,19 @@ async function fetchDirect() {
     signal: AbortSignal.timeout(6000),
   });
   if (!res.ok) throw new Error(`direct ${res.status}`);
-  return res.json(); // 返回 events 数组
+  return res.json();
 }
 
-async function fetchViaProxy() {
-  const res = await fetch(PROXY_URL, {
+async function fetchViaProxy(proxyUrl, index) {
+  const res = await fetch(proxyUrl, {
     headers: { Accept: "application/json" },
     signal: AbortSignal.timeout(10000),
   });
-  if (!res.ok) throw new Error(`proxy ${res.status}`);
+  if (!res.ok) throw new Error(`proxy${index} ${res.status}`);
   const wrapper = await res.json();
-  // allorigins 把原始内容放在 wrapper.contents（字符串）
-  return JSON.parse(wrapper.contents);
+  // allorigins wraps in .contents, corsproxy returns directly
+  if (typeof wrapper.contents === "string") return JSON.parse(wrapper.contents);
+  return Array.isArray(wrapper) ? wrapper : [wrapper];
 }
 
 export async function GET() {
@@ -37,13 +41,19 @@ export async function GET() {
     teams = parseEvents(events);
     usedMethod = "direct";
   } catch (e1) {
-    console.warn("[polymarket] direct failed:", e1.message, "→ trying proxy");
-    try {
-      const events = await fetchViaProxy();
-      teams = parseEvents(events);
-      usedMethod = "proxy";
-    } catch (e2) {
-      console.error("[polymarket] proxy also failed:", e2.message);
+    console.warn("[polymarket] direct failed:", e1.message, "→ trying proxies");
+    for (let i = 0; i < PROXY_URLS.length; i++) {
+      try {
+        const events = await fetchViaProxy(PROXY_URLS[i], i);
+        teams = parseEvents(events);
+        usedMethod = `proxy${i}`;
+        break;
+      } catch (e2) {
+        console.warn(`[polymarket] proxy${i} failed:`, e2.message);
+      }
+    }
+    if (usedMethod === "none") {
+      console.error("[polymarket] all methods failed");
     }
   }
 
