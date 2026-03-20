@@ -200,8 +200,16 @@ const TEAM_META = {
   "KOS/ROU/SVK/TUR": { shortName: "科索沃/罗/斯洛伐克/土", flag: "🏳️" },
 };
 
+// Reverse map: Chinese shortName → meta (for locale=zh API responses)
+const ZH_REVERSE = {};
+for (const [, meta] of Object.entries(TEAM_META)) {
+  if (meta.shortName && meta.flag) {
+    ZH_REVERSE[meta.shortName] = meta;
+  }
+}
+
 export function getTeamMeta(name) {
-  return TEAM_META[name] || { shortName: name, flag: "🏳️" };
+  return TEAM_META[name] || ZH_REVERSE[name] || { shortName: name, flag: "🏳️" };
 }
 
 export function getTeamLabel(name) {

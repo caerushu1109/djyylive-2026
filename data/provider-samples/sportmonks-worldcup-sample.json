@@ -266,10 +266,10 @@
     }
   },
   "topScorers": [
-    { "player": "Kylian Mbappe", "team": "France", "goals": 2, "assists": 0, "matches": 1, "minutes": 82 },
-    { "player": "Santiago Gimenez", "team": "Mexico", "goals": 1, "assists": 0, "matches": 1, "minutes": 67 },
-    { "player": "Sadio Mane", "team": "Senegal", "goals": 1, "assists": 0, "matches": 1, "minutes": 90 },
-    { "player": "Antoine Griezmann", "team": "France", "goals": 1, "assists": 1, "matches": 1, "minutes": 90 },
-    { "player": "Hirving Lozano", "team": "Mexico", "goals": 0, "assists": 1, "matches": 1, "minutes": 61 }
+    { "player": "姆巴佩", "team": "France", "goals": 2, "assists": 0, "matches": 1, "minutes": 82 },
+    { "player": "希门尼斯", "team": "Mexico", "goals": 1, "assists": 0, "matches": 1, "minutes": 67 },
+    { "player": "马内", "team": "Senegal", "goals": 1, "assists": 0, "matches": 1, "minutes": 90 },
+    { "player": "格列兹曼", "team": "France", "goals": 1, "assists": 1, "matches": 1, "minutes": 90 },
+    { "player": "洛萨诺", "team": "Mexico", "goals": 0, "assists": 1, "matches": 1, "minutes": 61 }
   ]
 }

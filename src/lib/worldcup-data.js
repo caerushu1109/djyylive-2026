@@ -648,21 +648,26 @@ export async function getTopScorers(options = {}) {
       if (seasonId) {
         const url = buildSportMonksUrl(`topscorers/seasons/${seasonId}`, {
           include: "participant;player",
+          locale: "zh",
         });
         const response = await fetchSportMonksJson(url);
         const rows = toArray(response?.data);
         if (rows.length > 0) {
           return {
             source: "sportmonks",
-            scorers: rows.map((row) => ({
-              player: row.player?.name || row.player_name || "",
-              team: row.participant?.name || "",
-              teamMeta: getTeamMeta(row.participant?.name || ""),
-              goals: Number(row.total ?? row.goals ?? 0),
-              assists: Number(row.assists ?? 0),
-              matches: Number(row.appearances ?? 0),
-              minutes: Number(row.minutes_played ?? 0),
-            })),
+            scorers: rows.map((row) => {
+              const meta = getTeamMeta(row.participant?.name || "");
+              return {
+                player: row.player?.name || row.player_name || "",
+                team: meta.shortName,
+                flag: meta.flag,
+                teamMeta: meta,
+                goals: Number(row.total ?? row.goals ?? 0),
+                assists: Number(row.assists ?? 0),
+                matches: Number(row.appearances ?? 0),
+                minutes: Number(row.minutes_played ?? 0),
+              };
+            }),
           };
         }
       }
@@ -674,10 +679,15 @@ export async function getTopScorers(options = {}) {
   const sample = await readSample();
   return {
     source: "sample",
-    scorers: toArray(sample.topScorers).map((row) => ({
-      ...row,
-      teamMeta: getTeamMeta(row.team || ""),
-    })),
+    scorers: toArray(sample.topScorers).map((row) => {
+      const meta = getTeamMeta(row.team || "");
+      return {
+        ...row,
+        team: meta.shortName,
+        flag: meta.flag,
+        teamMeta: meta,
+      };
+    }),
     mode: forceSample ? "drill" : "sample",
   };
 }
