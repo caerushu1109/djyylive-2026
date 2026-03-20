@@ -1,4 +1,8 @@
 "use client";
+import { getTeamMeta } from "@/src/lib/team-meta";
+
+// 4 distinct colors for up to 4 teams in Polymarket bar
+const POLY_COLORS = ["#4a90d9", "#e05252", "#50b87a", "#d4a843"];
 
 export default function GroupTable({ group, polyGroupOdds }) {
   if (!group) return null;
@@ -140,62 +144,59 @@ export default function GroupTable({ group, polyGroupOdds }) {
       </div>
 
       {/* Polymarket group winner odds */}
-      {polyGroupOdds && Object.keys(polyGroupOdds).length > 0 && (
-        <div style={{ padding: "8px 12px", borderTop: "1px solid var(--border)" }}>
-          <div style={{
-            display: "flex", alignItems: "center", justifyContent: "space-between",
-            marginBottom: 6,
-          }}>
-            <span style={{
-              fontSize: 9, fontWeight: 700, color: "var(--text3)",
-              textTransform: "uppercase", letterSpacing: "0.06em",
-            }}>POLYMARKET · 小组冠军</span>
-          </div>
-          {/* Stacked bar */}
-          <div style={{
-            display: "flex", height: 6, borderRadius: 4, overflow: "hidden",
-            marginBottom: 6, gap: 1,
-          }}>
-            {Object.entries(polyGroupOdds)
-              .sort((a, b) => b[1] - a[1])
-              .map(([teamName, prob]) => {
-                const matchRow = rows.find((r) =>
-                  r.originalName === teamName || r.name === teamName
-                );
-                return (
-                  <div key={teamName} style={{
-                    flex: prob,
-                    background: matchRow ? barColor(matchRow.pos) : "var(--text3)",
-                    minWidth: prob > 2 ? 2 : 0,
-                  }} />
-                );
-              })}
-          </div>
-          {/* Labels */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px" }}>
-            {Object.entries(polyGroupOdds)
-              .sort((a, b) => b[1] - a[1])
-              .map(([teamName, prob]) => {
-                const matchRow = rows.find((r) =>
-                  r.originalName === teamName || r.name === teamName
-                );
+      {polyGroupOdds && Object.keys(polyGroupOdds).length > 0 && (() => {
+        const sorted = Object.entries(polyGroupOdds).sort((a, b) => b[1] - a[1]);
+        return (
+          <div style={{ padding: "8px 12px", borderTop: "1px solid var(--border)" }}>
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              marginBottom: 6,
+            }}>
+              <span style={{
+                fontSize: 9, fontWeight: 700, color: "var(--text3)",
+                textTransform: "uppercase", letterSpacing: "0.06em",
+              }}>POLYMARKET · 小组冠军</span>
+            </div>
+            {/* Stacked bar — each team gets a unique color */}
+            <div style={{
+              display: "flex", height: 6, borderRadius: 4, overflow: "hidden",
+              marginBottom: 6, gap: 1,
+            }}>
+              {sorted.map(([teamName, prob], i) => (
+                <div key={teamName} style={{
+                  flex: prob,
+                  background: POLY_COLORS[i] || "var(--text3)",
+                  minWidth: prob > 2 ? 2 : 0,
+                }} />
+              ))}
+            </div>
+            {/* Labels — translate via team-meta */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px" }}>
+              {sorted.map(([teamName, prob], i) => {
+                const meta = getTeamMeta(teamName);
                 return (
                   <div key={teamName} style={{
                     display: "flex", alignItems: "center", gap: 4,
                   }}>
+                    <span style={{
+                      width: 6, height: 6, borderRadius: "50%",
+                      background: POLY_COLORS[i] || "var(--text3)",
+                      display: "inline-block", flexShrink: 0,
+                    }} />
                     <span style={{ fontSize: 10, color: "var(--text2)" }}>
-                      {matchRow?.flag || ""} {matchRow?.name || teamName}
+                      {meta.flag} {meta.shortName}
                     </span>
                     <span style={{
-                      fontSize: 11, fontWeight: 800, color: "var(--text)",
+                      fontSize: 11, fontWeight: 800, color: POLY_COLORS[i] || "var(--text)",
                       fontVariantNumeric: "tabular-nums",
                     }}>{prob}%</span>
                   </div>
                 );
               })}
+            </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }

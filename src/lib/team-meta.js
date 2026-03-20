@@ -194,6 +194,10 @@ const TEAM_META = {
   Monterrey: { shortName: "蒙特雷" },
   Guadalajara: { shortName: "瓜达拉哈拉" },
   KansasCity: { shortName: "堪萨斯城" },
+  // Polymarket playoff placeholder names
+  "CZE/DEN/MKD/IRL": { shortName: "捷/丹/北马/爱", flag: "🏳️" },
+  "BIH/ITA/NIR/WAL": { shortName: "波黑/意/北爱/威", flag: "🏳️" },
+  "KOS/ROU/SVK/TUR": { shortName: "科索沃/罗/斯洛伐克/土", flag: "🏳️" },
 };
 
 export function getTeamMeta(name) {
