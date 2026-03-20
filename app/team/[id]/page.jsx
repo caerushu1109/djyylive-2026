@@ -3,9 +3,13 @@ import { useMemo, useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useElo } from "@/lib/hooks/useElo";
 import { useFixtures } from "@/lib/hooks/useFixtures";
+import { usePredictions } from "@/lib/hooks/usePredictions";
+import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import { useTeamHistory } from "@/lib/hooks/useTeamHistory";
 import { useSquad } from "@/lib/hooks/useSquad";
+import { EN_TO_ZH } from "@/lib/polymarket-names";
 import MatchCard from "@/components/shared/MatchCard";
+import GroupTable from "@/components/wc/GroupTable";
 import SectionTitle from "@/components/ui/SectionTitle";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { ChevronLeft } from "lucide-react";
@@ -14,12 +18,17 @@ import { POSITION_LABEL } from "@/lib/utils/teamIso";
 const POSITION_ORDER = ["GK", "DF", "MF", "FW"];
 
 const BEST_RESULT_ZH = {
+  "winner":         "🏆 冠军",
   "winners":        "🏆 冠军",
   "runners-up":     "🥈 亚军",
+  "runner-up":      "🥈 亚军",
   "third place":    "🥉 季军",
   "fourth place":   "第4名",
+  "semi-finals":    "四强",
   "quarter-finals": "八强",
   "round of 16":    "十六强",
+  "second round":   "第二轮",
+  "first round":    "第一轮",
   "group stage":    "小组赛出局",
 };
 
@@ -148,13 +157,17 @@ function WcHistoryCard({ history }) {
               borderBottom: i < recent.length - 1 ? "1px solid var(--border)" : "none",
             }}>
               <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text-dim)", minWidth: 36 }}>{entry.year}</span>
-              <span style={{ fontSize: 11, flex: 1, color: "var(--text)" }}>{bestResultLabel(entry.result)}</span>
-              <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums" }}>
-                {entry.wins}胜 {entry.draws}平 {entry.losses}负
-              </span>
-              <span style={{ fontSize: 10, color: "var(--text-dim)", minWidth: 32, textAlign: "right" }}>
-                {entry.gf}-{entry.ga}
-              </span>
+              <span style={{ fontSize: 11, flex: 1, color: "var(--text)" }}>{bestResultLabel(entry.stage || entry.result)}</span>
+              {entry.wins != null && (
+                <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums" }}>
+                  {entry.wins}胜 {entry.draws}平 {entry.losses}负
+                </span>
+              )}
+              {entry.gf != null && (
+                <span style={{ fontSize: 10, color: "var(--text-dim)", minWidth: 32, textAlign: "right" }}>
+                  {entry.gf}-{entry.ga}
+                </span>
+              )}
             </div>
           ))}
         </div>
@@ -295,6 +308,114 @@ function EloHistoryChart({ originalName, code }) {
   );
 }
 
+// ── Tournament progression funnel ─────────────────────────────────────────────
+const STAGES = [
+  { key: "pQualify",  label: "出线" },
+  { key: "pR16",      label: "16强" },
+  { key: "pQF",       label: "8强" },
+  { key: "pSF",       label: "4强" },
+  { key: "pFinal",    label: "决赛" },
+  { key: "pChampion", label: "夺冠" },
+];
+
+function ProgressionFunnel({ teamPred }) {
+  if (!teamPred) return null;
+  return (
+    <div style={{
+      margin: "0 16px 12px", background: "var(--card)",
+      border: "1px solid var(--border)", borderRadius: "var(--radius)",
+      overflow: "hidden",
+    }}>
+      {/* Rank + title probability header */}
+      <div style={{
+        padding: "10px 12px", borderBottom: "1px solid var(--border)",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+        <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
+          模型排名 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>#{teamPred.rank}</span>
+        </span>
+        <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
+          夺冠概率 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>{teamPred.probabilityValue?.toFixed(1)}%</span>
+        </span>
+      </div>
+      {/* Funnel bars */}
+      <div style={{ padding: "10px 12px 12px", display: "flex", flexDirection: "column", gap: 6 }}>
+        {STAGES.map(({ key, label }) => {
+          const val = teamPred[key];
+          if (val == null) return null;
+          return (
+            <div key={key} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text-dim)", width: 28, textAlign: "right", flexShrink: 0 }}>
+                {label}
+              </span>
+              <div style={{ flex: 1, height: 16, background: "var(--card2)", borderRadius: 4, overflow: "hidden", position: "relative" }}>
+                <div style={{
+                  width: `${Math.max(val, 1)}%`, height: "100%",
+                  background: key === "pChampion"
+                    ? "linear-gradient(90deg, var(--blue), #4da6ff)"
+                    : "var(--blue)",
+                  borderRadius: 4,
+                  opacity: key === "pChampion" ? 1 : 0.6 + (val / 100) * 0.4,
+                  transition: "width 0.5s ease",
+                }} />
+              </div>
+              <span style={{
+                fontSize: 11, fontWeight: 700, color: "var(--text)",
+                width: 40, textAlign: "right", fontVariantNumeric: "tabular-nums", flexShrink: 0,
+              }}>
+                {val.toFixed(1)}%
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── Model vs Market comparison ───────────────────────────────────────────────
+function ModelMarketCard({ modelPct, marketPct }) {
+  if (modelPct == null && marketPct == null) return null;
+  const value = modelPct != null && marketPct != null ? modelPct - marketPct : null;
+  const valColor = value == null ? "var(--text3)" : value > 0.5 ? "var(--green)" : value < -0.5 ? "var(--red)" : "var(--text3)";
+  const valBg = value == null ? "var(--card2)" : value > 0.5 ? "var(--green-dim)" : value < -0.5 ? "var(--red-dim)" : "var(--card2)";
+
+  return (
+    <div style={{
+      margin: "0 16px 12px", background: "var(--card)",
+      border: "1px solid var(--border)", borderRadius: "var(--radius)",
+      overflow: "hidden",
+    }}>
+      <div style={{ display: "flex" }}>
+        {/* Model */}
+        <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
+          <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>ELO模型</div>
+          <div style={{ fontSize: 20, fontWeight: 900, color: "var(--blue)" }}>
+            {modelPct != null ? `${modelPct.toFixed(1)}%` : "—"}
+          </div>
+        </div>
+        {/* Market */}
+        <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
+          <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>POLYMARKET</div>
+          <div style={{ fontSize: 20, fontWeight: 900, color: "var(--text2)" }}>
+            {marketPct != null ? `${marketPct.toFixed(1)}%` : "—"}
+          </div>
+        </div>
+        {/* Value */}
+        <div style={{ flex: 1, textAlign: "center", padding: "12px 8px" }}>
+          <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>价值差</div>
+          <div style={{
+            fontSize: 18, fontWeight: 900, color: valColor,
+            background: valBg, borderRadius: 6, padding: "2px 8px", display: "inline-block",
+          }}>
+            {value != null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function TeamPage() {
   const { id } = useParams();
@@ -303,6 +424,8 @@ export default function TeamPage() {
 
   const { data: eloData,      loading: eloLoading      } = useElo();
   const { data: fixturesData, loading: fixturesLoading } = useFixtures();
+  const { data: predData                                } = usePredictions();
+  const { data: polyData                                } = usePolymarket();
   const { data: historyData                             } = useTeamHistory(teamName);
   const { data: squadData                               } = useSquad(teamName);
 
@@ -317,15 +440,43 @@ export default function TeamPage() {
   const lookupName = teamElo?.originalName || teamName;
   const group = useTeamGroup(lookupName);
 
-  const teamFixtures = useMemo(() =>
-    (fixturesData?.fixtures || []).filter(
+  const teamFixtures = useMemo(() => {
+    const zhName = teamElo?.name;
+    return (fixturesData?.fixtures || []).filter(
       (f) =>
         f.home.originalName === teamName || f.away.originalName === teamName ||
-        f.home.name === teamName         || f.away.name === teamName
-    ),
-    [fixturesData, teamName]
-  );
+        f.home.name === teamName         || f.away.name === teamName ||
+        (zhName && (f.home.name === zhName || f.away.name === zhName))
+    );
+  }, [fixturesData, teamName, teamElo]);
 
+  // Prediction data for this team
+  const teamPred = useMemo(() => {
+    if (!predData?.teams) return null;
+    const displayName = teamElo?.name || teamName;
+    return predData.teams.find(
+      (t) => t.name === displayName || t.code === teamElo?.code
+    );
+  }, [predData, teamElo, teamName]);
+
+  // Polymarket probability for this team
+  const marketPct = useMemo(() => {
+    if (!polyData?.teams) return null;
+    const displayName = teamElo?.name || teamName;
+    for (const t of polyData.teams) {
+      const zh = EN_TO_ZH[t.name];
+      if (zh === displayName && t.probability > 0) return t.probability;
+    }
+    return null;
+  }, [polyData, teamElo, teamName]);
+
+  // Group standings for this team's group
+  const teamGroup = useMemo(() => {
+    if (!fixturesData?.standings || !group) return null;
+    return fixturesData.standings.find(
+      (g) => g.group === `${group} 组` || g.group === `${group}组`
+    );
+  }, [fixturesData, group]);
 
   const flag        = teamElo?.flag || "🏴";
   const displayName = teamElo?.name || teamName;
@@ -391,6 +542,35 @@ export default function TeamPage() {
               )}
             </div>
           </div>
+
+          {/* Tournament Progression */}
+          {teamPred && (
+            <section>
+              <SectionTitle>夺冠之路 · ELO模型</SectionTitle>
+              <ProgressionFunnel teamPred={teamPred} />
+            </section>
+          )}
+
+          {/* Model vs Market */}
+          {(teamPred || marketPct != null) && (
+            <section>
+              <SectionTitle>模型 vs 市场</SectionTitle>
+              <ModelMarketCard
+                modelPct={teamPred?.probabilityValue ?? null}
+                marketPct={marketPct}
+              />
+            </section>
+          )}
+
+          {/* Group Standings */}
+          {teamGroup && (
+            <section>
+              <SectionTitle>小组积分榜</SectionTitle>
+              <div style={{ padding: "0 16px 12px" }}>
+                <GroupTable group={teamGroup} />
+              </div>
+            </section>
+          )}
 
           {/* WC History */}
           {historyData && (
