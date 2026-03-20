@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useFixtures } from "@/lib/hooks/useFixtures";
+import { usePolymarketGroups } from "@/lib/hooks/usePolymarketGroups";
 import TopBar from "@/components/shared/TopBar";
 import GroupTable from "@/components/wc/GroupTable";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
@@ -105,6 +106,7 @@ export default function GroupsClient() {
   const [subTab, setSubTab] = useState("积分榜");
   const [currentPage, setCurrentPage] = useState(0);
   const { data: fixturesData, loading } = useFixtures({ pollInterval: 30000 });
+  const { data: polyGroups } = usePolymarketGroups();
 
   if (loading) return (
     <div>
@@ -172,9 +174,16 @@ export default function GroupsClient() {
         {subTab === "积分榜" ? (
           <div style={{ display: "flex", flexDirection: "column", padding: "12px 12px 0" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {pageGroups.map((group) => (
-                <GroupTable key={group.group} group={group} />
-              ))}
+              {pageGroups.map((group) => {
+                const letter = group.group?.replace(/[^A-L]/gi, "").toUpperCase();
+                return (
+                  <GroupTable
+                    key={group.group}
+                    group={group}
+                    polyGroupOdds={polyGroups?.groups?.[letter]}
+                  />
+                );
+              })}
             </div>
             <RulesPanel />
             <div style={{ height: 16 }} />

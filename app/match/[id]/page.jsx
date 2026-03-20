@@ -3,8 +3,6 @@ import { useState, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useMatchDetail } from "@/lib/hooks/useMatchDetail";
 import { useH2H } from "@/lib/hooks/useH2H";
-import { usePolymarketGroups } from "@/lib/hooks/usePolymarketGroups";
-import { EN_TO_ZH } from "@/lib/polymarket-names";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
@@ -418,85 +416,10 @@ function TabStats({ data }) {
   );
 }
 
-/* ── Polymarket Group Odds Card ───────────────────────── */
-function PolyGroupCard({ fixture, polyGroups }) {
-  const groupLetter = fixture.group?.replace(/[^A-L]/gi, "").toUpperCase();
-  if (!groupLetter || !polyGroups?.groups?.[groupLetter]) return null;
-
-  const groupTeams = polyGroups.groups[groupLetter];
-  // Sort by probability descending
-  const sorted = Object.entries(groupTeams)
-    .sort((a, b) => b[1] - a[1]);
-
-  // Find the two teams in this match
-  const homeEN = fixture.home.originalName;
-  const awayEN = fixture.away.originalName;
-
-  return (
-    <div style={{
-      background: "var(--card)", borderRadius: 10,
-      border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
-    }}>
-      <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "10px 12px 8px",
-        borderBottom: "1px solid var(--border)",
-      }}>
-        <span style={{
-          fontSize: 10, fontWeight: 700, color: "var(--text3)",
-          textTransform: "uppercase", letterSpacing: "0.06em",
-        }}>
-          POLYMARKET · {groupLetter}组冠军
-        </span>
-        <span style={{ fontSize: 9, color: "var(--text3)" }}>实时市场数据</span>
-      </div>
-      {sorted.map(([name, prob], i) => {
-        const zh = EN_TO_ZH[name] || name;
-        const isHome = name === homeEN || zh === fixture.home.name;
-        const isAway = name === awayEN || zh === fixture.away.name;
-        const highlight = isHome || isAway;
-        const color = isHome ? "var(--blue)" : isAway ? "var(--red)" : "var(--text2)";
-        return (
-          <div key={name} style={{
-            display: "flex", alignItems: "center", padding: "10px 12px",
-            borderBottom: i < sorted.length - 1 ? "1px solid var(--border)" : "none",
-            background: highlight ? "rgba(255,255,255,0.02)" : "transparent",
-          }}>
-            <span style={{
-              width: 20, fontSize: 10, color: "var(--text3)", fontWeight: 700, textAlign: "center",
-            }}>{i + 1}</span>
-            <span style={{
-              flex: 1, fontSize: 12, fontWeight: highlight ? 700 : 500,
-              color: highlight ? "var(--text)" : "var(--text2)", marginLeft: 8,
-            }}>{zh}</span>
-            {/* Mini bar */}
-            <div style={{
-              width: 80, height: 4, background: "var(--border)", borderRadius: 2,
-              marginRight: 10, overflow: "hidden",
-            }}>
-              <div style={{
-                width: `${prob}%`, height: "100%", borderRadius: 2,
-                background: color,
-              }} />
-            </div>
-            <span style={{
-              fontSize: 13, fontWeight: 800, color,
-              fontVariantNumeric: "tabular-nums", width: 44, textAlign: "right",
-            }}>{prob}%</span>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 /* ── Tab: Odds ───────────────────────────────────────── */
-function TabOdds({ data, polyGroups }) {
+function TabOdds({ data }) {
   const { odds, fixture } = data;
-  const hasOdds = !!odds;
-  const hasPolyGroup = !!polyGroups?.groups?.[fixture.group?.replace(/[^A-L]/gi, "").toUpperCase()];
-
-  if (!hasOdds && !hasPolyGroup) {
+  if (!odds) {
     return (
       <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
         暂无赔率数据（通常赛前1-2周开放）
@@ -504,15 +427,12 @@ function TabOdds({ data, polyGroups }) {
     );
   }
 
-  const ftOdds = odds?.["1X2"] || [];
-  const ah = odds?.asian_handicap;
-  const ou = odds?.over_under;
+  const ftOdds = odds["1X2"] || [];
+  const ah = odds.asian_handicap;
+  const ou = odds.over_under;
 
   return (
     <div style={{ padding: "12px" }}>
-      {/* Polymarket Group Winner */}
-      <PolyGroupCard fixture={fixture} polyGroups={polyGroups} />
-
       {/* 1X2 */}
       {ftOdds.length > 0 && (
         <div style={{
@@ -968,7 +888,6 @@ export default function MatchDetailPage() {
   const router = useRouter();
 
   const { data, loading } = useMatchDetail(id);
-  const { data: polyGroups } = usePolymarketGroups();
   const [tab, setTab] = useState("overview");
 
   const fixture = data?.fixture;
@@ -1011,7 +930,7 @@ export default function MatchDetailPage() {
           <div style={{ paddingBottom: 80 }}>
             {tab === "overview" && <TabOverview data={data} />}
             {tab === "stats" && <TabStats data={data} />}
-            {tab === "odds" && <TabOdds data={data} polyGroups={polyGroups} />}
+            {tab === "odds" && <TabOdds data={data} />}
             {tab === "lineups" && <TabLineups data={data} />}
             {tab === "events" && <TabEvents data={data} />}
             {tab === "h2h" && <TabH2H fixture={fixture} homeIso={homeIso} awayIso={awayIso} />}

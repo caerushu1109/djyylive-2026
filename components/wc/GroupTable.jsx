@@ -1,6 +1,6 @@
 "use client";
 
-export default function GroupTable({ group }) {
+export default function GroupTable({ group, polyGroupOdds }) {
   if (!group) return null;
   const { group: name, rows = [] } = group;
 
@@ -138,6 +138,64 @@ export default function GroupTable({ group }) {
           淘汰
         </span>
       </div>
+
+      {/* Polymarket group winner odds */}
+      {polyGroupOdds && Object.keys(polyGroupOdds).length > 0 && (
+        <div style={{ padding: "8px 12px", borderTop: "1px solid var(--border)" }}>
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            marginBottom: 6,
+          }}>
+            <span style={{
+              fontSize: 9, fontWeight: 700, color: "var(--text3)",
+              textTransform: "uppercase", letterSpacing: "0.06em",
+            }}>POLYMARKET · 小组冠军</span>
+          </div>
+          {/* Stacked bar */}
+          <div style={{
+            display: "flex", height: 6, borderRadius: 4, overflow: "hidden",
+            marginBottom: 6, gap: 1,
+          }}>
+            {Object.entries(polyGroupOdds)
+              .sort((a, b) => b[1] - a[1])
+              .map(([teamName, prob]) => {
+                const matchRow = rows.find((r) =>
+                  r.originalName === teamName || r.name === teamName
+                );
+                return (
+                  <div key={teamName} style={{
+                    flex: prob,
+                    background: matchRow ? barColor(matchRow.pos) : "var(--text3)",
+                    minWidth: prob > 2 ? 2 : 0,
+                  }} />
+                );
+              })}
+          </div>
+          {/* Labels */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px" }}>
+            {Object.entries(polyGroupOdds)
+              .sort((a, b) => b[1] - a[1])
+              .map(([teamName, prob]) => {
+                const matchRow = rows.find((r) =>
+                  r.originalName === teamName || r.name === teamName
+                );
+                return (
+                  <div key={teamName} style={{
+                    display: "flex", alignItems: "center", gap: 4,
+                  }}>
+                    <span style={{ fontSize: 10, color: "var(--text2)" }}>
+                      {matchRow?.flag || ""} {matchRow?.name || teamName}
+                    </span>
+                    <span style={{
+                      fontSize: 11, fontWeight: 800, color: "var(--text)",
+                      fontVariantNumeric: "tabular-nums",
+                    }}>{prob}%</span>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
