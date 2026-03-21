@@ -110,8 +110,7 @@ function ScorersInner() {
 
   const handlePlayerClick = (player) => {
     const histId = lookup(player.playerNameEn || player.player);
-    const id = histId || player.playerId;
-    if (id) openPlayer(id, player.player, histId);
+    if (player.playerId || histId) openPlayer(String(player.playerId || histId), player.player, histId);
   };
 
   return (

@@ -124,8 +124,7 @@ function TopScorersCard({ comp }) {
           <div style={{ flex: 1, minWidth: 0 }}>
             <div onClick={() => {
               const histId = lookup(s.playerNameEn || s.player);
-              const id = histId || s.playerId;
-              if (id) openPlayer(id, s.player, histId);
+              if (s.playerId || histId) openPlayer(String(s.playerId || histId), s.player, histId);
             }} style={{
               fontSize: 12, fontWeight: 700, color: "var(--text)",
               overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",

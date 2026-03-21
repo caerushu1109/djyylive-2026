@@ -69,7 +69,7 @@ export default function TabSquad({ squadData, teamDetail }) {
               return (
                 <div key={p.id} onClick={() => {
                   const histId = lookup(p.name);
-                  openPlayer(histId || String(p.id), p.nameZh || p.name, histId);
+                  openPlayer(String(p.id), p.nameZh || p.name, histId);
                 }} style={{
                   display: "flex", alignItems: "center", padding: hasEnrichedData ? "8px 12px" : "7px 12px", gap: 10,
                   borderBottom: i < byPosition[pos].length - 1 ? "1px solid var(--border)" : "none",
