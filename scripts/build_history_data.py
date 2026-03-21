@@ -85,6 +85,7 @@ awards      = fetch_csv("award_winners")
 team_apps   = fetch_csv("team_appearances")
 penalties   = fetch_csv("penalty_kicks")
 qualified   = fetch_csv("qualified_teams")
+player_apps = fetch_csv("player_appearances")
 
 # Filter men's only
 men_tournaments = [t for t in tournaments if "Women" not in t.get("tournament_name","")]
@@ -95,6 +96,15 @@ men_apps    = [a for a in team_apps if a["tournament_id"] in men_ids]
 men_pens    = [p for p in penalties if p["tournament_id"] in men_ids]
 men_awards  = [a for a in awards if a["tournament_id"] in men_ids]
 men_standings = [s for s in standings if s["tournament_id"] in men_ids]
+men_player_apps = [a for a in player_apps if a["tournament_id"] in men_ids]
+
+# Build player → tournament appearances (for accurate tournament count)
+player_tournament_apps = defaultdict(set)
+for a in men_player_apps:
+    pid = a.get("player_id", "")
+    tid = a.get("tournament_id", "")
+    if pid and tid:
+        player_tournament_apps[pid].add(tid)
 men_qualified = [q for q in qualified if q["tournament_id"] in men_ids]
 
 # ── 1. Champions Timeline ──────────────────────────────────────────
@@ -181,9 +191,13 @@ for g in men_goals:
 all_scorers = []
 for pid, info in player_goals.items():
     if info["goals"] >= 5:
+        # Use the larger of player_appearances vs goals-based tournament count
+        # (player_appearances is more accurate for modern players like Messi,
+        #  but may be incomplete for historical players like Pelé)
+        apps_tournaments = player_tournament_apps.get(pid, set())
+        actual_tournaments = apps_tournaments if len(apps_tournaments) >= len(info["tournaments"]) else info["tournaments"]
         year_list = []
-        for tid in info["tournaments"]:
-            # tournament_id format like "WC-2022" or similar
+        for tid in actual_tournaments:
             for part in tid.split("-"):
                 if part.isdigit() and len(part) == 4:
                     year_list.append(int(part))
@@ -194,7 +208,7 @@ for pid, info in player_goals.items():
             "team": zh(info["team"]),
             "goals": info["goals"],
             "pens": info["penalties"],
-            "tournaments": len(info["tournaments"]),
+            "tournaments": len(actual_tournaments),
             "span": f"{min(years)}-{max(years)}" if len(years) > 1 else str(years[0]),
         })
 
