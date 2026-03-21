@@ -151,7 +151,7 @@ export function TournamentAccordion({ tournament }) {
           {stage}
         </span>
         <span style={{ fontSize: 11, color: "var(--text2)", marginRight: 4 }}>
-          {manager}
+          {playerNameZh(manager)}
         </span>
         <span style={{ fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
           <span style={{ color: "var(--amber)" }}>&#x1F7E1;{yellowCards}</span>
@@ -249,7 +249,7 @@ export function TournamentAccordion({ tournament }) {
                         <div style={{ marginTop: 3, paddingLeft: 56, display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {m.goals.map((g, gi) => (
                             <span key={gi} style={{ fontSize: 10, color: "var(--text-dim)" }}>
-                              {g.ownGoal ? "(OG) " : ""}<span onClick={() => { const hid = lookup(g.player); if (hid) openPlayer(hid, g.player); }} style={{ cursor: "pointer" }}>{g.player}</span> {g.minute}{g.penalty ? " (P)" : ""}
+                              {g.ownGoal ? "(OG) " : ""}<span onClick={() => { const hid = lookup(g.player); if (hid) openPlayer(hid, g.player); }} style={{ cursor: "pointer" }}>{playerNameZh(g.player)}</span> {g.minute}{g.penalty ? " (P)" : ""}
                             </span>
                           ))}
                         </div>
