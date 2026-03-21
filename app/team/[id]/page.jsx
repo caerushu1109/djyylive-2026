@@ -245,7 +245,6 @@ function TeamPageInner() {
                 marketPct={marketPct}
                 teamGroup={teamGroup}
                 teamElo={teamElo}
-                historyData={historyData}
                 teamDetail={teamDetail}
                 groupOpponentIsos={groupOpponentIsos}
                 eloData={eloData}

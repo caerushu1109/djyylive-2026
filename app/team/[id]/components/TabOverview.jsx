@@ -6,25 +6,6 @@ import GroupTable from "@/components/wc/GroupTable";
 import ProgressionFunnel from "./ProgressionFunnel";
 import GroupComparisonCards from "./GroupOpponents";
 
-const BEST_RESULT_ZH = {
-  "winner":         "🏆 冠军",
-  "winners":        "🏆 冠军",
-  "runners-up":     "🥈 亚军",
-  "runner-up":      "🥈 亚军",
-  "third place":    "🥉 季军",
-  "fourth place":   "第4名",
-  "semi-finals":    "四强",
-  "quarter-finals": "八强",
-  "round of 16":    "十六强",
-  "second round":   "第二轮",
-  "first round":    "第一轮",
-  "group stage":    "小组赛出局",
-};
-
-function bestResultLabel(result) {
-  return BEST_RESULT_ZH[result?.toLowerCase()] || result || "-";
-}
-
 // ── W/D/L Stacked Bar ─────────────────────────────────────────────────────────
 function WDLBar({ w, d, l }) {
   const total = w + d + l;
@@ -337,7 +318,7 @@ function TeamProfileCard({ teamDetail }) {
   );
 }
 
-export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, teamDetail, groupOpponentIsos, eloData, predData, teamIso }) {
+export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, teamDetail, groupOpponentIsos, eloData, predData, teamIso }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: "12px 16px 20px" }}>
       {/* Team Profile Card */}
@@ -360,34 +341,6 @@ export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, h
       {/* ELO trend chart (combined: team + group opponents) */}
       {teamElo && (
         <GroupEloChart teamElo={teamElo} groupOpponentIsos={groupOpponentIsos} eloData={eloData} />
-      )}
-
-      {/* WC History summary (compact) */}
-      {historyData && (
-        <div style={{
-          background: "var(--card)", border: "1px solid var(--border)",
-          borderRadius: "var(--radius)", overflow: "hidden",
-        }}>
-          <div style={{ display: "flex" }}>
-            {[
-              { value: historyData.appearances ?? 0, label: "届世界杯" },
-              { value: historyData.titles ?? 0,      label: "次冠军" },
-              { value: bestResultLabel(historyData.bestResult), label: "最佳成绩", small: true },
-            ].map((item, i) => (
-              <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
-                <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
-                  {item.value}
-                </div>
-                <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
-              </div>
-            ))}
-          </div>
-          {historyData.titleYears?.length > 0 && (
-            <div style={{ padding: "6px 12px", borderTop: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
-              夺冠年份：<span style={{ color: "var(--blue)", fontWeight: 700 }}>{historyData.titleYears.join("、")}</span>
-            </div>
-          )}
-        </div>
       )}
 
       {/* Group opponents (ELO + H2H combined) */}
