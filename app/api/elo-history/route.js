@@ -16,7 +16,14 @@ const ACCENT_MAP = {
   "ñ":"n","Ñ":"N",
 };
 
+// Some eloratings.net slugs differ from SportMonks original names
+const SLUG_OVERRIDE = {
+  "Korea Republic": "South_Korea",
+  "Côte d'Ivoire":  "Ivory_Coast",
+};
+
 function toSlug(name) {
+  if (SLUG_OVERRIDE[name]) return SLUG_OVERRIDE[name];
   let s = name || "";
   for (const [from, to] of Object.entries(ACCENT_MAP)) {
     s = s.split(from).join(to);

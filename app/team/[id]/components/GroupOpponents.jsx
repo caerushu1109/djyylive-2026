@@ -44,16 +44,11 @@ export default function GroupComparisonCards({ teamElo, teamPred, groupOpponentI
                 fontSize: 11, fontWeight: 700, fontVariantNumeric: "tabular-nums",
                 color: eloDiff > 0 ? "var(--green)" : eloDiff < 0 ? "var(--red)" : "var(--text3)",
               }}>
-                {eloDiff > 0 ? "+" : ""}{eloDiff} ELO
+                ELO {opp.elo}
               </div>
-              {probDiff != null && (
-                <div style={{
-                  fontSize: 10, fontVariantNumeric: "tabular-nums",
-                  color: probDiff > 0 ? "var(--green)" : probDiff < 0 ? "var(--red)" : "var(--text3)",
-                }}>
-                  夺冠 {probDiff > 0 ? "+" : ""}{probDiff.toFixed(1)}%
-                </div>
-              )}
+              <div style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums" }}>
+                {eloDiff > 0 ? "高" : "低"} {Math.abs(eloDiff)} 分
+              </div>
             </div>
           </div>
         );
