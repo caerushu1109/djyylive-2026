@@ -121,6 +121,12 @@ export default function FixturesClient() {
 
   const predictions = predData?.teams || [];
 
+  // Set of all visible date strings for tab highlighting
+  const visibleDateSet = useMemo(
+    () => new Set(visibleDays.map(([d]) => d)),
+    [visibleDays]
+  );
+
   // Scroll active tab into view
   useEffect(() => {
     if (!tabsRef.current || !selectedDate) return;
@@ -146,21 +152,28 @@ export default function FixturesClient() {
         background: "var(--bg)", position: "sticky", top: 52, zIndex: 40,
         scrollbarWidth: "none",
       }}>
-        {tabs.map(t => (
-          <button
-            key={t.id}
-            data-date={t.id}
-            onClick={() => setActiveDate(t.id)}
-            style={{
-              padding: "10px 12px", fontSize: 11, fontWeight: 700,
-              color: t.id === selectedDate ? "var(--blue)" : "var(--text3)",
-              borderBottom: t.id === selectedDate ? "2px solid var(--blue)" : "2px solid transparent",
-              whiteSpace: "nowrap", background: "none", border: "none", cursor: "pointer",
-            }}
-          >
-            {t.label}
-          </button>
-        ))}
+        {tabs.map(t => {
+          const isPrimary = t.id === selectedDate;
+          const isVisible = visibleDateSet.has(t.id);
+          return (
+            <button
+              key={t.id}
+              data-date={t.id}
+              onClick={() => setActiveDate(t.id)}
+              style={{
+                padding: "10px 12px", fontSize: 11, fontWeight: 700,
+                color: isPrimary ? "var(--blue)" : isVisible ? "var(--blue)" : "var(--text3)",
+                opacity: isVisible && !isPrimary ? 0.6 : 1,
+                borderBottom: isPrimary ? "2px solid var(--blue)"
+                  : isVisible ? "2px solid rgba(59,130,246,0.3)"
+                  : "2px solid transparent",
+                whiteSpace: "nowrap", background: "none", border: "none", cursor: "pointer",
+              }}
+            >
+              {t.label}
+            </button>
+          );
+        })}
       </div>
 
       <div style={{ paddingBottom: 80, paddingTop: 8 }}>
