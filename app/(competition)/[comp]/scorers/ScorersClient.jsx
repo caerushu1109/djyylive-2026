@@ -10,8 +10,8 @@ import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
 const TABS = [
-  { id: "goals", label: "⚽ 射手榜" },
-  { id: "assists", label: "👟 助攻榜" },
+  { id: "goals", label: "射手榜" },
+  { id: "assists", label: "助攻榜" },
 ];
 
 function PlayerRow({ player, index, total, mode, onPlayerClick }) {

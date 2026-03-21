@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
 import { computeMatchOdds, computeLambda, eloToLambda, hybridLambda, getHostAdvantage } from "@/lib/poisson";
+import { MapPin } from "lucide-react";
 import TeamLogo from "@/components/shared/TeamLogo";
 
 export default function MatchCard({ fixture, onClick, predictions, showVenue = false }) {
@@ -175,7 +176,7 @@ export default function MatchCard({ fixture, onClick, predictions, showVenue = f
           )}
           {showVenue && venue && (
             <div style={{ fontSize: 9, color: "var(--text3)", display: "flex", alignItems: "center", gap: 4 }}>
-              <span>📍</span>
+              <MapPin size={9} strokeWidth={2} />
               <span>{venue}</span>
             </div>
           )}

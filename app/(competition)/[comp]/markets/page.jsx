@@ -5,7 +5,7 @@ import { usePredictions } from "@/lib/hooks/usePredictions";
 import TopBar from "@/components/shared/TopBar";
 import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import { Activity, TrendingUp } from "lucide-react";
+import { Radio, GitCompareArrows } from "lucide-react";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 
 // 差值 > 1.5% 绿色（低估），< -1.5% 红色（高估），其余灰色
@@ -265,7 +265,7 @@ export default function MarketsPage() {
 
           {/* ───── Section 1: Polymarket 面板 ───── */}
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-            <Activity size={14} style={{ color: "var(--purple)", flexShrink: 0 }} />
+            <Radio size={14} strokeWidth={2} style={{ color: "var(--purple)", flexShrink: 0 }} />
             <span style={{ fontSize: 13, fontWeight: 700 }}>Polymarket 夺冠赔率</span>
             <span style={{
               fontSize: 10, color: "var(--text3)",
@@ -279,7 +279,7 @@ export default function MarketsPage() {
 
           {/* ───── Section 2: 模型 vs 市场信号 ───── */}
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 24, marginBottom: 10 }}>
-            <TrendingUp size={14} style={{ color: "var(--blue)", flexShrink: 0 }} />
+            <GitCompareArrows size={14} strokeWidth={2} style={{ color: "var(--blue)", flexShrink: 0 }} />
             <span style={{ fontSize: 13, fontWeight: 700 }}>模型 vs 市场信号</span>
             <span style={{
               fontSize: 10, color: "var(--text3)",

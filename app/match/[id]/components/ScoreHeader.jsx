@@ -1,5 +1,6 @@
 "use client";
 
+import { MapPin } from "lucide-react";
 import TeamLogo from "@/components/shared/TeamLogo";
 
 export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
@@ -111,8 +112,8 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
 
       {/* Venue */}
       {fixture.venue && (
-        <div style={{ textAlign: "center", fontSize: 10, color: "var(--text3)", paddingBottom: 10 }}>
-          {"📍"} {fixture.venue}
+        <div style={{ textAlign: "center", fontSize: 10, color: "var(--text3)", paddingBottom: 10, display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }}>
+          <MapPin size={10} strokeWidth={2} /> {fixture.venue}
         </div>
       )}
     </div>

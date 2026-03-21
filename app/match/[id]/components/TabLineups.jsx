@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Star, UserRound } from "lucide-react";
 import { useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 import TeamLogo from "@/components/shared/TeamLogo";
@@ -146,7 +147,7 @@ export default function TabLineups({ data }) {
           <PlayerAvatar image={mvp.image} number={mvp.number} size={36} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, letterSpacing: "0.06em" }}>
-              {"⭐"} MVP
+              <Star size={10} strokeWidth={2.5} fill="var(--gold)" color="var(--gold)" style={{ marginRight: 2 }} /> MVP
             </div>
             <div style={{ fontSize: 13, fontWeight: 800, color: "var(--text)" }}>
               {mvp.name}
@@ -172,7 +173,7 @@ export default function TabLineups({ data }) {
           </div>
           {home?.coach && (
             <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 2 }}>
-              {"🧑‍💼"} {home.coach}
+              <UserRound size={10} strokeWidth={2} style={{ display: "inline", verticalAlign: "-1px", marginRight: 2 }} /> {home.coach}
             </div>
           )}
         </div>
@@ -192,7 +193,7 @@ export default function TabLineups({ data }) {
           </div>
           {away?.coach && (
             <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 2 }}>
-              {"🧑‍💼"} {away.coach}
+              <UserRound size={10} strokeWidth={2} style={{ display: "inline", verticalAlign: "-1px", marginRight: 2 }} /> {away.coach}
             </div>
           )}
         </div>

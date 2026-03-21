@@ -7,7 +7,7 @@ import { usePredictions } from "@/lib/hooks/usePredictions";
 import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import { Activity, TrendingUp } from "lucide-react";
+import { Radio, GitCompareArrows, BarChart3, Home, RefreshCw } from "lucide-react";
 
 const FOLD_AT = 15;
 const SUB_TABS = ["ELO模型", "市场对比"];
@@ -70,9 +70,9 @@ function EloTab({ predData, participants }) {
           display: "flex", flexWrap: "wrap", gap: "4px 12px",
           fontSize: 10, color: "var(--text3)",
         }}>
-          <span>📊 回测 <b style={{ color: "var(--text2)" }}>964</b> 场世界杯</span>
-          <span>🏠 东道主 <b style={{ color: "var(--text2)" }}>+110 ELO</b></span>
-          <span>🔄 每日 18:00 更新</span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 3 }}><BarChart3 size={10} strokeWidth={2} /> 回测 <b style={{ color: "var(--text2)" }}>964</b> 场世界杯</span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 3 }}><Home size={10} strokeWidth={2} /> 东道主 <b style={{ color: "var(--text2)" }}>+110 ELO</b></span>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 3 }}><RefreshCw size={10} strokeWidth={2} /> 每日 18:00 更新</span>
         </div>
       </div>
 
@@ -457,7 +457,7 @@ function MarketTab({ predData, polyData, polyLoading }) {
 
       {/* Polymarket 面板 */}
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-        <Activity size={14} style={{ color: "var(--purple)", flexShrink: 0 }} />
+        <Radio size={14} strokeWidth={2} style={{ color: "var(--purple)", flexShrink: 0 }} />
         <span style={{ fontSize: 13, fontWeight: 700 }}>Polymarket 夺冠赔率</span>
         <span style={{
           fontSize: 10, color: "var(--text3)",
@@ -471,7 +471,7 @@ function MarketTab({ predData, polyData, polyLoading }) {
 
       {/* 模型 vs 市场信号 */}
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 24, marginBottom: 10 }}>
-        <TrendingUp size={14} style={{ color: "var(--blue)", flexShrink: 0 }} />
+        <GitCompareArrows size={14} strokeWidth={2} style={{ color: "var(--blue)", flexShrink: 0 }} />
         <span style={{ fontSize: 13, fontWeight: 700 }}>模型 vs 市场信号</span>
         <span style={{
           fontSize: 10, color: "var(--text3)",

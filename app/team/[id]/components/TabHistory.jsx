@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { MapPin, ArrowLeftRight } from "lucide-react";
 import { POSITION_LABEL } from "@/lib/canonical-names";
 import { playerNameZh } from "@/lib/player-names-zh";
 import { useOpenPlayer } from "@/components/shared/PlayerContext";
@@ -254,15 +255,15 @@ export function TournamentAccordion({ tournament }) {
                         </div>
                       )}
                       {m.venue && (
-                        <div style={{ marginTop: 2, paddingLeft: 56, fontSize: 9, color: "var(--text3)" }}>
-                          📍 {m.venue.stadium}{m.venue.city ? `, ${m.venue.city}` : ""}
+                        <div style={{ marginTop: 2, paddingLeft: 56, fontSize: 9, color: "var(--text3)", display: "flex", alignItems: "center", gap: 3 }}>
+                          <MapPin size={9} strokeWidth={2} /> {m.venue.stadium}{m.venue.city ? `, ${m.venue.city}` : ""}
                         </div>
                       )}
                       {m.subs && m.subs.length > 0 && (
                         <div style={{ marginTop: 2, paddingLeft: 56, display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {m.subs.map((s, si) => (
                             <span key={si} style={{ fontSize: 9, color: "var(--text3)" }}>
-                              🔄 <span onClick={() => { const hid = lookup(s.playerOn); if (hid) openPlayer(hid, s.playerOn); }} style={{ cursor: "pointer" }}>{s.playerOn}</span> ← <span onClick={() => { const hid = lookup(s.playerOff); if (hid) openPlayer(hid, s.playerOff); }} style={{ cursor: "pointer" }}>{s.playerOff}</span> {s.minute}
+                              <ArrowLeftRight size={9} strokeWidth={2} style={{ display: "inline", verticalAlign: "-1px", marginRight: 2 }} /><span onClick={() => { const hid = lookup(s.playerOn); if (hid) openPlayer(hid, s.playerOn); }} style={{ cursor: "pointer" }}>{s.playerOn}</span> ← <span onClick={() => { const hid = lookup(s.playerOff); if (hid) openPlayer(hid, s.playerOff); }} style={{ cursor: "pointer" }}>{s.playerOff}</span> {s.minute}
                             </span>
                           ))}
                         </div>
@@ -479,7 +480,7 @@ export default function TabHistory({ historyData, teamDetail }) {
                 <span style={{
                   fontSize: 11, fontWeight: 700, color: "var(--blue)", fontVariantNumeric: "tabular-nums",
                 }}>
-                  {player.goals}⚽
+                  {player.goals}球
                 </span>
                 <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums", minWidth: 30, textAlign: "right" }}>
                   {player.apps}场

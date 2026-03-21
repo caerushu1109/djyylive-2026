@@ -1,5 +1,6 @@
 "use client";
 
+import { MapPin, Users, Landmark, Leaf } from "lucide-react";
 import SectionLabel from "./SectionLabel";
 import WinProbBar from "./WinProbBar";
 import CompactModelSummary from "./CompactModelSummary";
@@ -141,8 +142,8 @@ function VenueCard({ fixture }) {
             background: "linear-gradient(transparent, rgba(0,0,0,0.7))",
             padding: "16px 14px 8px",
           }}>
-            <div style={{ fontSize: 12, fontWeight: 800, color: "#fff" }}>
-              {"🏟️"} {venueName}
+            <div style={{ fontSize: 12, fontWeight: 800, color: "#fff", display: "flex", alignItems: "center", gap: 5 }}>
+              <Landmark size={13} strokeWidth={2} /> {venueName}
             </div>
           </div>
         </div>
@@ -153,19 +154,19 @@ function VenueCard({ fixture }) {
         flexWrap: "wrap",
       }}>
         {!v?.image && (
-          <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: "1 0 100%", marginBottom: 2 }}>
-            {"🏟️"} {venueName}
+          <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: "1 0 100%", marginBottom: 2, display: "flex", alignItems: "center", gap: 5 }}>
+            <Landmark size={13} strokeWidth={2} /> {venueName}
           </div>
         )}
         {v?.city && (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"📍"}</span>
+            <MapPin size={10} strokeWidth={2} color="var(--text3)" />
             <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>{v.city}</span>
           </div>
         )}
         {v?.capacity && (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"👥"}</span>
+            <Users size={10} strokeWidth={2} color="var(--text3)" />
             <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
               {Number(v.capacity).toLocaleString()}
             </span>
@@ -173,7 +174,7 @@ function VenueCard({ fixture }) {
         )}
         {v?.surface && (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"🌿"}</span>
+            <Leaf size={10} strokeWidth={2} color="var(--text3)" />
             <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
               {surfaceZh[v.surface.toLowerCase()] || v.surface}
             </span>

@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useEffect, useRef, useState } from "react";
-import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight, Minus } from "lucide-react";
 import { getTeamMeta } from "@/src/lib/team-meta";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 
@@ -139,11 +139,11 @@ function TickerItem({ item }) {
   let deltaText = "";
 
   if (delta > 0) {
-    DeltaIcon = TrendingUp;
+    DeltaIcon = ArrowUpRight;
     deltaColor = "#22c55e";
     deltaText = `+${delta}`;
   } else if (delta < 0) {
-    DeltaIcon = TrendingDown;
+    DeltaIcon = ArrowDownRight;
     deltaColor = "#ef4444";
     deltaText = `${delta}`;
   }

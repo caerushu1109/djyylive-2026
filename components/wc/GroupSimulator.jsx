@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { FlaskConical, BarChart3 } from "lucide-react";
 import GroupTable from "./GroupTable";
 
 /**
@@ -38,7 +39,7 @@ export default function GroupSimulator({ standings, interactive = false, activeG
           borderRadius: 8,
         }}>
           <span style={{ fontSize: 12, color: "var(--text-dim)" }}>
-            {simMode ? "🧪 模拟模式 — 编辑赛果" : "📊 实时数据 — 每日同步"}
+            {simMode ? <><FlaskConical size={12} strokeWidth={2} style={{ display: "inline", verticalAlign: "-2px", marginRight: 4 }} />模拟模式 — 编辑赛果</> : <><BarChart3 size={12} strokeWidth={2} style={{ display: "inline", verticalAlign: "-2px", marginRight: 4 }} />实时数据 — 每日同步</>}
           </span>
           <button
             onClick={() => setSimMode((m) => !m)}

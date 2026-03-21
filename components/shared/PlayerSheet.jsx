@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
+import { BarChart3, ShieldHalf, Target, Zap, CircleDot } from "lucide-react";
 
 /**
  * PlayerSheet — bottom-sheet modal for World Cup player career profile.
@@ -97,11 +98,12 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
   // ── Position icon fallback ────────────────────────────────────
   const positionIcon = (pos) => {
     const p = (pos || "").toLowerCase();
-    if (p.includes("goalkeeper") || p.includes("门将")) return "🧤";
-    if (p.includes("defend") || p.includes("后卫")) return "🛡️";
-    if (p.includes("midfield") || p.includes("中场")) return "🎯";
-    if (p.includes("forward") || p.includes("前锋") || p.includes("striker")) return "⚡";
-    return "⚽";
+    const iconStyle = { display: "inline", verticalAlign: "-2px" };
+    if (p.includes("goalkeeper") || p.includes("门将")) return <ShieldHalf size={14} strokeWidth={2} color="var(--gold)" style={iconStyle} />;
+    if (p.includes("defend") || p.includes("后卫")) return <ShieldHalf size={14} strokeWidth={2} color="var(--blue)" style={iconStyle} />;
+    if (p.includes("midfield") || p.includes("中场")) return <Target size={14} strokeWidth={2} color="var(--green)" style={iconStyle} />;
+    if (p.includes("forward") || p.includes("前锋") || p.includes("striker")) return <Zap size={14} strokeWidth={2} color="var(--red)" style={iconStyle} />;
+    return <CircleDot size={14} strokeWidth={2} color="var(--text3)" style={iconStyle} />;
   };
 
   // ── Styles ────────────────────────────────────────────────────
@@ -506,7 +508,7 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
 
                 {/* ── xG Placeholder ── */}
                 <div style={{ ...s.xgPlaceholder, marginTop: 16 }}>
-                  <div style={{ fontSize: 16, marginBottom: 6 }}>📊</div>
+                  <div style={{ marginBottom: 6 }}><BarChart3 size={18} strokeWidth={1.5} color="var(--text3)" /></div>
                   <div style={{ fontSize: 12, color: "var(--text3)" }}>
                     xG数据将在赛事开始后更新
                   </div>

@@ -332,7 +332,7 @@ function RecordsTab() {
               fontSize: 13, fontWeight: 900, width: 24,
               color: h.goals >= 4 ? "var(--gold)" : "var(--text)",
             }}>
-              {h.goals}⚽
+              {h.goals}球
             </span>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{
