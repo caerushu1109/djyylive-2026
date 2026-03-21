@@ -1405,9 +1405,9 @@ function MatchDetailInner() {
       return computeMatchOdds(lambdas.home, lambdas.away);
     }
 
-    // Fallback B: ELO only (no strength data)
+    // Fallback B: ELO only (no strength data — uses conservative defaults)
     if (homePred?.elo && awayPred?.elo) {
-      const lambdas = eloToLambda(homePred.elo, awayPred.elo, { avgGoals: 3.0 });
+      const lambdas = eloToLambda(homePred.elo, awayPred.elo);
       lambdas.home *= homeBoost;
       lambdas.away *= awayBoost;
       return computeMatchOdds(lambdas.home, lambdas.away);
