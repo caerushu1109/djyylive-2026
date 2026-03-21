@@ -64,8 +64,7 @@ function formatMinute(match) {
 }
 
 function stageLabel(match) {
-  const groupName = String(match?.group?.name || "").replace(/^Group\s+/i, "");
-  const group = groupName ? `${groupName}组` : "";
+  const group = match?.group?.name ? normalizeGroupName(String(match.group.name)) : "";
   const roundRaw = String(match?.round?.name || "").trim();
   // If round name already contains the group (e.g. "A组"), skip the group prefix
   if (roundRaw.includes("组") || roundRaw.includes("Group")) {
@@ -90,7 +89,7 @@ export function normalizeFixture(match) {
   return {
     id: String(match?.id || ""),
     stage: stageLabel(match),
-    group: match?.group?.name ? String(match.group.name).replace(/^Group\s+/i, "") + " 组" : match?.round?.name || "世界杯",
+    group: match?.group?.name ? normalizeGroupName(String(match.group.name)) : match?.round?.name || "世界杯",
     status,
     minute: formatMinute(match),
     kickoff: formatMinute(match),

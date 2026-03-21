@@ -211,7 +211,7 @@ function CompHomePageInner() {
       ) : displayFixtures.length === 0 ? (
         <p style={{ padding: "0 12px", color: "var(--text2)", fontSize: 13 }}>暂无赛程数据</p>
       ) : (
-        displayFixtures.map(f => <MatchCard key={f.id} fixture={f} />)
+        displayFixtures.map(f => <MatchCard key={f.id} fixture={f} predictions={predData?.teams} showVenue />)
       )}
 
       {/* ELO Top 6 */}
