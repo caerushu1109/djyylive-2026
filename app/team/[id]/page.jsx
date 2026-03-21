@@ -11,6 +11,7 @@ import { useTeamDetail } from "@/lib/hooks/useTeamDetail";
 
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import BottomNav from "@/components/shared/BottomNav";
 import { ChevronLeft } from "lucide-react";
 import { nameToIso } from "@/lib/canonical-names";
 import { getTeamMeta } from "@/src/lib/team-meta";
@@ -263,6 +264,7 @@ teamIso={teamIso}
           </div>
         </>
       )}
+      <BottomNav comp="wc2026" />
     </div>
   );
 }

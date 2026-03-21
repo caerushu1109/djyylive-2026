@@ -144,9 +144,13 @@ function MonthCalendar({ year, month, matchMap, selectedDate, onSelect, todayStr
   );
 }
 
+const FIXTURES_DATE_KEY = "djyy_fixtures_date";
+
 export default function FixturesClient() {
   const { comp } = useParams();
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(() => {
+    try { return sessionStorage.getItem(FIXTURES_DATE_KEY); } catch { return null; }
+  });
   const { data: fixturesData, loading } = useFixtures({ pollInterval: 30000 });
   const { data: predData } = usePredictions();
   const matchListRef = useRef(null);
@@ -154,6 +158,13 @@ export default function FixturesClient() {
   const matchMap = useMemo(() => groupByDate(fixturesData?.fixtures || []), [fixturesData]);
 
   const todayStr = new Date().toLocaleDateString(BJ_LOCALE, BJ_TZ);
+
+  // Persist selected date to sessionStorage
+  useEffect(() => {
+    try {
+      if (selectedDate) sessionStorage.setItem(FIXTURES_DATE_KEY, selectedDate);
+    } catch {}
+  }, [selectedDate]);
 
   // Auto-select: today if has matches, else first match day
   const autoDate = useMemo(() => {

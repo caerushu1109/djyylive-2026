@@ -7,6 +7,7 @@ import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
 import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage, hybridLambda, computeInPlayOdds } from "@/lib/poisson";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import BottomNav from "@/components/shared/BottomNav";
 import { nameToIso } from "@/lib/canonical-names";
 import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
@@ -132,48 +133,51 @@ function MatchDetailInner() {
   return (
     <div style={{
       maxWidth: 480, margin: "0 auto", height: "100dvh", background: "var(--bg)",
-      overflowY: "auto", WebkitOverflowScrolling: "touch",
+      display: "flex", flexDirection: "column", overflow: "hidden",
     }}>
-      {loading && !fixture && <LoadingSpinner />}
+      <div style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
+        {loading && !fixture && <LoadingSpinner />}
 
-      {fixture && (
-        <>
-          <ScoreHeader fixture={fixture} onBack={() => router.back()} onTeamClick={(team) => router.push(`/team/${encodeURIComponent(team.originalName || team.name)}`)} />
+        {fixture && (
+          <>
+            <ScoreHeader fixture={fixture} onBack={() => router.back()} onTeamClick={(team) => router.push(`/team/${encodeURIComponent(team.originalName || team.name)}`)} />
 
-          {/* Goal scorers */}
-          <GoalScorers events={data.events} fixture={fixture} onPlayerClick={handleEventPlayerClick} />
+            {/* Goal scorers */}
+            <GoalScorers events={data.events} fixture={fixture} onPlayerClick={handleEventPlayerClick} />
 
-          {/* Tabs */}
-          <div style={{
-            display: "flex", gap: 0, background: "var(--bg)",
-            borderBottom: "1px solid var(--border)",
-            position: "sticky", top: 0, zIndex: 40,
-            overflowX: "auto", WebkitOverflowScrolling: "touch",
-          }}>
-            {TABS.map((t) => (
-              <button key={t.id} onClick={() => setTab(t.id)} style={{
-                flex: 1, minWidth: 0, textAlign: "center", padding: "10px 0",
-                fontSize: 11, fontWeight: 700, whiteSpace: "nowrap",
-                color: tab === t.id ? "var(--blue)" : "var(--text3)",
-                borderBottom: tab === t.id ? "2px solid var(--blue)" : "2px solid transparent",
-                background: "none", border: "none", cursor: "pointer",
-                letterSpacing: "0.02em",
-              }}>
-                {t.label}
-              </button>
-            ))}
-          </div>
+            {/* Tabs */}
+            <div style={{
+              display: "flex", gap: 0, background: "var(--bg)",
+              borderBottom: "1px solid var(--border)",
+              position: "sticky", top: 0, zIndex: 40,
+              overflowX: "auto", WebkitOverflowScrolling: "touch",
+            }}>
+              {TABS.map((t) => (
+                <button key={t.id} onClick={() => setTab(t.id)} style={{
+                  flex: 1, minWidth: 0, textAlign: "center", padding: "10px 0",
+                  fontSize: 11, fontWeight: 700, whiteSpace: "nowrap",
+                  color: tab === t.id ? "var(--blue)" : "var(--text3)",
+                  borderBottom: tab === t.id ? "2px solid var(--blue)" : "2px solid transparent",
+                  background: "none", border: "none", cursor: "pointer",
+                  letterSpacing: "0.02em",
+                }}>
+                  {t.label}
+                </button>
+              ))}
+            </div>
 
-          {/* Tab content */}
-          <div style={{ paddingBottom: 80 }}>
-            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} poissonOdds={poissonOdds} liveOdds={liveOdds} onSwitchTab={setTab} />}
-            {tab === "analysis" && <TabAnalysis data={data} poissonOdds={poissonOdds} fixture={fixture} />}
-            {tab === "lineups" && <TabLineups data={data} />}
-            {tab === "stats" && <TabStats data={data} />}
-            {tab === "events" && <TabEvents data={data} onPlayerClick={handleEventPlayerClick} />}
-          </div>
-        </>
-      )}
+            {/* Tab content */}
+            <div style={{ paddingBottom: 20 }}>
+              {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} poissonOdds={poissonOdds} liveOdds={liveOdds} onSwitchTab={setTab} />}
+              {tab === "analysis" && <TabAnalysis data={data} poissonOdds={poissonOdds} fixture={fixture} />}
+              {tab === "lineups" && <TabLineups data={data} />}
+              {tab === "stats" && <TabStats data={data} />}
+              {tab === "events" && <TabEvents data={data} onPlayerClick={handleEventPlayerClick} />}
+            </div>
+          </>
+        )}
+      </div>
+      <BottomNav comp="wc2026" />
     </div>
   );
 }
