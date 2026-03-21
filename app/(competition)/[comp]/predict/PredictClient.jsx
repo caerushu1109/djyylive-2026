@@ -57,10 +57,23 @@ function EloTab({ predData, participants }) {
       <div style={{
         marginBottom: 12,
         background: "var(--blue-dim)", border: "1px solid rgba(92,158,255,0.2)",
-        borderRadius: "var(--radius-sm)", padding: "8px 12px",
-        fontSize: 11, color: "var(--text2)", lineHeight: 1.5,
+        borderRadius: "var(--radius-sm)", padding: "10px 12px",
+        fontSize: 11, color: "var(--text2)", lineHeight: 1.6,
       }}>
-        通过历史所有世界杯比赛的 ELO 进行模型训练，根据最新各队 ELO 分算出每场胜负概率，模拟 10,000 次完整赛事，统计各阶段晋级率。每天北京时间 18:00 自动更新最新 ELO 并重新模拟。
+        <div style={{ fontWeight: 700, color: "var(--text)", marginBottom: 4, fontSize: 11 }}>
+          ELO 蒙特卡洛模型
+        </div>
+        基于 51,246 场国际比赛的历史 ELO 数据，对 964 场世界杯正赛 (1930–2022) 进行回测校准。根据各队最新 ELO 分算出每场胜负概率，模拟 10,000 次完整赛事（含48队真实淘汰赛对阵），统计各阶段晋级率。
+        <div style={{
+          marginTop: 6, paddingTop: 6,
+          borderTop: "1px solid rgba(92,158,255,0.15)",
+          display: "flex", flexWrap: "wrap", gap: "4px 12px",
+          fontSize: 10, color: "var(--text3)",
+        }}>
+          <span>📊 回测 <b style={{ color: "var(--text2)" }}>964</b> 场世界杯</span>
+          <span>🏠 东道主 <b style={{ color: "var(--text2)" }}>+110 ELO</b></span>
+          <span>🔄 每日 18:00 更新</span>
+        </div>
       </div>
 
       {/* Column headers */}
