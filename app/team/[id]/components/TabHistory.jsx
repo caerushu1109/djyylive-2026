@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { POSITION_LABEL } from "@/lib/canonical-names";
+import { playerNameZh } from "@/lib/player-names-zh";
 import { useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
@@ -534,6 +535,58 @@ export default function TabHistory({ historyData, teamElo, teamDetail }) {
           <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
         </div>
       )}
+
+      {/* Top scorers */}
+      {(() => {
+        const topPlayers = teamDetail?.topPlayers || [];
+        const topScorers = [...topPlayers].sort((a, b) => b.goals - a.goals).slice(0, 10);
+        if (topScorers.length === 0) return null;
+        return (
+          <div style={{
+            background: "var(--card)", border: "1px solid var(--border)",
+            borderRadius: "var(--radius)", overflow: "hidden",
+          }}>
+            <div style={{
+              padding: "8px 12px", borderBottom: "1px solid var(--border)",
+              fontSize: 10, fontWeight: 700, color: "var(--text3)",
+              textTransform: "uppercase", letterSpacing: "0.06em",
+            }}>
+              队史世界杯射手榜
+            </div>
+            {topScorers.map((player, idx) => (
+              <div key={idx} style={{
+                display: "flex", alignItems: "center", padding: "8px 12px", gap: 8,
+                borderBottom: idx < topScorers.length - 1 ? "1px solid var(--border)" : "none",
+                background: idx < 3 ? "rgba(92,158,255,0.04)" : "transparent",
+              }}>
+                <span style={{
+                  fontSize: 12, fontWeight: 800, fontVariantNumeric: "tabular-nums",
+                  color: idx === 0 ? "var(--amber)" : idx === 1 ? "var(--text2)" : idx === 2 ? "#cd7f32" : "var(--text-dim)",
+                  minWidth: 20, textAlign: "right",
+                }}>
+                  {idx + 1}.
+                </span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontSize: 12, color: "var(--text)", fontWeight: idx < 3 ? 600 : 400 }}>
+                    {playerNameZh(player.name)}
+                  </div>
+                  {playerNameZh(player.name) !== player.name && (
+                    <div style={{ fontSize: 9, color: "var(--text-dim)", marginTop: 1 }}>{player.name}</div>
+                  )}
+                </div>
+                <span style={{
+                  fontSize: 11, fontWeight: 700, color: "var(--blue)", fontVariantNumeric: "tabular-nums",
+                }}>
+                  {player.goals}⚽
+                </span>
+                <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums", minWidth: 30, textAlign: "right" }}>
+                  {player.apps}场
+                </span>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
     </div>
   );
 }
