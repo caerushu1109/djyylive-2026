@@ -76,7 +76,9 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
   // ── Derived data (match build_player_profiles.py output shape) ──
   const englishName = historical?.name || live?.name || "";
   const name = playerName || englishName || "球员";
-  const photo = live?.photo || null;
+  // Photo: try live API, then construct SportMonks CDN URL from numeric ID
+  const numId = !String(playerId).startsWith("P-") ? Number(playerId) : null;
+  const photo = live?.photo || (numId ? `https://cdn.sportmonks.com/images/soccer/players/${numId % 32}/${numId}.png` : null);
   const positions = historical?.positions || [];
   const birthDate = historical?.birthDate || "";
   const career = historical?.career || {};
