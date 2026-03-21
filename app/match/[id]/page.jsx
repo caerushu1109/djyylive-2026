@@ -19,7 +19,6 @@ const TABS = [
   { id: "lineups",  label: "阵容" },
   { id: "stats",    label: "统计" },
   { id: "events",   label: "事件" },
-  { id: "h2h",      label: "H2H" },
 ];
 
 /* ── Helpers ─────────────────────────────────────────── */
@@ -439,8 +438,7 @@ function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
   const awayWins = summary[awayIso] ?? 0;
   const draws = summary.draws ?? 0;
   const total = homeWins + awayWins + draws;
-  const matches = h2h.matches || [];
-  const lastMatch = matches.length > 0 ? matches[matches.length - 1] : null;
+  const allMatches = [...(h2h.matches || [])].reverse();
 
   const stageZh = {
     "group stage": "小组赛", "round of 16": "十六强", "quarter-finals": "八强",
@@ -482,36 +480,37 @@ function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
           <div style={{ padding: "0 14px 4px", fontSize: 10, color: "var(--text3)", textAlign: "center" }}>
             共 {total} 场交锋
           </div>
-          {/* Last meeting */}
-          {lastMatch && (
-            <div style={{
-              padding: "8px 14px 10px", borderTop: "1px solid var(--border)",
-            }}>
-              <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginBottom: 4 }}>
-                最近一次交手
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                <span style={{ fontSize: 11, color: "var(--text3)" }}>
-                  {lastMatch.tournament.replace("WC-", "")}
+          {/* Full match history */}
+          {allMatches.map((match, i) => {
+            let tone = "dim";
+            if (match.winner === homeIso) tone = "blue";
+            else if (match.winner === awayIso) tone = "red";
+            const scoreStr = match.pen
+              ? `${match.homeScore}-${match.awayScore} (${match.homePen}-${match.awayPen}点)`
+              : `${match.homeScore}-${match.awayScore}`;
+            return (
+              <div key={i} style={{
+                display: "flex", alignItems: "center", gap: 6, padding: "8px 14px",
+                borderTop: "1px solid var(--border)",
+              }}>
+                <span style={{ fontSize: 11, color: "var(--text3)", minWidth: 32 }}>
+                  {match.tournament.replace("WC-", "")}
                 </span>
-                <span style={{ fontSize: 11, color: "var(--text2)" }}>
-                  {stageZh[lastMatch.stage] || lastMatch.stage}
+                <span style={{ flex: 1, fontSize: 11, color: "var(--text2)" }}>
+                  {stageZh[match.stage] || match.stage}
                 </span>
-                <span style={{ flex: 1 }} />
-                <span style={{ fontSize: 10, color: "var(--text3)" }}>
-                  {lastMatch.home} vs {lastMatch.away}
+                <span style={{ fontSize: 10, color: "var(--text3)", marginRight: 2 }}>
+                  {match.home} vs {match.away}
                 </span>
                 <span style={{
-                  fontSize: 14, fontWeight: 700,
-                  color: lastMatch.winner === homeIso ? "var(--blue)" : lastMatch.winner === awayIso ? "var(--red)" : "var(--text2)",
+                  fontSize: 13, fontWeight: 700,
+                  color: tone === "blue" ? "var(--blue)" : tone === "red" ? "var(--red)" : "var(--text2)",
                 }}>
-                  {lastMatch.pen
-                    ? `${lastMatch.homeScore}-${lastMatch.awayScore} (${lastMatch.homePen}-${lastMatch.awayPen}点)`
-                    : `${lastMatch.homeScore}-${lastMatch.awayScore}`}
+                  {scoreStr}
                 </span>
               </div>
-            </div>
-          )}
+            );
+          })}
         </>
       )}
     </div>
@@ -1466,111 +1465,6 @@ function TabEvents({ data, onPlayerClick }) {
   );
 }
 
-/* ── Tab: H2H ────────────────────────────────────────── */
-function TabH2H({ fixture, homeIso, awayIso }) {
-  const { data: h2h, loading } = useH2H(homeIso, awayIso);
-
-  if (loading) return <div style={{ padding: 24, textAlign: "center" }}><LoadingSpinner /></div>;
-  if (!h2h) {
-    return (
-      <div style={{ padding: "24px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-        暂无历史对决数据
-      </div>
-    );
-  }
-
-  const summary = h2h.summary || {};
-  const homeWins = summary[homeIso] ?? 0;
-  const awayWins = summary[awayIso] ?? 0;
-  const draws = summary.draws ?? 0;
-  const total = homeWins + awayWins + draws;
-  const matches = [...(h2h.matches || [])].reverse();
-
-  const stageZh = {
-    "group stage": "小组赛",
-    "round of 16": "十六强",
-    "quarter-finals": "八强",
-    "semi-finals": "四强",
-    "final": "决赛",
-    "third-place match": "季军赛",
-  };
-
-  return (
-    <div style={{ padding: "12px" }}>
-      {/* Summary cards */}
-      <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
-        {[
-          { value: homeWins, label: `${fixture.home.flag} ${fixture.home.name}胜`, color: "var(--blue)" },
-          { value: draws, label: "平局", color: "var(--text3)" },
-          { value: awayWins, label: `${fixture.away.flag} ${fixture.away.name}胜`, color: "var(--red)" },
-        ].map((item, i) => (
-          <div key={i} style={{
-            flex: 1, textAlign: "center",
-            background: "var(--card)", border: "1px solid var(--border)",
-            borderRadius: 10, padding: "12px 4px",
-          }}>
-            <div style={{
-              fontSize: 24, fontWeight: 900, color: item.color,
-              fontVariantNumeric: "tabular-nums",
-            }}>{item.value}</div>
-            <div style={{ fontSize: 10, color: "var(--text3)", marginTop: 2 }}>{item.label}</div>
-          </div>
-        ))}
-      </div>
-
-      {total > 0 && (
-        <div style={{ textAlign: "center", fontSize: 11, color: "var(--text3)", marginBottom: 10 }}>
-          世界杯历史 {total} 场交锋
-        </div>
-      )}
-
-      {/* Match list */}
-      <div style={{
-        background: "var(--card)", border: "1px solid var(--border)",
-        borderRadius: 10, overflow: "hidden",
-      }}>
-        {matches.length === 0 ? (
-          <div style={{ padding: "24px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-            两队此前从未在世界杯交手
-          </div>
-        ) : matches.map((match, i) => {
-          let tone = "dim";
-          if (match.winner === homeIso) tone = "blue";
-          else if (match.winner === awayIso) tone = "red";
-
-          const scoreStr = match.pen
-            ? `${match.homeScore}-${match.awayScore} (${match.homePen}-${match.awayPen} 点)`
-            : `${match.homeScore}-${match.awayScore}`;
-
-          return (
-            <div key={i} style={{
-              display: "flex", alignItems: "center", gap: 8, padding: "10px 14px",
-              borderBottom: i < matches.length - 1 ? "1px solid var(--border)" : "none",
-            }}>
-              <span style={{ fontSize: 12, color: "var(--text3)", minWidth: 36 }}>
-                {match.tournament.replace("WC-", "")}
-              </span>
-              <span style={{ flex: 1, fontSize: 11, color: "var(--text2)" }}>
-                {stageZh[match.stage] || match.stage}
-              </span>
-              <span style={{ fontSize: 10, color: "var(--text3)", marginRight: 4 }}>
-                {match.home} vs {match.away}
-              </span>
-              <span style={{
-                fontSize: 14, fontWeight: 700,
-                color: tone === "blue" ? "var(--blue)" : tone === "red" ? "var(--red)" : "var(--text2)",
-              }}>
-                {scoreStr}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-      <div style={{ height: 12 }} />
-    </div>
-  );
-}
-
 /* ── Main Page ───────────────────────────────────────── */
 export default function MatchDetailPage() {
   return (
@@ -1699,7 +1593,6 @@ function MatchDetailInner() {
             {tab === "lineups" && <TabLineups data={data} />}
             {tab === "stats" && <TabStats data={data} />}
             {tab === "events" && <TabEvents data={data} onPlayerClick={handleEventPlayerClick} />}
-            {tab === "h2h" && <TabH2H fixture={fixture} homeIso={homeIso} awayIso={awayIso} />}
           </div>
         </>
       )}
