@@ -24,7 +24,7 @@ function PolymarketPanel({ teams }) {
         borderRadius: "var(--radius)", padding: "28px 16px",
         textAlign: "center",
       }}>
-        <div style={{ fontSize: 13, color: "var(--text3)" }}>Polymarket 数据暂时不可用</div>
+        <div style={{ fontSize: 13, color: "var(--text3)" }}>预测市场数据暂时不可用</div>
         <div style={{ fontSize: 11, color: "var(--text3)", marginTop: 6 }}>
           API 可能受网络限制，请稍后刷新重试
         </div>
@@ -85,7 +85,7 @@ function SignalTable({ mergedTeams }) {
         borderRadius: "var(--radius)", padding: "20px 16px",
         textAlign: "center", fontSize: 13, color: "var(--text3)",
       }}>
-        暂无可比较数据（需要 Polymarket 与 ELO 数据同时可用）
+        暂无可比较数据（需要预测市场与 ELO 数据同时可用）
       </div>
     );
   }
@@ -106,7 +106,7 @@ function SignalTable({ mergedTeams }) {
       }}>
         <span style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>球队</span>
         <span style={{ fontSize: 9, color: "var(--text3)", textAlign: "right" }}>ELO模型</span>
-        <span style={{ fontSize: 9, color: "var(--text3)", textAlign: "right" }}>Polymarket</span>
+        <span style={{ fontSize: 9, color: "var(--text3)", textAlign: "right" }}>预测市场</span>
         <span style={{ fontSize: 9, color: "var(--text3)", textAlign: "right" }}>差值</span>
       </div>
 
@@ -255,7 +255,7 @@ export default function MarketsPage() {
         borderRadius: "var(--radius-sm)", padding: "8px 12px",
         fontSize: 11, color: "var(--text2)", lineHeight: 1.5,
       }}>
-        聚合 Polymarket 去中心化预测市场的实时夺冠赔率，与 ELO 蒙特卡洛模型概率对比，识别市场低估或高估的球队。
+        聚合去中心化预测市场的实时夺冠概率，与 ELO 蒙特卡洛模型概率对比，识别市场低估或高估的球队。
       </div>
 
       {loading ? (
@@ -266,7 +266,7 @@ export default function MarketsPage() {
           {/* ───── Section 1: Polymarket 面板 ───── */}
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
             <Radio size={14} strokeWidth={2} style={{ color: "var(--purple)", flexShrink: 0 }} />
-            <span style={{ fontSize: 13, fontWeight: 700 }}>Polymarket 夺冠赔率</span>
+            <span style={{ fontSize: 13, fontWeight: 700 }}>市场夺冠概率</span>
             <span style={{
               fontSize: 10, color: "var(--text3)",
               background: "var(--card2)", borderRadius: 4, padding: "2px 6px",
@@ -338,7 +338,7 @@ export default function MarketsPage() {
             ⚠️ <strong style={{ color: "var(--text2)" }}>免责声明：</strong>
             本页面仅展示预测模型数据与第三方预测市场数据的对比分析，供参考学习，
             <strong style={{ color: "var(--text2)" }}>不构成任何投注、投资或交易建议</strong>。
-            Polymarket 为去中心化预测市场平台，参与前请了解相关法律法规与风险。
+            数据来源为去中心化预测市场平台，参与前请了解相关法律法规与风险。
           </div>
 
           {/* ───── 时间戳 ───── */}
@@ -353,7 +353,7 @@ export default function MarketsPage() {
             )}
             {polyData?.fetchedAt && (
               <span>
-                Polymarket 抓取：{new Date(polyData.fetchedAt).toLocaleString("zh-CN", {
+                市场数据更新：{new Date(polyData.fetchedAt).toLocaleString("zh-CN", {
                   month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit",
                 })}
                 {polyData.error && (

@@ -161,7 +161,7 @@ export default function GroupTable({ group, polyGroupOdds, hideLegend }) {
               <span style={{
                 fontSize: 9, fontWeight: 700, color: "var(--text3)",
                 textTransform: "uppercase", letterSpacing: "0.06em",
-              }}>POLYMARKET · 小组冠军</span>
+              }}>市场预测 · 小组冠军</span>
             </div>
             {/* Stacked bar — each team gets a unique color */}
             <div style={{

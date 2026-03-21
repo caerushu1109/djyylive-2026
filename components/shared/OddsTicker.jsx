@@ -79,11 +79,11 @@ export default function OddsTicker({ polyData }) {
           <span style={{
             fontSize: 10, fontWeight: 800, color: "var(--text2)",
             textTransform: "uppercase", letterSpacing: "0.06em",
-          }}>夺冠赔率</span>
+          }}>市场夺冠概率</span>
           <span style={{
             fontSize: 8, color: "var(--text3)", fontWeight: 600,
             background: "var(--card2)", borderRadius: 3, padding: "1px 4px",
-          }}>Polymarket</span>
+          }}>预测市场</span>
         </div>
         {hasDeltas && ageLabel && (
           <span style={{ fontSize: 9, color: "var(--text3)" }}>

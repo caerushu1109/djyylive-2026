@@ -40,7 +40,7 @@ function ModelMarketCard({ modelPct, marketPct }) {
         </div>
       </div>
       <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
-        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>POLYMARKET</div>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>预测市场</div>
         <div style={{ fontSize: 20, fontWeight: 900, color: "var(--text2)" }}>
           {marketPct != null ? `${marketPct.toFixed(1)}%` : "—"}
         </div>
