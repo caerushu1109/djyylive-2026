@@ -210,9 +210,12 @@ const TEAM_META = {
 
 // Reverse map: Chinese shortName → meta (for locale=zh API responses)
 const ZH_REVERSE = {};
-for (const [, meta] of Object.entries(TEAM_META)) {
+// Reverse map: Chinese shortName → English name (for team-strengths matching)
+const ZH_TO_EN = {};
+for (const [enName, meta] of Object.entries(TEAM_META)) {
   if (meta.shortName && meta.flag) {
     ZH_REVERSE[meta.shortName] = meta;
+    ZH_TO_EN[meta.shortName] = enName;
   }
 }
 
@@ -235,4 +238,16 @@ export function normalizeTeamDisplay(team) {
 
 export function getCityLabel(name) {
   return TEAM_META[name]?.shortName || name || "";
+}
+
+/**
+ * Convert a team name (possibly Chinese) to its English name.
+ * Returns the input unchanged if no mapping exists.
+ */
+export function toEnglishName(name) {
+  if (!name) return name;
+  // Already English (exists in TEAM_META)
+  if (TEAM_META[name]) return name;
+  // Chinese → English
+  return ZH_TO_EN[name] || name;
 }

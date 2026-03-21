@@ -5,7 +5,7 @@ import { useMatchDetail } from "@/lib/hooks/useMatchDetail";
 import { useH2H } from "@/lib/hooks/useH2H";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
-import { computeMatchOdds, computeLambda, eloToLambda } from "@/lib/poisson";
+import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage } from "@/lib/poisson";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
@@ -1371,11 +1371,14 @@ function MatchDetailInner() {
     const awayStr = findTeamStrength(strengthsData, fixture.away.originalName);
 
     if (homeStr && awayStr) {
-      // Use team strength data for Poisson λ
+      // Determine host advantage from venue
+      const { homeBoost, awayBoost } = getHostAdvantage(
+        fixture.home.originalName, fixture.away.originalName, fixture.venue
+      );
       const lambdas = computeLambda(
         homeStr.attack, homeStr.defense,
         awayStr.attack, awayStr.defense,
-        { avgGoals: 2.6, homeAdvantage: 1.0 }
+        { avgGoals: 2.6, homeBoost, awayBoost }
       );
       return computeMatchOdds(lambdas.home, lambdas.away);
     }
