@@ -20,10 +20,10 @@ export default function MatchCard({ fixture, onClick, predictions, showVenue = f
   const borderColor = status === "LIVE" ? "rgba(255,61,61,0.3)" : "var(--border)";
   const scoreColor = status === "LIVE" ? "var(--live)" : "var(--text)";
 
-  // ELO predictions — aligned with generate_predictions.py parameters
-  const ELO_DIVISOR = 515;
-  const HOST_BONUS = 60;
-  const DRAW_BASE = 0.22;
+  // ELO predictions — backtested on 964 WC matches (1930-2022)
+  const ELO_DIVISOR = 300;
+  const HOST_BONUS = 110;
+  const DRAW_BASE = 0.34;
   const HOST_CODES = ["US", "CA", "MX"]; // 2026 WC hosts
 
   const homePred = predictions?.find(t => t.name === home.name || t.code === home.code);

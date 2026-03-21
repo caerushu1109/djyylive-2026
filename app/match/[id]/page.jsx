@@ -602,7 +602,7 @@ function PoissonPredictionCard({ fixture, poissonOdds }) {
               fontSize: 11, fontWeight: 800, color: "var(--text)",
               background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
             }}>
-              {asianHandicap.line > 0 ? `+${asianHandicap.line}` : asianHandicap.line}
+              {asianHandicap.line > 0 ? `+${asianHandicap.line}` : asianHandicap.line === 0 ? "0" : asianHandicap.line}
             </span>
           </div>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -615,21 +615,21 @@ function PoissonPredictionCard({ fixture, poissonOdds }) {
           </div>
         </div>
 
-        {/* Over/Under 2.5 */}
+        {/* Over/Under (auto best line) */}
         <div style={{ background: "var(--card)", padding: "10px 12px" }}>
           <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-            大小球 2.5
+            大小球 {overUnder.line}
           </div>
           <div style={{ display: "flex", gap: 2, height: 4, borderRadius: 3, overflow: "hidden", marginBottom: 6 }}>
-            <div style={{ flex: overUnder["2.5"].over, background: "var(--green, #4caf50)" }} />
-            <div style={{ flex: overUnder["2.5"].under, background: "var(--orange, #ff9800)" }} />
+            <div style={{ flex: overUnder.over, background: "var(--green, #4caf50)" }} />
+            <div style={{ flex: overUnder.under, background: "var(--orange, #ff9800)" }} />
           </div>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <span style={{ fontSize: 12, fontWeight: 700, color: "var(--green, #4caf50)" }}>
-              大 {overUnder["2.5"].over}%
+              大 {overUnder.over}%
             </span>
             <span style={{ fontSize: 12, fontWeight: 700, color: "var(--orange, #ff9800)" }}>
-              小 {overUnder["2.5"].under}%
+              小 {overUnder.under}%
             </span>
           </div>
         </div>
