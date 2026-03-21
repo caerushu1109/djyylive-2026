@@ -134,9 +134,17 @@ function sortFixtures(fixtures) {
   });
 }
 
+/** Normalize raw group name from SportMonks → "A组" format */
+function normalizeGroupName(raw) {
+  const s = String(raw || "").trim();
+  // "Group A" → "A组", "A组" → "A组", "A组 组" → "A组", "第一组" → skip
+  const m = s.match(/(?:^Group\s+)?([A-L])(?:\s*组)*$/i);
+  return m ? `${m[1].toUpperCase()}组` : s;
+}
+
 function groupOrderValue(label) {
   const value = String(label || "").trim();
-  const groupMatch = value.match(/^([A-Z])\s*组$/);
+  const groupMatch = value.match(/^([A-L])组$/);
   if (groupMatch) {
     return groupMatch[1].charCodeAt(0) - 65;
   }
@@ -177,7 +185,7 @@ function normalizeStandingRow(row) {
   );
 
   return {
-    group: row?.group?.name ? `${String(row.group.name).replace(/^Group\s+/i, "")} 组` : "世界杯",
+    group: row?.group?.name ? normalizeGroupName(String(row.group.name)) : "世界杯",
     flag: meta.flag,
     name: meta.shortName,
     originalName: row?.participant?.name || meta.shortName,
@@ -203,6 +211,7 @@ function normalizeStandings(rows) {
   });
 
   return [...groups.entries()]
+    .filter(([label]) => /^[A-L]组$/.test(label)) // exclude playoff placeholder groups
     .sort(([left], [right]) => compareGroupLabels(left, right))
     .map(([group, list]) => {
       const sorted = [...list].sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || a.name.localeCompare(b.name));
