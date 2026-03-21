@@ -13,7 +13,8 @@
       "height": 175,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/7892.png",
-      "club": "Vancouver Whitecaps"
+      "club": "Vancouver Whitecaps",
+      "clubZh": "温哥华白帽"
     },
     {
       "id": 262644,
@@ -26,7 +27,8 @@
       "height": 183,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/262644.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 261991,
@@ -39,7 +41,8 @@
       "height": 175,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/261991.png",
-      "club": "Toronto"
+      "club": "Toronto",
+      "clubZh": "多伦多"
     },
     {
       "id": 37682671,
@@ -52,7 +55,8 @@
       "height": 190,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/37682671.png",
-      "club": "Nice"
+      "club": "Nice",
+      "clubZh": "尼斯"
     },
     {
       "id": 17158444,
@@ -65,7 +69,8 @@
       "height": 183,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/17158444.png",
-      "club": "Portland Timbers"
+      "club": "Portland Timbers",
+      "clubZh": "波特兰木头队"
     },
     {
       "id": 4545516,
@@ -78,7 +83,8 @@
       "height": 181,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/4545516.png",
-      "club": "Hull City"
+      "club": "Hull City",
+      "clubZh": "赫尔城"
     },
     {
       "id": 35659846,
@@ -91,7 +97,8 @@
       "height": 180,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/35659846.png",
-      "club": "Celtic"
+      "club": "Celtic",
+      "clubZh": "凯尔特人"
     },
     {
       "id": 37625846,
@@ -104,7 +111,8 @@
       "height": 180,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/37625846.png",
-      "club": "Norwich City"
+      "club": "Norwich City",
+      "clubZh": "诺里奇城"
     },
     {
       "id": 31625208,
@@ -117,7 +125,8 @@
       "height": 170,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/31625208.png",
-      "club": "New York RB"
+      "club": "New York RB",
+      "clubZh": "纽约红牛"
     },
     {
       "id": 37569765,
@@ -130,7 +139,8 @@
       "height": 195,
       "weight": 91,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/37569765.png",
-      "club": "Union Saint-Gilloise"
+      "club": "Union Saint-Gilloise",
+      "clubZh": "圣吉洛瓦联合"
     },
     {
       "id": 37391641,
@@ -143,7 +153,8 @@
       "height": 190,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37391641.png",
-      "club": "Preston North End"
+      "club": "Preston North End",
+      "clubZh": "普雷斯顿北区"
     },
     {
       "id": 371386,
@@ -156,7 +167,8 @@
       "height": 177,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/371386.png",
-      "club": "Los Angeles FC"
+      "club": "Los Angeles FC",
+      "clubZh": "洛杉矶FC"
     },
     {
       "id": 31627620,
@@ -169,7 +181,8 @@
       "height": 191,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/31627620.png",
-      "club": "Inter Miami"
+      "club": "Inter Miami",
+      "clubZh": "迈阿密国际"
     },
     {
       "id": 37614779,
@@ -182,7 +195,8 @@
       "height": 198,
       "weight": 91,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Toronto"
+      "club": "Toronto",
+      "clubZh": "多伦多"
     },
     {
       "id": 37537859,
@@ -195,7 +209,8 @@
       "height": 193,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/37537859.png",
-      "club": "Barnsley"
+      "club": "Barnsley",
+      "clubZh": "巴恩斯利"
     },
     {
       "id": 784790,
@@ -208,7 +223,8 @@
       "height": 180,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/784790.png",
-      "club": "Sporting KC"
+      "club": "Sporting KC",
+      "clubZh": "堪萨斯城体育"
     },
     {
       "id": 37641612,
@@ -221,7 +237,8 @@
       "height": 188,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/37641612.png",
-      "club": "Atlanta United"
+      "club": "Atlanta United",
+      "clubZh": "亚特兰大联"
     },
     {
       "id": 581045,
@@ -234,7 +251,8 @@
       "height": 191,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/581045.png",
-      "club": "Middlesbrough"
+      "club": "Middlesbrough",
+      "clubZh": "米德尔斯堡"
     },
     {
       "id": 23241281,
@@ -247,7 +265,8 @@
       "height": 170,
       "weight": 67,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/23241281.png",
-      "club": "Austin"
+      "club": "Austin",
+      "clubZh": "奥斯汀"
     },
     {
       "id": 37614807,
@@ -260,7 +279,8 @@
       "height": 187,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/37614807.png",
-      "club": "Villarreal"
+      "club": "Villarreal",
+      "clubZh": "比利亚雷亚尔"
     },
     {
       "id": 261,
@@ -273,7 +293,8 @@
       "height": 174,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/261.png",
-      "club": "Swindon Town"
+      "club": "Swindon Town",
+      "clubZh": "斯温登镇"
     },
     {
       "id": 37582178,
@@ -286,7 +307,8 @@
       "height": 188,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37582178.png",
-      "club": "Sassuolo"
+      "club": "Sassuolo",
+      "clubZh": "萨索洛"
     },
     {
       "id": 262142,
@@ -299,7 +321,8 @@
       "height": 180,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/262142.png",
-      "club": "Orlando City"
+      "club": "Orlando City",
+      "clubZh": "奥兰多城"
     },
     {
       "id": 409137,
@@ -312,7 +335,8 @@
       "height": 188,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/409137.png",
-      "club": "Chicago Fire"
+      "club": "Chicago Fire",
+      "clubZh": "芝加哥火焰"
     },
     {
       "id": 31216826,
@@ -325,7 +349,8 @@
       "height": 181,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/31216826.png",
-      "club": "Los Angeles FC"
+      "club": "Los Angeles FC",
+      "clubZh": "洛杉矶FC"
     },
     {
       "id": 581004,
@@ -338,7 +363,8 @@
       "height": 185,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/581004.png",
-      "club": "Brighton & Hove Albion"
+      "club": "Brighton & Hove Albion",
+      "clubZh": "布莱顿"
     },
     {
       "id": 586846,
@@ -351,7 +377,8 @@
       "height": 187,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/586846.png",
-      "club": "Rangers"
+      "club": "Rangers",
+      "clubZh": "流浪者"
     },
     {
       "id": 31238822,
@@ -364,7 +391,8 @@
       "height": 183,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/31238822.png",
-      "club": "Villarreal"
+      "club": "Villarreal",
+      "clubZh": "比利亚雷亚尔"
     },
     {
       "id": 37694071,
@@ -377,7 +405,8 @@
       "height": 180,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/37694071.png",
-      "club": "Hajduk Split"
+      "club": "Hajduk Split",
+      "clubZh": "哈伊杜克斯普利特"
     },
     {
       "id": 37581727,
@@ -390,7 +419,8 @@
       "height": 183,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/37581727.png",
-      "club": "Dender"
+      "club": "Dender",
+      "clubZh": "登德尔"
     },
     {
       "id": 262216,
@@ -403,7 +433,8 @@
       "height": 188,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/262216.png",
-      "club": "Southampton"
+      "club": "Southampton",
+      "clubZh": "南安普顿"
     },
     {
       "id": 16827175,
@@ -416,7 +447,8 @@
       "height": 178,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/16827175.png",
-      "club": "Juventus"
+      "club": "Juventus",
+      "clubZh": "尤文图斯"
     },
     {
       "id": 785924,
@@ -429,7 +461,8 @@
       "height": 194,
       "weight": 101,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/785924.png",
-      "club": "Lausanne Sport"
+      "club": "Lausanne Sport",
+      "clubZh": "洛桑体育"
     },
     {
       "id": 37609158,
@@ -442,7 +475,8 @@
       "height": 188,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/37609158.png",
-      "club": "Swindon Town"
+      "club": "Swindon Town",
+      "clubZh": "斯温登镇"
     },
     {
       "id": 262290,
@@ -455,7 +489,8 @@
       "height": 175,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/262290.png",
-      "club": "Toronto"
+      "club": "Toronto",
+      "clubZh": "多伦多"
     },
     {
       "id": 37551076,
@@ -468,7 +503,8 @@
       "height": 180,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/37551076.png",
-      "club": "Anderlecht"
+      "club": "Anderlecht",
+      "clubZh": "安德莱赫特"
     },
     {
       "id": 20326101,
@@ -481,7 +517,8 @@
       "height": 175,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/20326101.png",
-      "club": "Los Angeles FC"
+      "club": "Los Angeles FC",
+      "clubZh": "洛杉矶FC"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.670Z",

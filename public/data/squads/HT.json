@@ -13,7 +13,8 @@
       "height": 188,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/37695626.png",
-      "club": "Monterey Bay"
+      "club": "Monterey Bay",
+      "clubZh": "蒙特雷湾"
     },
     {
       "id": 447153,
@@ -26,7 +27,8 @@
       "height": 178,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/447153.png",
-      "club": "Haiti"
+      "club": "Haiti",
+      "clubZh": "海地"
     },
     {
       "id": 37584629,
@@ -39,7 +41,8 @@
       "height": 188,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/37584629.png",
-      "club": "Royal Francs Borains"
+      "club": "Royal Francs Borains",
+      "clubZh": "皇家法朗斯博兰"
     },
     {
       "id": 35671501,
@@ -52,7 +55,8 @@
       "height": 182,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/35671501.png",
-      "club": "Zulte-Waregem"
+      "club": "Zulte-Waregem",
+      "clubZh": "祖尔特-瓦雷根"
     },
     {
       "id": 530046,
@@ -65,7 +69,8 @@
       "height": 192,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/530046.png",
-      "club": "Atlético Ottawa"
+      "club": "Atlético Ottawa",
+      "clubZh": "阿特莱蒂科·渥太华"
     },
     {
       "id": 28572709,
@@ -78,7 +83,8 @@
       "height": 175,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/28572709.png",
-      "club": "Torreense"
+      "club": "Torreense",
+      "clubZh": "托雷恩斯"
     },
     {
       "id": 99173,
@@ -91,7 +97,8 @@
       "height": 186,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/99173.png",
-      "club": "Gent"
+      "club": "Gent",
+      "clubZh": "根特"
     },
     {
       "id": 37682340,
@@ -104,7 +111,8 @@
       "height": null,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Reims U19"
+      "club": "Reims U19",
+      "clubZh": "兰斯U19"
     },
     {
       "id": 64296,
@@ -117,7 +125,8 @@
       "height": 183,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/64296.png",
-      "club": "Lugano"
+      "club": "Lugano",
+      "clubZh": "卢加诺"
     },
     {
       "id": 37626706,
@@ -130,7 +139,8 @@
       "height": 173,
       "weight": 67,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/37626706.png",
-      "club": "Alta"
+      "club": "Alta",
+      "clubZh": "阿尔塔"
     },
     {
       "id": 13225178,
@@ -143,7 +153,8 @@
       "height": 178,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/13225178.png",
-      "club": "Auxerre"
+      "club": "Auxerre",
+      "clubZh": "奥塞尔"
     },
     {
       "id": 18218770,
@@ -156,7 +167,8 @@
       "height": 183,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/18218770.png",
-      "club": "Hapoel Hadera"
+      "club": "Hapoel Hadera",
+      "clubZh": "哈波埃尔哈德拉"
     },
     {
       "id": 529879,
@@ -169,7 +181,8 @@
       "height": 178,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/529879.png",
-      "club": "Vizela"
+      "club": "Vizela",
+      "clubZh": "维泽拉"
     },
     {
       "id": 13171232,
@@ -182,7 +195,8 @@
       "height": 178,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/13171232.png",
-      "club": "Nancy"
+      "club": "Nancy",
+      "clubZh": "南锡"
     },
     {
       "id": 98934,
@@ -195,7 +209,8 @@
       "height": 181,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/98934.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 34862145,
@@ -208,7 +223,8 @@
       "height": 182,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/34862145.png",
-      "club": "El Paso Locomotive"
+      "club": "El Paso Locomotive",
+      "clubZh": "埃尔帕索机车"
     },
     {
       "id": 15395119,
@@ -221,7 +237,8 @@
       "height": 190,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/15395119.png",
-      "club": "Sochaux"
+      "club": "Sochaux",
+      "clubZh": "索肖"
     },
     {
       "id": 37259996,
@@ -234,7 +251,8 @@
       "height": 178,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/37259996.png",
-      "club": "Dallas"
+      "club": "Dallas",
+      "clubZh": "达拉斯"
     },
     {
       "id": 471310,
@@ -247,7 +265,8 @@
       "height": 190,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/471310.png",
-      "club": "LDU Quito"
+      "club": "LDU Quito",
+      "clubZh": "基多LDU"
     },
     {
       "id": 99076,
@@ -260,7 +279,8 @@
       "height": 172,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/99076.png",
-      "club": "Wolverhampton Wanderers"
+      "club": "Wolverhampton Wanderers",
+      "clubZh": "狼队"
     },
     {
       "id": 28572704,
@@ -273,7 +293,8 @@
       "height": 182,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/28572704.png",
-      "club": "Philadelphia Union"
+      "club": "Philadelphia Union",
+      "clubZh": "费城联合"
     },
     {
       "id": 23269665,
@@ -286,7 +307,8 @@
       "height": 178,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/23269665.png",
-      "club": "Almere City"
+      "club": "Almere City",
+      "clubZh": "阿尔梅雷城"
     },
     {
       "id": 37593074,
@@ -299,7 +321,8 @@
       "height": 173,
       "weight": 67,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Ibiza Islas Pitiusas"
+      "club": "Ibiza Islas Pitiusas",
+      "clubZh": "伊比萨皮蒂萨斯群岛"
     },
     {
       "id": 411950,
@@ -312,7 +335,8 @@
       "height": 184,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/411950.png",
-      "club": "Real du Cap"
+      "club": "Real du Cap",
+      "clubZh": "卡普皇家"
     },
     {
       "id": 7714824,
@@ -325,7 +349,8 @@
       "height": 187,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/7714824.png",
-      "club": "Cosmos Koblenz"
+      "club": "Cosmos Koblenz",
+      "clubZh": "科斯莫斯·科布伦茨"
     },
     {
       "id": 37719025,
@@ -338,7 +363,8 @@
       "height": 185,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Young Boys II"
+      "club": "Young Boys II",
+      "clubZh": "年轻人二队"
     },
     {
       "id": 540615,
@@ -351,7 +377,8 @@
       "height": 186,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/540615.png",
-      "club": "Vizela"
+      "club": "Vizela",
+      "clubZh": "维泽拉"
     },
     {
       "id": 37579897,
@@ -364,7 +391,8 @@
       "height": 185,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Nashville SC"
+      "club": "Nashville SC",
+      "clubZh": "纳什维尔SC"
     },
     {
       "id": 97621,
@@ -377,7 +405,8 @@
       "height": 176,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/97621.png",
-      "club": "Angers SCO"
+      "club": "Angers SCO",
+      "clubZh": "昂热"
     },
     {
       "id": 96024,
@@ -390,7 +419,8 @@
       "height": 181,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/96024.png",
-      "club": "Bastia"
+      "club": "Bastia",
+      "clubZh": "巴斯蒂亚"
     },
     {
       "id": 262521,
@@ -403,7 +433,8 @@
       "height": 178,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/262521.png",
-      "club": "Toronto"
+      "club": "Toronto",
+      "clubZh": "多伦多"
     },
     {
       "id": 411948,
@@ -416,7 +447,8 @@
       "height": 171,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/411948.png",
-      "club": "Fleury 91"
+      "club": "Fleury 91",
+      "clubZh": "弗勒里91"
     },
     {
       "id": 37316977,
@@ -429,7 +461,8 @@
       "height": 186,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/37316977.png",
-      "club": "Triestina"
+      "club": "Triestina",
+      "clubZh": "特里埃斯蒂纳"
     },
     {
       "id": 262722,
@@ -442,7 +475,8 @@
       "height": 175,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/262722.png",
-      "club": "Colorado Springs"
+      "club": "Colorado Springs",
+      "clubZh": "科罗拉多斯普林斯"
     },
     {
       "id": 461496,
@@ -455,7 +489,8 @@
       "height": 194,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/461496.png",
-      "club": "Rizespor"
+      "club": "Rizespor",
+      "clubZh": "里泽斯堡"
     },
     {
       "id": 37574739,
@@ -468,7 +503,8 @@
       "height": 186,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/37574739.png",
-      "club": "Colorado Springs"
+      "club": "Colorado Springs",
+      "clubZh": "科罗拉多斯普林斯"
     },
     {
       "id": 35264,
@@ -481,7 +517,8 @@
       "height": 173,
       "weight": 63,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/35264.png",
-      "club": "Atlanta United"
+      "club": "Atlanta United",
+      "clubZh": "亚特兰大联"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.669Z",

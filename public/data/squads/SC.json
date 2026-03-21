@@ -13,7 +13,8 @@
       "height": null,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/37696485.png",
-      "club": "Tottenham U21"
+      "club": "Tottenham U21",
+      "clubZh": "热刺U21"
     },
     {
       "id": 172415,
@@ -26,7 +27,8 @@
       "height": 191,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/172415.png",
-      "club": "Doncaster Rovers"
+      "club": "Doncaster Rovers",
+      "clubZh": "唐卡斯特流浪者"
     },
     {
       "id": 336067,
@@ -39,7 +41,8 @@
       "height": 196,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/336067.png",
-      "club": "Nottingham Forest"
+      "club": "Nottingham Forest",
+      "clubZh": "诺丁汉森林"
     },
     {
       "id": 37260638,
@@ -52,7 +55,8 @@
       "height": 189,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/37260638.png",
-      "club": "Everton"
+      "club": "Everton",
+      "clubZh": "埃弗顿"
     },
     {
       "id": 173059,
@@ -65,7 +69,8 @@
       "height": 180,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/173059.png",
-      "club": "Aberdeen"
+      "club": "Aberdeen",
+      "clubZh": "阿伯丁"
     },
     {
       "id": 35683623,
@@ -78,7 +83,8 @@
       "height": 175,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/35683623.png",
-      "club": "Hibernian"
+      "club": "Hibernian",
+      "clubZh": "希伯尼安"
     },
     {
       "id": 37619858,
@@ -91,7 +97,8 @@
       "height": 188,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/37619858.png",
-      "club": "AFC Bournemouth U21"
+      "club": "AFC Bournemouth U21",
+      "clubZh": "伯恩茅斯U21"
     },
     {
       "id": 174383,
@@ -104,7 +111,8 @@
       "height": 190,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/174383.png",
-      "club": "Esbjerg"
+      "club": "Esbjerg",
+      "clubZh": "埃斯比约"
     },
     {
       "id": 176702,
@@ -117,7 +125,8 @@
       "height": 188,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/176702.png",
-      "club": "Hibernian U20"
+      "club": "Hibernian U20",
+      "clubZh": "希伯尼安U20"
     },
     {
       "id": 37528877,
@@ -130,7 +139,8 @@
       "height": 185,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/37528877.png",
-      "club": "Derby County"
+      "club": "Derby County",
+      "clubZh": "德比郡"
     },
     {
       "id": 37391535,
@@ -143,7 +153,8 @@
       "height": 185,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/37391535.png",
-      "club": "Middlesbrough"
+      "club": "Middlesbrough",
+      "clubZh": "米德尔斯堡"
     },
     {
       "id": 25954296,
@@ -156,7 +167,8 @@
       "height": 190,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/25954296.png",
-      "club": "Hellas Verona"
+      "club": "Hellas Verona",
+      "clubZh": "维罗纳"
     },
     {
       "id": 172385,
@@ -169,7 +181,8 @@
       "height": 180,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/172385.png",
-      "club": "Norwich City"
+      "club": "Norwich City",
+      "clubZh": "诺里奇城"
     },
     {
       "id": 172960,
@@ -182,7 +195,8 @@
       "height": 180,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/172960.png",
-      "club": "Celtic"
+      "club": "Celtic",
+      "clubZh": "凯尔特人"
     },
     {
       "id": 173129,
@@ -195,7 +209,8 @@
       "height": 178,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/173129.png",
-      "club": "Celtic"
+      "club": "Celtic",
+      "clubZh": "凯尔特人"
     },
     {
       "id": 37602125,
@@ -208,7 +223,8 @@
       "height": 173,
       "weight": 65,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/37602125.png",
-      "club": "AFC Bournemouth"
+      "club": "AFC Bournemouth",
+      "clubZh": "伯恩茅斯"
     },
     {
       "id": 27440826,
@@ -221,7 +237,8 @@
       "height": 185,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/27440826.png",
-      "club": "Brentford"
+      "club": "Brentford",
+      "clubZh": "布伦特福德"
     },
     {
       "id": 37602122,
@@ -234,7 +251,8 @@
       "height": 182,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/37602122.png",
-      "club": "Udinese"
+      "club": "Udinese",
+      "clubZh": "乌迪内斯"
     },
     {
       "id": 7577,
@@ -247,7 +265,8 @@
       "height": 191,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/7577.png",
-      "club": "Ipswich Town"
+      "club": "Ipswich Town",
+      "clubZh": "伊普斯维奇镇"
     },
     {
       "id": 172923,
@@ -260,7 +279,8 @@
       "height": 183,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/172923.png",
-      "club": "Falkirk"
+      "club": "Falkirk",
+      "clubZh": "法尔基克"
     },
     {
       "id": 174066,
@@ -273,7 +293,8 @@
       "height": 184,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/174066.png",
-      "club": "Rangers"
+      "club": "Rangers",
+      "clubZh": "流浪者"
     },
     {
       "id": 807,
@@ -286,7 +307,8 @@
       "height": 188,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/807.png",
-      "club": "Hibernian"
+      "club": "Hibernian",
+      "clubZh": "希伯尼安"
     },
     {
       "id": 172581,
@@ -299,7 +321,8 @@
       "height": 186,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/172581.png",
-      "club": "Rangers"
+      "club": "Rangers",
+      "clubZh": "流浪者"
     },
     {
       "id": 455376,
@@ -312,7 +335,8 @@
       "height": 191,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/455376.png",
-      "club": "Napoli"
+      "club": "Napoli",
+      "clubZh": "那不勒斯"
     },
     {
       "id": 378093,
@@ -325,7 +349,8 @@
       "height": 186,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/378093.png",
-      "club": "Celtic"
+      "club": "Celtic",
+      "clubZh": "凯尔特人"
     },
     {
       "id": 24817485,
@@ -338,7 +363,8 @@
       "height": 175,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/24817485.png",
-      "club": "Rangers"
+      "club": "Rangers",
+      "clubZh": "流浪者"
     },
     {
       "id": 378629,
@@ -351,7 +377,8 @@
       "height": 190,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/378629.png",
-      "club": "Sparta Praha"
+      "club": "Sparta Praha",
+      "clubZh": "布拉格斯巴达"
     },
     {
       "id": 28912734,
@@ -364,7 +391,8 @@
       "height": 191,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/28912734.png",
-      "club": "Barnet"
+      "club": "Barnet",
+      "clubZh": "巴尼特"
     },
     {
       "id": 6648042,
@@ -377,7 +405,8 @@
       "height": 181,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/6648042.png",
-      "club": "Bologna"
+      "club": "Bologna",
+      "clubZh": "博洛尼亚"
     },
     {
       "id": 1078,
@@ -390,7 +419,8 @@
       "height": 178,
       "weight": 64,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/1078.png",
-      "club": "Liverpool"
+      "club": "Liverpool",
+      "clubZh": "利物浦"
     },
     {
       "id": 173047,
@@ -403,7 +433,8 @@
       "height": 189,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/173047.png",
-      "club": "Dinamo Zagreb"
+      "club": "Dinamo Zagreb",
+      "clubZh": "萨格勒布迪纳摩"
     },
     {
       "id": 6612,
@@ -416,7 +447,8 @@
       "height": 192,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/6612.png",
-      "club": "Al Ettifaq"
+      "club": "Al Ettifaq",
+      "clubZh": "阿尔艾提法克"
     },
     {
       "id": 172611,
@@ -429,7 +461,8 @@
       "height": 178,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/172611.png",
-      "club": "Aston Villa"
+      "club": "Aston Villa",
+      "clubZh": "阿斯顿维拉"
     },
     {
       "id": 6599973,
@@ -442,7 +475,8 @@
       "height": 170,
       "weight": 60,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/6599973.png",
-      "club": "Napoli"
+      "club": "Napoli",
+      "clubZh": "那不勒斯"
     },
     {
       "id": 172938,
@@ -455,7 +489,8 @@
       "height": 185,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/172938.png",
-      "club": "Hearts"
+      "club": "Hearts",
+      "clubZh": "哈茨"
     },
     {
       "id": 35,
@@ -468,7 +503,8 @@
       "height": 193,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/35.png",
-      "club": "Hearts"
+      "club": "Hearts",
+      "clubZh": "哈茨"
     },
     {
       "id": 37260591,
@@ -481,7 +517,8 @@
       "height": 189,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/37260591.png",
-      "club": "Sassuolo"
+      "club": "Sassuolo",
+      "clubZh": "萨索洛"
     },
     {
       "id": 174296,
@@ -494,7 +531,8 @@
       "height": 188,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/174296.png",
-      "club": "Charlton Athletic"
+      "club": "Charlton Athletic",
+      "clubZh": "查尔顿"
     },
     {
       "id": 3596,
@@ -507,7 +545,8 @@
       "height": 179,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/3596.png",
-      "club": "Torino"
+      "club": "Torino",
+      "clubZh": "都灵"
     },
     {
       "id": 172752,
@@ -520,7 +559,8 @@
       "height": 178,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/172752.png",
-      "club": "AFC Bournemouth"
+      "club": "AFC Bournemouth",
+      "clubZh": "伯恩茅斯"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.670Z",

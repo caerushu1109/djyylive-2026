@@ -13,7 +13,8 @@
       "height": 191,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/28931601.png",
-      "club": "Al Rayyan"
+      "club": "Al Rayyan",
+      "clubZh": "阿尔赖扬"
     },
     {
       "id": 37646932,
@@ -26,7 +27,8 @@
       "height": 187,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/37646932.png",
-      "club": "Al Gharafa"
+      "club": "Al Gharafa",
+      "clubZh": "阿尔加拉法"
     },
     {
       "id": 37636090,
@@ -39,7 +41,8 @@
       "height": 188,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/37636090.png",
-      "club": "Al-Arabi SC"
+      "club": "Al-Arabi SC",
+      "clubZh": "阿尔阿拉比"
     },
     {
       "id": 37540713,
@@ -52,7 +55,8 @@
       "height": 189,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/37540713.png",
-      "club": "Al Shamal SC"
+      "club": "Al Shamal SC",
+      "clubZh": "阿尔沙马尔"
     },
     {
       "id": 37551591,
@@ -65,7 +69,8 @@
       "height": 180,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/37551591.png",
-      "club": "Al Rayyan"
+      "club": "Al Rayyan",
+      "clubZh": "阿尔赖扬"
     },
     {
       "id": 301403,
@@ -78,7 +83,8 @@
       "height": 190,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/301403.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 301352,
@@ -91,7 +97,8 @@
       "height": 184,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/301352.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 301073,
@@ -104,7 +111,8 @@
       "height": 170,
       "weight": 61,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/301073.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 301365,
@@ -117,7 +125,8 @@
       "height": 174,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/301365.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 37288401,
@@ -130,7 +139,8 @@
       "height": 185,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/37288401.png",
-      "club": "Qatar SC"
+      "club": "Qatar SC",
+      "clubZh": "卡塔尔SC"
     },
     {
       "id": 301887,
@@ -143,7 +153,8 @@
       "height": 188,
       "weight": 87,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/301887.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     },
     {
       "id": 37598258,
@@ -156,7 +167,8 @@
       "height": 168,
       "weight": 63,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/37598258.png",
-      "club": "Al-Ahli Doha"
+      "club": "Al-Ahli Doha",
+      "clubZh": "多哈阿赫利"
     },
     {
       "id": 301393,
@@ -169,7 +181,8 @@
       "height": 185,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/301393.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     },
     {
       "id": 1076941,
@@ -182,7 +195,8 @@
       "height": 175,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/1076941.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 380841,
@@ -195,7 +209,8 @@
       "height": 177,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/380841.png",
-      "club": "Qatar SC"
+      "club": "Qatar SC",
+      "clubZh": "卡塔尔SC"
     },
     {
       "id": 32777402,
@@ -208,7 +223,8 @@
       "height": 177,
       "weight": 63,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/32777402.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     },
     {
       "id": 301062,
@@ -221,7 +237,8 @@
       "height": 185,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/301062.png",
-      "club": "Qatar SC"
+      "club": "Qatar SC",
+      "clubZh": "卡塔尔SC"
     },
     {
       "id": 303869,
@@ -234,7 +251,8 @@
       "height": 168,
       "weight": 60,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/303869.png",
-      "club": "Al Gharafa"
+      "club": "Al Gharafa",
+      "clubZh": "阿尔加拉法"
     },
     {
       "id": 54304,
@@ -247,7 +265,8 @@
       "height": 180,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/54304.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 37592142,
@@ -260,7 +279,8 @@
       "height": 177,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/37592142.png",
-      "club": "Qatar SC"
+      "club": "Qatar SC",
+      "clubZh": "卡塔尔SC"
     },
     {
       "id": 4599015,
@@ -273,7 +293,8 @@
       "height": 180,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/4599015.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 95802,
@@ -286,7 +307,8 @@
       "height": 184,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/95802.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     },
     {
       "id": 62770,
@@ -299,7 +321,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/62770.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 37354634,
@@ -312,7 +335,8 @@
       "height": 162,
       "weight": 52,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/37354634.png",
-      "club": "Al Sailiya"
+      "club": "Al Sailiya",
+      "clubZh": "阿尔塞利亚"
     },
     {
       "id": 294018,
@@ -325,7 +349,8 @@
       "height": 171,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/294018.png",
-      "club": "Al-Arabi SC"
+      "club": "Al-Arabi SC",
+      "clubZh": "阿尔阿拉比"
     },
     {
       "id": 302695,
@@ -338,7 +363,8 @@
       "height": 175,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/302695.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 523999,
@@ -351,7 +377,8 @@
       "height": 183,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/523999.png",
-      "club": "Al Shahaniya"
+      "club": "Al Shahaniya",
+      "clubZh": "阿尔沙哈尼亚"
     },
     {
       "id": 446377,
@@ -364,7 +391,8 @@
       "height": 179,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/446377.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 37646561,
@@ -377,7 +405,8 @@
       "height": 178,
       "weight": 63,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/37646561.png",
-      "club": "Al-Arabi SC"
+      "club": "Al-Arabi SC",
+      "clubZh": "阿尔阿拉比"
     },
     {
       "id": 302766,
@@ -390,7 +419,8 @@
       "height": 190,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/302766.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 37598601,
@@ -403,7 +433,8 @@
       "height": 184,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/37598601.png",
-      "club": "Al-Arabi SC"
+      "club": "Al-Arabi SC",
+      "clubZh": "阿尔阿拉比"
     },
     {
       "id": 37598617,
@@ -416,7 +447,8 @@
       "height": 175,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37598617.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     },
     {
       "id": 8056703,
@@ -429,7 +461,8 @@
       "height": 184,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/8056703.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 24446328,
@@ -442,7 +475,8 @@
       "height": 174,
       "weight": 67,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/24446328.png",
-      "club": "Al Gharafa"
+      "club": "Al Gharafa",
+      "clubZh": "阿尔加拉法"
     },
     {
       "id": 301507,
@@ -455,7 +489,8 @@
       "height": 181,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/301507.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 303865,
@@ -468,7 +503,8 @@
       "height": 169,
       "weight": 65,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/303865.png",
-      "club": "Al Rayyan"
+      "club": "Al Rayyan",
+      "clubZh": "阿尔赖扬"
     },
     {
       "id": 301560,
@@ -481,7 +517,8 @@
       "height": 175,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/301560.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     },
     {
       "id": 129610,
@@ -494,7 +531,8 @@
       "height": 179,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/129610.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 10966375,
@@ -507,7 +545,8 @@
       "height": 172,
       "weight": 62,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/10966375.png",
-      "club": "Al-Ahli Doha"
+      "club": "Al-Ahli Doha",
+      "clubZh": "多哈阿赫利"
     },
     {
       "id": 24446326,
@@ -520,7 +559,8 @@
       "height": 188,
       "weight": 91,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/24446326.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 24082492,
@@ -533,7 +573,8 @@
       "height": 178,
       "weight": 67,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/24082492.png",
-      "club": "KAS Eupen"
+      "club": "KAS Eupen",
+      "clubZh": "卡斯尤彭"
     },
     {
       "id": 37559224,
@@ -546,7 +587,8 @@
       "height": 175,
       "weight": 59,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/37559224.png",
-      "club": "Al Rayyan"
+      "club": "Al Rayyan",
+      "clubZh": "阿尔赖扬"
     },
     {
       "id": 37700629,
@@ -559,7 +601,8 @@
       "height": 177,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/37700629.png",
-      "club": "Al Duhail"
+      "club": "Al Duhail",
+      "clubZh": "杜海尔"
     },
     {
       "id": 65411,
@@ -572,7 +615,8 @@
       "height": 177,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/65411.png",
-      "club": "Al Sadd"
+      "club": "Al Sadd",
+      "clubZh": "阿尔萨德"
     },
     {
       "id": 16488492,
@@ -585,7 +629,8 @@
       "height": 188,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/16488492.png",
-      "club": "Cultural Leonesa"
+      "club": "Cultural Leonesa",
+      "clubZh": "莱昂文化"
     },
     {
       "id": 301745,
@@ -598,7 +643,8 @@
       "height": 194,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/301745.png",
-      "club": "Al Gharafa"
+      "club": "Al Gharafa",
+      "clubZh": "阿尔加拉法"
     },
     {
       "id": 37389528,
@@ -611,7 +657,8 @@
       "height": 188,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/37389528.png",
-      "club": "Al Rayyan"
+      "club": "Al Rayyan",
+      "clubZh": "阿尔赖扬"
     },
     {
       "id": 301237,
@@ -624,7 +671,8 @@
       "height": 183,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/301237.png",
-      "club": "Al Rayyan"
+      "club": "Al Rayyan",
+      "clubZh": "阿尔赖扬"
     },
     {
       "id": 302082,
@@ -637,7 +685,8 @@
       "height": 177,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/302082.png",
-      "club": "Al Rayyan"
+      "club": "Al Rayyan",
+      "clubZh": "阿尔赖扬"
     },
     {
       "id": 303634,
@@ -650,7 +699,8 @@
       "height": 183,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/303634.png",
-      "club": "Al Shamal SC"
+      "club": "Al Shamal SC",
+      "clubZh": "阿尔沙马尔"
     },
     {
       "id": 54065,
@@ -663,7 +713,8 @@
       "height": 168,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/54065.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.669Z",

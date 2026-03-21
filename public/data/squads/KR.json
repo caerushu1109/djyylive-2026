@@ -13,7 +13,8 @@
       "height": 182,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/13186102.png",
-      "club": "Al Sharjah"
+      "club": "Al Sharjah",
+      "clubZh": "阿尔沙尔贾"
     },
     {
       "id": 320714,
@@ -26,7 +27,8 @@
       "height": 186,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/320714.png",
-      "club": "Daejeon Citizen"
+      "club": "Daejeon Citizen",
+      "clubZh": "大田市民"
     },
     {
       "id": 37620389,
@@ -39,7 +41,8 @@
       "height": 180,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/37620389.png",
-      "club": "Daegu"
+      "club": "Daegu",
+      "clubZh": "大邱"
     },
     {
       "id": 37563553,
@@ -52,7 +55,8 @@
       "height": 182,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/37563553.png",
-      "club": "Daejeon Citizen"
+      "club": "Daejeon Citizen",
+      "clubZh": "大田市民"
     },
     {
       "id": 191273,
@@ -65,7 +69,8 @@
       "height": 172,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/191273.png",
-      "club": "Seoul"
+      "club": "Seoul",
+      "clubZh": "首尔"
     },
     {
       "id": 12109880,
@@ -78,7 +83,8 @@
       "height": 193,
       "weight": 89,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/12109880.png",
-      "club": "Shimizu S-Pulse"
+      "club": "Shimizu S-Pulse",
+      "clubZh": "清水心跳"
     },
     {
       "id": 307771,
@@ -91,7 +97,8 @@
       "height": 188,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/307771.png",
-      "club": "Anyang"
+      "club": "Anyang",
+      "clubZh": "安阳"
     },
     {
       "id": 321093,
@@ -104,7 +111,8 @@
       "height": 177,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/321093.png",
-      "club": "Feyenoord"
+      "club": "Feyenoord",
+      "clubZh": "费耶诺德"
     },
     {
       "id": 37700504,
@@ -117,7 +125,8 @@
       "height": 172,
       "weight": 62,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/37700504.png",
-      "club": "Coventry City"
+      "club": "Coventry City",
+      "clubZh": "考文垂城"
     },
     {
       "id": 323785,
@@ -130,7 +139,8 @@
       "height": 183,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/323785.png",
-      "club": "Daejeon Citizen"
+      "club": "Daejeon Citizen",
+      "clubZh": "大田市民"
     },
     {
       "id": 24444971,
@@ -143,7 +153,8 @@
       "height": 177,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/24444971.png",
-      "club": "Seoul"
+      "club": "Seoul",
+      "clubZh": "首尔"
     },
     {
       "id": 37563550,
@@ -156,7 +167,8 @@
       "height": 179,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/37563550.png",
-      "club": "Celtic"
+      "club": "Celtic",
+      "clubZh": "凯尔特人"
     },
     {
       "id": 31626482,
@@ -169,7 +181,8 @@
       "height": 189,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/31626482.png",
-      "club": "FC Midtjylland"
+      "club": "FC Midtjylland",
+      "clubZh": "米迪兰特"
     },
     {
       "id": 29311996,
@@ -182,7 +195,8 @@
       "height": 186,
       "weight": 87,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/29311996.png",
-      "club": "Incheon United"
+      "club": "Incheon United",
+      "clubZh": "仁川联"
     },
     {
       "id": 37528761,
@@ -195,7 +209,8 @@
       "height": 178,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37528761.png",
-      "club": "Borussia Mönchengladbach"
+      "club": "Borussia Mönchengladbach",
+      "clubZh": "门兴格拉德巴赫"
     },
     {
       "id": 37420362,
@@ -208,7 +223,8 @@
       "height": 182,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/37420362.png",
-      "club": "Ulsan HD"
+      "club": "Ulsan HD",
+      "clubZh": "蔚山现代"
     },
     {
       "id": 37342718,
@@ -221,7 +237,8 @@
       "height": 190,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/37342718.png",
-      "club": "FC Midtjylland"
+      "club": "FC Midtjylland",
+      "clubZh": "米迪兰特"
     },
     {
       "id": 11711899,
@@ -234,7 +251,8 @@
       "height": 196,
       "weight": 93,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/11711899.png",
-      "club": "Jeonbuk Motors"
+      "club": "Jeonbuk Motors",
+      "clubZh": "全北现代"
     },
     {
       "id": 322964,
@@ -247,7 +265,8 @@
       "height": 190,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/322964.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 461590,
@@ -260,7 +279,8 @@
       "height": 182,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/461590.png",
-      "club": "Zhejiang"
+      "club": "Zhejiang",
+      "clubZh": "浙江"
     },
     {
       "id": 310020,
@@ -273,7 +293,8 @@
       "height": 181,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/310020.png",
-      "club": "Daejeon Citizen"
+      "club": "Daejeon Citizen",
+      "clubZh": "大田市民"
     },
     {
       "id": 608280,
@@ -286,7 +307,8 @@
       "height": 173,
       "weight": 64,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/608280.png",
-      "club": "Daejeon Citizen"
+      "club": "Daejeon Citizen",
+      "clubZh": "大田市民"
     },
     {
       "id": 310145,
@@ -299,7 +321,8 @@
       "height": 187,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/310145.png",
-      "club": "FC Tokyo"
+      "club": "FC Tokyo",
+      "clubZh": "东京FC"
     },
     {
       "id": 9967153,
@@ -312,7 +335,8 @@
       "height": 173,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/9967153.png",
-      "club": "Paris Saint Germain"
+      "club": "Paris Saint Germain",
+      "clubZh": "巴黎圣日耳曼"
     },
     {
       "id": 37621326,
@@ -325,7 +349,8 @@
       "height": 178,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/37621326.png",
-      "club": "Stoke City"
+      "club": "Stoke City",
+      "clubZh": "斯托克城"
     },
     {
       "id": 37627277,
@@ -338,7 +363,8 @@
       "height": 192,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/37627277.png",
-      "club": "Kaiserslautern"
+      "club": "Kaiserslautern",
+      "clubZh": "凯泽斯劳滕"
     },
     {
       "id": 37342720,
@@ -351,7 +377,8 @@
       "height": 177,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/37342720.png",
-      "club": "Austria Wien"
+      "club": "Austria Wien",
+      "clubZh": "维也纳奥地利"
     },
     {
       "id": 37342723,
@@ -364,7 +391,8 @@
       "height": 178,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/37342723.png",
-      "club": "Swansea City"
+      "club": "Swansea City",
+      "clubZh": "斯旺西城"
     },
     {
       "id": 18219425,
@@ -377,7 +405,8 @@
       "height": 173,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/18219425.png",
-      "club": "Jeonbuk Motors"
+      "club": "Jeonbuk Motors",
+      "clubZh": "全北现代"
     },
     {
       "id": 2178924,
@@ -390,7 +419,8 @@
       "height": 187,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Khorfakkan Club"
+      "club": "Khorfakkan Club",
+      "clubZh": "霍尔法坎俱乐部"
     },
     {
       "id": 37295947,
@@ -403,7 +433,8 @@
       "height": 190,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/37295947.png",
-      "club": "Karlsruher SC"
+      "club": "Karlsruher SC",
+      "clubZh": "卡尔斯鲁厄"
     },
     {
       "id": 37342730,
@@ -416,7 +447,8 @@
       "height": 175,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "St. Louis City"
+      "club": "St. Louis City",
+      "clubZh": "圣路易斯城"
     },
     {
       "id": 37561719,
@@ -429,7 +461,8 @@
       "height": 192,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/37561719.png",
-      "club": "Pohang Steelers"
+      "club": "Pohang Steelers",
+      "clubZh": "浦项制铁"
     },
     {
       "id": 37679585,
@@ -442,7 +475,8 @@
       "height": 186,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/37679585.png",
-      "club": "Ulsan HD"
+      "club": "Ulsan HD",
+      "clubZh": "蔚山现代"
     },
     {
       "id": 37677375,
@@ -455,7 +489,8 @@
       "height": 174,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/37677375.png",
-      "club": "Gangwon"
+      "club": "Gangwon",
+      "clubZh": "江原"
     },
     {
       "id": 29763086,
@@ -468,7 +503,8 @@
       "height": 186,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/29763086.png",
-      "club": "Kashima Antlers"
+      "club": "Kashima Antlers",
+      "clubZh": "鹿岛鹿角"
     },
     {
       "id": 37474580,
@@ -481,7 +517,8 @@
       "height": 184,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/37474580.png",
-      "club": "Gangwon"
+      "club": "Gangwon",
+      "clubZh": "江原"
     },
     {
       "id": 37627249,
@@ -494,7 +531,8 @@
       "height": 171,
       "weight": 64,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/37627249.png",
-      "club": "Jeonbuk Motors"
+      "club": "Jeonbuk Motors",
+      "clubZh": "全北现代"
     },
     {
       "id": 13186239,
@@ -507,7 +545,8 @@
       "height": 175,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/13186239.png",
-      "club": "Ulsan HD"
+      "club": "Ulsan HD",
+      "clubZh": "蔚山现代"
     },
     {
       "id": 751169,
@@ -520,7 +559,8 @@
       "height": 173,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/751169.png",
-      "club": "Machida Zelvia"
+      "club": "Machida Zelvia",
+      "clubZh": "町田泽维亚"
     },
     {
       "id": 37527001,
@@ -533,7 +573,8 @@
       "height": 190,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37527001.png",
-      "club": "Gimcheon Sangmu"
+      "club": "Gimcheon Sangmu",
+      "clubZh": "金泉尚武"
     },
     {
       "id": 781632,
@@ -546,7 +587,8 @@
       "height": 184,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/781632.png",
-      "club": "Gangwon"
+      "club": "Gangwon",
+      "clubZh": "江原"
     },
     {
       "id": 320953,
@@ -559,7 +601,8 @@
       "height": 177,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/320953.png",
-      "club": "Jeonbuk Motors"
+      "club": "Jeonbuk Motors",
+      "clubZh": "全北现代"
     },
     {
       "id": 787556,
@@ -572,7 +615,8 @@
       "height": 173,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Seoul"
+      "club": "Seoul",
+      "clubZh": "首尔"
     },
     {
       "id": 11322970,
@@ -585,7 +629,8 @@
       "height": 181,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/11322970.png",
-      "club": "Oxford United"
+      "club": "Oxford United",
+      "clubZh": "牛津联"
     },
     {
       "id": 320899,
@@ -598,7 +643,8 @@
       "height": 188,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/320899.png",
-      "club": "Al Ain"
+      "club": "Al Ain",
+      "clubZh": "阿尔艾因"
     },
     {
       "id": 32404602,
@@ -611,7 +657,8 @@
       "height": 184,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/32404602.png",
-      "club": "Shimizu S-Pulse"
+      "club": "Shimizu S-Pulse",
+      "clubZh": "清水心跳"
     },
     {
       "id": 29735915,
@@ -624,7 +671,8 @@
       "height": 187,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/29735915.png",
-      "club": "Beşiktaş"
+      "club": "Beşiktaş",
+      "clubZh": "贝西克塔斯"
     },
     {
       "id": 320838,
@@ -637,7 +685,8 @@
       "height": 180,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/320838.png",
-      "club": "FSV Mainz 05"
+      "club": "FSV Mainz 05",
+      "clubZh": "美因茨05"
     },
     {
       "id": 37420363,
@@ -650,7 +699,8 @@
       "height": 182,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/37420363.png",
-      "club": "Crvena Zvezda"
+      "club": "Crvena Zvezda",
+      "clubZh": "红星"
     },
     {
       "id": 4313,
@@ -663,7 +713,8 @@
       "height": 184,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/4313.png",
-      "club": "Los Angeles FC"
+      "club": "Los Angeles FC",
+      "clubZh": "洛杉矶FC"
     },
     {
       "id": 52868,
@@ -676,7 +727,8 @@
       "height": 177,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/52868.png",
-      "club": "Wolverhampton Wanderers"
+      "club": "Wolverhampton Wanderers",
+      "clubZh": "狼队"
     },
     {
       "id": 320844,
@@ -689,7 +741,8 @@
       "height": 189,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/320844.png",
-      "club": "Ulsan HD"
+      "club": "Ulsan HD",
+      "clubZh": "蔚山现代"
     },
     {
       "id": 448422,
@@ -702,7 +755,8 @@
       "height": 177,
       "weight": 67,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/448422.png",
-      "club": "Birmingham City"
+      "club": "Birmingham City",
+      "clubZh": "伯明翰城"
     },
     {
       "id": 29723379,
@@ -715,7 +769,8 @@
       "height": 186,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/29723379.png",
-      "club": "Sanfrecce Hiroshima"
+      "club": "Sanfrecce Hiroshima",
+      "clubZh": "广岛三箭"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.670Z",

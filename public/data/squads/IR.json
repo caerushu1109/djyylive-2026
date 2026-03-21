@@ -13,7 +13,8 @@
       "height": 183,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/296300.png",
-      "club": "Foolad"
+      "club": "Foolad",
+      "clubZh": "富拉德"
     },
     {
       "id": 37552450,
@@ -26,7 +27,8 @@
       "height": 191,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37552450.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 297059,
@@ -39,7 +41,8 @@
       "height": 185,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/297059.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 20708347,
@@ -52,7 +55,8 @@
       "height": 177,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/20708347.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 464664,
@@ -65,7 +69,8 @@
       "height": 186,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/464664.png",
-      "club": "Kheybar Khorramabad"
+      "club": "Kheybar Khorramabad",
+      "clubZh": "凯巴尔霍拉马巴德"
     },
     {
       "id": 297117,
@@ -78,7 +83,8 @@
       "height": 194,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/297117.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 25147,
@@ -91,7 +97,8 @@
       "height": 181,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/25147.png",
-      "club": "Dender"
+      "club": "Dender",
+      "clubZh": "登德尔"
     },
     {
       "id": 296679,
@@ -104,7 +111,8 @@
       "height": 178,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/296679.png",
-      "club": "Al Shamal SC"
+      "club": "Al Shamal SC",
+      "clubZh": "阿尔沙马尔"
     },
     {
       "id": 37684739,
@@ -117,7 +125,8 @@
       "height": 178,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/37684739.png",
-      "club": "Dynamo Makhachkala"
+      "club": "Dynamo Makhachkala",
+      "clubZh": "马哈奇卡拉迪纳摩"
     },
     {
       "id": 297336,
@@ -130,7 +139,8 @@
       "height": 180,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/297336.png",
-      "club": "Tractor Sazi"
+      "club": "Tractor Sazi",
+      "clubZh": "拖拉机制造"
     },
     {
       "id": 109126,
@@ -143,7 +153,8 @@
       "height": 186,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/109126.png",
-      "club": "Iran"
+      "club": "Iran",
+      "clubZh": "伊朗"
     },
     {
       "id": 2483388,
@@ -156,7 +167,8 @@
       "height": 188,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/2483388.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 8093469,
@@ -169,7 +181,8 @@
       "height": 181,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/8093469.png",
-      "club": "Aluminium Arak"
+      "club": "Aluminium Arak",
+      "clubZh": "阿拉克铝业"
     },
     {
       "id": 37601811,
@@ -182,7 +195,8 @@
       "height": 181,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/37601811.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 37611727,
@@ -195,7 +209,8 @@
       "height": 188,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/37611727.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 297691,
@@ -208,7 +223,8 @@
       "height": 175,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/297691.png",
-      "club": "Lech Poznań"
+      "club": "Lech Poznań",
+      "clubZh": "波兹南莱赫"
     },
     {
       "id": 297524,
@@ -221,7 +237,8 @@
       "height": 174,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/297524.png",
-      "club": "Tractor Sazi"
+      "club": "Tractor Sazi",
+      "clubZh": "拖拉机制造"
     },
     {
       "id": 295910,
@@ -234,7 +251,8 @@
       "height": 193,
       "weight": 89,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/295910.png",
-      "club": "Kalba"
+      "club": "Kalba",
+      "clubZh": "卡尔巴"
     },
     {
       "id": 298260,
@@ -247,7 +265,8 @@
       "height": 190,
       "weight": 87,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/298260.png",
-      "club": "Gol Gohar"
+      "club": "Gol Gohar",
+      "clubZh": "戈尔戈哈尔"
     },
     {
       "id": 5641074,
@@ -260,7 +279,8 @@
       "height": 178,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/5641074.png",
-      "club": "Tractor Sazi"
+      "club": "Tractor Sazi",
+      "clubZh": "拖拉机制造"
     },
     {
       "id": 170516,
@@ -273,7 +293,8 @@
       "height": 178,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/170516.png",
-      "club": "Persepolis"
+      "club": "Persepolis",
+      "clubZh": "波斯波利斯"
     },
     {
       "id": 170468,
@@ -286,7 +307,8 @@
       "height": 190,
       "weight": 89,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/170468.png",
-      "club": "Shabab Al Ahli Dubai"
+      "club": "Shabab Al Ahli Dubai",
+      "clubZh": "迪拜阿赫利青年"
     },
     {
       "id": 296612,
@@ -299,7 +321,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/296612.png",
-      "club": "Tractor Sazi"
+      "club": "Tractor Sazi",
+      "clubZh": "拖拉机制造"
     },
     {
       "id": 297330,
@@ -312,7 +335,8 @@
       "height": 188,
       "weight": 89,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/297330.png",
-      "club": "Persepolis"
+      "club": "Persepolis",
+      "clubZh": "波斯波利斯"
     },
     {
       "id": 1479663,
@@ -325,7 +349,8 @@
       "height": 194,
       "weight": 90,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/1479663.png",
-      "club": "Persepolis"
+      "club": "Persepolis",
+      "clubZh": "波斯波利斯"
     },
     {
       "id": 3533201,
@@ -338,7 +363,8 @@
       "height": 182,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/3533201.png",
-      "club": "Foolad"
+      "club": "Foolad",
+      "clubZh": "富拉德"
     },
     {
       "id": 2816023,
@@ -351,7 +377,8 @@
       "height": 166,
       "weight": 58,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/2816023.png",
-      "club": "Al Nasr"
+      "club": "Al Nasr",
+      "clubZh": "阿尔纳斯尔"
     },
     {
       "id": 37261879,
@@ -364,7 +391,8 @@
       "height": 186,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/37261879.png",
-      "club": "Rostov"
+      "club": "Rostov",
+      "clubZh": "罗斯托夫"
     },
     {
       "id": 35322,
@@ -377,7 +405,8 @@
       "height": 178,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/35322.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 298723,
@@ -390,7 +419,8 @@
       "height": 182,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/298723.png",
-      "club": "Mes Rafsanjan"
+      "club": "Mes Rafsanjan",
+      "clubZh": "梅斯拉夫桑詹"
     },
     {
       "id": 37608750,
@@ -403,7 +433,8 @@
       "height": 179,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/37608750.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 37649625,
@@ -416,7 +447,8 @@
       "height": 180,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37649625.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 37649103,
@@ -429,7 +461,8 @@
       "height": 181,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/37649103.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 20693598,
@@ -442,7 +475,8 @@
       "height": 177,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/20693598.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 37700537,
@@ -455,7 +489,8 @@
       "height": 191,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37700537.png",
-      "club": "Lusail City"
+      "club": "Lusail City",
+      "clubZh": "卢赛尔城"
     },
     {
       "id": 298500,
@@ -468,7 +503,8 @@
       "height": 183,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/298500.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 169790,
@@ -481,7 +517,8 @@
       "height": 187,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/169790.png",
-      "club": "Shabab Al Ahli Dubai"
+      "club": "Shabab Al Ahli Dubai",
+      "clubZh": "迪拜阿赫利青年"
     },
     {
       "id": 5641079,
@@ -494,7 +531,8 @@
       "height": 182,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/5641079.png",
-      "club": "Westerlo"
+      "club": "Westerlo",
+      "clubZh": "韦斯特洛"
     },
     {
       "id": 191286,
@@ -507,7 +545,8 @@
       "height": 175,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/191286.png",
-      "club": "Kalba"
+      "club": "Kalba",
+      "clubZh": "卡尔巴"
     },
     {
       "id": 297780,
@@ -520,7 +559,8 @@
       "height": 187,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/297780.png",
-      "club": "Kayserispor"
+      "club": "Kayserispor",
+      "clubZh": "凯瑟里斯堡"
     },
     {
       "id": 297354,
@@ -533,7 +573,8 @@
       "height": 185,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/297354.png",
-      "club": "Olympiacos F.C."
+      "club": "Olympiacos F.C.",
+      "clubZh": "奥林匹亚科斯"
     },
     {
       "id": 297517,
@@ -546,7 +587,8 @@
       "height": 191,
       "weight": 87,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/297517.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 297496,
@@ -559,7 +601,8 @@
       "height": 187,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/297496.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     },
     {
       "id": 37600244,
@@ -572,7 +615,8 @@
       "height": 190,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/37600244.png",
-      "club": "Al Wahda"
+      "club": "Al Wahda",
+      "clubZh": "阿尔瓦赫达"
     },
     {
       "id": 297357,
@@ -585,7 +629,8 @@
       "height": 194,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/297357.png",
-      "club": "Tractor Sazi"
+      "club": "Tractor Sazi",
+      "clubZh": "拖拉机制造"
     },
     {
       "id": 37324825,
@@ -598,7 +643,8 @@
       "height": 176,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37324825.png",
-      "club": "Esteghlal"
+      "club": "Esteghlal",
+      "clubZh": "独立"
     },
     {
       "id": 297840,
@@ -611,7 +657,8 @@
       "height": 185,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/297840.png",
-      "club": "Sepahan"
+      "club": "Sepahan",
+      "clubZh": "塞帕汉"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.672Z",

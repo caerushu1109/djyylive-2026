@@ -13,7 +13,8 @@
       "height": 180,
       "weight": 90,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37910690.png",
-      "club": "Chicago Fire"
+      "club": "Chicago Fire",
+      "clubZh": "芝加哥火焰"
     },
     {
       "id": 37744597,
@@ -39,7 +40,8 @@
       "height": 183,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/37760511.png",
-      "club": "Mamelodi Sundowns"
+      "club": "Mamelodi Sundowns",
+      "clubZh": "马梅洛迪日落"
     },
     {
       "id": 37769580,
@@ -52,7 +54,8 @@
       "height": 167,
       "weight": 61,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/37769580.png",
-      "club": "Al Ettifaq"
+      "club": "Al Ettifaq",
+      "clubZh": "阿尔艾提法克"
     },
     {
       "id": 37551389,
@@ -65,7 +68,8 @@
       "height": null,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/37551389.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 30082139,
@@ -78,7 +82,8 @@
       "height": 178,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/30082139.png",
-      "club": "Stellenbosch"
+      "club": "Stellenbosch",
+      "clubZh": "斯泰伦博斯"
     },
     {
       "id": 37583966,
@@ -91,7 +96,8 @@
       "height": 189,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/37583966.png",
-      "club": "Polokwane City"
+      "club": "Polokwane City",
+      "clubZh": "波洛克瓦内城"
     },
     {
       "id": 37609474,
@@ -104,7 +110,8 @@
       "height": null,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37609474.png",
-      "club": "Kaizer Chiefs"
+      "club": "Kaizer Chiefs",
+      "clubZh": "开普酋长"
     },
     {
       "id": 37707578,
@@ -130,7 +137,8 @@
       "height": 176,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/1504475.png",
-      "club": "Mamelodi Sundowns"
+      "club": "Mamelodi Sundowns",
+      "clubZh": "马梅洛迪日落"
     },
     {
       "id": 37392896,
@@ -143,7 +151,8 @@
       "height": 180,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/37392896.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 289380,
@@ -156,7 +165,8 @@
       "height": 181,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/289380.png",
-      "club": "SuperSport United"
+      "club": "SuperSport United",
+      "clubZh": "超级体育联队"
     },
     {
       "id": 37707615,
@@ -169,7 +179,8 @@
       "height": 181,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/37707615.png",
-      "club": "Molde"
+      "club": "Molde",
+      "clubZh": "莫尔德"
     },
     {
       "id": 2846595,
@@ -182,7 +193,8 @@
       "height": 177,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/2846595.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 36084791,
@@ -195,7 +207,8 @@
       "height": 171,
       "weight": 56,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/36084791.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 289686,
@@ -208,7 +221,8 @@
       "height": 177,
       "weight": 64,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/289686.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 37690743,
@@ -221,7 +235,8 @@
       "height": 166,
       "weight": 55,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/37690743.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 1504516,
@@ -234,7 +249,8 @@
       "height": 181,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/1504516.png",
-      "club": "Mamelodi Sundowns"
+      "club": "Mamelodi Sundowns",
+      "clubZh": "马梅洛迪日落"
     },
     {
       "id": 289581,
@@ -247,7 +263,8 @@
       "height": 188,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/289581.png",
-      "club": "FCSB"
+      "club": "FCSB",
+      "clubZh": "FCSB"
     },
     {
       "id": 9939953,
@@ -260,7 +277,8 @@
       "height": 180,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/9939953.png",
-      "club": "Mamelodi Sundowns"
+      "club": "Mamelodi Sundowns",
+      "clubZh": "马梅洛迪日落"
     },
     {
       "id": 289096,
@@ -273,7 +291,8 @@
       "height": 167,
       "weight": 53,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/289096.png",
-      "club": "Mamelodi Sundowns"
+      "club": "Mamelodi Sundowns",
+      "clubZh": "马梅洛迪日落"
     },
     {
       "id": 289600,
@@ -286,7 +305,8 @@
       "height": 181,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/289600.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 287894,
@@ -299,7 +319,8 @@
       "height": 184,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/287894.png",
-      "club": "Mamelodi Sundowns"
+      "club": "Mamelodi Sundowns",
+      "clubZh": "马梅洛迪日落"
     },
     {
       "id": 5283883,
@@ -312,7 +333,8 @@
       "height": 186,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/5283883.png",
-      "club": "Tondela"
+      "club": "Tondela",
+      "clubZh": "通德拉"
     },
     {
       "id": 4243070,
@@ -325,7 +347,8 @@
       "height": 185,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/4243070.png",
-      "club": "Burnley"
+      "club": "Burnley",
+      "clubZh": "伯恩利"
     },
     {
       "id": 289341,
@@ -338,7 +361,8 @@
       "height": 176,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/289341.png",
-      "club": "Mamelodi Sundowns"
+      "club": "Mamelodi Sundowns",
+      "clubZh": "马梅洛迪日落"
     },
     {
       "id": 37583888,
@@ -351,7 +375,8 @@
       "height": 175,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/37583888.png",
-      "club": "Al Hazm"
+      "club": "Al Hazm",
+      "clubZh": "阿尔哈兹姆"
     },
     {
       "id": 37438632,
@@ -364,7 +389,8 @@
       "height": 188,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/37438632.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.669Z",

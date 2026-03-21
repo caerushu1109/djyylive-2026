@@ -13,7 +13,8 @@
       "height": 181,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/240244.png",
-      "club": "Sporting CP"
+      "club": "Sporting CP",
+      "clubZh": "体育俱乐部"
     },
     {
       "id": 11705427,
@@ -26,7 +27,8 @@
       "height": 170,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/11705427.png",
-      "club": "Internacional"
+      "club": "Internacional",
+      "clubZh": "国际队"
     },
     {
       "id": 37400484,
@@ -39,7 +41,8 @@
       "height": 187,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/37400484.png",
-      "club": "Wolverhampton Wanderers"
+      "club": "Wolverhampton Wanderers",
+      "clubZh": "狼队"
     },
     {
       "id": 5640859,
@@ -52,7 +55,8 @@
       "height": 188,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/5640859.png",
-      "club": "Cruz Azul"
+      "club": "Cruz Azul",
+      "clubZh": "蓝十字"
     },
     {
       "id": 237316,
@@ -65,7 +69,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/237316.png",
-      "club": "Nantes"
+      "club": "Nantes",
+      "clubZh": "南特"
     },
     {
       "id": 237184,
@@ -78,7 +83,8 @@
       "height": 173,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/237184.png",
-      "club": "América de Cali"
+      "club": "América de Cali",
+      "clubZh": "卡利美洲"
     },
     {
       "id": 97255,
@@ -91,7 +97,8 @@
       "height": 168,
       "weight": 63,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/97255.png",
-      "club": "River Plate"
+      "club": "River Plate",
+      "clubZh": "河床"
     },
     {
       "id": 30071882,
@@ -104,7 +111,8 @@
       "height": 185,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/30071882.png",
-      "club": "Zenit"
+      "club": "Zenit",
+      "clubZh": "泽尼特"
     },
     {
       "id": 240195,
@@ -117,7 +125,8 @@
       "height": 175,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/240195.png",
-      "club": "Real Betis"
+      "club": "Real Betis",
+      "clubZh": "贝蒂斯"
     },
     {
       "id": 20355477,
@@ -130,7 +139,8 @@
       "height": 172,
       "weight": 60,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/20355477.png",
-      "club": "Vasco da Gama"
+      "club": "Vasco da Gama",
+      "clubZh": "瓦斯科达伽马"
     },
     {
       "id": 163479,
@@ -143,7 +153,8 @@
       "height": 178,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/163479.png",
-      "club": "Once Caldas"
+      "club": "Once Caldas",
+      "clubZh": "翁塞卡尔达斯"
     },
     {
       "id": 186437,
@@ -156,7 +167,8 @@
       "height": 185,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/186437.png",
-      "club": "Mallorca"
+      "club": "Mallorca",
+      "clubZh": "马洛卡"
     },
     {
       "id": 186899,
@@ -169,7 +181,8 @@
       "height": 174,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/186899.png",
-      "club": "Internacional"
+      "club": "Internacional",
+      "clubZh": "国际队"
     },
     {
       "id": 37546144,
@@ -182,7 +195,8 @@
       "height": 177,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/37546144.png",
-      "club": "River Plate"
+      "club": "River Plate",
+      "clubZh": "河床"
     },
     {
       "id": 1443,
@@ -195,7 +209,8 @@
       "height": 183,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/1443.png",
-      "club": "Atlético Nacional"
+      "club": "Atlético Nacional",
+      "clubZh": "阿特莱蒂科·纳西奥纳尔"
     },
     {
       "id": 223782,
@@ -208,7 +223,8 @@
       "height": 199,
       "weight": 98,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/223782.png",
-      "club": "Vélez Sarsfield"
+      "club": "Vélez Sarsfield",
+      "clubZh": "贝莱斯萨尔斯菲尔德"
     },
     {
       "id": 26294,
@@ -221,7 +237,8 @@
       "height": 187,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/26294.png",
-      "club": "Galatasaray"
+      "club": "Galatasaray",
+      "clubZh": "加拉塔萨雷"
     },
     {
       "id": 220040,
@@ -234,7 +251,8 @@
       "height": 195,
       "weight": 94,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/220040.png",
-      "club": "Cagliari"
+      "club": "Cagliari",
+      "clubZh": "卡利亚里"
     },
     {
       "id": 785373,
@@ -247,7 +265,8 @@
       "height": 168,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/785373.png",
-      "club": "Palmeiras"
+      "club": "Palmeiras",
+      "clubZh": "帕尔梅拉斯"
     },
     {
       "id": 238227,
@@ -260,7 +279,8 @@
       "height": 177,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/238227.png",
-      "club": "Pumas UNAM"
+      "club": "Pumas UNAM",
+      "clubZh": "美洲狮"
     },
     {
       "id": 240386,
@@ -273,7 +293,8 @@
       "height": 183,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/240386.png",
-      "club": "Athletico PR"
+      "club": "Athletico PR",
+      "clubZh": "巴拉纳竞技"
     },
     {
       "id": 37611555,
@@ -286,7 +307,8 @@
       "height": 171,
       "weight": 61,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/37611555.png",
-      "club": "Vasco da Gama"
+      "club": "Vasco da Gama",
+      "clubZh": "瓦斯科达伽马"
     },
     {
       "id": 37578441,
@@ -299,7 +321,8 @@
       "height": 173,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/37578441.png",
-      "club": "Racing Santander"
+      "club": "Racing Santander",
+      "clubZh": "拉辛桑坦德"
     },
     {
       "id": 34127184,
@@ -312,7 +335,8 @@
       "height": 182,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/34127184.png",
-      "club": "Fluminense"
+      "club": "Fluminense",
+      "clubZh": "弗鲁米嫩塞"
     },
     {
       "id": 237790,
@@ -325,7 +349,8 @@
       "height": 179,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/237790.png",
-      "club": "América"
+      "club": "América",
+      "clubZh": "美洲"
     },
     {
       "id": 786813,
@@ -338,7 +363,8 @@
       "height": 175,
       "weight": 65,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/786813.png",
-      "club": "Cruz Azul"
+      "club": "Cruz Azul",
+      "clubZh": "蓝十字"
     },
     {
       "id": 465613,
@@ -351,7 +377,8 @@
       "height": 175,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/465613.png",
-      "club": "Atlético Nacional"
+      "club": "Atlético Nacional",
+      "clubZh": "阿特莱蒂科·纳西奥纳尔"
     },
     {
       "id": 468327,
@@ -364,7 +391,8 @@
       "height": 165,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/468327.png",
-      "club": "Rosario Central"
+      "club": "Rosario Central",
+      "clubZh": "罗萨里奥中央"
     },
     {
       "id": 189635,
@@ -377,7 +405,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/189635.png",
-      "club": "Flamengo"
+      "club": "Flamengo",
+      "clubZh": "弗拉门戈"
     },
     {
       "id": 235984,
@@ -390,7 +419,8 @@
       "height": 185,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/235984.png",
-      "club": "Atlas"
+      "club": "Atlas",
+      "clubZh": "阿特拉斯"
     },
     {
       "id": 37549877,
@@ -403,7 +433,8 @@
       "height": 176,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/37549877.png",
-      "club": "Galatasaray"
+      "club": "Galatasaray",
+      "clubZh": "加拉塔萨雷"
     },
     {
       "id": 25137,
@@ -416,7 +447,8 @@
       "height": 178,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/25137.png",
-      "club": "Independiente"
+      "club": "Independiente",
+      "clubZh": "独立队"
     },
     {
       "id": 241036,
@@ -429,7 +461,8 @@
       "height": 180,
       "weight": 65,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/241036.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 37402349,
@@ -442,7 +475,8 @@
       "height": 187,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/37402349.png",
-      "club": "Benfica"
+      "club": "Benfica",
+      "clubZh": "本菲卡"
     },
     {
       "id": 96091,
@@ -455,7 +489,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/96091.png",
-      "club": "Minnesota United"
+      "club": "Minnesota United",
+      "clubZh": "明尼苏达联"
     },
     {
       "id": 237695,
@@ -468,7 +503,8 @@
       "height": 187,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/237695.png",
-      "club": "Bologna"
+      "club": "Bologna",
+      "clubZh": "博洛尼亚"
     },
     {
       "id": 186766,
@@ -481,7 +517,8 @@
       "height": 179,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/186766.png",
-      "club": "Crystal Palace"
+      "club": "Crystal Palace",
+      "clubZh": "水晶宫"
     },
     {
       "id": 32652,
@@ -494,7 +531,8 @@
       "height": 188,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/32652.png",
-      "club": "Krasnodar"
+      "club": "Krasnodar",
+      "clubZh": "克拉斯诺达尔"
     },
     {
       "id": 237948,
@@ -507,7 +545,8 @@
       "height": 179,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/237948.png",
-      "club": "Vasco da Gama"
+      "club": "Vasco da Gama",
+      "clubZh": "瓦斯科达伽马"
     },
     {
       "id": 524045,
@@ -520,7 +559,8 @@
       "height": 181,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/524045.png",
-      "club": "Crystal Palace"
+      "club": "Crystal Palace",
+      "clubZh": "水晶宫"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.670Z",

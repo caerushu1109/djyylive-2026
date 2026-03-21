@@ -13,7 +13,8 @@
       "height": 194,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/37402058.png",
-      "club": "GAIS"
+      "club": "GAIS",
+      "clubZh": "盖斯"
     },
     {
       "id": 7346244,
@@ -26,7 +27,8 @@
       "height": 191,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/7346244.png",
-      "club": "Kilmarnock"
+      "club": "Kilmarnock",
+      "clubZh": "基尔马诺克"
     },
     {
       "id": 488059,
@@ -39,7 +41,8 @@
       "height": 195,
       "weight": 90,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/488059.png",
-      "club": "Huddersfield Town"
+      "club": "Huddersfield Town",
+      "clubZh": "哈德斯菲尔德镇"
     },
     {
       "id": 5967840,
@@ -52,7 +55,8 @@
       "height": 164,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/5967840.png",
-      "club": "Örgryte"
+      "club": "Örgryte",
+      "clubZh": "厄尔格里特"
     },
     {
       "id": 24469041,
@@ -65,7 +69,8 @@
       "height": 193,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/24469041.png",
-      "club": "Lechia Gdańsk"
+      "club": "Lechia Gdańsk",
+      "clubZh": "格但斯克莱希亚"
     },
     {
       "id": 324712,
@@ -78,7 +83,8 @@
       "height": 183,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/324712.png",
-      "club": "Wrexham"
+      "club": "Wrexham",
+      "clubZh": "雷克瑟姆"
     },
     {
       "id": 2069,
@@ -91,7 +97,8 @@
       "height": 188,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/2069.png",
-      "club": "Braintree Town"
+      "club": "Braintree Town",
+      "clubZh": "布雷因特里镇"
     },
     {
       "id": 5967839,
@@ -104,7 +111,8 @@
       "height": 179,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/5967839.png",
-      "club": "Silkeborg IF"
+      "club": "Silkeborg IF",
+      "clubZh": "锡尔基堡"
     },
     {
       "id": 25161,
@@ -117,7 +125,8 @@
       "height": 174,
       "weight": 61,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/25161.png",
-      "club": "PEC Zwolle"
+      "club": "PEC Zwolle",
+      "clubZh": "兹沃勒PEC"
     },
     {
       "id": 37746059,
@@ -130,7 +139,8 @@
       "height": 175,
       "weight": 60,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/37746059.png",
-      "club": "Wellington Phoenix"
+      "club": "Wellington Phoenix",
+      "clubZh": "惠灵顿凤凰"
     },
     {
       "id": 10275906,
@@ -143,7 +153,8 @@
       "height": 179,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/10275906.png",
-      "club": "Port Vale"
+      "club": "Port Vale",
+      "clubZh": "波特维尔"
     },
     {
       "id": 23717807,
@@ -156,7 +167,8 @@
       "height": 191,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/23717807.png",
-      "club": "Auckland"
+      "club": "Auckland",
+      "clubZh": "奥克兰"
     },
     {
       "id": 324565,
@@ -169,7 +181,8 @@
       "height": 182,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/324565.png",
-      "club": "Auckland"
+      "club": "Auckland",
+      "clubZh": "奥克兰"
     },
     {
       "id": 914,
@@ -182,7 +195,8 @@
       "height": 191,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/914.png",
-      "club": "Nottingham Forest"
+      "club": "Nottingham Forest",
+      "clubZh": "诺丁汉森林"
     },
     {
       "id": 324539,
@@ -195,7 +209,8 @@
       "height": 177,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/324539.png",
-      "club": "Wellington Phoenix"
+      "club": "Wellington Phoenix",
+      "clubZh": "惠灵顿凤凰"
     },
     {
       "id": 330521,
@@ -208,7 +223,8 @@
       "height": 181,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/330521.png",
-      "club": "Central Coast Mariners"
+      "club": "Central Coast Mariners",
+      "clubZh": "中央海岸水手"
     },
     {
       "id": 37341835,
@@ -221,7 +237,8 @@
       "height": 173,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/37341835.png",
-      "club": "Saint-Étienne"
+      "club": "Saint-Étienne",
+      "clubZh": "圣艾蒂安"
     },
     {
       "id": 37341839,
@@ -234,7 +251,8 @@
       "height": 176,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/37341839.png",
-      "club": "Auckland"
+      "club": "Auckland",
+      "clubZh": "奥克兰"
     },
     {
       "id": 324493,
@@ -247,7 +265,8 @@
       "height": 180,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/324493.png",
-      "club": "Brisbane Roar"
+      "club": "Brisbane Roar",
+      "clubZh": "布里斯班狮吼"
     },
     {
       "id": 324282,
@@ -260,7 +279,8 @@
       "height": 181,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/324282.png",
-      "club": "Orlando Pirates"
+      "club": "Orlando Pirates",
+      "clubZh": "奥兰多海盗"
     },
     {
       "id": 107911,
@@ -273,7 +293,8 @@
       "height": 171,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/107911.png",
-      "club": "Western Sydney Wanderers"
+      "club": "Western Sydney Wanderers",
+      "clubZh": "西悉尼漫步者"
     },
     {
       "id": 323990,
@@ -286,7 +307,8 @@
       "height": 188,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/323990.png",
-      "club": "Auckland"
+      "club": "Auckland",
+      "clubZh": "奥克兰"
     },
     {
       "id": 324518,
@@ -299,7 +321,8 @@
       "height": 182,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/324518.png",
-      "club": "Viking"
+      "club": "Viking",
+      "clubZh": "维京"
     },
     {
       "id": 96422,
@@ -312,7 +335,8 @@
       "height": 182,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/96422.png",
-      "club": "Wellington Phoenix"
+      "club": "Wellington Phoenix",
+      "clubZh": "惠灵顿凤凰"
     },
     {
       "id": 37642338,
@@ -325,7 +349,8 @@
       "height": 198,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37642338.png",
-      "club": "Wellington Phoenix"
+      "club": "Wellington Phoenix",
+      "clubZh": "惠灵顿凤凰"
     },
     {
       "id": 37613421,
@@ -338,7 +363,8 @@
       "height": 193,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/37613421.png",
-      "club": "Harrogate Town"
+      "club": "Harrogate Town",
+      "clubZh": "哈罗盖特镇"
     },
     {
       "id": 273373,
@@ -351,7 +377,8 @@
       "height": 179,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/273373.png",
-      "club": "Wellington Phoenix"
+      "club": "Wellington Phoenix",
+      "clubZh": "惠灵顿凤凰"
     },
     {
       "id": 1488819,
@@ -364,7 +391,8 @@
       "height": 177,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/1488819.png",
-      "club": "Auckland"
+      "club": "Auckland",
+      "clubZh": "奥克兰"
     },
     {
       "id": 324174,
@@ -377,7 +405,8 @@
       "height": 197,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/324174.png",
-      "club": "Auckland"
+      "club": "Auckland",
+      "clubZh": "奥克兰"
     },
     {
       "id": 37350663,
@@ -390,7 +419,8 @@
       "height": 190,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/37350663.png",
-      "club": "Portland Timbers"
+      "club": "Portland Timbers",
+      "clubZh": "波特兰木头队"
     },
     {
       "id": 261737,
@@ -403,7 +433,8 @@
       "height": 188,
       "weight": 95,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/261737.png",
-      "club": "Minnesota United"
+      "club": "Minnesota United",
+      "clubZh": "明尼苏达联"
     },
     {
       "id": 37341836,
@@ -416,7 +447,8 @@
       "height": 188,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/37341836.png",
-      "club": "Swansea City"
+      "club": "Swansea City",
+      "clubZh": "斯旺西城"
     },
     {
       "id": 11695,
@@ -429,7 +461,8 @@
       "height": 194,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/11695.png",
-      "club": "Millwall"
+      "club": "Millwall",
+      "clubZh": "米尔沃尔"
     },
     {
       "id": 37708644,
@@ -442,7 +475,8 @@
       "height": 188,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/37708644.png",
-      "club": "Sheffield United"
+      "club": "Sheffield United",
+      "clubZh": "谢菲联"
     },
     {
       "id": 5640904,
@@ -455,7 +489,8 @@
       "height": 175,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/5640904.png",
-      "club": "Motherwell"
+      "club": "Motherwell",
+      "clubZh": "马瑟韦尔"
     },
     {
       "id": 24469059,
@@ -468,7 +503,8 @@
       "height": 188,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/24469059.png",
-      "club": "Peterborough United"
+      "club": "Peterborough United",
+      "clubZh": "彼得堡联"
     },
     {
       "id": 324327,
@@ -481,7 +517,8 @@
       "height": 184,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/324327.png",
-      "club": "Wellington Phoenix"
+      "club": "Wellington Phoenix",
+      "clubZh": "惠灵顿凤凰"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.669Z",

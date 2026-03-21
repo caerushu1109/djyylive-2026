@@ -13,7 +13,8 @@
       "height": 190,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/197704.png",
-      "club": "Lorient"
+      "club": "Lorient",
+      "clubZh": "洛里昂"
     },
     {
       "id": 37261099,
@@ -26,7 +27,8 @@
       "height": 189,
       "weight": 87,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/37261099.png",
-      "club": "Young Boys"
+      "club": "Young Boys",
+      "clubZh": "年轻人"
     },
     {
       "id": 37575653,
@@ -39,7 +41,8 @@
       "height": 188,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/37575653.png",
-      "club": "Luzern"
+      "club": "Luzern",
+      "clubZh": "卢塞恩"
     },
     {
       "id": 34084,
@@ -52,7 +55,8 @@
       "height": 196,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/34084.png",
-      "club": "Borussia Dortmund"
+      "club": "Borussia Dortmund",
+      "clubZh": "多特蒙德"
     },
     {
       "id": 20335120,
@@ -65,7 +69,8 @@
       "height": 187,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/20335120.png",
-      "club": "Basel"
+      "club": "Basel",
+      "clubZh": "巴塞尔"
     },
     {
       "id": 37522387,
@@ -78,7 +83,8 @@
       "height": 172,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/37522387.png",
-      "club": "Werder Bremen"
+      "club": "Werder Bremen",
+      "clubZh": "不来梅沃尔特"
     },
     {
       "id": 32525,
@@ -91,7 +97,8 @@
       "height": 189,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/32525.png",
-      "club": "Borussia Mönchengladbach"
+      "club": "Borussia Mönchengladbach",
+      "clubZh": "门兴格拉德巴赫"
     },
     {
       "id": 37609471,
@@ -104,7 +111,8 @@
       "height": 187,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/37609471.png",
-      "club": "VfB Stuttgart"
+      "club": "VfB Stuttgart",
+      "clubZh": "斯图加特"
     },
     {
       "id": 37367993,
@@ -117,7 +125,8 @@
       "height": 188,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37367993.png",
-      "club": "Luzern"
+      "club": "Luzern",
+      "clubZh": "卢塞恩"
     },
     {
       "id": 200872,
@@ -130,7 +139,8 @@
       "height": 182,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/200872.png",
-      "club": "Hamburger SV"
+      "club": "Hamburger SV",
+      "clubZh": "汉堡"
     },
     {
       "id": 198230,
@@ -143,7 +153,8 @@
       "height": 194,
       "weight": 92,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/198230.png",
-      "club": "FC Augsburg"
+      "club": "FC Augsburg",
+      "clubZh": "奥格斯堡"
     },
     {
       "id": 198562,
@@ -156,7 +167,8 @@
       "height": 183,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/198562.png",
-      "club": "Valencia"
+      "club": "Valencia",
+      "clubZh": "瓦伦西亚"
     },
     {
       "id": 32390,
@@ -169,7 +181,8 @@
       "height": 182,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/32390.png",
-      "club": "Sassuolo"
+      "club": "Sassuolo",
+      "clubZh": "萨索洛"
     },
     {
       "id": 27618,
@@ -182,7 +195,8 @@
       "height": 185,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/27618.png",
-      "club": "Ferencvárosi"
+      "club": "Ferencvárosi",
+      "clubZh": "费伦茨瓦罗斯"
     },
     {
       "id": 37669463,
@@ -195,7 +209,8 @@
       "height": 181,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/37669463.png",
-      "club": "AC Milan"
+      "club": "AC Milan",
+      "clubZh": "AC米兰"
     },
     {
       "id": 335745,
@@ -208,7 +223,8 @@
       "height": 178,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/335745.png",
-      "club": "Huracán"
+      "club": "Huracán",
+      "clubZh": "乌拉坎"
     },
     {
       "id": 37344301,
@@ -221,7 +237,8 @@
       "height": 189,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/37344301.png",
-      "club": "TSG Hoffenheim"
+      "club": "TSG Hoffenheim",
+      "clubZh": "霍芬海姆"
     },
     {
       "id": 198062,
@@ -234,7 +251,8 @@
       "height": 188,
       "weight": 91,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/198062.png",
-      "club": "Inter"
+      "club": "Inter",
+      "clubZh": "国际米兰"
     },
     {
       "id": 129609,
@@ -247,7 +265,8 @@
       "height": 183,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/129609.png",
-      "club": "FSV Mainz 05"
+      "club": "FSV Mainz 05",
+      "clubZh": "美因茨05"
     },
     {
       "id": 37328095,
@@ -260,7 +279,8 @@
       "height": 194,
       "weight": 90,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/37328095.png",
-      "club": "Eintracht Frankfurt"
+      "club": "Eintracht Frankfurt",
+      "clubZh": "法兰克福 Eintracht"
     },
     {
       "id": 31653,
@@ -273,7 +293,8 @@
       "height": 182,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/31653.png",
-      "club": "Real Betis"
+      "club": "Real Betis",
+      "clubZh": "贝蒂斯"
     },
     {
       "id": 23233054,
@@ -286,7 +307,8 @@
       "height": 188,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/23233054.png",
-      "club": "Bologna"
+      "club": "Bologna",
+      "clubZh": "博洛尼亚"
     },
     {
       "id": 198220,
@@ -299,7 +321,8 @@
       "height": 183,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/198220.png",
-      "club": "Pisa"
+      "club": "Pisa",
+      "clubZh": "比萨"
     },
     {
       "id": 198139,
@@ -312,7 +335,8 @@
       "height": 185,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/198139.png",
-      "club": "Young Boys"
+      "club": "Young Boys",
+      "clubZh": "年轻人"
     },
     {
       "id": 37681576,
@@ -325,7 +349,8 @@
       "height": 182,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/37681576.png",
-      "club": "SC Freiburg"
+      "club": "SC Freiburg",
+      "clubZh": "弗赖堡"
     },
     {
       "id": 1887,
@@ -338,7 +363,8 @@
       "height": 186,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/1887.png",
-      "club": "Sunderland"
+      "club": "Sunderland",
+      "clubZh": "桑德兰"
     },
     {
       "id": 32769,
@@ -351,7 +377,8 @@
       "height": 184,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/32769.png",
-      "club": "Sevilla"
+      "club": "Sevilla",
+      "clubZh": "塞维利亚"
     },
     {
       "id": 37546837,
@@ -364,7 +391,8 @@
       "height": 181,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/37546837.png",
-      "club": "Young Boys"
+      "club": "Young Boys",
+      "clubZh": "年轻人"
     },
     {
       "id": 37537730,
@@ -377,7 +405,8 @@
       "height": 191,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37537730.png",
-      "club": "Young Boys"
+      "club": "Young Boys",
+      "clubZh": "年轻人"
     },
     {
       "id": 198051,
@@ -390,7 +419,8 @@
       "height": 191,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/198051.png",
-      "club": "Monaco"
+      "club": "Monaco",
+      "clubZh": "摩纳哥"
     },
     {
       "id": 37521581,
@@ -403,7 +433,8 @@
       "height": 181,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/37521581.png",
-      "club": "AC Milan"
+      "club": "AC Milan",
+      "clubZh": "AC米兰"
     },
     {
       "id": 130145,
@@ -416,7 +447,8 @@
       "height": 180,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/130145.png",
-      "club": "Bologna"
+      "club": "Bologna",
+      "clubZh": "博洛尼亚"
     },
     {
       "id": 198045,
@@ -429,7 +461,8 @@
       "height": 185,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/198045.png",
-      "club": "Al Shabab"
+      "club": "Al Shabab",
+      "clubZh": "阿尔沙巴布"
     },
     {
       "id": 24817439,
@@ -442,7 +475,8 @@
       "height": 179,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/24817439.png",
-      "club": "FC Augsburg"
+      "club": "FC Augsburg",
+      "clubZh": "奥格斯堡"
     },
     {
       "id": 19978623,
@@ -455,7 +489,8 @@
       "height": 184,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/19978623.png",
-      "club": "Nottingham Forest"
+      "club": "Nottingham Forest",
+      "clubZh": "诺丁汉森林"
     },
     {
       "id": 198066,
@@ -468,7 +503,8 @@
       "height": 190,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/198066.png",
-      "club": "Fortuna Düsseldorf"
+      "club": "Fortuna Düsseldorf",
+      "clubZh": "杜塞尔多夫福图纳"
     },
     {
       "id": 199544,
@@ -481,7 +517,8 @@
       "height": 185,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/199544.png",
-      "club": "Widzew Lodz"
+      "club": "Widzew Lodz",
+      "clubZh": "维杰夫·罗兹"
     },
     {
       "id": 1478864,
@@ -494,7 +531,8 @@
       "height": 179,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/1478864.png",
-      "club": "Sevilla"
+      "club": "Sevilla",
+      "clubZh": "塞维利亚"
     },
     {
       "id": 37261110,
@@ -507,7 +545,8 @@
       "height": 185,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/37261110.png",
-      "club": "Burnley"
+      "club": "Burnley",
+      "clubZh": "伯恩利"
     },
     {
       "id": 32538,
@@ -520,7 +559,8 @@
       "height": 187,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/32538.png",
-      "club": "Rennes"
+      "club": "Rennes",
+      "clubZh": "雷恩"
     }
   ],
   "fetchedAt": "2026-03-20T00:00:00.000Z",

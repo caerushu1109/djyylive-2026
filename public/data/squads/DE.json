@@ -13,7 +13,8 @@
       "height": 190,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/31837.png",
-      "club": "Real Madrid"
+      "club": "Real Madrid",
+      "clubZh": "皇家马德里"
     },
     {
       "id": 32738,
@@ -26,7 +27,8 @@
       "height": 186,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/32738.png",
-      "club": "Monaco"
+      "club": "Monaco",
+      "clubZh": "摩纳哥"
     },
     {
       "id": 37316456,
@@ -39,7 +41,8 @@
       "height": 188,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/37316456.png",
-      "club": "Eintracht Frankfurt"
+      "club": "Eintracht Frankfurt",
+      "clubZh": "法兰克福 Eintracht"
     },
     {
       "id": 4536572,
@@ -52,7 +55,8 @@
       "height": 183,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/4536572.png",
-      "club": "VfB Stuttgart"
+      "club": "VfB Stuttgart",
+      "clubZh": "斯图加特"
     },
     {
       "id": 34594,
@@ -65,7 +69,8 @@
       "height": 185,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/34594.png",
-      "club": "Nottingham Forest"
+      "club": "Nottingham Forest",
+      "clubZh": "诺丁汉森林"
     },
     {
       "id": 35364,
@@ -78,7 +83,8 @@
       "height": 192,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/35364.png",
-      "club": "Eintracht Frankfurt"
+      "club": "Eintracht Frankfurt",
+      "clubZh": "法兰克福 Eintracht"
     },
     {
       "id": 34880,
@@ -91,7 +97,8 @@
       "height": 187,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/34880.png",
-      "club": "Bayer 04 Leverkusen"
+      "club": "Bayer 04 Leverkusen",
+      "clubZh": "勒沃库森"
     },
     {
       "id": 31284,
@@ -104,7 +111,8 @@
       "height": 187,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/31284.png",
-      "club": "Girona"
+      "club": "Girona",
+      "clubZh": "赫罗纳"
     },
     {
       "id": 3861835,
@@ -117,7 +125,8 @@
       "height": 196,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/3861835.png",
-      "club": "Inter"
+      "club": "Inter",
+      "clubZh": "国际米兰"
     },
     {
       "id": 25242,
@@ -130,7 +139,8 @@
       "height": 183,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/25242.png",
-      "club": "Fiorentina"
+      "club": "Fiorentina",
+      "clubZh": "佛罗伦萨"
     },
     {
       "id": 41077,
@@ -143,7 +153,8 @@
       "height": 179,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/41077.png",
-      "club": "VfB Stuttgart"
+      "club": "VfB Stuttgart",
+      "clubZh": "斯图加特"
     },
     {
       "id": 23277923,
@@ -156,7 +167,8 @@
       "height": 183,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/23277923.png",
-      "club": "Borussia Dortmund"
+      "club": "Borussia Dortmund",
+      "clubZh": "多特蒙德"
     },
     {
       "id": 32585,
@@ -169,7 +181,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/32585.png",
-      "club": "FSV Mainz 05"
+      "club": "FSV Mainz 05",
+      "clubZh": "美因茨05"
     },
     {
       "id": 34987,
@@ -182,7 +195,8 @@
       "height": 194,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/34987.png",
-      "club": "Borussia Mönchengladbach"
+      "club": "Borussia Mönchengladbach",
+      "clubZh": "门兴格拉德巴赫"
     },
     {
       "id": 33186829,
@@ -195,7 +209,8 @@
       "height": 184,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/33186829.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 37709599,
@@ -208,7 +223,8 @@
       "height": 183,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/37709599.png",
-      "club": "FC Köln"
+      "club": "FC Köln",
+      "clubZh": "科隆"
     },
     {
       "id": 4783,
@@ -221,7 +237,8 @@
       "height": 183,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/4783.png",
-      "club": "Galatasaray"
+      "club": "Galatasaray",
+      "clubZh": "加拉塔萨雷"
     },
     {
       "id": 37645043,
@@ -234,7 +251,8 @@
       "height": 191,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/37645043.png",
-      "club": "RB Leipzig"
+      "club": "RB Leipzig",
+      "clubZh": "RB莱比锡"
     },
     {
       "id": 32777430,
@@ -247,7 +265,8 @@
       "height": 198,
       "weight": 90,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/32777430.png",
-      "club": "Newcastle United"
+      "club": "Newcastle United",
+      "clubZh": "纽卡斯尔联"
     },
     {
       "id": 37538035,
@@ -260,7 +279,8 @@
       "height": 176,
       "weight": 60,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/37538035.png",
-      "club": "Eintracht Frankfurt"
+      "club": "Eintracht Frankfurt",
+      "clubZh": "法兰克福 Eintracht"
     },
     {
       "id": 2483333,
@@ -273,7 +293,8 @@
       "height": 176,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/2483333.png",
-      "club": "RB Leipzig"
+      "club": "RB Leipzig",
+      "clubZh": "RB莱比锡"
     },
     {
       "id": 37582044,
@@ -286,7 +307,8 @@
       "height": 188,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/37582044.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 6306127,
@@ -299,7 +321,8 @@
       "height": 190,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/15/6306127.png",
-      "club": "Borussia Dortmund"
+      "club": "Borussia Dortmund",
+      "clubZh": "多特蒙德"
     },
     {
       "id": 31824,
@@ -312,7 +335,8 @@
       "height": 189,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/31824.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 37429246,
@@ -325,7 +349,8 @@
       "height": 177,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/37429246.png",
-      "club": "Liverpool"
+      "club": "Liverpool",
+      "clubZh": "利物浦"
     },
     {
       "id": 3862683,
@@ -338,7 +363,8 @@
       "height": 181,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/3862683.png",
-      "club": "Eintracht Frankfurt"
+      "club": "Eintracht Frankfurt",
+      "clubZh": "法兰克福 Eintracht"
     },
     {
       "id": 31504,
@@ -351,7 +377,8 @@
       "height": 181,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/31504.png",
-      "club": "Brighton & Hove Albion"
+      "club": "Brighton & Hove Albion",
+      "clubZh": "布莱顿"
     },
     {
       "id": 31532,
@@ -364,7 +391,8 @@
       "height": 189,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/31532.png",
-      "club": "AC Milan"
+      "club": "AC Milan",
+      "clubZh": "AC米兰"
     },
     {
       "id": 36119,
@@ -377,7 +405,8 @@
       "height": 181,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/23/36119.png",
-      "club": "RB Leipzig"
+      "club": "RB Leipzig",
+      "clubZh": "RB莱比锡"
     },
     {
       "id": 12426453,
@@ -390,7 +419,8 @@
       "height": 185,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/21/12426453.png",
-      "club": "VfB Stuttgart"
+      "club": "VfB Stuttgart",
+      "clubZh": "斯图加特"
     },
     {
       "id": 21762216,
@@ -403,7 +433,8 @@
       "height": 194,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/21762216.png",
-      "club": "Newcastle United"
+      "club": "Newcastle United",
+      "clubZh": "纽卡斯尔联"
     },
     {
       "id": 27067062,
@@ -416,7 +447,8 @@
       "height": 185,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/27067062.png",
-      "club": "Brentford"
+      "club": "Brentford",
+      "clubZh": "布伦特福德"
     },
     {
       "id": 15040126,
@@ -429,7 +461,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/15040126.png",
-      "club": "Borussia Dortmund"
+      "club": "Borussia Dortmund",
+      "clubZh": "多特蒙德"
     },
     {
       "id": 2483331,
@@ -442,7 +475,8 @@
       "height": 186,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/2483331.png",
-      "club": "FC Augsburg"
+      "club": "FC Augsburg",
+      "clubZh": "奥格斯堡"
     },
     {
       "id": 3862352,
@@ -455,7 +489,8 @@
       "height": 191,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/3862352.png",
-      "club": "Borussia Dortmund"
+      "club": "Borussia Dortmund",
+      "clubZh": "多特蒙德"
     },
     {
       "id": 32728,
@@ -468,7 +503,8 @@
       "height": 189,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/32728.png",
-      "club": "Borussia Dortmund"
+      "club": "Borussia Dortmund",
+      "clubZh": "多特蒙德"
     },
     {
       "id": 32384,
@@ -481,7 +517,8 @@
       "height": 180,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/32384.png",
-      "club": "VfB Stuttgart"
+      "club": "VfB Stuttgart",
+      "clubZh": "斯图加特"
     },
     {
       "id": 27066712,
@@ -494,7 +531,8 @@
       "height": 169,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/27066712.png",
-      "club": "FSV Mainz 05"
+      "club": "FSV Mainz 05",
+      "clubZh": "美因茨05"
     },
     {
       "id": 37582217,
@@ -507,7 +545,8 @@
       "height": 176,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/37582217.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 942,
@@ -520,7 +559,8 @@
       "height": 176,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/942.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 31146,
@@ -533,7 +573,8 @@
       "height": 187,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/31146.png",
-      "club": "TSG Hoffenheim"
+      "club": "TSG Hoffenheim",
+      "clubZh": "霍芬海姆"
     },
     {
       "id": 31836,
@@ -546,7 +587,8 @@
       "height": 195,
       "weight": 94,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/31836.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 32362,
@@ -559,7 +601,8 @@
       "height": 177,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/10/32362.png",
-      "club": "FC Bayern München"
+      "club": "FC Bayern München",
+      "clubZh": "拜仁慕尼黑"
     },
     {
       "id": 32550,
@@ -572,7 +615,8 @@
       "height": 193,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/32550.png",
-      "club": "VfB Stuttgart"
+      "club": "VfB Stuttgart",
+      "clubZh": "斯图加特"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.672Z",

@@ -13,7 +13,8 @@
       "height": 185,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/1370.png",
-      "club": "Curacao"
+      "club": "Curacao",
+      "clubZh": "库拉索"
     },
     {
       "id": 23278580,
@@ -26,7 +27,8 @@
       "height": 176,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/23278580.png",
-      "club": "Middlesbrough"
+      "club": "Middlesbrough",
+      "clubZh": "米德尔斯堡"
     },
     {
       "id": 29444,
@@ -39,7 +41,8 @@
       "height": 185,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/29444.png",
-      "club": "PSV"
+      "club": "PSV",
+      "clubZh": "埃因霍温"
     },
     {
       "id": 38203941,
@@ -52,7 +55,8 @@
       "height": null,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "Twente / Heracles U21"
+      "club": "Twente / Heracles U21",
+      "clubZh": "特温特/赫拉克勒斯U21"
     },
     {
       "id": 28854,
@@ -65,7 +69,8 @@
       "height": 183,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/28854.png",
-      "club": "Abha"
+      "club": "Abha",
+      "clubZh": "阿布哈"
     },
     {
       "id": 37565351,
@@ -78,7 +83,8 @@
       "height": 187,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/37565351.png",
-      "club": "Zürich"
+      "club": "Zürich",
+      "clubZh": "苏黎世"
     },
     {
       "id": 25217663,
@@ -91,7 +97,8 @@
       "height": 184,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/25217663.png",
-      "club": "Kifisia"
+      "club": "Kifisia",
+      "clubZh": "基菲西亚"
     },
     {
       "id": 24803,
@@ -104,7 +111,8 @@
       "height": 193,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/24803.png",
-      "club": "Miami FC II"
+      "club": "Miami FC II",
+      "clubZh": "迈阿密FC II"
     },
     {
       "id": 25680,
@@ -117,7 +125,8 @@
       "height": 181,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/25680.png",
-      "club": "FC Volendam"
+      "club": "FC Volendam",
+      "clubZh": "福伦丹"
     },
     {
       "id": 28447,
@@ -130,7 +139,8 @@
       "height": 182,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/28447.png",
-      "club": "Borac Banja Luka"
+      "club": "Borac Banja Luka",
+      "clubZh": "博拉茨·巴尼亚卢卡"
     },
     {
       "id": 37727819,
@@ -143,7 +153,8 @@
       "height": 187,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/37727819.png",
-      "club": "FC Groningen"
+      "club": "FC Groningen",
+      "clubZh": "格罗宁根"
     },
     {
       "id": 37622964,
@@ -156,7 +167,8 @@
       "height": 181,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/37622964.png",
-      "club": "Curacao"
+      "club": "Curacao",
+      "clubZh": "库拉索"
     },
     {
       "id": 25588,
@@ -169,7 +181,8 @@
       "height": 184,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/25588.png",
-      "club": "Konyaspor"
+      "club": "Konyaspor",
+      "clubZh": "科尼亚体育"
     },
     {
       "id": 25081,
@@ -182,7 +195,8 @@
       "height": 181,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/25081.png",
-      "club": "Kayserispor"
+      "club": "Kayserispor",
+      "clubZh": "凯瑟里斯堡"
     },
     {
       "id": 9939197,
@@ -195,7 +209,8 @@
       "height": 174,
       "weight": 65,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/9939197.png",
-      "club": "Sparta Rotterdam"
+      "club": "Sparta Rotterdam",
+      "clubZh": "鹿特丹斯巴达"
     },
     {
       "id": 37654460,
@@ -208,7 +223,8 @@
       "height": 191,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/37654460.png",
-      "club": "Fortuna Düsseldorf"
+      "club": "Fortuna Düsseldorf",
+      "clubZh": "杜塞尔多夫福图纳"
     },
     {
       "id": 26073,
@@ -221,7 +237,8 @@
       "height": 181,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/26073.png",
-      "club": "PEC Zwolle"
+      "club": "PEC Zwolle",
+      "clubZh": "兹沃勒PEC"
     },
     {
       "id": 4640,
@@ -234,7 +251,8 @@
       "height": 174,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/0/4640.png",
-      "club": "Maccabi Haifa"
+      "club": "Maccabi Haifa",
+      "clubZh": "海法马卡比"
     },
     {
       "id": 3219352,
@@ -247,7 +265,8 @@
       "height": 188,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/3219352.png",
-      "club": "VVV-Venlo"
+      "club": "VVV-Venlo",
+      "clubZh": "VVV-芬洛"
     },
     {
       "id": 23995,
@@ -260,7 +279,8 @@
       "height": 190,
       "weight": 89,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/23995.png",
-      "club": "Miami FC II"
+      "club": "Miami FC II",
+      "clubZh": "迈阿密FC II"
     },
     {
       "id": 12790692,
@@ -273,7 +293,8 @@
       "height": 186,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/12790692.png",
-      "club": "RKC Waalwijk"
+      "club": "RKC Waalwijk",
+      "clubZh": "RKC瓦尔维克"
     },
     {
       "id": 30782,
@@ -286,7 +307,8 @@
       "height": 178,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/30/30782.png",
-      "club": "RKC Waalwijk"
+      "club": "RKC Waalwijk",
+      "clubZh": "RKC瓦尔维克"
     },
     {
       "id": 25515,
@@ -299,7 +321,8 @@
       "height": 178,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/11/25515.png",
-      "club": "FC Volendam"
+      "club": "FC Volendam",
+      "clubZh": "福伦丹"
     },
     {
       "id": 37400489,
@@ -312,7 +335,8 @@
       "height": 181,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/37400489.png",
-      "club": "SK Beveren"
+      "club": "SK Beveren",
+      "clubZh": "SK贝弗伦"
     },
     {
       "id": 37336994,
@@ -325,7 +349,8 @@
       "height": 180,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37336994.png",
-      "club": "Rotherham United"
+      "club": "Rotherham United",
+      "clubZh": "罗瑟汉姆联"
     },
     {
       "id": 25604,
@@ -338,7 +363,8 @@
       "height": 189,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/25604.png",
-      "club": "Terengganu"
+      "club": "Terengganu",
+      "clubZh": "登嘉楼"
     },
     {
       "id": 24529,
@@ -351,7 +377,8 @@
       "height": 194,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/24529.png",
-      "club": "FC Eindhoven"
+      "club": "FC Eindhoven",
+      "clubZh": "埃因霍温"
     },
     {
       "id": 37618295,
@@ -364,7 +391,8 @@
       "height": 178,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/placeholder.png",
-      "club": "NEC Nijmegen"
+      "club": "NEC Nijmegen",
+      "clubZh": "奈梅亨NEC"
     },
     {
       "id": 37452955,
@@ -377,7 +405,8 @@
       "height": 182,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/37452955.png",
-      "club": "Telstar"
+      "club": "Telstar",
+      "clubZh": "特尔斯塔"
     },
     {
       "id": 37576588,
@@ -390,7 +419,8 @@
       "height": 184,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/37576588.png",
-      "club": "NAC Breda"
+      "club": "NAC Breda",
+      "clubZh": "布雷达NAC"
     },
     {
       "id": 1494236,
@@ -403,7 +433,8 @@
       "height": 185,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/1494236.png",
-      "club": "Sheffield United"
+      "club": "Sheffield United",
+      "clubZh": "谢菲联"
     },
     {
       "id": 3568504,
@@ -416,7 +447,8 @@
       "height": 174,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/24/3568504.png",
-      "club": "FC Den Bosch"
+      "club": "FC Den Bosch",
+      "clubZh": "登博斯"
     },
     {
       "id": 32810192,
@@ -429,7 +461,8 @@
       "height": 178,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/32810192.png",
-      "club": "Livingston"
+      "club": "Livingston",
+      "clubZh": "利文斯顿"
     },
     {
       "id": 34862786,
@@ -442,7 +475,8 @@
       "height": 190,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/34862786.png",
-      "club": "Telstar"
+      "club": "Telstar",
+      "clubZh": "特尔斯塔"
     },
     {
       "id": 871,
@@ -455,7 +489,8 @@
       "height": 180,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/871.png",
-      "club": "Iğdır FK"
+      "club": "Iğdır FK",
+      "clubZh": "伊德尔FK"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.669Z",

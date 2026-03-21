@@ -13,7 +13,8 @@
       "height": 180,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/37262099.png",
-      "club": "Paris Saint Germain"
+      "club": "Paris Saint Germain",
+      "clubZh": "巴黎圣日耳曼"
     },
     {
       "id": 37656803,
@@ -26,7 +27,8 @@
       "height": 168,
       "weight": 56,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/37656803.png",
-      "club": "Porto"
+      "club": "Porto",
+      "clubZh": "波尔图"
     },
     {
       "id": 496775,
@@ -39,7 +41,8 @@
       "height": 174,
       "weight": 62,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/496775.png",
-      "club": "Chelsea"
+      "club": "Chelsea",
+      "clubZh": "切尔西"
     },
     {
       "id": 9308193,
@@ -52,7 +55,8 @@
       "height": 183,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/9308193.png",
-      "club": "Lazio"
+      "club": "Lazio",
+      "clubZh": "拉齐奥"
     },
     {
       "id": 160956,
@@ -65,7 +69,8 @@
       "height": 182,
       "weight": 74,
       "image": "https://cdn.sportmonks.com/images/soccer/players/28/160956.png",
-      "club": "FC Barcelona"
+      "club": "FC Barcelona",
+      "clubZh": "巴塞罗那"
     },
     {
       "id": 3169778,
@@ -78,7 +83,8 @@
       "height": 173,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/3169778.png",
-      "club": "Sporting CP"
+      "club": "Sporting CP",
+      "clubZh": "体育俱乐部"
     },
     {
       "id": 37656652,
@@ -91,7 +97,8 @@
       "height": 172,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/37656652.png",
-      "club": "Sporting CP"
+      "club": "Sporting CP",
+      "clubZh": "体育俱乐部"
     },
     {
       "id": 37410636,
@@ -104,7 +111,8 @@
       "height": 169,
       "weight": 62,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/37410636.png",
-      "club": "Club Brugge"
+      "club": "Club Brugge",
+      "clubZh": "布鲁日"
     },
     {
       "id": 37617635,
@@ -117,7 +125,8 @@
       "height": 189,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/3/37617635.png",
-      "club": "Sporting Braga II"
+      "club": "Sporting Braga II",
+      "clubZh": "布拉加二队"
     },
     {
       "id": 159699,
@@ -130,7 +139,8 @@
       "height": 180,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/19/159699.png",
-      "club": "Al Hilal"
+      "club": "Al Hilal",
+      "clubZh": "阿尔希拉尔"
     },
     {
       "id": 21781428,
@@ -143,7 +153,8 @@
       "height": 183,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/21781428.png",
-      "club": "Manchester City"
+      "club": "Manchester City",
+      "clubZh": "曼城"
     },
     {
       "id": 164061,
@@ -156,7 +167,8 @@
       "height": 183,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/164061.png",
-      "club": "Manchester United"
+      "club": "Manchester United",
+      "clubZh": "曼联"
     },
     {
       "id": 160110,
@@ -169,7 +181,8 @@
       "height": 177,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/14/160110.png",
-      "club": "Fenerbahçe"
+      "club": "Fenerbahçe",
+      "clubZh": "费内巴切"
     },
     {
       "id": 540251,
@@ -182,7 +195,8 @@
       "height": 188,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/540251.png",
-      "club": "AC Milan"
+      "club": "AC Milan",
+      "clubZh": "AC米兰"
     },
     {
       "id": 37522785,
@@ -195,7 +209,8 @@
       "height": 186,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/37522785.png",
-      "club": "Sporting CP"
+      "club": "Sporting CP",
+      "clubZh": "体育俱乐部"
     },
     {
       "id": 160072,
@@ -208,7 +223,8 @@
       "height": 190,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/160072.png",
-      "club": "Tottenham Hotspur"
+      "club": "Tottenham Hotspur",
+      "clubZh": "热刺"
     },
     {
       "id": 580,
@@ -221,7 +237,8 @@
       "height": 188,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/580.png",
-      "club": "Al Nassr"
+      "club": "Al Nassr",
+      "clubZh": "阿尔纳斯尔"
     },
     {
       "id": 159483,
@@ -234,7 +251,8 @@
       "height": 192,
       "weight": 84,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/159483.png",
-      "club": "Wolverhampton Wanderers"
+      "club": "Wolverhampton Wanderers",
+      "clubZh": "狼队"
     },
     {
       "id": 159917,
@@ -247,7 +265,8 @@
       "height": 178,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/159917.png",
-      "club": "Portugal"
+      "club": "Portugal",
+      "clubZh": "葡萄牙"
     },
     {
       "id": 162536,
@@ -260,7 +279,8 @@
       "height": 187,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/162536.png",
-      "club": "Manchester City"
+      "club": "Manchester City",
+      "clubZh": "曼城"
     },
     {
       "id": 163190,
@@ -273,7 +293,8 @@
       "height": 184,
       "weight": 76,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/163190.png",
-      "club": "Sporting CP"
+      "club": "Sporting CP",
+      "clubZh": "体育俱乐部"
     },
     {
       "id": 37328006,
@@ -286,7 +307,8 @@
       "height": 170,
       "weight": 64,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/37328006.png",
-      "club": "Juventus"
+      "club": "Juventus",
+      "clubZh": "尤文图斯"
     },
     {
       "id": 163152,
@@ -299,7 +321,8 @@
       "height": 181,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/163152.png",
-      "club": "Al Nassr"
+      "club": "Al Nassr",
+      "clubZh": "阿尔纳斯尔"
     },
     {
       "id": 37592729,
@@ -312,7 +335,8 @@
       "height": 174,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/25/37592729.png",
-      "club": "Paris Saint Germain"
+      "club": "Paris Saint Germain",
+      "clubZh": "巴黎圣日耳曼"
     },
     {
       "id": 23278610,
@@ -325,7 +349,8 @@
       "height": 185,
       "weight": 79,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/23278610.png",
-      "club": "Paris Saint Germain"
+      "club": "Paris Saint Germain",
+      "clubZh": "巴黎圣日耳曼"
     },
     {
       "id": 163094,
@@ -338,7 +363,8 @@
       "height": 186,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/163094.png",
-      "club": "Porto"
+      "club": "Porto",
+      "clubZh": "波尔图"
     },
     {
       "id": 37354828,
@@ -351,7 +377,8 @@
       "height": 187,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/12/37354828.png",
-      "club": "Benfica"
+      "club": "Benfica",
+      "clubZh": "本菲卡"
     },
     {
       "id": 129602,
@@ -364,7 +391,8 @@
       "height": 179,
       "weight": 66,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/129602.png",
-      "club": "Manchester United"
+      "club": "Manchester United",
+      "clubZh": "曼联"
     },
     {
       "id": 159382,
@@ -377,7 +405,8 @@
       "height": 191,
       "weight": 91,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/159382.png",
-      "club": "Sporting CP"
+      "club": "Sporting CP",
+      "clubZh": "体育俱乐部"
     },
     {
       "id": 37593154,
@@ -390,7 +419,8 @@
       "height": 190,
       "weight": 88,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37593154.png",
-      "club": "Villarreal"
+      "club": "Villarreal",
+      "clubZh": "比利亚雷亚尔"
     },
     {
       "id": 4545430,
@@ -403,7 +433,8 @@
       "height": 172,
       "weight": 64,
       "image": "https://cdn.sportmonks.com/images/soccer/players/22/4545430.png",
-      "club": "Paris Saint Germain"
+      "club": "Paris Saint Germain",
+      "clubZh": "巴黎圣日耳曼"
     },
     {
       "id": 96353,
@@ -416,7 +447,8 @@
       "height": 173,
       "weight": 65,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/96353.png",
-      "club": "Manchester City"
+      "club": "Manchester City",
+      "clubZh": "曼城"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.672Z",

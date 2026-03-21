@@ -13,7 +13,8 @@
       "height": 180,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/37326498.png",
-      "club": "Zamalek"
+      "club": "Zamalek",
+      "clubZh": "扎马雷克"
     },
     {
       "id": 293985,
@@ -26,7 +27,8 @@
       "height": 184,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/293985.png",
-      "club": "Al Masry"
+      "club": "Al Masry",
+      "clubZh": "阿尔马斯里"
     },
     {
       "id": 34455263,
@@ -39,7 +41,8 @@
       "height": 185,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/34455263.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 37380667,
@@ -52,7 +55,8 @@
       "height": 180,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/37380667.png",
-      "club": "Zamalek"
+      "club": "Zamalek",
+      "clubZh": "扎马雷克"
     },
     {
       "id": 37388628,
@@ -65,7 +69,8 @@
       "height": 170,
       "weight": 58,
       "image": "https://cdn.sportmonks.com/images/soccer/players/20/37388628.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 37528667,
@@ -78,7 +83,8 @@
       "height": 185,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/27/37528667.png",
-      "club": "National Bank of Egypt"
+      "club": "National Bank of Egypt",
+      "clubZh": "埃及国家银行"
     },
     {
       "id": 36105897,
@@ -91,7 +97,8 @@
       "height": 170,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/36105897.png",
-      "club": "ZED FC"
+      "club": "ZED FC",
+      "clubZh": "泽德足球俱乐部"
     },
     {
       "id": 37528713,
@@ -104,7 +111,8 @@
       "height": 193,
       "weight": 85,
       "image": "https://cdn.sportmonks.com/images/soccer/players/9/37528713.png",
-      "club": "Zamalek"
+      "club": "Zamalek",
+      "clubZh": "扎马雷克"
     },
     {
       "id": 293394,
@@ -117,7 +125,8 @@
       "height": 169,
       "weight": 69,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/293394.png",
-      "club": "Pyramids FC"
+      "club": "Pyramids FC",
+      "clubZh": "金字塔FC"
     },
     {
       "id": 20335333,
@@ -130,7 +139,8 @@
       "height": null,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/5/20335333.png",
-      "club": "Al Masry"
+      "club": "Al Masry",
+      "clubZh": "阿尔马斯里"
     },
     {
       "id": 4125,
@@ -143,7 +153,8 @@
       "height": 175,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/4125.png",
-      "club": "Liverpool"
+      "club": "Liverpool",
+      "clubZh": "利物浦"
     },
     {
       "id": 293709,
@@ -156,7 +167,8 @@
       "height": 180,
       "weight": 75,
       "image": "https://cdn.sportmonks.com/images/soccer/players/13/293709.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 37389505,
@@ -169,7 +181,8 @@
       "height": 178,
       "weight": 73,
       "image": "https://cdn.sportmonks.com/images/soccer/players/1/37389505.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 293951,
@@ -182,7 +195,8 @@
       "height": 185,
       "weight": 78,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/293951.png",
-      "club": "Nantes"
+      "club": "Nantes",
+      "clubZh": "南特"
     },
     {
       "id": 461063,
@@ -195,7 +209,8 @@
       "height": 174,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/461063.png",
-      "club": "Pyramids FC"
+      "club": "Pyramids FC",
+      "clubZh": "金字塔FC"
     },
     {
       "id": 21072839,
@@ -208,7 +223,8 @@
       "height": 182,
       "weight": 72,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/21072839.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 3876968,
@@ -221,7 +237,8 @@
       "height": 179,
       "weight": 70,
       "image": "https://cdn.sportmonks.com/images/soccer/players/8/3876968.png",
-      "club": "Pyramids FC"
+      "club": "Pyramids FC",
+      "clubZh": "金字塔FC"
     },
     {
       "id": 20335313,
@@ -234,7 +251,8 @@
       "height": 185,
       "weight": 80,
       "image": "https://cdn.sportmonks.com/images/soccer/players/17/20335313.png",
-      "club": "Zamalek"
+      "club": "Zamalek",
+      "clubZh": "扎马雷克"
     },
     {
       "id": 293028,
@@ -247,7 +265,8 @@
       "height": 191,
       "weight": 86,
       "image": "https://cdn.sportmonks.com/images/soccer/players/4/293028.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 294000,
@@ -260,7 +279,8 @@
       "height": 183,
       "weight": 81,
       "image": "https://cdn.sportmonks.com/images/soccer/players/16/294000.png",
-      "club": "Manchester City"
+      "club": "Manchester City",
+      "clubZh": "曼城"
     },
     {
       "id": 293978,
@@ -273,7 +293,8 @@
       "height": 180,
       "weight": 77,
       "image": "https://cdn.sportmonks.com/images/soccer/players/26/293978.png",
-      "club": "Al Wakrah"
+      "club": "Al Wakrah",
+      "clubZh": "阿尔瓦克拉"
     },
     {
       "id": 162525,
@@ -286,7 +307,8 @@
       "height": 183,
       "weight": null,
       "image": "https://cdn.sportmonks.com/images/soccer/players/29/162525.png",
-      "club": "Al Ain"
+      "club": "Al Ain",
+      "clubZh": "阿尔艾因"
     },
     {
       "id": 62178,
@@ -299,7 +321,8 @@
       "height": 180,
       "weight": 67,
       "image": "https://cdn.sportmonks.com/images/soccer/players/2/62178.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 292775,
@@ -312,7 +335,8 @@
       "height": 188,
       "weight": 83,
       "image": "https://cdn.sportmonks.com/images/soccer/players/7/292775.png",
-      "club": "Pyramids FC"
+      "club": "Pyramids FC",
+      "clubZh": "金字塔FC"
     },
     {
       "id": 36470086,
@@ -325,7 +349,8 @@
       "height": 178,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/36470086.png",
-      "club": "Nordsjælland"
+      "club": "Nordsjælland",
+      "clubZh": "诺尔德斯亚兰"
     },
     {
       "id": 461522,
@@ -338,7 +363,8 @@
       "height": 178,
       "weight": 68,
       "image": "https://cdn.sportmonks.com/images/soccer/players/18/461522.png",
-      "club": "Zamalek"
+      "club": "Zamalek",
+      "clubZh": "扎马雷克"
     },
     {
       "id": 62879,
@@ -351,7 +377,8 @@
       "height": 180,
       "weight": 71,
       "image": "https://cdn.sportmonks.com/images/soccer/players/31/62879.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     },
     {
       "id": 293894,
@@ -364,7 +391,8 @@
       "height": 185,
       "weight": 82,
       "image": "https://cdn.sportmonks.com/images/soccer/players/6/293894.png",
-      "club": "Al Ahly"
+      "club": "Al Ahly",
+      "clubZh": "阿赫利"
     }
   ],
   "fetchedAt": "2026-03-19T16:42:17.672Z",

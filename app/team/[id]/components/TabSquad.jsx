@@ -120,8 +120,8 @@ export default function TabSquad({ squadData, teamDetail }) {
                       {p.height && (
                         <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.height}cm</span>
                       )}
-                      {p.club && (
-                        <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.club}</span>
+                      {(p.clubZh || p.club) && (
+                        <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.clubZh || p.club}</span>
                       )}
                     </div>
                   </div>
