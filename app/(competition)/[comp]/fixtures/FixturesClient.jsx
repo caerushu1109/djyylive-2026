@@ -11,11 +11,6 @@ const BJ_LOCALE = "en-CA";
 const BJ_TZ = { timeZone: "Asia/Shanghai" };
 const WEEKDAYS = ["一", "二", "三", "四", "五", "六", "日"];
 
-function formatFullDate(dateStr) {
-  const d = new Date(dateStr + "T12:00:00+08:00");
-  return new Intl.DateTimeFormat("zh-CN", { month: "long", day: "numeric", weekday: "long" }).format(d);
-}
-
 function groupByDate(fixtures) {
   const map = new Map();
   for (const f of fixtures) {
@@ -53,57 +48,6 @@ function buildMonthGrid(year, month) {
 
 function toDateStr(year, month, day) {
   return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-}
-
-/** Day summary header */
-function DaySummary({ dateStr, fixtures }) {
-  const groups = [...new Set(fixtures.map(f => f.group).filter(Boolean))];
-  const venues = [...new Set(fixtures.map(f => f.venue).filter(Boolean))];
-  const liveCount = fixtures.filter(f => f.status === "LIVE").length;
-  const ftCount = fixtures.filter(f => f.status === "FT").length;
-  const nsCount = fixtures.filter(f => f.status === "NS").length;
-
-  return (
-    <div style={{
-      margin: "0 12px 8px", padding: "10px 12px",
-      background: "linear-gradient(135deg, var(--card), var(--card2))",
-      border: "1px solid var(--border)", borderRadius: "var(--radius)",
-    }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
-        <span style={{ fontSize: 13, fontWeight: 800, color: "var(--text)" }}>
-          {formatFullDate(dateStr)}
-        </span>
-        <span style={{
-          fontSize: 10, fontWeight: 700, color: "var(--blue)",
-          background: "rgba(59,130,246,0.1)", padding: "2px 8px", borderRadius: 4,
-        }}>
-          {fixtures.length}场比赛
-        </span>
-      </div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px" }}>
-        {groups.length > 0 && (
-          <span style={{ fontSize: 10, color: "var(--text3)" }}>
-            {groups.join(" · ")}
-          </span>
-        )}
-        {liveCount > 0 && (
-          <span style={{ fontSize: 10, color: "var(--live)", fontWeight: 700 }}>
-            🔴 {liveCount}场进行中
-          </span>
-        )}
-        {ftCount > 0 && nsCount > 0 && (
-          <span style={{ fontSize: 10, color: "var(--text3)" }}>
-            ✅ {ftCount}已结束 · ⏳ {nsCount}未开始
-          </span>
-        )}
-      </div>
-      {venues.length > 0 && (
-        <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 4 }}>
-          📍 {venues.join(" · ")}
-        </div>
-      )}
-    </div>
-  );
 }
 
 /** Single month calendar grid */
@@ -267,7 +211,6 @@ export default function FixturesClient() {
       <div ref={matchListRef} style={{ paddingBottom: 80 }}>
         {activeDate && activeFixtures.length > 0 ? (
           <>
-            <DaySummary dateStr={activeDate} fixtures={activeFixtures} />
             {activeFixtures.map(f => (
               <MatchCard
                 key={f.id}
