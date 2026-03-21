@@ -256,7 +256,7 @@ teamIso={teamIso}
               <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} predictions={predData?.teams} />
             )}
             {activeTab === "历史" && (
-              <TabHistory historyData={historyData} teamDetail={teamDetail} />
+              <TabHistory historyData={historyData} teamDetail={teamDetail} squadData={squadData} />
             )}
             {activeTab === "球员" && (
               <TabSquad squadData={squadData} teamDetail={teamDetail} />

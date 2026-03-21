@@ -332,10 +332,19 @@ def main():
         with open(path, "w", encoding="utf-8") as f:
             json.dump(profile, f, ensure_ascii=False, separators=(",", ":"))
 
-        # Add to name index
+        # Add to name index (track duplicates for birth-year disambiguation)
         full_name = base["name"]
         family_name = base["familyName"]
+        birth_year = (base["birthDate"] or "")[:4]
         if full_name:
+            if full_name in name_index and name_index[full_name] != pid:
+                # Duplicate name — add birth-year-keyed entries for both
+                old_pid = name_index[full_name]
+                old_birth = (player_base.get(old_pid, {}).get("birthDate", "") or "")[:4]
+                if old_birth:
+                    name_index[f"{full_name}|{old_birth}"] = old_pid
+                if birth_year:
+                    name_index[f"{full_name}|{birth_year}"] = pid
             name_index[full_name] = pid
         if family_name and family_name != full_name:
             name_index[family_name] = pid
@@ -343,6 +352,15 @@ def main():
         count += 1
         if count % 500 == 0:
             print(f"  {count} players processed...")
+
+    # Custom aliases for squad names that differ from historical names
+    CUSTOM_ALIASES = {
+        "R. de Andrade": "P-68016",   # Richarlison
+        "F. Tavares": "P-77071",       # Fabinho
+        "D. da Silva": "P-40137",      # Danilo
+    }
+    for alias, pid in CUSTOM_ALIASES.items():
+        name_index[alias] = pid
 
     # Write name index
     index_path = os.path.join(OUT, "index.json")

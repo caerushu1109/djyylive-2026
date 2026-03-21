@@ -335,7 +335,7 @@ export function TournamentAccordion({ tournament }) {
   );
 }
 
-export default function TabHistory({ historyData, teamDetail }) {
+export default function TabHistory({ historyData, teamDetail, squadData }) {
   const openPlayer = useOpenPlayer();
   const { lookup } = usePlayerIndex();
 
@@ -474,7 +474,17 @@ export default function TabHistory({ historyData, teamDetail }) {
                 </span>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div
-                    onClick={() => { const birthYear = player.birthDate?.substring(0, 4); const hid = lookup(player.name, birthYear); if (hid) openPlayer(hid, playerNameZh(player.name) || player.name); }}
+                    onClick={() => {
+                      const birthYear = player.birthDate?.substring(0, 4);
+                      const hid = lookup(player.name, birthYear);
+                      // Try to find SportMonks numeric ID from squad for photo support
+                      const squadPlayer = squadData?.players?.find(p => p.name === player.name || p.nameZh === playerNameZh(player.name));
+                      if (squadPlayer) {
+                        openPlayer(String(squadPlayer.id), playerNameZh(player.name) || player.name, hid);
+                      } else if (hid) {
+                        openPlayer(hid, playerNameZh(player.name) || player.name);
+                      }
+                    }}
                     style={{ fontSize: 12, color: "var(--text)", fontWeight: idx < 3 ? 600 : 400, cursor: "pointer" }}
                   >
                     {playerNameZh(player.name)}
