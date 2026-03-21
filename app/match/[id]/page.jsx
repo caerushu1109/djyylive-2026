@@ -1398,7 +1398,10 @@ function MatchDetailInner() {
   }, [fixture, strengthsData, predictionsData, homeIso, awayIso]);
 
   return (
-    <div style={{ maxWidth: 480, margin: "0 auto", minHeight: "100dvh", background: "var(--bg)" }}>
+    <div style={{
+      maxWidth: 480, margin: "0 auto", height: "100dvh", background: "var(--bg)",
+      overflowY: "auto", WebkitOverflowScrolling: "touch",
+    }}>
       {loading && !fixture && <LoadingSpinner />}
 
       {fixture && (
