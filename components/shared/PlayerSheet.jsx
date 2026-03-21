@@ -319,12 +319,19 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
                 {/* ── Profile Header ── */}
                 <div style={s.profileSection}>
                   {photo ? (
-                    <img src={photo} alt={name} style={s.avatar} />
-                  ) : (
-                    <div style={s.avatarFallback}>
-                      {positionIcon(positions[0])}
-                    </div>
-                  )}
+                    <img
+                      src={photo}
+                      alt={name}
+                      style={s.avatar}
+                      onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }}
+                    />
+                  ) : null}
+                  <div style={{
+                    ...s.avatarFallback,
+                    display: photo ? "none" : "flex",
+                  }}>
+                    {positionIcon(positions[0] || live?.position || "")}
+                  </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <h2 style={s.nameText}>{name}</h2>
                     {englishName && englishName !== name && (
