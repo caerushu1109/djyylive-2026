@@ -68,7 +68,8 @@ export default function TabSquad({ squadData, teamDetail }) {
               const hasEnrichedData = p.image || p.nameZh || p.club;
               return (
                 <div key={p.id} onClick={() => {
-                  const histId = lookup(p.name);
+                  const birthYear = p.dateOfBirth?.substring(0, 4);
+                  const histId = lookup(p.name, birthYear);
                   openPlayer(String(p.id), p.nameZh || p.name, histId);
                 }} style={{
                   display: "flex", alignItems: "center", padding: hasEnrichedData ? "8px 12px" : "7px 12px", gap: 10,
