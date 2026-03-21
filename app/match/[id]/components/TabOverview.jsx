@@ -5,6 +5,7 @@ import WinProbBar from "./WinProbBar";
 import CompactModelSummary from "./CompactModelSummary";
 import H2HSummaryCard from "./H2HSummaryCard";
 import { KeyStatPill } from "./StatBar";
+import TeamLogo from "@/components/shared/TeamLogo";
 
 /* ── Pre-Match: Team Comparison ────────────────────── */
 function TeamComparisonCard({ homePred, awayPred, fixture }) {
@@ -30,11 +31,11 @@ function TeamComparisonCard({ homePred, awayPred, fixture }) {
         display: "flex", justifyContent: "space-between", padding: "0 14px 8px",
         borderBottom: "1px solid var(--border)",
       }}>
-        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--blue)" }}>
-          {fixture.home.flag} {fixture.home.name}
+        <span style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, fontWeight: 800, color: "var(--blue)" }}>
+          <TeamLogo logo={fixture.home.logo} flag={fixture.home.flag} size={16} /> {fixture.home.name}
         </span>
-        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--red)" }}>
-          {fixture.away.name} {fixture.away.flag}
+        <span style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, fontWeight: 800, color: "var(--red)" }}>
+          {fixture.away.name} <TeamLogo logo={fixture.away.logo} flag={fixture.away.flag} size={16} />
         </span>
       </div>
       {rows.map((row, i) => {
@@ -78,12 +79,11 @@ function MatchInfoCard({ fixture }) {
 
   const infoItems = [
     bjTime && { label: "\u5f00\u7403\u65f6\u95f4", value: `${bjTime} (\u5317\u4eac\u65f6\u95f4)` },
-    fixture.venue && { label: "\u6bd4\u8d5b\u573a\u5730", value: fixture.venue },
     fixture.group && { label: "\u5c0f\u7ec4", value: fixture.group },
     fixture.stage && { label: "\u9636\u6bb5", value: fixture.stage },
   ].filter(Boolean);
 
-  if (!infoItems.length) return null;
+  if (!infoItems.length && !fixture.venueDetail) return null;
 
   return (
     <div style={{
@@ -91,7 +91,7 @@ function MatchInfoCard({ fixture }) {
       border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
     }}>
       <div style={{ padding: "10px 14px 8px" }}>
-        <SectionLabel>\u6bd4\u8d5b\u4fe1\u606f</SectionLabel>
+        <SectionLabel>{"\u6bd4\u8d5b\u4fe1\u606f"}</SectionLabel>
       </div>
       {infoItems.map((item, i) => (
         <div key={i} style={{
@@ -106,11 +106,85 @@ function MatchInfoCard({ fixture }) {
           </span>
         </div>
       ))}
+      {/* Venue card with photo */}
+      <VenueCard fixture={fixture} />
     </div>
   );
 }
 
-export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, awayIso, poissonOdds, onSwitchTab }) {
+/* ── Venue Info Card ─────────────────────────────── */
+function VenueCard({ fixture }) {
+  const v = fixture.venueDetail;
+  const venueName = v?.name || fixture.venue;
+  if (!venueName) return null;
+
+  const surfaceZh = {
+    grass: "\u5929\u7136\u8349\u5730",
+    artificial: "\u4eba\u5de5\u8349\u5730",
+    synthetic: "\u4eba\u5de5\u8349\u5730",
+    hybrid: "\u6df7\u5408\u8349\u5730",
+  };
+
+  return (
+    <div style={{ borderTop: "1px solid var(--border)" }}>
+      {/* Venue photo */}
+      {v?.image && (
+        <div style={{ position: "relative", width: "100%", height: 120, overflow: "hidden" }}>
+          <img
+            src={v.image}
+            alt={venueName}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            onError={(e) => { e.target.style.display = "none"; }}
+          />
+          <div style={{
+            position: "absolute", bottom: 0, left: 0, right: 0,
+            background: "linear-gradient(transparent, rgba(0,0,0,0.7))",
+            padding: "16px 14px 8px",
+          }}>
+            <div style={{ fontSize: 12, fontWeight: 800, color: "#fff" }}>
+              {"\ud83c\udfdf\ufe0f"} {venueName}
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Venue details row */}
+      <div style={{
+        display: "flex", gap: 12, padding: "8px 14px",
+        flexWrap: "wrap",
+      }}>
+        {!v?.image && (
+          <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: "1 0 100%", marginBottom: 2 }}>
+            {"\ud83c\udfdf\ufe0f"} {venueName}
+          </div>
+        )}
+        {v?.city && (
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"\ud83d\udccd"}</span>
+            <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>{v.city}</span>
+          </div>
+        )}
+        {v?.capacity && (
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"\ud83d\udc65"}</span>
+            <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
+              {Number(v.capacity).toLocaleString()}
+            </span>
+          </div>
+        )}
+        {v?.surface && (
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"\ud83c\udf3f"}</span>
+            <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
+              {surfaceZh[v.surface.toLowerCase()] || v.surface}
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, awayIso, poissonOdds, liveOdds, onSwitchTab }) {
   const { stats, events, fixture, predictions } = data;
 
   if (fixture.status === "NS") {
@@ -151,7 +225,46 @@ export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2h
 
   return (
     <div style={{ padding: "12px 12px 0" }}>
-      {/* Predictions */}
+      {/* Live probability bar (Poisson in-play model) */}
+      {fixture.status === "LIVE" && liveOdds && (
+        <div style={{
+          background: "var(--card)", borderRadius: 10, padding: "10px 14px",
+          border: "1px solid rgba(255,61,61,0.2)", marginBottom: 12,
+        }}>
+          <div style={{
+            display: "flex", alignItems: "center", gap: 6, marginBottom: 8,
+          }}>
+            <span style={{
+              width: 6, height: 6, background: "var(--live)", borderRadius: "50%",
+              animation: "pulse 1.5s infinite", display: "inline-block",
+            }} />
+            <span style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+              {"\u5b9e\u65f6\u6982\u7387"} {fixture.minute}
+            </span>
+          </div>
+          <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
+            <div style={{ flex: liveOdds.result.homeWin, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
+            <div style={{ flex: liveOdds.result.draw, background: "var(--text3)" }} />
+            <div style={{ flex: liveOdds.result.awayWin, background: "var(--red)", borderRadius: "0 6px 6px 0" }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ textAlign: "left" }}>
+              <div style={{ fontSize: 14, fontWeight: 900, color: "var(--blue)" }}>{liveOdds.result.homeWin}%</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}{"\u80dc"}</div>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text3)" }}>{liveOdds.result.draw}%</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>{"\u5e73\u5c40"}</div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div style={{ fontSize: 14, fontWeight: 900, color: "var(--red)" }}>{liveOdds.result.awayWin}%</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}{"\u80dc"}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SportMonks AI Predictions */}
       {predictions && (
         <div style={{ marginBottom: 12 }}>
           <WinProbBar predictions={predictions} fixture={fixture} />

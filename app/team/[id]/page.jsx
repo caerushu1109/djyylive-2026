@@ -14,6 +14,7 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { ChevronLeft } from "lucide-react";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
+import TeamLogo from "@/components/shared/TeamLogo";
 import { PlayerProvider } from "@/components/shared/PlayerContext";
 
 import FormStrip from "./components/RecentForm";
@@ -153,6 +154,14 @@ function TeamPageInner() {
 
   const flag        = teamElo?.flag || "\uD83C\uDFF4";
   const displayName = teamElo?.name || teamName;
+  // Try to get team logo from fixtures data (any fixture involving this team)
+  const teamLogo = useMemo(() => {
+    for (const f of teamFixtures) {
+      if (f.home.originalName === lookupName || f.home.name === displayName) return f.home.logo;
+      if (f.away.originalName === lookupName || f.away.name === displayName) return f.away.logo;
+    }
+    return null;
+  }, [teamFixtures, lookupName, displayName]);
 
   return (
     <div style={{ maxWidth: 480, margin: "0 auto", height: "100dvh", background: "var(--bg)", display: "flex", flexDirection: "column", overflow: "hidden" }}>
@@ -176,7 +185,7 @@ function TeamPageInner() {
             padding: "16px 16px 12px", display: "flex", alignItems: "center", gap: 14,
             flexShrink: 0,
           }}>
-            <span style={{ fontSize: 44, lineHeight: 1 }}>{flag}</span>
+            <TeamLogo logo={teamLogo} flag={flag} size={48} />
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                 <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, lineHeight: 1.2 }}>{displayName}</h1>

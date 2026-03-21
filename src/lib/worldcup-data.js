@@ -78,6 +78,59 @@ function venueLabel(match) {
   return getCityLabel(match?.venue?.city_name) || match?.venue?.name || "";
 }
 
+function venueDetails(match) {
+  const v = match?.venue;
+  if (!v) return null;
+  return {
+    name: v.name || "",
+    city: getCityLabel(v.city_name) || v.city_name || "",
+    capacity: v.capacity || null,
+    surface: v.surface || null,
+    image: v.image_path || null,
+  };
+}
+
+/** Extract half-time score from SportMonks scores array */
+function extractHalfTimeScore(scores) {
+  const ht = { home: null, away: null };
+  for (const s of toArray(scores)) {
+    const desc = String(s?.description || "").toUpperCase();
+    if (desc === "1ST_HALF" || desc === "HALFTIME") {
+      if (s?.score?.participant === "home") ht.home = s.score.goals;
+      if (s?.score?.participant === "away") ht.away = s.score.goals;
+    }
+  }
+  return (ht.home !== null || ht.away !== null) ? ht : null;
+}
+
+/** Detect knockout result type: "ET", "PEN", or null */
+function extractResultType(scores) {
+  for (const s of toArray(scores)) {
+    const desc = String(s?.description || "").toUpperCase();
+    if (desc === "PENALTIES" || desc === "AFTER_PENALTIES" || desc === "PENALTY_SHOOTOUT") return "PEN";
+    if (desc === "ET" || desc === "EXTRA_TIME" || desc === "AFTER_EXTRA_TIME") return "PEN"; // if penalties exist, that takes precedence
+  }
+  // Check for extra time without penalties
+  for (const s of toArray(scores)) {
+    const desc = String(s?.description || "").toUpperCase();
+    if (desc === "ET" || desc === "EXTRA_TIME" || desc === "AFTER_EXTRA_TIME") return "ET";
+  }
+  return null;
+}
+
+/** Extract penalty shootout score */
+function extractPenaltyScore(scores) {
+  const pen = { home: null, away: null };
+  for (const s of toArray(scores)) {
+    const desc = String(s?.description || "").toUpperCase();
+    if (desc === "PENALTIES" || desc === "PENALTY_SHOOTOUT") {
+      if (s?.score?.participant === "home") pen.home = s.score.goals;
+      if (s?.score?.participant === "away") pen.away = s.score.goals;
+    }
+  }
+  return (pen.home !== null || pen.away !== null) ? pen : null;
+}
+
 export function normalizeFixture(match) {
   const homeParticipant = findParticipant(match?.participants, "home");
   const awayParticipant = findParticipant(match?.participants, "away");
@@ -97,6 +150,7 @@ export function normalizeFixture(match) {
       flag: homeName ? homeMeta.flag : "🏴",
       name: homeName ? homeMeta.shortName : "待定",
       originalName: homeName || "",
+      logo: homeParticipant?.image_path || null,
       elo: null,
       isTbd: !homeName,
     },
@@ -104,12 +158,17 @@ export function normalizeFixture(match) {
       flag: awayName ? awayMeta.flag : "🏴",
       name: awayName ? awayMeta.shortName : "待定",
       originalName: awayName || "",
+      logo: awayParticipant?.image_path || null,
       elo: null,
       isTbd: !awayName,
     },
     homeScore: scoreForParticipant(match?.scores, "home"),
     awayScore: scoreForParticipant(match?.scores, "away"),
+    htScore: extractHalfTimeScore(match?.scores),
+    resultType: extractResultType(match?.scores),
+    penScore: extractPenaltyScore(match?.scores),
     venue: venueLabel(match),
+    venueDetail: venueDetails(match),
     isLive: status === "LIVE",
     startingAt: normalizeKickoffValue(match?.starting_at),
     rawState: match?.state || null,
@@ -548,19 +607,33 @@ export async function getMatchDetail(fixtureId, options = {}) {
             const formation = toArray(fixture.formations).find((f) =>
               side === "home" ? f.participant_id === homeId : f.participant_id !== homeId
             );
+
+            const mapPlayer = (p) => {
+              // Extract rating from details array
+              const details = toArray(p.details);
+              const ratingDetail = details.find((d) =>
+                d?.type?.developer_name === "RATING" || d?.type_id === 118
+              );
+              const rating = ratingDetail ? Number(ratingDetail.value || ratingDetail.data?.value || 0) : null;
+              // Player image: SportMonks CDN pattern
+              const playerId = p.player_id || p.player?.id;
+              const playerImage = p.player?.image_path || (playerId ? `https://cdn.sportmonks.com/images/soccer/players/${playerId % 32}/${playerId}.png` : null);
+
+              return {
+                number: p.jersey_number ?? null,
+                name: p.player_name || p.player?.name || "",
+                position: p.position?.developer_name || p.position || "",
+                rating: rating && rating > 0 ? rating : null,
+                image: playerImage,
+                playerId: playerId ? String(playerId) : null,
+              };
+            };
+
             return {
               formation: formation?.formation || null,
               coach: null,
-              starting: starting.map((p) => ({
-                number: p.jersey_number ?? null,
-                name: p.player_name || p.player?.name || "",
-                position: p.position?.developer_name || p.position || "",
-              })),
-              bench: bench.map((p) => ({
-                number: p.jersey_number ?? null,
-                name: p.player_name || p.player?.name || "",
-                position: p.position?.developer_name || p.position || "",
-              })),
+              starting: starting.map(mapPlayer),
+              bench: bench.map(mapPlayer),
             };
           };
           lineups = { home: buildSide("home"), away: buildSide("away") };

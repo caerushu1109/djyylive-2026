@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
 import { computeMatchOdds, computeLambda, eloToLambda, hybridLambda, getHostAdvantage } from "@/lib/poisson";
+import TeamLogo from "@/components/shared/TeamLogo";
 
 export default function MatchCard({ fixture, onClick, predictions, showVenue = false }) {
   const router = useRouter();
@@ -101,7 +102,7 @@ export default function MatchCard({ fixture, onClick, predictions, showVenue = f
 
         {/* Home */}
         <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
-          <div style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{home.flag || "🏴"}</div>
+          <TeamLogo logo={home.logo} flag={home.flag} size={22} />
           <div onClick={(e) => goTeam(e, home)} style={{
             fontSize: 12, fontWeight: 700,
             color: homeWins ? "var(--text)" : awayWins ? "var(--text2)" : "var(--text)",
@@ -118,7 +119,14 @@ export default function MatchCard({ fixture, onClick, predictions, showVenue = f
             {status === "NS" ? "vs" : `${homeScore ?? 0}–${awayScore ?? 0}`}
           </div>
           {status === "FT" && (
-            <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, background: "var(--card2)", padding: "2px 5px", borderRadius: 4 }}>FT</div>
+            <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, background: "var(--card2)", padding: "2px 5px", borderRadius: 4 }}>
+              {fixture.resultType === "PEN" ? "PEN" : fixture.resultType === "ET" ? "AET" : "FT"}
+            </div>
+          )}
+          {status === "FT" && fixture.resultType === "PEN" && fixture.penScore && (
+            <div style={{ fontSize: 8, color: "var(--text3)", fontWeight: 600, marginTop: 1 }}>
+              ({fixture.penScore.home}-{fixture.penScore.away})
+            </div>
           )}
           {status === "LIVE" && (
             <div style={{ fontSize: 9, color: "var(--live)", fontWeight: 700, background: "var(--red-dim)", padding: "2px 5px", borderRadius: 4 }}>{minute || "LIVE"}</div>
@@ -130,7 +138,7 @@ export default function MatchCard({ fixture, onClick, predictions, showVenue = f
 
         {/* Away */}
         <div style={{ flex: 1, display: "flex", alignItems: "center", flexDirection: "row-reverse", gap: 6, minWidth: 0 }}>
-          <div style={{ fontSize: 18, lineHeight: 1, flexShrink: 0 }}>{away.flag || "🏴"}</div>
+          <TeamLogo logo={away.logo} flag={away.flag} size={22} />
           <div onClick={(e) => goTeam(e, away)} style={{
             fontSize: 12, fontWeight: 700,
             color: awayWins ? "var(--text)" : homeWins ? "var(--text2)" : "var(--text)",

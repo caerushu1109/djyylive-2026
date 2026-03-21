@@ -1,6 +1,15 @@
 "use client";
 
+import TeamLogo from "@/components/shared/TeamLogo";
+
 export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
+  const { htScore, resultType, penScore } = fixture;
+
+  // Status label for finished matches
+  let statusLabel = "\u5168\u573a\u7ed3\u675f"; // 全场结束
+  if (resultType === "ET") statusLabel = "\u52a0\u65f6\u8d5b\u7ed3\u675f"; // 加时赛结束
+  if (resultType === "PEN") statusLabel = "\u70b9\u7403\u5927\u6218"; // 点球大战
+
   return (
     <div style={{ background: "linear-gradient(180deg, #151825 0%, #0e1018 100%)" }}>
       {/* Top bar */}
@@ -35,7 +44,7 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
       <div style={{ display: "flex", alignItems: "center", padding: "16px 16px 14px", gap: 6 }}>
         {/* Home */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-          <span style={{ fontSize: 36, lineHeight: 1 }}>{fixture.home.flag}</span>
+          <TeamLogo logo={fixture.home.logo} flag={fixture.home.flag} size={44} />
           <span onClick={() => onTeamClick?.(fixture.home)} style={{ fontSize: 11, fontWeight: 800, color: "var(--text)", textAlign: "center", lineHeight: 1.3, cursor: "pointer" }}>
             {fixture.home.name}
           </span>
@@ -44,12 +53,28 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
         {/* Score */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0, minWidth: 90 }}>
           {fixture.status !== "NS" ? (
-            <div style={{
-              fontSize: 42, fontWeight: 900, color: "var(--text)",
-              letterSpacing: "-0.04em", fontVariantNumeric: "tabular-nums", lineHeight: 1,
-            }}>
-              {fixture.homeScore ?? 0}<span style={{ color: "var(--text3)", margin: "0 2px" }}>-</span>{fixture.awayScore ?? 0}
-            </div>
+            <>
+              <div style={{
+                fontSize: 42, fontWeight: 900, color: "var(--text)",
+                letterSpacing: "-0.04em", fontVariantNumeric: "tabular-nums", lineHeight: 1,
+              }}>
+                {fixture.homeScore ?? 0}<span style={{ color: "var(--text3)", margin: "0 2px" }}>-</span>{fixture.awayScore ?? 0}
+              </div>
+              {/* Half-time score */}
+              {htScore && (htScore.home !== null || htScore.away !== null) && (
+                <div style={{ fontSize: 10, color: "var(--text3)", marginTop: 3 }}>
+                  HT {htScore.home ?? 0}-{htScore.away ?? 0}
+                </div>
+              )}
+              {/* Penalty score for knockout matches */}
+              {resultType === "PEN" && penScore && (
+                <div style={{
+                  fontSize: 10, color: "var(--yellow, #f5a623)", fontWeight: 700, marginTop: 2,
+                }}>
+                  PEN {penScore.home ?? 0}-{penScore.away ?? 0}
+                </div>
+              )}
+            </>
           ) : (
             <div style={{ fontSize: 24, fontWeight: 300, color: "var(--text2)" }}>VS</div>
           )}
@@ -64,18 +89,20 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
           )}
           {fixture.status === "FT" && (
             <div style={{
-              fontSize: 10, fontWeight: 800, color: "var(--text3)",
-              background: "var(--card2)", padding: "2px 10px",
+              fontSize: 10, fontWeight: 800,
+              color: resultType ? "var(--text2)" : "var(--text3)",
+              background: resultType ? "rgba(92,158,255,0.1)" : "var(--card2)",
+              padding: "2px 10px",
               borderRadius: 4, marginTop: 4,
             }}>
-              \u5168\u573a\u7ed3\u675f
+              {statusLabel}
             </div>
           )}
         </div>
 
         {/* Away */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-          <span style={{ fontSize: 36, lineHeight: 1 }}>{fixture.away.flag}</span>
+          <TeamLogo logo={fixture.away.logo} flag={fixture.away.flag} size={44} />
           <span onClick={() => onTeamClick?.(fixture.away)} style={{ fontSize: 11, fontWeight: 800, color: "var(--text)", textAlign: "center", lineHeight: 1.3, cursor: "pointer" }}>
             {fixture.away.name}
           </span>
@@ -85,7 +112,7 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
       {/* Venue */}
       {fixture.venue && (
         <div style={{ textAlign: "center", fontSize: 10, color: "var(--text3)", paddingBottom: 10 }}>
-          \ud83d\udccd {fixture.venue}
+          {"\ud83d\udccd"} {fixture.venue}
         </div>
       )}
     </div>

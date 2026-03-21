@@ -5,7 +5,7 @@ import { useMatchDetail } from "@/lib/hooks/useMatchDetail";
 import { useH2H } from "@/lib/hooks/useH2H";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
-import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage, hybridLambda } from "@/lib/poisson";
+import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage, hybridLambda, computeInPlayOdds } from "@/lib/poisson";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
@@ -62,8 +62,9 @@ function MatchDetailInner() {
   const { data: strengthsData } = useTeamStrengths();
 
   // Compute Poisson odds from team strengths (our proprietary model)
+  // Also compute for LIVE matches to enable in-play probability updates
   const poissonOdds = useMemo(() => {
-    if (!fixture || fixture.status !== "NS") return null;
+    if (!fixture || (fixture.status !== "NS" && fixture.status !== "LIVE")) return null;
 
     // Lookup team strength data (SportMonks statistics)
     const homeStr = findTeamStrength(strengthsData, fixture.home.originalName);
@@ -114,6 +115,20 @@ function MatchDetailInner() {
     return null;
   }, [fixture, strengthsData, predictionsData, homeIso, awayIso]);
 
+  // Live in-play odds: recalculate based on current score + minute
+  const liveOdds = useMemo(() => {
+    if (!fixture || fixture.status !== "LIVE" || !poissonOdds) return null;
+    const minute = parseInt(fixture.minute) || 0;
+    if (minute <= 0) return null;
+    return computeInPlayOdds(
+      poissonOdds.lambdaHome,
+      poissonOdds.lambdaAway,
+      minute,
+      fixture.homeScore ?? 0,
+      fixture.awayScore ?? 0,
+    );
+  }, [fixture, poissonOdds]);
+
   return (
     <div style={{
       maxWidth: 480, margin: "0 auto", height: "100dvh", background: "var(--bg)",
@@ -151,7 +166,7 @@ function MatchDetailInner() {
 
           {/* Tab content */}
           <div style={{ paddingBottom: 80 }}>
-            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} poissonOdds={poissonOdds} onSwitchTab={setTab} />}
+            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} poissonOdds={poissonOdds} liveOdds={liveOdds} onSwitchTab={setTab} />}
             {tab === "analysis" && <TabAnalysis data={data} poissonOdds={poissonOdds} fixture={fixture} />}
             {tab === "lineups" && <TabLineups data={data} />}
             {tab === "stats" && <TabStats data={data} />}
