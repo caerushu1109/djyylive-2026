@@ -314,17 +314,23 @@ for p in men_player_apps:
     if p.get("starter","") == "1":
         player_stats_by_team[team][pid]["starts"] += 1
 
-# Add goals to player stats
+# Add goals to player stats + estimate apps from distinct matches for players missing from player_appearances
+player_goal_matches = defaultdict(set)   # (team, pid) → set of match_ids
 for g in men_goals:
     if g.get("own_goal") == "1":
         continue
     team = g.get("team_name","")
     pid = g.get("player_id","")
-    if pid in player_stats_by_team[team]:
-        player_stats_by_team[team][pid]["goals"] += 1
-    else:
-        player_stats_by_team[team][pid]["goals"] += 1
-        player_stats_by_team[team][pid]["name"] = player_name(g)
+    mid = g.get("match_id","")
+    player_stats_by_team[team][pid]["goals"] += 1
+    player_stats_by_team[team][pid]["name"] = player_name(g)
+    if mid:
+        player_goal_matches[(team, pid)].add(mid)
+
+# For players with goals but 0 apps, estimate apps from distinct goal-match count
+for (team, pid), match_ids in player_goal_matches.items():
+    if player_stats_by_team[team][pid]["apps"] == 0:
+        player_stats_by_team[team][pid]["apps"] = len(match_ids)
 
 # Qualified teams: tournament_id + team → performance
 qualified_lookup = {}

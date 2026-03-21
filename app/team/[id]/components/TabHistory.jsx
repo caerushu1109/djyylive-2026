@@ -470,7 +470,10 @@ export default function TabHistory({ historyData, teamDetail }) {
                   {idx + 1}.
                 </span>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: 12, color: "var(--text)", fontWeight: idx < 3 ? 600 : 400 }}>
+                  <div
+                    onClick={() => { const hid = lookup(player.name); if (hid) openPlayer(hid, playerNameZh(player.name) || player.name); }}
+                    style={{ fontSize: 12, color: "var(--text)", fontWeight: idx < 3 ? 600 : 400, cursor: "pointer" }}
+                  >
                     {playerNameZh(player.name)}
                   </div>
                   {playerNameZh(player.name) !== player.name && (
