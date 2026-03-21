@@ -13,7 +13,7 @@ import { EN_TO_ZH } from "@/lib/polymarket-names";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import BottomNav from "@/components/shared/BottomNav";
 import { ChevronLeft } from "lucide-react";
-import { nameToIso } from "@/lib/canonical-names";
+import { nameToIso, toFlag } from "@/lib/canonical-names";
 import { getTeamMeta } from "@/src/lib/team-meta";
 import TeamLogo from "@/components/shared/TeamLogo";
 import { PlayerProvider } from "@/components/shared/PlayerContext";
@@ -152,7 +152,7 @@ function TeamPageInner() {
     [groupTeams]
   );
 
-  const flag        = teamElo?.flag || "🏴";
+  const flag        = teamElo?.flag || toFlag(teamName);
   const displayName = teamElo?.name || teamName;
   // Try to get team logo from fixtures data (any fixture involving this team)
   const teamLogo = useMemo(() => {
