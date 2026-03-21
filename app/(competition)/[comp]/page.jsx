@@ -11,6 +11,7 @@ import OddsTicker from "@/components/shared/OddsTicker";
 import MatchCard from "@/components/shared/MatchCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import TopBar from "@/components/shared/TopBar";
+import Countdown from "@/components/shared/Countdown";
 import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 
@@ -196,6 +197,7 @@ function CompHomePageInner() {
   return (
     <div>
       <TopBar comp={comp} badge />
+      <Countdown />
 
       {liveFixtures.length > 0 && <LiveBanner fixture={liveFixtures[0]} />}
 

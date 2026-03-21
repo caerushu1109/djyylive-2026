@@ -12,13 +12,13 @@ export default function TopBar({ comp, badge, label, right }) {
         </Link>
         {badge && (
           <div style={{
-            display: "flex", alignItems: "center", gap: 6,
+            display: "flex", alignItems: "center", gap: 5,
             background: "var(--card)", border: "1px solid var(--border2)",
-            borderRadius: 999, padding: "3px 10px 3px 6px",
+            borderRadius: 999, padding: "3px 10px 3px 7px",
           }}>
-            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)" }} />
-            <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>2026 WC</span>
-            <span style={{ fontSize: 8, color: "var(--text3)" }}>&#9662;</span>
+            <span style={{ fontSize: 10, letterSpacing: 1 }}>🏆</span>
+            <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>2026</span>
+            <span style={{ fontSize: 9, letterSpacing: 1 }}>🇺🇸🇲🇽🇨🇦</span>
           </div>
         )}
         {label && <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text2)" }}>{label}</span>}
