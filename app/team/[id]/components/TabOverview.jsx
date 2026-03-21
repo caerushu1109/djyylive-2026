@@ -130,8 +130,9 @@ function GroupEloChart({ teamElo, groupOpponentIsos, eloData }) {
 
   const hasOpponents = teamLines.length > 1;
   const COLORS = ["#4da6ff", "#2ecc71", "#f5a623", "#e05252"];
-  const W = 360, H = hasOpponents ? 150 : 110;
-  const PAD = { t: 12, r: 50, b: 22, l: 38 };
+  const nTeams = teamLines.length;
+  const W = 360, H = nTeams >= 4 ? 170 : nTeams >= 2 ? 150 : 110;
+  const PAD = { t: 12, r: 40, b: 22, l: 38 };
   const cW = W - PAD.l - PAD.r;
   const cH = H - PAD.t - PAD.b;
   const WC_YEARS = [2006, 2010, 2014, 2018, 2022, 2026];
@@ -142,6 +143,19 @@ function GroupEloChart({ teamElo, groupOpponentIsos, eloData }) {
 
   const xp = (yr) => PAD.l + ((yr - 2006) / 20) * cW;
   const yp = (e) => PAD.t + cH - ((e - minE) / (maxE - minE)) * cH;
+
+  // Compute label positions: start at actual Y, then spread to avoid overlap
+  const LABEL_H = 11; // height per label
+  const labelData = teamLines.map((team, ti) => {
+    const lp = team.points[team.points.length - 1];
+    return lp ? { ti, team, lp, naturalY: yp(lp.elo) } : null;
+  }).filter(Boolean).sort((a, b) => a.naturalY - b.naturalY);
+  // Spread overlapping labels
+  for (let i = 1; i < labelData.length; i++) {
+    if (labelData[i].naturalY - labelData[i - 1].naturalY < LABEL_H) {
+      labelData[i].naturalY = labelData[i - 1].naturalY + LABEL_H;
+    }
+  }
 
   const yStep = Math.round((maxE - minE) / 3 / 50) * 50 || 50;
   const yStart = Math.ceil(minE / yStep) * yStep;
@@ -217,32 +231,29 @@ function GroupEloChart({ teamElo, groupOpponentIsos, eloData }) {
             <circle key={p.year} cx={xp(p.year)} cy={yp(p.elo)} r="2.5"
               fill={COLORS[0]} stroke="var(--bg, #0d0d0d)" strokeWidth="1" />
           ))}
-          {/* End labels for all teams */}
-          {teamLines.map((team, ti) => {
-            const lp = team.points[team.points.length - 1];
-            if (!lp) return null;
+          {/* End dots + ELO value labels (names shown in legend below) */}
+          {labelData.map(({ ti, team, lp, naturalY }) => {
             const color = COLORS[ti % COLORS.length];
-            // Stagger labels to avoid overlap
-            const yOffset = ti * 11;
             return (
               <g key={`label-${team.code}`}>
                 <circle cx={xp(lp.year)} cy={yp(lp.elo)} r={ti === 0 ? "3" : "2.5"}
                   fill={color} stroke="var(--bg)" strokeWidth="1" />
-                <text x={PAD.l + cW + 6} y={PAD.t + 8 + yOffset}
-                  fill={color} fontSize="8" fontFamily="monospace" fontWeight={ti === 0 ? "700" : "500"}>
-                  {team.name} {lp.elo}
+                <text x={PAD.l + cW + 6} y={naturalY + 3}
+                  fill={color} fontSize="8.5" fontFamily="monospace" fontWeight={ti === 0 ? "700" : "500"}>
+                  {lp.elo}
                 </text>
               </g>
             );
           })}
         </svg>
       </div>
-      {/* Legend */}
-      {hasOpponents && (
-        <div style={{
-          padding: "2px 12px 8px", display: "flex", flexWrap: "wrap", gap: 8,
-        }}>
-          {teamLines.map((team, ti) => (
+      {/* Legend with team names + current ELO */}
+      <div style={{
+        padding: "2px 12px 8px", display: "flex", flexWrap: "wrap", gap: 10,
+      }}>
+        {teamLines.map((team, ti) => {
+          const lp = team.points[team.points.length - 1];
+          return (
             <span key={team.code} style={{ fontSize: 10, display: "flex", alignItems: "center", gap: 3 }}>
               <span style={{
                 display: "inline-block", width: 10, height: ti === 0 ? 3 : 2, borderRadius: 1,
@@ -251,10 +262,15 @@ function GroupEloChart({ teamElo, groupOpponentIsos, eloData }) {
               <span style={{ color: COLORS[ti % COLORS.length], fontWeight: ti === 0 ? 700 : 500 }}>
                 {team.name}
               </span>
+              {lp && (
+                <span style={{ color: "var(--text-dim)", fontSize: 9, fontFamily: "monospace" }}>
+                  {lp.elo}
+                </span>
+              )}
             </span>
-          ))}
-        </div>
-      )}
+          );
+        })}
+      </div>
     </div>
   );
 }
