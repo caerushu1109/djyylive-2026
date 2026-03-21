@@ -15,7 +15,7 @@ import TopBar from "@/components/shared/TopBar";
 import Countdown from "@/components/shared/Countdown";
 import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
-import { useNews } from "@/lib/hooks/useNews";
+import { useNewsDigest } from "@/lib/hooks/useNewsDigest";
 
 const COMP_LABELS = { wc2026: "2026 WC" };
 const MEDALS = ["🥇", "🥈", "🥉"];
@@ -95,25 +95,46 @@ function TournamentProgress({ fixturesData }) {
   );
 }
 
-const SOURCE_COLORS = { "懂球帝": "#1a8917", BBC: "#bb1919", ESPN: "#d00", FIFA: "#326295" };
+const ALERT_STYLES = {
+  injury:   { icon: "🏥", bg: "rgba(255,61,61,0.08)", border: "rgba(255,61,61,0.25)", color: "#ff5252", label: "伤病" },
+  squad:    { icon: "📋", bg: "rgba(68,138,255,0.08)", border: "rgba(68,138,255,0.25)", color: "#448aff", label: "大名单" },
+  result:   { icon: "⚽", bg: "rgba(76,175,80,0.08)", border: "rgba(76,175,80,0.25)", color: "#4caf50", label: "赛果" },
+  transfer: { icon: "🔄", bg: "rgba(255,183,77,0.08)", border: "rgba(255,183,77,0.25)", color: "#ffb74d", label: "转会" },
+  coach:    { icon: "👔", bg: "rgba(171,71,188,0.08)", border: "rgba(171,71,188,0.25)", color: "#ab47bc", label: "换帅" },
+};
 
-function timeAgo(dateStr) {
-  if (!dateStr) return "";
-  const diff = Date.now() - new Date(dateStr).getTime();
-  const mins = Math.floor(diff / 60000);
-  if (mins < 60) return `${mins}分钟前`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs}小时前`;
+function digestTimeAgo(isoStr) {
+  if (!isoStr) return "";
+  const diff = Date.now() - new Date(isoStr).getTime();
+  const hrs = Math.floor(diff / 3600000);
+  if (hrs < 1) return "刚刚更新";
+  if (hrs < 24) return `${hrs}小时前更新`;
   const days = Math.floor(hrs / 24);
-  return `${days}天前`;
+  return `${days}天前更新`;
 }
 
-function NewsSection() {
-  const { data, loading } = useNews();
-  const news = data?.news || [];
+function DigestSection() {
+  const { data, loading } = useNewsDigest();
+  const [copied, setCopied] = useState(false);
 
-  if (loading) return null; // Don't show skeleton, just hide until loaded
-  if (news.length === 0) return null; // No news, hide section
+  if (loading || !data) return null;
+
+  const { briefing, alerts = [], keyMatches = [], generatedAt, sources = [] } = data;
+  if (!briefing) return null;
+
+  const handleCopy = () => {
+    const alertText = alerts.length > 0
+      ? "\n\n" + alerts.map(a => `${ALERT_STYLES[a.type]?.icon || "📌"} ${a.player || ""}（${a.team || ""}）${a.detail}`).join("\n")
+      : "";
+    const matchText = keyMatches.length > 0
+      ? "\n\n" + keyMatches.map(m => `⚽ ${m.home} vs ${m.away} — ${m.detail}`).join("\n")
+      : "";
+    const shareText = `📰 DJYY 世界杯情报站\n\n${briefing}${alertText}${matchText}\n\n— djyylive.com`;
+    navigator.clipboard.writeText(shareText).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return (
     <div style={{
@@ -123,64 +144,113 @@ function NewsSection() {
       {/* Header */}
       <div style={{
         padding: "10px 12px", borderBottom: "1px solid var(--border)",
-        display: "flex", alignItems: "center", gap: 6,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        <span style={{ fontSize: 14 }}>📰</span>
-        <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>世界杯动态</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ fontSize: 14 }}>📡</span>
+          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>DJYY 情报站</span>
+        </div>
+        <span style={{ fontSize: 9, color: "var(--text3)" }}>{digestTimeAgo(generatedAt)}</span>
       </div>
 
-      {/* News items */}
-      {news.slice(0, 8).map((item, i) => (
-        <a
-          key={i}
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* Briefing */}
+      <div style={{ padding: "12px 12px 10px" }}>
+        <div style={{
+          fontSize: 13, lineHeight: 1.7, color: "var(--text)",
+          fontWeight: 400, letterSpacing: "0.01em",
+        }}>
+          {briefing}
+        </div>
+      </div>
+
+      {/* Alerts */}
+      {alerts.length > 0 && (
+        <div style={{ padding: "0 12px 10px", display: "flex", flexDirection: "column", gap: 6 }}>
+          {alerts.map((alert, i) => {
+            const style = ALERT_STYLES[alert.type] || ALERT_STYLES.result;
+            return (
+              <div key={i} style={{
+                display: "flex", alignItems: "flex-start", gap: 8,
+                padding: "8px 10px", borderRadius: "var(--radius-sm)",
+                background: style.bg, border: `1px solid ${style.border}`,
+              }}>
+                <span style={{ fontSize: 14, flexShrink: 0, lineHeight: 1.3 }}>{style.icon}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
+                    <span style={{
+                      fontSize: 9, fontWeight: 800, color: style.color,
+                      textTransform: "uppercase", letterSpacing: "0.06em",
+                    }}>
+                      {style.label}
+                    </span>
+                    {alert.team && (
+                      <span style={{ fontSize: 10, color: "var(--text3)", fontWeight: 600 }}>
+                        {alert.team}
+                      </span>
+                    )}
+                  </div>
+                  <div style={{ fontSize: 12, color: "var(--text)", lineHeight: 1.5 }}>
+                    {alert.player && <strong>{alert.player}</strong>}
+                    {alert.player && alert.detail ? " — " : ""}
+                    {alert.detail}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Key Matches */}
+      {keyMatches.length > 0 && (
+        <div style={{ padding: "0 12px 10px" }}>
+          <div style={{
+            fontSize: 10, fontWeight: 700, color: "var(--text3)",
+            textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6,
+          }}>
+            焦点赛事
+          </div>
+          {keyMatches.map((m, i) => (
+            <div key={i} style={{
+              display: "flex", alignItems: "center", gap: 8,
+              padding: "8px 0",
+              borderBottom: i < keyMatches.length - 1 ? "1px solid var(--border)" : "none",
+            }}>
+              <span style={{ fontSize: 13, flexShrink: 0 }}>⚽</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>
+                  {m.home} vs {m.away}
+                </div>
+                <div style={{ fontSize: 11, color: "var(--text3)", marginTop: 2, lineHeight: 1.4 }}>
+                  {m.detail}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Footer: sources + share */}
+      <div style={{
+        padding: "8px 12px", borderTop: "1px solid var(--border)",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+        <div style={{ fontSize: 9, color: "var(--text3)" }}>
+          来源：{sources.join(" · ")}
+        </div>
+        <button
+          onClick={handleCopy}
           style={{
-            display: "flex", alignItems: "flex-start", gap: 10,
-            padding: "10px 12px",
-            borderBottom: i < Math.min(news.length, 8) - 1 ? "1px solid var(--border)" : "none",
-            textDecoration: "none", color: "inherit",
+            padding: "4px 10px", borderRadius: 4, fontSize: 10, fontWeight: 700,
+            color: copied ? "var(--green)" : "var(--blue)",
+            background: copied ? "rgba(76,175,80,0.1)" : "rgba(68,138,255,0.1)",
+            border: `1px solid ${copied ? "rgba(76,175,80,0.3)" : "rgba(68,138,255,0.2)"}`,
+            cursor: "pointer", transition: "all 0.2s",
           }}
         >
-          {/* Thumbnail */}
-          {item.thumbnail && (
-            <img
-              src={item.thumbnail}
-              alt=""
-              style={{
-                width: 56, height: 56, borderRadius: 6, objectFit: "cover",
-                flexShrink: 0, background: "var(--card2)",
-              }}
-              loading="lazy"
-            />
-          )}
-          {/* Text */}
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{
-              fontSize: 12, fontWeight: 600, color: "var(--text)",
-              lineHeight: 1.4,
-              display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}>
-              {item.title}
-            </div>
-            <div style={{
-              marginTop: 4, display: "flex", alignItems: "center", gap: 6,
-              fontSize: 10, color: "var(--text3)",
-            }}>
-              <span style={{
-                padding: "1px 4px", borderRadius: 3, fontWeight: 700, fontSize: 9,
-                color: "#fff",
-                background: SOURCE_COLORS[item.source] || "var(--text3)",
-              }}>
-                {item.source}
-              </span>
-              <span>{timeAgo(item.pubDate)}</span>
-            </div>
-          </div>
-        </a>
-      ))}
+          {copied ? "✓ 已复制" : "📋 复制分享"}
+        </button>
+      </div>
     </div>
   );
 }
@@ -435,7 +505,7 @@ function CompHomePageInner() {
         </div>
       )}
 
-      <NewsSection />
+      <DigestSection />
 
       <LeaderboardSection />
 
