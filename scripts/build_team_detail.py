@@ -405,6 +405,7 @@ for team_name in sorted(all_teams):
             break
         if pdata["apps"] > 0 or pdata["goals"] > 0:
             entry = {
+                "id": pid_key,
                 "name": pdata["name"],
                 "apps": pdata["apps"],
                 "goals": pdata["goals"],

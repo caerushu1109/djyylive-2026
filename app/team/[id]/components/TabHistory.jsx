@@ -475,14 +475,15 @@ export default function TabHistory({ historyData, teamDetail, squadData }) {
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div
                     onClick={() => {
-                      const birthYear = player.birthDate?.substring(0, 4);
-                      const hid = lookup(player.name, birthYear);
-                      // Try to find SportMonks numeric ID from squad for photo support
-                      const squadPlayer = squadData?.players?.find(p => p.name === player.name || p.nameZh === playerNameZh(player.name));
-                      if (squadPlayer) {
-                        openPlayer(String(squadPlayer.id), playerNameZh(player.name) || player.name, hid);
-                      } else if (hid) {
-                        openPlayer(hid, playerNameZh(player.name) || player.name);
+                      const hid = player.id || lookup(player.name, player.birthDate?.substring(0, 4));
+                      if (!hid) return;
+                      const displayName = playerNameZh(player.name) || player.name;
+                      // If player is in current squad, use SportMonks ID for photo
+                      const sp = squadData?.players?.find(p => p.name === player.name);
+                      if (sp) {
+                        openPlayer(String(sp.id), displayName, hid);
+                      } else {
+                        openPlayer(hid, displayName);
                       }
                     }}
                     style={{ fontSize: 12, color: "var(--text)", fontWeight: idx < 3 ? 600 : 400, cursor: "pointer" }}
