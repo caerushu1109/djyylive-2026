@@ -478,8 +478,9 @@ export default function TabHistory({ historyData, teamDetail, squadData }) {
                       const hid = player.id || lookup(player.name, player.birthDate?.substring(0, 4));
                       if (!hid) return;
                       const displayName = playerNameZh(player.name) || player.name;
-                      // If player is in current squad, use SportMonks ID for photo
-                      const sp = squadData?.players?.find(p => p.name === player.name);
+                      // Match squad player by family name (squad uses "K. Mbappé", history uses "Kylian Mbappé")
+                      const familyName = player.name.split(/\s+/).pop();
+                      const sp = squadData?.players?.find(p => p.name?.includes(familyName));
                       if (sp) {
                         openPlayer(String(sp.id), displayName, hid);
                       } else {
