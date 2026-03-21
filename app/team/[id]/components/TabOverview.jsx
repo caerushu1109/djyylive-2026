@@ -5,7 +5,6 @@ import GroupTable from "@/components/wc/GroupTable";
 
 import ProgressionFunnel from "./ProgressionFunnel";
 import GroupComparisonCards from "./GroupOpponents";
-import { H2HSection } from "./H2HCard";
 
 const BEST_RESULT_ZH = {
   "winner":         "🏆 冠军",
@@ -375,15 +374,11 @@ export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, h
         </div>
       )}
 
-      {/* Group opponents comparison */}
+      {/* Group opponents (ELO + H2H combined) */}
       <GroupComparisonCards
-        teamElo={teamElo} teamPred={teamPred}
-        groupOpponentIsos={groupOpponentIsos} eloData={eloData} predData={predData}
+        teamElo={teamElo} teamIso={teamIso}
+        groupOpponentIsos={groupOpponentIsos} eloData={eloData}
       />
-
-
-      {/* H2H vs group opponents */}
-      <H2HSection teamIso={teamIso} groupOpponentIsos={groupOpponentIsos} />
     </div>
   );
 }
