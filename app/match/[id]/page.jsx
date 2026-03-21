@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useMatchDetail } from "@/lib/hooks/useMatchDetail";
 import { useH2H } from "@/lib/hooks/useH2H";
+import { usePredictions } from "@/lib/hooks/usePredictions";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
@@ -281,15 +282,295 @@ function WinProbBar({ predictions, fixture }) {
   );
 }
 
+/* ── ELO constants (same as MatchCard) ─────────────── */
+const ELO_DIVISOR = 300;
+const HOST_BONUS = 110;
+const DRAW_BASE = 0.34;
+const HOST_CODES = ["US", "CA", "MX"];
+
+function computeEloProbabilities(homePred, awayPred) {
+  if (!homePred?.elo || !awayPred?.elo) return null;
+  const homeElo = homePred.elo + (HOST_CODES.includes(homePred.code) ? HOST_BONUS : 0);
+  const awayElo = awayPred.elo + (HOST_CODES.includes(awayPred.code) ? HOST_BONUS : 0);
+  const diff = homeElo - awayElo;
+  const homeExp = 1 / (1 + Math.pow(10, -diff / ELO_DIVISOR));
+  let drawPct = Math.max(0, DRAW_BASE * (1 - Math.abs(diff) / 400)) * 100;
+  let homeWinPct = homeExp * 100 * (1 - drawPct / 100);
+  let awayWinPct = 100 - homeWinPct - drawPct;
+  homeWinPct = Math.round(homeWinPct);
+  drawPct = Math.round(drawPct);
+  awayWinPct = 100 - homeWinPct - drawPct;
+  return { homeWinPct, drawPct, awayWinPct };
+}
+
+/* ── Pre-Match Section Label ───────────────────────── */
+function SectionLabel({ children }) {
+  return (
+    <div style={{
+      fontSize: 9, fontWeight: 700, color: "var(--text3)",
+      textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+/* ── Pre-Match: ELO Win Probability ────────────────── */
+function PreMatchProbBar({ probs, fixture }) {
+  if (!probs) return null;
+  const { homeWinPct, drawPct, awayWinPct } = probs;
+  return (
+    <div style={{
+      background: "var(--card)", borderRadius: 10, padding: "10px 14px",
+      border: "1px solid var(--border)", marginBottom: 10,
+    }}>
+      <SectionLabel>ELO 胜率预测</SectionLabel>
+      <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
+        <div style={{ flex: homeWinPct, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
+        <div style={{ flex: drawPct, background: "var(--text3)" }} />
+        <div style={{ flex: awayWinPct, background: "var(--red)", borderRadius: "0 6px 6px 0" }} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ textAlign: "left" }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--blue)" }}>{homeWinPct}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}胜</div>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text3)" }}>{drawPct}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>平局</div>
+        </div>
+        <div style={{ textAlign: "right" }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--red)" }}>{awayWinPct}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}胜</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Pre-Match: Team Comparison ────────────────────── */
+function TeamComparisonCard({ homePred, awayPred, fixture }) {
+  if (!homePred || !awayPred) return null;
+
+  const rows = [
+    { label: "ELO", home: homePred.elo, away: awayPred.elo },
+    { label: "世界排名", home: `#${homePred.rank}`, away: `#${awayPred.rank}` },
+    { label: "夺冠概率", home: homePred.titleProbability, away: awayPred.titleProbability },
+    { label: "出线概率", home: `${homePred.pQualify}%`, away: `${awayPred.pQualify}%` },
+  ];
+
+  return (
+    <div style={{
+      background: "var(--card)", borderRadius: 10,
+      border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+    }}>
+      <div style={{ padding: "10px 14px 8px" }}>
+        <SectionLabel>球队对比</SectionLabel>
+      </div>
+      {/* Team headers */}
+      <div style={{
+        display: "flex", justifyContent: "space-between", padding: "0 14px 8px",
+        borderBottom: "1px solid var(--border)",
+      }}>
+        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--blue)" }}>
+          {fixture.home.flag} {fixture.home.name}
+        </span>
+        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--red)" }}>
+          {fixture.away.name} {fixture.away.flag}
+        </span>
+      </div>
+      {rows.map((row, i) => {
+        const homeNum = typeof row.home === "number" ? row.home : parseFloat(String(row.home).replace(/[^0-9.]/g, ""));
+        const awayNum = typeof row.away === "number" ? row.away : parseFloat(String(row.away).replace(/[^0-9.]/g, ""));
+        const isRank = row.label === "世界排名";
+        const homeHighlight = !isNaN(homeNum) && !isNaN(awayNum) && (isRank ? homeNum < awayNum : homeNum > awayNum);
+        const awayHighlight = !isNaN(homeNum) && !isNaN(awayNum) && (isRank ? awayNum < homeNum : awayNum > homeNum);
+        return (
+          <div key={i} style={{
+            display: "flex", alignItems: "center", padding: "8px 14px",
+            borderBottom: i < rows.length - 1 ? "1px solid var(--border)" : "none",
+          }}>
+            <span style={{
+              flex: 1, fontSize: 13, fontWeight: homeHighlight ? 800 : 600,
+              color: homeHighlight ? "var(--blue)" : "var(--text2)",
+              fontVariantNumeric: "tabular-nums",
+            }}>{row.home}</span>
+            <span style={{
+              fontSize: 10, color: "var(--text3)", fontWeight: 600, textAlign: "center",
+              minWidth: 60,
+            }}>{row.label}</span>
+            <span style={{
+              flex: 1, fontSize: 13, fontWeight: awayHighlight ? 800 : 600,
+              color: awayHighlight ? "var(--red)" : "var(--text2)",
+              fontVariantNumeric: "tabular-nums", textAlign: "right",
+            }}>{row.away}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ── Pre-Match: Match Info ─────────────────────────── */
+function MatchInfoCard({ fixture }) {
+  const kickoffDate = fixture.startingAt ? new Date(fixture.startingAt) : null;
+  const bjTime = kickoffDate && !isNaN(kickoffDate)
+    ? kickoffDate.toLocaleString("zh-CN", { timeZone: "Asia/Shanghai", month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false })
+    : fixture.kickoff || null;
+
+  const infoItems = [
+    bjTime && { label: "开球时间", value: `${bjTime} (北京时间)` },
+    fixture.venue && { label: "比赛场地", value: fixture.venue },
+    fixture.group && { label: "小组", value: fixture.group },
+    fixture.stage && { label: "阶段", value: fixture.stage },
+  ].filter(Boolean);
+
+  if (!infoItems.length) return null;
+
+  return (
+    <div style={{
+      background: "var(--card)", borderRadius: 10,
+      border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+    }}>
+      <div style={{ padding: "10px 14px 8px" }}>
+        <SectionLabel>比赛信息</SectionLabel>
+      </div>
+      {infoItems.map((item, i) => (
+        <div key={i} style={{
+          display: "flex", alignItems: "center", padding: "8px 14px",
+          borderTop: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: 10, color: "var(--text3)", fontWeight: 600, width: 60, flexShrink: 0 }}>
+            {item.label}
+          </span>
+          <span style={{ fontSize: 12, color: "var(--text)", fontWeight: 600, flex: 1 }}>
+            {item.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ── Pre-Match: H2H Summary ───────────────────────── */
+function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
+  if (!h2h) return null;
+  const summary = h2h.summary || {};
+  const homeWins = summary[homeIso] ?? 0;
+  const awayWins = summary[awayIso] ?? 0;
+  const draws = summary.draws ?? 0;
+  const total = homeWins + awayWins + draws;
+  const matches = h2h.matches || [];
+  const lastMatch = matches.length > 0 ? matches[matches.length - 1] : null;
+
+  const stageZh = {
+    "group stage": "小组赛", "round of 16": "十六强", "quarter-finals": "八强",
+    "semi-finals": "四强", "final": "决赛", "third-place match": "季军赛",
+  };
+
+  return (
+    <div style={{
+      background: "var(--card)", borderRadius: 10,
+      border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+    }}>
+      <div style={{ padding: "10px 14px 8px" }}>
+        <SectionLabel>世界杯历史交锋</SectionLabel>
+      </div>
+      {total === 0 ? (
+        <div style={{ padding: "8px 14px 12px", fontSize: 12, color: "var(--text2)" }}>
+          两队此前从未在世界杯交手
+        </div>
+      ) : (
+        <>
+          {/* Summary row */}
+          <div style={{ display: "flex", gap: 4, padding: "0 14px 10px" }}>
+            {[
+              { value: homeWins, label: `${fixture.home.flag}胜`, color: "var(--blue)" },
+              { value: draws, label: "平", color: "var(--text3)" },
+              { value: awayWins, label: `${fixture.away.flag}胜`, color: "var(--red)" },
+            ].map((item, i) => (
+              <div key={i} style={{
+                flex: 1, textAlign: "center",
+                background: "var(--card2, rgba(255,255,255,0.04))", borderRadius: 8, padding: "8px 4px",
+              }}>
+                <div style={{ fontSize: 18, fontWeight: 900, color: item.color, fontVariantNumeric: "tabular-nums" }}>
+                  {item.value}
+                </div>
+                <div style={{ fontSize: 9, color: "var(--text3)" }}>{item.label}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ padding: "0 14px 4px", fontSize: 10, color: "var(--text3)", textAlign: "center" }}>
+            共 {total} 场交锋
+          </div>
+          {/* Last meeting */}
+          {lastMatch && (
+            <div style={{
+              padding: "8px 14px 10px", borderTop: "1px solid var(--border)",
+            }}>
+              <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginBottom: 4 }}>
+                最近一次交手
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{ fontSize: 11, color: "var(--text3)" }}>
+                  {lastMatch.tournament.replace("WC-", "")}
+                </span>
+                <span style={{ fontSize: 11, color: "var(--text2)" }}>
+                  {stageZh[lastMatch.stage] || lastMatch.stage}
+                </span>
+                <span style={{ flex: 1 }} />
+                <span style={{ fontSize: 10, color: "var(--text3)" }}>
+                  {lastMatch.home} vs {lastMatch.away}
+                </span>
+                <span style={{
+                  fontSize: 14, fontWeight: 700,
+                  color: lastMatch.winner === homeIso ? "var(--blue)" : lastMatch.winner === awayIso ? "var(--red)" : "var(--text2)",
+                }}>
+                  {lastMatch.pen
+                    ? `${lastMatch.homeScore}-${lastMatch.awayScore} (${lastMatch.homePen}-${lastMatch.awayPen}点)`
+                    : `${lastMatch.homeScore}-${lastMatch.awayScore}`}
+                </span>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
 /* ── Tab: Overview ───────────────────────────────────── */
-function TabOverview({ data, onPlayerClick }) {
+function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, awayIso }) {
   const { stats, events, fixture, predictions } = data;
 
   if (fixture.status === "NS") {
+    // Find team prediction data
+    const homePred = predictionsTeams?.find(t => t.name === fixture.home.name || t.code === homeIso?.toUpperCase());
+    const awayPred = predictionsTeams?.find(t => t.name === fixture.away.name || t.code === awayIso?.toUpperCase());
+    const probs = computeEloProbabilities(homePred, awayPred);
+
     return (
       <div style={{ padding: "12px 12px 0" }}>
-        {predictions && <WinProbBar predictions={predictions} fixture={fixture} />}
-        {!predictions && (
+        {/* API predictions if available, otherwise ELO computed */}
+        {predictions ? (
+          <div style={{ marginBottom: 10 }}>
+            <WinProbBar predictions={predictions} fixture={fixture} />
+          </div>
+        ) : probs ? (
+          <PreMatchProbBar probs={probs} fixture={fixture} />
+        ) : null}
+
+        {/* Team Comparison */}
+        <TeamComparisonCard homePred={homePred} awayPred={awayPred} fixture={fixture} />
+
+        {/* Match Info */}
+        <MatchInfoCard fixture={fixture} />
+
+        {/* H2H Summary */}
+        <H2HSummaryCard h2h={h2hData} fixture={fixture} homeIso={homeIso} awayIso={awayIso} />
+
+        {/* Fallback if nothing available */}
+        {!predictions && !probs && !homePred && !awayPred && !h2hData && (
           <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
             比赛尚未开始，开赛后将实时更新数据
           </div>
@@ -918,6 +1199,11 @@ function MatchDetailInner() {
   const homeIso = useMemo(() => fixture ? nameToIso(fixture.home.originalName) : null, [fixture]);
   const awayIso = useMemo(() => fixture ? nameToIso(fixture.away.originalName) : null, [fixture]);
 
+  // Pre-match data: predictions + H2H (only fetch when NS)
+  const isNS = fixture?.status === "NS";
+  const { data: predictionsData } = usePredictions();
+  const { data: h2hData } = useH2H(isNS ? homeIso : null, isNS ? awayIso : null);
+
   return (
     <div style={{ maxWidth: 480, margin: "0 auto", minHeight: "100dvh", background: "var(--bg)" }}>
       {loading && !fixture && <LoadingSpinner />}
@@ -952,7 +1238,7 @@ function MatchDetailInner() {
 
           {/* Tab content */}
           <div style={{ paddingBottom: 80 }}>
-            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} />}
+            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} />}
             {tab === "stats" && <TabStats data={data} />}
             {tab === "odds" && <TabOdds data={data} />}
             {tab === "lineups" && <TabLineups data={data} />}
