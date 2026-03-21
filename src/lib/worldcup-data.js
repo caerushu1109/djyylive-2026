@@ -639,19 +639,21 @@ export async function getMatchDetail(fixtureId, options = {}) {
           lineups = { home: buildSide("home"), away: buildSide("away") };
         }
 
-        // Fetch odds separately (different endpoint)
-        // SportMonks returns each outcome as a separate entry:
-        //   { market_id: 1, label: "Home", value: "2.10", bookmaker: { name: "bet365" } }
-        //   { market_id: 1, label: "Draw", value: "3.30", bookmaker: { name: "bet365" } }
-        //   { market_id: 1, label: "Away", value: "3.60", bookmaker: { name: "bet365" } }
-        // We group by bookmaker and market to reconstruct full odds.
+        // Fetch odds + predictions IN PARALLEL (don't block on fixture)
+        const oddsUrl = buildSportMonksUrl(`odds/pre-match/fixtures/${fixtureId}`, {
+          include: "bookmaker",
+        });
+        const predUrl = buildSportMonksUrl(`predictions/probabilities/fixtures/${fixtureId}`);
+
+        const [oddsResult, predResult] = await Promise.allSettled([
+          fetchSportMonksJson(oddsUrl),
+          fetchSportMonksJson(predUrl),
+        ]);
+
+        // Parse odds
         let odds = null;
-        try {
-          const oddsUrl = buildSportMonksUrl(`odds/pre-match/fixtures/${fixtureId}`, {
-            include: "bookmaker",
-          });
-          const oddsResponse = await fetchSportMonksJson(oddsUrl);
-          const oddsData = toArray(oddsResponse?.data);
+        if (oddsResult.status === "fulfilled") {
+          const oddsData = toArray(oddsResult.value?.data);
           if (oddsData.length > 0) {
             // ── 1X2 (market_id=1): group by bookmaker ──
             const ftEntries = oddsData.filter((o) => o.market_id === 1);
@@ -669,7 +671,7 @@ export async function getMatchDetail(fixtureId, options = {}) {
 
             // ── Asian Handicap (market_id=28): collect ALL lines ──
             const ahEntries = oddsData.filter((o) => o.market_id === 28);
-            const ahByKey = {}; // keyed by "bookmaker|line"
+            const ahByKey = {};
             for (const o of ahEntries) {
               const bk = o.bookmaker?.name || o.bookmaker_id || "Unknown";
               const line = Number(o.handicap ?? 0);
@@ -684,7 +686,7 @@ export async function getMatchDetail(fixtureId, options = {}) {
 
             // ── Over/Under (market_id=18): collect ALL lines ──
             const ouEntries = oddsData.filter((o) => o.market_id === 18);
-            const ouByKey = {}; // keyed by "bookmaker|line"
+            const ouByKey = {};
             for (const o of ouEntries) {
               const bk = o.bookmaker?.name || o.bookmaker_id || "Unknown";
               const line = Number(o.total ?? o.handicap ?? 2.5);
@@ -699,24 +701,21 @@ export async function getMatchDetail(fixtureId, options = {}) {
 
             odds = {
               "1X2": ft1x2.slice(0, 5),
-              asian_handicap_all: ahAll,        // ALL available AH lines
-              over_under_all: ouAll,             // ALL available O/U lines
-              // Keep legacy single-line for backward compat (first entry or null)
+              asian_handicap_all: ahAll,
+              over_under_all: ouAll,
               asian_handicap: ahAll[0] || null,
               over_under: ouAll.find((o) => o.line === 2.5) || ouAll[0] || null,
             };
           }
-        } catch (_) { /* odds not available yet */ }
+        }
 
-        // Fetch predictions separately
+        // Parse predictions
         let predictions = null;
-        try {
-          const predUrl = buildSportMonksUrl(`predictions/probabilities/fixtures/${fixtureId}`);
-          const predResponse = await fetchSportMonksJson(predUrl);
-          const predData = toArray(predResponse?.data);
+        if (predResult.status === "fulfilled") {
+          const predData = toArray(predResult.value?.data);
           if (predData.length > 0) {
             const find = (type) => predData.find((p) => p.type_id === type)?.predictions;
-            const ftProb = find(1); // fulltime result
+            const ftProb = find(1);
             predictions = {
               home_win: ftProb?.home ?? null,
               draw: ftProb?.draw ?? null,
@@ -726,7 +725,7 @@ export async function getMatchDetail(fixtureId, options = {}) {
               correct_score: null,
             };
           }
-        } catch (_) { /* predictions not available yet */ }
+        }
 
         return freezeFinishedMatchDetail({
           fixture: normalizedFixture,
