@@ -137,7 +137,9 @@ function sortFixtures(fixtures) {
 /** Normalize raw group name from SportMonks → "A组" format */
 function normalizeGroupName(raw) {
   const s = String(raw || "").trim();
-  // "Group A" → "A组", "A组" → "A组", "A组 组" → "A组", "第一组" → skip
+  // SportMonks returns "第一组" for Group I (confuses letter I with number 1)
+  if (/^第一组/.test(s)) return "I组";
+  // "Group A" → "A组", "A组" → "A组", "A组 组" → "A组"
   const m = s.match(/(?:^Group\s+)?([A-L])(?:\s*组)*$/i);
   return m ? `${m[1].toUpperCase()}组` : s;
 }
@@ -211,7 +213,7 @@ function normalizeStandings(rows) {
   });
 
   return [...groups.entries()]
-    .filter(([label]) => /^[A-L]组$/.test(label)) // exclude playoff placeholder groups
+    .filter(([label]) => /^[A-L]组$/.test(label)) // only keep official A-L groups
     .sort(([left], [right]) => compareGroupLabels(left, right))
     .map(([group, list]) => {
       const sorted = [...list].sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || a.name.localeCompare(b.name));

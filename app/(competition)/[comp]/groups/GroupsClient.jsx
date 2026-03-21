@@ -99,8 +99,7 @@ function RulesPanel() {
   );
 }
 
-// FIFA 2026 skips Group I — 11 groups: A-H, J-L
-const PAGE_LABELS = ["AB", "CD", "EF", "GH", "JK", "L"];
+const PAGE_LABELS = ["AB", "CD", "EF", "GH", "IJ", "KL"];
 
 export default function GroupsClient() {
   const { comp } = useParams();
