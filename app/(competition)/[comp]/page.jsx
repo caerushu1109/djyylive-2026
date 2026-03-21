@@ -1,11 +1,12 @@
 "use client";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useFixtures } from "@/lib/hooks/useFixtures";
 import { useElo } from "@/lib/hooks/useElo";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTopScorers } from "@/lib/hooks/useTopScorers";
+import { useTopAssists } from "@/lib/hooks/useTopAssists";
 import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import OddsTicker from "@/components/shared/OddsTicker";
 import MatchCard from "@/components/shared/MatchCard";
@@ -93,53 +94,132 @@ function TournamentProgress({ fixturesData }) {
   );
 }
 
-function TopScorersCard({ comp }) {
-  const { data } = useTopScorers();
+function LeaderboardSection() {
+  const { data: scorersData } = useTopScorers();
+  const { data: assistsData } = useTopAssists();
   const openPlayer = useOpenPlayer();
   const { lookup } = usePlayerIndex();
-  const router = useRouter();
-  const scorers = (data?.scorers || []).slice(0, 3);
-  if (scorers.length === 0) return null;
+  const [tab, setTab] = useState("goals"); // "goals" | "assists"
 
-  const medals = ["🥇", "🥈", "🥉"];
+  const players = tab === "goals"
+    ? (scorersData?.scorers || [])
+    : (assistsData?.assists || []);
+  const isEmpty = players.length === 0;
+
+  const handleClick = (p) => {
+    const histId = lookup(p.playerNameEn || p.player);
+    if (p.playerId || histId) openPlayer(String(p.playerId || histId), p.player, histId);
+  };
+
+  const mainLabel = tab === "goals" ? "进球" : "助攻";
+  const subLabel  = tab === "goals" ? "助攻" : "进球";
 
   return (
     <div style={{
       margin: "0 12px 12px", background: "var(--card)",
       border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden",
     }}>
-      <div style={{ padding: "10px 12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <span style={{ fontSize: 11, fontWeight: 800, color: "var(--text2)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          射手榜
-        </span>
-        <Link href={`/${comp}/scorers`} style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>完整榜 →</Link>
+      {/* Tab header */}
+      <div style={{ display: "flex", borderBottom: "1px solid var(--border)" }}>
+        {[
+          { id: "goals", label: "⚽ 射手榜" },
+          { id: "assists", label: "🅰️ 助攻榜" },
+        ].map((t) => (
+          <button
+            key={t.id}
+            onClick={() => setTab(t.id)}
+            style={{
+              flex: 1, padding: "10px 0", fontSize: 12, fontWeight: 700,
+              color: t.id === tab ? "var(--blue)" : "var(--text3)",
+              borderTop: "none", borderLeft: "none", borderRight: "none",
+              borderBottom: t.id === tab ? "2px solid var(--blue)" : "2px solid transparent",
+              background: "none", cursor: "pointer",
+            }}
+          >
+            {t.label}
+          </button>
+        ))}
       </div>
-      {scorers.map((s, i) => (
-        <div key={s.player || i} style={{
-          display: "flex", alignItems: "center", padding: "7px 12px", gap: 8,
-          borderTop: "1px solid var(--border)",
-        }}>
-          <span style={{ fontSize: 14, width: 20 }}>{medals[i]}</span>
-          <span style={{ fontSize: 16, flexShrink: 0 }}>{s.flag || "🏴"}</span>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div onClick={() => {
-              const histId = lookup(s.playerNameEn || s.player);
-              if (s.playerId || histId) openPlayer(String(s.playerId || histId), s.player, histId);
-            }} style={{
-              fontSize: 12, fontWeight: 700, color: "var(--text)",
-              overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              cursor: "pointer",
-            }}>{s.player}</div>
-            <div onClick={() => router.push(`/team/${encodeURIComponent(s.teamOriginalName || s.team)}`)} style={{ fontSize: 9, color: "var(--text3)", cursor: "pointer" }}>{s.team}</div>
+
+      {isEmpty ? (
+        /* Pre-tournament empty state */
+        <div style={{ padding: "32px 16px", textAlign: "center" }}>
+          <div style={{ fontSize: 28, marginBottom: 8 }}>{tab === "goals" ? "⚽" : "🅰️"}</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "var(--text2)", marginBottom: 4 }}>
+            {tab === "goals" ? "射手榜" : "助攻榜"}
           </div>
-          <div style={{ textAlign: "right", flexShrink: 0 }}>
-            <span style={{ fontSize: 14, fontWeight: 900, color: "var(--gold)", fontVariantNumeric: "tabular-nums" }}>
-              {s.goals}
-            </span>
-            <span style={{ fontSize: 9, color: "var(--text3)", marginLeft: 2 }}>球</span>
-          </div>
+          <div style={{ fontSize: 11, color: "var(--text3)" }}>开赛后自动更新</div>
         </div>
-      ))}
+      ) : (
+        <>
+          {/* Column headers */}
+          <div style={{
+            display: "flex", alignItems: "center", padding: "6px 10px",
+            background: "var(--card2)", fontSize: 9, fontWeight: 700, color: "var(--text3)",
+          }}>
+            <span style={{ width: 26, textAlign: "center" }}>#</span>
+            <span style={{ flex: 1 }}>球员</span>
+            <span style={{ width: 30, textAlign: "center" }}>场</span>
+            <span style={{ width: 30, textAlign: "center" }}>{mainLabel}</span>
+            <span style={{ width: 30, textAlign: "center" }}>{subLabel}</span>
+            <span style={{ width: 34, textAlign: "center" }}>xG</span>
+            <span style={{ width: 34, textAlign: "center" }}>±xG</span>
+          </div>
+          {/* Player rows */}
+          {players.map((p, i) => {
+            const meta = p.teamMeta || {};
+            const mainStat = tab === "goals" ? p.goals : p.assists;
+            const subStat  = tab === "goals" ? p.assists : p.goals;
+            const xg = p.xg ?? "—";
+            const xgDiff = (p.xg != null && mainStat != null) ? (mainStat - p.xg).toFixed(1) : "—";
+            const isTop3 = i < 3;
+            return (
+              <div key={i} style={{
+                display: "flex", alignItems: "center", padding: "7px 10px",
+                borderBottom: i < players.length - 1 ? "1px solid var(--border)" : "none",
+              }}>
+                <span style={{
+                  width: 26, textAlign: "center", fontSize: 11, fontWeight: 800,
+                  color: isTop3 ? "var(--blue)" : "var(--text3)",
+                }}>
+                  {isTop3 ? ["🥇", "🥈", "🥉"][i] : i + 1}
+                </span>
+                <div
+                  onClick={() => handleClick(p)}
+                  style={{ flex: 1, minWidth: 0, cursor: "pointer" }}
+                >
+                  <div style={{
+                    fontSize: 12, fontWeight: 700, color: "var(--text)",
+                    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                  }}>{p.player}</div>
+                  <div style={{ fontSize: 9, color: "var(--text3)", display: "flex", alignItems: "center", gap: 3 }}>
+                    <span>{meta.flag || p.flag}</span>
+                    <span>{meta.shortName || p.team}</span>
+                  </div>
+                </div>
+                <span style={{ width: 30, textAlign: "center", fontSize: 10, color: "var(--text2)", fontVariantNumeric: "tabular-nums" }}>
+                  {p.matches}
+                </span>
+                <span style={{ width: 30, textAlign: "center", fontSize: 13, fontWeight: 900, color: "var(--text)", fontVariantNumeric: "tabular-nums" }}>
+                  {mainStat}
+                </span>
+                <span style={{ width: 30, textAlign: "center", fontSize: 10, color: "var(--text2)", fontVariantNumeric: "tabular-nums" }}>
+                  {subStat}
+                </span>
+                <span style={{ width: 34, textAlign: "center", fontSize: 10, color: "var(--text3)", fontVariantNumeric: "tabular-nums" }}>
+                  {typeof xg === "number" ? xg.toFixed(1) : xg}
+                </span>
+                <span style={{
+                  width: 34, textAlign: "center", fontSize: 10, fontVariantNumeric: "tabular-nums",
+                  color: xgDiff === "—" ? "var(--text3)" : Number(xgDiff) > 0 ? "var(--green)" : Number(xgDiff) < 0 ? "var(--red)" : "var(--text3)",
+                }}>
+                  {xgDiff === "—" ? "—" : (Number(xgDiff) > 0 ? "+" : "") + xgDiff}
+                </span>
+              </div>
+            );
+          })}
+        </>
+      )}
     </div>
   );
 }
@@ -264,9 +344,9 @@ function CompHomePageInner() {
         </div>
       )}
 
-      <TopScorersCard comp={comp} />
+      <LeaderboardSection />
 
-      <div style={{ height: 20 }} />
+      <div style={{ height: 72 }} />
     </div>
   );
 }

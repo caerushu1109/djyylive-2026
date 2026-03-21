@@ -820,20 +820,8 @@ export async function getTopScorers(options = {}) {
     }
   }
 
-  const sample = await readSample();
-  return {
-    source: "sample",
-    scorers: toArray(sample.topScorers).map((row) => {
-      const meta = getTeamMeta(row.team || "");
-      return {
-        ...row,
-        team: meta.shortName,
-        flag: meta.flag,
-        teamMeta: meta,
-      };
-    }),
-    mode: forceSample ? "drill" : "sample",
-  };
+  // No live data available — return empty (pre-tournament)
+  return { source: "none", scorers: [] };
 }
 
 export async function getTopAssists(options = {}) {
@@ -879,17 +867,6 @@ export async function getTopAssists(options = {}) {
     }
   }
 
-  // Fallback: derive from top scorers sample sorted by assists
-  const sample = await readSample();
-  const scorers = toArray(sample.topScorers)
-    .filter((row) => Number(row.assists ?? 0) > 0)
-    .sort((a, b) => Number(b.assists ?? 0) - Number(a.assists ?? 0));
-  return {
-    source: "sample",
-    assists: scorers.map((row) => {
-      const meta = getTeamMeta(row.team || "");
-      return { ...row, team: meta.shortName, flag: meta.flag, teamMeta: meta };
-    }),
-    mode: forceSample ? "drill" : "sample",
-  };
+  // No live data available — return empty (pre-tournament)
+  return { source: "none", assists: [] };
 }
