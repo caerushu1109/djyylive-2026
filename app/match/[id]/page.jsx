@@ -1390,7 +1390,7 @@ function MatchDetailInner() {
         homeStr.attack, homeStr.defense,
         awayStr.attack, awayStr.defense,
         homePred.elo, awayPred.elo,
-        { avgGoals: 2.6, homeBoost, awayBoost }
+        { avgGoals: 3.0, homeBoost, awayBoost }
       );
       return computeMatchOdds(lambdas.home, lambdas.away);
     }
@@ -1400,14 +1400,14 @@ function MatchDetailInner() {
       const lambdas = computeLambda(
         homeStr.attack, homeStr.defense,
         awayStr.attack, awayStr.defense,
-        { avgGoals: 2.6, homeBoost, awayBoost }
+        { avgGoals: 3.0, homeBoost, awayBoost }
       );
       return computeMatchOdds(lambdas.home, lambdas.away);
     }
 
     // Fallback B: ELO only (no strength data)
     if (homePred?.elo && awayPred?.elo) {
-      const lambdas = eloToLambda(homePred.elo, awayPred.elo, { avgGoals: 2.6 });
+      const lambdas = eloToLambda(homePred.elo, awayPred.elo, { avgGoals: 3.0 });
       lambdas.home *= homeBoost;
       lambdas.away *= awayBoost;
       return computeMatchOdds(lambdas.home, lambdas.away);
