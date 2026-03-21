@@ -95,22 +95,22 @@ function TournamentProgress({ fixturesData }) {
   );
 }
 
-const ALERT_STYLES = {
-  injury:   { icon: "🏥", bg: "rgba(255,61,61,0.08)", border: "rgba(255,61,61,0.25)", color: "#ff5252", label: "伤病" },
-  squad:    { icon: "📋", bg: "rgba(68,138,255,0.08)", border: "rgba(68,138,255,0.25)", color: "#448aff", label: "大名单" },
-  result:   { icon: "⚽", bg: "rgba(76,175,80,0.08)", border: "rgba(76,175,80,0.25)", color: "#4caf50", label: "赛果" },
-  transfer: { icon: "🔄", bg: "rgba(255,183,77,0.08)", border: "rgba(255,183,77,0.25)", color: "#ffb74d", label: "转会" },
-  coach:    { icon: "👔", bg: "rgba(171,71,188,0.08)", border: "rgba(171,71,188,0.25)", color: "#ab47bc", label: "换帅" },
+const ALERT_TYPES = {
+  injury:   { color: "#ff5252", label: "伤病" },
+  squad:    { color: "#448aff", label: "名单" },
+  result:   { color: "#4caf50", label: "赛果" },
+  transfer: { color: "#ffb74d", label: "转会" },
+  coach:    { color: "#ab47bc", label: "换帅" },
 };
 
-function digestTimeAgo(isoStr) {
+function digestTimeLabel(isoStr) {
   if (!isoStr) return "";
-  const diff = Date.now() - new Date(isoStr).getTime();
-  const hrs = Math.floor(diff / 3600000);
-  if (hrs < 1) return "刚刚更新";
-  if (hrs < 24) return `${hrs}小时前更新`;
-  const days = Math.floor(hrs / 24);
-  return `${days}天前更新`;
+  const d = new Date(isoStr);
+  const now = new Date();
+  const diffH = Math.floor((now - d) / 3600000);
+  if (diffH < 1) return "刚刚";
+  if (diffH < 24) return `${diffH}h前`;
+  return `${Math.floor(diffH / 24)}d前`;
 }
 
 function DigestSection() {
@@ -123,14 +123,17 @@ function DigestSection() {
   if (!briefing) return null;
 
   const handleCopy = () => {
-    const alertText = alerts.length > 0
-      ? "\n\n" + alerts.map(a => `${ALERT_STYLES[a.type]?.icon || "📌"} ${a.player || ""}（${a.team || ""}）${a.detail}`).join("\n")
-      : "";
-    const matchText = keyMatches.length > 0
-      ? "\n\n" + keyMatches.map(m => `⚽ ${m.home} vs ${m.away} — ${m.detail}`).join("\n")
-      : "";
-    const shareText = `📰 DJYY 世界杯情报站\n\n${briefing}${alertText}${matchText}\n\n— djyylive.com`;
-    navigator.clipboard.writeText(shareText).then(() => {
+    const lines = [`DJYY 世界杯情报站`, "", briefing];
+    if (alerts.length > 0) {
+      lines.push("");
+      alerts.forEach(a => lines.push(`· ${a.player || ""}（${a.team || ""}）${a.detail}`));
+    }
+    if (keyMatches.length > 0) {
+      lines.push("");
+      keyMatches.forEach(m => lines.push(`${m.home} vs ${m.away} — ${m.detail}`));
+    }
+    lines.push("", "djyylive.com");
+    navigator.clipboard.writeText(lines.join("\n")).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
@@ -138,117 +141,135 @@ function DigestSection() {
 
   return (
     <div style={{
-      margin: "0 12px 12px", background: "var(--card)",
-      border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden",
+      margin: "0 12px 12px",
+      background: "linear-gradient(168deg, rgba(25,32,48,0.95) 0%, rgba(15,18,28,0.98) 100%)",
+      border: "1px solid rgba(255,255,255,0.06)",
+      borderRadius: "var(--radius)", overflow: "hidden",
     }}>
-      {/* Header */}
+      {/* Header — minimal, editorial */}
       <div style={{
-        padding: "10px 12px", borderBottom: "1px solid var(--border)",
+        padding: "14px 14px 0",
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <span style={{ fontSize: 14 }}>📡</span>
-          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>DJYY 情报站</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{
+            width: 6, height: 6, borderRadius: "50%",
+            background: "var(--green)", boxShadow: "0 0 6px rgba(76,175,80,0.5)",
+          }} />
+          <span style={{
+            fontSize: 11, fontWeight: 800, color: "var(--text)",
+            letterSpacing: "0.12em", textTransform: "uppercase",
+          }}>
+            DJYY 情报站
+          </span>
         </div>
-        <span style={{ fontSize: 9, color: "var(--text3)" }}>{digestTimeAgo(generatedAt)}</span>
+        <span style={{
+          fontSize: 9, color: "var(--text3)", fontWeight: 500,
+          fontVariantNumeric: "tabular-nums",
+        }}>
+          {digestTimeLabel(generatedAt)}
+        </span>
       </div>
 
-      {/* Briefing */}
-      <div style={{ padding: "12px 12px 10px" }}>
-        <div style={{
-          fontSize: 13, lineHeight: 1.7, color: "var(--text)",
-          fontWeight: 400, letterSpacing: "0.01em",
+      {/* Briefing — clean editorial text */}
+      <div style={{ padding: "12px 14px 14px" }}>
+        <p style={{
+          margin: 0, fontSize: 13, lineHeight: 1.85, color: "rgba(255,255,255,0.82)",
+          fontWeight: 400,
         }}>
           {briefing}
-        </div>
+        </p>
       </div>
 
-      {/* Alerts */}
+      {/* Alerts — compact pill-style tags */}
       {alerts.length > 0 && (
-        <div style={{ padding: "0 12px 10px", display: "flex", flexDirection: "column", gap: 6 }}>
+        <div style={{
+          padding: "0 14px 12px",
+          display: "flex", flexDirection: "column", gap: 0,
+        }}>
           {alerts.map((alert, i) => {
-            const style = ALERT_STYLES[alert.type] || ALERT_STYLES.result;
+            const t = ALERT_TYPES[alert.type] || ALERT_TYPES.result;
             return (
               <div key={i} style={{
-                display: "flex", alignItems: "flex-start", gap: 8,
-                padding: "8px 10px", borderRadius: "var(--radius-sm)",
-                background: style.bg, border: `1px solid ${style.border}`,
+                display: "flex", alignItems: "baseline", gap: 8,
+                padding: "9px 0",
+                borderTop: "1px solid rgba(255,255,255,0.04)",
               }}>
-                <span style={{ fontSize: 14, flexShrink: 0, lineHeight: 1.3 }}>{style.icon}</span>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
-                    <span style={{
-                      fontSize: 9, fontWeight: 800, color: style.color,
-                      textTransform: "uppercase", letterSpacing: "0.06em",
-                    }}>
-                      {style.label}
-                    </span>
-                    {alert.team && (
-                      <span style={{ fontSize: 10, color: "var(--text3)", fontWeight: 600 }}>
-                        {alert.team}
-                      </span>
-                    )}
-                  </div>
-                  <div style={{ fontSize: 12, color: "var(--text)", lineHeight: 1.5 }}>
-                    {alert.player && <strong>{alert.player}</strong>}
-                    {alert.player && alert.detail ? " — " : ""}
-                    {alert.detail}
-                  </div>
-                </div>
+                <span style={{
+                  fontSize: 9, fontWeight: 800, color: t.color,
+                  letterSpacing: "0.04em",
+                  width: 28, flexShrink: 0, textAlign: "right",
+                }}>
+                  {t.label}
+                </span>
+                <span style={{
+                  width: 1, height: 12, background: "rgba(255,255,255,0.08)",
+                  flexShrink: 0, alignSelf: "center",
+                }} />
+                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>
+                  {alert.player && (
+                    <span style={{ fontWeight: 700, color: "var(--text)" }}>{alert.player}</span>
+                  )}
+                  {alert.player && alert.team ? <span style={{ color: "var(--text3)" }}>{` · ${alert.team}`}</span> : ""}
+                  {(alert.player || alert.team) && alert.detail ? " — " : ""}
+                  {alert.detail}
+                </span>
               </div>
             );
           })}
         </div>
       )}
 
-      {/* Key Matches */}
+      {/* Key Matches — clean rows */}
       {keyMatches.length > 0 && (
-        <div style={{ padding: "0 12px 10px" }}>
-          <div style={{
-            fontSize: 10, fontWeight: 700, color: "var(--text3)",
-            textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6,
-          }}>
-            焦点赛事
-          </div>
+        <div style={{
+          margin: "0 14px", padding: "10px 0",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+        }}>
           {keyMatches.map((m, i) => (
             <div key={i} style={{
-              display: "flex", alignItems: "center", gap: 8,
-              padding: "8px 0",
-              borderBottom: i < keyMatches.length - 1 ? "1px solid var(--border)" : "none",
+              display: "flex", alignItems: "center",
+              padding: "6px 0",
             }}>
-              <span style={{ fontSize: 13, flexShrink: 0 }}>⚽</span>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>
-                  {m.home} vs {m.away}
-                </div>
-                <div style={{ fontSize: 11, color: "var(--text3)", marginTop: 2, lineHeight: 1.4 }}>
-                  {m.detail}
-                </div>
-              </div>
+              <div style={{
+                width: 3, height: 3, borderRadius: "50%",
+                background: "var(--blue)", flexShrink: 0, marginRight: 10,
+              }} />
+              <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", whiteSpace: "nowrap" }}>
+                {m.home} vs {m.away}
+              </span>
+              <span style={{
+                fontSize: 11, color: "var(--text3)", marginLeft: 8,
+                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              }}>
+                {m.detail}
+              </span>
             </div>
           ))}
         </div>
       )}
 
-      {/* Footer: sources + share */}
+      {/* Footer — ultra minimal */}
       <div style={{
-        padding: "8px 12px", borderTop: "1px solid var(--border)",
+        padding: "10px 14px",
+        borderTop: "1px solid rgba(255,255,255,0.04)",
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        <div style={{ fontSize: 9, color: "var(--text3)" }}>
-          来源：{sources.join(" · ")}
-        </div>
+        <span style={{ fontSize: 9, color: "rgba(255,255,255,0.2)", fontWeight: 500 }}>
+          {sources.join(" / ")}
+        </span>
         <button
           onClick={handleCopy}
           style={{
-            padding: "4px 10px", borderRadius: 4, fontSize: 10, fontWeight: 700,
-            color: copied ? "var(--green)" : "var(--blue)",
-            background: copied ? "rgba(76,175,80,0.1)" : "rgba(68,138,255,0.1)",
-            border: `1px solid ${copied ? "rgba(76,175,80,0.3)" : "rgba(68,138,255,0.2)"}`,
+            padding: "5px 12px", borderRadius: 20, fontSize: 10, fontWeight: 600,
+            color: copied ? "var(--green)" : "rgba(255,255,255,0.5)",
+            background: copied ? "rgba(76,175,80,0.12)" : "rgba(255,255,255,0.04)",
+            border: "1px solid " + (copied ? "rgba(76,175,80,0.2)" : "rgba(255,255,255,0.06)"),
             cursor: "pointer", transition: "all 0.2s",
+            letterSpacing: "0.04em",
           }}
         >
-          {copied ? "✓ 已复制" : "📋 复制分享"}
+          {copied ? "✓ 已复制" : "分享"}
         </button>
       </div>
     </div>
