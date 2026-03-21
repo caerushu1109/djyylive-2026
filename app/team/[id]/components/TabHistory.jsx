@@ -355,10 +355,10 @@ export default function TabHistory({ historyData, teamDetail }) {
             {[
               { value: appearances ?? 0, label: "届世界杯" },
               { value: titles ?? 0,      label: "次冠军" },
-              { value: bestResultLabel(bestResult), label: "最佳成绩", small: true },
+              { value: bestResultLabel(bestResult), label: "最佳成绩", text: true },
             ].map((item, i) => (
               <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
-                <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
+                <div style={{ fontSize: item.text ? 16 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
                   {item.value}
                 </div>
                 <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 2 }}>{item.label}</div>
