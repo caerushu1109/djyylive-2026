@@ -20,21 +20,31 @@ export default function MatchCard({ fixture, onClick, predictions, showVenue = f
   const borderColor = status === "LIVE" ? "rgba(255,61,61,0.3)" : "var(--border)";
   const scoreColor = status === "LIVE" ? "var(--live)" : "var(--text)";
 
-  // ELO predictions for this match
+  // ELO predictions — aligned with generate_predictions.py parameters
+  const ELO_DIVISOR = 515;
+  const HOST_BONUS = 60;
+  const DRAW_BASE = 0.22;
+  const HOST_CODES = ["US", "CA", "MX"]; // 2026 WC hosts
+
   const homePred = predictions?.find(t => t.name === home.name || t.code === home.code);
   const awayPred = predictions?.find(t => t.name === away.name || t.code === away.code);
-  const homeElo = homePred?.elo;
-  const awayElo = awayPred?.elo;
-  const showPred = status === "NS" && homeElo && awayElo;
+  const homeEloRaw = homePred?.elo;
+  const awayEloRaw = awayPred?.elo;
+  const showPred = status === "NS" && homeEloRaw && awayEloRaw;
 
-  // Simple ELO win probability
   let homeWinPct, drawPct, awayWinPct;
   if (showPred) {
+    // Apply host bonus
+    const homeElo = homeEloRaw + (HOST_CODES.includes(homePred?.code) ? HOST_BONUS : 0);
+    const awayElo = awayEloRaw + (HOST_CODES.includes(awayPred?.code) ? HOST_BONUS : 0);
+
     const diff = homeElo - awayElo;
-    const homeExp = 1 / (1 + Math.pow(10, -diff / 400));
-    drawPct = Math.max(10, 25 - Math.abs(diff) / 20);
-    homeWinPct = (homeExp * 100) * (1 - drawPct / 100);
+    const homeExp = 1 / (1 + Math.pow(10, -diff / ELO_DIVISOR));
+    // Draw probability: 22% base, decays with ELO gap, min 0%
+    drawPct = Math.max(0, DRAW_BASE * (1 - Math.abs(diff) / 400)) * 100;
+    homeWinPct = homeExp * 100 * (1 - drawPct / 100);
     awayWinPct = 100 - homeWinPct - drawPct;
+    // Round
     homeWinPct = Math.round(homeWinPct);
     drawPct = Math.round(drawPct);
     awayWinPct = 100 - homeWinPct - drawPct;
