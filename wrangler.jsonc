@@ -20,8 +20,6 @@
   "placement": {
     "mode": "smart"
   },
-  "routes": [
-    { "pattern": "djyylive.com/*", "zone_name": "djyylive.com" },
-    { "pattern": "www.djyylive.com/*", "zone_name": "djyylive.com" }
-  ]
+  // Routes are managed via Cloudflare dashboard to avoid re-registration errors in CI.
+  // Custom domains (djyylive.com, www.djyylive.com) are already configured.
 }
