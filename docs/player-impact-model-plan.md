@@ -33,21 +33,19 @@ ELO + Strength → hybridLambda (baseline xG)
 
 ## 分阶段实施
 
-### Phase 1：关键球员简化版（建议赛前完成）
-- 每支队标记 3-5 名关键球员
-- 手动给定 attack_impact / defense_impact（无需子分数）
-- 首发公布后，检测关键球员在/不在，做简单 xG 修正
-- 前端：MatchCard 或比赛详情页加"阵容影响"提示
-- **预计工作量：3-5 天**
-- **数据量：48 队 × ~4 人 = ~200 条球员记录**
-
-### Phase 2：全量球员 + 自动化（赛中迭代）
-- 接入 SportMonks 球员赛季统计，自动计算 5 维子分数
-  - finishing, chance_creation, ball_progression, pressing_defense, aerial_duel
+### Phase 1：FBref 俱乐部数据抓取 + 自动化子分数（优先）
+- **放弃手动评分方案**（人为因素导致不准确）
+- 用 Python 脚本从 FBref 抓取球员近 2 年俱乐部赛季数据
+- 自动计算 5 维子分数：finishing, chance_creation, ball_progression, pressing_defense, aerial_duel
+- SportMonks 国家队数据作为交叉验证/补充（42 种统计项可用，但样本少）
 - 建立 48 队完整参考阵容（标准最强首发）
-- 首发公布 → 自动读取 lineups API → 重算概率
-- 换人事件 → 实时修正滚球概率
-- **预计工作量：1-2 周（数据准备是大头）**
+- **预计工作量：1-2 周**
+
+### Phase 2：首发修正 + 滚球换人
+- 首发公布 → 自动读取 SportMonks lineups API → 重算概率
+- 换人事件 → 实时修正滚球概率（lineup_delta × remaining_minutes/90）
+- 红牌 → 球员 impact 归零 + 少一人惩罚系数
+- **预计工作量：3-5 天（Phase 1 数据就绪后）**
 
 ### Phase 3：参数标定（长期）
 - 用历史首发 + 赛果回归 lineup_scale 等参数
@@ -56,16 +54,21 @@ ELO + Strength → hybridLambda (baseline xG)
 
 ## 数据需求
 
-### Phase 1 需要
-- [ ] 48 队关键球员名单（3-5 人/队）
-- [ ] 每人 attack_impact / defense_impact 手动评分
-- [ ] SportMonks lineups API 确认可用
-
-### Phase 2 需要
-- [ ] SportMonks 球员赛季统计 API（确认字段覆盖度）
-- [ ] FBref 数据备选方案（如 SportMonks 不够细）
+### Phase 1 需要（FBref 数据抓取）
+- [ ] FBref 抓取脚本：球员近 2 赛季俱乐部数据（Goals, xG, Assists, xA, Key Passes, Tackles, Interceptions, Aerial Duels, Progressive Passes/Carries 等）
+- [ ] 子分数自动计算逻辑（FBref 原始数据 → 5 维标准化分数）
 - [ ] 48 队参考阵容 JSON
+- [ ] SportMonks 国家队数据作为补充验证
+
+### Phase 2 需要（实时修正）
+- [ ] SportMonks lineups API 首发读取
 - [ ] 换人事件 webhook 或轮询机制
+- [ ] 滚球概率修正逻辑（时间衰减系数）
+
+### SportMonks 已确认可用数据（国家队）
+- 42 种统计项：Goals, Assists, Shots, Key Passes, Tackles, Interceptions, Clearances, Aerials Won, Dribbles, Passes, Rating 等
+- 仅覆盖 WC 相关赛季（2018/2022/2026 预选赛+决赛圈），无俱乐部数据
+- 每球员约 10-20 场国家队样本，不足以单独支撑模型
 
 ## 额外创意
 
@@ -75,6 +78,7 @@ ELO + Strength → hybridLambda (baseline xG)
 
 ## 关键决策点
 
-- [ ] Phase 1 的球员评分由谁来做？（人工 vs 半自动）
-- [ ] 是否优先做关键球员简化版，还是直接上全量？
+- [x] ~~Phase 1 的球员评分由谁来做？~~ → **FBref 自动抓取，不做手动版**
+- [ ] FBref 抓取频率？（每周一次 vs 赛前按需）
 - [ ] 前端展示放在哪里？（MatchCard 内 / 比赛详情页新 Tab / 独立面板）
+- [ ] SportMonks 试用期 3/26 到期，是否续费？

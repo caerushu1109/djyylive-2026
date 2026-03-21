@@ -15,6 +15,7 @@ import TopBar from "@/components/shared/TopBar";
 import Countdown from "@/components/shared/Countdown";
 import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
+import { useNews } from "@/lib/hooks/useNews";
 
 const COMP_LABELS = { wc2026: "2026 WC" };
 const MEDALS = ["🥇", "🥈", "🥉"];
@@ -90,6 +91,96 @@ function TournamentProgress({ fixturesData }) {
           width: `${pct}%`, transition: "width 0.5s",
         }} />
       </div>
+    </div>
+  );
+}
+
+const SOURCE_COLORS = { BBC: "#bb1919", ESPN: "#d00", FIFA: "#326295" };
+
+function timeAgo(dateStr) {
+  if (!dateStr) return "";
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 60) return `${mins}分钟前`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}小时前`;
+  const days = Math.floor(hrs / 24);
+  return `${days}天前`;
+}
+
+function NewsSection() {
+  const { data, loading } = useNews();
+  const news = data?.news || [];
+
+  if (loading) return null; // Don't show skeleton, just hide until loaded
+  if (news.length === 0) return null; // No news, hide section
+
+  return (
+    <div style={{
+      margin: "0 12px 12px", background: "var(--card)",
+      border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden",
+    }}>
+      {/* Header */}
+      <div style={{
+        padding: "10px 12px", borderBottom: "1px solid var(--border)",
+        display: "flex", alignItems: "center", gap: 6,
+      }}>
+        <span style={{ fontSize: 14 }}>📰</span>
+        <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>世界杯动态</span>
+      </div>
+
+      {/* News items */}
+      {news.slice(0, 8).map((item, i) => (
+        <a
+          key={i}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "flex", alignItems: "flex-start", gap: 10,
+            padding: "10px 12px",
+            borderBottom: i < Math.min(news.length, 8) - 1 ? "1px solid var(--border)" : "none",
+            textDecoration: "none", color: "inherit",
+          }}
+        >
+          {/* Thumbnail */}
+          {item.thumbnail && (
+            <img
+              src={item.thumbnail}
+              alt=""
+              style={{
+                width: 56, height: 56, borderRadius: 6, objectFit: "cover",
+                flexShrink: 0, background: "var(--card2)",
+              }}
+              loading="lazy"
+            />
+          )}
+          {/* Text */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{
+              fontSize: 12, fontWeight: 600, color: "var(--text)",
+              lineHeight: 1.4,
+              display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}>
+              {item.title}
+            </div>
+            <div style={{
+              marginTop: 4, display: "flex", alignItems: "center", gap: 6,
+              fontSize: 10, color: "var(--text3)",
+            }}>
+              <span style={{
+                padding: "1px 4px", borderRadius: 3, fontWeight: 700, fontSize: 9,
+                color: "#fff",
+                background: SOURCE_COLORS[item.source] || "var(--text3)",
+              }}>
+                {item.source}
+              </span>
+              <span>{timeAgo(item.pubDate)}</span>
+            </div>
+          </div>
+        </a>
+      ))}
     </div>
   );
 }
@@ -343,6 +434,8 @@ function CompHomePageInner() {
           )}
         </div>
       )}
+
+      <NewsSection />
 
       <LeaderboardSection />
 
