@@ -9,6 +9,12 @@ let sampleCache = null;
 const finishedFixtureCache = new Map();
 const finishedMatchDetailCache = new Map();
 
+// Server-side fixtures data cache — prevents duplicate SportMonks calls
+// within the same Worker instance (e.g. /api/fixtures + /api/standings)
+let _fixturesCache = null;
+let _fixturesCacheTs = 0;
+const FIXTURES_CACHE_TTL = 30000; // 30s
+
 function toArray(value) {
   return Array.isArray(value) ? value : [];
 }
@@ -511,17 +517,26 @@ async function fetchSportMonksFixtures() {
 
 export async function getFixturesData(options = {}) {
   const forceSample = options.mode === "drill";
+
+  // Return cached data if fresh (prevents duplicate SportMonks calls)
+  if (!forceSample && _fixturesCache && Date.now() - _fixturesCacheTs < FIXTURES_CACHE_TTL) {
+    return _fixturesCache;
+  }
+
   let fallbackReason = null;
 
   if (!forceSample && process.env.SPORTMONKS_API_TOKEN) {
     try {
       const sportMonksData = await fetchSportMonksFixtures();
-      return {
+      const result = {
         ...sportMonksData,
         groupedFixtures: groupFixtures(sportMonksData.fixtures),
         liveCount: sportMonksData.fixtures.filter((fixture) => fixture.status === "LIVE").length,
         mode: "live",
       };
+      _fixturesCache = result;
+      _fixturesCacheTs = Date.now();
+      return result;
     } catch (error) {
       fallbackReason = error instanceof Error ? error.message : String(error);
       console.warn("Falling back to sample SportMonks data:", error);
