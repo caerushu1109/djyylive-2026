@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import GroupTable from "@/components/wc/GroupTable";
-import { getTeamTrend } from "@/lib/hooks/useEloTrends";
+
 import ProgressionFunnel from "./ProgressionFunnel";
 import GroupComparisonCards from "./GroupOpponents";
 import { H2HSection } from "./H2HCard";
@@ -78,112 +78,70 @@ function ModelMarketCard({ modelPct, marketPct }) {
   );
 }
 
-// ── ELO History Chart ─────────────────────────────────────────────────────────
-function EloHistoryChart({ originalName, code }) {
-  const [points, setPoints] = useState(null);
-  const [failed, setFailed] = useState(false);
+// ── Combined ELO Trend Chart (team + group opponents) ────────────────────────
+function GroupEloChart({ teamElo, groupOpponentIsos, eloData }) {
+  const [teamLines, setTeamLines] = useState([]);
+  const [loadState, setLoadState] = useState("idle"); // idle | loading | done
 
   useEffect(() => {
-    if (!originalName || !code) return;
-    fetch(`/api/elo-history?name=${encodeURIComponent(originalName)}&code=${encodeURIComponent(code)}`)
-      .then((r) => r.json())
-      .then((d) => setPoints(d.points || []))
-      .catch(() => setFailed(true));
-  }, [originalName, code]);
+    if (!teamElo?.originalName || !teamElo?.code) return;
 
-  if (failed || (points && points.length < 2)) return null;
-  if (!points) return (
-    <div style={{ height: 80, display: "flex", alignItems: "center",
-      justifyContent: "center", color: "var(--text3)", fontSize: 11 }}>
-      加载中...
+    // Build list: current team first, then group opponents
+    const teams = [{ name: teamElo.originalName, code: teamElo.code, zhName: teamElo.name }];
+    if (groupOpponentIsos?.length > 0 && eloData?.rankings) {
+      for (const iso of groupOpponentIsos) {
+        const r = eloData.rankings.find((t) => t.code === iso);
+        if (r) teams.push({ name: r.originalName, code: r.code, zhName: r.name });
+      }
+    }
+
+    setLoadState("loading");
+    Promise.all(
+      teams.map((t) =>
+        fetch(`/api/elo-history?name=${encodeURIComponent(t.name)}&code=${encodeURIComponent(t.code)}`)
+          .then((r) => r.json())
+          .then((d) => ({
+            code: t.code,
+            name: t.zhName || t.name,
+            points: (d.points || []).filter((p) => p.year >= 2006),
+          }))
+          .catch(() => null)
+      )
+    ).then((results) => {
+      setTeamLines(results.filter((r) => r && r.points.length >= 2));
+      setLoadState("done");
+    });
+  }, [teamElo, groupOpponentIsos, eloData]);
+
+  if (loadState === "idle") return null;
+  if (loadState === "loading") return (
+    <div style={{
+      background: "var(--card)", border: "1px solid var(--border)",
+      borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px",
+    }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", padding: "0 4px 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+        同组 ELO 走势对比
+      </div>
+      <div style={{ height: 100, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text3)", fontSize: 11 }}>
+        加载中...
+      </div>
     </div>
   );
+  if (teamLines.length < 1) return null;
 
-  const W = 360, H = 110;
-  const PAD = { t: 12, r: 16, b: 22, l: 38 };
+  const hasOpponents = teamLines.length > 1;
+  const COLORS = ["#4da6ff", "#2ecc71", "#f5a623", "#e05252"];
+  const W = 360, H = hasOpponents ? 150 : 110;
+  const PAD = { t: 12, r: 50, b: 22, l: 38 };
   const cW = W - PAD.l - PAD.r;
   const cH = H - PAD.t - PAD.b;
-  const elos = points.map((p) => p.elo);
-  const minE = Math.min(...elos) - 40;
-  const maxE = Math.max(...elos) + 40;
   const WC_YEARS = [2006, 2010, 2014, 2018, 2022, 2026];
 
+  const allElos = teamLines.flatMap((t) => t.points.map((p) => p.elo));
+  const minE = Math.min(...allElos) - 40;
+  const maxE = Math.max(...allElos) + 40;
+
   const xp = (yr) => PAD.l + ((yr - 2006) / 20) * cW;
-  const yp = (e) => PAD.t + cH - ((e - minE) / (maxE - minE)) * cH;
-
-  const linePoints = points.map((p) => `${xp(p.year)},${yp(p.elo)}`).join(" ");
-  const fp = points[0], lp = points[points.length - 1];
-  const fillD = `M${xp(fp.year)},${PAD.t + cH} L${xp(fp.year)},${yp(fp.elo)} ` +
-    points.slice(1).map((p) => `L${xp(p.year)},${yp(p.elo)}`).join(" ") +
-    ` L${xp(lp.year)},${PAD.t + cH}Z`;
-
-  const yStep = Math.round((maxE - minE) / 2 / 50) * 50 || 50;
-  const yStart = Math.ceil(minE / yStep) * yStep;
-  const yGridLines = [];
-  for (let e = yStart; e <= maxE; e += yStep) yGridLines.push(e);
-
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
-      <defs>
-        <linearGradient id="eloHFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#4da6ff" stopOpacity="0.2" />
-          <stop offset="100%" stopColor="#4da6ff" stopOpacity="0.01" />
-        </linearGradient>
-      </defs>
-      {WC_YEARS.map((yr) => (
-        <line key={yr} x1={xp(yr)} y1={PAD.t} x2={xp(yr)} y2={PAD.t + cH}
-          stroke="rgba(255,193,7,0.2)" strokeWidth="1" strokeDasharray="2,3" />
-      ))}
-      {yGridLines.map((e) => (
-        <g key={e}>
-          <line x1={PAD.l} y1={yp(e)} x2={PAD.l + cW} y2={yp(e)}
-            stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" />
-          <text x={PAD.l - 5} y={yp(e) + 3.5} textAnchor="end"
-            fill="rgba(255,255,255,0.32)" fontSize="8.5" fontFamily="monospace">
-            {e}
-          </text>
-        </g>
-      ))}
-      <path d={fillD} fill="url(#eloHFill)" />
-      <polyline points={linePoints} fill="none" stroke="#4da6ff"
-        strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
-      {points.filter((p) => WC_YEARS.includes(p.year)).map((p) => (
-        <circle key={p.year} cx={xp(p.year)} cy={yp(p.elo)} r="2.8"
-          fill="#4da6ff" stroke="var(--bg, #0d0d0d)" strokeWidth="1.2" />
-      ))}
-      <text x={xp(lp.year) - 6} y={yp(lp.elo) - 5} textAnchor="end"
-        fill="#4da6ff" fontSize="9" fontFamily="monospace" fontWeight="700">
-        {lp.elo}
-      </text>
-      {WC_YEARS.map((yr) => (
-        <text key={yr} x={xp(yr)} y={H - 5} textAnchor="middle"
-          fill="rgba(255,255,255,0.3)" fontSize="8.5" fontFamily="sans-serif">
-          {yr}
-        </text>
-      ))}
-    </svg>
-  );
-}
-
-// ── Group ELO Trend Comparison Chart ──────────────────────────────────────────
-function GroupEloChart({ teamCode, groupOpponentIsos, eloTrends, eloData }) {
-  if (!eloTrends || !teamCode || !groupOpponentIsos || groupOpponentIsos.length === 0) return null;
-
-  const allCodes = [teamCode, ...groupOpponentIsos];
-  const teamTrends = allCodes.map((code) => getTeamTrend(eloTrends, code)).filter(Boolean);
-  if (teamTrends.length < 2) return null;
-
-  const COLORS = ["var(--blue)", "var(--green)", "var(--amber)", "var(--red)"];
-  const W = 360, H = 140;
-  const PAD = { t: 14, r: 16, b: 22, l: 40 };
-  const cW = W - PAD.l - PAD.r;
-  const cH = H - PAD.t - PAD.b;
-
-  const allElos = teamTrends.flatMap((t) => t.points.map((p) => p.elo));
-  const minE = Math.min(...allElos) - 50;
-  const maxE = Math.max(...allElos) + 50;
-  const allLabels = teamTrends[0].points.map((p) => p.label);
-  const xp = (i) => PAD.l + (i / (allLabels.length - 1)) * cW;
   const yp = (e) => PAD.t + cH - ((e - minE) / (maxE - minE)) * cH;
 
   const yStep = Math.round((maxE - minE) / 3 / 50) * 50 || 50;
@@ -201,10 +159,17 @@ function GroupEloChart({ teamCode, groupOpponentIsos, eloTrends, eloData }) {
         fontSize: 10, fontWeight: 700, color: "var(--text3)",
         textTransform: "uppercase", letterSpacing: "0.06em",
       }}>
-        同组 ELO 走势对比
+        {hasOpponents ? "同组 ELO 走势对比" : "近20年 ELO 走势"}
       </div>
       <div style={{ padding: "8px 8px 4px" }}>
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
+          <defs>
+            <linearGradient id="eloMainFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={COLORS[0]} stopOpacity="0.15" />
+              <stop offset="100%" stopColor={COLORS[0]} stopOpacity="0.01" />
+            </linearGradient>
+          </defs>
+          {/* Y grid */}
           {yLines.map((e) => (
             <g key={e}>
               <line x1={PAD.l} y1={yp(e)} x2={PAD.l + cW} y2={yp(e)}
@@ -213,53 +178,84 @@ function GroupEloChart({ teamCode, groupOpponentIsos, eloTrends, eloData }) {
                 fill="rgba(255,255,255,0.32)" fontSize="8.5" fontFamily="monospace">{e}</text>
             </g>
           ))}
-          {allLabels.filter((_, i) => i % 2 === 0).map((label, idx) => {
-            const i = allLabels.indexOf(label);
-            return (
-              <text key={label} x={xp(i)} y={H - 5} textAnchor="middle"
-                fill="rgba(255,255,255,0.3)" fontSize="8" fontFamily="sans-serif">{label}</text>
-            );
-          })}
-          {teamTrends.map((team, ti) => {
-            const pts = team.points.map((p, i) => `${xp(i)},${yp(p.elo)}`).join(" ");
+          {/* World Cup year markers */}
+          {WC_YEARS.map((yr) => (
+            <line key={yr} x1={xp(yr)} y1={PAD.t} x2={xp(yr)} y2={PAD.t + cH}
+              stroke="rgba(255,193,7,0.15)" strokeWidth="1" strokeDasharray="2,3" />
+          ))}
+          {/* X labels */}
+          {WC_YEARS.map((yr) => (
+            <text key={yr} x={xp(yr)} y={H - 5} textAnchor="middle"
+              fill="rgba(255,255,255,0.3)" fontSize="8.5" fontFamily="sans-serif">{yr}</text>
+          ))}
+          {/* Fill under main team line */}
+          {teamLines[0]?.points.length > 1 && (() => {
+            const pts = teamLines[0].points;
+            const fp = pts[0], lp = pts[pts.length - 1];
+            const fillD = `M${xp(fp.year)},${PAD.t + cH} L${xp(fp.year)},${yp(fp.elo)} ` +
+              pts.slice(1).map((p) => `L${xp(p.year)},${yp(p.elo)}`).join(" ") +
+              ` L${xp(lp.year)},${PAD.t + cH}Z`;
+            return <path d={fillD} fill="url(#eloMainFill)" />;
+          })()}
+          {/* Draw opponent lines first (behind main line) */}
+          {teamLines.slice(1).map((team, ti) => {
+            const pts = team.points.map((p) => `${xp(p.year)},${yp(p.elo)}`).join(" ");
             return (
               <polyline key={team.code} points={pts} fill="none"
-                stroke={COLORS[ti % COLORS.length]} strokeWidth={ti === 0 ? "2" : "1.4"}
-                strokeLinejoin="round" strokeLinecap="round"
-                opacity={ti === 0 ? 1 : 0.65} />
+                stroke={COLORS[(ti + 1) % COLORS.length]} strokeWidth="1.3"
+                strokeLinejoin="round" strokeLinecap="round" opacity="0.6" />
             );
           })}
-          {teamTrends.map((team, ti) => {
+          {/* Main team line (on top) */}
+          {teamLines[0]?.points.length > 1 && (
+            <polyline
+              points={teamLines[0].points.map((p) => `${xp(p.year)},${yp(p.elo)}`).join(" ")}
+              fill="none" stroke={COLORS[0]} strokeWidth="2"
+              strokeLinejoin="round" strokeLinecap="round" />
+          )}
+          {/* WC year dots for main team */}
+          {teamLines[0]?.points.filter((p) => WC_YEARS.includes(p.year)).map((p) => (
+            <circle key={p.year} cx={xp(p.year)} cy={yp(p.elo)} r="2.5"
+              fill={COLORS[0]} stroke="var(--bg, #0d0d0d)" strokeWidth="1" />
+          ))}
+          {/* End labels for all teams */}
+          {teamLines.map((team, ti) => {
             const lp = team.points[team.points.length - 1];
-            const lastIdx = team.points.length - 1;
+            if (!lp) return null;
+            const color = COLORS[ti % COLORS.length];
+            // Stagger labels to avoid overlap
+            const yOffset = ti * 11;
             return (
-              <g key={`dot-${team.code}`}>
-                <circle cx={xp(lastIdx)} cy={yp(lp.elo)} r="3"
-                  fill={COLORS[ti % COLORS.length]} stroke="var(--bg)" strokeWidth="1" />
-                <text x={xp(lastIdx) + 6} y={yp(lp.elo) + 3.5}
-                  fill={COLORS[ti % COLORS.length]} fontSize="8" fontFamily="monospace" fontWeight="700">
-                  {lp.elo}
+              <g key={`label-${team.code}`}>
+                <circle cx={xp(lp.year)} cy={yp(lp.elo)} r={ti === 0 ? "3" : "2.5"}
+                  fill={color} stroke="var(--bg)" strokeWidth="1" />
+                <text x={PAD.l + cW + 6} y={PAD.t + 8 + yOffset}
+                  fill={color} fontSize="8" fontFamily="monospace" fontWeight={ti === 0 ? "700" : "500"}>
+                  {team.name} {lp.elo}
                 </text>
               </g>
             );
           })}
         </svg>
       </div>
-      <div style={{
-        padding: "4px 12px 8px", display: "flex", flexWrap: "wrap", gap: 8,
-      }}>
-        {teamTrends.map((team, ti) => (
-          <span key={team.code} style={{ fontSize: 10, display: "flex", alignItems: "center", gap: 3 }}>
-            <span style={{
-              display: "inline-block", width: 10, height: 3, borderRadius: 1,
-              background: COLORS[ti % COLORS.length], opacity: ti === 0 ? 1 : 0.65,
-            }} />
-            <span style={{ color: COLORS[ti % COLORS.length], fontWeight: ti === 0 ? 700 : 500 }}>
-              {team.name}
+      {/* Legend */}
+      {hasOpponents && (
+        <div style={{
+          padding: "2px 12px 8px", display: "flex", flexWrap: "wrap", gap: 8,
+        }}>
+          {teamLines.map((team, ti) => (
+            <span key={team.code} style={{ fontSize: 10, display: "flex", alignItems: "center", gap: 3 }}>
+              <span style={{
+                display: "inline-block", width: 10, height: ti === 0 ? 3 : 2, borderRadius: 1,
+                background: COLORS[ti % COLORS.length], opacity: ti === 0 ? 1 : 0.6,
+              }} />
+              <span style={{ color: COLORS[ti % COLORS.length], fontWeight: ti === 0 ? 700 : 500 }}>
+                {team.name}
+              </span>
             </span>
-          </span>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -326,7 +322,7 @@ function TeamProfileCard({ teamDetail }) {
   );
 }
 
-export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, teamDetail, groupOpponentIsos, eloData, predData, eloTrends, teamIso }) {
+export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, teamDetail, groupOpponentIsos, eloData, predData, teamIso }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: "12px 16px 20px" }}>
       {/* Team Profile Card */}
@@ -346,17 +342,9 @@ export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, h
       {/* Group standings */}
       {teamGroup && <GroupTable group={teamGroup} />}
 
-      {/* ELO chart */}
+      {/* ELO trend chart (combined: team + group opponents) */}
       {teamElo && (
-        <div style={{
-          background: "var(--card)", border: "1px solid var(--border)",
-          borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px 4px",
-        }}>
-          <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", padding: "0 4px 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            近20年 ELO 走势
-          </div>
-          <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
-        </div>
+        <GroupEloChart teamElo={teamElo} groupOpponentIsos={groupOpponentIsos} eloData={eloData} />
       )}
 
       {/* WC History summary (compact) */}
@@ -393,11 +381,6 @@ export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, h
         groupOpponentIsos={groupOpponentIsos} eloData={eloData} predData={predData}
       />
 
-      {/* Group ELO trend comparison */}
-      <GroupEloChart
-        teamCode={teamElo?.code} groupOpponentIsos={groupOpponentIsos}
-        eloTrends={eloTrends} eloData={eloData}
-      />
 
       {/* H2H vs group opponents */}
       <H2HSection teamIso={teamIso} groupOpponentIsos={groupOpponentIsos} />

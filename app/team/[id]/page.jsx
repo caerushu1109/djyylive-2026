@@ -8,7 +8,7 @@ import { usePolymarket } from "@/lib/hooks/usePolymarket";
 import { useTeamHistory } from "@/lib/hooks/useTeamHistory";
 import { useSquad } from "@/lib/hooks/useSquad";
 import { useTeamDetail } from "@/lib/hooks/useTeamDetail";
-import { useEloTrends } from "@/lib/hooks/useEloTrends";
+
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { ChevronLeft } from "lucide-react";
@@ -71,7 +71,7 @@ function TeamPageInner() {
   const { data: historyData                             } = useTeamHistory(teamName);
   const { data: squadData                               } = useSquad(teamName);
   const { data: teamDetail                              } = useTeamDetail(teamName);
-  const { data: eloTrends                               } = useEloTrends();
+
 
   const teamElo = useMemo(() => {
     if (!eloData?.rankings) return null;
@@ -250,8 +250,7 @@ function TeamPageInner() {
                 groupOpponentIsos={groupOpponentIsos}
                 eloData={eloData}
                 predData={predData}
-                eloTrends={eloTrends}
-                teamIso={teamIso}
+teamIso={teamIso}
               />
             )}
             {activeTab === "赛程" && (
