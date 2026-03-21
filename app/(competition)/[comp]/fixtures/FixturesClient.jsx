@@ -9,16 +9,7 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 const BJ_LOCALE = "en-CA";
 const BJ_TZ = { timeZone: "Asia/Shanghai" };
-
-function formatDateLabel(dateStr) {
-  const todayBJT = new Date().toLocaleDateString(BJ_LOCALE, BJ_TZ);
-  const tmr = new Date(); tmr.setDate(tmr.getDate() + 1);
-  const tomorrowBJT = tmr.toLocaleDateString(BJ_LOCALE, BJ_TZ);
-  if (dateStr === todayBJT) return "今天";
-  if (dateStr === tomorrowBJT) return "明天";
-  const d = new Date(dateStr + "T12:00:00+08:00");
-  return new Intl.DateTimeFormat("zh-CN", { month: "numeric", day: "numeric", weekday: "short" }).format(d);
-}
+const WEEKDAYS = ["一", "二", "三", "四", "五", "六", "日"];
 
 function formatFullDate(dateStr) {
   const d = new Date(dateStr + "T12:00:00+08:00");
@@ -33,7 +24,35 @@ function groupByDate(fixtures) {
     if (!map.has(key)) map.set(key, []);
     map.get(key).push(f);
   }
-  return [...map.entries()].sort(([a], [b]) => a.localeCompare(b));
+  return map; // dateStr → fixtures[]
+}
+
+/** Build calendar grid for a month: array of weeks, each week has 7 day slots */
+function buildMonthGrid(year, month) {
+  const firstDay = new Date(year, month, 1);
+  // Monday=0 ... Sunday=6
+  let startDow = firstDay.getDay() - 1;
+  if (startDow < 0) startDow = 6;
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const weeks = [];
+  let week = new Array(startDow).fill(null);
+  for (let d = 1; d <= daysInMonth; d++) {
+    week.push(d);
+    if (week.length === 7) {
+      weeks.push(week);
+      week = [];
+    }
+  }
+  if (week.length > 0) {
+    while (week.length < 7) week.push(null);
+    weeks.push(week);
+  }
+  return weeks;
+}
+
+function toDateStr(year, month, day) {
+  return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
 /** Day summary header */
@@ -74,7 +93,7 @@ function DaySummary({ dateStr, fixtures }) {
         )}
         {ftCount > 0 && nsCount > 0 && (
           <span style={{ fontSize: 10, color: "var(--text3)" }}>
-            ✅ {ftCount}场已结束 · ⏳ {nsCount}场未开始
+            ✅ {ftCount}已结束 · ⏳ {nsCount}未开始
           </span>
         )}
       </div>
@@ -87,51 +106,129 @@ function DaySummary({ dateStr, fixtures }) {
   );
 }
 
+/** Single month calendar grid */
+function MonthCalendar({ year, month, matchMap, selectedDate, onSelect, todayStr }) {
+  const weeks = useMemo(() => buildMonthGrid(year, month), [year, month]);
+  const monthLabel = `${year}年${month + 1}月`;
+
+  return (
+    <div style={{ marginBottom: 4 }}>
+      {/* Month label */}
+      <div style={{
+        fontSize: 12, fontWeight: 800, color: "var(--text)",
+        padding: "8px 0 6px", textAlign: "center",
+        letterSpacing: "0.04em",
+      }}>
+        {monthLabel}
+      </div>
+
+      {/* Weekday headers */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2, marginBottom: 2 }}>
+        {WEEKDAYS.map(w => (
+          <div key={w} style={{
+            fontSize: 9, fontWeight: 700, color: "var(--text3)",
+            textAlign: "center", padding: "2px 0",
+          }}>{w}</div>
+        ))}
+      </div>
+
+      {/* Day cells */}
+      {weeks.map((week, wi) => (
+        <div key={wi} style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2 }}>
+          {week.map((day, di) => {
+            if (!day) return <div key={di} />;
+            const dateStr = toDateStr(year, month, day);
+            const matches = matchMap.get(dateStr);
+            const count = matches?.length || 0;
+            const isSelected = dateStr === selectedDate;
+            const isToday = dateStr === todayStr;
+            const hasLive = matches?.some(f => f.status === "LIVE");
+
+            return (
+              <button
+                key={di}
+                onClick={() => count > 0 && onSelect(dateStr)}
+                style={{
+                  display: "flex", flexDirection: "column",
+                  alignItems: "center", justifyContent: "center",
+                  padding: "4px 0",
+                  height: 44,
+                  borderRadius: 8,
+                  border: isSelected ? "1.5px solid var(--blue)"
+                    : isToday ? "1px solid var(--text3)"
+                    : "1px solid transparent",
+                  background: isSelected ? "rgba(59,130,246,0.12)"
+                    : count > 0 ? "var(--card)" : "transparent",
+                  cursor: count > 0 ? "pointer" : "default",
+                  opacity: count > 0 ? 1 : 0.3,
+                }}
+              >
+                <span style={{
+                  fontSize: 12, fontWeight: isSelected ? 800 : 600,
+                  color: isSelected ? "var(--blue)" : isToday ? "var(--text)" : "var(--text2)",
+                  lineHeight: 1,
+                }}>
+                  {day}
+                </span>
+                {count > 0 && (
+                  <div style={{
+                    display: "flex", alignItems: "center", gap: 2, marginTop: 3,
+                  }}>
+                    {hasLive && (
+                      <span style={{
+                        width: 5, height: 5, borderRadius: "50%",
+                        background: "var(--live)",
+                        animation: "pulse 1.5s infinite",
+                        flexShrink: 0,
+                      }} />
+                    )}
+                    <span style={{
+                      fontSize: 9, fontWeight: 700,
+                      color: hasLive ? "var(--live)" : isSelected ? "var(--blue)" : "var(--text3)",
+                      fontVariantNumeric: "tabular-nums",
+                    }}>
+                      {count}场
+                    </span>
+                  </div>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function FixturesClient() {
   const { comp } = useParams();
-  const [activeDate, setActiveDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
   const { data: fixturesData, loading } = useFixtures({ pollInterval: 30000 });
   const { data: predData } = usePredictions();
-  const tabsRef = useRef(null);
+  const matchListRef = useRef(null);
 
-  const dateGroups = useMemo(() => groupByDate(fixturesData?.fixtures || []), [fixturesData]);
-  const tabs = useMemo(() => dateGroups.map(([date]) => ({ id: date, label: formatDateLabel(date) })), [dateGroups]);
-  const selectedDate = activeDate || tabs[0]?.id;
+  const matchMap = useMemo(() => groupByDate(fixturesData?.fixtures || []), [fixturesData]);
 
-  // Show up to 3 consecutive days when a day has few matches
-  const visibleDays = useMemo(() => {
-    const idx = dateGroups.findIndex(([date]) => date === selectedDate);
-    if (idx === -1) return [];
-    const primary = dateGroups[idx];
-    const primaryCount = primary[1].length;
-    // If primary day has ≤4 matches, show next day(s) too
-    if (primaryCount <= 4 && idx + 1 < dateGroups.length) {
-      const result = [primary];
-      let totalMatches = primaryCount;
-      for (let i = idx + 1; i < dateGroups.length && result.length < 3; i++) {
-        const next = dateGroups[i];
-        if (totalMatches + next[1].length > 10) break; // cap at ~10 matches
-        result.push(next);
-        totalMatches += next[1].length;
-      }
-      return result;
-    }
-    return [primary];
-  }, [dateGroups, selectedDate]);
+  const todayStr = new Date().toLocaleDateString(BJ_LOCALE, BJ_TZ);
 
+  // Auto-select: today if has matches, else first match day
+  const autoDate = useMemo(() => {
+    if (matchMap.has(todayStr)) return todayStr;
+    const sorted = [...matchMap.keys()].sort();
+    // Find nearest future date, or first date
+    const future = sorted.find(d => d >= todayStr);
+    return future || sorted[0] || null;
+  }, [matchMap, todayStr]);
+
+  const activeDate = selectedDate || autoDate;
+  const activeFixtures = activeDate ? matchMap.get(activeDate) || [] : [];
   const predictions = predData?.teams || [];
 
-  // Set of all visible date strings for tab highlighting
-  const visibleDateSet = useMemo(
-    () => new Set(visibleDays.map(([d]) => d)),
-    [visibleDays]
-  );
-
-  // Scroll active tab into view
+  // Scroll to match list when date is selected
   useEffect(() => {
-    if (!tabsRef.current || !selectedDate) return;
-    const btn = tabsRef.current.querySelector(`[data-date="${selectedDate}"]`);
-    if (btn) btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    if (selectedDate && matchListRef.current) {
+      matchListRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }, [selectedDate]);
 
   if (loading) return (
@@ -145,66 +242,46 @@ export default function FixturesClient() {
     <div>
       <TopBar comp={comp} label="赛程" />
 
-      {/* Date tabs */}
-      <div ref={tabsRef} style={{
-        display: "flex", overflowX: "auto", padding: "0 12px", gap: 2,
-        flexShrink: 0, borderBottom: "1px solid var(--border)",
-        background: "var(--bg)", position: "sticky", top: 52, zIndex: 40,
-        scrollbarWidth: "none",
+      {/* Calendar section */}
+      <div style={{
+        padding: "4px 12px 8px",
+        background: "var(--bg)",
       }}>
-        {tabs.map(t => {
-          const isPrimary = t.id === selectedDate;
-          const isVisible = visibleDateSet.has(t.id);
-          return (
-            <button
-              key={t.id}
-              data-date={t.id}
-              onClick={() => setActiveDate(t.id)}
-              style={{
-                padding: "10px 12px", fontSize: 11, fontWeight: 700,
-                color: isPrimary ? "var(--blue)" : isVisible ? "var(--blue)" : "var(--text3)",
-                opacity: isVisible && !isPrimary ? 0.6 : 1,
-                borderBottom: isPrimary ? "2px solid var(--blue)"
-                  : isVisible ? "2px solid rgba(59,130,246,0.3)"
-                  : "2px solid transparent",
-                whiteSpace: "nowrap", background: "none", border: "none", cursor: "pointer",
-              }}
-            >
-              {t.label}
-            </button>
-          );
-        })}
+        <MonthCalendar
+          year={2026} month={5} // June (0-indexed)
+          matchMap={matchMap}
+          selectedDate={activeDate}
+          onSelect={setSelectedDate}
+          todayStr={todayStr}
+        />
+        <MonthCalendar
+          year={2026} month={6} // July
+          matchMap={matchMap}
+          selectedDate={activeDate}
+          onSelect={setSelectedDate}
+          todayStr={todayStr}
+        />
       </div>
 
-      <div style={{ paddingBottom: 80, paddingTop: 8 }}>
-        {visibleDays.length === 0 ? (
-          <p style={{ padding: "24px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>该日期暂无比赛</p>
-        ) : (
-          visibleDays.map(([dateStr, fixtures], dayIdx) => (
-            <div key={dateStr}>
-              {/* Day summary card */}
-              <DaySummary dateStr={dateStr} fixtures={fixtures} />
-
-              {/* Match cards */}
-              {fixtures.map(f => (
-                <MatchCard
-                  key={f.id}
-                  fixture={f}
-                  predictions={predictions}
-                  showVenue
-                />
-              ))}
-
-              {/* Separator between days */}
-              {dayIdx < visibleDays.length - 1 && (
-                <div style={{
-                  margin: "8px 12px 12px", height: 1,
-                  background: "var(--border)",
-                }} />
-              )}
-            </div>
-          ))
-        )}
+      {/* Match list for selected date */}
+      <div ref={matchListRef} style={{ paddingBottom: 80 }}>
+        {activeDate && activeFixtures.length > 0 ? (
+          <>
+            <DaySummary dateStr={activeDate} fixtures={activeFixtures} />
+            {activeFixtures.map(f => (
+              <MatchCard
+                key={f.id}
+                fixture={f}
+                predictions={predictions}
+                showVenue
+              />
+            ))}
+          </>
+        ) : activeDate ? (
+          <p style={{ padding: "24px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
+            该日无比赛
+          </p>
+        ) : null}
       </div>
     </div>
   );
