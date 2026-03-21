@@ -1,6 +1,7 @@
 "use client";
 
 import { useH2H } from "@/lib/hooks/useH2H";
+import { isoToName } from "@/lib/canonical-names";
 
 const STAGE_ZH = {
   "group stage": "小组赛", "round of 16": "十六强", "quarter-finals": "八强",
@@ -28,7 +29,7 @@ export function H2HCard({ teamIso, opponentIso, teamName }) {
         borderBottom: "1px solid var(--border)",
       }}>
         <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-          世界杯交锋 vs {opponentIso}
+          世界杯交锋 vs {isoToName(opponentIso)}
         </span>
         <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--text-dim)" }}>
           共 {total} 场
