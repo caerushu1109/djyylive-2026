@@ -23,7 +23,7 @@ import TabFixtures from "./components/TabFixtures";
 import TabHistory from "./components/TabHistory";
 import TabSquad from "./components/TabSquad";
 
-const TABS = ["概览", "赛程", "历史", "阵容"];
+const TABS = ["概览", "赛程", "历史", "球员"];
 
 // ── Group badge ────────────────────────────────────────────────────────────────
 function useTeamGroup(teamOriginalName) {
@@ -257,7 +257,7 @@ teamIso={teamIso}
             {activeTab === "历史" && (
               <TabHistory historyData={historyData} teamDetail={teamDetail} />
             )}
-            {activeTab === "阵容" && (
+            {activeTab === "球员" && (
               <TabSquad squadData={squadData} teamDetail={teamDetail} />
             )}
           </div>
