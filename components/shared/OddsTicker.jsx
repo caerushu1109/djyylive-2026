@@ -4,45 +4,31 @@ import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { getTeamMeta } from "@/src/lib/team-meta";
 import { EN_TO_ZH } from "@/lib/polymarket-names";
 
-const STORAGE_KEY = "djyy_odds_snapshot";
-const SNAPSHOT_TTL = 6 * 60 * 60 * 1000; // 6 hours
-
-function loadLocalSnapshot() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const snap = JSON.parse(raw);
-    if (Date.now() - snap.ts > SNAPSHOT_TTL) return null;
-    return snap.data; // { teamName: probability }
-  } catch { return null; }
-}
-
-function saveLocalSnapshot(teams) {
-  try {
-    const data = {};
-    for (const t of teams) data[t.name] = t.probability;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ts: Date.now(), data }));
-  } catch { /* quota exceeded etc */ }
-}
-
 export default function OddsTicker({ polyData }) {
-  const savedRef = useRef(false);
   const [baseline, setBaseline] = useState(null);
+  const [baselineLoaded, setBaselineLoaded] = useState(false);
 
   // Load build-time baseline on mount
   useEffect(() => {
     fetch("/data/odds-baseline.json")
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        if (data?.odds) setBaseline(data.odds);
+      .then(r => {
+        if (!r.ok) throw new Error("not ok");
+        return r.json();
       })
-      .catch(() => {});
+      .then(data => {
+        if (data?.odds) {
+          console.log("[OddsTicker] baseline loaded, sample Spain:", data.odds["Spain"]);
+          setBaseline(data.odds);
+        }
+      })
+      .catch((e) => {
+        console.warn("[OddsTicker] baseline fetch failed:", e.message);
+      })
+      .finally(() => setBaselineLoaded(true));
   }, []);
 
   const items = useMemo(() => {
     if (!polyData?.teams?.length) return [];
-    // Use build-time baseline first, then localStorage, then null
-    const prev = baseline || loadLocalSnapshot();
     const sorted = [...polyData.teams]
       .filter((t) => t.probability > 0)
       .sort((a, b) => b.probability - a.probability)
@@ -52,18 +38,16 @@ export default function OddsTicker({ polyData }) {
       const zh = EN_TO_ZH[t.name] || t.name;
       const meta = getTeamMeta(t.name);
       const flag = meta.flag !== "\u{1F3F3}\uFE0F" ? meta.flag : "";
-      const delta = prev ? +(t.probability - (prev[t.name] ?? t.probability)).toFixed(1) : 0;
+      let delta = 0;
+      if (baseline) {
+        const prev = baseline[t.name];
+        if (prev !== undefined) {
+          delta = +(t.probability - prev).toFixed(1);
+        }
+      }
       return { key: t.name, flag, zh, pct: t.probability, delta };
     });
   }, [polyData, baseline]);
-
-  // Save snapshot once (on first load if no valid snapshot exists)
-  useEffect(() => {
-    if (savedRef.current || !polyData?.teams?.length) return;
-    const existing = loadLocalSnapshot();
-    if (!existing) saveLocalSnapshot(polyData.teams);
-    savedRef.current = true;
-  }, [polyData]);
 
   if (items.length === 0) return null;
 
