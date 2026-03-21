@@ -4,6 +4,8 @@ import { useParams, useRouter } from "next/navigation";
 import { useMatchDetail } from "@/lib/hooks/useMatchDetail";
 import { useH2H } from "@/lib/hooks/useH2H";
 import { usePredictions } from "@/lib/hooks/usePredictions";
+import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
+import { computeMatchOdds, computeLambda, eloToLambda } from "@/lib/poisson";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
@@ -539,8 +541,162 @@ function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
   );
 }
 
+/* ── Poisson Prediction Card (our proprietary model) ── */
+function PoissonPredictionCard({ fixture, poissonOdds }) {
+  if (!poissonOdds) return null;
+  const { result, overUnder, asianHandicap, btts, correctScore, corners, lambdaHome, lambdaAway } = poissonOdds;
+
+  return (
+    <div style={{
+      background: "var(--card)", borderRadius: 10,
+      border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+    }}>
+      {/* Header */}
+      <div style={{
+        padding: "10px 14px 8px",
+        borderBottom: "1px solid var(--border)",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+        <SectionLabel>泊松概率模型</SectionLabel>
+        <span style={{ fontSize: 8, color: "var(--text3)", fontWeight: 600, opacity: 0.6 }}>
+          λ {lambdaHome} – {lambdaAway}
+        </span>
+      </div>
+
+      {/* 1X2 Win Probability */}
+      <div style={{ padding: "10px 14px" }}>
+        <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
+          <div style={{ flex: result.homeWin, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
+          <div style={{ flex: result.draw, background: "var(--text3)" }} />
+          <div style={{ flex: result.awayWin, background: "#e05252", borderRadius: "0 6px 6px 0" }} />
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ textAlign: "left" }}>
+            <div style={{ fontSize: 14, fontWeight: 900, color: "var(--blue)" }}>{result.homeWin}%</div>
+            <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}胜</div>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text3)" }}>{result.draw}%</div>
+            <div style={{ fontSize: 9, color: "var(--text3)" }}>平局</div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 14, fontWeight: 900, color: "#e05252" }}>{result.awayWin}%</div>
+            <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}胜</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Markets Grid */}
+      <div style={{
+        display: "grid", gridTemplateColumns: "1fr 1fr",
+        gap: 1, borderTop: "1px solid var(--border)",
+        background: "var(--border)",
+      }}>
+        {/* Asian Handicap */}
+        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
+          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+            亚洲盘口
+          </div>
+          <div style={{ textAlign: "center", marginBottom: 4 }}>
+            <span style={{
+              fontSize: 11, fontWeight: 800, color: "var(--text)",
+              background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
+            }}>
+              {asianHandicap.line > 0 ? `+${asianHandicap.line}` : asianHandicap.line}
+            </span>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <span style={{ fontSize: 12, fontWeight: 700, color: asianHandicap.home > 50 ? "var(--blue)" : "var(--text2)" }}>
+              {asianHandicap.home}%
+            </span>
+            <span style={{ fontSize: 12, fontWeight: 700, color: asianHandicap.away > 50 ? "#e05252" : "var(--text2)" }}>
+              {asianHandicap.away}%
+            </span>
+          </div>
+        </div>
+
+        {/* Over/Under 2.5 */}
+        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
+          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+            大小球 2.5
+          </div>
+          <div style={{ display: "flex", gap: 2, height: 4, borderRadius: 3, overflow: "hidden", marginBottom: 6 }}>
+            <div style={{ flex: overUnder["2.5"].over, background: "var(--green, #4caf50)" }} />
+            <div style={{ flex: overUnder["2.5"].under, background: "var(--orange, #ff9800)" }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <span style={{ fontSize: 12, fontWeight: 700, color: "var(--green, #4caf50)" }}>
+              大 {overUnder["2.5"].over}%
+            </span>
+            <span style={{ fontSize: 12, fontWeight: 700, color: "var(--orange, #ff9800)" }}>
+              小 {overUnder["2.5"].under}%
+            </span>
+          </div>
+        </div>
+
+        {/* BTTS */}
+        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
+          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+            双方进球
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text)" }}>{btts.yes}%</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>是</div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text2)" }}>{btts.no}%</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>否</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Corners */}
+        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
+          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+            角球预测
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+            <span style={{ fontSize: 14, fontWeight: 800, color: "var(--blue)" }}>{corners.homeExpected}</span>
+            <span style={{ fontSize: 9, color: "var(--text3)" }}>总 {corners.totalExpected}</span>
+            <span style={{ fontSize: 14, fontWeight: 800, color: "#e05252" }}>{corners.awayExpected}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Correct Score */}
+      <div style={{ padding: "10px 14px", borderTop: "1px solid var(--border)" }}>
+        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+          最可能比分
+        </div>
+        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+          {correctScore.slice(0, 5).map((s, i) => (
+            <div key={i} style={{
+              flex: 1, minWidth: 48, textAlign: "center",
+              background: "var(--card2, rgba(255,255,255,0.04))", borderRadius: 6, padding: "6px 4px",
+            }}>
+              <div style={{ fontSize: 14, fontWeight: 900, color: i === 0 ? "var(--blue)" : "var(--text)", fontVariantNumeric: "tabular-nums" }}>
+                {s.score}
+              </div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>{s.prob}%</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Model Info */}
+      <div style={{
+        padding: "6px 14px 8px", borderTop: "1px solid var(--border)",
+        fontSize: 8, color: "var(--text3)", opacity: 0.5, textAlign: "center",
+      }}>
+        Dixon-Coles 泊松模型 · 基于球队历史攻防数据 · 每日更新
+      </div>
+    </div>
+  );
+}
+
 /* ── Tab: Overview ───────────────────────────────────── */
-function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, awayIso }) {
+function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, awayIso, poissonOdds }) {
   const { stats, events, fixture, predictions } = data;
 
   if (fixture.status === "NS") {
@@ -551,8 +707,10 @@ function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, 
 
     return (
       <div style={{ padding: "12px 12px 0" }}>
-        {/* API predictions if available, otherwise ELO computed */}
-        {predictions ? (
+        {/* Poisson model prediction (our proprietary system) */}
+        {poissonOdds ? (
+          <PoissonPredictionCard fixture={fixture} poissonOdds={poissonOdds} />
+        ) : predictions ? (
           <div style={{ marginBottom: 10 }}>
             <WinProbBar predictions={predictions} fixture={fixture} />
           </div>
@@ -570,7 +728,7 @@ function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, 
         <H2HSummaryCard h2h={h2hData} fixture={fixture} homeIso={homeIso} awayIso={awayIso} />
 
         {/* Fallback if nothing available */}
-        {!predictions && !probs && !homePred && !awayPred && !h2hData && (
+        {!predictions && !probs && !poissonOdds && !homePred && !awayPred && !h2hData && (
           <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
             比赛尚未开始，开赛后将实时更新数据
           </div>
@@ -1199,10 +1357,45 @@ function MatchDetailInner() {
   const homeIso = useMemo(() => fixture ? nameToIso(fixture.home.originalName) : null, [fixture]);
   const awayIso = useMemo(() => fixture ? nameToIso(fixture.away.originalName) : null, [fixture]);
 
-  // Pre-match data: predictions + H2H (only fetch when NS)
+  // Pre-match data: predictions + H2H + team strengths (only fetch when NS)
   const isNS = fixture?.status === "NS";
   const { data: predictionsData } = usePredictions();
   const { data: h2hData } = useH2H(isNS ? homeIso : null, isNS ? awayIso : null);
+  const { data: strengthsData } = useTeamStrengths();
+
+  // Compute Poisson odds from team strengths (our proprietary model)
+  const poissonOdds = useMemo(() => {
+    if (!fixture || fixture.status !== "NS") return null;
+
+    const homeStr = findTeamStrength(strengthsData, fixture.home.originalName);
+    const awayStr = findTeamStrength(strengthsData, fixture.away.originalName);
+
+    if (homeStr && awayStr) {
+      // Use team strength data for Poisson λ
+      const lambdas = computeLambda(
+        homeStr.attack, homeStr.defense,
+        awayStr.attack, awayStr.defense,
+        { avgGoals: 2.6, homeAdvantage: 1.0 }
+      );
+      return computeMatchOdds(lambdas.home, lambdas.away);
+    }
+
+    // Fallback: use ELO if team strengths not loaded yet
+    const homePred = predictionsData?.teams?.find(t =>
+      t.name === fixture.home.name || t.code === homeIso?.toUpperCase()
+    );
+    const awayPred = predictionsData?.teams?.find(t =>
+      t.name === fixture.away.name || t.code === awayIso?.toUpperCase()
+    );
+    if (homePred?.elo && awayPred?.elo) {
+      const homeElo = homePred.elo + (HOST_CODES.includes(homePred.code) ? HOST_BONUS : 0);
+      const awayElo = awayPred.elo + (HOST_CODES.includes(awayPred.code) ? HOST_BONUS : 0);
+      const lambdas = eloToLambda(homeElo, awayElo, { avgGoals: 2.6 });
+      return computeMatchOdds(lambdas.home, lambdas.away);
+    }
+
+    return null;
+  }, [fixture, strengthsData, predictionsData, homeIso, awayIso]);
 
   return (
     <div style={{ maxWidth: 480, margin: "0 auto", minHeight: "100dvh", background: "var(--bg)" }}>
@@ -1238,7 +1431,7 @@ function MatchDetailInner() {
 
           {/* Tab content */}
           <div style={{ paddingBottom: 80 }}>
-            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} />}
+            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} poissonOdds={poissonOdds} />}
             {tab === "stats" && <TabStats data={data} />}
             {tab === "odds" && <TabOdds data={data} />}
             {tab === "lineups" && <TabLineups data={data} />}
