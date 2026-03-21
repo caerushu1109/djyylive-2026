@@ -1,9 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
+import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
+import { computeMatchOdds, computeLambda, eloToLambda, hybridLambda, getHostAdvantage } from "@/lib/poisson";
 
 export default function MatchCard({ fixture, onClick, predictions, showVenue = false }) {
   const router = useRouter();
+  const { data: strengthsData } = useTeamStrengths();
+
   if (!fixture) return null;
   const { id, home, away, homeScore, awayScore, status, minute, kickoff, group, venue } = fixture;
   if (!home || !away) return null;
@@ -20,35 +25,56 @@ export default function MatchCard({ fixture, onClick, predictions, showVenue = f
   const borderColor = status === "LIVE" ? "rgba(255,61,61,0.3)" : "var(--border)";
   const scoreColor = status === "LIVE" ? "var(--live)" : "var(--text)";
 
-  // ELO predictions — backtested on 964 WC matches (1930-2022)
-  const ELO_DIVISOR = 300;
-  const HOST_BONUS = 110;
-  const DRAW_BASE = 0.34;
-  const HOST_CODES = ["US", "CA", "MX"]; // 2026 WC hosts
+  // Poisson model probabilities (same as match detail page)
+  const poissonResult = useMemo(() => {
+    if (status !== "NS") return null;
 
-  const homePred = predictions?.find(t => t.name === home.name || t.code === home.code);
-  const awayPred = predictions?.find(t => t.name === away.name || t.code === away.code);
-  const homeEloRaw = homePred?.elo;
-  const awayEloRaw = awayPred?.elo;
-  const showPred = status === "NS" && homeEloRaw && awayEloRaw;
+    const homePred = predictions?.find(t => t.name === home.name || t.code === home.code);
+    const awayPred = predictions?.find(t => t.name === away.name || t.code === away.code);
 
-  let homeWinPct, drawPct, awayWinPct;
-  if (showPred) {
-    // Apply host bonus
-    const homeElo = homeEloRaw + (HOST_CODES.includes(homePred?.code) ? HOST_BONUS : 0);
-    const awayElo = awayEloRaw + (HOST_CODES.includes(awayPred?.code) ? HOST_BONUS : 0);
+    const homeStr = findTeamStrength(strengthsData, home.originalName);
+    const awayStr = findTeamStrength(strengthsData, away.originalName);
 
-    const diff = homeElo - awayElo;
-    const homeExp = 1 / (1 + Math.pow(10, -diff / ELO_DIVISOR));
-    // Draw probability: 22% base, decays with ELO gap, min 0%
-    drawPct = Math.max(0, DRAW_BASE * (1 - Math.abs(diff) / 400)) * 100;
-    homeWinPct = homeExp * 100 * (1 - drawPct / 100);
-    awayWinPct = 100 - homeWinPct - drawPct;
-    // Round
-    homeWinPct = Math.round(homeWinPct);
-    drawPct = Math.round(drawPct);
-    awayWinPct = 100 - homeWinPct - drawPct;
-  }
+    const { homeBoost, awayBoost } = getHostAdvantage(
+      home.originalName, away.originalName, venue
+    );
+
+    // Tier 1: Hybrid (strength + ELO)
+    if (homeStr && awayStr && homePred?.elo && awayPred?.elo) {
+      const lambdas = hybridLambda(
+        homeStr.attack, homeStr.defense,
+        awayStr.attack, awayStr.defense,
+        homePred.elo, awayPred.elo,
+        { avgGoals: 3.0, homeBoost, awayBoost }
+      );
+      return computeMatchOdds(lambdas.home, lambdas.away).result;
+    }
+
+    // Tier 2: Strength only
+    if (homeStr && awayStr) {
+      const lambdas = computeLambda(
+        homeStr.attack, homeStr.defense,
+        awayStr.attack, awayStr.defense,
+        { avgGoals: 3.0, homeBoost, awayBoost }
+      );
+      return computeMatchOdds(lambdas.home, lambdas.away).result;
+    }
+
+    // Tier 3: ELO only (conservative defaults)
+    if (homePred?.elo && awayPred?.elo) {
+      const lambdas = eloToLambda(homePred.elo, awayPred.elo);
+      lambdas.home *= homeBoost;
+      lambdas.away *= awayBoost;
+      return computeMatchOdds(lambdas.home, lambdas.away).result;
+    }
+
+    return null;
+  }, [status, home, away, venue, predictions, strengthsData]);
+
+  const showPred = status === "NS" && poissonResult;
+  const homeWinPct = poissonResult?.homeWin;
+  const drawPct = poissonResult?.draw;
+  const awayWinPct = poissonResult?.awayWin;
 
   const inner = (
     <div style={{
