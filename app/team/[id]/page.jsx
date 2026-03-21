@@ -1659,7 +1659,7 @@ function TeamPageInner() {
               />
             )}
             {activeTab === "赛程" && (
-              <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} predictions={predData?.predictions} />
+              <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} predictions={predData?.teams} />
             )}
             {activeTab === "历史" && (
               <TabHistory historyData={historyData} teamElo={teamElo} teamDetail={teamDetail} />
