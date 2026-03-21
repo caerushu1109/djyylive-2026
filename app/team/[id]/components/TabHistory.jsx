@@ -336,6 +336,9 @@ export function TournamentAccordion({ tournament }) {
 }
 
 export default function TabHistory({ historyData, teamDetail }) {
+  const openPlayer = useOpenPlayer();
+  const { lookup } = usePlayerIndex();
+
   if (!historyData && !teamDetail) return (
     <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无历史数据</p>
   );
@@ -464,7 +467,7 @@ export default function TabHistory({ historyData, teamDetail }) {
               }}>
                 <span style={{
                   fontSize: 12, fontWeight: 800, fontVariantNumeric: "tabular-nums",
-                  color: idx === 0 ? "var(--amber)" : idx === 1 ? "var(--text2)" : idx === 2 ? "#cd7f32" : "var(--text-dim)",
+                  color: idx < 3 ? "var(--text2)" : "var(--text-dim)",
                   minWidth: 20, textAlign: "right",
                 }}>
                   {idx + 1}.
