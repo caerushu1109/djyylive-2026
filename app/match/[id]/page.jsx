@@ -15,9 +15,9 @@ import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 /* ── Tabs ───────────────────────────────────────────── */
 const TABS = [
   { id: "overview", label: "概况" },
-  { id: "stats",    label: "统计" },
-  { id: "odds",     label: "赔率" },
+  { id: "analysis", label: "分析" },
   { id: "lineups",  label: "阵容" },
+  { id: "stats",    label: "统计" },
   { id: "events",   label: "事件" },
   { id: "h2h",      label: "H2H" },
 ];
@@ -34,6 +34,16 @@ function eventIcon(type) {
   if (t.includes("var")) return "📺";
   if (t.includes("pen") && t.includes("miss")) return "❌";
   return "•";
+}
+
+/** Convert decimal odds to implied probabilities with vig removed */
+function oddsToProb(home, draw, away) {
+  const sum = 1/home + 1/draw + 1/away;
+  return {
+    home: Math.round((1/home) / sum * 100),
+    draw: Math.round((1/draw) / sum * 100),
+    away: Math.round((1/away) / sum * 100),
+  };
 }
 
 /* ── Score Header ───────────────────────────────────── */
@@ -317,39 +327,6 @@ function SectionLabel({ children }) {
   );
 }
 
-/* ── Pre-Match: ELO Win Probability ────────────────── */
-function PreMatchProbBar({ probs, fixture }) {
-  if (!probs) return null;
-  const { homeWinPct, drawPct, awayWinPct } = probs;
-  return (
-    <div style={{
-      background: "var(--card)", borderRadius: 10, padding: "10px 14px",
-      border: "1px solid var(--border)", marginBottom: 10,
-    }}>
-      <SectionLabel>ELO 胜率预测</SectionLabel>
-      <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
-        <div style={{ flex: homeWinPct, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
-        <div style={{ flex: drawPct, background: "var(--text3)" }} />
-        <div style={{ flex: awayWinPct, background: "var(--red)", borderRadius: "0 6px 6px 0" }} />
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div style={{ textAlign: "left" }}>
-          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--blue)" }}>{homeWinPct}%</div>
-          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}胜</div>
-        </div>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text3)" }}>{drawPct}%</div>
-          <div style={{ fontSize: 9, color: "var(--text3)" }}>平局</div>
-        </div>
-        <div style={{ textAlign: "right" }}>
-          <div style={{ fontSize: 14, fontWeight: 900, color: "var(--red)" }}>{awayWinPct}%</div>
-          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}胜</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ── Pre-Match: Team Comparison ────────────────────── */
 function TeamComparisonCard({ homePred, awayPred, fixture }) {
   if (!homePred || !awayPred) return null;
@@ -541,182 +518,64 @@ function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
   );
 }
 
-/* ── Poisson Prediction Card (our proprietary model) ── */
-function PoissonPredictionCard({ fixture, poissonOdds }) {
+/* ── Compact Model Summary (for overview pre-match) ── */
+function CompactModelSummary({ poissonOdds, fixture, onSwitchTab }) {
   if (!poissonOdds) return null;
-  const { result, overUnder, asianHandicap, btts, correctScore, corners, lambdaHome, lambdaAway } = poissonOdds;
-
+  const { result } = poissonOdds;
   return (
     <div style={{
-      background: "var(--card)", borderRadius: 10,
-      border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+      background: "var(--card)", borderRadius: 10, padding: "10px 14px",
+      border: "1px solid var(--border)", marginBottom: 10,
     }}>
-      {/* Header */}
       <div style={{
-        padding: "10px 14px 8px",
-        borderBottom: "1px solid var(--border)",
         display: "flex", alignItems: "center", justifyContent: "space-between",
+        marginBottom: 8,
       }}>
-        <SectionLabel>泊松概率模型</SectionLabel>
-        <span style={{ fontSize: 8, color: "var(--text3)", fontWeight: 600, opacity: 0.6 }}>
-          λ {lambdaHome} – {lambdaAway}
+        <SectionLabel>模型预测</SectionLabel>
+        <span
+          onClick={() => onSwitchTab?.("analysis")}
+          style={{
+            fontSize: 10, color: "var(--blue)", cursor: "pointer", fontWeight: 600,
+          }}
+        >
+          查看详细分析 →
         </span>
       </div>
-
-      {/* 1X2 Win Probability */}
-      <div style={{ padding: "10px 14px" }}>
-        <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
-          <div style={{ flex: result.homeWin, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
-          <div style={{ flex: result.draw, background: "var(--text3)" }} />
-          <div style={{ flex: result.awayWin, background: "#e05252", borderRadius: "0 6px 6px 0" }} />
-        </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ textAlign: "left" }}>
-            <div style={{ fontSize: 14, fontWeight: 900, color: "var(--blue)" }}>{result.homeWin}%</div>
-            <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}胜</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text3)" }}>{result.draw}%</div>
-            <div style={{ fontSize: 9, color: "var(--text3)" }}>平局</div>
-          </div>
-          <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: 14, fontWeight: 900, color: "#e05252" }}>{result.awayWin}%</div>
-            <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}胜</div>
-          </div>
-        </div>
+      <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
+        <div style={{ flex: result.homeWin, background: "var(--blue)", borderRadius: "6px 0 0 6px" }} />
+        <div style={{ flex: result.draw, background: "var(--text3)" }} />
+        <div style={{ flex: result.awayWin, background: "#e05252", borderRadius: "0 6px 6px 0" }} />
       </div>
-
-      {/* Markets Grid */}
-      <div style={{
-        display: "grid", gridTemplateColumns: "1fr 1fr",
-        gap: 1, borderTop: "1px solid var(--border)",
-        background: "var(--border)",
-      }}>
-        {/* Asian Handicap */}
-        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
-          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-            亚洲盘口
-          </div>
-          <div style={{ textAlign: "center", marginBottom: 4 }}>
-            <span style={{
-              fontSize: 11, fontWeight: 800, color: "var(--text)",
-              background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
-            }}>
-              {asianHandicap.line > 0 ? `+${asianHandicap.line}` : asianHandicap.line === 0 ? "0" : asianHandicap.line}
-            </span>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <span style={{ fontSize: 12, fontWeight: 700, color: asianHandicap.home > 50 ? "var(--blue)" : "var(--text2)" }}>
-              {asianHandicap.home}%
-            </span>
-            <span style={{ fontSize: 12, fontWeight: 700, color: asianHandicap.away > 50 ? "#e05252" : "var(--text2)" }}>
-              {asianHandicap.away}%
-            </span>
-          </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ textAlign: "left" }}>
+          <div style={{ fontSize: 13, fontWeight: 900, color: "var(--blue)" }}>{result.homeWin}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}胜</div>
         </div>
-
-        {/* Over/Under (auto best line) */}
-        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
-          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-            大小球 {overUnder.line}
-          </div>
-          <div style={{ display: "flex", gap: 2, height: 4, borderRadius: 3, overflow: "hidden", marginBottom: 6 }}>
-            <div style={{ flex: overUnder.over, background: "var(--green, #4caf50)" }} />
-            <div style={{ flex: overUnder.under, background: "var(--orange, #ff9800)" }} />
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <span style={{ fontSize: 12, fontWeight: 700, color: "var(--green, #4caf50)" }}>
-              大 {overUnder.over}%
-            </span>
-            <span style={{ fontSize: 12, fontWeight: 700, color: "var(--orange, #ff9800)" }}>
-              小 {overUnder.under}%
-            </span>
-          </div>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: 13, fontWeight: 900, color: "var(--text3)" }}>{result.draw}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>平局</div>
         </div>
-
-        {/* BTTS */}
-        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
-          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-            双方进球
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div>
-              <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text)" }}>{btts.yes}%</div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>是</div>
-            </div>
-            <div style={{ textAlign: "right" }}>
-              <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text2)" }}>{btts.no}%</div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>否</div>
-            </div>
-          </div>
+        <div style={{ textAlign: "right" }}>
+          <div style={{ fontSize: 13, fontWeight: 900, color: "#e05252" }}>{result.awayWin}%</div>
+          <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}胜</div>
         </div>
-
-        {/* Corners */}
-        <div style={{ background: "var(--card)", padding: "10px 12px" }}>
-          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-            角球预测
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-            <span style={{ fontSize: 14, fontWeight: 800, color: "var(--blue)" }}>{corners.homeExpected}</span>
-            <span style={{ fontSize: 9, color: "var(--text3)" }}>总 {corners.totalExpected}</span>
-            <span style={{ fontSize: 14, fontWeight: 800, color: "#e05252" }}>{corners.awayExpected}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Correct Score */}
-      <div style={{ padding: "10px 14px", borderTop: "1px solid var(--border)" }}>
-        <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-          最可能比分
-        </div>
-        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
-          {correctScore.slice(0, 5).map((s, i) => (
-            <div key={i} style={{
-              flex: 1, minWidth: 48, textAlign: "center",
-              background: "var(--card2, rgba(255,255,255,0.04))", borderRadius: 6, padding: "6px 4px",
-            }}>
-              <div style={{ fontSize: 14, fontWeight: 900, color: i === 0 ? "var(--blue)" : "var(--text)", fontVariantNumeric: "tabular-nums" }}>
-                {s.score}
-              </div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>{s.prob}%</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Model Info */}
-      <div style={{
-        padding: "6px 14px 8px", borderTop: "1px solid var(--border)",
-        fontSize: 8, color: "var(--text3)", opacity: 0.5, textAlign: "center",
-      }}>
-        Dixon-Coles 泊松模型 · 基于球队历史攻防数据 · 每日更新
       </div>
     </div>
   );
 }
 
 /* ── Tab: Overview ───────────────────────────────────── */
-function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, awayIso, poissonOdds }) {
+function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, awayIso, poissonOdds, onSwitchTab }) {
   const { stats, events, fixture, predictions } = data;
 
   if (fixture.status === "NS") {
-    // Find team prediction data
     const homePred = predictionsTeams?.find(t => t.name === fixture.home.name || t.code === homeIso?.toUpperCase());
     const awayPred = predictionsTeams?.find(t => t.name === fixture.away.name || t.code === awayIso?.toUpperCase());
-    const probs = computeEloProbabilities(homePred, awayPred);
 
     return (
       <div style={{ padding: "12px 12px 0" }}>
-        {/* Poisson model prediction (our proprietary system) */}
-        {poissonOdds ? (
-          <PoissonPredictionCard fixture={fixture} poissonOdds={poissonOdds} />
-        ) : predictions ? (
-          <div style={{ marginBottom: 10 }}>
-            <WinProbBar predictions={predictions} fixture={fixture} />
-          </div>
-        ) : probs ? (
-          <PreMatchProbBar probs={probs} fixture={fixture} />
-        ) : null}
+        {/* Compact model summary with link to analysis tab */}
+        <CompactModelSummary poissonOdds={poissonOdds} fixture={fixture} onSwitchTab={onSwitchTab} />
 
         {/* Team Comparison */}
         <TeamComparisonCard homePred={homePred} awayPred={awayPred} fixture={fixture} />
@@ -728,7 +587,7 @@ function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, 
         <H2HSummaryCard h2h={h2hData} fixture={fixture} homeIso={homeIso} awayIso={awayIso} />
 
         {/* Fallback if nothing available */}
-        {!predictions && !probs && !poissonOdds && !homePred && !awayPred && !h2hData && (
+        {!poissonOdds && !homePred && !awayPred && !h2hData && (
           <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
             比赛尚未开始，开赛后将实时更新数据
           </div>
@@ -802,6 +661,521 @@ function TabOverview({ data, onPlayerClick, predictionsTeams, h2hData, homeIso, 
   );
 }
 
+/* ══════════════════════════════════════════════════════
+   Tab: Analysis  (NEW - 3-way comparison)
+   ══════════════════════════════════════════════════════ */
+
+/* Column header badge */
+function SourceBadge({ icon, label, color }) {
+  return (
+    <div style={{
+      display: "flex", alignItems: "center", gap: 4, justifyContent: "center",
+    }}>
+      <span style={{
+        width: 6, height: 6, borderRadius: "50%", background: color,
+        display: "inline-block", flexShrink: 0,
+      }} />
+      <span style={{
+        fontSize: 10, fontWeight: 700, color: "var(--text2)",
+        letterSpacing: "0.02em",
+      }}>{label}</span>
+    </div>
+  );
+}
+
+/* Three-column comparison row */
+function CompareRow({ label, modelVal, bookVal, marketVal, highlight }) {
+  return (
+    <div style={{
+      display: "grid", gridTemplateColumns: "56px 1fr 1fr 1fr",
+      alignItems: "center", padding: "8px 12px",
+      borderBottom: "1px solid var(--border)",
+    }}>
+      <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>{label}</span>
+      <span style={{
+        textAlign: "center", fontSize: 13, fontWeight: 800,
+        color: highlight === "model" ? "var(--blue)" : "var(--text)",
+        fontVariantNumeric: "tabular-nums",
+      }}>{modelVal ?? "—"}</span>
+      <span style={{
+        textAlign: "center", fontSize: 13, fontWeight: 800,
+        color: highlight === "book" ? "var(--orange, #ff9800)" : "var(--text)",
+        fontVariantNumeric: "tabular-nums",
+      }}>{bookVal ?? "—"}</span>
+      <span style={{
+        textAlign: "center", fontSize: 12, fontWeight: 700,
+        color: "var(--text3)",
+        fontVariantNumeric: "tabular-nums",
+      }}>{marketVal ?? "—"}</span>
+    </div>
+  );
+}
+
+/* Discrepancy indicator bar */
+function DiscrepancyBar({ values, colors, labels }) {
+  // values = array of [home, draw, away] per source, colors per source
+  // Show a stacked comparison visual
+  if (!values || values.length < 2) return null;
+  return (
+    <div style={{ padding: "8px 12px 4px" }}>
+      {values.map((v, si) => (
+        v && (
+          <div key={si} style={{
+            display: "flex", gap: 1, height: 4, borderRadius: 3, overflow: "hidden",
+            marginBottom: 3, opacity: 0.9,
+          }}>
+            <div style={{ flex: v[0] || 1, background: "var(--blue)", borderRadius: "3px 0 0 3px" }} />
+            <div style={{ flex: v[1] || 1, background: "var(--text3)" }} />
+            <div style={{ flex: v[2] || 1, background: "#e05252", borderRadius: "0 3px 3px 0" }} />
+          </div>
+        )
+      ))}
+      <div style={{
+        display: "flex", justifyContent: "space-between", marginTop: 2,
+      }}>
+        {labels.map((l, i) => (
+          <span key={i} style={{
+            fontSize: 8, color: colors[i], fontWeight: 600, opacity: 0.7,
+          }}>{l}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TabAnalysis({ data, poissonOdds, fixture }) {
+  const [showFullOdds, setShowFullOdds] = useState(false);
+  const odds = data?.odds;
+
+  // Extract bookmaker 1X2 (use first bookmaker or average)
+  const ftOdds = odds?.["1X2"] || [];
+  const bookOdds1X2 = ftOdds.length > 0 ? ftOdds[0] : null;
+  const bookProb = bookOdds1X2
+    ? oddsToProb(bookOdds1X2.home, bookOdds1X2.draw, bookOdds1X2.away)
+    : null;
+
+  // Model data
+  const modelResult = poissonOdds?.result;
+  const modelAH = poissonOdds?.asianHandicap;
+  const modelOU = poissonOdds?.overUnder;
+  const modelBtts = poissonOdds?.btts;
+  const modelCorners = poissonOdds?.corners;
+  const modelCS = poissonOdds?.correctScore;
+
+  // Bookmaker AH / OU
+  const bookAH = odds?.asian_handicap;
+  const bookOU = odds?.over_under;
+
+  // Highlight when model and bookmaker disagree by > 5 percentage points
+  const discrepancyThreshold = 5;
+  function getHighlight(modelPct, bookPct) {
+    if (modelPct == null || bookPct == null) return null;
+    const diff = Math.abs(modelPct - bookPct);
+    if (diff < discrepancyThreshold) return null;
+    return modelPct > bookPct ? "model" : "book";
+  }
+
+  // No data at all
+  if (!poissonOdds && !odds) {
+    return (
+      <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
+        暂无分析数据
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ padding: "12px" }}>
+      {/* ─── Section 1: 1X2 Three-Way Comparison ─── */}
+      <div style={{
+        background: "var(--card)", borderRadius: 10,
+        border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+      }}>
+        <div style={{ padding: "10px 12px 6px" }}>
+          <SectionLabel>胜平负 (1X2) 三方对比</SectionLabel>
+        </div>
+
+        {/* Visual comparison bars */}
+        <DiscrepancyBar
+          values={[
+            modelResult ? [modelResult.homeWin, modelResult.draw, modelResult.awayWin] : null,
+            bookProb ? [bookProb.home, bookProb.draw, bookProb.away] : null,
+          ]}
+          colors={["#7c8aef", "#e8a838"]}
+          labels={["模型", "机构"]}
+        />
+
+        {/* Column headers */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr 1fr",
+          padding: "6px 12px", borderBottom: "1px solid var(--border)",
+        }}>
+          <span />
+          <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="市场" color="#4caf50" /></div>
+        </div>
+
+        {/* Rows */}
+        <CompareRow
+          label="主胜"
+          modelVal={modelResult ? `${modelResult.homeWin}%` : null}
+          bookVal={bookOdds1X2 ? `${bookOdds1X2.home.toFixed(2)} (${bookProb.home}%)` : null}
+          marketVal="即将上线"
+          highlight={getHighlight(modelResult?.homeWin, bookProb?.home)}
+        />
+        <CompareRow
+          label="平局"
+          modelVal={modelResult ? `${modelResult.draw}%` : null}
+          bookVal={bookOdds1X2 ? `${bookOdds1X2.draw.toFixed(2)} (${bookProb.draw}%)` : null}
+          marketVal="即将上线"
+          highlight={getHighlight(modelResult?.draw, bookProb?.draw)}
+        />
+        <CompareRow
+          label="客胜"
+          modelVal={modelResult ? `${modelResult.awayWin}%` : null}
+          bookVal={bookOdds1X2 ? `${bookOdds1X2.away.toFixed(2)} (${bookProb.away}%)` : null}
+          marketVal="即将上线"
+          highlight={getHighlight(modelResult?.awayWin, bookProb?.away)}
+        />
+
+        {/* Bookmaker name */}
+        {bookOdds1X2 && (
+          <div style={{
+            padding: "4px 12px 8px", fontSize: 9, color: "var(--text3)", textAlign: "right",
+          }}>
+            机构数据: {bookOdds1X2.bookmaker}
+          </div>
+        )}
+      </div>
+
+      {/* ─── Section 2: Asian Handicap Comparison ─── */}
+      <div style={{
+        background: "var(--card)", borderRadius: 10,
+        border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+      }}>
+        <div style={{ padding: "10px 12px 6px" }}>
+          <SectionLabel>亚洲盘口对比</SectionLabel>
+        </div>
+        {/* Column headers */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          padding: "6px 12px", borderBottom: "1px solid var(--border)",
+        }}>
+          <span />
+          <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
+        </div>
+
+        {/* Handicap line */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          alignItems: "center", padding: "8px 12px",
+          borderBottom: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>盘口</span>
+          <span style={{ textAlign: "center" }}>
+            {modelAH ? (
+              <span style={{
+                fontSize: 12, fontWeight: 800, color: "var(--text)",
+                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
+              }}>
+                {modelAH.line > 0 ? `+${modelAH.line}` : modelAH.line === 0 ? "0" : modelAH.line}
+              </span>
+            ) : "—"}
+          </span>
+          <span style={{ textAlign: "center" }}>
+            {bookAH ? (
+              <span style={{
+                fontSize: 12, fontWeight: 800, color: "var(--text)",
+                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
+              }}>
+                {bookAH.line > 0 ? `+${bookAH.line}` : bookAH.line}
+              </span>
+            ) : "—"}
+          </span>
+        </div>
+
+        {/* Home */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          alignItems: "center", padding: "8px 12px",
+          borderBottom: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>主队</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: modelAH && modelAH.home > 50 ? "var(--blue)" : "var(--text)",
+            fontVariantNumeric: "tabular-nums",
+          }}>{modelAH ? `${modelAH.home}%` : "—"}</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: "var(--text)", fontVariantNumeric: "tabular-nums",
+          }}>{bookAH ? bookAH.home : "—"}</span>
+        </div>
+
+        {/* Away */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          alignItems: "center", padding: "8px 12px",
+        }}>
+          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>客队</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: modelAH && modelAH.away > 50 ? "#e05252" : "var(--text)",
+            fontVariantNumeric: "tabular-nums",
+          }}>{modelAH ? `${modelAH.away}%` : "—"}</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: "var(--text)", fontVariantNumeric: "tabular-nums",
+          }}>{bookAH ? bookAH.away : "—"}</span>
+        </div>
+
+        {bookAH?.bookmaker && (
+          <div style={{
+            padding: "4px 12px 8px", fontSize: 9, color: "var(--text3)", textAlign: "right",
+          }}>
+            {bookAH.bookmaker}
+          </div>
+        )}
+      </div>
+
+      {/* ─── Section 3: Over/Under Comparison ─── */}
+      <div style={{
+        background: "var(--card)", borderRadius: 10,
+        border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+      }}>
+        <div style={{ padding: "10px 12px 6px" }}>
+          <SectionLabel>大小球对比</SectionLabel>
+        </div>
+        {/* Column headers */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          padding: "6px 12px", borderBottom: "1px solid var(--border)",
+        }}>
+          <span />
+          <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
+        </div>
+
+        {/* Line */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          alignItems: "center", padding: "8px 12px",
+          borderBottom: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>盘口</span>
+          <span style={{ textAlign: "center" }}>
+            {modelOU ? (
+              <span style={{
+                fontSize: 12, fontWeight: 800, color: "var(--text)",
+                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
+              }}>{modelOU.line}</span>
+            ) : "—"}
+          </span>
+          <span style={{ textAlign: "center" }}>
+            {bookOU ? (
+              <span style={{
+                fontSize: 12, fontWeight: 800, color: "var(--text)",
+                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
+              }}>{bookOU.line}</span>
+            ) : "—"}
+          </span>
+        </div>
+
+        {/* Over */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          alignItems: "center", padding: "8px 12px",
+          borderBottom: "1px solid var(--border)",
+        }}>
+          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>大球</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: "var(--green, #4caf50)", fontVariantNumeric: "tabular-nums",
+          }}>{modelOU ? `${modelOU.over}%` : "—"}</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: "var(--text)", fontVariantNumeric: "tabular-nums",
+          }}>{bookOU ? bookOU.over : "—"}</span>
+        </div>
+
+        {/* Under */}
+        <div style={{
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          alignItems: "center", padding: "8px 12px",
+        }}>
+          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>小球</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: "var(--orange, #ff9800)", fontVariantNumeric: "tabular-nums",
+          }}>{modelOU ? `${modelOU.under}%` : "—"}</span>
+          <span style={{
+            textAlign: "center", fontSize: 13, fontWeight: 800,
+            color: "var(--text)", fontVariantNumeric: "tabular-nums",
+          }}>{bookOU ? bookOU.under : "—"}</span>
+        </div>
+
+        {bookOU?.bookmaker && (
+          <div style={{
+            padding: "4px 12px 8px", fontSize: 9, color: "var(--text3)", textAlign: "right",
+          }}>
+            {bookOU.bookmaker}
+          </div>
+        )}
+      </div>
+
+      {/* ─── Section 4: Model Exclusive Analysis ─── */}
+      {poissonOdds && (
+        <div style={{
+          background: "var(--card)", borderRadius: 10,
+          border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+        }}>
+          <div style={{
+            padding: "10px 12px 6px",
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+          }}>
+            <SectionLabel>模型独有分析</SectionLabel>
+            <span style={{ fontSize: 8, color: "var(--text3)", fontWeight: 600, opacity: 0.6 }}>
+              λ {poissonOdds.lambdaHome} – {poissonOdds.lambdaAway}
+            </span>
+          </div>
+
+          <div style={{
+            display: "grid", gridTemplateColumns: "1fr 1fr",
+            gap: 1, background: "var(--border)",
+          }}>
+            {/* BTTS */}
+            {modelBtts && (
+              <div style={{ background: "var(--card)", padding: "10px 12px" }}>
+                <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+                  双方进球
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <div>
+                    <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text)" }}>{modelBtts.yes}%</div>
+                    <div style={{ fontSize: 9, color: "var(--text3)" }}>是</div>
+                  </div>
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text2)" }}>{modelBtts.no}%</div>
+                    <div style={{ fontSize: 9, color: "var(--text3)" }}>否</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Corners */}
+            {modelCorners && (
+              <div style={{ background: "var(--card)", padding: "10px 12px" }}>
+                <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+                  角球预测
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+                  <span style={{ fontSize: 14, fontWeight: 800, color: "var(--blue)" }}>{modelCorners.homeExpected}</span>
+                  <span style={{ fontSize: 9, color: "var(--text3)" }}>总 {modelCorners.totalExpected}</span>
+                  <span style={{ fontSize: 14, fontWeight: 800, color: "#e05252" }}>{modelCorners.awayExpected}</span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Correct Score */}
+          {modelCS && modelCS.length > 0 && (
+            <div style={{ padding: "10px 14px", borderTop: "1px solid var(--border)" }}>
+              <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
+                最可能比分
+              </div>
+              <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+                {modelCS.slice(0, 5).map((s, i) => (
+                  <div key={i} style={{
+                    flex: 1, minWidth: 48, textAlign: "center",
+                    background: "var(--card2, rgba(255,255,255,0.04))", borderRadius: 6, padding: "6px 4px",
+                  }}>
+                    <div style={{ fontSize: 14, fontWeight: 900, color: i === 0 ? "var(--blue)" : "var(--text)", fontVariantNumeric: "tabular-nums" }}>
+                      {s.score}
+                    </div>
+                    <div style={{ fontSize: 9, color: "var(--text3)" }}>{s.prob}%</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Model info */}
+          <div style={{
+            padding: "6px 14px 8px", borderTop: "1px solid var(--border)",
+            fontSize: 8, color: "var(--text3)", opacity: 0.5, textAlign: "center",
+          }}>
+            Dixon-Coles 泊松模型 · 基于球队历史攻防数据 · 每日更新
+          </div>
+        </div>
+      )}
+
+      {/* ─── Section 5: Full Bookmaker Odds (collapsible) ─── */}
+      {ftOdds.length > 0 && (
+        <div style={{
+          background: "var(--card)", borderRadius: 10,
+          border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
+        }}>
+          <div
+            onClick={() => setShowFullOdds(!showFullOdds)}
+            style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "10px 12px", cursor: "pointer",
+              borderBottom: showFullOdds ? "1px solid var(--border)" : "none",
+            }}
+          >
+            <SectionLabel>完整博彩赔率</SectionLabel>
+            <span style={{
+              fontSize: 11, color: "var(--text3)", fontWeight: 600,
+              transform: showFullOdds ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.2s",
+              display: "inline-block",
+            }}>▼</span>
+          </div>
+
+          {showFullOdds && (
+            <>
+              {/* Header */}
+              <div style={{
+                display: "flex", padding: "6px 12px",
+                borderBottom: "1px solid var(--border)",
+              }}>
+                <span style={{ flex: 1, fontSize: 9, color: "var(--text3)", fontWeight: 700 }}>博彩公司</span>
+                <span style={{ width: 56, fontSize: 9, color: "var(--blue)", fontWeight: 700, textAlign: "center" }}>
+                  {fixture.home.name}
+                </span>
+                <span style={{ width: 56, fontSize: 9, color: "var(--text3)", fontWeight: 700, textAlign: "center" }}>
+                  平局
+                </span>
+                <span style={{ width: 56, fontSize: 9, color: "var(--red)", fontWeight: 700, textAlign: "center" }}>
+                  {fixture.away.name}
+                </span>
+              </div>
+              {/* Rows */}
+              {ftOdds.map((o, i) => (
+                <div key={i} style={{
+                  display: "flex", alignItems: "center", padding: "8px 12px",
+                  borderBottom: i < ftOdds.length - 1 ? "1px solid var(--border)" : "none",
+                }}>
+                  <span style={{ flex: 1, fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
+                    {o.bookmaker}
+                  </span>
+                  <OddCell value={o.home} highlight={o.home <= o.draw && o.home <= o.away} color="blue" />
+                  <OddCell value={o.draw} highlight={false} color="dim" />
+                  <OddCell value={o.away} highlight={o.away <= o.draw && o.away <= o.home} color="red" />
+                </div>
+              ))}
+            </>
+          )}
+        </div>
+      )}
+
+      <div style={{ height: 12 }} />
+    </div>
+  );
+}
+
 /* ── Tab: Stats ──────────────────────────────────────── */
 function TabStats({ data }) {
   const { stats, fixture } = data;
@@ -858,140 +1232,7 @@ function TabStats({ data }) {
   );
 }
 
-/* ── Tab: Odds ───────────────────────────────────────── */
-function TabOdds({ data }) {
-  const { odds, fixture } = data;
-  if (!odds) {
-    return (
-      <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-        暂无赔率数据（通常赛前1-2周开放）
-      </div>
-    );
-  }
-
-  const ftOdds = odds["1X2"] || [];
-  const ah = odds.asian_handicap;
-  const ou = odds.over_under;
-
-  return (
-    <div style={{ padding: "12px" }}>
-      {/* 1X2 */}
-      {ftOdds.length > 0 && (
-        <div style={{
-          background: "var(--card)", borderRadius: 10,
-          border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
-        }}>
-          <div style={{
-            display: "flex", justifyContent: "space-between", alignItems: "center",
-            padding: "10px 12px 8px",
-            borderBottom: "1px solid var(--border)",
-          }}>
-            <span style={{
-              fontSize: 10, fontWeight: 700, color: "var(--text3)",
-              textTransform: "uppercase", letterSpacing: "0.06em",
-            }}>胜平负 (1X2)</span>
-          </div>
-          {/* Header */}
-          <div style={{
-            display: "flex", padding: "6px 12px",
-            borderBottom: "1px solid var(--border)",
-          }}>
-            <span style={{ flex: 1, fontSize: 9, color: "var(--text3)", fontWeight: 700 }}>博彩公司</span>
-            <span style={{ width: 56, fontSize: 9, color: "var(--blue)", fontWeight: 700, textAlign: "center" }}>
-              {fixture.home.name}
-            </span>
-            <span style={{ width: 56, fontSize: 9, color: "var(--text3)", fontWeight: 700, textAlign: "center" }}>
-              平局
-            </span>
-            <span style={{ width: 56, fontSize: 9, color: "var(--red)", fontWeight: 700, textAlign: "center" }}>
-              {fixture.away.name}
-            </span>
-          </div>
-          {/* Rows */}
-          {ftOdds.map((o, i) => (
-            <div key={i} style={{
-              display: "flex", alignItems: "center", padding: "8px 12px",
-              borderBottom: i < ftOdds.length - 1 ? "1px solid var(--border)" : "none",
-            }}>
-              <span style={{ flex: 1, fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
-                {o.bookmaker}
-              </span>
-              <OddCell value={o.home} highlight={o.home <= o.draw && o.home <= o.away} color="blue" />
-              <OddCell value={o.draw} highlight={false} color="dim" />
-              <OddCell value={o.away} highlight={o.away <= o.draw && o.away <= o.home} color="red" />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Asian Handicap & Over/Under side by side */}
-      <div style={{ display: "flex", gap: 8 }}>
-        {ah && (
-          <div style={{
-            flex: 1, background: "var(--card)", borderRadius: 10,
-            border: "1px solid var(--border)", padding: "12px",
-          }}>
-            <div style={{
-              fontSize: 9, fontWeight: 700, color: "var(--text3)",
-              textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8,
-            }}>亚洲盘口</div>
-            <div style={{ textAlign: "center", marginBottom: 6 }}>
-              <span style={{
-                fontSize: 12, fontWeight: 800, color: "var(--text)",
-                background: "var(--card2)", padding: "2px 8px", borderRadius: 4,
-              }}>{ah.line > 0 ? `+${ah.line}` : ah.line}</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--blue)" }}>{ah.home}</div>
-                <div style={{ fontSize: 9, color: "var(--text3)" }}>主队</div>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--red)" }}>{ah.away}</div>
-                <div style={{ fontSize: 9, color: "var(--text3)" }}>客队</div>
-              </div>
-            </div>
-            <div style={{ fontSize: 9, color: "var(--text3)", textAlign: "center", marginTop: 6 }}>
-              {ah.bookmaker}
-            </div>
-          </div>
-        )}
-        {ou && (
-          <div style={{
-            flex: 1, background: "var(--card)", borderRadius: 10,
-            border: "1px solid var(--border)", padding: "12px",
-          }}>
-            <div style={{
-              fontSize: 9, fontWeight: 700, color: "var(--text3)",
-              textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8,
-            }}>大小球</div>
-            <div style={{ textAlign: "center", marginBottom: 6 }}>
-              <span style={{
-                fontSize: 12, fontWeight: 800, color: "var(--text)",
-                background: "var(--card2)", padding: "2px 8px", borderRadius: 4,
-              }}>{ou.line}</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--green, #4caf50)" }}>{ou.over}</div>
-                <div style={{ fontSize: 9, color: "var(--text3)" }}>大球</div>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 15, fontWeight: 800, color: "var(--orange, #ff9800)" }}>{ou.under}</div>
-                <div style={{ fontSize: 9, color: "var(--text3)" }}>小球</div>
-              </div>
-            </div>
-            <div style={{ fontSize: 9, color: "var(--text3)", textAlign: "center", marginTop: 6 }}>
-              {ou.bookmaker}
-            </div>
-          </div>
-        )}
-      </div>
-      <div style={{ height: 12 }} />
-    </div>
-  );
-}
-
+/* ── OddCell helper ─────────────────────────────────── */
 function OddCell({ value, highlight, color }) {
   const colorMap = { blue: "var(--blue)", red: "var(--red)", dim: "var(--text2)" };
   return (
@@ -1453,10 +1694,10 @@ function MatchDetailInner() {
 
           {/* Tab content */}
           <div style={{ paddingBottom: 80 }}>
-            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} poissonOdds={poissonOdds} />}
-            {tab === "stats" && <TabStats data={data} />}
-            {tab === "odds" && <TabOdds data={data} />}
+            {tab === "overview" && <TabOverview data={data} onPlayerClick={handleEventPlayerClick} predictionsTeams={predictionsData?.teams} h2hData={h2hData} homeIso={homeIso} awayIso={awayIso} poissonOdds={poissonOdds} onSwitchTab={setTab} />}
+            {tab === "analysis" && <TabAnalysis data={data} poissonOdds={poissonOdds} fixture={fixture} />}
             {tab === "lineups" && <TabLineups data={data} />}
+            {tab === "stats" && <TabStats data={data} />}
             {tab === "events" && <TabEvents data={data} onPlayerClick={handleEventPlayerClick} />}
             {tab === "h2h" && <TabH2H fixture={fixture} homeIso={homeIso} awayIso={awayIso} />}
           </div>

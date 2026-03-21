@@ -13,5 +13,9 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  "routes": [
+    { "pattern": "djyylive.com/*", "zone_name": "djyylive.com" },
+    { "pattern": "www.djyylive.com/*", "zone_name": "djyylive.com" }
+  ]
 }
