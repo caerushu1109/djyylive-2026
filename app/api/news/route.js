@@ -22,9 +22,78 @@ const RSS_SOURCES = [
 let cache = { items: [], ts: 0 };
 const CACHE_TTL = 30 * 60 * 1000; // 30 min
 
+// ── World Cup / international football relevance filter ──
+// English keywords
+const EN_KEYWORDS = [
+  "world cup", "2026", "fifa",
+  "qualifier", "qualifying", "nations league",
+  "international", "national team", "friendly", "friendlies",
+  // 48 WC teams — country/team names likely in WC context
+  "argentina", "brazil", "france", "germany", "england", "spain",
+  "portugal", "netherlands", "belgium", "croatia", "uruguay",
+  "mexico", "usa", "usmnt", "canada", "japan", "south korea",
+  "australia", "saudi", "qatar", "iran", "morocco", "senegal",
+  "cameroon", "ghana", "nigeria", "egypt", "tunisia",
+  "colombia", "ecuador", "chile", "peru", "paraguay",
+  "serbia", "switzerland", "denmark", "poland", "austria",
+  "wales", "scotland", "ukraine", "italy", "sweden",
+  "costa rica", "panama", "honduras", "jamaica",
+  // Key terms
+  "call-up", "called up", "squad announcement", "roster",
+  "injury update", "ruled out", "miss world",
+  "draw", "group stage", "knockout", "host city", "host nation",
+  "mbappe", "messi", "haaland", "bellingham", "vinicius",
+  "neymar", "salah", "de bruyne",
+];
+// Chinese keywords
+const ZH_KEYWORDS = [
+  "世界杯", "2026", "世预赛", "预选赛",
+  "国家队", "国足", "国际比赛", "热身赛", "友谊赛",
+  "欧国联", "欧洲杯", "美洲杯", "亚洲杯", "非洲杯",
+  "FIFA", "国际足联",
+  "征召", "入选", "大名单", "集训",
+  "伤缺", "伤退", "无缘", "缺席",
+  "阿根廷", "巴西", "法国", "德国", "英格兰", "西班牙",
+  "葡萄牙", "荷兰", "比利时", "克罗地亚", "乌拉圭",
+  "墨西哥", "美国", "加拿大", "日本", "韩国",
+  "澳大利亚", "沙特", "卡塔尔", "伊朗", "摩洛哥",
+  "塞内加尔", "喀麦隆", "加纳", "尼日利亚",
+  "哥伦比亚", "厄瓜多尔", "塞尔维亚", "瑞士", "丹麦", "波兰",
+  "意大利", "中国队",
+  "姆巴佩", "梅西", "哈兰德", "贝林厄姆", "维尼修斯",
+  "内马尔", "萨拉赫", "德布劳内",
+  // General international football context
+  "国脚", "主帅", "主教练任命", "换帅",
+];
+
+// Exclude non-football content (esports, basketball, etc.)
+const EXCLUDE_KEYWORDS = [
+  // Esports / League of Legends
+  "lpl", "lck", "lec", "msi", "jdg", "blg", "t1", "geng", "tes", "lng",
+  "edg", "rng", "fpx", "we ", "ig ", "上单", "打野", "中单", "下路", "辅助",
+  "英雄联盟", "lol", "dota", "csgo", "valorant", "电竞",
+  // Basketball
+  "nba", "cba", "篮球",
+  // Other sports
+  "f1", "网球", "高尔夫", "nfl", "mlb",
+];
+
+function isRelevant(item) {
+  const text = `${item.title} ${item.description || ""}`.toLowerCase();
+  const rawText = `${item.title} ${item.description || ""}`;
+
+  // Exclude non-football content first
+  if (EXCLUDE_KEYWORDS.some((kw) => text.includes(kw) || rawText.includes(kw))) return false;
+
+  // Check English keywords
+  if (EN_KEYWORDS.some((kw) => text.includes(kw))) return true;
+  // Check Chinese keywords
+  if (ZH_KEYWORDS.some((kw) => rawText.includes(kw))) return true;
+  return false;
+}
+
 /**
  * Minimal RSS XML parser — no dependencies.
- * Extracts <item> elements with title, link, pubDate, description, and media thumbnail.
  */
 function parseRSS(xml, sourceName) {
   const items = [];
@@ -41,7 +110,7 @@ function parseRSS(xml, sourceName) {
     const pubDate = tag("pubDate");
     // Short description — strip HTML tags
     let desc = tag("description").replace(/<[^>]*>/g, "").trim();
-    if (desc.length > 100) desc = desc.slice(0, 100) + "...";
+    if (desc.length > 120) desc = desc.slice(0, 120) + "...";
     // Media thumbnail
     const thumbMatch = block.match(/(?:media:thumbnail|media:content)[^>]*url=["']([^"']+)["']/i);
     const thumbnail = thumbMatch ? thumbMatch[1] : null;
@@ -88,23 +157,34 @@ async function fetchAllNews() {
     }
   }
 
-  // Interleave sources: take top N per source, merge, sort, dedupe, limit 10
-  // Ensures each source gets representation
+  // Step 1: Filter relevant items only
+  const relevant = allItems.filter((item) => item.pubDate && isRelevant(item));
+
+  // Step 2: Interleave sources for balance
   const bySource = {};
-  for (const item of allItems) {
-    if (!item.pubDate) continue;
+  for (const item of relevant) {
     if (!bySource[item.source]) bySource[item.source] = [];
     bySource[item.source].push(item);
   }
   let merged = [];
-  const perSource = Math.max(4, Math.ceil(12 / Object.keys(bySource).length));
+  const sourceCount = Object.keys(bySource).length || 1;
+  const perSource = Math.max(4, Math.ceil(12 / sourceCount));
   for (const src of Object.keys(bySource)) {
     bySource[src].sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
     merged.push(...bySource[src].slice(0, perSource));
   }
+
+  // Step 3: If too few relevant items (<5), backfill with latest non-relevant
+  if (merged.length < 5) {
+    const backfill = allItems
+      .filter((item) => item.pubDate && !isRelevant(item))
+      .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+      .slice(0, 5 - merged.length);
+    merged.push(...backfill);
+  }
+
   allItems = merged
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-    // Dedupe by similar titles
     .filter((item, i, arr) => {
       const prev = arr.slice(0, i);
       return !prev.some((p) => p.title.toLowerCase() === item.title.toLowerCase());
