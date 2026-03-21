@@ -45,23 +45,23 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
     setLoading(true);
     setError(null);
 
-    const histId = historicalId || playerId;
-    const fetchHistorical = fetch(`/data/players/${histId}.json`)
-      .then((r) => (r.ok ? r.json() : null))
-      .catch(() => null);
+    // Only fetch historical if we have a valid P-XXXXX id
+    const histId = historicalId || (String(playerId).startsWith("P-") ? playerId : null);
+    const fetchHistorical = histId
+      ? fetch(`/data/players/${histId}.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null)
+      : Promise.resolve(null);
 
-    const fetchLive = fetch(`/api/player/${playerId}`)
-      .then((r) => (r.ok ? r.json() : null))
-      .catch(() => null);
+    // Only fetch live if we have a numeric SportMonks id
+    const numericId = String(playerId).startsWith("P-") ? null : playerId;
+    const fetchLive = numericId
+      ? fetch(`/api/player/${numericId}`).then((r) => (r.ok ? r.json() : null)).catch(() => null)
+      : Promise.resolve(null);
 
     Promise.all([fetchHistorical, fetchLive]).then(([hist, lv]) => {
       if (cancelled) return;
-      if (!hist && !lv) {
-        setError("无法加载球员数据");
-      } else {
-        setHistorical(hist);
-        setLive(lv);
-      }
+      // Even if both fail, don't show error — show minimal card with playerName
+      setHistorical(hist);
+      setLive(lv);
       setLoading(false);
     });
 
@@ -312,8 +312,6 @@ export default function PlayerSheet({ playerId, historicalId, onClose, playerNam
                   {playerName ? `加载 ${playerName} ...` : "加载中..."}
                 </span>
               </div>
-            ) : error ? (
-              <div style={s.errorBox}>{error}</div>
             ) : (
               <>
                 {/* ── Profile Header ── */}
