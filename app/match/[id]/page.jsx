@@ -5,7 +5,7 @@ import { useMatchDetail } from "@/lib/hooks/useMatchDetail";
 import { useH2H } from "@/lib/hooks/useH2H";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
-import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage } from "@/lib/poisson";
+import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage, hybridLambda } from "@/lib/poisson";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
@@ -1367,14 +1367,36 @@ function MatchDetailInner() {
   const poissonOdds = useMemo(() => {
     if (!fixture || fixture.status !== "NS") return null;
 
+    // Lookup team strength data (SportMonks statistics)
     const homeStr = findTeamStrength(strengthsData, fixture.home.originalName);
     const awayStr = findTeamStrength(strengthsData, fixture.away.originalName);
 
-    if (homeStr && awayStr) {
-      // Determine host advantage from venue
-      const { homeBoost, awayBoost } = getHostAdvantage(
-        fixture.home.originalName, fixture.away.originalName, fixture.venue
+    // Lookup ELO ratings (predictions.json uses Chinese names matching fixture.home.name)
+    const homePred = predictionsData?.teams?.find(t =>
+      t.name === fixture.home.name || t.code === homeIso?.toUpperCase()
+    );
+    const awayPred = predictionsData?.teams?.find(t =>
+      t.name === fixture.away.name || t.code === awayIso?.toUpperCase()
+    );
+
+    // Host advantage from venue
+    const { homeBoost, awayBoost } = getHostAdvantage(
+      fixture.home.originalName, fixture.away.originalName, fixture.venue
+    );
+
+    // Best: Hybrid model (strength + ELO blend)
+    if (homeStr && awayStr && homePred?.elo && awayPred?.elo) {
+      const lambdas = hybridLambda(
+        homeStr.attack, homeStr.defense,
+        awayStr.attack, awayStr.defense,
+        homePred.elo, awayPred.elo,
+        { avgGoals: 2.6, homeBoost, awayBoost }
       );
+      return computeMatchOdds(lambdas.home, lambdas.away);
+    }
+
+    // Fallback A: strength only (no ELO available)
+    if (homeStr && awayStr) {
       const lambdas = computeLambda(
         homeStr.attack, homeStr.defense,
         awayStr.attack, awayStr.defense,
@@ -1383,17 +1405,11 @@ function MatchDetailInner() {
       return computeMatchOdds(lambdas.home, lambdas.away);
     }
 
-    // Fallback: use ELO if team strengths not loaded yet
-    const homePred = predictionsData?.teams?.find(t =>
-      t.name === fixture.home.name || t.code === homeIso?.toUpperCase()
-    );
-    const awayPred = predictionsData?.teams?.find(t =>
-      t.name === fixture.away.name || t.code === awayIso?.toUpperCase()
-    );
+    // Fallback B: ELO only (no strength data)
     if (homePred?.elo && awayPred?.elo) {
-      const homeElo = homePred.elo + (HOST_CODES.includes(homePred.code) ? HOST_BONUS : 0);
-      const awayElo = awayPred.elo + (HOST_CODES.includes(awayPred.code) ? HOST_BONUS : 0);
-      const lambdas = eloToLambda(homeElo, awayElo, { avgGoals: 2.6 });
+      const lambdas = eloToLambda(homePred.elo, awayPred.elo, { avgGoals: 2.6 });
+      lambdas.home *= homeBoost;
+      lambdas.away *= awayBoost;
       return computeMatchOdds(lambdas.home, lambdas.away);
     }
 
