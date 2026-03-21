@@ -7,7 +7,7 @@ import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
 import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage, hybridLambda, computeInPlayOdds } from "@/lib/poisson";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import { nameToIso } from "@/lib/utils/teamIso";
+import { nameToIso } from "@/lib/canonical-names";
 import { PlayerProvider, useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { POSITION_LABEL } from "@/lib/utils/teamIso";
+import { POSITION_LABEL } from "@/lib/canonical-names";
 import { useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 

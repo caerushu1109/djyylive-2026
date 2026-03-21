@@ -1,35 +1,5 @@
 import { NextResponse } from "next/server";
-
-// 将队名转成 eloratings.net 的 slug（除去拼音符号、空格换下划线）
-const ACCENT_MAP = {
-  "à":"a","á":"a","â":"a","ã":"a","ä":"a","å":"a",
-  "À":"A","Á":"A","Â":"A","Ã":"A","Ä":"A","Å":"A",
-  "ç":"c","Ç":"C",
-  "è":"e","é":"e","ê":"e","ë":"e",
-  "È":"E","É":"E","Ê":"E","Ë":"E",
-  "ì":"i","í":"i","î":"i","ï":"i",
-  "Ì":"I","Í":"I","Î":"I","Ï":"I",
-  "ò":"o","ó":"o","ô":"o","õ":"o","ö":"o",
-  "Ò":"O","Ó":"O","Ô":"O","Õ":"O","Ö":"O",
-  "ù":"u","ú":"u","û":"u","ü":"u",
-  "Ù":"U","Ú":"U","Û":"U","Ü":"U",
-  "ñ":"n","Ñ":"N",
-};
-
-// Some eloratings.net slugs differ from SportMonks original names
-const SLUG_OVERRIDE = {
-  "Korea Republic": "South_Korea",
-  "Côte d'Ivoire":  "Ivory_Coast",
-};
-
-function toSlug(name) {
-  if (SLUG_OVERRIDE[name]) return SLUG_OVERRIDE[name];
-  let s = name || "";
-  for (const [from, to] of Object.entries(ACCENT_MAP)) {
-    s = s.split(from).join(to);
-  }
-  return s.replace(/ /g, "_");
-}
+import { toEloSlug } from "@/lib/canonical-names";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -40,7 +10,7 @@ export async function GET(request) {
     return NextResponse.json({ error: "Missing name or code" }, { status: 400 });
   }
 
-  const slug = toSlug(name);
+  const slug = toEloSlug(name);
   const url  = `https://eloratings.net/${slug}.tsv`;
 
   try {
