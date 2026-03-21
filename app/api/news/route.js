@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 
 const RSS_SOURCES = [
   {
+    name: "懂球帝",
+    url: "https://rsshub.rssforever.com/dongqiudi/top_news",
+    icon: "懂球帝",
+  },
+  {
     name: "BBC",
     url: "https://feeds.bbci.co.uk/sport/football/rss.xml",
     icon: "BBC",
@@ -83,7 +88,8 @@ async function fetchAllNews() {
     }
   }
 
-  // Interleave sources: take top 5 per source, merge, sort, dedupe, limit 10
+  // Interleave sources: take top N per source, merge, sort, dedupe, limit 10
+  // Ensures each source gets representation
   const bySource = {};
   for (const item of allItems) {
     if (!item.pubDate) continue;
@@ -91,9 +97,10 @@ async function fetchAllNews() {
     bySource[item.source].push(item);
   }
   let merged = [];
+  const perSource = Math.max(4, Math.ceil(12 / Object.keys(bySource).length));
   for (const src of Object.keys(bySource)) {
     bySource[src].sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-    merged.push(...bySource[src].slice(0, 6));
+    merged.push(...bySource[src].slice(0, perSource));
   }
   allItems = merged
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))

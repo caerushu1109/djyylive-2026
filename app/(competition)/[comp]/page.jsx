@@ -95,7 +95,7 @@ function TournamentProgress({ fixturesData }) {
   );
 }
 
-const SOURCE_COLORS = { BBC: "#bb1919", ESPN: "#d00", FIFA: "#326295" };
+const SOURCE_COLORS = { "懂球帝": "#1a8917", BBC: "#bb1919", ESPN: "#d00", FIFA: "#326295" };
 
 function timeAgo(dateStr) {
   if (!dateStr) return "";
