@@ -567,6 +567,11 @@ export async function getMatchDetail(fixtureId, options = {}) {
         }
 
         // Fetch odds separately (different endpoint)
+        // SportMonks returns each outcome as a separate entry:
+        //   { market_id: 1, label: "Home", value: "2.10", bookmaker: { name: "bet365" } }
+        //   { market_id: 1, label: "Draw", value: "3.30", bookmaker: { name: "bet365" } }
+        //   { market_id: 1, label: "Away", value: "3.60", bookmaker: { name: "bet365" } }
+        // We group by bookmaker and market to reconstruct full odds.
         let odds = null;
         try {
           const oddsUrl = buildSportMonksUrl(`odds/pre-match/fixtures/${fixtureId}`, {
@@ -575,19 +580,57 @@ export async function getMatchDetail(fixtureId, options = {}) {
           const oddsResponse = await fetchSportMonksJson(oddsUrl);
           const oddsData = toArray(oddsResponse?.data);
           if (oddsData.length > 0) {
-            // Group by market: find 1X2 (fulltime result), Asian Handicap, Over/Under
-            const ftResult = oddsData.filter((o) => o.market_id === 1); // 1X2
-            const ah = oddsData.find((o) => o.market_id === 28); // Asian Handicap
-            const ou = oddsData.find((o) => o.market_id === 18); // Over/Under 2.5
+            // ── 1X2 (market_id=1): group by bookmaker ──
+            const ftEntries = oddsData.filter((o) => o.market_id === 1);
+            const ftByBook = {};
+            for (const o of ftEntries) {
+              const bk = o.bookmaker?.name || o.bookmaker_id || "Unknown";
+              if (!ftByBook[bk]) ftByBook[bk] = { bookmaker: bk, home: 0, draw: 0, away: 0 };
+              const label = String(o.label || "").toLowerCase();
+              const val = Number(o.value) || 0;
+              if (label.includes("home") || label === "1") ftByBook[bk].home = val;
+              else if (label.includes("draw") || label === "x") ftByBook[bk].draw = val;
+              else if (label.includes("away") || label === "2") ftByBook[bk].away = val;
+            }
+            const ft1x2 = Object.values(ftByBook).filter((b) => b.home > 0 && b.draw > 0 && b.away > 0);
+
+            // ── Asian Handicap (market_id=28): collect ALL lines ──
+            const ahEntries = oddsData.filter((o) => o.market_id === 28);
+            const ahByKey = {}; // keyed by "bookmaker|line"
+            for (const o of ahEntries) {
+              const bk = o.bookmaker?.name || o.bookmaker_id || "Unknown";
+              const line = Number(o.handicap ?? 0);
+              const key = `${bk}|${line}`;
+              if (!ahByKey[key]) ahByKey[key] = { bookmaker: bk, line, home: 0, away: 0 };
+              const label = String(o.label || "").toLowerCase();
+              const val = Number(o.value) || 0;
+              if (label.includes("home") || label === "1") ahByKey[key].home = val;
+              else if (label.includes("away") || label === "2") ahByKey[key].away = val;
+            }
+            const ahAll = Object.values(ahByKey).filter((b) => b.home > 0 && b.away > 0);
+
+            // ── Over/Under (market_id=18): collect ALL lines ──
+            const ouEntries = oddsData.filter((o) => o.market_id === 18);
+            const ouByKey = {}; // keyed by "bookmaker|line"
+            for (const o of ouEntries) {
+              const bk = o.bookmaker?.name || o.bookmaker_id || "Unknown";
+              const line = Number(o.total ?? o.handicap ?? 2.5);
+              const key = `${bk}|${line}`;
+              if (!ouByKey[key]) ouByKey[key] = { bookmaker: bk, line, over: 0, under: 0 };
+              const label = String(o.label || "").toLowerCase();
+              const val = Number(o.value) || 0;
+              if (label.includes("over")) ouByKey[key].over = val;
+              else if (label.includes("under")) ouByKey[key].under = val;
+            }
+            const ouAll = Object.values(ouByKey).filter((b) => b.over > 0 && b.under > 0);
+
             odds = {
-              "1X2": ftResult.slice(0, 5).map((o) => ({
-                bookmaker: o.bookmaker?.name || "Unknown",
-                home: Number(o.value) || 0,
-                draw: 0,
-                away: 0,
-              })),
-              asian_handicap: ah ? { bookmaker: ah.bookmaker?.name || "", line: Number(ah.handicap ?? 0), home: 0, away: 0 } : null,
-              over_under: ou ? { bookmaker: ou.bookmaker?.name || "", line: 2.5, over: 0, under: 0 } : null,
+              "1X2": ft1x2.slice(0, 5),
+              asian_handicap_all: ahAll,        // ALL available AH lines
+              over_under_all: ouAll,             // ALL available O/U lines
+              // Keep legacy single-line for backward compat (first entry or null)
+              asian_handicap: ahAll[0] || null,
+              over_under: ouAll.find((o) => o.line === 2.5) || ouAll[0] || null,
             };
           }
         } catch (_) { /* odds not available yet */ }

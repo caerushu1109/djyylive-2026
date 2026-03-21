@@ -5,7 +5,7 @@ import { useMatchDetail } from "@/lib/hooks/useMatchDetail";
 import { useH2H } from "@/lib/hooks/useH2H";
 import { usePredictions } from "@/lib/hooks/usePredictions";
 import { useTeamStrengths, findTeamStrength } from "@/lib/hooks/useTeamStrengths";
-import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage, hybridLambda } from "@/lib/poisson";
+import { computeMatchOdds, computeLambda, eloToLambda, getHostAdvantage, hybridLambda, computeAHAtLine, computeOUAtLine } from "@/lib/poisson";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { nameToIso } from "@/lib/utils/teamIso";
 import { getTeamMeta } from "@/src/lib/team-meta";
@@ -752,17 +752,61 @@ function TabAnalysis({ data, poissonOdds, fixture }) {
   const modelCorners = poissonOdds?.corners;
   const modelCS = poissonOdds?.correctScore;
 
-  // Bookmaker AH / OU with implied probabilities
-  const bookAH = odds?.asian_handicap;
-  const bookOU = odds?.over_under;
-  const bookAHProb = bookAH && bookAH.home && bookAH.away
-    ? { home: Math.round((1/bookAH.home) / (1/bookAH.home + 1/bookAH.away) * 100),
-        away: Math.round((1/bookAH.away) / (1/bookAH.home + 1/bookAH.away) * 100) }
-    : null;
-  const bookOUProb = bookOU && bookOU.over && bookOU.under
-    ? { over: Math.round((1/bookOU.over) / (1/bookOU.over + 1/bookOU.under) * 100),
-        under: Math.round((1/bookOU.under) / (1/bookOU.over + 1/bookOU.under) * 100) }
-    : null;
+  // ── Smart line matching: find bookmaker line closest to model line ──
+  // Helper: convert bookmaker decimal odds to implied probability (2-way)
+  function odds2prob(a, b) {
+    if (!a || !b || a <= 0 || b <= 0) return null;
+    const sum = 1/a + 1/b;
+    return { a: Math.round((1/a) / sum * 100), b: Math.round((1/b) / sum * 100) };
+  }
+
+  // Find bookmaker AH line matching model line (or closest available)
+  const bookAHAll = odds?.asian_handicap_all || [];
+  const bookAH = useMemo(() => {
+    if (!bookAHAll.length) return odds?.asian_handicap || null;
+    if (!modelAH) return bookAHAll[0] || null;
+    const exact = bookAHAll.find((b) => b.line === modelAH.line);
+    if (exact) return exact;
+    return bookAHAll.reduce((best, cur) =>
+      Math.abs(cur.line - modelAH.line) < Math.abs(best.line - modelAH.line) ? cur : best
+    );
+  }, [bookAHAll, modelAH, odds?.asian_handicap]);
+
+  // Find bookmaker O/U line matching model line (or closest available)
+  const bookOUAll = odds?.over_under_all || [];
+  const bookOU = useMemo(() => {
+    if (!bookOUAll.length) return odds?.over_under || null;
+    if (!modelOU) return bookOUAll.find((o) => o.line === 2.5) || bookOUAll[0] || null;
+    const exact = bookOUAll.find((b) => b.line === modelOU.line);
+    if (exact) return exact;
+    return bookOUAll.reduce((best, cur) =>
+      Math.abs(cur.line - modelOU.line) < Math.abs(best.line - modelOU.line) ? cur : best
+    );
+  }, [bookOUAll, modelOU, odds?.over_under]);
+
+  // When bookmaker line differs from model's auto-picked line,
+  // recalculate model probability at the SAME line for fair comparison
+  const displayModelAH = useMemo(() => {
+    if (!modelAH || !bookAH) return modelAH;
+    if (modelAH.line === bookAH.line) return modelAH;
+    // Recalculate model at bookmaker's line
+    if (poissonOdds?.lambdaHome && poissonOdds?.lambdaAway) {
+      return computeAHAtLine(poissonOdds.lambdaHome, poissonOdds.lambdaAway, bookAH.line);
+    }
+    return modelAH;
+  }, [modelAH, bookAH, poissonOdds]);
+
+  const displayModelOU = useMemo(() => {
+    if (!modelOU || !bookOU) return modelOU;
+    if (modelOU.line === bookOU.line) return modelOU;
+    if (poissonOdds?.lambdaHome && poissonOdds?.lambdaAway) {
+      return computeOUAtLine(poissonOdds.lambdaHome, poissonOdds.lambdaAway, bookOU.line);
+    }
+    return modelOU;
+  }, [modelOU, bookOU, poissonOdds]);
+
+  const bookAHProb = bookAH ? odds2prob(bookAH.home, bookAH.away) : null;
+  const bookOUProb = bookOU ? odds2prob(bookOU.over, bookOU.under) : null;
 
   // Highlight when model and bookmaker disagree by > 5 percentage points
   const discrepancyThreshold = 5;
@@ -851,92 +895,50 @@ function TabAnalysis({ data, poissonOdds, fixture }) {
       </div>
 
       {/* ─── Section 2: Asian Handicap Comparison ─── */}
+      {(displayModelAH || bookAH) && (() => {
+        // Use matched line (bookmaker's line if available, else model's)
+        const ahLine = bookAH?.line ?? displayModelAH?.line;
+        const fmtLine = (l) => l > 0 ? `+${l}` : l === 0 ? "0" : String(l);
+        return (
       <div style={{
         background: "var(--card)", borderRadius: 10,
         border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
       }}>
-        <div style={{ padding: "10px 12px 6px" }}>
+        <div style={{ padding: "10px 12px 6px", display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
           <SectionLabel>亚洲盘口对比</SectionLabel>
+          {ahLine != null && (
+            <span style={{
+              fontSize: 11, fontWeight: 800, color: "var(--text)",
+              background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
+            }}>{fmtLine(ahLine)}</span>
+          )}
         </div>
         {/* Column headers */}
         <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr 1fr",
           padding: "6px 12px", borderBottom: "1px solid var(--border)",
         }}>
           <span />
           <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
           <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
-        </div>
-
-        {/* Handicap line */}
-        <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
-          alignItems: "center", padding: "8px 12px",
-          borderBottom: "1px solid var(--border)",
-        }}>
-          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>盘口</span>
-          <span style={{ textAlign: "center" }}>
-            {modelAH ? (
-              <span style={{
-                fontSize: 12, fontWeight: 800, color: "var(--text)",
-                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
-              }}>
-                {modelAH.line > 0 ? `+${modelAH.line}` : modelAH.line === 0 ? "0" : modelAH.line}
-              </span>
-            ) : "—"}
-          </span>
-          <span style={{ textAlign: "center" }}>
-            {bookAH ? (
-              <span style={{
-                fontSize: 12, fontWeight: 800, color: "var(--text)",
-                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
-              }}>
-                {bookAH.line > 0 ? `+${bookAH.line}` : bookAH.line}
-              </span>
-            ) : "—"}
-          </span>
+          <div style={{ textAlign: "center" }}><SourceBadge label="市场" color="#4caf50" /></div>
         </div>
 
         {/* Home */}
-        <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
-          alignItems: "center", padding: "8px 12px",
-          borderBottom: "1px solid var(--border)",
-        }}>
-          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>主队</span>
-          <span style={{
-            textAlign: "center", fontSize: 13, fontWeight: 800,
-            color: modelAH && modelAH.home > 50 ? "var(--blue)" : "var(--text)",
-            fontVariantNumeric: "tabular-nums",
-          }}>{modelAH ? `${modelAH.home}%` : "—"}</span>
-          <div style={{ textAlign: "center" }}>
-            <div style={{
-              fontSize: 13, fontWeight: 800,
-              color: "var(--text)", fontVariantNumeric: "tabular-nums",
-            }}>{bookAHProb ? `${bookAHProb.home}%` : "—"}</div>
-            {bookAH?.home && <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginTop: 1 }}>{bookAH.home.toFixed(2)}</div>}
-          </div>
-        </div>
-
-        {/* Away */}
-        <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
-          alignItems: "center", padding: "8px 12px",
-        }}>
-          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>客队</span>
-          <span style={{
-            textAlign: "center", fontSize: 13, fontWeight: 800,
-            color: modelAH && modelAH.away > 50 ? "#e05252" : "var(--text)",
-            fontVariantNumeric: "tabular-nums",
-          }}>{modelAH ? `${modelAH.away}%` : "—"}</span>
-          <div style={{ textAlign: "center" }}>
-            <div style={{
-              fontSize: 13, fontWeight: 800,
-              color: "var(--text)", fontVariantNumeric: "tabular-nums",
-            }}>{bookAHProb ? `${bookAHProb.away}%` : "—"}</div>
-            {bookAH?.away && <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginTop: 1 }}>{bookAH.away.toFixed(2)}</div>}
-          </div>
-        </div>
+        <CompareRow
+          label="主队"
+          modelVal={displayModelAH ? `${displayModelAH.home}%` : null}
+          bookVal={bookAHProb ? `${bookAHProb.a}%` : null}
+          bookSub={bookAH?.home ? bookAH.home.toFixed(2) : null}
+          highlight={getHighlight(displayModelAH?.home, bookAHProb?.a)}
+        />
+        <CompareRow
+          label="客队"
+          modelVal={displayModelAH ? `${displayModelAH.away}%` : null}
+          bookVal={bookAHProb ? `${bookAHProb.b}%` : null}
+          bookSub={bookAH?.away ? bookAH.away.toFixed(2) : null}
+          highlight={getHighlight(displayModelAH?.away, bookAHProb?.b)}
+        />
 
         {bookAH?.bookmaker && (
           <div style={{
@@ -946,88 +948,52 @@ function TabAnalysis({ data, poissonOdds, fixture }) {
           </div>
         )}
       </div>
+        );
+      })()}
 
       {/* ─── Section 3: Over/Under Comparison ─── */}
+      {(displayModelOU || bookOU) && (() => {
+        const ouLine = bookOU?.line ?? displayModelOU?.line;
+        return (
       <div style={{
         background: "var(--card)", borderRadius: 10,
         border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
       }}>
-        <div style={{ padding: "10px 12px 6px" }}>
+        <div style={{ padding: "10px 12px 6px", display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
           <SectionLabel>大小球对比</SectionLabel>
+          {ouLine != null && (
+            <span style={{
+              fontSize: 11, fontWeight: 800, color: "var(--text)",
+              background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
+            }}>{ouLine}</span>
+          )}
         </div>
         {/* Column headers */}
         <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
+          display: "grid", gridTemplateColumns: "56px 1fr 1fr 1fr",
           padding: "6px 12px", borderBottom: "1px solid var(--border)",
         }}>
           <span />
           <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
           <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
-        </div>
-
-        {/* Line */}
-        <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
-          alignItems: "center", padding: "8px 12px",
-          borderBottom: "1px solid var(--border)",
-        }}>
-          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>盘口</span>
-          <span style={{ textAlign: "center" }}>
-            {modelOU ? (
-              <span style={{
-                fontSize: 12, fontWeight: 800, color: "var(--text)",
-                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
-              }}>{modelOU.line}</span>
-            ) : "—"}
-          </span>
-          <span style={{ textAlign: "center" }}>
-            {bookOU ? (
-              <span style={{
-                fontSize: 12, fontWeight: 800, color: "var(--text)",
-                background: "var(--card2, rgba(255,255,255,0.06))", padding: "2px 8px", borderRadius: 4,
-              }}>{bookOU.line}</span>
-            ) : "—"}
-          </span>
+          <div style={{ textAlign: "center" }}><SourceBadge label="市场" color="#4caf50" /></div>
         </div>
 
         {/* Over */}
-        <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
-          alignItems: "center", padding: "8px 12px",
-          borderBottom: "1px solid var(--border)",
-        }}>
-          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>大球</span>
-          <span style={{
-            textAlign: "center", fontSize: 13, fontWeight: 800,
-            color: "var(--green, #4caf50)", fontVariantNumeric: "tabular-nums",
-          }}>{modelOU ? `${modelOU.over}%` : "—"}</span>
-          <div style={{ textAlign: "center" }}>
-            <div style={{
-              fontSize: 13, fontWeight: 800,
-              color: "var(--text)", fontVariantNumeric: "tabular-nums",
-            }}>{bookOUProb ? `${bookOUProb.over}%` : "—"}</div>
-            {bookOU?.over && <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginTop: 1 }}>{bookOU.over.toFixed(2)}</div>}
-          </div>
-        </div>
-
-        {/* Under */}
-        <div style={{
-          display: "grid", gridTemplateColumns: "56px 1fr 1fr",
-          alignItems: "center", padding: "8px 12px",
-        }}>
-          <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>小球</span>
-          <span style={{
-            textAlign: "center", fontSize: 13, fontWeight: 800,
-            color: "var(--orange, #ff9800)", fontVariantNumeric: "tabular-nums",
-          }}>{modelOU ? `${modelOU.under}%` : "—"}</span>
-          <div style={{ textAlign: "center" }}>
-            <div style={{
-              fontSize: 13, fontWeight: 800,
-              color: "var(--text)", fontVariantNumeric: "tabular-nums",
-            }}>{bookOUProb ? `${bookOUProb.under}%` : "—"}</div>
-            {bookOU?.under && <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginTop: 1 }}>{bookOU.under.toFixed(2)}</div>}
-          </div>
-        </div>
+        <CompareRow
+          label="大球"
+          modelVal={displayModelOU ? `${displayModelOU.over}%` : null}
+          bookVal={bookOUProb ? `${bookOUProb.a}%` : null}
+          bookSub={bookOU?.over ? bookOU.over.toFixed(2) : null}
+          highlight={getHighlight(displayModelOU?.over, bookOUProb?.a)}
+        />
+        <CompareRow
+          label="小球"
+          modelVal={displayModelOU ? `${displayModelOU.under}%` : null}
+          bookVal={bookOUProb ? `${bookOUProb.b}%` : null}
+          bookSub={bookOU?.under ? bookOU.under.toFixed(2) : null}
+          highlight={getHighlight(displayModelOU?.under, bookOUProb?.b)}
+        />
 
         {bookOU?.bookmaker && (
           <div style={{
@@ -1037,6 +1003,8 @@ function TabAnalysis({ data, poissonOdds, fixture }) {
           </div>
         )}
       </div>
+        );
+      })()}
 
       {/* ─── Section 4: Model Exclusive Analysis ─── */}
       {poissonOdds && (
@@ -1077,17 +1045,46 @@ function TabAnalysis({ data, poissonOdds, fixture }) {
               </div>
             )}
 
-            {/* Corners */}
+            {/* Corners — show O/U probabilities + expected values */}
             {modelCorners && (
               <div style={{ background: "var(--card)", padding: "10px 12px" }}>
                 <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
                   角球预测
                 </div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+                {/* Expected corners */}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 8 }}>
                   <span style={{ fontSize: 14, fontWeight: 800, color: "var(--blue)" }}>{modelCorners.homeExpected}</span>
-                  <span style={{ fontSize: 9, color: "var(--text3)" }}>总 {modelCorners.totalExpected}</span>
+                  <span style={{ fontSize: 9, color: "var(--text3)" }}>预期总 {modelCorners.totalExpected}</span>
                   <span style={{ fontSize: 14, fontWeight: 800, color: "#e05252" }}>{modelCorners.awayExpected}</span>
                 </div>
+                {/* Corner O/U probabilities */}
+                {modelCorners.overUnder && modelCorners.overUnder.length > 0 && (
+                  <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+                    {modelCorners.overUnder.map((ou) => {
+                      const isOver = ou.over > 50;
+                      return (
+                        <div key={ou.line} style={{
+                          flex: 1, minWidth: 60, textAlign: "center",
+                          background: "var(--card2, rgba(255,255,255,0.04))", borderRadius: 6, padding: "5px 3px",
+                        }}>
+                          <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginBottom: 2 }}>
+                            {ou.line}
+                          </div>
+                          <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
+                            <span style={{
+                              fontSize: 10, fontWeight: 700, fontVariantNumeric: "tabular-nums",
+                              color: isOver ? "var(--green, #4caf50)" : "var(--text2)",
+                            }}>大{ou.over}%</span>
+                            <span style={{
+                              fontSize: 10, fontWeight: 700, fontVariantNumeric: "tabular-nums",
+                              color: !isOver ? "var(--orange, #ff9800)" : "var(--text2)",
+                            }}>小{ou.under}%</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             )}
           </div>

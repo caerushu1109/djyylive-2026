@@ -808,14 +808,14 @@ function TabOverview({ teamPred, marketPct, teamGroup, teamElo, historyData, tea
 }
 
 // ── Tab: 赛程 ─────────────────────────────────────────────────────────────────
-function TabFixtures({ teamFixtures, fixturesLoading }) {
+function TabFixtures({ teamFixtures, fixturesLoading, predictions }) {
   return (
     <div style={{ padding: "12px 16px 20px" }}>
       {fixturesLoading ? <LoadingSpinner /> : teamFixtures.length === 0 ? (
         <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无赛程数据</p>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {teamFixtures.map((f) => <MatchCard key={f.id} fixture={f} />)}
+          {teamFixtures.map((f) => <MatchCard key={f.id} fixture={f} predictions={predictions} />)}
         </div>
       )}
     </div>
@@ -1659,7 +1659,7 @@ function TeamPageInner() {
               />
             )}
             {activeTab === "赛程" && (
-              <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} />
+              <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} predictions={predData?.predictions} />
             )}
             {activeTab === "历史" && (
               <TabHistory historyData={historyData} teamElo={teamElo} teamDetail={teamDetail} />
