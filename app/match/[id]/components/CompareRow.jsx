@@ -31,13 +31,13 @@ export function CompareRow({ label, modelVal, bookVal, bookSub, marketVal, highl
         textAlign: "center", fontSize: 13, fontWeight: 800,
         color: highlight === "model" ? "var(--blue)" : "var(--text)",
         fontVariantNumeric: "tabular-nums",
-      }}>{modelVal ?? "\u2014"}</span>
+      }}>{modelVal ?? "—"}</span>
       <div style={{ textAlign: "center" }}>
         <div style={{
           fontSize: 13, fontWeight: 800,
           color: highlight === "book" ? "var(--orange, #ff9800)" : "var(--text)",
           fontVariantNumeric: "tabular-nums",
-        }}>{bookVal ?? "\u2014"}</div>
+        }}>{bookVal ?? "—"}</div>
         {bookSub && (
           <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 600, marginTop: 1 }}>
             {bookSub}
@@ -48,7 +48,7 @@ export function CompareRow({ label, modelVal, bookVal, bookSub, marketVal, highl
         textAlign: "center", fontSize: 12, fontWeight: 700,
         color: "var(--text3)",
         fontVariantNumeric: "tabular-nums",
-      }}>{marketVal ?? "\u2014"}</span>
+      }}>{marketVal ?? "—"}</span>
     </div>
   );
 }

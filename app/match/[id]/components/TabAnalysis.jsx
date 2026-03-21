@@ -116,7 +116,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
   if (!poissonOdds && !odds) {
     return (
       <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-        \u6682\u65e0\u5206\u6790\u6570\u636e
+        暂无分析数据
       </div>
     );
   }
@@ -129,7 +129,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
         border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
       }}>
         <div style={{ padding: "10px 12px 6px" }}>
-          <SectionLabel>\u80dc\u5e73\u8d1f (1X2) \u4e09\u65b9\u5bf9\u6bd4</SectionLabel>
+          <SectionLabel>胜平负 (1X2) 三方对比</SectionLabel>
         </div>
 
         {/* Visual comparison bars */}
@@ -139,7 +139,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
             bookProb ? [bookProb.home, bookProb.draw, bookProb.away] : null,
           ]}
           colors={["#7c8aef", "#e8a838"]}
-          labels={["\u6a21\u578b", "\u673a\u6784"]}
+          labels={["模型", "机构"]}
         />
 
         {/* Column headers */}
@@ -148,34 +148,34 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
           padding: "6px 12px", borderBottom: "1px solid var(--border)",
         }}>
           <span />
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u6a21\u578b" color="#7c8aef" /></div>
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u673a\u6784" color="#e8a838" /></div>
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u5e02\u573a" color="#4caf50" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="市场" color="#4caf50" /></div>
         </div>
 
         {/* Rows */}
         <CompareRow
-          label="\u4e3b\u80dc"
+          label="主胜"
           modelVal={modelResult ? `${modelResult.homeWin}%` : null}
           bookVal={bookProb ? `${bookProb.home}%` : null}
           bookSub={bookOdds1X2 ? bookOdds1X2.home.toFixed(2) : null}
-          marketVal="\u5373\u5c06\u4e0a\u7ebf"
+          marketVal="即将上线"
           highlight={getHighlight(modelResult?.homeWin, bookProb?.home)}
         />
         <CompareRow
-          label="\u5e73\u5c40"
+          label="平局"
           modelVal={modelResult ? `${modelResult.draw}%` : null}
           bookVal={bookProb ? `${bookProb.draw}%` : null}
           bookSub={bookOdds1X2 ? bookOdds1X2.draw.toFixed(2) : null}
-          marketVal="\u5373\u5c06\u4e0a\u7ebf"
+          marketVal="即将上线"
           highlight={getHighlight(modelResult?.draw, bookProb?.draw)}
         />
         <CompareRow
-          label="\u5ba2\u80dc"
+          label="客胜"
           modelVal={modelResult ? `${modelResult.awayWin}%` : null}
           bookVal={bookProb ? `${bookProb.away}%` : null}
           bookSub={bookOdds1X2 ? bookOdds1X2.away.toFixed(2) : null}
-          marketVal="\u5373\u5c06\u4e0a\u7ebf"
+          marketVal="即将上线"
           highlight={getHighlight(modelResult?.awayWin, bookProb?.away)}
         />
 
@@ -184,7 +184,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
           <div style={{
             padding: "4px 12px 8px", fontSize: 9, color: "var(--text3)", textAlign: "right",
           }}>
-            \u673a\u6784\u6570\u636e: {bookOdds1X2.bookmaker}
+            机构数据: {bookOdds1X2.bookmaker}
           </div>
         )}
       </div>
@@ -199,7 +199,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
         border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
       }}>
         <div style={{ padding: "10px 12px 6px", display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-          <SectionLabel>\u4e9a\u6d32\u76d8\u53e3\u5bf9\u6bd4</SectionLabel>
+          <SectionLabel>亚洲盘口对比</SectionLabel>
           {ahLine != null && (
             <span style={{
               fontSize: 11, fontWeight: 800, color: "var(--text)",
@@ -213,21 +213,21 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
           padding: "6px 12px", borderBottom: "1px solid var(--border)",
         }}>
           <span />
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u6a21\u578b" color="#7c8aef" /></div>
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u673a\u6784" color="#e8a838" /></div>
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u5e02\u573a" color="#4caf50" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="市场" color="#4caf50" /></div>
         </div>
 
         {/* Home */}
         <CompareRow
-          label="\u4e3b\u961f"
+          label="主队"
           modelVal={displayModelAH ? `${displayModelAH.home}%` : null}
           bookVal={bookAHProb ? `${bookAHProb.a}%` : null}
           bookSub={bookAH?.home ? bookAH.home.toFixed(2) : null}
           highlight={getHighlight(displayModelAH?.home, bookAHProb?.a)}
         />
         <CompareRow
-          label="\u5ba2\u961f"
+          label="客队"
           modelVal={displayModelAH ? `${displayModelAH.away}%` : null}
           bookVal={bookAHProb ? `${bookAHProb.b}%` : null}
           bookSub={bookAH?.away ? bookAH.away.toFixed(2) : null}
@@ -254,7 +254,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
         border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
       }}>
         <div style={{ padding: "10px 12px 6px", display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-          <SectionLabel>\u5927\u5c0f\u7403\u5bf9\u6bd4</SectionLabel>
+          <SectionLabel>大小球对比</SectionLabel>
           {ouLine != null && (
             <span style={{
               fontSize: 11, fontWeight: 800, color: "var(--text)",
@@ -268,21 +268,21 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
           padding: "6px 12px", borderBottom: "1px solid var(--border)",
         }}>
           <span />
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u6a21\u578b" color="#7c8aef" /></div>
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u673a\u6784" color="#e8a838" /></div>
-          <div style={{ textAlign: "center" }}><SourceBadge label="\u5e02\u573a" color="#4caf50" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="模型" color="#7c8aef" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="机构" color="#e8a838" /></div>
+          <div style={{ textAlign: "center" }}><SourceBadge label="市场" color="#4caf50" /></div>
         </div>
 
         {/* Over */}
         <CompareRow
-          label="\u5927\u7403"
+          label="大球"
           modelVal={displayModelOU ? `${displayModelOU.over}%` : null}
           bookVal={bookOUProb ? `${bookOUProb.a}%` : null}
           bookSub={bookOU?.over ? bookOU.over.toFixed(2) : null}
           highlight={getHighlight(displayModelOU?.over, bookOUProb?.a)}
         />
         <CompareRow
-          label="\u5c0f\u7403"
+          label="小球"
           modelVal={displayModelOU ? `${displayModelOU.under}%` : null}
           bookVal={bookOUProb ? `${bookOUProb.b}%` : null}
           bookSub={bookOU?.under ? bookOU.under.toFixed(2) : null}
@@ -310,9 +310,9 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
             padding: "10px 12px 6px",
             display: "flex", alignItems: "center", justifyContent: "space-between",
           }}>
-            <SectionLabel>\u6a21\u578b\u72ec\u6709\u5206\u6790</SectionLabel>
+            <SectionLabel>模型独有分析</SectionLabel>
             <span style={{ fontSize: 8, color: "var(--text3)", fontWeight: 600, opacity: 0.6 }}>
-              \u03bb {poissonOdds.lambdaHome} \u2013 {poissonOdds.lambdaAway}
+              λ {poissonOdds.lambdaHome} – {poissonOdds.lambdaAway}
             </span>
           </div>
 
@@ -324,16 +324,16 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
             {modelBtts && (
               <div style={{ background: "var(--card)", padding: "10px 12px" }}>
                 <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-                  \u53cc\u65b9\u8fdb\u7403
+                  双方进球
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <div>
                     <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text)" }}>{modelBtts.yes}%</div>
-                    <div style={{ fontSize: 9, color: "var(--text3)" }}>\u662f</div>
+                    <div style={{ fontSize: 9, color: "var(--text3)" }}>是</div>
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text2)" }}>{modelBtts.no}%</div>
-                    <div style={{ fontSize: 9, color: "var(--text3)" }}>\u5426</div>
+                    <div style={{ fontSize: 9, color: "var(--text3)" }}>否</div>
                   </div>
                 </div>
               </div>
@@ -343,12 +343,12 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
             {modelCorners && (
               <div style={{ background: "var(--card)", padding: "10px 12px" }}>
                 <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-                  \u89d2\u7403\u9884\u6d4b
+                  角球预测
                 </div>
                 {/* Expected corners */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 8 }}>
                   <span style={{ fontSize: 14, fontWeight: 800, color: "var(--blue)" }}>{modelCorners.homeExpected}</span>
-                  <span style={{ fontSize: 9, color: "var(--text3)" }}>\u9884\u671f\u603b {modelCorners.totalExpected}</span>
+                  <span style={{ fontSize: 9, color: "var(--text3)" }}>预期总 {modelCorners.totalExpected}</span>
                   <span style={{ fontSize: 14, fontWeight: 800, color: "#e05252" }}>{modelCorners.awayExpected}</span>
                 </div>
                 {/* Corner O/U probabilities */}
@@ -368,11 +368,11 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
                             <span style={{
                               fontSize: 10, fontWeight: 700, fontVariantNumeric: "tabular-nums",
                               color: isOver ? "var(--green, #4caf50)" : "var(--text2)",
-                            }}>\u5927{ou.over}%</span>
+                            }}>大{ou.over}%</span>
                             <span style={{
                               fontSize: 10, fontWeight: 700, fontVariantNumeric: "tabular-nums",
                               color: !isOver ? "var(--orange, #ff9800)" : "var(--text2)",
-                            }}>\u5c0f{ou.under}%</span>
+                            }}>小{ou.under}%</span>
                           </div>
                         </div>
                       );
@@ -387,7 +387,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
           {modelCS && modelCS.length > 0 && (
             <div style={{ padding: "10px 14px", borderTop: "1px solid var(--border)" }}>
               <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, marginBottom: 6, letterSpacing: "0.04em" }}>
-                \u6700\u53ef\u80fd\u6bd4\u5206
+                最可能比分
               </div>
               <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
                 {modelCS.slice(0, 5).map((s, i) => (
@@ -410,7 +410,7 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
             padding: "6px 14px 8px", borderTop: "1px solid var(--border)",
             fontSize: 8, color: "var(--text3)", opacity: 0.5, textAlign: "center",
           }}>
-            Dixon-Coles \u6cca\u677e\u6a21\u578b \u00b7 \u57fa\u4e8e\u7403\u961f\u5386\u53f2\u653b\u9632\u6570\u636e \u00b7 \u6bcf\u65e5\u66f4\u65b0
+            Dixon-Coles 泊松模型 · 基于球队历史攻防数据 · 每日更新
           </div>
         </div>
       )}
@@ -429,13 +429,13 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
               borderBottom: showFullOdds ? "1px solid var(--border)" : "none",
             }}
           >
-            <SectionLabel>\u5b8c\u6574\u535a\u5f69\u8d54\u7387</SectionLabel>
+            <SectionLabel>完整博彩赔率</SectionLabel>
             <span style={{
               fontSize: 11, color: "var(--text3)", fontWeight: 600,
               transform: showFullOdds ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.2s",
               display: "inline-block",
-            }}>\u25bc</span>
+            }}>▼</span>
           </div>
 
           {showFullOdds && (
@@ -445,12 +445,12 @@ export default function TabAnalysis({ data, poissonOdds, fixture }) {
                 display: "flex", padding: "6px 12px",
                 borderBottom: "1px solid var(--border)",
               }}>
-                <span style={{ flex: 1, fontSize: 9, color: "var(--text3)", fontWeight: 700 }}>\u535a\u5f69\u516c\u53f8</span>
+                <span style={{ flex: 1, fontSize: 9, color: "var(--text3)", fontWeight: 700 }}>博彩公司</span>
                 <span style={{ width: 56, fontSize: 9, color: "var(--blue)", fontWeight: 700, textAlign: "center" }}>
                   {fixture.home.name}
                 </span>
                 <span style={{ width: 56, fontSize: 9, color: "var(--text3)", fontWeight: 700, textAlign: "center" }}>
-                  \u5e73\u5c40
+                  平局
                 </span>
                 <span style={{ width: 56, fontSize: 9, color: "var(--red)", fontWeight: 700, textAlign: "center" }}>
                   {fixture.away.name}

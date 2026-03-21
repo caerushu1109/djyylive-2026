@@ -16,18 +16,18 @@ const POSITION_COLOR = {
 };
 
 const BEST_RESULT_ZH = {
-  "winner":         "\ud83c\udfc6 \u51a0\u519b",
-  "winners":        "\ud83c\udfc6 \u51a0\u519b",
-  "runners-up":     "\ud83e\udd48 \u4e9a\u519b",
-  "runner-up":      "\ud83e\udd48 \u4e9a\u519b",
-  "third place":    "\ud83e\udd49 \u5b63\u519b",
-  "fourth place":   "\u7b2c4\u540d",
-  "semi-finals":    "\u56db\u5f3a",
-  "quarter-finals": "\u516b\u5f3a",
-  "round of 16":    "\u5341\u516d\u5f3a",
-  "second round":   "\u7b2c\u4e8c\u8f6e",
-  "first round":    "\u7b2c\u4e00\u8f6e",
-  "group stage":    "\u5c0f\u7ec4\u8d5b\u51fa\u5c40",
+  "winner":         "🏆 冠军",
+  "winners":        "🏆 冠军",
+  "runners-up":     "🥈 亚军",
+  "runner-up":      "🥈 亚军",
+  "third place":    "🥉 季军",
+  "fourth place":   "第4名",
+  "semi-finals":    "四强",
+  "quarter-finals": "八强",
+  "round of 16":    "十六强",
+  "second round":   "第二轮",
+  "first round":    "第一轮",
+  "group stage":    "小组赛出局",
 };
 
 function bestResultLabel(result) {
@@ -51,7 +51,7 @@ function EloHistoryChart({ originalName, code }) {
   if (!points) return (
     <div style={{ height: 80, display: "flex", alignItems: "center",
       justifyContent: "center", color: "var(--text3)", fontSize: 11 }}>
-      \u52a0\u8f7d\u4e2d...
+      加载中...
     </div>
   );
 
@@ -127,9 +127,9 @@ function HistoryTimeline({ teamDetail }) {
 
   const tourneys = [...teamDetail.tournaments].reverse();
   const STAGE_SCORE = {
-    "\u51a0\u519b": 7, "\u4e9a\u519b": 6, "\u5b63\u519b\u8d5b": 5, "\u7b2c\u56db\u540d": 4,
-    "\u56db\u5f3a": 5, "\u516b\u5f3a": 4, "\u5341\u516d\u5f3a": 3, "\u7b2c\u4e8c\u8f6e\u5c0f\u7ec4\u8d5b": 2.5,
-    "\u5c0f\u7ec4\u8d5b": 2, "\u7b2c\u4e00\u8f6e": 1, "\u7b2c\u4e8c\u8f6e": 2,
+    "冠军": 7, "亚军": 6, "季军赛": 5, "第四名": 4,
+    "四强": 5, "八强": 4, "十六强": 3, "第二轮小组赛": 2.5,
+    "小组赛": 2, "第一轮": 1, "第二轮": 2,
   };
 
   const pts = tourneys.map((t) => ({
@@ -150,7 +150,7 @@ function HistoryTimeline({ teamDetail }) {
   const linePoints = pts.map((p, i) => `${xp(i)},${yp(p.score)}`).join(" ");
 
   const STAGE_COLOR = {
-    "\u51a0\u519b": "var(--amber)", "\u4e9a\u519b": "var(--blue)", "\u5b63\u519b\u8d5b": "#cd7f32",
+    "冠军": "var(--amber)", "亚军": "var(--blue)", "季军赛": "#cd7f32",
   };
 
   return (
@@ -163,7 +163,7 @@ function HistoryTimeline({ teamDetail }) {
         fontSize: 10, fontWeight: 700, color: "var(--text3)",
         textTransform: "uppercase", letterSpacing: "0.06em",
       }}>
-        \u4e16\u754c\u676f\u6210\u7ee9\u8d70\u52bf
+        世界杯成绩走势
       </div>
       <div style={{ padding: "8px 8px 4px" }}>
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
@@ -171,14 +171,14 @@ function HistoryTimeline({ teamDetail }) {
             <line key={s} x1={PAD.l} y1={yp(s)} x2={PAD.l + cW} y2={yp(s)}
               stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
           ))}
-          <text x={PAD.l - 2} y={yp(7) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">\u51a0\u519b</text>
-          <text x={PAD.l - 2} y={yp(4) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">\u516b\u5f3a</text>
-          <text x={PAD.l - 2} y={yp(2) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">\u5c0f\u7ec4</text>
+          <text x={PAD.l - 2} y={yp(7) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">冠军</text>
+          <text x={PAD.l - 2} y={yp(4) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">八强</text>
+          <text x={PAD.l - 2} y={yp(2) + 3} textAnchor="end" fill="rgba(255,255,255,0.2)" fontSize="7">小组</text>
           <polyline points={linePoints} fill="none" stroke="var(--blue)"
             strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round" opacity="0.7" />
           {pts.map((p, i) => {
             const dotColor = STAGE_COLOR[p.stage] || "var(--blue)";
-            const isSpecial = p.stage === "\u51a0\u519b" || p.stage === "\u4e9a\u519b" || p.stage === "\u5b63\u519b\u8d5b";
+            const isSpecial = p.stage === "冠军" || p.stage === "亚军" || p.stage === "季军赛";
             return (
               <g key={p.year}>
                 <circle cx={xp(i)} cy={yp(p.score)} r={isSpecial ? 3.5 : 2.2}
@@ -192,7 +192,7 @@ function HistoryTimeline({ teamDetail }) {
                 {isSpecial && (
                   <text x={xp(i)} y={yp(p.score) - 6} textAnchor="middle"
                     fill={dotColor} fontSize="7" fontWeight="700">
-                    {p.stage === "\u51a0\u519b" ? "\ud83c\udfc6" : p.stage === "\u4e9a\u519b" ? "\ud83e\udd48" : "\ud83e\udd49"}
+                    {p.stage === "冠军" ? "🏆" : p.stage === "亚军" ? "🥈" : "🥉"}
                   </text>
                 )}
               </g>
@@ -264,21 +264,21 @@ export function TournamentAccordion({ tournament }) {
           {group && group.standings && (
             <div style={{ padding: "10px 12px" }}>
               <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6 }}>
-                \u5c0f\u7ec4\u8d5b\u79ef\u5206 \u2014 {group.name}
+                小组赛积分 — {group.name}
               </div>
               <div style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
                   <thead>
                     <tr style={{ color: "var(--text-dim)", fontSize: 10 }}>
                       <th style={{ textAlign: "left", padding: "3px 4px", fontWeight: 600 }}>#</th>
-                      <th style={{ textAlign: "left", padding: "3px 4px", fontWeight: 600 }}>\u7403\u961f</th>
-                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>\u573a</th>
-                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>\u80dc</th>
-                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>\u5e73</th>
-                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>\u8d1f</th>
-                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>\u8fdb</th>
-                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>\u5931</th>
-                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600, color: "var(--blue)" }}>\u5206</th>
+                      <th style={{ textAlign: "left", padding: "3px 4px", fontWeight: 600 }}>球队</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>场</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>胜</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>平</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>负</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>进</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600 }}>失</th>
+                      <th style={{ textAlign: "center", padding: "3px 4px", fontWeight: 600, color: "var(--blue)" }}>分</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -308,7 +308,7 @@ export function TournamentAccordion({ tournament }) {
           {matches && matches.length > 0 && (
             <div style={{ padding: "10px 12px", borderTop: group ? "1px solid var(--border)" : "none" }}>
               <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 6 }}>
-                \u6bd4\u8d5b
+                比赛
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                 {matches.map((m, mi) => {
@@ -341,14 +341,14 @@ export function TournamentAccordion({ tournament }) {
                       )}
                       {m.venue && (
                         <div style={{ marginTop: 2, paddingLeft: 56, fontSize: 9, color: "var(--text3)" }}>
-                          \ud83d\udccd {m.venue.stadium}{m.venue.city ? `, ${m.venue.city}` : ""}
+                          📍 {m.venue.stadium}{m.venue.city ? `, ${m.venue.city}` : ""}
                         </div>
                       )}
                       {m.subs && m.subs.length > 0 && (
                         <div style={{ marginTop: 2, paddingLeft: 56, display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {m.subs.map((s, si) => (
                             <span key={si} style={{ fontSize: 9, color: "var(--text3)" }}>
-                              \ud83d\udd04 <span onClick={() => { const hid = lookup(s.playerOn); if (hid) openPlayer(hid, s.playerOn); }} style={{ cursor: "pointer" }}>{s.playerOn}</span> \u2190 <span onClick={() => { const hid = lookup(s.playerOff); if (hid) openPlayer(hid, s.playerOff); }} style={{ cursor: "pointer" }}>{s.playerOff}</span> {s.minute}
+                              🔄 <span onClick={() => { const hid = lookup(s.playerOn); if (hid) openPlayer(hid, s.playerOn); }} style={{ cursor: "pointer" }}>{s.playerOn}</span> ← <span onClick={() => { const hid = lookup(s.playerOff); if (hid) openPlayer(hid, s.playerOff); }} style={{ cursor: "pointer" }}>{s.playerOff}</span> {s.minute}
                             </span>
                           ))}
                         </div>
@@ -377,7 +377,7 @@ export function TournamentAccordion({ tournament }) {
                 }}>
                   &#x25B6;
                 </span>
-                \u5927\u540d\u5355\uff08{squad.length}\u4eba\uff09
+                大名单（{squad.length}人）
               </button>
               <div style={{
                 maxHeight: showSquad ? 1200 : 0,
@@ -422,7 +422,7 @@ export function TournamentAccordion({ tournament }) {
 
 export default function TabHistory({ historyData, teamElo, teamDetail }) {
   if (!historyData && !teamDetail) return (
-    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>\u6682\u65e0\u5386\u53f2\u6570\u636e</p>
+    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无历史数据</p>
   );
 
   const { appearances, titles, titleYears, bestResult } = historyData || {};
@@ -438,9 +438,9 @@ export default function TabHistory({ historyData, teamElo, teamDetail }) {
         }}>
           <div style={{ display: "flex" }}>
             {[
-              { value: appearances ?? 0, label: "\u5c4a\u4e16\u754c\u676f" },
-              { value: titles ?? 0,      label: "\u6b21\u51a0\u519b" },
-              { value: bestResultLabel(bestResult), label: "\u6700\u4f73\u6210\u7ee9", small: true },
+              { value: appearances ?? 0, label: "届世界杯" },
+              { value: titles ?? 0,      label: "次冠军" },
+              { value: bestResultLabel(bestResult), label: "最佳成绩", small: true },
             ].map((item, i) => (
               <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
                 <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
@@ -452,7 +452,7 @@ export default function TabHistory({ historyData, teamElo, teamDetail }) {
           </div>
           {titleYears?.length > 0 && (
             <div style={{ padding: "6px 12px", borderTop: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
-              \u593a\u51a0\u5e74\u4efd\uff1a<span style={{ color: "var(--blue)", fontWeight: 700 }}>{titleYears.join("\u3001")}</span>
+              夺冠年份：<span style={{ color: "var(--blue)", fontWeight: 700 }}>{titleYears.join("、")}</span>
             </div>
           )}
         </div>
@@ -465,7 +465,7 @@ export default function TabHistory({ historyData, teamElo, teamDetail }) {
       {tournaments.length > 0 && (
         <>
           <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            \u5386\u5c4a\u4e16\u754c\u676f\u8be6\u60c5
+            历届世界杯详情
           </div>
           {tournaments.map((t, i) => (
             <TournamentAccordion key={t.year || i} tournament={t} />
@@ -485,11 +485,11 @@ export default function TabHistory({ historyData, teamElo, teamDetail }) {
             fontSize: 10, fontWeight: 700, color: "var(--text3)",
             textTransform: "uppercase", letterSpacing: "0.06em",
           }}>
-            \u5386\u5c4a\u4e16\u754c\u676f\u6210\u7ee9
+            历届世界杯成绩
           </div>
           {[...(historyData.history || [])].reverse().map((entry, i, arr) => {
             const stageLabel = bestResultLabel(entry.stage || entry.result);
-            const isChampion = stageLabel.includes("\u51a0\u519b");
+            const isChampion = stageLabel.includes("冠军");
             return (
               <div key={entry.year} style={{
                 display: "flex", alignItems: "center", padding: "8px 12px", gap: 10,
@@ -508,7 +508,7 @@ export default function TabHistory({ historyData, teamElo, teamDetail }) {
                 }}>{stageLabel}</span>
                 {entry.wins != null && (
                   <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums" }}>
-                    {entry.wins}\u80dc {entry.draws}\u5e73 {entry.losses}\u8d1f
+                    {entry.wins}胜 {entry.draws}平 {entry.losses}负
                   </span>
                 )}
                 {entry.gf != null && (
@@ -529,7 +529,7 @@ export default function TabHistory({ historyData, teamElo, teamDetail }) {
           borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px 4px",
         }}>
           <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", padding: "0 4px 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            \u8fd120\u5e74 ELO \u8d70\u52bf
+            近20年 ELO 走势
           </div>
           <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
         </div>

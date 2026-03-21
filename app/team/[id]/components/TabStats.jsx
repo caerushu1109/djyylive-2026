@@ -18,7 +18,7 @@ function WDLBar({ w, d, l }) {
 
 export default function TabStats({ teamDetail }) {
   if (!teamDetail) return (
-    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>\u6682\u65e0\u6570\u636e</p>
+    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无数据</p>
   );
 
   const stats = teamDetail.totalStats;
@@ -44,15 +44,15 @@ export default function TabStats({ teamDetail }) {
             fontSize: 10, fontWeight: 700, color: "var(--text3)",
             textTransform: "uppercase", letterSpacing: "0.06em",
           }}>
-            \u603b\u6218\u7ee9
+            总战绩
           </div>
           <div style={{ padding: "12px" }}>
             {/* Large stat numbers */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, textAlign: "center", marginBottom: 12 }}>
               {[
-                { value: stats.p, label: "\u573a\u6b21", color: "var(--text)" },
-                { value: stats.gf, label: "\u8fdb\u7403", color: "var(--green)" },
-                { value: stats.ga, label: "\u5931\u7403", color: "var(--red)" },
+                { value: stats.p, label: "场次", color: "var(--text)" },
+                { value: stats.gf, label: "进球", color: "var(--green)" },
+                { value: stats.ga, label: "失球", color: "var(--red)" },
               ].map((item, i) => (
                 <div key={i}>
                   <div style={{ fontSize: 22, fontWeight: 900, color: item.color, fontVariantNumeric: "tabular-nums" }}>
@@ -72,15 +72,15 @@ export default function TabStats({ teamDetail }) {
             <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
               <span>
                 <span style={{ color: "var(--green)", fontWeight: 700 }}>{stats.w}</span>
-                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> \u80dc ({wPct}%)</span>
+                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> 胜 ({wPct}%)</span>
               </span>
               <span>
                 <span style={{ color: "var(--text3)", fontWeight: 700 }}>{stats.d}</span>
-                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> \u5e73 ({dPct}%)</span>
+                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> 平 ({dPct}%)</span>
               </span>
               <span>
                 <span style={{ color: "var(--red)", fontWeight: 700 }}>{stats.l}</span>
-                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> \u8d1f ({lPct}%)</span>
+                <span style={{ color: "var(--text-dim)", fontSize: 10 }}> 负 ({lPct}%)</span>
               </span>
             </div>
 
@@ -90,7 +90,7 @@ export default function TabStats({ teamDetail }) {
                 marginTop: 10, textAlign: "center", fontSize: 12, color: "var(--text-dim)",
                 padding: "6px 0", borderTop: "1px solid var(--border)",
               }}>
-                \u51c0\u80dc\u7403 <span style={{ fontWeight: 800, color: stats.gd >= 0 ? "var(--green)" : "var(--red)", fontSize: 16 }}>
+                净胜球 <span style={{ fontWeight: 800, color: stats.gd >= 0 ? "var(--green)" : "var(--red)", fontSize: 16 }}>
                   {stats.gd > 0 ? "+" : ""}{stats.gd}
                 </span>
               </div>
@@ -111,7 +111,7 @@ export default function TabStats({ teamDetail }) {
             fontSize: 10, fontWeight: 700, color: "var(--text3)",
             textTransform: "uppercase", letterSpacing: "0.06em",
           }}>
-            \u7eaa\u5f8b\u8bb0\u5f55
+            纪律记录
           </div>
           <div style={{ display: "flex" }}>
             <div style={{ flex: 1, textAlign: "center", padding: "14px 8px", borderRight: "1px solid var(--border)" }}>
@@ -119,7 +119,7 @@ export default function TabStats({ teamDetail }) {
                 {stats.yellow ?? 0}
               </div>
               <div style={{ fontSize: 11, color: "var(--text-dim)", marginTop: 2 }}>
-                &#x1F7E1; \u9ec4\u724c
+                &#x1F7E1; 黄牌
               </div>
             </div>
             <div style={{ flex: 1, textAlign: "center", padding: "14px 8px" }}>
@@ -127,7 +127,7 @@ export default function TabStats({ teamDetail }) {
                 {stats.red ?? 0}
               </div>
               <div style={{ fontSize: 11, color: "var(--text-dim)", marginTop: 2 }}>
-                &#x1F534; \u7ea2\u724c
+                &#x1F534; 红牌
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function TabStats({ teamDetail }) {
             fontSize: 10, fontWeight: 700, color: "var(--text3)",
             textTransform: "uppercase", letterSpacing: "0.06em",
           }}>
-            \u961f\u53f2\u5c04\u624b\u699c
+            队史射手榜
           </div>
           {topScorers.map((player, idx) => (
             <div key={idx} style={{
@@ -170,7 +170,7 @@ export default function TabStats({ teamDetail }) {
                 {player.goals}&#x26BD;
               </span>
               <span style={{ fontSize: 10, color: "var(--text-dim)", fontVariantNumeric: "tabular-nums", minWidth: 30, textAlign: "right" }}>
-                {player.apps}\u573a
+                {player.apps}场
               </span>
             </div>
           ))}

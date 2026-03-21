@@ -3,9 +3,9 @@
 import { useH2H } from "@/lib/hooks/useH2H";
 
 const STAGE_ZH = {
-  "group stage": "\u5c0f\u7ec4\u8d5b", "round of 16": "\u5341\u516d\u5f3a", "quarter-finals": "\u516b\u5f3a",
-  "semi-finals": "\u56db\u5f3a", "final": "\u51b3\u8d5b", "second group stage": "\u7b2c\u4e8c\u8f6e\u5c0f\u7ec4\u8d5b",
-  "third-place match": "\u5b63\u519b\u8d5b", "first round": "\u7b2c\u4e00\u8f6e", "second round": "\u7b2c\u4e8c\u8f6e",
+  "group stage": "小组赛", "round of 16": "十六强", "quarter-finals": "八强",
+  "semi-finals": "四强", "final": "决赛", "second group stage": "第二轮小组赛",
+  "third-place match": "季军赛", "first round": "第一轮", "second round": "第二轮",
 };
 
 export function H2HCard({ teamIso, opponentIso, teamName }) {
@@ -28,18 +28,18 @@ export function H2HCard({ teamIso, opponentIso, teamName }) {
         borderBottom: "1px solid var(--border)",
       }}>
         <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-          \u4e16\u754c\u676f\u4ea4\u950b vs {opponentIso}
+          世界杯交锋 vs {opponentIso}
         </span>
         <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--text-dim)" }}>
-          \u5171 {total} \u573a
+          共 {total} 场
         </span>
       </div>
       {/* W/D/L summary bar */}
       <div style={{ padding: "8px 12px" }}>
         <div style={{ display: "flex", gap: 12, marginBottom: 6, fontSize: 11, fontVariantNumeric: "tabular-nums" }}>
-          <span><span style={{ color: "var(--green)", fontWeight: 700 }}>{myWins}</span> \u80dc</span>
-          <span><span style={{ color: "var(--text3)", fontWeight: 700 }}>{draws}</span> \u5e73</span>
-          <span><span style={{ color: "var(--red)", fontWeight: 700 }}>{oppWins}</span> \u8d1f</span>
+          <span><span style={{ color: "var(--green)", fontWeight: 700 }}>{myWins}</span> 胜</span>
+          <span><span style={{ color: "var(--text3)", fontWeight: 700 }}>{draws}</span> 平</span>
+          <span><span style={{ color: "var(--red)", fontWeight: 700 }}>{oppWins}</span> 负</span>
         </div>
         {total > 0 && (
           <div style={{ display: "flex", height: 6, borderRadius: 3, overflow: "hidden" }}>
@@ -52,7 +52,7 @@ export function H2HCard({ teamIso, opponentIso, teamName }) {
       {/* Recent matches */}
       {recentMatches.length > 0 && (
         <div style={{ padding: "0 12px 8px" }}>
-          <div style={{ fontSize: 10, color: "var(--text-dim)", marginBottom: 4 }}>\u8fd1\u671f\u4ea4\u950b</div>
+          <div style={{ fontSize: 10, color: "var(--text-dim)", marginBottom: 4 }}>近期交锋</div>
           {recentMatches.map((m, i) => {
             const year = m.date.split("-")[0];
             const stageLabel = STAGE_ZH[m.stage?.toLowerCase()] || m.stage;

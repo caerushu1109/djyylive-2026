@@ -12,8 +12,8 @@ export default function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
   const allMatches = [...(h2h.matches || [])].reverse();
 
   const stageZh = {
-    "group stage": "\u5c0f\u7ec4\u8d5b", "round of 16": "\u5341\u516d\u5f3a", "quarter-finals": "\u516b\u5f3a",
-    "semi-finals": "\u56db\u5f3a", "final": "\u51b3\u8d5b", "third-place match": "\u5b63\u519b\u8d5b",
+    "group stage": "小组赛", "round of 16": "十六强", "quarter-finals": "八强",
+    "semi-finals": "四强", "final": "决赛", "third-place match": "季军赛",
   };
 
   return (
@@ -22,20 +22,20 @@ export default function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
       border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
     }}>
       <div style={{ padding: "10px 14px 8px" }}>
-        <SectionLabel>\u4e16\u754c\u676f\u5386\u53f2\u4ea4\u950b</SectionLabel>
+        <SectionLabel>世界杯历史交锋</SectionLabel>
       </div>
       {total === 0 ? (
         <div style={{ padding: "8px 14px 12px", fontSize: 12, color: "var(--text2)" }}>
-          \u4e24\u961f\u6b64\u524d\u4ece\u672a\u5728\u4e16\u754c\u676f\u4ea4\u624b
+          两队此前从未在世界杯交手
         </div>
       ) : (
         <>
           {/* Summary row */}
           <div style={{ display: "flex", gap: 4, padding: "0 14px 10px" }}>
             {[
-              { value: homeWins, label: `${fixture.home.flag}\u80dc`, color: "var(--blue)" },
-              { value: draws, label: "\u5e73", color: "var(--text3)" },
-              { value: awayWins, label: `${fixture.away.flag}\u80dc`, color: "var(--red)" },
+              { value: homeWins, label: `${fixture.home.flag}胜`, color: "var(--blue)" },
+              { value: draws, label: "平", color: "var(--text3)" },
+              { value: awayWins, label: `${fixture.away.flag}胜`, color: "var(--red)" },
             ].map((item, i) => (
               <div key={i} style={{
                 flex: 1, textAlign: "center",
@@ -49,7 +49,7 @@ export default function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
             ))}
           </div>
           <div style={{ padding: "0 14px 4px", fontSize: 10, color: "var(--text3)", textAlign: "center" }}>
-            \u5171 {total} \u573a\u4ea4\u950b
+            共 {total} 场交锋
           </div>
           {/* Full match history */}
           {allMatches.map((match, i) => {
@@ -57,7 +57,7 @@ export default function H2HSummaryCard({ h2h, fixture, homeIso, awayIso }) {
             if (match.winner === homeIso) tone = "blue";
             else if (match.winner === awayIso) tone = "red";
             const scoreStr = match.pen
-              ? `${match.homeScore}-${match.awayScore} (${match.homePen}-${match.awayPen}\u70b9)`
+              ? `${match.homeScore}-${match.awayScore} (${match.homePen}-${match.awayPen}点)`
               : `${match.homeScore}-${match.awayScore}`;
             return (
               <div key={i} style={{

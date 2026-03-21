@@ -7,23 +7,23 @@ export default function TabStats({ data }) {
   if (fixture.status === "NS") {
     return (
       <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-        \u6bd4\u8d5b\u5c1a\u672a\u5f00\u59cb
+        比赛尚未开始
       </div>
     );
   }
 
   // Group stats into categories
-  const shooting = ["\u5c04\u95e8", "\u5c04\u6b63", "\u5c04\u504f", "\u88ab\u5c01\u5835", "xG"];
-  const passing = ["\u4f20\u7403", "\u4f20\u7403\u51c6\u786e\u7387", "\u89d2\u7403"];
-  const defending = ["\u94f2\u7403", "\u62e6\u622a", "\u6251\u6551"];
-  const discipline = ["\u72af\u89c4", "\u8d8a\u4f4d", "\u9ec4\u724c", "\u7ea2\u724c"];
+  const shooting = ["射门", "射正", "射偏", "被封堵", "xG"];
+  const passing = ["传球", "传球准确率", "角球"];
+  const defending = ["铲球", "拦截", "扑救"];
+  const discipline = ["犯规", "越位", "黄牌", "红牌"];
 
   const groups = [
-    { title: "\u63a7\u7403", stats: stats.filter((s) => s.label === "\u63a7\u7403\u7387") },
-    { title: "\u5c04\u95e8", stats: stats.filter((s) => shooting.includes(s.label)) },
-    { title: "\u4f20\u63a7", stats: stats.filter((s) => passing.includes(s.label)) },
-    { title: "\u9632\u5b88", stats: stats.filter((s) => defending.includes(s.label)) },
-    { title: "\u7eaa\u5f8b", stats: stats.filter((s) => discipline.includes(s.label)) },
+    { title: "控球", stats: stats.filter((s) => s.label === "控球率") },
+    { title: "射门", stats: stats.filter((s) => shooting.includes(s.label)) },
+    { title: "传控", stats: stats.filter((s) => passing.includes(s.label)) },
+    { title: "防守", stats: stats.filter((s) => defending.includes(s.label)) },
+    { title: "纪律", stats: stats.filter((s) => discipline.includes(s.label)) },
   ].filter((g) => g.stats.length > 0);
 
   return (

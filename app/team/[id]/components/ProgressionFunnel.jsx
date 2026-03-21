@@ -1,12 +1,12 @@
 "use client";
 
 export const STAGES = [
-  { key: "pQualify",  label: "\u51fa\u7ebf" },
-  { key: "pR16",      label: "16\u5f3a" },
-  { key: "pQF",       label: "8\u5f3a" },
-  { key: "pSF",       label: "4\u5f3a" },
-  { key: "pFinal",    label: "\u51b3\u8d5b" },
-  { key: "pChampion", label: "\u593a\u51a0" },
+  { key: "pQualify",  label: "出线" },
+  { key: "pR16",      label: "16强" },
+  { key: "pQF",       label: "8强" },
+  { key: "pSF",       label: "4强" },
+  { key: "pFinal",    label: "决赛" },
+  { key: "pChampion", label: "夺冠" },
 ];
 
 export default function ProgressionFunnel({ teamPred }) {
@@ -21,10 +21,10 @@ export default function ProgressionFunnel({ teamPred }) {
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
         <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
-          \u6a21\u578b\u6392\u540d <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>#{teamPred.rank}</span>
+          模型排名 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>#{teamPred.rank}</span>
         </span>
         <span style={{ fontSize: 11, color: "var(--text-dim)" }}>
-          \u593a\u51a0\u6982\u7387 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>{teamPred.probabilityValue?.toFixed(1)}%</span>
+          夺冠概率 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 14 }}>{teamPred.probabilityValue?.toFixed(1)}%</span>
         </span>
       </div>
       <div style={{ padding: "10px 12px 12px", display: "flex", flexDirection: "column", gap: 6 }}>

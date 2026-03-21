@@ -5,7 +5,7 @@ export default function TabEvents({ data, onPlayerClick }) {
   if (!events?.length) {
     return (
       <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-        \u6682\u65e0\u4e8b\u4ef6\u6570\u636e
+        暂无事件数据
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default function TabEvents({ data, onPlayerClick }) {
                 <span onClick={() => onPlayerClick?.(ev.title)} style={{ cursor: "pointer" }}>{ev.title}</span>
               </div>
               {ev.assist && (
-                <div style={{ fontSize: 10, color: "var(--text3)" }}>\u52a9\u653b: <span onClick={() => onPlayerClick?.(ev.assist)} style={{ cursor: "pointer" }}>{ev.assist}</span></div>
+                <div style={{ fontSize: 10, color: "var(--text3)" }}>助攻: <span onClick={() => onPlayerClick?.(ev.assist)} style={{ cursor: "pointer" }}>{ev.assist}</span></div>
               )}
               {ev.subtitle && (
                 <div style={{ fontSize: 10, color: "var(--text3)" }}>{ev.subtitle}</div>
@@ -60,7 +60,7 @@ export default function TabEvents({ data, onPlayerClick }) {
                 <span onClick={() => onPlayerClick?.(ev.title)} style={{ cursor: "pointer" }}>{ev.title}</span>
               </div>
               {ev.assist && (
-                <div style={{ fontSize: 10, color: "var(--text3)" }}>\u52a9\u653b: <span onClick={() => onPlayerClick?.(ev.assist)} style={{ cursor: "pointer" }}>{ev.assist}</span></div>
+                <div style={{ fontSize: 10, color: "var(--text3)" }}>助攻: <span onClick={() => onPlayerClick?.(ev.assist)} style={{ cursor: "pointer" }}>{ev.assist}</span></div>
               )}
               {ev.subtitle && (
                 <div style={{ fontSize: 10, color: "var(--text3)" }}>{ev.subtitle}</div>

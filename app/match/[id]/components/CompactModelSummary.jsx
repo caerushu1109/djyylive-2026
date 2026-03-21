@@ -17,9 +17,9 @@ export default function CompactModelSummary({ poissonOdds, fixture, onSwitchTab 
         display: "flex", alignItems: "center", justifyContent: "space-between",
         marginBottom: 6,
       }}>
-        <SectionLabel>\u6a21\u578b\u9884\u6d4b</SectionLabel>
+        <SectionLabel>模型预测</SectionLabel>
         <span style={{ fontSize: 10, color: "var(--blue)", fontWeight: 600 }}>
-          \u67e5\u770b\u8be6\u7ec6\u5206\u6790 \u2192
+          查看详细分析 →
         </span>
       </div>
       <div style={{ display: "flex", gap: 2, height: 5, borderRadius: 5, overflow: "hidden" }}>

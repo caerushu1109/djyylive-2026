@@ -48,7 +48,7 @@ export default function OddsTicker({ polyData }) {
     return sorted.map((t) => {
       const zh = EN_TO_ZH[t.name] || t.name;
       const meta = getTeamMeta(t.name);
-      const flag = meta.flag !== "\u{1F3F3}\uFE0F" ? meta.flag : "";
+      const flag = meta.flag !== "\u{1F3F3}️" ? meta.flag : "";
       let delta = 0;
       if (baseline) {
         const prev = baseline[t.name];

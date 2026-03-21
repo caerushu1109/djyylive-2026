@@ -21,11 +21,11 @@ import TabEvents from "./components/TabEvents";
 
 /* ── Tabs ───────────────────────────────────────────── */
 const TABS = [
-  { id: "overview", label: "\u6982\u51b5" },
-  { id: "analysis", label: "\u5206\u6790" },
-  { id: "lineups",  label: "\u9635\u5bb9" },
-  { id: "stats",    label: "\u7edf\u8ba1" },
-  { id: "events",   label: "\u4e8b\u4ef6" },
+  { id: "overview", label: "概况" },
+  { id: "analysis", label: "分析" },
+  { id: "lineups",  label: "阵容" },
+  { id: "stats",    label: "统计" },
+  { id: "events",   label: "事件" },
 ];
 
 /* ── Main Page ───────────────────────────────────────── */

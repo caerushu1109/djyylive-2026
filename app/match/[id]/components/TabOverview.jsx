@@ -13,9 +13,9 @@ function TeamComparisonCard({ homePred, awayPred, fixture }) {
 
   const rows = [
     { label: "ELO", home: homePred.elo, away: awayPred.elo },
-    { label: "\u4e16\u754c\u6392\u540d", home: `#${homePred.rank}`, away: `#${awayPred.rank}` },
-    { label: "\u593a\u51a0\u6982\u7387", home: homePred.titleProbability, away: awayPred.titleProbability },
-    { label: "\u51fa\u7ebf\u6982\u7387", home: `${homePred.pQualify}%`, away: `${awayPred.pQualify}%` },
+    { label: "世界排名", home: `#${homePred.rank}`, away: `#${awayPred.rank}` },
+    { label: "夺冠概率", home: homePred.titleProbability, away: awayPred.titleProbability },
+    { label: "出线概率", home: `${homePred.pQualify}%`, away: `${awayPred.pQualify}%` },
   ];
 
   return (
@@ -24,7 +24,7 @@ function TeamComparisonCard({ homePred, awayPred, fixture }) {
       border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
     }}>
       <div style={{ padding: "10px 14px 8px" }}>
-        <SectionLabel>\u7403\u961f\u5bf9\u6bd4</SectionLabel>
+        <SectionLabel>球队对比</SectionLabel>
       </div>
       {/* Team headers */}
       <div style={{
@@ -41,7 +41,7 @@ function TeamComparisonCard({ homePred, awayPred, fixture }) {
       {rows.map((row, i) => {
         const homeNum = typeof row.home === "number" ? row.home : parseFloat(String(row.home).replace(/[^0-9.]/g, ""));
         const awayNum = typeof row.away === "number" ? row.away : parseFloat(String(row.away).replace(/[^0-9.]/g, ""));
-        const isRank = row.label === "\u4e16\u754c\u6392\u540d";
+        const isRank = row.label === "世界排名";
         const homeHighlight = !isNaN(homeNum) && !isNaN(awayNum) && (isRank ? homeNum < awayNum : homeNum > awayNum);
         const awayHighlight = !isNaN(homeNum) && !isNaN(awayNum) && (isRank ? awayNum < homeNum : awayNum > homeNum);
         return (
@@ -78,9 +78,9 @@ function MatchInfoCard({ fixture }) {
     : fixture.kickoff || null;
 
   const infoItems = [
-    bjTime && { label: "\u5f00\u7403\u65f6\u95f4", value: `${bjTime} (\u5317\u4eac\u65f6\u95f4)` },
-    fixture.group && { label: "\u5c0f\u7ec4", value: fixture.group },
-    fixture.stage && { label: "\u9636\u6bb5", value: fixture.stage },
+    bjTime && { label: "开球时间", value: `${bjTime} (北京时间)` },
+    fixture.group && { label: "小组", value: fixture.group },
+    fixture.stage && { label: "阶段", value: fixture.stage },
   ].filter(Boolean);
 
   if (!infoItems.length && !fixture.venueDetail) return null;
@@ -91,7 +91,7 @@ function MatchInfoCard({ fixture }) {
       border: "1px solid var(--border)", overflow: "hidden", marginBottom: 10,
     }}>
       <div style={{ padding: "10px 14px 8px" }}>
-        <SectionLabel>{"\u6bd4\u8d5b\u4fe1\u606f"}</SectionLabel>
+        <SectionLabel>{"比赛信息"}</SectionLabel>
       </div>
       {infoItems.map((item, i) => (
         <div key={i} style={{
@@ -119,10 +119,10 @@ function VenueCard({ fixture }) {
   if (!venueName) return null;
 
   const surfaceZh = {
-    grass: "\u5929\u7136\u8349\u5730",
-    artificial: "\u4eba\u5de5\u8349\u5730",
-    synthetic: "\u4eba\u5de5\u8349\u5730",
-    hybrid: "\u6df7\u5408\u8349\u5730",
+    grass: "天然草地",
+    artificial: "人工草地",
+    synthetic: "人工草地",
+    hybrid: "混合草地",
   };
 
   return (
@@ -142,7 +142,7 @@ function VenueCard({ fixture }) {
             padding: "16px 14px 8px",
           }}>
             <div style={{ fontSize: 12, fontWeight: 800, color: "#fff" }}>
-              {"\ud83c\udfdf\ufe0f"} {venueName}
+              {"🏟️"} {venueName}
             </div>
           </div>
         </div>
@@ -154,18 +154,18 @@ function VenueCard({ fixture }) {
       }}>
         {!v?.image && (
           <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", flex: "1 0 100%", marginBottom: 2 }}>
-            {"\ud83c\udfdf\ufe0f"} {venueName}
+            {"🏟️"} {venueName}
           </div>
         )}
         {v?.city && (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"\ud83d\udccd"}</span>
+            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"📍"}</span>
             <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>{v.city}</span>
           </div>
         )}
         {v?.capacity && (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"\ud83d\udc65"}</span>
+            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"👥"}</span>
             <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
               {Number(v.capacity).toLocaleString()}
             </span>
@@ -173,7 +173,7 @@ function VenueCard({ fixture }) {
         )}
         {v?.surface && (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"\ud83c\udf3f"}</span>
+            <span style={{ fontSize: 9, color: "var(--text3)" }}>{"🌿"}</span>
             <span style={{ fontSize: 11, color: "var(--text2)", fontWeight: 600 }}>
               {surfaceZh[v.surface.toLowerCase()] || v.surface}
             </span>
@@ -208,7 +208,7 @@ export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2h
         {/* Fallback if nothing available */}
         {!poissonOdds && !homePred && !awayPred && !h2hData && (
           <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-            \u6bd4\u8d5b\u5c1a\u672a\u5f00\u59cb\uff0c\u5f00\u8d5b\u540e\u5c06\u5b9e\u65f6\u66f4\u65b0\u6570\u636e
+            比赛尚未开始，开赛后将实时更新数据
           </div>
         )}
         <div style={{ height: 12 }} />
@@ -217,7 +217,7 @@ export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2h
   }
 
   // Pick key stats for overview: possession, shots, shots_on_target, xG, corners, fouls
-  const keyLabels = ["\u63a7\u7403\u7387", "\u5c04\u95e8", "\u5c04\u6b63", "xG", "\u89d2\u7403", "\u72af\u89c4"];
+  const keyLabels = ["控球率", "射门", "射正", "xG", "角球", "犯规"];
   const keyStats = keyLabels.map((l) => stats.find((s) => s.label === l)).filter(Boolean);
 
   // Recent events (last 5)
@@ -239,7 +239,7 @@ export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2h
               animation: "pulse 1.5s infinite", display: "inline-block",
             }} />
             <span style={{ fontSize: 9, fontWeight: 700, color: "var(--live)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-              {"\u5b9e\u65f6\u6982\u7387"} {fixture.minute}
+              {"实时概率"} {fixture.minute}
             </span>
           </div>
           <div style={{ display: "flex", gap: 2, height: 6, borderRadius: 6, overflow: "hidden", marginBottom: 6 }}>
@@ -250,15 +250,15 @@ export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2h
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div style={{ textAlign: "left" }}>
               <div style={{ fontSize: 14, fontWeight: 900, color: "var(--blue)" }}>{liveOdds.result.homeWin}%</div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}{"\u80dc"}</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.home.name}{"胜"}</div>
             </div>
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text3)" }}>{liveOdds.result.draw}%</div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>{"\u5e73\u5c40"}</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>{"平局"}</div>
             </div>
             <div style={{ textAlign: "right" }}>
               <div style={{ fontSize: 14, fontWeight: 900, color: "var(--red)" }}>{liveOdds.result.awayWin}%</div>
-              <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}{"\u80dc"}</div>
+              <div style={{ fontSize: 9, color: "var(--text3)" }}>{fixture.away.name}{"胜"}</div>
             </div>
           </div>
         </div>
@@ -291,7 +291,7 @@ export default function TabOverview({ data, onPlayerClick, predictionsTeams, h2h
             fontSize: 10, fontWeight: 700, color: "var(--text3)",
             padding: "8px 12px 6px", textTransform: "uppercase", letterSpacing: "0.06em",
           }}>
-            \u6700\u8fd1\u4e8b\u4ef6
+            最近事件
           </div>
           {recentEvents.map((ev, i) => (
             <div key={i} style={{

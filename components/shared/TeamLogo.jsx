@@ -31,7 +31,7 @@ export default function TeamLogo({ logo, flag, size = 24, style = {} }) {
 
   return (
     <span style={{ fontSize: size * 0.85, lineHeight: 1, flexShrink: 0, ...style }}>
-      {flag || "\uD83C\uDFF4"}
+      {flag || "🏴"}
     </span>
   );
 }

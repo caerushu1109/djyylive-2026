@@ -21,7 +21,7 @@ export default function GroupComparisonCards({ teamElo, teamPred, groupOpponentI
         fontSize: 10, fontWeight: 700, color: "var(--text3)",
         textTransform: "uppercase", letterSpacing: "0.06em",
       }}>
-        \u540c\u7ec4\u5bf9\u624b
+        同组对手
       </div>
       {opponents.map((opp, i) => {
         const eloDiff = teamElo.elo - opp.elo;
@@ -36,7 +36,7 @@ export default function GroupComparisonCards({ teamElo, teamPred, groupOpponentI
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 12, fontWeight: 600, color: "var(--text)" }}>{opp.name}</div>
               <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 1 }}>
-                ELO {opp.elo} \u00b7 \u7b2c{opp.rank}\u540d
+                ELO {opp.elo} · 第{opp.rank}名
               </div>
             </div>
             <div style={{ textAlign: "right" }}>
@@ -51,7 +51,7 @@ export default function GroupComparisonCards({ teamElo, teamPred, groupOpponentI
                   fontSize: 10, fontVariantNumeric: "tabular-nums",
                   color: probDiff > 0 ? "var(--green)" : probDiff < 0 ? "var(--red)" : "var(--text3)",
                 }}>
-                  \u593a\u51a0 {probDiff > 0 ? "+" : ""}{probDiff.toFixed(1)}%
+                  夺冠 {probDiff > 0 ? "+" : ""}{probDiff.toFixed(1)}%
                 </div>
               )}
             </div>

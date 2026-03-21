@@ -24,7 +24,7 @@ import TabHistory from "./components/TabHistory";
 import TabSquad from "./components/TabSquad";
 import TabStats from "./components/TabStats";
 
-const TABS = ["\u6982\u89c8", "\u8d5b\u7a0b", "\u5386\u53f2", "\u9635\u5bb9", "\u6570\u636e"];
+const TABS = ["概览", "赛程", "历史", "阵容", "数据"];
 
 // ── Group badge ────────────────────────────────────────────────────────────────
 function useTeamGroup(teamOriginalName) {
@@ -62,7 +62,7 @@ function TeamPageInner() {
   const { id } = useParams();
   const teamName = decodeURIComponent(Array.isArray(id) ? id[0] : id);
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState("\u6982\u89c8");
+  const [activeTab, setActiveTab] = useState("概览");
 
   const { data: eloData,      loading: eloLoading      } = useElo();
   const { data: fixturesData, loading: fixturesLoading } = useFixtures();
@@ -123,7 +123,7 @@ function TeamPageInner() {
   const teamGroup = useMemo(() => {
     if (!fixturesData?.standings || !group) return null;
     return fixturesData.standings.find(
-      (g) => g.group === `${group} \u7ec4` || g.group === `${group}\u7ec4`
+      (g) => g.group === `${group} 组` || g.group === `${group}组`
     );
   }, [fixturesData, group]);
 
@@ -152,7 +152,7 @@ function TeamPageInner() {
     [groupTeams]
   );
 
-  const flag        = teamElo?.flag || "\uD83C\uDFF4";
+  const flag        = teamElo?.flag || "🏴";
   const displayName = teamElo?.name || teamName;
   // Try to get team logo from fixtures data (any fixture involving this team)
   const teamLogo = useMemo(() => {
@@ -175,7 +175,7 @@ function TeamPageInner() {
         <button onClick={() => router.back()} style={{ padding: 4, marginLeft: -4 }}>
           <ChevronLeft size={20} />
         </button>
-        <span style={{ fontSize: 16, fontWeight: 700 }}>\u7403\u961f</span>
+        <span style={{ fontSize: 16, fontWeight: 700 }}>球队</span>
       </div>
 
       {eloLoading ? <LoadingSpinner /> : (
@@ -196,7 +196,7 @@ function TeamPageInner() {
                     color: "var(--blue)", borderRadius: 5, padding: "2px 7px",
                     letterSpacing: "0.04em", whiteSpace: "nowrap",
                   }}>
-                    {group}\u7ec4
+                    {group}组
                   </span>
                 )}
               </div>
@@ -204,7 +204,7 @@ function TeamPageInner() {
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
                   <span style={{ fontSize: 12, color: "var(--text-dim)" }}>ELO</span>
                   <span style={{ fontSize: 15, fontWeight: 700, color: "var(--blue)" }}>{teamElo.elo}</span>
-                  <span style={{ fontSize: 11, color: "var(--text-dim)" }}>\u5168\u7403\u7b2c {teamElo.rank} \u540d</span>
+                  <span style={{ fontSize: 11, color: "var(--text-dim)" }}>全球第 {teamElo.rank} 名</span>
                 </div>
               )}
               {!fixturesLoading && (
@@ -239,7 +239,7 @@ function TeamPageInner() {
 
           {/* Tab content -- scrollable */}
           <div style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
-            {activeTab === "\u6982\u89c8" && (
+            {activeTab === "概览" && (
               <TabOverview
                 teamPred={teamPred}
                 marketPct={marketPct}
@@ -254,16 +254,16 @@ function TeamPageInner() {
                 teamIso={teamIso}
               />
             )}
-            {activeTab === "\u8d5b\u7a0b" && (
+            {activeTab === "赛程" && (
               <TabFixtures teamFixtures={teamFixtures} fixturesLoading={fixturesLoading} predictions={predData?.teams} />
             )}
-            {activeTab === "\u5386\u53f2" && (
+            {activeTab === "历史" && (
               <TabHistory historyData={historyData} teamElo={teamElo} teamDetail={teamDetail} />
             )}
-            {activeTab === "\u9635\u5bb9" && (
+            {activeTab === "阵容" && (
               <TabSquad squadData={squadData} teamDetail={teamDetail} />
             )}
-            {activeTab === "\u6570\u636e" && (
+            {activeTab === "数据" && (
               <TabStats teamDetail={teamDetail} />
             )}
           </div>

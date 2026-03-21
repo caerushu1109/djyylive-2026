@@ -8,18 +8,18 @@ import GroupComparisonCards from "./GroupOpponents";
 import { H2HSection } from "./H2HCard";
 
 const BEST_RESULT_ZH = {
-  "winner":         "\ud83c\udfc6 \u51a0\u519b",
-  "winners":        "\ud83c\udfc6 \u51a0\u519b",
-  "runners-up":     "\ud83e\udd48 \u4e9a\u519b",
-  "runner-up":      "\ud83e\udd48 \u4e9a\u519b",
-  "third place":    "\ud83e\udd49 \u5b63\u519b",
-  "fourth place":   "\u7b2c4\u540d",
-  "semi-finals":    "\u56db\u5f3a",
-  "quarter-finals": "\u516b\u5f3a",
-  "round of 16":    "\u5341\u516d\u5f3a",
-  "second round":   "\u7b2c\u4e8c\u8f6e",
-  "first round":    "\u7b2c\u4e00\u8f6e",
-  "group stage":    "\u5c0f\u7ec4\u8d5b\u51fa\u5c40",
+  "winner":         "🏆 冠军",
+  "winners":        "🏆 冠军",
+  "runners-up":     "🥈 亚军",
+  "runner-up":      "🥈 亚军",
+  "third place":    "🥉 季军",
+  "fourth place":   "第4名",
+  "semi-finals":    "四强",
+  "quarter-finals": "八强",
+  "round of 16":    "十六强",
+  "second round":   "第二轮",
+  "first round":    "第一轮",
+  "group stage":    "小组赛出局",
 };
 
 function bestResultLabel(result) {
@@ -54,24 +54,24 @@ function ModelMarketCard({ modelPct, marketPct }) {
       borderRadius: "var(--radius)", overflow: "hidden", display: "flex",
     }}>
       <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
-        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>ELO\u6a21\u578b</div>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>ELO模型</div>
         <div style={{ fontSize: 20, fontWeight: 900, color: "var(--blue)" }}>
-          {modelPct != null ? `${modelPct.toFixed(1)}%` : "\u2014"}
+          {modelPct != null ? `${modelPct.toFixed(1)}%` : "—"}
         </div>
       </div>
       <div style={{ flex: 1, textAlign: "center", padding: "12px 8px", borderRight: "1px solid var(--border)" }}>
         <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>POLYMARKET</div>
         <div style={{ fontSize: 20, fontWeight: 900, color: "var(--text2)" }}>
-          {marketPct != null ? `${marketPct.toFixed(1)}%` : "\u2014"}
+          {marketPct != null ? `${marketPct.toFixed(1)}%` : "—"}
         </div>
       </div>
       <div style={{ flex: 1, textAlign: "center", padding: "12px 8px" }}>
-        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>\u4ef7\u503c\u5dee</div>
+        <div style={{ fontSize: 9, fontWeight: 700, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>价值差</div>
         <div style={{
           fontSize: 18, fontWeight: 900, color: valColor,
           background: valBg, borderRadius: 6, padding: "2px 8px", display: "inline-block",
         }}>
-          {value != null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "\u2014"}
+          {value != null ? `${value > 0 ? "+" : ""}${value.toFixed(1)}%` : "—"}
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@ function EloHistoryChart({ originalName, code }) {
   if (!points) return (
     <div style={{ height: 80, display: "flex", alignItems: "center",
       justifyContent: "center", color: "var(--text3)", fontSize: 11 }}>
-      \u52a0\u8f7d\u4e2d...
+      加载中...
     </div>
   );
 
@@ -201,7 +201,7 @@ function GroupEloChart({ teamCode, groupOpponentIsos, eloTrends, eloData }) {
         fontSize: 10, fontWeight: 700, color: "var(--text3)",
         textTransform: "uppercase", letterSpacing: "0.06em",
       }}>
-        \u540c\u7ec4 ELO \u8d70\u52bf\u5bf9\u6bd4
+        同组 ELO 走势对比
       </div>
       <div style={{ padding: "8px 8px 4px" }}>
         <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
@@ -289,7 +289,7 @@ function TeamProfileCard({ teamDetail }) {
         </span>
         {manager && (
           <span style={{ fontSize: 11, color: "var(--text2)", marginLeft: "auto" }}>
-            \u4e3b\u6559\u7ec3 <span style={{ fontWeight: 700, color: "var(--text)" }}>{manager}</span>
+            主教练 <span style={{ fontWeight: 700, color: "var(--text)" }}>{manager}</span>
           </span>
         )}
       </div>
@@ -301,24 +301,24 @@ function TeamProfileCard({ teamDetail }) {
             display: "flex", alignItems: "center", gap: 4, flexWrap: "wrap",
           }}>
             <span style={{ fontWeight: 700, color: "var(--blue)" }}>{stats.p}</span>
-            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>\u573a</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>场</span>
             <span style={{ fontWeight: 700, color: "var(--green)" }}>{stats.w}</span>
-            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>\u80dc</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>胜</span>
             <span style={{ fontWeight: 700, color: "var(--text3)" }}>{stats.d}</span>
-            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>\u5e73</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>平</span>
             <span style={{ fontWeight: 700, color: "var(--red)" }}>{stats.l}</span>
-            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>\u8d1f</span>
+            <span style={{ color: "var(--text-dim)", fontSize: 11 }}>负</span>
             <span style={{ marginLeft: "auto", fontSize: 11, color: "var(--text-dim)" }}>
-              \u80dc\u7387 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 13 }}>{stats.winRate}%</span>
+              胜率 <span style={{ fontWeight: 800, color: "var(--blue)", fontSize: 13 }}>{stats.winRate}%</span>
             </span>
           </div>
           <div style={{ marginTop: 8 }}>
             <WDLBar w={stats.w} d={stats.d} l={stats.l} />
           </div>
           <div style={{ display: "flex", gap: 12, marginTop: 6, fontSize: 10, color: "var(--text-dim)" }}>
-            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--green)", marginRight: 3, verticalAlign: "middle" }} />\u80dc</span>
-            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--text3)", marginRight: 3, verticalAlign: "middle" }} />\u5e73</span>
-            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--red)", marginRight: 3, verticalAlign: "middle" }} />\u8d1f</span>
+            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--green)", marginRight: 3, verticalAlign: "middle" }} />胜</span>
+            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--text3)", marginRight: 3, verticalAlign: "middle" }} />平</span>
+            <span><span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: "var(--red)", marginRight: 3, verticalAlign: "middle" }} />负</span>
           </div>
         </div>
       )}
@@ -353,7 +353,7 @@ export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, h
           borderRadius: "var(--radius)", overflow: "hidden", padding: "10px 8px 4px",
         }}>
           <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text3)", padding: "0 4px 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            \u8fd120\u5e74 ELO \u8d70\u52bf
+            近20年 ELO 走势
           </div>
           <EloHistoryChart originalName={teamElo.originalName} code={teamElo.code} />
         </div>
@@ -367,9 +367,9 @@ export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, h
         }}>
           <div style={{ display: "flex" }}>
             {[
-              { value: historyData.appearances ?? 0, label: "\u5c4a\u4e16\u754c\u676f" },
-              { value: historyData.titles ?? 0,      label: "\u6b21\u51a0\u519b" },
-              { value: bestResultLabel(historyData.bestResult), label: "\u6700\u4f73\u6210\u7ee9", small: true },
+              { value: historyData.appearances ?? 0, label: "届世界杯" },
+              { value: historyData.titles ?? 0,      label: "次冠军" },
+              { value: bestResultLabel(historyData.bestResult), label: "最佳成绩", small: true },
             ].map((item, i) => (
               <div key={i} style={{ flex: 1, textAlign: "center", padding: "10px 4px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
                 <div style={{ fontSize: item.small ? 11 : 20, fontWeight: 900, color: "var(--blue)", lineHeight: 1.2 }}>
@@ -381,7 +381,7 @@ export default function TabOverview({ teamPred, marketPct, teamGroup, teamElo, h
           </div>
           {historyData.titleYears?.length > 0 && (
             <div style={{ padding: "6px 12px", borderTop: "1px solid var(--border)", fontSize: 11, color: "var(--text-dim)" }}>
-              \u593a\u51a0\u5e74\u4efd\uff1a<span style={{ color: "var(--blue)", fontWeight: 700 }}>{historyData.titleYears.join("\u3001")}</span>
+              夺冠年份：<span style={{ color: "var(--blue)", fontWeight: 700 }}>{historyData.titleYears.join("、")}</span>
             </div>
           )}
         </div>

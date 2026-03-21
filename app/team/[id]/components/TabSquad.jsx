@@ -19,7 +19,7 @@ export default function TabSquad({ squadData, teamDetail }) {
   const { lookup } = usePlayerIndex();
 
   if (!squadData?.players?.length) return (
-    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>\u6682\u65e0\u9635\u5bb9\u6570\u636e</p>
+    <p style={{ color: "var(--text-dim)", fontSize: 13, textAlign: "center", padding: 20 }}>暂无阵容数据</p>
   );
 
   const { players } = squadData;
@@ -60,7 +60,7 @@ export default function TabSquad({ squadData, teamDetail }) {
                 display: "inline-block", width: 8, height: 8, borderRadius: "50%",
                 background: POSITION_COLOR[pos],
               }} />
-              {POSITION_LABEL[pos]}\uff08{byPosition[pos].length}\u4eba\uff09
+              {POSITION_LABEL[pos]}（{byPosition[pos].length}人）
             </div>
             {byPosition[pos].map((p, i) => {
               const playerKey = p.name?.toLowerCase();
@@ -96,7 +96,7 @@ export default function TabSquad({ squadData, teamDetail }) {
                       background: "var(--card2)", border: `2px solid ${POSITION_COLOR[pos] || "var(--border)"}`,
                       fontVariantNumeric: "tabular-nums", flexShrink: 0,
                     }}>
-                      {p.shirtNumber ?? "\u2014"}
+                      {p.shirtNumber ?? "—"}
                     </span>
                   )}
                   {/* Name + details */}
@@ -114,7 +114,7 @@ export default function TabSquad({ squadData, teamDetail }) {
                         <span style={{ fontSize: 10, color: "var(--text3)" }}>{p.name}</span>
                       )}
                       {p.age && (
-                        <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.age}\u5c81</span>
+                        <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.age}岁</span>
                       )}
                       {p.height && (
                         <span style={{ fontSize: 10, color: "var(--text-dim)" }}>{p.height}cm</span>
@@ -131,7 +131,7 @@ export default function TabSquad({ squadData, teamDetail }) {
                       background: "var(--card2)", borderRadius: 4, padding: "2px 6px",
                       fontVariantNumeric: "tabular-nums", flexShrink: 0,
                     }}>
-                      WC: {wcStats.apps}\u573a {wcStats.goals}\u7403
+                      WC: {wcStats.apps}场 {wcStats.goals}球
                     </span>
                   )}
                 </div>
@@ -141,7 +141,7 @@ export default function TabSquad({ squadData, teamDetail }) {
         ))}
       </div>
       <div style={{ fontSize: 10, color: "var(--text3)", textAlign: "center", marginTop: 8 }}>
-        \u5171 {players.length} \u4eba
+        共 {players.length} 人
       </div>
     </div>
   );

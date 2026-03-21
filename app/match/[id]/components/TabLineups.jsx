@@ -5,7 +5,7 @@ import { useOpenPlayer } from "@/components/shared/PlayerContext";
 import { usePlayerIndex } from "@/lib/hooks/usePlayerIndex";
 import TeamLogo from "@/components/shared/TeamLogo";
 
-const POS_ZH = { GK: "\u95e8\u5c06", DF: "\u540e\u536b", MF: "\u4e2d\u573a", FW: "\u524d\u950b" };
+const POS_ZH = { GK: "门将", DF: "后卫", MF: "中场", FW: "前锋" };
 
 function PlayerAvatar({ image, number, size = 28 }) {
   const [imgError, setImgError] = useState(false);
@@ -115,7 +115,7 @@ export default function TabLineups({ data }) {
   if (!lineups) {
     return (
       <div style={{ padding: "32px 16px", textAlign: "center", color: "var(--text2)", fontSize: 13 }}>
-        {fixture.status === "NS" ? "\u6bd4\u8d5b\u5c1a\u672a\u5f00\u59cb\uff0c\u9884\u8ba1\u8d5b\u524d1\u5c0f\u65f6\u516c\u5e03\u9996\u53d1" : "\u6682\u65e0\u9635\u5bb9\u6570\u636e"}
+        {fixture.status === "NS" ? "比赛尚未开始，预计赛前1小时公布首发" : "暂无阵容数据"}
       </div>
     );
   }
@@ -146,7 +146,7 @@ export default function TabLineups({ data }) {
           <PlayerAvatar image={mvp.image} number={mvp.number} size={36} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 9, color: "var(--text3)", fontWeight: 700, letterSpacing: "0.06em" }}>
-              {"\u2b50"} MVP
+              {"⭐"} MVP
             </div>
             <div style={{ fontSize: 13, fontWeight: 800, color: "var(--text)" }}>
               {mvp.name}
@@ -168,11 +168,11 @@ export default function TabLineups({ data }) {
             <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text2)" }}>{fixture.home.name}</span>
           </div>
           <div style={{ fontSize: 20, fontWeight: 900, color: "var(--blue)" }}>
-            {home?.formation || "\u2014"}
+            {home?.formation || "—"}
           </div>
           {home?.coach && (
             <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 2 }}>
-              {"\ud83e\uddd1\u200d\ud83d\udcbc"} {home.coach}
+              {"🧑‍💼"} {home.coach}
             </div>
           )}
         </div>
@@ -180,7 +180,7 @@ export default function TabLineups({ data }) {
           fontSize: 9, color: "var(--text3)", fontWeight: 700,
           textTransform: "uppercase", letterSpacing: "0.1em",
         }}>
-          {"\u9635\u578b"}
+          {"阵型"}
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 4, justifyContent: "center", marginBottom: 2 }}>
@@ -188,11 +188,11 @@ export default function TabLineups({ data }) {
             <TeamLogo logo={fixture.away.logo} flag={fixture.away.flag} size={16} />
           </div>
           <div style={{ fontSize: 20, fontWeight: 900, color: "var(--red)" }}>
-            {away?.formation || "\u2014"}
+            {away?.formation || "—"}
           </div>
           {away?.coach && (
             <div style={{ fontSize: 9, color: "var(--text3)", marginTop: 2 }}>
-              {"\ud83e\uddd1\u200d\ud83d\udcbc"} {away.coach}
+              {"🧑‍💼"} {away.coach}
             </div>
           )}
         </div>
@@ -209,8 +209,8 @@ export default function TabLineups({ data }) {
           borderBottom: "1px solid var(--border)",
           display: "flex", justifyContent: "space-between",
         }}>
-          <span>{"\u9996\u53d1\u9635\u5bb9"}</span>
-          {hasRatings && <span style={{ fontSize: 9 }}>{"\u8bc4\u5206"}</span>}
+          <span>{"首发阵容"}</span>
+          {hasRatings && <span style={{ fontSize: 9 }}>{"评分"}</span>}
         </div>
         <div style={{ display: "flex" }}>
           {/* Home XI */}
@@ -239,7 +239,7 @@ export default function TabLineups({ data }) {
             padding: "8px 12px 6px", textTransform: "uppercase", letterSpacing: "0.06em",
             borderBottom: "1px solid var(--border)",
           }}>
-            {"\u66ff\u8865\u5e2d"}
+            {"替补席"}
           </div>
           <div style={{ display: "flex" }}>
             <div style={{ flex: 1, padding: "6px 10px", borderRight: "1px solid var(--border)" }}>

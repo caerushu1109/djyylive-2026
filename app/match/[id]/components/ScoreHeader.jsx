@@ -6,9 +6,9 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
   const { htScore, resultType, penScore } = fixture;
 
   // Status label for finished matches
-  let statusLabel = "\u5168\u573a\u7ed3\u675f"; // 全场结束
-  if (resultType === "ET") statusLabel = "\u52a0\u65f6\u8d5b\u7ed3\u675f"; // 加时赛结束
-  if (resultType === "PEN") statusLabel = "\u70b9\u7403\u5927\u6218"; // 点球大战
+  let statusLabel = "全场结束"; // 全场结束
+  if (resultType === "ET") statusLabel = "加时赛结束"; // 加时赛结束
+  if (resultType === "PEN") statusLabel = "点球大战"; // 点球大战
 
   return (
     <div style={{ background: "linear-gradient(180deg, #151825 0%, #0e1018 100%)" }}>
@@ -21,7 +21,7 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
           background: "none", border: "none", cursor: "pointer", lineHeight: 1,
         }}>&#x2039;</button>
         <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text3)" }}>
-          {fixture.stage || "2026 \u4e16\u754c\u676f"}
+          {fixture.stage || "2026 世界杯"}
         </span>
         {fixture.status === "LIVE" && (
           <div style={{
@@ -112,7 +112,7 @@ export default function ScoreHeader({ fixture, onBack, onTeamClick }) {
       {/* Venue */}
       {fixture.venue && (
         <div style={{ textAlign: "center", fontSize: 10, color: "var(--text3)", paddingBottom: 10 }}>
-          {"\ud83d\udccd"} {fixture.venue}
+          {"📍"} {fixture.venue}
         </div>
       )}
     </div>
